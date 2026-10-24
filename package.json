@@ -1,0 +1,65 @@
+{
+  "name": "tekken3-conversion-studio",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Offline character preparation studio with PS1 asset codecs and explicit game validation gates",
+  "author": "Tekken 3 Conversion Studio contributors",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/desktop/main.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && electron .",
+    "test": "node --test tests/*.test.mjs",
+    "test:visual": "npm run build && node scripts/visual-test.mjs",
+    "test:nikki": "npm run build && node --use-env-proxy scripts/nikki.mjs",
+    "licenses": "node scripts/licenses.mjs",
+    "dist:win": "npm run build && electron-builder --win zip --x64",
+    "dist:win:portable": "npm run build && electron-builder --win portable --x64",
+    "postinstall": "node node_modules/electron/install.js",
+    "test:desktop": "npm run build && node scripts/desktop-test.mjs",
+    "benchmark": "npm run build && node scripts/benchmark.mjs",
+    "test:native": "npm run build && node scripts/native-visual.mjs && node scripts/native-humanoid.mjs",
+    "bundle:evidence": "node scripts/package-evidence.mjs",
+    "test:mapping": "npm run build && node scripts/source-mapping-test.mjs",
+    "test:skinning": "npm run build && node scripts/skinning-test.mjs",
+    "test:reference": "npm run build && node --use-env-proxy scripts/reference-test.mjs",
+    "fetch:nikki": "node --use-env-proxy scripts/drive-download.mjs"
+  },
+  "dependencies": {
+    "fflate": "0.8.3",
+    "meshoptimizer": "1.3.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "electron": "45.0.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.25.12",
+    "playwright-core": "1.58.2"
+  },
+  "build": {
+    "appId": "studio.tekken3.conversion",
+    "productName": "Tekken 3 Conversion Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "src/desktop/**",
+      "package.json",
+      "src/core/backup.mjs",
+      "src/core/disc-image.mjs"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "zip",
+        "portable"
+      ],
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "Tekken3ConversionStudio-${version}-x64.exe"
+    }
+  }
+}

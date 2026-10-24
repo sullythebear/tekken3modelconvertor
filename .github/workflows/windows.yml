@@ -1,0 +1,38 @@
+name: Windows build and validation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright-core install chromium
+      - run: npm run test:visual
+      - run: npm run test:reference
+      - run: npm run test:skinning
+      - run: npm run test:mapping
+      - run: npm run test:native
+      - run: node scripts/desktop-test.mjs
+      - run: npm run dist:win
+      - run: npm run dist:win:portable
+      - run: node scripts/verify-distribution.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Tekken3ConversionStudio-Windows
+          path: |
+            release/*.exe
+            release/*.zip
+            artifacts/visual/
+            artifacts/desktop/
+            artifacts/source-mapping/
+            artifacts/distribution/
+            artifacts/skinning/
+            artifacts/reference/

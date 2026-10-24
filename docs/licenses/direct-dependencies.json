@@ -1,0 +1,82 @@
+[
+  {
+    "name": "three",
+    "version": "0.186.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mrdoob/three.js"
+    },
+    "licenseFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "meshoptimizer",
+    "version": "1.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/zeux/meshoptimizer"
+    },
+    "licenseFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "fflate",
+    "version": "0.8.3",
+    "license": "MIT",
+    "repository": "https://github.com/101arrowz/fflate",
+    "licenseFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "electron",
+    "version": "45.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/electron/electron",
+    "licenseFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "electron-builder",
+    "version": "26.15.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/electron-userland/electron-builder.git",
+      "directory": "packages/electron-builder"
+    },
+    "licenseFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "esbuild",
+    "version": "0.25.12",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/evanw/esbuild.git"
+    },
+    "licenseFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "playwright-core",
+    "version": "1.58.2",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/microsoft/playwright.git"
+    },
+    "licenseFiles": [
+      "LICENSE",
+      "NOTICE"
+    ]
+  }
+]

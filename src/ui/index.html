@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'"
+    />
+    <title>Tekken 3 Conversion Studio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">T3<span>CS</span></div>
+      <div>
+        <h1>Tekken 3 <strong>Conversion Studio</strong></h1>
+        <p>CHARACTER WORKSPACE <span class="dot">●</span> OFFLINE DESKTOP</p>
+      </div>
+      <div class="build">__APP_VERSION__ <span>Independent implementation</span></div>
+    </header>
+    <div class="workspace">
+      <aside>
+        <section>
+          <div class="step">01 / SOURCE ASSETS</div>
+          <h2>Import character</h2>
+          <button id="import" class="primary">＋ Model & textures</button
+          ><button id="add-textures" disabled>
+            ＋ Add textures to current model</button
+          ><input
+            hidden
+            multiple
+            id="texture-files"
+            type="file"
+            accept=".tga,.png,.jpg,.jpeg"
+          /><input
+            hidden
+            multiple
+            id="files"
+            type="file"
+            accept=".fbx,.obj,.mtl,.glb,.gltf,.bin,.tga,.png,.jpg,.jpeg"
+          />
+          <p class="hint">
+            FBX · OBJ · glTF / GLB<br />TGA · PNG · JPEG · MTL / BIN
+          </p>
+          <div id="drop">Drop a model and its textures here</div>
+          <label for="model-select">Source model</label
+          ><select id="model-select" disabled>
+            <option>Import files first</option>
+          </select>
+          <div id="asset-list" class="asset-list"><p>No assets loaded</p></div>
+          <details>
+            <summary>Material texture assignments</summary>
+            <div id="materials"></div>
+          </details>
+        </section>
+        <section>
+          <div class="step">02 / CONVERSION</div>
+          <label for="triangles"
+            >Triangle budget <output id="triangle-value">900</output></label
+          ><input
+            id="triangles"
+            type="range"
+            min="300"
+            max="3000"
+            step="50"
+            value="900"
+          /><label for="head"
+            >Head priority <output id="head-value">2×</output></label
+          ><input
+            id="head"
+            type="range"
+            min="1"
+            max="5"
+            step="0.5"
+            value="2"
+          /><label for="error">Maximum relative geometry error</label
+          ><input
+            id="error"
+            type="number"
+            min="0.001"
+            max="1"
+            step="0.01"
+            value="0.08"
+          /><label class="check"
+            ><input id="bake" type="checkbox" checked /> Bake 4-bit PS1 texture
+            atlas</label
+          >
+          <p class="hint">
+            Regions follow source bones where recognized. UV seams and thin
+            sheets are protected.
+          </p>
+          <button id="convert" class="primary" disabled>
+            Convert to Tekken 3</button
+          ><button id="cancel" hidden>Cancel conversion</button>
+        </section>
+        <section>
+          <div class="step">03 / TARGET & EXPORT</div>
+          <label for="donor-slot">Donor slot</label
+          ><select id="donor-slot">
+            <option value="nina-p1-us">Nina Williams · costume 1 · USA</option>
+            <option value="nina-p2-us">
+              Nina Williams · costume 2 · USA
+            </option></select
+          ><button id="game-backup" disabled>Back up loaded game files</button
+          ><button id="game-restore">Restore game backup…</button
+          ><button id="disc-image">Extract Nina from ISO / BIN</button
+          ><button id="donor-extract" disabled>Save extracted donor package</button
+          ><button id="game-files">Load USA executable & BNS</button
+          ><button id="bns-export" disabled>
+            Save patched BNS copy · experimental</button
+          ><button id="donor">Load original donor files</button>
+          <p id="donor-status" class="hint">No donor model loaded</p>
+          <button id="estimate-bind" disabled>
+            Estimate donor bind · experimental</button
+          ><button id="bind-profile" disabled>Load donor bind profile</button
+          ><input hidden id="bind-file" type="file" accept=".json" />
+          <p id="bind-status" class="hint">
+            Bind frames must match the donor SHA-256.
+          </p>
+          <label class="check"
+            ><input id="native-detail" type="checkbox" />Bake normal / metallic
+            / specular detail</label
+          ><button id="native-build" disabled>Rebuild on donor topology</button
+          ><button id="native-export" disabled>Export native candidate</button
+          ><button id="expanded-export" disabled>Export Expanded container · loader required</button
+          ><button id="source-pose" hidden>Return to source pose</button
+          ><button id="export" disabled>Export preparation package</button
+          ><button id="game-export" disabled>
+            Game-compatible export · blocked
+          </button>
+          <p class="hint">
+            Native candidates and preparation packages are not verified playable mods. Game compatibility requires donor bind validation and runtime integration.
+          </p>
+        </section>
+      </aside>
+      <main>
+        <div class="toolbar">
+          <div>
+            <span class="live"></span
+            ><span id="project-name">Untitled character</span>
+          </div>
+          <div class="tools">
+            <label class="check"
+              ><input id="skeleton" type="checkbox" />Skeleton</label
+            ><label class="check"
+              ><input id="wireframe" type="checkbox" />Wireframe</label
+            ><button id="reset">Reset camera</button
+            ><button id="screenshots" disabled>Capture comparison</button>
+          </div>
+        </div>
+        <div class="viewports">
+          <article>
+            <div class="view-title">
+              <span id="source-label">SOURCE</span
+              ><small id="source-count">— triangles</small>
+            </div>
+            <div class="viewport" id="original">
+              <div class="empty" id="empty-original">
+                <b>Bring your character into the studio</b
+                ><span>Import the model together with its textures.</span>
+              </div>
+            </div>
+          </article>
+          <article>
+            <div class="view-title">
+              <span id="result-label">PS1 PREPARATION</span
+              ><small id="converted-count">— triangles</small>
+            </div>
+            <div class="viewport" id="result">
+              <div class="empty" id="empty-result">
+                <b>Your conversion appears here</b
+                ><span>Both views share the same camera and scale.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="progress">
+          <progress id="progress" value="0" max="1"></progress
+          ><span id="status" role="status"
+            >Ready to import. Game compatibility has not been verified.</span
+          >
+        </div>
+        <div class="bottom">
+          <section class="validation">
+            <div class="section-heading">
+              <h2>Technical validation</h2>
+              <span id="validation-state" class="badge">NO MODEL</span>
+            </div>
+            <div class="stats">
+              <div><small>Triangles</small><b id="stat-triangles">—</b></div>
+              <div><small>Materials</small><b id="stat-materials">—</b></div>
+              <div><small>Bones</small><b id="stat-bones">—</b></div>
+              <div><small>Texture VRAM</small><b id="stat-vram">—</b></div>
+            </div>
+            <div id="messages" aria-live="polite">
+              <p class="hint">
+                Import analysis, texture warnings and export requirements appear
+                here.
+              </p>
+            </div>
+          </section>
+          <section>
+            <div class="section-heading">
+              <h2>Skeleton & motion</h2>
+              <button id="probe" disabled>Run pose diagnostics</button>
+            </div>
+            <p class="hint">
+              Guard · reach · crouch test the source rig. They do not prove
+              compatibility with Nina’s moves.
+            </p>
+            <div id="bone-map" class="bone-map">No skeleton loaded</div>
+            <details id="source-mapping">
+              <summary>Edit source bone mapping</summary>
+              <p class="hint">Select anatomical bones for unnamed or unfamiliar rigs. Each bone can have one role. Applying changes clears conversion results. Save this mapping for the same skeleton and bind pose.</p>
+              <div id="mapping-editor"></div>
+              <button id="mapping-apply" disabled>Apply mapping</button>
+              <button id="mapping-reset" disabled>Reset to name detection</button>
+              <button id="mapping-save" disabled>Save source mapping</button>
+              <button id="mapping-load" disabled>Load source mapping</button>
+              <input id="mapping-file" type="file" accept=".json" hidden />
+            </details>
+            <label for="native-pose">Native candidate diagnostic pose</label>
+            <select id="native-pose" disabled>
+              <option value="bind">Donor bind pose</option>
+              <option value="guard">Guard · anatomical test</option>
+              <option value="reach">Reach · anatomical test</option>
+              <option value="crouch">Crouch · anatomical test</option>
+            </select>
+            <p class="hint">Right preview only. Uses supplied donor axes and an anatomical hierarchy, not Tekken motion data. Exported bind geometry is unchanged.</p>
+            <pre id="pose-report"></pre>
+            <label for="animation">Source animation</label
+            ><select id="animation" disabled>
+              <option>No source clips</option></select
+            ><button id="play-animation" disabled>Play source clip</button>
+          </section>
+        </div>
+        <details>
+          <summary>Detailed conversion report</summary>
+          <pre id="report">{}</pre>
+        </details>
+      </main>
+    </div>
+    <footer>
+      <span>TEKKEN 3 CONVERSION STUDIO</span
+      ><span
+        >Native format research in progress · No game assets bundled · Not
+        affiliated with Bandai Namco</span
+      >
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

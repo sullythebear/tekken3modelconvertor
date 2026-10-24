@@ -1,0 +1,323 @@
+import {facialLandmarkLocks} from "./landmarks.js";
+import {configureSkinning} from "./skinning.js";
+import * as THREE from "three";
+import { clone } from "three/addons/utils/SkeletonUtils.js";
+import {
+  mergeVertices,
+  deinterleaveGeometry,
+} from "three/addons/utils/BufferGeometryUtils.js";
+import { MeshoptSimplifier } from "meshoptimizer";
+import {
+  vertexRegion,
+  regionImportance,
+  analyzeSkeleton,
+  deformationProbe,
+} from "./skeleton.js";
+import { inspectScene } from "./importer.js";
+// Only discard attributes whose standard material consumers are inactive.
+// Never touch skinning sets or the imported geometry itself.
+export function removeUnusedRenderAttributes(geometry, materials) {
+  const removed = [];
+  const usedUVs = new Set(["uv"]);
+  for (const material of materials)
+    for (const value of Object.values(material ?? {}))
+      if (value?.isTexture)
+        usedUVs.add(value.channel ? `uv${value.channel}` : "uv");
+  // Custom shaders may consume any attribute: retain everything for them.
+  if (materials.some(m => m?.isShaderMaterial || m?.isRawShaderMaterial)) return removed;
+  for (const name of Object.keys(geometry.attributes)) {
+    if ((name === "color" && !materials.some(m => m?.vertexColors)) ||
+        (/^uv[1-9]\d*$/.test(name) && !usedUVs.has(name))) {
+      geometry.deleteAttribute(name);
+      removed.push(name);
+    }
+  }
+  return removed;
+}
+export function allocateBudget(parts, budget) {
+  if (!Number.isInteger(budget) || budget < parts.length)
+    throw Error(
+      `Budget must be at least ${parts.length} for these regions/materials.`,
+    );
+  const a = parts.map(() => 1);
+  let left = budget - a.length;
+  while (left > 0) {
+    const eligible = parts
+      .map((p, i) => ({ i, weight: p.triangles * p.importance }))
+      .filter(({ i }) => a[i] < parts[i].triangles);
+    if (!eligible.length) break;
+    const total = eligible.reduce((s, p) => s + p.weight, 0);
+    let assigned = 0;
+    for (const e of eligible) {
+      const n = Math.min(
+        parts[e.i].triangles - a[e.i],
+        Math.max(1, Math.floor((left * e.weight) / total)),
+      );
+      a[e.i] += Math.min(n, left - assigned);
+      assigned += Math.min(n, left - assigned);
+      if (assigned >= left) break;
+    }
+    left -= assigned;
+  }
+  return a;
+}
+function subsetGeometry(g, indices) {
+  const map = new Map(),
+    old = [],
+    index = [];
+  for (const i of indices) {
+    if (!map.has(i)) {
+      map.set(i, old.length);
+      old.push(i);
+    }
+    index.push(map.get(i));
+  }
+  const out = new THREE.BufferGeometry();
+  for (const [name, attr] of Object.entries(g.attributes)) {
+    const data = new attr.array.constructor(old.length * attr.itemSize);
+    old.forEach((v, i) => {
+      for (let k = 0; k < attr.itemSize; k++)
+        data[i * attr.itemSize + k] = attr.array[v * attr.itemSize + k];
+    });
+    out.setAttribute(
+      name,
+      new THREE.BufferAttribute(data, attr.itemSize, attr.normalized),
+    );
+  }
+  out.setIndex(index);
+  return out;
+}
+export async function convertCharacter(
+  source,
+  settings,
+  onProgress = () => {},
+  signal,
+) {
+  await MeshoptSimplifier.ready;
+  if (source.stats.invalidPositions) throw Error("Non-finite source positions");
+  const root = clone(source.root),
+    materialCopies = new Map(),
+    textureCopies = new Map();
+  const copyMaterial = (mat) => {
+    if (materialCopies.has(mat)) return materialCopies.get(mat);
+    const c = mat.clone();
+    for (const [k, v] of Object.entries(c))
+      if (v?.isTexture) {
+        if (!textureCopies.has(v)) textureCopies.set(v, v.clone());
+        c[k] = textureCopies.get(v);
+      }
+    materialCopies.set(mat, c);
+    return c;
+  };
+  root.traverse((m) => {
+    if (m.isMesh)
+      m.material = Array.isArray(m.material)
+        ? m.material.map(copyMaterial)
+        : copyMaterial(m.material);
+  });
+  configureSkinning(root);
+  const box = new THREE.Box3().setFromObject(root),
+    parts = [],
+    warnings = [...source.warnings];
+  root.updateMatrixWorld(true);
+  root.traverse((mesh) => {
+    if (!mesh.isMesh) return;
+    if (mesh.geometry.morphAttributes.position?.length)
+      warnings.push(
+        `${mesh.name}: morph targets excluded from reduced output.`,
+      );
+    const original = mesh.geometry;
+    const prepared = original.clone();
+    deinterleaveGeometry(prepared);
+    prepared.morphAttributes = {};
+    const removed = removeUnusedRenderAttributes(prepared,
+      Array.isArray(mesh.material) ? mesh.material : [mesh.material]);
+    if (removed.length) warnings.push(`${mesh.name}: unused reduced-output attributes omitted: ${removed.join(", ")}; source retained.`);
+    const position = prepared.attributes.position;
+    if (!(position.array instanceof Float32Array) || position.normalized) {
+      const values = new Float32Array(position.count * 3);
+      for (let v = 0; v < position.count; v++)
+        for (let k = 0; k < 3; k++)
+          values[v * 3 + k] = position.getComponent(v, k);
+      prepared.setAttribute("position", new THREE.BufferAttribute(values, 3));
+    }
+    const g = mergeVertices(prepared, 1e-6);
+    prepared.dispose();
+    mesh.geometry = g;
+    const idx = g.index.array,
+      groups = g.groups.length
+        ? g.groups
+        : [{ start: 0, count: idx.length, materialIndex: 0 }],
+      materials = Array.isArray(mesh.material)
+        ? mesh.material
+        : [mesh.material];
+    for (const group of groups) {
+      const regions = new Map();
+      for (
+        let t = group.start;
+        t < Math.min(idx.length, group.start + group.count);
+        t += 3
+      ) {
+        const votes = [0, 1, 2].map((k) => vertexRegion(mesh, idx[t + k], box));
+        const role =
+          votes.find((r) => votes.filter((v) => v === r).length >= 2) ??
+          votes[0];
+        if (!regions.has(role)) regions.set(role, []);
+        regions.get(role).push(idx[t], idx[t + 1], idx[t + 2]);
+      }
+      for (const [role, indices] of regions) {
+        const material = materials[group.materialIndex];
+        parts.push({
+          mesh,
+          g,
+          material,
+          materialIndex: group.materialIndex,
+          role,
+          indices: new Uint32Array(indices),
+          triangles: indices.length / 3,
+          importance:
+            regionImportance(role, material?.name) *
+            (role === "head" ? settings.headPriority : 1),
+        });
+      }
+    }
+  });
+  const budgets = allocateBudget(parts, settings.triangles),
+    byMesh = new Map(),
+    report = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (signal?.aborted) throw Error("Conversion cancelled");
+    const p = parts[i];
+    onProgress({
+      step: "Anatomical reduction",
+      fraction: i / parts.length,
+      detail: `${p.mesh.name} / ${p.role}`,
+    });
+    const g = subsetGeometry(p.g, p.indices),
+      positions = g.attributes.position.array,
+      uv = g.attributes.uv,
+      n = g.attributes.normal,
+      locks = facialLandmarkLocks(p.mesh, g, p.material?.name);
+    const attrs = new Float32Array(g.attributes.position.count * 5);
+    for (let v = 0; v < g.attributes.position.count; v++) {
+      attrs.set(
+        [
+          uv?.getX(v) ?? 0,
+          uv?.getY(v) ?? 0,
+          n?.getX(v) ?? 0,
+          n?.getY(v) ?? 0,
+          n?.getZ(v) ?? 1,
+        ],
+        v * 5,
+      );
+    }
+    let indices = new Uint32Array(g.index.array),
+      error = 0,
+      budgetDiagnostic = null;
+    if (p.triangles > budgets[i]) {
+      [indices, error] = MeshoptSimplifier.simplifyWithAttributes(
+        indices,
+        positions,
+        3,
+        attrs,
+        5,
+        [0.4, 0.4, 0.1, 0.1, 0.1],
+        locks?.mask ?? null,
+        budgets[i] * 3,
+        settings.error,
+        ["LockBorder"],
+      );
+      if (indices.length > budgets[i] * 3) {
+        const [relaxed] = MeshoptSimplifier.simplifyWithAttributes(
+          new Uint32Array(g.index.array), positions, 3, attrs, 5,
+          [0.4, 0.4, 0.1, 0.1, 0.1], locks?.mask ?? null,
+          budgets[i] * 3, 1, ["LockBorder"],
+        );
+        budgetDiagnostic = {
+          // Measurement only: this potentially distorted mesh is never used.
+          trianglesAtRelaxedError: relaxed.length / 3,
+          relaxedErrorLimit: 1,
+          constrainedBy: relaxed.length > budgets[i] * 3
+            ? "protected topology/landmarks; error may also contribute"
+            : "configured appearance error",
+        };
+      }
+    }
+    const reduced = subsetGeometry(g, indices);
+    g.dispose();
+    if (!reduced.attributes.normal) reduced.computeVertexNormals();
+    if (!byMesh.has(p.mesh)) byMesh.set(p.mesh, []);
+    byMesh.get(p.mesh).push({ ...p, geometry: reduced, error });
+    report.push({
+      mesh: p.mesh.name,
+      region: p.role,
+      material: p.material?.name ?? "",
+      protectedLandmarks: locks?.landmarks ?? [],
+      lockedVertices: locks?.lockedVertices ?? 0,
+      before: p.triangles,
+      target: budgets[i],
+      after: indices.length / 3,
+      error,
+      budgetDiagnostic,
+    });
+    await new Promise((r) => setTimeout(r, 0));
+  }
+  for (const [mesh, regions] of byMesh) {
+    const combined = new THREE.BufferGeometry(),
+      names = Object.keys(regions[0].geometry.attributes),
+      length = regions.reduce(
+        (s, p) => s + p.geometry.attributes.position.count,
+        0,
+      );
+    for (const name of names) {
+      const attr = regions[0].geometry.attributes[name],
+        data = new attr.array.constructor(length * attr.itemSize);
+      let off = 0;
+      for (const p of regions) {
+        const a = p.geometry.attributes[name];
+        data.set(a.array, off);
+        off += a.array.length;
+      }
+      combined.setAttribute(
+        name,
+        new THREE.BufferAttribute(data, attr.itemSize, attr.normalized),
+      );
+    }
+    const indices = [];
+    let offset = 0;
+    const metadata = [];
+    for (const p of regions) {
+      const start = indices.length;
+      for (const i of p.geometry.index.array) indices.push(i + offset);
+      combined.addGroup(start, indices.length - start, p.materialIndex);
+      metadata.push({ start, count: indices.length - start, role: p.role });
+      offset += p.geometry.attributes.position.count;
+      p.geometry.dispose();
+    }
+    combined.setIndex(indices);
+    mesh.geometry.dispose();
+    mesh.geometry = combined;
+    mesh.userData.studioRegions = metadata;
+  }
+  configureSkinning(root);
+  const stats = inspectScene(root);
+  if (stats.triangles > settings.triangles)
+    warnings.push(
+      `Appearance error / protected topology prevent the requested budget: ${stats.triangles} > ${settings.triangles}. See per-region budget diagnostics. Export will enforce limits.`,
+    );
+  warnings.push(
+    "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+  );
+  const skeleton = analyzeSkeleton(root),
+    poses = deformationProbe(root, skeleton);
+  return {
+    root,
+    stats,
+    warnings,
+    report,
+    skeleton,
+    poses,
+    settings: { ...settings },
+    gameVerified: false,
+  };
+}
