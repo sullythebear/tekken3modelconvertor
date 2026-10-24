@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T19:36:02.162Z",
+  "generated": "2026-10-24T19:41:11.043Z",
   "recoveredCommit": "e25c13acd6a879bc4004a5f473f1ee4eeb348b14",
   "tests": {
     "passed": 113,
@@ -18,8 +18,8 @@
     },
     {
       "path": "REVIEW.md",
-      "bytes": 5698,
-      "sha256": "10b97ff9703487129844a254991bbec5025d72de4f1a86c2233765428d4166d0"
+      "bytes": 6167,
+      "sha256": "0228397aadd71c59beaa71fdec6ff04db80789a7e9e2d73dc493e6bd476859da"
     },
     {
       "path": "boots/CESIUM-ATTRIBUTION.txt",
@@ -985,6 +985,11 @@
       "path": "cloud-unit.xml",
       "bytes": 23538,
       "sha256": "51be1dcaba5bcbf483d21698ed2635ba43397107fe72eb453d8aa35111fc9ae5"
+    },
+    {
+      "path": "cloud-validation.json",
+      "bytes": 1467,
+      "sha256": "80e67c7d6b2fa83bde0bc16d1d08ad33471c19944a46b9ba6083ab61b59509c0"
     },
     {
       "path": "combined/CESIUM-ATTRIBUTION.txt",

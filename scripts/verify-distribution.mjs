@@ -2,18 +2,22 @@ import assert from 'node:assert/strict';
 import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {extractFile} from '@electron/asar';
+import path from 'node:path';
 try {
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 const asar = 'release/win-unpacked/resources/app.asar';
+// ASAR traverses directories using the host path separator. On Windows a
+// slash-delimited multi-level directory would be treated as one header key.
+const extract = file => extractFile(asar, path.normalize(file));
 const hashes = {};
 for (const file of ['dist/app.js', 'dist/index.html', 'dist/style.css', 'src/desktop/main.cjs', 'src/desktop/preload.cjs', 'src/core/backup.mjs', 'src/core/disc-image.mjs']) {
-  const packaged = extractFile(asar, file), current = await readFile(file);
+  const packaged = extract(file), current = await readFile(file);
   assert.ok(packaged.equals(current), `Packaged ${file} differs from workspace`);
   hashes[file] = createHash('sha256').update(packaged).digest('hex');
 }
-const bundledPackage = JSON.parse(extractFile(asar, 'package.json').toString());
+const bundledPackage = JSON.parse(extract('package.json').toString());
 for (const key of ['name', 'version', 'main', 'type', 'dependencies']) assert.deepEqual(bundledPackage[key], pkg[key], `Packaged package field ${key}`);
-assert.match(extractFile(asar, 'dist/index.html').toString(), new RegExp(pkg.version.replaceAll('.', '\\.')));
+assert.match(extract('dist/index.html').toString(), new RegExp(pkg.version.replaceAll('.', '\\.')));
 const inner = await readFile('release/win-unpacked/Tekken 3 Conversion Studio.exe');
 function machine(bytes) {
   assert.equal(bytes.readUInt16LE(0), 0x5a4d, 'MZ header');

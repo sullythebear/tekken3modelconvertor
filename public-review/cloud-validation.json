@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-10-24T19:41:10.946Z",
+  "unit": {
+    "status": "PASS",
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browserConversionExport": {
+    "status": "PASS",
+    "models": [
+      "Nikki",
+      "Cesium Man",
+      "authored short hair",
+      "authored crest hair"
+    ],
+    "stages": 7,
+    "runs": 28
+  },
+  "skinning": {
+    "status": "PASS",
+    "influences": 12,
+    "cpuGpuPixelMismatch": 0
+  },
+  "native": {
+    "status": "PASS",
+    "scope": "Authored fixture only, not Nina",
+    "triangles": 488,
+    "rows": 15
+  },
+  "desktop": {
+    "status": "PASS",
+    "platform": "linux",
+    "scope": "IPC import/convert/export/disc extraction/backup"
+  },
+  "landmarkPicking": {
+    "status": "PASS",
+    "models": [
+      "Nikki",
+      "crest"
+    ],
+    "nikkiProfileRoundTrip": true,
+    "crestProjectRoundTrip": true,
+    "nikkiFullProjectRoundTrip": "NOT VERIFIED: initial 30s download timeout with 222 MiB source input"
+  },
+  "nikki": {
+    "baselineTriangles": 3705,
+    "dev1Triangles": 5386,
+    "artisticTriangles": 5071,
+    "optimizedTriangles": 890,
+    "requestedCandidateTriangles": 900,
+    "donorCapacity": "UNKNOWN"
+  },
+  "artisticAcceptance": "PENDING HUMAN REVIEW",
+  "gameValidation": "NOT RUN: original donor, bind calibration and runtime unavailable",
+  "windowsEvidence": "See windows-unit.xml, windows-desktop.json, windows-distribution.json and windows-portable.json added by successful Windows CI."
+}

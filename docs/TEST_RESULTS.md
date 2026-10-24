@@ -1,3 +1,5 @@
+> Current recovery: **0.7.0-dev.2**, 113 unit/integration tests passed after recovery. See [recovery inventory](RECOVERY_070_DEV2.md) and [current reconstruction review](REVIEW_070_DEV2.md). The following original 0.6.0 notes are historical. Windows CI receipts are included in the published review ZIP; game compatibility and artistic acceptance remain unverified.
+
 # Art Director 0.6.0 — 24 oktober 2026
 
 De nieuwe presets zijn tegenover de oude baseline uitgevoerd op Nikki, een authored rig en de SHA-gecontroleerde Cesium Man. De vergelijkingen gebruiken dezelfde camera's: front, side, back, three-quarter en face. Voor alle methoden worden ook guard/reach/crouch-beelden en numerieke bronrigdiagnostiek verzameld. Deze zijn geen Tekken-gamebewegingen.

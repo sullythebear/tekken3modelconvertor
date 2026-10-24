@@ -94,3 +94,10 @@ The Windows workflow's first attempt built successfully and passed unit and
 desktop IPC tests, then failed distribution verification; it did not execute
 the portable smoke test or publish a release. Subsequent verifier errors are
 reported as explicit public CI annotations, while retaining a failing exit code.
+
+The second Windows attempt exposed the precise verification defect:
+@electron/asar directory traversal uses host path separators. A slash-delimited
+`src/desktop/main.cjs` lookup incorrectly searched a literal `src/desktop` header
+key on Windows. The verifier now normalizes archive entry paths for the host;
+byte equality, package metadata and PE assertions are unchanged. Actual portable
+execution is a separate CI step and must still pass before release publishing.

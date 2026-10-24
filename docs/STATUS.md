@@ -1,3 +1,5 @@
+> Current recovery: **0.7.0-dev.2**, 113 unit/integration tests passed after recovery. See [recovery inventory](RECOVERY_070_DEV2.md) and [current reconstruction review](REVIEW_070_DEV2.md). The following original 0.6.0 notes are historical. Windows CI receipts are included in the published review ZIP; game compatibility and artistic acceptance remain unverified.
+
 # Werkelijke implementatiestatus — 0.6.0
 
 De definitie van voltooid is **nog niet gehaald**. Op 24 oktober 2026 is de donor-reconstructiepipeline toegevoegd en inhoudelijk getest, met de echte Nikki-bron en zelfgemaakte donorfixtures; originele Nina-bestanden en een game ontbreken.
