@@ -2,6 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {openDiscImage,discBytesSource} from '../src/core/disc-image.mjs';
 import {discFixture} from '../scripts/disc-fixture.mjs';
+function volumeField(image,mode,at,n,bits=32) {
+  const offset=16*(mode==='iso'?2048:2352)+(mode==='iso'?0:mode==='mode1'?16:24)+at;
+  const view=new DataView(image.buffer,image.byteOffset,image.byteLength);
+  if(bits===32){view.setUint32(offset,n,true);view.setUint32(offset+4,n,false);}
+  else{view.setUint16(offset,n,true);view.setUint16(offset+2,n,false);}
+}
 for(const mode of ['iso','mode1','mode2'])test(`Local ${mode} extraction reads actual file bytes across sector boundaries and preserves the input`,async()=>{
   const f=discFixture({mode}),before=f.image.slice();
   const result=await openDiscImage(discBytesSource(f.image));
@@ -35,4 +41,32 @@ test('Raw extraction batches large records while checking every sector payload',
   assert.deepEqual(result.files[1].data,f.bns);assert.ok(reads<20,`Too many physical reads: ${reads}`);
   f.image[200*2352+18]=f.image[200*2352+22]=0x20;
   await assert.rejects(openDiscImage(discBytesSource(f.image)),/Form 2/);
+});
+test('A larger declared volume does not block fully backed donor files in a data-track image',async()=>{
+  for(const mode of ['iso','mode1','mode2']){
+    const f=discFixture({mode});volumeField(f.image,mode,80,400);
+    const before=f.image.slice(),r=await openDiscImage(discBytesSource(f.image));
+    assert.deepEqual(r.files[0].data,f.executable);assert.deepEqual(r.files[1].data,f.bns);
+    assert.deepEqual(f.image,before);assert.equal(r.report.completeDeclaredVolumePresent,false);
+    assert.equal(r.report.volumeBlocks,400);assert.equal(r.report.availableBlocks,40);
+    assert.equal(r.report.warnings.length,1);assert.equal(r.report.retailExecutableVerified,false);
+  }
+});
+test('Missing selected file/directory sectors still fail with measured disc diagnostics',async()=>{
+  for(const mode of ['iso','mode1','mode2'])for(const sectors of [20,30]){
+    const f=discFixture({mode}),width=mode==='iso'?2048:2352;
+    await assert.rejects(openDiscImage(discBytesSource(f.image.slice(0,sectors*width))),e=>{
+      assert.match(e.message,/Required ISO extent is missing/);
+      assert.equal(e.discDiagnostic.availableBlocks,sectors);
+      assert.equal(e.discDiagnostic.declaredVolumeBlocks,40);return true;
+    });
+  }
+});
+test('Unsupported logical block size and empty declared volumes are not repaired or guessed',async()=>{
+  const f=discFixture();volumeField(f.image,'iso',128,1024,16);
+  await assert.rejects(openDiscImage(discBytesSource(f.image)),e=>{
+    assert.match(e.message,/logical block size/);assert.equal(e.discDiagnostic.logicalBlockSize,1024);return true;
+  });
+  const g=discFixture();volumeField(g.image,'iso',80,0);
+  await assert.rejects(openDiscImage(discBytesSource(g.image)),/Invalid ISO9660 volume size/);
 });

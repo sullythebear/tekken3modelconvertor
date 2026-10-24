@@ -17,6 +17,8 @@ const run=path.relative(process.cwd(),path.dirname(latest.report)).replaceAll('\
 if(!/^artifacts\/windows-local\/[^/]+$/.test(run))throw Error('Evidence run must be inside the local run folder');
 await collect(run,evidence,p=>/\.(png|json|html|log)$/i.test(p));
 evidence['artifacts/unit-results.xml']=new Uint8Array(await readFile('artifacts/unit-results.xml'));
+for(const file of ['artifacts/desktop/runtime.json','artifacts/desktop/linux-desktop.png'])
+ try {evidence[file]=new Uint8Array(await readFile(file));} catch(e) {if(e.code!=='ENOENT')throw e;}
 await mkdir('release',{recursive:true});
 const hashes=[];
 for(const [file,entries] of [['WindowsTestEnvironment-source.zip',source],['WindowsTestEnvironment-cloud-evidence.zip',evidence]]){

@@ -43,8 +43,27 @@ export async function openDiscImage(source) {
       layouts.push({sectorBytes, userOffset, label, leadIn, primary: probe});
   }
   check(layouts.length === 1, layouts.length ? 'Ambiguous disc sector layout' : 'No supported ISO9660 primary volume found');
-  const layout = layouts[0], pvd = layout.primary, volumeBlocks = dual32(pvd, 80);
-  check(dual16(pvd, 128) === BLOCK && volumeBlocks >= 18 && (volumeBlocks + layout.leadIn) * layout.sectorBytes <= source.size, 'Invalid ISO9660 volume bounds or block size');
+  const layout = layouts[0], pvd = layout.primary, volumeBlocks = dual32(pvd, 80),
+    logicalBlockSize = dual16(pvd, 128),
+    availableBlocks = Math.floor(source.size / layout.sectorBytes) - layout.leadIn;
+  const diagnostic = {sectorLayout: layout.label, imageBytes: source.size,
+    sectorBytes: layout.sectorBytes, leadInSectors: layout.leadIn,
+    logicalBlockSize, declaredVolumeBlocks: volumeBlocks, availableBlocks};
+  function requireVolume(ok, message) {
+    if (!ok) {
+      const error = Error(`${message}. Disc diagnostics: ${JSON.stringify(diagnostic)}`);
+      error.discDiagnostic = diagnostic;
+      throw error;
+    }
+  }
+  requireVolume(logicalBlockSize === BLOCK, 'Unsupported ISO9660 logical block size; expected 2048');
+  requireVolume(volumeBlocks >= 18 && availableBlocks >= 18, 'Invalid ISO9660 volume size');
+  // A data-track-only dump may omit later tracks counted in the volume header.
+  // Extract only physically present extents; never pad missing data or infer it.
+  // Retail executable/hash and donor capacity validation still follow extraction.
+  const warnings = volumeBlocks > availableBlocks
+    ? [`ISO header declares ${volumeBlocks} blocks; this file contains ${availableBlocks}. Only fully backed directories and selected files can be extracted; omitted data/tracks are not validated.`]
+    : [];
   function payload(bytes) {
     if (layout.sectorBytes === 2352) {
       check(bytes[0] === 0 && bytes[11] === 0 && bytes.subarray(1, 11).every(v => v === 255), 'Invalid raw sector sync');
@@ -65,6 +84,8 @@ export async function openDiscImage(source) {
   async function extent(entry, limit = MAX_FILE) {
     check(!(entry.flags & 0x80), 'Multi-extent ISO files are unsupported');
     check(entry.size <= limit, 'ISO file exceeds extraction size limit');
+    requireVolume(entry.extent + Math.ceil(entry.size / BLOCK) <= availableBlocks,
+      `Required ISO extent is missing from this file (start=${entry.extent}, bytes=${entry.size}); select the complete data track or supply loose SLUS_004.02 and TEKKEN3.BNS`);
     // Batch contiguous reads for cooked images; raw sectors require subheader validation.
     if (layout.sectorBytes === BLOCK) return physical((entry.extent + layout.leadIn) * BLOCK, entry.size);
     const out = new Uint8Array(entry.size);
@@ -115,7 +136,9 @@ export async function openDiscImage(source) {
   }
   return {files, report: {
     schema: 't3cs-disc-extraction/1', sectorLayout: layout.label, leadInSectors: layout.leadIn,
-    volumeBlocks, sourceModified: false, retailExecutableVerified: false,
+    volumeBlocks, availableBlocks, logicalBlockSize, warnings,
+    completeDeclaredVolumePresent: volumeBlocks <= availableBlocks,
+    sourceModified: false, retailExecutableVerified: false,
     files: [...found].map(([name, e]) => ({name, isoPath: e.path, sector: e.extent, bytes: e.size})),
     limitations: ['ISO9660 extraction only; executable and donor validation must follow.', 'Raw sector sync/mode/subheaders are checked; EDC/ECC are not verified or rebuilt.'],
   }};

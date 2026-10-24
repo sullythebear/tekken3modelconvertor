@@ -23,6 +23,14 @@ Het eindresultaat is **PASS of FAIL**, exitcode 0 of 1. Per stap blijft `BLOCKED
 
 De bewijsmap bevat originele donorbytes en geconverteerde gebruikersassets. Publiceer die map niet automatisch. `.local/` en `artifacts/` zijn genegeerd in Git. Alle runs hebben een unieke map; oude bewijsbestanden worden niet hergebruikt voor een nieuwe PASS.
 
+### ISO9660-volumecontrole
+
+Een aangeleverd Windows-log bevestigt geslaagde bootstrap, build, 80 tests en Nikki-desktopvoorbereiding, maar meldt `Invalid ISO9660 volume bounds or block size` voor de donor. Die oude melding voegde twee verschillende controles samen en bevatte onvoldoende gegevens om de oorzaak vast te stellen.
+
+De bijgewerkte lezer onderscheidt een ongeldige blokgrootte van een volume dat groter is dan het geselecteerde imagebestand. Bij een groter opgegeven volume kunnen alleen volledig aanwezige mappen en geselecteerde bestanden worden uitgelezen, met een expliciete waarschuwing; ontbrekende bytes worden nooit aangevuld. De oorspronkelijke USA-executablehash, donorcapaciteiten en native inhoud moeten daarna nog steeds slagen. Hiermee is een track-only-/gedeeltelijke-imagegeval getest, niet vastgesteld dat jouw image dit geval heeft.
+
+Mislukt de donor opnieuw, bekijk `donor/failure.json` in de nieuwe runmap. De fout bevat nu sectorformaat, imagegrootte, logische blokgrootte, opgegeven volume en aanwezige blokken. Gebruik de volledige datatrack uit je eigen dump, of de losse originele USA `SLUS_004.02` en `TEKKEN3.BNS`; een gepatchte Expanded-executable vervangt de originele donorinput niet. npm-deprecationwaarschuwingen zijn geen verklaring voor deze ISO-fout.
+
 ## Expanded: wat nog niet automatisch werkt
 
 **De runner kan momenteel niet uit zichzelf een bewezen Nikki-installatie in Expanded maken. Er is nog geen geverifieerde runtime-loaderadapter meegeleverd.** Je hoeft niet zelf een adapter te programmeren: dit is nog ontwikkelwerk aan de Studio. Zonder adapter meldt de test `Expanded installation/start: BLOCKED` en start geen ongewijzigde game als schijnbaar geslaagde Nikki-test.

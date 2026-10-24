@@ -104,6 +104,10 @@ try {
   assert.deepEqual(await readFile(originalPath), originalBytes);
   report.importedSourceOverwrite = "refused without changing original bytes";
   const disc = discFixture({mode: "mode2", nested: true});
+  // Data-track fixture: declared disc volume includes sectors absent from this BIN.
+  const volumeView = new DataView(disc.image.buffer);
+  volumeView.setUint32(16 * 2352 + 24 + 80, 400, true);
+  volumeView.setUint32(16 * 2352 + 24 + 84, 400, false);
   const imagePath = path.resolve("artifacts/fixtures/authored-disc.bin");
   await writeFile(imagePath, disc.image);
   await app.evaluate(({dialog}, image) => { dialog.showOpenDialog = async () => ({canceled: false, filePaths: [image]}); }, imagePath);
@@ -114,11 +118,13 @@ try {
   assert.deepEqual(new Uint8Array(extracted.files[0].data), disc.executable);
   assert.deepEqual(new Uint8Array(extracted.files[1].data), disc.bns);
   assert.equal(extracted.report.sourceModified, false);
+  assert.equal(extracted.report.completeDeclaredVolumePresent, false);
+  assert.equal(extracted.report.warnings.length, 1);
   await page.click("#disc-image");
   await page.waitForFunction(() => document.querySelector("#status").textContent.includes("SHA-256 is not the supported"));
   assert.equal(await page.locator("#donor-extract").isDisabled(), true);
   assert.deepEqual(new Uint8Array(await readFile(imagePath)), disc.image);
-  report.discExtractionIPC = "passed: raw Mode 2 image extracted byte-exactly; unsupported executable refused by UI; image unchanged";
+  report.discExtractionIPC = "passed: raw Mode 2 data-track image with larger declared volume extracted byte-exactly with warning; unsupported executable still refused by UI; image unchanged";
   const backupPath = path.resolve("artifacts/desktop/test-game-backup.zip"),
     restorePath = path.resolve("artifacts/desktop/restore-target");
   await mkdir(restorePath, { recursive: true });

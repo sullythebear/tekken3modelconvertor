@@ -1,3 +1,13 @@
+# Aanvulling: donor-imagegrenzen en Windows-log
+
+Het aangeleverde Windows-log toont geslaagde bootstrap/build, 80 tests en Nikki-desktopimport/voorbereidingsexport. Donorinput faalde op de oude gecombineerde ISO9660-volume-/blokgroottemelding. De exacte oorzaak van dat lokale bestand is nog niet bekend.
+
+De nieuwe cloudregressie heeft **83 geslaagde unit-/integratietests**. Drie extra tests controleren volledig aanwezige donorbestanden bij een groter opgegeven volume (cooked ISO/raw Mode1/raw Mode2), ontbrekende directory-/bestandssectoren met meetwaarden en het weigeren van ongeldige blokgroottes/lege volumes. De Linux Electron-IPC-test extraheert hetzelfde overdeclared raw Mode2-geval byte-exact met waarschuwing en weigert nog steeds de ongeldige executable. Het bronimage blijft ongewijzigd. Geen oorspronkelijke gamebytes zijn in deze tests gebruikt.
+
+De update is nog niet op het aangeleverde lokale image getest. De nieuwe runner bewaart donor/failure.json met fout en sector-/volumemeetwaarden. Nikki-budget en Expanded-runtime-integratie blijven afzonderlijke onvoltooide onderdelen.
+
+---
+
 # Aanvulling: reproduceerbare Windows-testrunner
 
 80 unit-/integratietests slagen (vier nieuwe tests voor configuratie, exacte runtime-receipts, HTML/FAIL-semantiek en echte subprocessargumenten/logs/timeouts). Alle 11 browsercontroles en de bestaande Linux Electron-desktopregressie slagen opnieuw.

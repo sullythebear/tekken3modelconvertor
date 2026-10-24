@@ -42,6 +42,7 @@ try {
    const image=await openDiscImage({size:(await h.stat()).size,read:async(offset,length)=>{const b=new Uint8Array(length);let n=0;while(n<length){const r=await h.read(b,n,length-n,offset+n);if(!r.bytesRead)throw Error('Truncated image');n+=r.bytesRead;}return b;}});
    executable=image.files[0].data;bns=image.files[1].data;
    await writeFile(path.join(donorDir,'disc-extraction.json'),JSON.stringify(image.report,null,2));
+   for(const warning of image.report.warnings??[])console.log('DISC WARNING:',warning);
   }finally{await h.close();}}
   else {executable=new Uint8Array(await readFile(path.join(c.gameDirectory,'SLUS_004.02')));bns=new Uint8Array(await readFile(path.join(c.gameDirectory,'TEKKEN3.BNS')));}
   const d=await inspectDiscAssets({executable,bns});model=d.model;arc=d.arc;
@@ -49,7 +50,11 @@ try {
  }
  await writeFile(path.join(donorDir,'Nina.3dm'),model);await writeFile(path.join(donorDir,'Nina.arc'),arc);
  check('local donor','PASS','Original-USA executable/record capacities and native contents validated; no source files written');
- } catch(e) {model=null;arc=null;check('local donor','FAIL',e.message);}
+ } catch(e) {
+  model=null;arc=null;
+  await writeFile(path.join(donorDir,'failure.json'),JSON.stringify({status:'FAIL',error:e.message,discDiagnostic:e.discDiagnostic??null,sourceModified:false},null,2));
+  check('local donor','FAIL',e.message);
+ }
  const nikkiDir=path.join(out,'nikki');await mkdir(nikkiDir);
  const code=await command('nikki-electron',process.execPath,['scripts/nikki.mjs'],{
   T3CS_AUTOMATION:'1',T3CS_RUN_OUTPUT:nikkiDir,NIKKI_DIR:c.nikkiDirectory,
