@@ -17,6 +17,12 @@ Nieuw in 0.5.0: de echte Nikki-FBX met 23 TGA's is getest, inclusief materiaalhe
 
 Zie [gebruikershandleiding](docs/USER_GUIDE.md), [werkelijke status](docs/STATUS.md), [testresultaten](docs/TEST_RESULTS.md) en [formaatonderzoek](docs/FORMAT_RESEARCH.md).
 
+## Lokale Windows-test met één knop
+
+Dubbelklik in de actuele broncode op **Test-Windows.cmd**. De eerste keer kies je Nikki en je originele lokale gamebestanden via vensters. De launcher installeert een private Node-runtime, bouwt/start Electron, test import/conversie/export en opent een PASS/FAIL-rapport met logs en screenshots. Een vooraf geïnstalleerde ontwikkelomgeving is niet nodig. Zie [Windows-testomgeving](docs/WINDOWS_TESTING.md).
+
+De Studio-/Nikki-test is in de cloud in Electron uitgevoerd. **Een geverifieerde Expanded-runtime-adapter ontbreekt nog:** de game-installatie/-start blijft dan BLOCKED en het totaalrapport FAIL. De runner presenteert een ongewijzigde Nina of alleen een gestarte emulator niet als een speelbare Nikki.
+
 ## Ontwikkelen en bouwen
 
 Vereist voor ontwikkelaars: Node.js 24, npm, Internet voor de eerste dependency-/Electron-download. Gebruik de bestaande checkout; geen extra worktree nodig.

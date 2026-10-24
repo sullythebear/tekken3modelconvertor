@@ -5,8 +5,9 @@ import {unpackNikkiZIP} from "./nikki-assets.mjs";
 import { readdir, readFile, mkdir, writeFile, access } from "node:fs/promises";
 import path from "node:path";
 import { browserSession } from "./browser.mjs";
+import {unzipSync} from "fflate";
 import { inspectDiscAssets } from "../src/core/bns.js";
-const output = "artifacts/nikki";
+const output = process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki";
 await mkdir(output, { recursive: true });
 let dir = process.env.NIKKI_DIR;
 let acquisitionFailure = null;
@@ -88,6 +89,23 @@ else {
   else {
     const session = await browserSession();
     const { page } = session;
+    async function exportUI(button, filename, destination = filename) {
+      if (!session.desktop) {
+        const pending = page.waitForEvent("download");
+        await page.click(button);
+        await (await pending).saveAs(path.join(output, destination));
+      } else {
+        await page.click(button);
+        const file = path.join(output, filename), deadline = Date.now() + 120000;
+        while (true) {
+          try { await access(file); break; } catch {
+            if (Date.now() > deadline) throw Error("Desktop export timed out: " + filename);
+            await new Promise(r => setTimeout(r, 100));
+          }
+        }
+        if (destination !== filename) await writeFile(path.join(output, destination), await readFile(file));
+      }
+    }
     try {
       // Pass local paths to Chromium; do not serialize hundreds of MB as JSON number arrays.
       await page.setInputFiles("#files", [
@@ -169,6 +187,10 @@ else {
       for(const capture of motion.captures)for(const kind of ["source","prepared"])
         await writeFile(`${output}/${capture.pose}-${kind}.png`,Buffer.from(capture[kind].split(",")[1],"base64"));
       if(motion.metrics.some(p=>!p.finite))throw Error("Nikki source pose diagnostics produced nonfinite vertices");
+      await exportUI("#export", "character-preparation.t3prep");
+      const preparation = unzipSync(new Uint8Array(await readFile(path.join(output, "character-preparation.t3prep"))));
+      if (!preparation["converted.glb"] || new TextDecoder().decode(preparation["converted.glb"].slice(0,4)) !== "glTF" || !Object.keys(preparation).some(p=>p.endsWith(".tim")))
+        throw Error("Nikki preparation export has invalid contents");
       let donor = null,
         arc = null;
       if (process.env.NIKKI_GAME_DIR) {
@@ -236,9 +258,7 @@ else {
         )
           throw Error(await page.locator("#status").innerText());
         await capture(page, "native");
-        const pending = page.waitForEvent("download");
-        await page.click("#native-export");
-        await (await pending).saveAs(output + "/nikki-native-candidate.zip");
+        await exportUI("#native-export", "native-donor-candidate.zip", "nikki-native-candidate.zip");
       }
       const report = await page.evaluate(() => window.studioTest.report());
       await page.screenshot({

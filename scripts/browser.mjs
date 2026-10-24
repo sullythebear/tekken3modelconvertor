@@ -1,8 +1,31 @@
-import { chromium } from "playwright-core";
+import { chromium, _electron } from "playwright-core";
 import { createServer } from "node:http";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 export async function browserSession() {
+  if (process.env.T3CS_AUTOMATION === "1") {
+    const app = await _electron.launch({
+      executablePath: path.resolve("node_modules/electron/dist/" + (process.platform === "win32" ? "electron.exe" : "electron")),
+      args: process.platform === "win32" ? ["."] : ["--no-sandbox", "--ozone-platform=headless", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "."],
+      env: {...process.env, ...(process.platform === "linux" ? {XDG_CONFIG_HOME: "/workspace/.t3cs-config", XDG_CACHE_HOME: "/workspace/.t3cs-cache"} : {})},
+      timeout: 60000,
+    });
+    const page = await app.firstWindow(), errors = [], consoleLog = [];
+    page.on("pageerror", e => errors.push(e.message));
+    page.on("console", m => consoleLog.push({type: m.type(), text: m.text().slice(0, 4096)}));
+    page.on("crash", () => errors.push("Electron renderer crashed"));
+    await page.waitForFunction(() => Boolean(window.studioTest));
+    // Preserve real desktop IPC while directing automated exports into test downloads.
+    await app.evaluate(({dialog, app}, folder) => {
+      app.setPath("crashDumps", folder);
+      dialog.showSaveDialog = async (_window, options) => ({canceled: false, filePath: pathJoin(folder, options.defaultPath)});
+      function pathJoin(a,b) {return a + "/" + b.replace(/^.*[\\/]/, "");}
+    }, path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki"));
+    return {page, errors, desktop: true, async close() {
+      await writeFile(path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki", "electron-console.json"), JSON.stringify({errors, console: consoleLog.slice(-4000)},null,2));
+      await app.close();
+    }};
+  }
   const root = path.resolve("dist"),
     server = createServer(async (req, res) => {
       try {

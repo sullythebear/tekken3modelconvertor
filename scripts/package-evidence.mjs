@@ -21,6 +21,7 @@ for (const file of [
   ".gitignore",
   "package.json",
   "package-lock.json",
+  "Test-Windows.cmd",
 ])
   source[file] = new Uint8Array(await readFile(file));
 await writeFile(

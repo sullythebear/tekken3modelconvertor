@@ -28,6 +28,10 @@ De definitie van voltooid is **nog niet gehaald**. Op 24 oktober 2026 is de dono
 
 Zie [NATIVE_PIPELINE.md](NATIVE_PIPELINE.md) voor het algoritme, het kalibratieformaat en de foutgevallen. De UI houdt een native kandidaat en een bewezen speelbaar personage uitdrukkelijk uit elkaar. Het oorspronkelijke voorbereidingspakket blijft een aanvullend GLB/TIM-inspectieformaat.
 
+## Windows-testomgeving toegevoegd
+
+Test-Windows.cmd installeert een private runtime, bouwt/start de Studio, test echte Nikki via Electron-IPC en maakt een PASS/FAIL-rapport. Originele lokale donorbestanden kunnen alleen-lezen worden geëxtraheerd. De runtimeadaptergrens, Windows-capture/toetsinvoer, crash-eventverzameling en menselijke gameplaychecklist zijn aanwezig, maar een geverifieerde Expanded-installatieadapter ontbreekt. De actuele cloudrun eindigt terecht FAIL; zie WINDOWS_TESTING.md.
+
 ## Nog benodigde gegevens
 
 Nikki is beschikbaar en getest. Voor echte donor-/gamevalidatie ontbreken originele USA `SLUS_004.02`, Nina P1 3DMK-record 111 + texture-ARC-record 113 en exacte Expanded-build-/patchinformatie. De desktopapp kan deze lokaal extraheren uit een ISO/BIN of losse BNS + executable en opslaan als gecontroleerd donor-ZIP. ISO/BIN-extractie is alleen-lezen; raw-sector EDC/ECC wordt niet geverifieerd of herbouwd.

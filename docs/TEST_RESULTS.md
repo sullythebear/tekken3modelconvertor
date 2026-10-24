@@ -1,3 +1,13 @@
+# Aanvulling: reproduceerbare Windows-testrunner
+
+80 unit-/integratietests slagen (vier nieuwe tests voor configuratie, exacte runtime-receipts, HTML/FAIL-semantiek en echte subprocessargumenten/logs/timeouts). Alle 11 browsercontroles en de bestaande Linux Electron-desktopregressie slagen opnieuw.
+
+De echte Nikki is aanvullend in Electron geautomatiseerd geïmporteerd/geconverteerd en via desktop-IPC als voorbereidingspakket geëxporteerd en inhoudelijk teruggelezen. Een volledige overkoepelende run met bewust ontbrekende originele gamebestanden voert Nikki toch uit en schrijft correct FAIL met donor/runtime BLOCKED. Er zijn geen rendererfouten gemeld. Nikki blijft 3.860/900 triangles. Deze run is geen Windows-/gameplaybewijs.
+
+Zie WINDOWS_TESTING.md voor éénknopsgebruik, rapportsemantiek, cloudbewijzen en de nog ontbrekende Expanded-adapter. De PowerShell-opname-/inputfunctie en menselijke checklist zijn toegevoegd; uitvoering op Windows staat open.
+
+---
+
 # Testresultaten 0.5.0 — 24 oktober 2026
 
 **76 unit-/integratietests slagen**, zonder skips of failures. Alle 11 browsercontroles slagen, inclusief een echte FBX DiffuseColor-relatie met PNG-verwijzing die de meegeleverde TGA decodeert en de bronbinding behoudt. Native UI-export, authored humanoid (488 native triangles/15 tiles), bronmapping, twaalf-invloeden CPU/GPU/GLB-roundtrip, Cesium Man en Linux Electron-desktopregressies slagen opnieuw. Cesium Man blijft met 1.424 triangles boven doel 1.100; dit wordt niet als gehaald budget gerapporteerd.
@@ -82,3 +92,5 @@ De oplevering is daarom een **onvolledige implementatie**, geen afgeronde Tekken
 Cesium Man uit Khronos glTF-Sample-Assets, gepind op commit `8f492390ddc7a2ae221a1369ef560589cf8c70fb` en SHA-256 `b7001eaeea8254bd44773bcd247e78696d94169388fbb2a1800fc69434e777d9`, is geïmporteerd met 4.672 driehoeken, 19 bones, een ingebedde JPEG en een 2-seconden-animatie. Na handmatige mapping van 15 beschikbare anatomische rollen wordt het model voorbereid op 1.424 driehoeken. Doel 1.100 wordt door beschermde randen niet gehaald en blijft als overschrijding gerapporteerd. Vier tijdstippen (0 / 0,5 / 1 / 1,5 s) behouden eindige geometrie en overeenkomstige bottransformaties in bron en resultaat. Oriëntatievergelijking normaliseert de float-quaternions vóór de hoekmeting.
 
 Dit is een onafhankelijke bron-/voorbereidings-/bronanimatietest, geen Nina- of Nikki-test en geen native donor/gamebewijs. Front/side/back en geanimeerde screenshots staan met attributie in artifacts/reference. Het originele externe GLB wordt niet in de applicatie of bron-ZIP verpakt. Aanvullend controleren zelfgemaakte PNG- en JPEG-fixtures expliciete OBJ/MTL-relaties en gedecodeerde rode pixels.
+
+PowerShell 7.4.6 is tijdelijk in de Linux-cloud gebruikt om alle vier Windows-scripts syntactisch te parsen: geslaagd. Ook de officiële Node 24.10.0-checksumlijst is opgehaald en de Windows ZIP-entry is gecontroleerd. Dit valideert geen Windows-UI, bootstrapuitvoering of gamecapture.

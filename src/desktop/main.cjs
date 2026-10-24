@@ -208,6 +208,8 @@ app.whenReady().then(() => {
     }
     return true;
   });
-  main.loadFile(path.join(ROOT, "index.html"));
+  main.loadFile(path.join(ROOT, "index.html"), {
+    query: process.env.T3CS_AUTOMATION === "1" ? {test: "1"} : {},
+  });
 });
 app.on("window-all-closed", () => app.quit());

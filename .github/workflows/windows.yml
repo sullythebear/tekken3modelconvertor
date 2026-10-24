@@ -13,6 +13,17 @@ jobs:
           node-version: "24"
           cache: npm
       - run: npm ci
+      - name: Parse Windows automation scripts
+        shell: powershell
+        run: |
+          Get-ChildItem scripts/windows/*.ps1 | ForEach-Object {
+            $tokens = $null; $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count) { throw ($errors | Out-String) }
+          }
+      - name: Authored Windows window capture and input test
+        shell: powershell
+        run: ./scripts/windows/Test-Capture.ps1
       - run: npm test
       - run: npx playwright-core install chromium
       - run: npm run test:visual
@@ -25,6 +36,7 @@ jobs:
       - run: npm run dist:win:portable
       - run: node scripts/verify-distribution.mjs
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Tekken3ConversionStudio-Windows
           path: |
@@ -36,3 +48,4 @@ jobs:
             artifacts/distribution/
             artifacts/skinning/
             artifacts/reference/
+            artifacts/windows-capture-fixture-*/
