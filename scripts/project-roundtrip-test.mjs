@@ -1,0 +1,38 @@
+import {mkdir,mkdtemp,readdir,readFile,writeFile,rm,stat} from 'node:fs/promises';
+import os from 'node:os';import path from 'node:path';import assert from 'node:assert/strict';import {performance} from 'node:perf_hooks';import {createHash} from 'node:crypto';
+import {unzipSync} from 'fflate';import {downloadDriveZIP} from './drive-download.mjs';import {readStudioProject} from '../src/core/studio-project.js';import {browserSession} from './browser.mjs';
+const output='artifacts/project-roundtrip';await mkdir(output,{recursive:true});const privateDir=await mkdtemp(path.join(os.tmpdir(),'t3cs-private-project-')),hash=b=>createHash('sha256').update(b).digest('hex');
+let session,timer;const samples=[],phases=[],report={platform:process.platform,status:'FAIL',privateAssetsPublished:false,phases,samples};
+function safeError(error){let m=String(error.message??error);if(process.env.NIKKI_DOWNLOAD_URL)m=m.replaceAll(process.env.NIKKI_DOWNLOAD_URL,'[private download]');return m.replace(/https?:\/\/[^\s"'<>]+/g,'[redacted URL]').replaceAll(privateDir,'[private directory]').slice(0,2000);}
+try{
+ let inputDir=process.env.NIKKI_DIR;
+ if(!inputDir){
+  if(!process.env.NIKKI_DOWNLOAD_URL)throw Error('NIKKI_DOWNLOAD_URL secret or NIKKI_DIR local input is required');
+  const zipPath=path.join(privateDir,'source.zip');await downloadDriveZIP(process.env.NIKKI_DOWNLOAD_URL,zipPath);const bytes=await readFile(zipPath);assert.equal(hash(bytes),'cfab424fd9c250b8da2d0f6be5012d228967cdf3ba1cacf8c17ee977fac8a418','Source ZIP SHA-256 differs from validated Nikki input');
+  inputDir=path.join(privateDir,'input');await mkdir(inputDir);let expanded=0;
+  const zip=unzipSync(bytes,{filter:f=>{if(!/\.(fbx|tga)$/i.test(f.name))return false;expanded+=f.originalSize;if(expanded>512*1024**2)throw Error('Source expansion exceeds 512 MiB');if(f.name.split(/[\\/]/).some(p=>p==='..')||/^[\\/]|^[a-z]:/i.test(f.name))throw Error('Unsafe source ZIP entry');return true;}});
+  const seen=new Set();for(const [name,data]of Object.entries(zip)){const base=name.split(/[\\/]/).at(-1);if(seen.has(base))throw Error('Duplicate source asset');seen.add(base);await writeFile(path.join(inputDir,base),data);}
+ }
+ const paths=[];async function walk(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())await walk(p);else if(/\.(fbx|tga)$/i.test(p))paths.push(p);}}await walk(inputDir);
+ const originals=new Map();for(const p of paths){const b=await readFile(p);originals.set(path.basename(p),{bytes:b.length,sha256:hash(b)});if(/\.fbx$/i.test(p))assert.equal(hash(b),'6238a03b185cf208b82838d6f5076424095f4d7379b7ca2e1111cc65002b4b13','Nikki FBX SHA mismatch');else assert.ok(b.length>=18&&b.readUInt16LE(12)>0&&b.readUInt16LE(14)>0,'Invalid TGA header');}
+ assert.equal(paths.filter(p=>/\.fbx$/i.test(p)).length,1);assert.equal(paths.filter(p=>/\.tga$/i.test(p)).length,23);report.input={files:24,textures:23,sourceBytes:[...originals.values()].reduce((n,f)=>n+f.bytes,0),hashValidation:'PASS'};
+ process.env.T3CS_AUTOMATION='1';process.env.T3CS_RUN_OUTPUT=privateDir;session=await browserSession();const {page,app}=session;let currentPhase='import';
+ timer=setInterval(async()=>{try{const metrics=await app.evaluate(({app})=>app.getAppMetrics().map(p=>({type:p.type,workingSetKiB:p.memory.workingSetSize,peakWorkingSetKiB:p.memory.peakWorkingSetSize,privateBytesKiB:p.memory.privateBytes})));samples.push({time:performance.now(),phase:currentPhase,processes:metrics,nodeRssBytes:process.memoryUsage().rss});}catch{}},250);
+ async function phase(name,fn){currentPhase=name;const start=performance.now();try{const value=await fn();phases.push({name,status:'PASS',durationMs:performance.now()-start});return value;}catch(e){phases.push({name,status:'FAIL',durationMs:performance.now()-start});throw e;}}
+ await phase('import',async()=>{await page.setInputFiles('#files',paths);await page.waitForFunction(()=>window.studioTest.source&&!document.querySelector('#import').disabled,null,{timeout:120000});});
+ const originalStats=await page.evaluate(()=>window.studioTest.source.stats);await page.uncheck('#art-live');
+ await phase('convert-before-save',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
+ const before=await page.evaluate(()=>window.studioTest.report().conversion.stats);
+ const project=path.join(privateDir,'character-project.zip');
+ await phase('save',async()=>{await page.click('#project-save',{timeout:120000});await page.waitForFunction(()=>!document.querySelector('#project-save').disabled&&document.querySelector('#status').textContent!=='Saving project…',null,{timeout:120000});assert.match(await page.locator('#status').innerText(),/^Project saved/);await stat(project);});
+ const projectBytes=await readFile(project);report.zipBytes=projectBytes.length;
+ await phase('verify-all-project-assets',async()=>{const p=readStudioProject(projectBytes);assert.equal(p.records.length,24);for(const f of p.records){const expected=originals.get(f.name);assert.ok(expected);assert.equal(f.data.length,expected.bytes);assert.equal(hash(f.data),expected.sha256);}});
+ await phase('reopen',async()=>{await page.setInputFiles('#project-file',project);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Project restored'),null,{timeout:120000});});
+ assert.deepEqual(await page.evaluate(()=>window.studioTest.source.stats),originalStats);
+ await phase('convert-after-reopen',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
+ assert.deepEqual(await page.evaluate(()=>window.studioTest.report().conversion.stats),before);assert.equal(session.errors.length,0,session.errors.join('\n'));report.status='PASS';report.exactAssetReadback=true;report.sourceStats=originalStats;report.convertedStats=before;
+}catch(e){report.error=safeError(e);if(session)report.uiStatus=safeError(await session.page.locator('#status').innerText().catch(()=>''));process.exitCode=1;}
+finally{
+ clearInterval(timer);if(session)await session.close().catch(()=>{});await rm(privateDir,{recursive:true,force:true});report.privateTemporaryFilesRemoved=true;
+ report.peakAppWorkingSetKiB=Math.max(0,...samples.map(s=>s.processes.reduce((n,p)=>n+(p.workingSetKiB??0),0)));report.peakHarnessRssBytes=Math.max(0,...samples.map(s=>s.nodeRssBytes));await writeFile(output+'/results.json',JSON.stringify(report,null,2));console.log(JSON.stringify({...report,samples:`${samples.length} samples in private-data-free results.json`},null,2));
+}

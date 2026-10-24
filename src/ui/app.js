@@ -1,3 +1,4 @@
+import {snapshotProjectMapping,restoreProjectMapping} from '../core/skeleton.js';
 import {optimizeGameCandidate} from '../core/game-optimization.js';
 import {configureSkinning} from '../core/skinning.js';
 import {readDonorPackage} from "../core/donor-package.js";
@@ -80,9 +81,9 @@ $('art-resolution').onchange=()=>{simulationView.renderer.setSize($('art-resolut
 $('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
 $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
-$('project-save').onclick=async()=>{if(!source)return;await save('character-project.zip',writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:exportSkeletonMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()}));};
+$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});await save('character-project.zip',bytes);status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
 $('project-open').onclick=()=>$('project-file').click();
-$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=importSkeletonMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
+$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
 let source = null,
   converted = null,
   atlas = null,

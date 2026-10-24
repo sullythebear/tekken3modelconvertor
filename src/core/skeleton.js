@@ -318,3 +318,18 @@ export function deformationProbe(root, analysis, onPose = () => {}, {extended=fa
   });
   return results;
 }
+
+// Project persistence preserves unresolved automatic mapping and explicit null
+// overrides. It must not silently turn the first ambiguous candidate into an
+// accepted manual role. Standalone mapping export remains deliberately strict.
+export function snapshotProjectMapping(root){
+ const rig=analyzeSkeleton(root);
+ return {schema:'t3cs-project-mapping/1',skeleton:skeletonIdentity(root),overrides:rig.bones.flatMap((b,index)=>Object.hasOwn(b.userData,'t3csRole')?[{index,role:b.userData.t3csRole}]:[])};
+}
+export function restoreProjectMapping(root,json){
+ if(json?.schema==='t3cs-source-mapping/1')return importSkeletonMapping(root,json);
+ if(json?.schema!=='t3cs-project-mapping/1'||!Array.isArray(json.overrides))throw Error('Invalid project skeleton state');
+ if(JSON.stringify(json.skeleton)!==JSON.stringify(skeletonIdentity(root)))throw Error('Project skeleton does not match source bind pose');
+ const rig=analyzeSkeleton(root),seen=new Set();for(const e of json.overrides){if(!Number.isInteger(e.index)||e.index<0||e.index>=rig.bones.length||seen.has(e.index)||(e.role!==null&&!Object.hasOwn(ROWS,e.role)))throw Error('Invalid project skeleton override');seen.add(e.index);}
+ for(const b of rig.bones)delete b.userData.t3csRole;for(const e of json.overrides)rig.bones[e.index].userData.t3csRole=e.role;return analyzeSkeleton(root);
+}

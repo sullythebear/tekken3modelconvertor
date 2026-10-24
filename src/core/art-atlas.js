@@ -15,7 +15,7 @@ export function artAtlasLayout(materials,size,art) {
  const base=Math.min(size,256);
  const cells=materials.map((m,i)=>{
   const name=m.name,face=/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name),hair=/hair|faceacc/i.test(name),torso=/body_torso/i.test(name),eye=/iris|lash/i.test(name);
-  const side=face?(art.face>80?base/2:base/4):hair?(art.hair>85?base/2:base/4):torso?(art.pixelation<75?base/2:base/4):/body/i.test(name)?base/4:eye?base/4:/eyeshell/i.test(name)?16:base/8;
+  const side=face?(art.face>80?base/2:base/4):hair?(art.hair>85?base/2:base/4):torso?(art.pixelation<75?base/2:base/4):/envelope/i.test(name)?base/2:/body/i.test(name)?base/4:eye?(/lash/i.test(name)&&art.face>80?base/2:base/4):/eyeshell/i.test(name)?16:base/8;
   return {i,side:Math.max(16,side),priority:face?6:hair?5:torso?4:eye?3.5:/envelope/i.test(name)?3:1};
  });
  const occupied=[],out=[];let used=0;

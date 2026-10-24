@@ -11,7 +11,7 @@ export function reconstructHairVolume(g,material,{preservation=90,textureSize=12
  // rather than silently treating a shoulder-to-shoulder axis as hair length.
  if(size.y<Math.min(size.x,size.z)*.3)return {geometry:null,reason:'Hair frame requires upright source geometry'};
  const center=headCenter?.clone()??box.getCenter(new THREE.Vector3()),radius=Math.hypot(size.x,size.z),height=size.y;
- const columns=16+Math.round(preservation/10),rows=10+Math.round(preservation/15);
+ const columns=20+Math.round(preservation/8),rows=14+Math.round(preservation/15);
  let alphaRejected=0,oppositeRejected=0;
  function project(angle,v){
   const direction=new THREE.Vector3(Math.sin(angle),0,Math.cos(angle)),origin=new THREE.Vector3(center.x,box.min.y+(.0001+.9998*v)*height,center.z).addScaledVector(direction,radius*2);
@@ -48,13 +48,13 @@ export function reconstructHairVolume(g,material,{preservation=90,textureSize=12
  const indices=[];
  for(let row=0;row<rows;row++)for(let col=0;col<columns;col++){
   const ids=[grid[row][col],grid[row][col+1],grid[row+1][col+1],grid[row+1][col]];
-  if(ids.some(i=>i<0))continue;
+  const occupied=ids.filter(i=>i>=0);if(occupied.length<3)continue;
   // Require occupied mid-cells, keeping the opening around the face intact.
   // Four occupied corners bound a volume cell; source alpha gaps inside
   // that cell belong in optional fringe cards, not holes in a solid envelope.
-  const maxEdge=Math.max(...ids.map((id,k)=>positions[id].distanceTo(positions[ids[(k+1)%4]])));
+  const maxEdge=Math.max(...occupied.map((id,k)=>positions[id].distanceTo(positions[occupied[(k+1)%occupied.length]])));
   if(maxEdge>Math.max(radius*.42,height/rows*3))continue;
-  for(let tri of [[ids[0],ids[1],ids[2]],[ids[0],ids[2],ids[3]]]){
+  for(let tri of occupied.length===3?[occupied]:[[ids[0],ids[1],ids[2]],[ids[0],ids[2],ids[3]]]){
    const p=tri.map(i=>positions[i]),normal=new THREE.Triangle(...p).getNormal(new THREE.Vector3()),outward=new THREE.Vector3(p[0].x-center.x,0,p[0].z-center.z);if(normal.dot(outward)<0)tri=[tri[0],tri[2],tri[1]];indices.push(...tri);
   }
  }
@@ -77,4 +77,14 @@ export function reconstructHairVolume(g,material,{preservation=90,textureSize=12
   if(fringe.length){const cards=subsetSurface(g,fringe),p=cards.attributes.position;for(let i=0;i<p.count;i++){const direction=new THREE.Vector3(p.getX(i)-center.x,0,p.getZ(i)-center.z).normalize();p.setXYZ(i,p.getX(i)+direction.x*height*.002,p.getY(i),p.getZ(i)+direction.z*height*.002);}const m=material.clone();m.name+='_fringe';supplements.push({geometry:cards,material:m,role:'hair-fringe'});}
  }
  return {geometry,material:output,supplements,method:supplements.length?'hybrid opaque volume with original alpha-cutout fringe':'opacity-aware radial hair volume',generatedVertices:hits.length,triangles:indices.length/3,alphaRejected,oppositeRejected,maximumDiscardedWeight:transferred.maximumDiscardedWeight,limitations:'A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections'};
+}
+
+// Keep disconnected alpha sheets and their UVs. Permissive collapses can join
+// unrelated sheets; bounded non-permissive reduction deliberately may exceed
+// the suggested count when the original hairstyle cannot be represented there.
+export function reconstructHairCards(g,material,simplifier,{preservation=90}={}){
+ const input=new Uint32Array(g.index.array),target=Math.max(200,Math.round(input.length/3*(.03+preservation*.0015))),uv=g.attributes.uv;
+ if(!uv)return {geometry:null,reason:'Hair cards require source UVs'};
+ const [index,error]=simplifier.simplifyWithAttributes(input,g.attributes.position.array,3,uv.array,2,[4,4],null,target*3,.007,['RegularizeLight']);
+ const geometry=subsetSurface(g,index);geometry.computeVertexNormals();return {geometry,material:material.clone(),generatedVertices:geometry.attributes.position.count,triangles:index.length/3,method:'UV-preserving disconnected alpha cards with bounded surface error',sourceTriangles:input.length/3,target,error,alphaPreserved:true};
 }

@@ -4,9 +4,9 @@ const LIMIT=512*1024**2;
 export function writeStudioProject(files,metadata) {
  if(files.length>512)throw Error('Project file count exceeds 512');
  let total=0;const out={};
- files.forEach((f,i)=>{const data=new Uint8Array(f.data);total+=data.length;if(total>LIMIT)throw Error('Project exceeds 512 MiB');out['assets/'+i]=data;});
+ files.forEach((f,i)=>{const data=f.data instanceof Uint8Array?f.data:new Uint8Array(f.data);total+=data.length;if(total>LIMIT)throw Error('Project exceeds 512 MiB');out['assets/'+i]=data;});
  out['project.json']=strToU8(JSON.stringify({schema:'t3cs-project/1',...metadata,files:files.map(f=>f.name)}));
- return zipSync(out);
+ return zipSync(out,{level:1});
 }
 export function readStudioProject(bytes) {
  if(bytes.length>LIMIT)throw Error('Project exceeds 512 MiB');

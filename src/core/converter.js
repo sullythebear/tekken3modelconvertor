@@ -1,6 +1,8 @@
+import {shortGarmentTriangles} from './garment-segmentation.js';
+import {semantic} from './skeleton.js';
 import {rebakeTorso} from './torso-bake.js';
 import {reconstructBootEnvelope} from './boot-envelope.js';
-import {reconstructHairVolume} from './hair-volume.js';
+import {reconstructHairVolume,reconstructHairCards} from './hair-volume.js';
 import {reconstructAnatomicalFace} from './anatomical-face.js';
 import {reconstructUVSurface} from './uv-reconstruction.js';
 import {facialLandmarkLocks,facialSurfaceAnchors} from "./landmarks.js";
@@ -161,7 +163,7 @@ export async function convertCharacter(
         ? mesh.material
         : [mesh.material];
     for (const group of groups) {
-      const regions = new Map();
+      const regions = new Map(),garmentTriangles=art&&/body/i.test(materials[group.materialIndex]?.name??'')&&['combined','boots'].includes(art.reconstruction??'combined')?shortGarmentTriangles(mesh,g,group,semantic):new Set();
       for (
         let t = group.start;
         t < Math.min(idx.length, group.start + group.count);
@@ -171,7 +173,7 @@ export async function convertCharacter(
         const anatomicalHair=art&&['hair','combined'].includes(art.reconstruction??'combined')&&/hair|faceacc|strand/i.test(materials[group.materialIndex]?.name??'');
         const votes = [0, 1, 2].map((k) => anatomicalHair?'hair':anatomicalHead?'head':art&&Object.hasOwn(art.meshRoles??{},mesh.name)?'manual:'+art.meshRoles[mesh.name]:vertexRegion(mesh, idx[t + k], box));
         if(art&&/body/i.test(materials[group.materialIndex]?.name??'')&&['boots','combined'].includes(art.reconstruction??'combined'))for(let v=0;v<votes.length;v++)if(/^(left|right)(Foot|UpperLeg)$/.test(votes[v]))votes[v]=votes[v].replace(/Foot|UpperLeg/,'LowerLeg');
-        const role =
+        const role = garmentTriangles.has(t)&&votes.some(v=>/^(left|right)(UpperLeg|LowerLeg)$/.test(v))?'hips':
           votes.find((r) => votes.filter((v) => v === r).length >= 2) ??
           votes[0];
         if (!regions.has(role)) regions.set(role, []);
@@ -240,8 +242,9 @@ export async function convertCharacter(
     const reconstructFace=(/head|face/i.test(p.material?.name??'')||p.role==='head'&&(/head|face/i.test(p.mesh.name)||art?.faceLandmarkMesh===p.mesh.name))&&!/hair|faceacc|lash|eye|teeth/i.test(p.material?.name??'');
     const reconstructBoots=/body/i.test(p.material?.name??'')&&/lowerleg|foot/i.test(p.role);
     const reconstructHair=/hair|faceacc|strand/i.test(p.material?.name??'');
+    const reconstructLashes=/lash/i.test(p.material?.name??'')&&art?.face>=80;
     const stage=art?.reconstruction??'combined';
-    if (art && stage!=='v060' && ((reconstructFace&&['combined','face'].includes(stage)) || (reconstructBoots&&['combined','boots','dev1'].includes(stage)) || (reconstructHair&&['combined','hair'].includes(stage)))) {
+    if (art && stage!=='v060' && (((reconstructFace||reconstructLashes)&&['combined','face'].includes(stage)) || (reconstructBoots&&['combined','boots','dev1'].includes(stage)) || (reconstructHair&&['combined','hair'].includes(stage)))) {
       const anchors=reconstructFace?facialSurfaceAnchors(p.mesh,g):[];
       const headBone=p.mesh.skeleton?.bones.find(b=>/^(head|mixamorig:head)$/i.test(b.name));
       const hairCenter=headBone?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
@@ -254,7 +257,7 @@ export async function convertCharacter(
         projectionGeometry.setIndex(selected);projectionGeometry.clearGroups();
         if(p.uvCrop){const uv=projectionGeometry.attributes.uv,c=p.uvCrop;for(let v=0;v<uv.count;v++)uv.setXY(v,(uv.getX(v)-c.minU)/c.spanU,(uv.getY(v)-c.minV)/c.spanV);}
       }
-      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructHair&&art.hairMethod!=='cards'?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
+      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
       projectionGeometry?.dispose();
       if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'v0.6 fallback',reason:candidate.reason};
@@ -307,7 +310,7 @@ export async function convertCharacter(
     let reduced = subsetGeometry(g, indices);
     if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot);
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
-    if(art&&['combined','boots'].includes(stage)&&p.role==='spine'&&/body/i.test(p.material?.name)&&reduced.attributes.position.count){
+    if(art&&['combined','boots'].includes(stage)&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name)&&reduced.attributes.position.count){
       const rebaked=rebakeTorso(g,reduced,p.material);if(rebaked){reduced.dispose();reduced=rebaked.geometry;const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(rebaked.material);p.mesh.material=mats;p.material=rebaked.material;reconstruction.torsoBake={method:rebaked.method,width:rebaked.textureWidth,height:rebaked.textureHeight};}
     }
     if(!reduced.index)reduced.setIndex(Array.from({length:reduced.attributes.position.count},(_,i)=>i));
@@ -317,7 +320,7 @@ export async function convertCharacter(
     byMesh.get(p.mesh).push({ ...p, geometry: reduced, error });
     for(const supplement of supplements){
       const input=new Uint32Array(supplement.geometry.index.array),uv=supplement.geometry.attributes.uv,target=Math.round(100+art.hair*2.5);
-      const [index,error]=input.length>target*3?MeshoptSimplifier.simplifyWithAttributes(input,supplement.geometry.attributes.position.array,3,uv.array,2,[2,2],null,target*3,.2,['Permissive','RegularizeLight']):[input,0];
+      const [index,error]=input.length>target*3?MeshoptSimplifier.simplifyWithAttributes(input,supplement.geometry.attributes.position.array,3,uv.array,2,[4,4],null,target*3,.007,['RegularizeLight']):[input,0];
       const compact=subsetGeometry(supplement.geometry,index);supplement.geometry.dispose();supplement.geometry=compact;supplement.reduction={before:input.length/3,after:index.length/3,error};
       if(art.flat){const flat=compact.toNonIndexed();flat.computeVertexNormals();flat.setIndex(Array.from({length:flat.attributes.position.count},(_,i)=>i));compact.dispose();supplement.geometry=flat;}
       const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material],slot=mats.length;mats.push(supplement.material);p.mesh.material=mats;byMesh.get(p.mesh).push({...p,role:supplement.role,material:supplement.material,materialIndex:slot,geometry:supplement.geometry,error:0});report.push({mesh:p.mesh.name,region:supplement.role,material:supplement.material.name,before:supplement.geometry.index.count/3,target:0,after:supplement.geometry.index.count/3,reconstruction:{method:'Retained alpha-cutout fringe as part of hybrid hair',sharesSourceRegion:true,reduction:supplement.reduction}});}

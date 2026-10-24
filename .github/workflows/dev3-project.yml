@@ -1,0 +1,38 @@
+name: Private Nikki project roundtrip
+on:
+  push:
+    branches: [development/070-dev3]
+    paths: ['src/**', 'scripts/project-roundtrip-test.mjs', 'scripts/browser.mjs', 'package*.json', '.github/workflows/dev3-project.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  nikki-project:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Private validated download, full project save and reopen
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: Public measurements only
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path artifacts/project-roundtrip/results.json) {
+            $r = Get-Content artifacts/project-roundtrip/results.json | ConvertFrom-Json
+            $safe = @{status=$r.status;error=$r.error;phases=$r.phases;zipBytes=$r.zipBytes;peakAppWorkingSetKiB=$r.peakAppWorkingSetKiB;peakHarnessRssBytes=$r.peakHarnessRssBytes;privateTemporaryFilesRemoved=$r.privateTemporaryFilesRemoved} | ConvertTo-Json -Compress -Depth 8
+            Write-Host "::notice title=Private Nikki project measurements::$safe"
+          }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Private-input-public-measurements
+          path: artifacts/project-roundtrip/results.json

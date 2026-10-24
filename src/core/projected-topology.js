@@ -50,5 +50,5 @@ export function surfaceTexture(rgba,width,height){
 export function subsetSurface(g,indices){
  const old=[...new Set(indices)],mapping=new Map(old.map((id,i)=>[id,i])),out=new THREE.BufferGeometry();
  for(const [name,a]of Object.entries(g.attributes)){const data=new a.array.constructor(old.length*a.itemSize);old.forEach((id,i)=>{for(let k=0;k<a.itemSize;k++)data[i*a.itemSize+k]=a.array[id*a.itemSize+k];});out.setAttribute(name,new THREE.BufferAttribute(data,a.itemSize,a.normalized));}
- out.setIndex(indices.map(i=>mapping.get(i)));return out;
+ out.setIndex(Array.from(indices,i=>mapping.get(i)));return out;
 }

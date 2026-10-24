@@ -21,7 +21,7 @@ export async function browserSession() {
       dialog.showSaveDialog = async (_window, options) => ({canceled: false, filePath: pathJoin(folder, options.defaultPath)});
       function pathJoin(a,b) {return a + "/" + b.replace(/^.*[\\/]/, "");}
     }, path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki"));
-    return {page, errors, desktop: true, async close() {
+    return {page, app, errors, desktop: true, async close() {
       await writeFile(path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki", "electron-console.json"), JSON.stringify({errors, console: consoleLog.slice(-4000)},null,2));
       await app.close();
     }};
