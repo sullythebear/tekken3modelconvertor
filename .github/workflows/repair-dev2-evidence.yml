@@ -1,0 +1,51 @@
+name: Preserve dev2 evidence bytes
+on:
+  push:
+    branches: [automation/dev2-review-pr]
+    paths: ['.github/workflows/repair-dev2-evidence.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preserve-evidence:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Download published evidence without changing its source tag or tested EXE
+        shell: bash
+        run: |
+          actual=$(gh api "repos/$GH_REPO/git/ref/tags/v0.7.0-dev.2" --jq .object.sha)
+          test "$actual" = 9e63ddedb750e5aefb42fbc67c3fd1c086669131
+          gh release download v0.7.0-dev.2 --repo "$GH_REPO" --pattern Visual-Review.zip --dir original
+      - name: Restore exact Linux-generated evidence bytes and verify every manifest entry
+        shell: bash
+        run: |
+          python - <<'PY'
+          import zipfile,json,hashlib,os
+          with zipfile.ZipFile('original/Visual-Review.zip') as z:
+              entries={n:z.read(n) for n in z.namelist()}
+          manifest_name=next(n for n in entries if n.endswith('evidence-manifest.json'))
+          prefix=manifest_name.removesuffix('evidence-manifest.json')
+          manifest=json.loads(entries[manifest_name])
+          repaired=0
+          for record in manifest['files']:
+              name=prefix+record['path'];data=entries[name]
+              if hashlib.sha256(data).hexdigest()!=record['sha256']:
+                  if not name.lower().endswith(('.html','.json','.xml','.txt','.md')):
+                      raise RuntimeError('Binary evidence changed: '+name)
+                  data=data.replace(b'\r\n',b'\n')
+                  assert hashlib.sha256(data).hexdigest()==record['sha256'], name
+                  entries[name]=data;repaired+=1
+              assert len(entries[name])==record['bytes'],name
+          os.makedirs('repaired',exist_ok=True)
+          with zipfile.ZipFile('repaired/Visual-Review.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+              for name,data in entries.items():z.writestr(name,data)
+          print('Verified',len(manifest['files']),'manifest entries; restored LF in',repaired,'text files; PNG and EXE bytes untouched.')
+          PY
+      - name: Replace only the review ZIP with byte-verified evidence
+        shell: bash
+        run: gh release upload v0.7.0-dev.2 repaired/Visual-Review.zip --repo "$GH_REPO" --clobber
