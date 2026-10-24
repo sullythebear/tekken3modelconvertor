@@ -208,6 +208,25 @@ app.whenReady().then(() => {
     }
     return true;
   });
+  if(process.env.T3CS_AUTOMATION==='1'&&process.env.T3CS_SMOKE_OUTPUT){
+    main.webContents.once('did-finish-load',async()=>{
+      let result;
+      try{
+        const checks=await main.webContents.executeJavaScript(`(async()=>{
+          const t=window.studioTest;if(!t)throw Error('Automation hook missing');
+          await t.load([{name:'authored-smoke.glb',data:await t.syntheticCharacter()}]);
+          await t.convert();if(!t.converted)throw Error(document.querySelector('#status').textContent);
+          const bytes=await t.exportGLB(t.atlas?.root??t.converted.root);
+          if(String.fromCharCode(...bytes.slice(0,4))!=='glTF')throw Error('Export readback magic failed');
+          return {nodeIsolated:typeof window.require==='undefined',sourceTriangles:t.source.stats.triangles,convertedTriangles:t.converted.stats.triangles,atlasTiles:t.atlas?.tiles.length??0,exportBytes:bytes.length,fixture:'authored synthetic; no Nikki or game files',gameVerified:false};
+        })()`);
+        if(!checks.nodeIsolated||!checks.exportBytes||!checks.atlasTiles)throw Error('Incomplete packaged smoke checks');
+        result={status:'PASS',platform:process.platform,packaged:app.isPackaged,version:app.getVersion(),...checks};
+      }catch(error){result={status:'FAIL',platform:process.platform,packaged:app.isPackaged,version:app.getVersion(),error:String(error.stack??error)};}
+      try{await fs.writeFile(process.env.T3CS_SMOKE_OUTPUT,JSON.stringify(result,null,2),{flag:'wx'});}catch(error){console.error(error);app.exit(1);return;}
+      app.exit(result.status==='PASS'?0:1);
+    });
+  }
   main.loadFile(path.join(ROOT, "index.html"), {
     query: process.env.T3CS_AUTOMATION === "1" ? {test: "1"} : {},
   });

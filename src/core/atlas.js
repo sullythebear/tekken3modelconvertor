@@ -39,8 +39,9 @@ function coordinate(texture, u, v) {
 }
 export async function bakeAtlas(
   converted,
-  { size = 256, alphaCutoff = 0.5, onProgress = () => {}, art = null } = {},
+  { size, alphaCutoff = 0.5, onProgress = () => {}, art = null } = {},
 ) {
+  size??=art&&!['v060','dev1'].includes(art.reconstruction)?512:256;
   const root = clone(converted.root);
   root.traverse((m) => {
     if (m.isMesh && !m.geometry.attributes.uv) {
@@ -52,9 +53,9 @@ export async function bakeAtlas(
     }
   });
   const materials = [...collectMaterials(root)];
-  if (materials.length > 14)
+  if (materials.length > 32)
     throw Error(
-      `Found ${materials.length} materials. Nina's documented first-row CLUT allocation allows 14; material merging is not yet calibrated.`,
+      `Found ${materials.length} materials. Preparation staging supports 32 separate CLUT rows. Native donor capacity is validated separately.`,
     );
   const domains = materialUVDomains(root, materials);
   const grid = Math.ceil(Math.sqrt(materials.length)),
@@ -225,7 +226,7 @@ export async function bakeAtlas(
     mesh.material = newMaterial;
   });
   warnings.push(
-    "Normal-map bake uses a fixed tangent-space light; no high-to-low surface projection or game lighting calibration is claimed.",
+    "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
   );
   if(art)warnings.push('Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout.');
   configureSkinning(root);

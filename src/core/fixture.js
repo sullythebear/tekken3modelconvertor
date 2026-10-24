@@ -1,7 +1,7 @@
 // Procedural synthetic test asset, authored for this project. Never presented as Nikki.
 import * as THREE from "three";
 import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
-export async function syntheticCharacter() {
+export async function syntheticCharacter({hairstyle='short',facialRig=false}={}) {
   const root = new THREE.Group();
   root.name = "SyntheticHumanoid";
   const bones = [],
@@ -31,6 +31,11 @@ export async function syntheticCharacter() {
     bones.push(b);
     if (parent >= 0) bones[parent].add(b);
     else root.add(b);
+  }
+  if(facialRig){
+    const landmarks={FACIAL_L_EyelidUpperA:[.055,.1,.15],FACIAL_R_EyelidUpperA:[-.055,.1,.15],FACIAL_C_NoseTip:[0,.06,.19],FACIAL_L_LipCorner:[.04,.005,.15],FACIAL_R_LipCorner:[-.04,.005,.15],FACIAL_C_LipUpper:[0,.015,.17],FACIAL_C_LipLower:[0,-.005,.17]};
+    for(const [side,sign]of [['L',1],['R',-1]])for(const [suffix,x,y]of [['UpperA1',.035,.105],['UpperA3',.08,.105],['LowerA1',.035,.09],['LowerA3',.08,.09]])landmarks[`FACIAL_${side}_Eyelid${suffix}`]=[x*sign,y,.15];
+    for(const [name,position]of Object.entries(landmarks)){const b=new THREE.Bone();b.name=name;b.position.fromArray(position);bones[2].add(b);bones.push(b);}
   }
   root.updateMatrixWorld(true);
   const skin = new THREE.MeshStandardMaterial({
@@ -71,11 +76,12 @@ export async function syntheticCharacter() {
   );
   make(
     "Hair",
-    new THREE.SphereGeometry(0.19, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.65),
-    [0, 1.78, -0.025],
+    hairstyle==='crest'?new THREE.ConeGeometry(.18,.42,20,10):new THREE.SphereGeometry(0.19, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.65),
+    [0, hairstyle==='crest'?1.99:1.78, -0.025],
     dark,
     2,
   );
+  if(facialRig){const eye=new THREE.MeshStandardMaterial({color:0x16161c});eye.name='Eyes';for(const sign of [-1,1])make(sign>0?'LeftEye':'RightEye',new THREE.SphereGeometry(.018,12,8),[sign*.055,1.78,.18],eye,2);}
   for (const [side, sign, arm, fore, hand, thigh, shin, foot] of [
     ["Left", 1, 4, 5, 6, 11, 12, 13],
     ["Right", -1, 8, 9, 10, 14, 15, 16],

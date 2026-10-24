@@ -179,7 +179,7 @@ try {
             ? "Windows runner"
             : "Linux container headless; Chromium OS sandbox disabled only for this test",
         ...report,
-        windowsLaunch: "NOT TESTED",
+        windowsLaunch: process.platform === "win32" ? "PASS: Electron source application integration; packaged portable launch and game not tested" : "NOT TESTED",
       },
       null,
       2,

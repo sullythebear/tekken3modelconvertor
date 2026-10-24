@@ -1,0 +1,62 @@
+name: Publish Windows development review
+on:
+  push:
+    branches: [main]
+    paths: ['public-review/**', '.github/workflows/publish-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Unit and integration checks
+        run: node --test --test-reporter=junit --test-reporter-destination=public-review/windows-unit.xml "tests/*.test.mjs"
+      - run: npm run build
+      - name: Actual Windows Electron import, export and backup IPC
+        run: node scripts/desktop-test.mjs
+      - run: npm run dist:win:portable
+      - run: node scripts/verify-distribution.mjs
+      - name: Launch actual portable Windows EXE and exercise import / convert / export
+        run: node scripts/portable-smoke.mjs
+      - name: Collect review without source models or game files
+        shell: pwsh
+        run: |
+          Copy-Item artifacts/distribution/verification.json public-review/windows-distribution.json
+          Copy-Item artifacts/desktop/runtime.json public-review/windows-desktop.json
+          Copy-Item artifacts/portable-smoke/windows.json public-review/windows-portable.json
+          $bad = Get-ChildItem public-review -Recurse -File | Where-Object { $_.Extension -notin '.png','.html','.json','.xml','.txt','.md' }
+          if ($bad) { throw "Unexpected file in public review" }
+          Compress-Archive -Path public-review/* -DestinationPath release/Visual-Review.zip
+      - name: Publish prerelease and downloadable files
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          if ($version -notmatch '^0\.7\.0-dev\.') { throw "Review publishing requires development version" }
+          $tag = "v$version"
+          gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title "Conversion Studio $version — visual review required" --notes-file public-review/REVIEW.md
+            if ($LASTEXITCODE -ne 0) { throw "Release creation failed" }
+          }
+          gh release upload $tag release/Visual-Review.zip "release/Tekken3ConversionStudio-$version-x64.exe" --clobber --repo $env:GITHUB_REPOSITORY
+          if ($LASTEXITCODE -ne 0) { throw "Release upload failed" }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Windows-development-review
+          path: |
+            release/*.exe
+            release/Visual-Review.zip
+            public-review/
+            artifacts/desktop/
+            artifacts/distribution/

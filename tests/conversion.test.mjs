@@ -203,11 +203,12 @@ test('Pose preview callback errors restore changed source quaternions',()=>{
  assert.deepEqual(arm.quaternion.toArray(),saved.toArray());
 });
 test('New surface topology honours persisted regional removal and preserves source',async()=>{
- const root=new THREE.Group(),mat=new THREE.MeshStandardMaterial();mat.name='Head';const mesh=new THREE.Mesh(new THREE.PlaneGeometry(2,2,24,24),mat);mesh.name='FaceChart';root.add(mesh);root.updateMatrixWorld(true);
+ const root=new THREE.Group(),mat=new THREE.MeshStandardMaterial();mat.name='Body';const mesh=new THREE.Mesh(new THREE.CylinderGeometry(.4,.45,2,24,24),mat);mesh.name='FaceChart';root.add(mesh);root.updateMatrixWorld(true);
  const source={root,stats:inspectScene(root),warnings:[]};
- const settings={triangles:100,headPriority:2,error:.2,art:{preset:'authentic',reconstruction:'face',meshRoles:{FaceChart:'head'}}};
+ const settings={triangles:100,headPriority:2,error:.2,art:{preset:'authentic',reconstruction:'boots',meshRoles:{FaceChart:'leftLowerLeg'}}};
  const generated=await convertCharacter(source,settings);
  assert.ok(generated.report.some(p=>p.reconstruction.generatedVertices>0));
- const removed=await convertCharacter(source,{...settings,art:{...settings.art,corrections:{head:{remove:true}}}});
- assert.equal(removed.stats.triangles,0);assert.equal(inspectScene(root).triangles,1152);
+ const removed=await convertCharacter(source,{...settings,art:{...settings.art,corrections:{leftLowerLeg:{remove:true},legs:{remove:true}}}});
+ assert.equal(removed.stats.triangles,0);assert.equal(inspectScene(root).triangles,source.stats.triangles);
 });
+test('Flat shading retains exportable indexed groups after source-independent reconstruction',async()=>{const root=new THREE.Group(),m=new THREE.MeshStandardMaterial();m.name='Skin';root.add(new THREE.Mesh(new THREE.SphereGeometry(1,16,12),m));const source={root,stats:inspectScene(root),warnings:[]},r=await convertCharacter(source,{triangles:200,headPriority:2,error:.2,art:{preset:'authentic',flat:true}});r.root.traverse(mesh=>{if(mesh.isMesh){assert.ok(mesh.geometry.index);assert.equal(mesh.geometry.index.count%3,0);}});assert.ok(r.stats.triangles>0);});

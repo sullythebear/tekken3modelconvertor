@@ -42,6 +42,7 @@ for (const dir of [
   "artifacts/benchmark",
   "artifacts/art-director",
   "artifacts/v070",
+  "artifacts/final-review-dev2",
 ]) {
   try {
     await collect(dir, evidence);
@@ -50,7 +51,7 @@ for (const dir of [
   }
 }
 for (const key of Object.keys(evidence))
-  if (key.includes("/restore-target/") || key.endsWith("/failure.png") || ((key.startsWith("artifacts/nikki/")||key.startsWith('artifacts/art-director/')||key.startsWith('artifacts/v070/')) && /\.(zip|t3prep|fbx|glb|gltf|tga|3dm|arc|bin|bns)$/i.test(key)))
+  if (!/\.(png|html|json|xml|txt|md)$/i.test(key) || key.includes("/restore-target/") || key.endsWith("/failure.png") || ((key.startsWith("artifacts/nikki/")||key.startsWith('artifacts/art-director/')||key.startsWith('artifacts/v070/')) && /\.(zip|t3prep|fbx|glb|gltf|tga|3dm|arc|bin|bns)$/i.test(key)))
     delete evidence[key];
 for (const f of [
   "artifacts/unit-results.xml",

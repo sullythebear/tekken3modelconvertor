@@ -1,3 +1,5 @@
+import {optimizeGameCandidate} from '../core/game-optimization.js';
+import {configureSkinning} from '../core/skinning.js';
 import {readDonorPackage} from "../core/donor-package.js";
 import {ART_PRESETS,artSettings} from '../core/art-director.js';
 import {readStudioProject,writeStudioProject} from '../core/studio-project.js';
@@ -29,6 +31,7 @@ import { decodeDonor, decodeTextureArchive, donorPreview } from "../core/donor.j
 import { estimateDonorBind } from "../core/bind-estimator.js";
 import { parseBindProfile } from "../core/bind.js";
 import { reconstructOnDonor } from "../core/template.js";
+import {installLandmarkEditor} from './landmark-editor.js';
 import { View } from "./view.js";
 import {
   nativeSyntheticFixture,
@@ -51,7 +54,7 @@ for(const [key,label]of [['stylization','Polygon stylization'],['face','Face pre
  input.type='range';input.min=0;input.max=100;input.id='art-'+key;input.value=artProfile[key];output.textContent=input.value+'%';labelNode.append(label,output);
  input.oninput=()=>{artProfile[key]=Number(input.value);output.textContent=input.value+'%';artChanged();};$("art-controls").append(labelNode,input);
 }
-function refreshArt(){$('art-occlusion').checked=!!artProfile.occlusionCleanup;$('art-filter').value=artProfile.filter??'nearest';$('art-colorlevels').value=String(artProfile.colorLevels??0);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;for(const key of ['stylization','face','angular','pixelation','hair']){$('art-'+key).value=artProfile[key];$('art-'+key).previousElementSibling.querySelector('output').textContent=artProfile[key]+'%';}}
+function refreshArt(){$('hair-method').value=artProfile.hairMethod??'auto';$('art-occlusion').checked=!!artProfile.occlusionCleanup;$('art-filter').value=artProfile.filter??'nearest';$('art-colorlevels').value=String(artProfile.colorLevels??0);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;for(const key of ['stylization','face','angular','pixelation','hair']){$('art-'+key).value=artProfile[key];$('art-'+key).previousElementSibling.querySelector('output').textContent=artProfile[key]+'%';}}
 function materialSnapshot(){return [...collectMaterials(source.root)].map(m=>({name:m.name,color:m.color?.toArray(),vertexColors:m.vertexColors,alphaTest:m.alphaTest,opacity:m.opacity,normalScale:m.normalScale?.toArray(),maps:Object.fromEntries(['map','alphaMap','normalMap','specularMap'].map(k=>[k,m[k]?{name:m[k].name||null}:null]))}));}
 async function restoreMaterials(states){if(!states)return;const mats=[...collectMaterials(source.root)];if(states.length!==mats.length)throw Error('Project material structure differs');for(let i=0;i<mats.length;i++){
  const m=mats[i],s=states[i];if(s.name!==m.name)throw Error('Project material identity differs');
@@ -350,6 +353,8 @@ function report() {
     conversion: converted
       ? {
           stats: converted.stats,
+          optimization: converted.optimization,
+          materials:describeMaterials(converted.root),
           warnings: converted.warnings,
           regions: converted.report,
           settings: converted.settings,
@@ -1218,6 +1223,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 // Read-only diagnostic/test hooks; no filesystem or IPC bypass.
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
+    configureSkinning,
     setReconstruction(stage) { artProfile.reconstruction=stage; },
     syntheticCharacter,
     deformationProbe,
@@ -1246,3 +1252,18 @@ if (new URLSearchParams(location.search).has("test"))
       return atlas;
     },
   };
+
+installLandmarkEditor({view:sourceView,getSource:()=>source,getProfile:()=>artProfile,changed:artChanged,status});
+$('hair-method').onchange=()=>{artProfile.hairMethod=$('hair-method').value;artChanged();};
+
+$('optimize-candidate').onclick=async()=>{
+ if(!converted||busy||artDirty)return;
+ setBusy(true);
+ try{
+  const candidate=await optimizeGameCandidate(converted,{triangles:Number($('triangles').value)});
+  const baked=$('bake').checked?await bakeAtlas(candidate,{art:candidate.settings.art}):null;
+  if(atlas)disposeScene(atlas.root);disposeScene(converted.root);converted=candidate;atlas=baked;
+  resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();
+  status(`Candidate: ${candidate.stats.triangles}/${candidate.settings.triangles} triangles; artistic model ${candidate.optimization.artisticTriangles}. Donor capacity and game compatibility unverified.`,1);
+ }catch(e){showError(e);}finally{setBusy(false);}
+};

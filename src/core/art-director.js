@@ -11,7 +11,9 @@ export function artSettings(input={}) {
  for(const key of ['stylization','face','angular','pixelation','hair']){
   if(!Number.isFinite(out[key])||out[key]<0||out[key]>100)throw Error('Art parameter outside 0..100: '+key);
  }
- if(![undefined,'v060','face','hair','boots','combined'].includes(out.reconstruction))throw Error('Invalid reconstruction stage');
+ if(![undefined,'v060','dev1','face','hair','boots','combined'].includes(out.reconstruction))throw Error('Invalid reconstruction stage');
+ if(![undefined,'auto','cards','volume','hybrid'].includes(out.hairMethod))throw Error('Invalid hair reconstruction method');
+ for(const [name,point]of Object.entries(out.faceLandmarks??{}))if(!/^FACIAL_/.test(name)||!Array.isArray(point)||point.length!==3||!point.every(Number.isFinite))throw Error('Invalid facial correction');
  out.regions??={};out.corrections??={};
  if(![undefined,0,15,31].includes(out.colorLevels))throw Error('Invalid color quantization');
  if(![undefined,'nearest','linear'].includes(out.filter))throw Error('Invalid texture filter');

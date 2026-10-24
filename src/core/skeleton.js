@@ -205,7 +205,7 @@ export function inspectWeights(root) {
   return { vertices, invalid, unnormalized };
 }
 // A diagnostic of source rig deformation, not a Tekken motion compatibility proof.
-export function deformationProbe(root, analysis, onPose = () => {}) {
+export function deformationProbe(root, analysis, onPose = () => {}, {extended=false}={}) {
   const results = [];
   const q = new THREE.Quaternion();
   const baseline = new Map();
@@ -225,23 +225,25 @@ export function deformationProbe(root, analysis, onPose = () => {}) {
       baseline.set(m, positions);
     }
   });
-  for (const [label, angle] of [
+  for (const [label, angle, channels] of [
     ["guard", 0.45],
     ["reach", 1.0],
     ["crouch", -0.6],
+    ...(extended?[
+      ['idle',0],
+      ['walk',0,[['leftUpperLeg','x',.4],['rightUpperLeg','x',-.4],['leftUpperArm','x',-.2],['rightUpperArm','x',.2]]],
+      ['punch',0,[['leftUpperArm','y',-.9],['leftLowerArm','z',.25]]],
+      ['kick',0,[['rightUpperLeg','x',-.9],['rightLowerLeg','x',.4]]],
+      ['face-motion',0,[['head','y',.3],['@FACIAL_C_LipLower','x',.15]]],
+    ]:[]),
   ]) {
     const changes = [];
-    for (const key of [
-      "leftUpperArm",
-      "rightUpperArm",
-      "leftUpperLeg",
-      "rightUpperLeg",
-    ]) {
-      const b = analysis.mapping[key];
+    for (const [key,axis,degrees] of channels??["leftUpperArm","rightUpperArm","leftUpperLeg","rightUpperLeg"].map(key=>[key,"z",angle])) {
+      const b = key.startsWith("@")?root.getObjectByName(key.slice(1)):analysis.mapping[key];
       if (b) {
         changes.push([b, b.quaternion.clone()]);
         b.quaternion.multiply(
-          q.setFromAxisAngle(new THREE.Vector3(0, 0, 1), angle),
+          q.setFromAxisAngle(new THREE.Vector3(axis==="x"?1:0,axis==="y"?1:0,axis==="z"?1:0), degrees),
         );
       }
     }

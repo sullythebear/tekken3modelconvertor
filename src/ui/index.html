@@ -58,6 +58,12 @@
           <div class="step">02 / PS1 CHARACTER ART DIRECTOR</div>
           <label>Style preset</label><select id="art-preset"><option value="baseline">Baseline · previous reduction</option><option value="authentic" selected>Tekken 3 Authentic · provisional</option><option value="classic">Classic PS1</option><option value="expanded">Tekken 3 Expanded · runtime unverified</option></select>
           <div id="art-controls"></div>
+          <details><summary>Correct facial landmarks and hair method</summary>
+            <label>Facial landmark</label><select id="face-landmark"></select>
+            <button id="face-landmark-pick">Pick landmark on original face</button><button id="face-landmark-reset">Restore automatic landmark</button>
+            <label>Hair reconstruction</label><select id="hair-method"><option value="auto">Automatic · inspect result</option><option value="volume">Volume envelope</option><option value="hybrid">Volume + transparent fringe</option><option value="cards">Preserve cards</option></select>
+            <p class="hint">Pick on the original head surface. Corrections are saved with projects and art profiles. Experimental reconstruction still requires visual review.</p>
+          </details>
           <label class="check"><input id="art-live" type="checkbox" checked> Rebuild after changes</label>
           <label>Local region</label><select id="art-region"><option>head</option><option>torso</option><option>arms</option><option>legs</option><option>hair</option><option>clothing</option><option>accessories</option></select>
           <label>Correct whole-mesh classification</label><select id="art-mesh"></select><button id="art-mesh-apply">Assign selected mesh to local region</button>
@@ -77,6 +83,7 @@
           <button id="reference-measure">Measure local Tekken reference</button><input id="reference-files" type="file" accept=".3dm,.arc" multiple hidden>
           <button id="project-save">Save project</button><button id="project-open">Open project</button><input id="project-file" type="file" accept=".zip" hidden>
           <label>Camera</label><select id="art-camera"><option value="0">Front</option><option value="3.141592653589793">Back</option><option value="1.5707963267948966">Side</option><option value="0.7853981633974483">Three quarter</option><option value="face">Face close-up</option></select>
+          <button id="optimize-candidate">Optimize current art model to requested budget</button>
           <div id="art-allocations"></div><details><summary>Actual exported atlas</summary><img id="art-atlas" style="width:100%;image-rendering:pixelated" alt="Convert to generate texture atlas"></details>
           <p class="hint">Reconstruction, proportions, normals, atlas and dithering affect exported preparation assets. Simulation is preview-only. Native donor export still uses donor topology; artistically calibrated runtime profiles are not yet available.</p>
           <label for="triangles"
