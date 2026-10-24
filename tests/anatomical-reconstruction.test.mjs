@@ -42,3 +42,15 @@ test('Candidate stage meets a requested count without mutating the artistic mesh
 test('Anatomical constrained triangulation replaces poor diagonals while retaining explicit feature edges',async()=>{const {improveTriangulation}=await import('../src/core/constrained-triangulation.js');const p=[[0,0],[3,0],[2,1],[0,1]].map(([x,y])=>new THREE.Vector2(x,y)),t=[[0,1,3],[1,2,3]];assert.ok(improveTriangulation(p,t,[]).flips>0);assert.ok(t.every(tri=>tri.includes(0)&&tri.includes(2)));const locked=[[0,1,3],[1,2,3]];assert.equal(improveTriangulation(p,locked,[[1,3]]).flips,0);assert.deepEqual(locked,[[0,1,3],[1,2,3]]);});
 test('Face preservation changes generated topology, while semantic support loops survive',()=>{const mesh=head(),low=reconstructAnatomicalFace(mesh,mesh.geometry,mesh.material,{detail:10,textureSize:8}),high=reconstructAnatomicalFace(mesh,mesh.geometry,mesh.material,{detail:100,textureSize:8});assert.ok(high.triangles>low.triangles);assert.deepEqual(high.featureLoops,low.featureLoops);});
 test('Physical torso rebake retains positions and creates a real front/back texture',async()=>{const {rebakeTorso}=await import('../src/core/torso-bake.js');const g=new THREE.BoxGeometry(1,2,.5,2,4,2),m=new THREE.MeshStandardMaterial({color:0xb32121}),before=g.attributes.uv.array.slice(),r=rebakeTorso(g,g,m,{side:16});assert.ok(r);assert.equal(r.material.map.image.width,32);assert.equal(r.material.map.image.height,16);assert.deepEqual(r.geometry.attributes.position.array,g.toNonIndexed().attributes.position.array);assert.deepEqual(g.attributes.uv.array,before);assert.ok(r.material.map.image.data.some((v,i)=>i%4===0&&v>0));});
+
+test('Boot projection excludes a lowered hand outside the measured leg footprint',async()=>{
+ const {reconstructBootEnvelope}=await import('../src/core/boot-envelope.js');
+ const {mergeGeometries}=await import('three/addons/utils/BufferGeometryUtils.js');
+ const leg=new THREE.CylinderGeometry(.3,.3,2,24,18).translate(0,1,0);
+ const hand=new THREE.SphereGeometry(.2,16,12).translate(2,1.8,0);
+ const projection=mergeGeometries([leg,hand]);
+ const result=reconstructBootEnvelope(leg,new THREE.MeshStandardMaterial(),{projectionGeometry:projection,textureSize:8});
+ assert.ok(result.geometry,result.reason);result.geometry.computeBoundingBox();
+ assert.ok(result.geometry.boundingBox.max.x<.4,'A same-side hand must not become the outer boot shell');
+ assert.ok(result.projectionTriangles<projection.index.count/3);
+});

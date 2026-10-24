@@ -5,7 +5,17 @@ import {sourceRecords,transferSurfaceAttributes,surfaceTexture} from './projecte
 // Horizontal source cross-sections preserve the toe/heel offsets. Outermost
 // ray intersections select the visible clothing shell over underlying skin.
 export function reconstructBootEnvelope(g,material,{columns=12,textureSize=128,projectionGeometry=g}={}){
- const source=new SurfaceIndex(sourceRecords(projectionGeometry,material,triangleRecord)),box=new THREE.Box3().setFromBufferAttribute(g.attributes.position),size=box.getSize(new THREE.Vector3());
+ const box=new THREE.Box3().setFromBufferAttribute(g.attributes.position),size=box.getSize(new THREE.Vector3());
+ // A same-side / below-hip test also admits a lowered hand. Keep projection
+ // correspondences inside the measured leg's transverse footprint, otherwise
+ // an outer ray selects the hand and stretches a boot all the way to it.
+ const margin=Math.max(size.x,size.z)*.05;
+ const records=sourceRecords(projectionGeometry,material,triangleRecord).filter(t=>{
+  const center=t.points.reduce((p,v)=>p.add(v),new THREE.Vector3()).multiplyScalar(1/3);
+  return center.x>=box.min.x-margin&&center.x<=box.max.x+margin&&center.z>=box.min.z-margin&&center.z<=box.max.z+margin;
+ });
+ if(!records.length)return {geometry:null,reason:'No source surface in measured leg footprint'};
+ const source=new SurfaceIndex(records);
  if(Math.min(size.x,size.z)<size.y*.01||size.y<=0||size.y<Math.min(size.x,size.z)*.5)return {geometry:null,reason:'Leg envelope requires an upright longitudinal region'};
  const radius=Math.hypot(size.x,size.z),cache=new Map();
  function slice(v){

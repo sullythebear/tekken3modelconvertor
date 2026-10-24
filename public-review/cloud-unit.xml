@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="Anatomical face generates explicit eye/mouth loops and a new UV chart despite overlapping source UVs" time="0.457221" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Redundant eye-centre bones cannot masquerade as measured eyelid contours" time="0.044445" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Facial corrections and hair method are validated and survive reusable profiles" time="0.004045" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Measured hair envelope produces opaque three-dimensional geometry for a distinct authored short hairstyle" time="0.020198" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Fourteen preparation tiles reserve space and larger atlases retain actual PS1 tile dimensions" time="0.002259" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Shoe envelope closes its sole and retains forward toe extent without source UV connectivity" time="0.027942" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Candidate stage meets a requested count without mutating the artistic mesh or claiming game verification" time="0.085238" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Anatomical constrained triangulation replaces poor diagonals while retaining explicit feature edges" time="0.001712" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Face preservation changes generated topology, while semantic support loops survive" time="0.694206" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Physical torso rebake retains positions and creates a real front/back texture" time="0.007248" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Boot projection excludes a lowered hand outside the measured leg footprint" time="0.021154" classname="test" file="/workspace/tekken3modelconvertor/tests/anatomical-reconstruction.test.mjs"/>
+	<testcase name="Art presets are distinct and malformed controls are rejected" time="0.001473" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Explicit region corrections override material heuristics without changing automatic hair detection" time="0.000263" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Project round-trip retains binary assets, regional corrections and material state; unsafe entries fail" time="0.006673" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Facial drift is independent of the original preview normalization transform" time="0.006250" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Regional UV crop preserves exact source texture coordinates and leaves source buffers unchanged" time="0.001922" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Shell cleanup removes hidden inner faces but retains outer, opposite-facing and distant surfaces" time="0.001829" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Mixed 4/8-bit staging textures cannot overlap each other or the separate palette area" time="0.000381" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Surface reconstruction rebuilds connectivity while feature anchors stay individually indexed" time="0.410257" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Body shaping edits geometry; adaptive atlases reserve larger face tiles and pixelation changes real pixels" time="0.044313" classname="test" file="/workspace/tekken3modelconvertor/tests/art-director.test.mjs"/>
+	<testcase name="Transactional patch and restore verify actual bytes, SHA256 and backups" time="0.021807" classname="test" file="/workspace/tekken3modelconvertor/tests/backup.test.mjs"/>
+	<testcase name="Wrong source hash refuses writes" time="0.005266" classname="test" file="/workspace/tekken3modelconvertor/tests/backup.test.mjs"/>
+	<testcase name="Restore refuses to overwrite independent edits" time="0.027475" classname="test" file="/workspace/tekken3modelconvertor/tests/backup.test.mjs"/>
+	<testcase name="Traversal, duplicate targets and symlinks cannot escape the game directory" time="0.012599" classname="test" file="/workspace/tekken3modelconvertor/tests/backup.test.mjs"/>
+	<testcase name="Automatic bind estimator reduces three independent seam-copy errors without claiming runtime validation" time="0.035844" classname="test" file="/workspace/tekken3modelconvertor/tests/bind-estimator.test.mjs"/>
+	<testcase name="USA archive extraction is tied to executable table, capacities and exact model records" time="0.043175" classname="test" file="/workspace/tekken3modelconvertor/tests/bns.test.mjs"/>
+	<testcase name="Patched BNS copy changes only donor records and preserves the original input and executable" time="0.012097" classname="test" file="/workspace/tekken3modelconvertor/tests/bns.test.mjs"/>
+	<testcase name="Archive export rejects mismatched donors, oversized models and changed ARC sizes" time="0.021038" classname="test" file="/workspace/tekken3modelconvertor/tests/bns.test.mjs"/>
+	<testcase name="PS1 zero is transparent; opaque black never becomes transparent" time="0.001462" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="16-color TIM round-trip checks actual pixels, CLUT and VRAM coordinates" time="0.000545" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="256-color TIM round-trip checks actual pixels, CLUT and VRAM coordinates" time="0.000386" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="TIM rejects truncated payload, invalid indices and unaligned images" time="0.000561" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Palette reduction deterministic, alpha holes preserved and full opaque red exact" time="0.000766" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="ARC roundtrip preserves binary entries and rejects overlapping ranges" time="0.000358" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="3DMK writer writes native headers, preceding-row vertex pointer and relocations" time="0.001584" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Native writer enforces donor size, GPU packet and signed coordinate budgets" time="0.001534" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Native validator catches primitive references outside the vertex list" time="0.001154" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Native writer rejects degenerate triangles and slot/UV overflow" time="0.000592" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Absent calibration, runtime and game tests never pass the export gate" time="0.000201" classname="test" file="/workspace/tekken3modelconvertor/tests/codecs.test.mjs"/>
+	<testcase name="Reduced-output cleanup retains active UV channels, vertex colours and extra skin sets" time="0.003307" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Semantic mapping supports Mixamo and Unreal names without guessing ambiguous aliases" time="0.000557" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Weighted budget prioritizes head and preserves tiny accessories" time="0.002302" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Anatomical reduction reduces closed geometry and preserves UVs/transforms/source" time="0.056987" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Hundreds of source bones and their bind inverses survive conversion" time="0.061955" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Pose diagnostics detect extreme skin stretching and restore source rotations" time="0.001180" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Interleaved position/UV buffers and normalized byte skin weights are read correctly" time="0.008560" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="A legitimate multi-segment Mixamo spine is mapped to its base instead of rejected as an ambiguous rig" time="0.000792" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Pose preview callback errors restore changed source quaternions" time="0.000305" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="New surface topology honours persisted regional removal and preserves source" time="0.367404" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Flat shading retains exportable indexed groups after source-independent reconstruction" time="0.043971" classname="test" file="/workspace/tekken3modelconvertor/tests/conversion.test.mjs"/>
+	<testcase name="Local iso extraction reads actual file bytes across sector boundaries and preserves the input" time="0.018193" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Local mode1 extraction reads actual file bytes across sector boundaries and preserves the input" time="0.000808" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Local mode2 extraction reads actual file bytes across sector boundaries and preserves the input" time="0.000793" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="ISO extraction follows nested directories and supports stored 150-sector lead-in" time="0.027851" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="ISO extraction rejects duplicate game files and inconsistent extent/endian metadata" time="0.004911" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Raw extraction refuses Form 2, changed sector modes, bad sync and truncated reads" time="0.003420" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Raw extraction batches large records while checking every sector payload" time="0.006753" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="A larger declared volume does not block fully backed donor files in a data-track image" time="0.004887" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Missing selected file/directory sectors still fail with measured disc diagnostics" time="0.011344" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Unsupported logical block size and empty declared volumes are not repaired or guessed" time="0.000750" classname="test" file="/workspace/tekken3modelconvertor/tests/disc-image.test.mjs"/>
+	<testcase name="Extracted donor package reimports exact record bytes and preserves authenticity limits" time="0.121294" classname="test" file="/workspace/tekken3modelconvertor/tests/donor-package.test.mjs"/>
+	<testcase name="Donor package rejects altered records, changed slots and unexpected ZIP entries" time="0.071308" classname="test" file="/workspace/tekken3modelconvertor/tests/donor-package.test.mjs"/>
+	<testcase name="Native donor decoder recovers own vertices, polygon materials and exact UV corners" time="0.004735" classname="test" file="/workspace/tekken3modelconvertor/tests/donor.test.mjs"/>
+	<testcase name="Half-cache deposits and joint blending produce normalized source provenance and correct coordinates" time="0.004706" classname="test" file="/workspace/tekken3modelconvertor/tests/donor.test.mjs"/>
+	<testcase name="Decoder fails closed on unresolved cache references and invalid UVs" time="0.003273" classname="test" file="/workspace/tekken3modelconvertor/tests/donor.test.mjs"/>
+	<testcase name="Donor ARC decoding preserves nontexture entries and identifies CLUT/page correctly" time="0.001825" classname="test" file="/workspace/tekken3modelconvertor/tests/donor.test.mjs"/>
+	<testcase name="Drive downloader follows a confirmation form, scopes cookies, and streams exact ZIP bytes" time="0.080723" classname="test" file="/workspace/tekken3modelconvertor/tests/drive-download.test.mjs"/>
+	<testcase name="Drive downloader rejects changed file ids, off-host redirects, HTML denial and oversized downloads" time="0.005712" classname="test" file="/workspace/tekken3modelconvertor/tests/drive-download.test.mjs"/>
+	<testcase name="Drive downloader preserves existing files and removes incomplete/non-ZIP output" time="0.005041" classname="test" file="/workspace/tekken3modelconvertor/tests/drive-download.test.mjs"/>
+	<testcase name="Native candidate serializes actual 3DMK and T3CM/T3TX, with correct texture-band indices" time="0.006275" classname="test" file="/workspace/tekken3modelconvertor/tests/exporter.test.mjs"/>
+	<testcase name="T3CM rejects malformed lengths, outside relocations and overlapping texture tiles" time="0.006269" classname="test" file="/workspace/tekken3modelconvertor/tests/exporter.test.mjs"/>
+	<testcase name="T3TX packs an 8-bit face and 4-bit clothing with shared palettes without truncating colors" time="0.004040" classname="test" file="/workspace/tekken3modelconvertor/tests/exporter.test.mjs"/>
+	<testcase name="T3CM requires a complete relocation set and rejects conflicting shared palette data" time="0.001963" classname="test" file="/workspace/tekken3modelconvertor/tests/exporter.test.mjs"/>
+	<testcase name="Expanded container refuses uncovered UVs and missing palette allocations" time="0.001739" classname="test" file="/workspace/tekken3modelconvertor/tests/exporter.test.mjs"/>
+	<testcase name="Two-file game backup round-trips real contents with SHA256 and restores to a fresh folder" time="0.017674" classname="test" file="/workspace/tekken3modelconvertor/tests/game-backup.test.mjs"/>
+	<testcase name="Restore over modified files makes a byte-exact rollback backup and rejects corrupt data" time="0.023823" classname="test" file="/workspace/tekken3modelconvertor/tests/game-backup.test.mjs"/>
+	<testcase name="Backup decoder rejects unexpected paths, malformed schema and missing data" time="0.001367" classname="test" file="/workspace/tekken3modelconvertor/tests/game-backup.test.mjs"/>
+	<testcase name="Facial anchors protect nearby source vertices and their neighbourhood without locking unrelated hair or moving geometry" time="0.005483" classname="test" file="/workspace/tekken3modelconvertor/tests/landmarks.test.mjs"/>
+	<testcase name="UV-derived tangent normal respects surface orientation and mirrored UV handedness" time="0.001299" classname="test" file="/workspace/tekken3modelconvertor/tests/material-bake.test.mjs"/>
+	<testcase name="Static detail bake responds to normal, roughness and metal inputs and keeps finite display colors" time="0.001295" classname="test" file="/workspace/tekken3modelconvertor/tests/material-bake.test.mjs"/>
+	<testcase name="Actual material texture channels drive detail baking; default albedo mode remains unlit" time="0.001761" classname="test" file="/workspace/tekken3modelconvertor/tests/material-bake.test.mjs"/>
+	<testcase name="Texture channel classification separates baked normals, packed masks, opacity and tangent data from albedo" time="0.001338" classname="test" file="/workspace/tekken3modelconvertor/tests/material-resolution.test.mjs"/>
+	<testcase name="Fallback preserves vertex-mask attributes and explicit source maps while resolving missing material families" time="0.001693" classname="test" file="/workspace/tekken3modelconvertor/tests/material-resolution.test.mjs"/>
+	<testcase name="Whole-tile UV domains preserve translated coordinates and reject crossing unresolved repeat seams" time="0.001226" classname="test" file="/workspace/tekken3modelconvertor/tests/material-resolution.test.mjs"/>
+	<testcase name="Eye/teeth fallback classifies real source influences and preserves source positions, UVs and weights" time="0.005366" classname="test" file="/workspace/tekken3modelconvertor/tests/material-resolution.test.mjs"/>
+	<testcase name="Native diagnostic frames inherit parent rotations around bind pivots and do not mutate calibration" time="0.003974" classname="test" file="/workspace/tekken3modelconvertor/tests/native-motion.test.mjs"/>
+	<testcase name="Native motion diagnostics evaluate cache blend provenance and expose moving seam gaps" time="0.005826" classname="test" file="/workspace/tekken3modelconvertor/tests/native-motion.test.mjs"/>
+	<testcase name="Native diagnostic rejects unknown poses, nonfinite angles and missing row mappings" time="0.003026" classname="test" file="/workspace/tekken3modelconvertor/tests/native-motion.test.mjs"/>
+	<testcase name="Nikki archive preparation extracts supported asset bytes and ignores embedded documents" time="0.017138" classname="test" file="/workspace/tekken3modelconvertor/tests/nikki-assets.test.mjs"/>
+	<testcase name="Nikki archive preparation refuses traversal, duplicate Windows paths and decompression limits" time="0.028443" classname="test" file="/workspace/tekken3modelconvertor/tests/nikki-assets.test.mjs"/>
+	<testcase name="All twelve skin influences normalize jointly and contribute to CPU deformation across cloned skeletons" time="0.010059" classname="test" file="/workspace/tekken3modelconvertor/tests/skinning.test.mjs"/>
+	<testcase name="Donor retargeting includes influences beyond the first joint set" time="0.005266" classname="test" file="/workspace/tekken3modelconvertor/tests/skinning.test.mjs"/>
+	<testcase name="Missing influence sets and invalid weights are rejected rather than silently discarded" time="0.001261" classname="test" file="/workspace/tekken3modelconvertor/tests/skinning.test.mjs"/>
+	<testcase name="Explicit mappings recover unnamed bones, drive anatomical partitioning, and survive skeleton clones" time="0.005083" classname="test" file="/workspace/tekken3modelconvertor/tests/source-mapping.test.mjs"/>
+	<testcase name="Source mapping profile round-trips to identical rig and refuses mismatched bind pose without mutation" time="0.021066" classname="test" file="/workspace/tekken3modelconvertor/tests/source-mapping.test.mjs"/>
+	<testcase name="Invalid, duplicate and inherited role assignments fail atomically; unmapped is explicit; reset detects names" time="0.002109" classname="test" file="/workspace/tekken3modelconvertor/tests/source-mapping.test.mjs"/>
+	<testcase name="Style reference measures actual native row density and texture dimensions without claiming world proportions" time="0.016564" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="CPU BVH nearest points and barycentrics are geometrically correct" time="0.003299" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="Bind input is donor-hash bound and rejects scaling, reflection and missing rows" time="0.006992" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="Donor reconstruction retargets a source, projects actual vertices, bakes original UVs, preserves ARC members and decodes native output" time="0.037637" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="Native projection fails if an anatomical region is missing or projection exceeds a limit" time="0.001705" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="Art texture controls change native ARC pixels while model/ARC capacities and opaque members remain valid" time="0.021277" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="Normal rebuild produces complete header relocations and stays inside measured budgets" time="0.002077" classname="test" file="/workspace/tekken3modelconvertor/tests/template.test.mjs"/>
+	<testcase name="New chart topology lies on the original surface with exact UV correspondence and categorical joints" time="0.057688" classname="test" file="/workspace/tekken3modelconvertor/tests/uv-reconstruction.test.mjs"/>
+	<testcase name="Overlapping UVs on separate physical layers rebuild independently without bridging" time="0.048913" classname="test" file="/workspace/tekken3modelconvertor/tests/uv-reconstruction.test.mjs"/>
+	<testcase name="Missing UVs and empty charts retain the fallback path" time="0.000778" classname="test" file="/workspace/tekken3modelconvertor/tests/uv-reconstruction.test.mjs"/>
+	<testcase name="Nonfinite UVs and invalid target counts cannot hang the sampling loop" time="0.002010" classname="test" file="/workspace/tekken3modelconvertor/tests/uv-reconstruction.test.mjs"/>
+	<testcase name="Additional influence sets and normalized weights survive chart reconstruction" time="0.037741" classname="test" file="/workspace/tekken3modelconvertor/tests/uv-reconstruction.test.mjs"/>
+	<testcase name="Windows runner requires user assets and refuses malformed configuration" time="0.016766" classname="test" file="/workspace/tekken3modelconvertor/tests/windows-test.test.mjs"/>
+	<testcase name="Runtime receipts bind exact candidate, run and donor and require isolated installation hashes" time="0.000918" classname="test" file="/workspace/tekken3modelconvertor/tests/windows-test.test.mjs"/>
+	<testcase name="Blocked checks cannot be misreported as PASS and report escapes untrusted errors" time="0.000447" classname="test" file="/workspace/tekken3modelconvertor/tests/windows-test.test.mjs"/>
+	<testcase name="Test processes preserve literal arguments, exit codes, stderr and terminate on timeout" time="0.204070" classname="test" file="/workspace/tekken3modelconvertor/tests/windows-test.test.mjs"/>
+	<!-- tests 112 -->
+	<!-- suites 0 -->
+	<!-- pass 112 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 2460.805877 -->
+</testsuites>

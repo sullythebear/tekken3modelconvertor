@@ -1,5 +1,5 @@
 import {spawn} from 'node:child_process';
-import {mkdir,readFile,writeFile,readdir,copyFile} from 'node:fs/promises';
+import {mkdir,readFile,writeFile,readdir,copyFile,access} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const root=process.env.REVIEW_OUTPUT??'artifacts/review-dev2';
 const models=process.env.REVIEW_MODELS?.split(',')??[...(process.env.NIKKI_DIR?['nikki']:[]),'synthetic','cesium','crest'];
@@ -20,7 +20,12 @@ for(const model of models){
  if(!results.length)continue;
  html+=`<h2>${e(model)}</h2><section><table><tr><th>Original</th>${results.map(r=>`<th>${e(labels[r.stage])}</th>`).join('')}</tr>`;
  for(const view of ['front','back','left-side','right-side','three-quarter','face','face-side','face-quarter','hair-close','boots-close','left-boot-close','right-boot-close','wireframe','idle','walk','crouch','reach','punch','kick','face-motion-close']){
-  html+='<tr>'+[`${results[0].stage}/${model}-authentic/${view}-source.png`,...results.map(r=>`${r.stage}/${model}-authentic/${view}-prepared.png`)].map(path=>`<td><a href="${e(path)}"><img loading="lazy" src="${e(path)}" alt="${e(view)}"></a><br>${e(view)}</td>`).join('')+'</tr>';
+  const cells=[];
+  for(const path of [`${results[0].stage}/${model}-authentic/${view}-source.png`,...results.map(r=>`${r.stage}/${model}-authentic/${view}-prepared.png`)]){
+   try{await access(`${root}/${path}`);cells.push(`<td><a href="${e(path)}"><img loading="lazy" src="${e(path)}" alt="${e(view)}"></a><br>${e(view)}</td>`);}
+   catch(err){if(err.code!=='ENOENT')throw err;cells.push(`<td>${e(view)}: not available for this source rig</td>`);}
+  }
+  html+='<tr>'+cells.join('')+'</tr>';
  }
  html+='<tr><td>Measured output</td>'+results.map(r=>{const c=r.report.report.conversion;return `<td>${c.stats.triangles} triangles<br>${c.stats.materials} preparation materials<br>Requested: ${c.settings.triangles}; ${c.stats.triangles<=c.settings.triangles?'count met':'COUNT EXCEEDED'}<br><a href="${r.stage}/${model}-authentic/report.json">Full geometry / texture / pose / export readback</a></td>`;}).join('')+'</tr></table></section>';
  summary.models.push({model,stages:results.map(r=>({stage:r.stage,stats:r.report.report.conversion.stats,optimization:r.report.report.conversion.optimization??null,poses:r.report.report.conversion.poses,exportValidation:r.report.exportValidation,quality:r.report.report.conversion.quality}))});

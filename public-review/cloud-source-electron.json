@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "platform": "linux",
+  "packaged": false,
+  "version": "0.7.0-dev.2",
+  "nodeIsolated": true,
+  "sourceTriangles": 4784,
+  "convertedTriangles": 1917,
+  "atlasTiles": 5,
+  "exportBytes": 374184,
+  "fixture": "authored synthetic; no Nikki or game files",
+  "gameVerified": false,
+  "mode": "SOURCE ELECTRON ONLY",
+  "executableSha256": "b36c3ce9b423098a7854f4912f730b0654b41ae183818f887b8f1cd0a90725eb"
+}

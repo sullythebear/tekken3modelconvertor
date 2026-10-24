@@ -1,0 +1,1368 @@
+{
+  "model": "synthetic",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 15,
+        "vertices": 3215,
+        "triangles": 4784,
+        "materials": 3,
+        "textures": 0,
+        "skinnedMeshes": 15,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "authored.glb",
+          "bytes": 253604,
+          "role": "model"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 17,
+        "mapping": [
+          {
+            "role": "hips",
+            "name": "Hips",
+            "row": 3,
+            "confidence": "name-match",
+            "position": [
+              0,
+              0.95,
+              0
+            ]
+          },
+          {
+            "role": "spine",
+            "name": "Spine",
+            "row": 1,
+            "confidence": "name-match",
+            "position": [
+              0,
+              1.2,
+              0
+            ]
+          },
+          {
+            "role": "head",
+            "name": "Head",
+            "row": 19,
+            "confidence": "name-match",
+            "position": [
+              0,
+              1.68,
+              0
+            ]
+          },
+          {
+            "role": "leftShoulder",
+            "name": "LeftShoulder",
+            "row": 11,
+            "confidence": "name-match",
+            "position": [
+              0.16,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftUpperArm",
+            "name": "LeftArm",
+            "row": 12,
+            "confidence": "name-match",
+            "position": [
+              0.28,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftLowerArm",
+            "name": "LeftForeArm",
+            "row": 13,
+            "confidence": "name-match",
+            "position": [
+              0.5800000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftHand",
+            "name": "LeftHand",
+            "row": 14,
+            "confidence": "name-match",
+            "position": [
+              0.8400000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightShoulder",
+            "name": "RightShoulder",
+            "row": 15,
+            "confidence": "name-match",
+            "position": [
+              -0.16,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightUpperArm",
+            "name": "RightArm",
+            "row": 16,
+            "confidence": "name-match",
+            "position": [
+              -0.28,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightLowerArm",
+            "name": "RightForeArm",
+            "row": 17,
+            "confidence": "name-match",
+            "position": [
+              -0.5800000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightHand",
+            "name": "RightHand",
+            "row": 18,
+            "confidence": "name-match",
+            "position": [
+              -0.8400000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftUpperLeg",
+            "name": "LeftUpLeg",
+            "row": 5,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.8999999999999999,
+              0
+            ]
+          },
+          {
+            "role": "leftLowerLeg",
+            "name": "LeftLeg",
+            "row": 6,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.4799999999999999,
+              0
+            ]
+          },
+          {
+            "role": "leftFoot",
+            "name": "LeftFoot",
+            "row": 7,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.06999999999999995,
+              0.06
+            ]
+          },
+          {
+            "role": "rightUpperLeg",
+            "name": "RightUpLeg",
+            "row": 8,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.8999999999999999,
+              0
+            ]
+          },
+          {
+            "role": "rightLowerLeg",
+            "name": "RightLeg",
+            "row": 9,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.4799999999999999,
+              0
+            ]
+          },
+          {
+            "role": "rightFoot",
+            "name": "RightFoot",
+            "row": 10,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.06999999999999995,
+              0.06
+            ]
+          }
+        ],
+        "missing": [],
+        "ambiguous": [],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 3215,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 1,
+        "extendedMeshes": 0
+      },
+      "materials": [
+        {
+          "name": "Clothing",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Skin",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Hair",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        }
+      ],
+      "warnings": []
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 15,
+        "vertices": 662,
+        "triangles": 893,
+        "materials": 5,
+        "textures": 3,
+        "skinnedMeshes": 15,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "optimization": {
+        "artisticTriangles": 1917,
+        "candidateTriangles": 893,
+        "requestedTriangles": 900,
+        "budgetMet": true,
+        "capacityEvidence": "No original donor supplied; requested count is an experiment, not a Tekken capacity measurement",
+        "losses": [
+          {
+            "mesh": "Torso",
+            "region": "spine",
+            "material": "Clothing",
+            "before": 125,
+            "target": 33,
+            "after": 32,
+            "error": 0.1449386030435562,
+            "retainedFraction": 0.256,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "Head_1",
+            "region": "head",
+            "material": "Skin",
+            "before": 278,
+            "target": 48,
+            "after": 48,
+            "error": 0.10073872655630112,
+            "retainedFraction": 0.17266187050359713,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "Hair",
+            "region": "hair",
+            "material": "Hair_volume",
+            "before": 750,
+            "target": 311,
+            "after": 311,
+            "error": 0.010305081494152546,
+            "retainedFraction": 0.4146666666666667,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftUpperArm",
+            "region": "leftUpperArm",
+            "material": "Skin",
+            "before": 28,
+            "target": 16,
+            "after": 16,
+            "error": 0.07091271132230759,
+            "retainedFraction": 0.5714285714285714,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftForearm",
+            "region": "leftLowerArm",
+            "material": "Skin",
+            "before": 28,
+            "target": 16,
+            "after": 16,
+            "error": 0.0655253455042839,
+            "retainedFraction": 0.5714285714285714,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftHand_1",
+            "region": "leftHand",
+            "material": "Skin",
+            "before": 14,
+            "target": 12,
+            "after": 12,
+            "error": 0.3295310139656067,
+            "retainedFraction": 0.8571428571428571,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftThigh",
+            "region": "leftUpperLeg",
+            "material": "Clothing",
+            "before": 30,
+            "target": 17,
+            "after": 16,
+            "error": 0.09303321689367294,
+            "retainedFraction": 0.5333333333333333,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftShin",
+            "region": "leftLowerLeg",
+            "material": "Skin",
+            "before": 30,
+            "target": 16,
+            "after": 16,
+            "error": 0.060036156326532364,
+            "retainedFraction": 0.5333333333333333,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "LeftFoot_1",
+            "region": "hair",
+            "material": "Hair_volume",
+            "before": 256,
+            "target": 180,
+            "after": 180,
+            "error": 0.00248941732570529,
+            "retainedFraction": 0.703125,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightUpperArm",
+            "region": "rightUpperArm",
+            "material": "Skin",
+            "before": 26,
+            "target": 15,
+            "after": 14,
+            "error": 0.10900938510894775,
+            "retainedFraction": 0.5384615384615384,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightForearm",
+            "region": "rightLowerArm",
+            "material": "Skin",
+            "before": 26,
+            "target": 15,
+            "after": 14,
+            "error": 0.10936616361141205,
+            "retainedFraction": 0.5384615384615384,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightHand_1",
+            "region": "rightHand",
+            "material": "Skin",
+            "before": 14,
+            "target": 11,
+            "after": 10,
+            "error": 0.33964288234710693,
+            "retainedFraction": 0.7142857142857143,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightThigh",
+            "region": "rightUpperLeg",
+            "material": "Clothing",
+            "before": 28,
+            "target": 15,
+            "after": 14,
+            "error": 0.10582350939512253,
+            "retainedFraction": 0.5,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightShin",
+            "region": "rightLowerLeg",
+            "material": "Skin",
+            "before": 28,
+            "target": 15,
+            "after": 14,
+            "error": 0.06559040397405624,
+            "retainedFraction": 0.5,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          },
+          {
+            "mesh": "RightFoot_1",
+            "region": "hair",
+            "material": "Hair_volume",
+            "before": 256,
+            "target": 180,
+            "after": 180,
+            "error": 0.0024878536351025105,
+            "retainedFraction": 0.703125,
+            "warning": "Lossy geometry reduction; inspect this region in the report"
+          }
+        ]
+      },
+      "materials": [
+        {
+          "name": "Clothing",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Skin",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Hair_volume",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        },
+        {
+          "name": "Hair_volume",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        },
+        {
+          "name": "Hair_volume",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        }
+      ],
+      "warnings": [
+        "Artistic stage: Appearance error / protected topology prevent the requested budget: 1917 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "Artistic stage: This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+        "Lossy candidate optimization performed. Native capacity and in-game appearance remain unverified."
+      ],
+      "regions": [
+        {
+          "mesh": "Torso",
+          "region": "spine",
+          "material": "Clothing",
+          "before": 125,
+          "target": 33,
+          "after": 32,
+          "error": 0.1449386030435562,
+          "retainedFraction": 0.256,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "Head_1",
+          "region": "head",
+          "material": "Skin",
+          "before": 278,
+          "target": 48,
+          "after": 48,
+          "error": 0.10073872655630112,
+          "retainedFraction": 0.17266187050359713,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "Hair",
+          "region": "hair",
+          "material": "Hair_volume",
+          "before": 750,
+          "target": 311,
+          "after": 311,
+          "error": 0.010305081494152546,
+          "retainedFraction": 0.4146666666666667,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftUpperArm",
+          "region": "leftUpperArm",
+          "material": "Skin",
+          "before": 28,
+          "target": 16,
+          "after": 16,
+          "error": 0.07091271132230759,
+          "retainedFraction": 0.5714285714285714,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftForearm",
+          "region": "leftLowerArm",
+          "material": "Skin",
+          "before": 28,
+          "target": 16,
+          "after": 16,
+          "error": 0.0655253455042839,
+          "retainedFraction": 0.5714285714285714,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftHand_1",
+          "region": "leftHand",
+          "material": "Skin",
+          "before": 14,
+          "target": 12,
+          "after": 12,
+          "error": 0.3295310139656067,
+          "retainedFraction": 0.8571428571428571,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftThigh",
+          "region": "leftUpperLeg",
+          "material": "Clothing",
+          "before": 30,
+          "target": 17,
+          "after": 16,
+          "error": 0.09303321689367294,
+          "retainedFraction": 0.5333333333333333,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftShin",
+          "region": "leftLowerLeg",
+          "material": "Skin",
+          "before": 30,
+          "target": 16,
+          "after": 16,
+          "error": 0.060036156326532364,
+          "retainedFraction": 0.5333333333333333,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "LeftFoot_1",
+          "region": "hair",
+          "material": "Hair_volume",
+          "before": 256,
+          "target": 180,
+          "after": 180,
+          "error": 0.00248941732570529,
+          "retainedFraction": 0.703125,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightUpperArm",
+          "region": "rightUpperArm",
+          "material": "Skin",
+          "before": 26,
+          "target": 15,
+          "after": 14,
+          "error": 0.10900938510894775,
+          "retainedFraction": 0.5384615384615384,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightForearm",
+          "region": "rightLowerArm",
+          "material": "Skin",
+          "before": 26,
+          "target": 15,
+          "after": 14,
+          "error": 0.10936616361141205,
+          "retainedFraction": 0.5384615384615384,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightHand_1",
+          "region": "rightHand",
+          "material": "Skin",
+          "before": 14,
+          "target": 11,
+          "after": 10,
+          "error": 0.33964288234710693,
+          "retainedFraction": 0.7142857142857143,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightThigh",
+          "region": "rightUpperLeg",
+          "material": "Clothing",
+          "before": 28,
+          "target": 15,
+          "after": 14,
+          "error": 0.10582350939512253,
+          "retainedFraction": 0.5,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightShin",
+          "region": "rightLowerLeg",
+          "material": "Skin",
+          "before": 28,
+          "target": 15,
+          "after": 14,
+          "error": 0.06559040397405624,
+          "retainedFraction": 0.5,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        },
+        {
+          "mesh": "RightFoot_1",
+          "region": "hair",
+          "material": "Hair_volume",
+          "before": 256,
+          "target": 180,
+          "after": 180,
+          "error": 0.0024878536351025105,
+          "retainedFraction": 0.703125,
+          "warning": "Lossy geometry reduction; inspect this region in the report"
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "combined",
+          "dither": false,
+          "flat": false
+        },
+        "phase": "optimized candidate"
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "finite": true,
+          "maxDisplacement": 0.40279986703862236,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.000000000000005,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "finite": true,
+          "maxDisplacement": 0.8655626853258295,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000089,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "finite": true,
+          "maxDisplacement": 0.5335370020763346,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000062,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "finite": true,
+          "maxDisplacement": 0.3650776961374622,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000075,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "finite": true,
+          "maxDisplacement": 0.5875698704746266,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000013,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "finite": true,
+          "maxDisplacement": 0.6177914232677622,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000109,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "finite": true,
+          "maxDisplacement": 0.06400712572864992,
+          "samples": 662,
+          "checkedEdges": 2679,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000007,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "NOT MEASURED: no semantic face surface",
+          "reference": "artistic intermediate"
+        },
+        "sourceHealth": {
+          "triangles": 4784,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 1.116429210468012,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 893,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 0.8699653253946414,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": true,
+        "missingRegions": [],
+        "triangles": 893,
+        "sourceTriangles": 4784,
+        "reconstruction": [
+          {
+            "region": "torso",
+            "material": "Clothing",
+            "maxDistance": 0,
+            "clusters": 473,
+            "step": 0.11696020383359966,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.06827744805959836,
+            "lockedVertices": 129,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.004494662284851074
+            }
+          },
+          {
+            "region": "head",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 607,
+            "step": 0.07797347496015443,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.013717844455205096,
+            "lockedVertices": 145,
+            "occludedShellTriangles": 0,
+            "fallbackReason": "Both eye centres and nose required",
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "hair",
+            "material": "Hair_volume",
+            "method": "opacity-aware radial hair volume",
+            "generatedVertices": 418,
+            "triangles": 750,
+            "alphaRejected": 0,
+            "oppositeRejected": 36,
+            "maximumDiscardedWeight": 0,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 143,
+            "step": 0.044931080249876125,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.026229259162262753,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.0012250000052154062
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 143,
+            "step": 0.03778496445263697,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.022057596201859243,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.001006249040365219
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 51,
+            "step": 0.023394706237048046,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.013657045624186384,
+            "lockedVertices": 35,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.0007875000312924384
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Clothing",
+            "maxDistance": 0,
+            "clusters": 165,
+            "step": 0.06307521805872275,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.03682119886674739,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0016633477434515951
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 165,
+            "step": 0.055675977139852444,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.032501769941697144,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0011303070653229952
+            }
+          },
+          {
+            "region": "hair",
+            "material": "Hair_volume",
+            "method": "opacity-aware radial hair volume",
+            "generatedVertices": 153,
+            "triangles": 256,
+            "alphaRejected": 0,
+            "oppositeRejected": 5640,
+            "maximumDiscardedWeight": 0,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 143,
+            "step": 0.044931080249876125,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.026229259162262753,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.0011366581916809082
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 143,
+            "step": 0.03778496445263697,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.022057596201859243,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.001006249040365219
+            }
+          },
+          {
+            "region": "arms",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 51,
+            "step": 0.023394706237048046,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.013657045624186384,
+            "lockedVertices": 35,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.0007875000312924384
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Clothing",
+            "maxDistance": 0,
+            "clusters": 165,
+            "step": 0.06307521805872275,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.03682119886674739,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0016633477434515951
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Skin",
+            "maxDistance": 0,
+            "clusters": 165,
+            "step": 0.055675977139852444,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.032501769941697144,
+            "lockedVertices": 46,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0010823223274201153
+            }
+          },
+          {
+            "region": "hair",
+            "material": "Hair_volume",
+            "method": "opacity-aware radial hair volume",
+            "generatedVertices": 153,
+            "triangles": 256,
+            "alphaRejected": 0,
+            "oppositeRejected": 5640,
+            "maximumDiscardedWeight": 0,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 0
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 0
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW AFTER LOSSY OPTIMIZATION",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied."
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 25600,
+      "paletteBytes": 160,
+      "tiles": [
+        {
+          "material": "Clothing",
+          "clut": 30768,
+          "x": 384,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "Skin",
+          "clut": 30832,
+          "x": 416,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "Hair_volume",
+          "clut": 30896,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "Hair_volume",
+          "clut": 30960,
+          "x": 128,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "Hair_volume",
+          "clut": 31024,
+          "x": 256,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.8931679020302933,
+      "sourcePixels": 6206,
+      "preparedPixels": 5543
+    },
+    {
+      "view": "side",
+      "iou": 0.8787290807664322,
+      "sourcePixels": 4122,
+      "preparedPixels": 3624
+    },
+    {
+      "view": "left-side",
+      "iou": 0.8811953352769679,
+      "sourcePixels": 4116,
+      "preparedPixels": 3627
+    },
+    {
+      "view": "right-side",
+      "iou": 0.8787290807664322,
+      "sourcePixels": 4122,
+      "preparedPixels": 3624
+    },
+    {
+      "view": "back",
+      "iou": 0.8891765086555573,
+      "sourcePixels": 6181,
+      "preparedPixels": 5496
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.8863784135240572,
+      "sourcePixels": 6151,
+      "preparedPixels": 5454
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "finite": true,
+      "maxDisplacement": 0.402804315730053,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000169,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "finite": true,
+      "maxDisplacement": 0.8655722449648494,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000162,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "finite": true,
+      "maxDisplacement": 0.5335428946837816,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000012,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "finite": true,
+      "maxDisplacement": 0.3650815881490855,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000014,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "finite": true,
+      "maxDisplacement": 0.5875588102041032,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000015,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "finite": true,
+      "maxDisplacement": 0.6177961935368387,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000062,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "finite": true,
+      "maxDisplacement": 0.06424974913472917,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000016,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "exportValidation": {
+    "glbSha256": "32ddae2e30ecff527c6e0f91a036cb519aa49d58d4daedd13f8c2aec77133a33",
+    "timHashes": {
+      "textures/00.tim": "6191df56149a4b84787e39a2b4c478c215fadaa226682f375e942029ac7f5dfe",
+      "textures/01.tim": "ef8c8eab27e10f01a2838f0df11fefe0537d4a922e80e0dd513f25ef7848fa8b",
+      "textures/02.tim": "10a39bafddf881a5ca10724eb1e447c1a45d7ade27dadfc6996f8257e5c2397d",
+      "textures/03.tim": "f2691f4f531cd2ce13a9a082564a5858978b7a8eae223e401f630c35d56f5c5d",
+      "textures/04.tim": "94eaeafe3ca53eac8971a6e527bf8dda91790ff22d3419232d8216b1207ae760"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/04.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}

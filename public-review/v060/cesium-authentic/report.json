@@ -1,0 +1,776 @@
+{
+  "model": "cesium",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 1,
+        "vertices": 3273,
+        "triangles": 4672,
+        "materials": 1,
+        "textures": 1,
+        "skinnedMeshes": 1,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "CesiumMan.glb",
+          "bytes": 438044,
+          "role": "model"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 19,
+        "mapping": [],
+        "missing": [
+          "hips",
+          "spine",
+          "head",
+          "leftShoulder",
+          "leftUpperArm",
+          "leftLowerArm",
+          "leftHand",
+          "rightShoulder",
+          "rightUpperArm",
+          "rightLowerArm",
+          "rightHand",
+          "leftUpperLeg",
+          "leftLowerLeg",
+          "leftFoot",
+          "rightUpperLeg",
+          "rightLowerLeg",
+          "rightFoot"
+        ],
+        "ambiguous": [],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 3273,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 4,
+        "extendedMeshes": 0
+      },
+      "materials": [
+        {
+          "name": "Cesium_Man-effect",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        }
+      ],
+      "warnings": []
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 1,
+        "vertices": 767,
+        "triangles": 953,
+        "materials": 1,
+        "textures": 1,
+        "skinnedMeshes": 1,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "materials": [
+        {
+          "name": "Cesium_Man-effect",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        }
+      ],
+      "warnings": [
+        "Appearance error / protected topology prevent the requested budget: 953 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+      ],
+      "regions": [
+        {
+          "mesh": "Cesium_Man",
+          "region": "spine",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1408,
+          "target": 105,
+          "after": 148,
+          "error": 0.07501426339149475,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.02911031088397355,
+            "clusters": 686,
+            "step": 0.28052278474551817,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 0.09360911164583888,
+            "lockedVertices": 221,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.0027295975573360916
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "leftLowerLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 352,
+          "target": 53,
+          "after": 52,
+          "error": 0.0488496795296669,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.03036801417680414,
+            "clusters": 156,
+            "step": 0.09793781172377206,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 0.03268137937642585,
+            "lockedVertices": 48,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0007932096300646661
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "rightLowerLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 352,
+          "target": 53,
+          "after": 53,
+          "error": 0.04524565488100052,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.03039541706639911,
+            "clusters": 154,
+            "step": 0.0839530865300841,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 0.032681377505378695,
+            "lockedVertices": 48,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0007932085543870925
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "head",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 2204,
+          "target": 598,
+          "after": 598,
+          "error": 0.009094862267374992,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.010852793949895563,
+            "clusters": 1214,
+            "step": 0.012113481267415863,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.011326724415275293,
+            "lockedVertices": 241,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "leftUpperLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 146,
+          "target": 34,
+          "after": 34,
+          "error": 0.07191768288612366,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.013043070893744419,
+            "clusters": 105,
+            "step": 0.07931251767306233,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 0.030874890228681773,
+            "lockedVertices": 63,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0016067511634901164
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "rightUpperLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 138,
+          "target": 33,
+          "after": 32,
+          "error": 0.04688575491309166,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.012811212141238027,
+            "clusters": 91,
+            "step": 0.04988925921600062,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 0.029123677910979966,
+            "lockedVertices": 55,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0010659784171730279
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "hips",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 72,
+          "target": 24,
+          "after": 36,
+          "error": 0.03200375288724899,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 57,
+            "step": 0.0459897456875389,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 0.026847272572493718,
+            "lockedVertices": 57,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.0016021686792373655
+            }
+          }
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "v060",
+          "dither": false,
+          "flat": false
+        }
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "finite": true,
+          "maxDisplacement": 3.7998450128818895e-7,
+          "samples": 767,
+          "checkedEdges": 2859,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "NOT MEASURED: no semantic face surface"
+        },
+        "sourceHealth": {
+          "triangles": 4672,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 0.49055281074101903,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 953,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 0.5589346057288322,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 953,
+        "sourceTriangles": 4672,
+        "reconstruction": [
+          {
+            "region": "torso",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.02911031088397355,
+            "clusters": 686,
+            "step": 0.28052278474551817,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.09360911164583888,
+            "lockedVertices": 221,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.0027295975573360916
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.03036801417680414,
+            "clusters": 156,
+            "step": 0.09793781172377206,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.03268137937642585,
+            "lockedVertices": 48,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0007932096300646661
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.03039541706639911,
+            "clusters": 154,
+            "step": 0.0839530865300841,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.032681377505378695,
+            "lockedVertices": 48,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0007932085543870925
+            }
+          },
+          {
+            "region": "head",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.010852793949895563,
+            "clusters": 1214,
+            "step": 0.012113481267415863,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.011326724415275293,
+            "lockedVertices": 241,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.013043070893744419,
+            "clusters": 105,
+            "step": 0.07931251767306233,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.030874890228681773,
+            "lockedVertices": 63,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0016067511634901164
+            }
+          },
+          {
+            "region": "legs",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0.012811212141238027,
+            "clusters": 91,
+            "step": 0.04988925921600062,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.029123677910979966,
+            "lockedVertices": 55,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.0010659784171730279
+            }
+          },
+          {
+            "region": "torso",
+            "material": "Cesium_Man-effect",
+            "maxDistance": 0,
+            "clusters": 57,
+            "step": 0.0459897456875389,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.026847272572493718,
+            "lockedVertices": 57,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.0016021686792373655
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 0
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 0
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied."
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 512,
+      "paletteBytes": 32,
+      "tiles": [
+        {
+          "material": "Cesium_Man-effect",
+          "clut": 30768,
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.8864711447492905,
+      "sourcePixels": 5261,
+      "preparedPixels": 4709
+    },
+    {
+      "view": "side",
+      "iou": 0.9176860346585117,
+      "sourcePixels": 3905,
+      "preparedPixels": 3620
+    },
+    {
+      "view": "left-side",
+      "iou": 0.9139511201629328,
+      "sourcePixels": 3905,
+      "preparedPixels": 3613
+    },
+    {
+      "view": "right-side",
+      "iou": 0.9176860346585117,
+      "sourcePixels": 3905,
+      "preparedPixels": 3620
+    },
+    {
+      "view": "back",
+      "iou": 0.8737502450499902,
+      "sourcePixels": 5083,
+      "preparedPixels": 4475
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.9166087560806115,
+      "sourcePixels": 5720,
+      "preparedPixels": 5312
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "exportValidation": {
+    "glbSha256": "84c6f4668541044ea422e9969fc09c89d1bcd72e9670168a2449ea9eb6bc15f7",
+    "timHashes": {
+      "textures/00.tim": "c0b096edbdf212b5dec8a3851a9948aa24e73e2246be16eb68d4f548e6be5126"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}

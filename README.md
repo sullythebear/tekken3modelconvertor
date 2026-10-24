@@ -1,3 +1,5 @@
+> **0.7.0-dev.2 recovery:** [source recovery inventory](docs/RECOVERY_070_DEV2.md) · [reconstruction and review instructions](docs/REVIEW_070_DEV2.md). Development evidence requires human visual acceptance; game compatibility is unverified.
+
 # 0.7.0-dev.1 reconstruction checkpoint
 
 New UV-surface reconstruction targets damaged Nikki boot shafts. Face/hair experiments retain fallbacks and are not artistically accepted. See [implementation and reproduction](docs/RECONSTRUCTION_070.md). This is not a completed 0.7 release or verified game integration.

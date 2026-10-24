@@ -1,13 +1,17 @@
 name: Publish Windows development review
 on:
   push:
-    branches: [main]
-    paths: ['public-review/**', '.github/workflows/publish-review.yml']
+    branches: [main, recovery/070-dev2]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: development-review-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   review:
+    permissions:
+      contents: write
     runs-on: windows-latest
     timeout-minutes: 30
     steps:
@@ -17,6 +21,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - run: New-Item -ItemType Directory -Force public-review
       - name: Unit and integration checks
         run: node --test --test-reporter=junit --test-reporter-destination=public-review/windows-unit.xml "tests/*.test.mjs"
       - run: npm run build
