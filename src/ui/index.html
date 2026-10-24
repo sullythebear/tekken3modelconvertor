@@ -55,7 +55,30 @@
           </details>
         </section>
         <section>
-          <div class="step">02 / CONVERSION</div>
+          <div class="step">02 / PS1 CHARACTER ART DIRECTOR</div>
+          <label>Style preset</label><select id="art-preset"><option value="baseline">Baseline · previous reduction</option><option value="authentic" selected>Tekken 3 Authentic · provisional</option><option value="classic">Classic PS1</option><option value="expanded">Tekken 3 Expanded · runtime unverified</option></select>
+          <div id="art-controls"></div>
+          <label class="check"><input id="art-live" type="checkbox" checked> Rebuild after changes</label>
+          <label>Local region</label><select id="art-region"><option>head</option><option>torso</option><option>arms</option><option>legs</option><option>hair</option><option>clothing</option><option>accessories</option></select>
+          <label>Correct whole-mesh classification</label><select id="art-mesh"></select><button id="art-mesh-apply">Assign selected mesh to local region</button>
+          <label>Region priority (0.25–4)</label><input id="art-priority" type="number" min="0.25" max="4" step="0.25" value="1">
+          <label>Region proportion (0.8–1.2)</label><input id="art-scale" type="number" min="0.8" max="1.2" step="0.01" value="1">
+          <label class="check"><input id="art-remove" type="checkbox"> Omit selected region</label>
+          <label class="check"><input id="art-dither" type="checkbox"> Bake ordered color dithering</label>
+          <label class="check"><input id="art-flat" type="checkbox"> Export flat face normals</label>
+          <label class="check"><input id="art-occlusion" type="checkbox"> Experimental inner-shell removal · inspect joints</label>
+          <label class="check"><input id="art-resolution" type="checkbox"> Simulation: 320 × 240 preview only</label>
+          <label>Export texture filtering</label><select id="art-filter"><option value="nearest">Nearest</option><option value="linear">Linear</option></select>
+          <label>Color quantization before palette bake</label><select id="art-colorlevels"><option value="0">Auto · pixelation strength</option><option value="31">32 levels per channel</option><option value="15">16 levels per channel</option></select>
+          <label class="check"><input id="preview-snap" type="checkbox"> Preview only: vertex snapping</label>
+          <label class="check"><input id="preview-affine" type="checkbox"> Preview only: affine UV interpolation</label>
+          <label class="check"><input id="preview-gouraud" type="checkbox"> Preview only: Gouraud lighting approximation</label>
+          <button id="art-save">Save art profile</button><button id="art-open">Open art profile</button><input id="art-profile-file" type="file" accept=".json" hidden>
+          <button id="reference-measure">Measure local Tekken reference</button><input id="reference-files" type="file" accept=".3dm,.arc" multiple hidden>
+          <button id="project-save">Save project</button><button id="project-open">Open project</button><input id="project-file" type="file" accept=".zip" hidden>
+          <label>Camera</label><select id="art-camera"><option value="0">Front</option><option value="3.141592653589793">Back</option><option value="1.5707963267948966">Side</option><option value="0.7853981633974483">Three quarter</option><option value="face">Face close-up</option></select>
+          <div id="art-allocations"></div><details><summary>Actual exported atlas</summary><img id="art-atlas" style="width:100%;image-rendering:pixelated" alt="Convert to generate texture atlas"></details>
+          <p class="hint">Reconstruction, proportions, normals, atlas and dithering affect exported preparation assets. Simulation is preview-only. Native donor export still uses donor topology; artistically calibrated runtime profiles are not yet available.</p>
           <label for="triangles"
             >Triangle budget <output id="triangle-value">900</output></label
           ><input
@@ -66,7 +89,7 @@
             step="50"
             value="900"
           /><label for="head"
-            >Head priority <output id="head-value">2×</output></label
+            >Baseline head priority · Art Director uses Face Preservation <output id="head-value">2×</output></label
           ><input
             id="head"
             type="range"
@@ -83,7 +106,7 @@
             step="0.01"
             value="0.08"
           /><label class="check"
-            ><input id="bake" type="checkbox" checked /> Bake 4-bit PS1 texture
+            ><input id="bake" type="checkbox" checked /> Bake 4/8-bit PS1 texture
             atlas</label
           >
           <p class="hint">
@@ -175,6 +198,7 @@
             </div>
           </article>
         </div>
+        <article><div class="view-title">IN-GAME SIMULATION · NOT RUNTIME VALIDATION</div><div class="viewport" id="simulation" style="height:280px"></div></article>
         <div class="progress">
           <progress id="progress" value="0" max="1"></progress
           ><span id="status" role="status"

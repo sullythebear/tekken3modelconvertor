@@ -1,4 +1,8 @@
 import {readDonorPackage} from "../core/donor-package.js";
+import {ART_PRESETS,artSettings} from '../core/art-director.js';
+import {readStudioProject,writeStudioProject} from '../core/studio-project.js';
+import {measureStyleReference} from '../core/style-reference.js';
+import {simulationModel} from './ps1-preview.js';
 import {writeT3CM, readT3CM} from "../core/exporter.js";
 import * as THREE from "three";
 import { TGALoader } from "three/addons/loaders/TGALoader.js";
@@ -34,6 +38,48 @@ import { syntheticCharacter } from "../core/fixture.js";
 const $ = (id) => document.getElementById(id),
   sourceView = new View($("original")),
   resultView = new View($("result"));
+const simulationView=new View($("simulation"));
+let artProfile={preset:'authentic',...ART_PRESETS.authentic,regions:{},corrections:{}};
+let artTimer,artDirty=false;
+$('art-camera').onchange=()=>{if($('art-camera').value==='face'&&source?.skeleton.mapping.head){const target=source.skeleton.mapping.head.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.075,.06));sourceView.controls.target.copy(target);sourceView.camera.position.copy(target).add(new THREE.Vector3(0,.025,.62));sourceView.controls.update();}else sourceView.reset(Number($('art-camera').value)||0);resultView.sync(sourceView);simulationView.sync(sourceView);};
+$('art-mesh-apply').onclick=()=>{if(!$('art-mesh').value)return;artProfile.meshRoles??={};artProfile.meshRoles[$('art-mesh').value]=$('art-region').value;artChanged();};
+$('reference-measure').onclick=()=>$('reference-files').click();
+$('reference-files').onchange=async e=>{try{const files=[...e.target.files],model=files.find(f=>/\.3dm$/i.test(f.name)),arc=files.find(f=>/\.arc$/i.test(f.name));if(!model||!arc)throw Error('Choose a model .3dm and texture .arc');const measured=await measureStyleReference(new Uint8Array(await model.arrayBuffer()),new Uint8Array(await arc.arrayBuffer()),model.name);artProfile.reference={modelSha256:measured.modelSha256,roleFractions:measured.roleFractions};await save('style-reference.json',strToU8(JSON.stringify(measured,null,2)));status(`Measured ${measured.triangles} reference triangles; world proportions need calibrated frames.`,1);}catch(e){showError(e);}};
+function artChanged(){if(source&&!busy){if(nativeMode)returnSourcePose();clearNativeCandidate();artDirty=!!converted;setBusy(false);if(artDirty)status('Art settings changed; reconvert before export.');if($("art-live").checked){clearTimeout(artTimer);artTimer=setTimeout(()=>runConvert(),450);}}}
+for(const [key,label]of [['stylization','Polygon stylization'],['face','Face preservation'],['angular','Angular body shaping'],['pixelation','Texture pixelation'],['hair','Hair preservation']]){
+ const labelNode=document.createElement('label'),input=document.createElement('input'),output=document.createElement('output');
+ input.type='range';input.min=0;input.max=100;input.id='art-'+key;input.value=artProfile[key];output.textContent=input.value+'%';labelNode.append(label,output);
+ input.oninput=()=>{artProfile[key]=Number(input.value);output.textContent=input.value+'%';artChanged();};$("art-controls").append(labelNode,input);
+}
+function refreshArt(){$('art-occlusion').checked=!!artProfile.occlusionCleanup;$('art-filter').value=artProfile.filter??'nearest';$('art-colorlevels').value=String(artProfile.colorLevels??0);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;for(const key of ['stylization','face','angular','pixelation','hair']){$('art-'+key).value=artProfile[key];$('art-'+key).previousElementSibling.querySelector('output').textContent=artProfile[key]+'%';}}
+function materialSnapshot(){return [...collectMaterials(source.root)].map(m=>({name:m.name,color:m.color?.toArray(),vertexColors:m.vertexColors,alphaTest:m.alphaTest,opacity:m.opacity,normalScale:m.normalScale?.toArray(),maps:Object.fromEntries(['map','alphaMap','normalMap','specularMap'].map(k=>[k,m[k]?{name:m[k].name||null}:null]))}));}
+async function restoreMaterials(states){if(!states)return;const mats=[...collectMaterials(source.root)];if(states.length!==mats.length)throw Error('Project material structure differs');for(let i=0;i<mats.length;i++){
+ const m=mats[i],s=states[i];if(s.name!==m.name)throw Error('Project material identity differs');
+ if(s.color?.length===3&&s.color.every(Number.isFinite))m.color.fromArray(s.color);m.vertexColors=!!s.vertexColors;
+ for(const key of ['opacity','alphaTest'])if(Number.isFinite(s[key])&&s[key]>=0&&s[key]<=1)m[key]=s[key];
+ if(s.normalScale?.length===2&&s.normalScale.every(Number.isFinite))m.normalScale?.fromArray(s.normalScale);
+ for(const key of ['map','alphaMap','normalMap','specularMap']){
+  const state=s.maps?.[key];if(state==null){m[key]=null;continue;}const name=typeof state==='string'?state:state.name;if(!name){if(!m[key])throw Error('Project embedded texture was not restored');continue;}if(m[key]?.name===name)continue;
+  const file=files.find(f=>f.name===name);if(!file)throw Error('Project texture missing: '+name);
+  const url=URL.createObjectURL(new Blob([file.data]));try{const texture=await (/\.tga$/i.test(name)?new TGALoader():new THREE.TextureLoader()).loadAsync(url);texture.name=name;texture.colorSpace=['map','specularMap'].includes(key)?THREE.SRGBColorSpace:THREE.NoColorSpace;m[key]=texture;}finally{URL.revokeObjectURL(url);}
+ }m.needsUpdate=true;
+}materialControls();}
+$("art-preset").onchange=()=>{if(ART_PRESETS[$('art-preset').value]){artProfile={...artProfile,...ART_PRESETS[$('art-preset').value],preset:$('art-preset').value};refreshArt();}artChanged();};
+for(const id of ['art-priority','art-scale','art-remove'])$(id).onchange=()=>{const region=$('art-region').value;artProfile.regions[region]=Number($('art-priority').value);artProfile.corrections[region]={scale:Number($('art-scale').value),remove:$('art-remove').checked};artChanged();};
+$('art-region').onchange=()=>{const r=$('art-region').value;$('art-priority').value=artProfile.regions[r]??1;$('art-scale').value=artProfile.corrections[r]?.scale??1;$('art-remove').checked=artProfile.corrections[r]?.remove??false;};
+for(const id of ['art-dither','art-flat'])$(id).onchange=()=>{artProfile[id==='art-flat'?'flat':'dither']=$(id).checked;artChanged();};
+$('art-filter').onchange=()=>{artProfile.filter=$('art-filter').value;artChanged();};
+$('art-colorlevels').onchange=()=>{artProfile.colorLevels=Number($('art-colorlevels').value);artChanged();};
+$('art-occlusion').onchange=()=>{artProfile.occlusionCleanup=$('art-occlusion').checked;artChanged();};
+function rebuildSimulation(){if(!converted)return;if(simulationView.root)for(const m of collectMaterials(simulationView.root))m.dispose();simulationView.setModel(simulationModel(atlas?.root??converted.root,{snap:$('preview-snap').checked,affine:$('preview-affine').checked,gouraud:$('preview-gouraud').checked}),reference);simulationView.sync(sourceView);}
+for(const id of ['preview-snap','preview-affine','preview-gouraud'])$(id).onchange=rebuildSimulation;
+$('art-resolution').onchange=()=>{simulationView.renderer.setSize($('art-resolution').checked?320:$('simulation').clientWidth,$('art-resolution').checked?240:280,false);simulationView.render();};
+$('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
+$('art-open').onclick=()=>$('art-profile-file').click();
+$('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
+$('project-save').onclick=async()=>{if(!source)return;await save('character-project.zip',writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:exportSkeletonMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()}));};
+$('project-open').onclick=()=>$('project-file').click();
+$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=importSkeletonMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
 let source = null,
   converted = null,
   atlas = null,
@@ -43,15 +89,12 @@ let source = null,
   controller = null,
   syncing = false,
   reference = null;
-for (const [a, b] of [
-  [sourceView, resultView],
-  [resultView, sourceView],
-])
+for (const a of [sourceView,resultView,simulationView])
   a.controls.addEventListener("change", () => {
     if (syncing) return;
     syncing = true;
     a.render();
-    b.sync(a);
+    for(const b of [sourceView,resultView,simulationView])if(b!==a)b.sync(a);
     syncing = false;
   });
 let nativeBind = null,
@@ -78,7 +121,7 @@ $("play-animation").onclick = () => {
   }
   const clip = source?.animations[Number($("animation").value)];
   if (!clip) return;
-  const mixers = [source.root, atlas?.root ?? converted?.root]
+  const mixers = [source.root, atlas?.root ?? converted?.root,simulationView.root]
     .filter(Boolean)
     .map((root) => ({ root, mixer: new THREE.AnimationMixer(root) }));
   for (const { mixer } of mixers) mixer.clipAction(clip).play();
@@ -91,6 +134,7 @@ $("play-animation").onclick = () => {
     for (const { mixer } of playback.mixers) mixer.update(dt);
     sourceView.render();
     resultView.render();
+    simulationView.render();
     playback.frame = requestAnimationFrame(tick);
   };
   playback.frame = requestAnimationFrame(tick);
@@ -101,13 +145,15 @@ function status(text, fraction = 0) {
 }
 function setBusy(value) {
   busy = value;
+  $('head').disabled=value||$('art-preset').value!=='baseline';
+  for(const node of document.querySelectorAll('input[id^="art-"], select[id^="art-"], button[id^="art-"], #project-save, #project-open, #reference-measure'))node.disabled=value;
   $("import").disabled = value;
   $("donor").disabled = value;
   $("donor-slot").disabled = value;
   $("add-textures").disabled = value || !source;
   $("convert").disabled = value || !source;
   $("model-select").disabled = value || !source;
-  $("export").disabled = value || !converted;
+  $("export").disabled = value || !converted || artDirty;
   $("probe").disabled = value || !source;
   $("cancel").hidden = !value;
   for (const id of ["mapping-apply", "mapping-reset", "mapping-save", "mapping-load"])
@@ -116,7 +162,7 @@ function setBusy(value) {
     select.disabled = value || nativeMode;
   $("bind-profile").disabled = value || !donor;
   $("estimate-bind").disabled = value || !donor;
-  $("native-build").disabled = value || !source || !donor || !nativeBind;
+  $("native-build").disabled = value || !source || !donor || !nativeBind || artDirty || ($('art-preset').value!=='baseline'&&!converted);
   $("native-export").disabled = value || !nativeCandidate;
   $("expanded-export").disabled = value || !nativeCandidate;
   $("native-pose").disabled = value || !nativeCandidate || !nativeMode;
@@ -175,7 +221,7 @@ function technical() {
   $("validation-state").textContent = nativeMode
     ? "NATIVE CANDIDATE · GAME UNVERIFIED"
     : converted
-      ? "PREPARED · GAME UNVERIFIED"
+      ? converted.settings.art ? (converted.stats.triangles>converted.settings.triangles?'ART EXPERIMENT · BUDGET EXCEEDED':'ART EXPERIMENT · ART/GAME UNVERIFIED') : "PREPARED · GAME UNVERIFIED"
       : "IMPORTED";
   $("messages").replaceChildren();
   for (const text of [
@@ -308,6 +354,7 @@ function report() {
           regions: converted.report,
           settings: converted.settings,
           poses: converted.poses,
+          quality: converted.quality,
         }
       : null,
     atlas: atlas
@@ -315,13 +362,14 @@ function report() {
           warnings: atlas.warnings,
           textureBytes: atlas.textureBytes,
           paletteBytes: atlas.paletteBytes,
-          tiles: atlas.tiles.map(({ material, clut, x, y, width, height }) => ({
+          tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette }) => ({
             material,
             clut,
             x,
             y,
             width,
             height,
+            bitDepth:palette.length===256?8:4,
           })),
         }
       : null,
@@ -350,12 +398,14 @@ async function load(records, selected) {
     if (atlas) disposeScene(atlas.root);
     clearNativeCandidate();
     source = next;
+    artDirty=false;
+    $('art-mesh').replaceChildren();source.root.traverse(m=>{if(m.isMesh)$('art-mesh').add(new Option(m.name,m.name));});
     converted = null;
     atlas = null;
     files = records;
     reference = new THREE.Box3().setFromObject(source.root);
     sourceView.setModel(source.root, reference);
-    resultView.clearModel();
+    resultView.clearModel();if(simulationView.root)for(const m of collectMaterials(simulationView.root))m.dispose();simulationView.clearModel();
     $("empty-original").hidden = true;
     $("empty-result").hidden = false;
     sourceView.reset();
@@ -402,6 +452,7 @@ async function load(records, selected) {
   }
 }
 async function runConvert() {
+  clearTimeout(artTimer);
   stopPlayback();
   if (nativeMode) returnSourcePose();
   if (!source || busy) return;
@@ -414,6 +465,7 @@ async function runConvert() {
       triangles: Number($("triangles").value),
       headPriority: Number($("head").value),
       error: Number($("error").value),
+      art: $('art-preset').value==='baseline'?null:artSettings({...artProfile,dither:$('art-dither').checked,flat:$('art-flat').checked}),
     };
     if (
       !Number.isFinite(settings.error) ||
@@ -431,7 +483,7 @@ async function runConvert() {
     );
     if ($("bake").checked) {
       try {
-        nextAtlas = await bakeAtlas(next, { onProgress: progress });
+        nextAtlas = await bakeAtlas(next, { onProgress: progress, art:settings.art });
       } catch (e) {
         next.warnings.push("Texture atlas was not generated: " + e.message);
       }
@@ -440,13 +492,19 @@ async function runConvert() {
     if (converted) disposeScene(converted.root);
     if (atlas) disposeScene(atlas.root);
     converted = next;
+    artDirty=false;
     atlas = nextAtlas;
+    if(atlas)$('art-atlas').src=atlas.canvas.toDataURL();else $('art-atlas').removeAttribute('src');
+    $('art-allocations').replaceChildren();
+    for(const region of converted.report){const row=document.createElement('div');row.className='hint';row.textContent=`${region.region}: ${region.after} / target ${region.target} triangles`; $('art-allocations').append(row);}
     resultView.setModel(atlas?.root ?? converted.root, reference);
     resultView.sync(sourceView);
+    // Share the converted scene via a separate skeleton-safe clone in the third view.
+    rebuildSimulation();
     $("empty-result").hidden = true;
     technical();
     status(
-      "Preparation complete. Game export remains blocked until donor/runtime validation.",
+      settings.art ? `Experimental art reconstruction: ${converted.stats.triangles} / ${settings.triangles} triangles. ${converted.stats.triangles>settings.triangles?'Budget not met. ':''}Artistic and game acceptance remain unverified.` : "Preparation complete. Game export remains blocked until donor/runtime validation.",
       1,
     );
   } catch (e) {
@@ -750,7 +808,7 @@ async function runNative() {
   let next;
   try {
     next = await reconstructOnDonor({
-      source,
+      source:converted?.settings.art?{...source,root:converted.root,skeleton:converted.skeleton,stats:converted.stats,artSettings:converted.settings.art}:source,
       donor: donor.model.bytes,
       textureARC: donor.rawARC,
       bindProfile: nativeBind,
@@ -1075,10 +1133,12 @@ $("head").oninput = () => ($("head-value").value = $("head").value + "×");
 $("reset").onclick = () => {
   sourceView.reset();
   resultView.sync(sourceView);
+  simulationView.sync(sourceView);
 };
 $("skeleton").onchange = () => {
   sourceView.setSkeleton($("skeleton").checked);
   resultView.setSkeleton($("skeleton").checked);
+  simulationView.setSkeleton($("skeleton").checked);
 };
 $("wireframe").onchange = () => {
   for (const root of [
@@ -1088,12 +1148,14 @@ $("wireframe").onchange = () => {
     nativeCandidate?.preview,
     nativeCandidate?.sourcePreview,
     nativeCandidate?.posedPreview,
+    simulationView.root,
   ])
     if (root)
       for (const m of collectMaterials(root))
         m.wireframe = $("wireframe").checked;
   sourceView.render();
   resultView.render();
+  simulationView.render();
 };
 $("probe").onclick = () => {
   stopPlayback();

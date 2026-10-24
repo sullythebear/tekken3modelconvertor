@@ -15,6 +15,7 @@ import {
   rebuildNativeNormals,
 } from "../src/core/native-rebuild.js";
 import { writeTIM, writeARC } from "../src/core/ps1.js";
+import {measureStyleReference} from '../src/core/style-reference.js';
 function modelFixture() {
   const donor = new Uint8Array(16000),
     v = new DataView(donor.buffer);
@@ -120,6 +121,10 @@ function archiveFixture() {
     }),
   ]);
 }
+test('Style reference measures actual native row density and texture dimensions without claiming world proportions',async()=>{
+ const measured=await measureStyleReference(modelFixture(),archiveFixture(),'authored fixture');
+ assert.equal(measured.triangles,1);assert.equal(measured.roleFractions.spine,1);assert.equal(measured.textures[0].width,16);assert.match(measured.proportions,/NOT MEASURED/);
+});
 test("CPU BVH nearest points and barycentrics are geometrically correct", () => {
   const record = triangleRecord([
       new THREE.Vector3(0, 0, 2),
@@ -207,6 +212,16 @@ test("Native projection fails if an anatomical region is missing or projection e
       ),
     /projection range/,
   );
+});
+test('Art texture controls change native ARC pixels while model/ARC capacities and opaque members remain valid',async()=>{
+ const donor=modelFixture(),profile=await profileFor(donor),arc=archiveFixture(),source=sourceFixture();
+ source.root.children.at(-1).material.color.setRGB(.4,.3,.2);
+ const baseline=await reconstructOnDonor({source,donor,textureARC:arc,bindProfile:profile});
+ source.artSettings={pixelation:100,dither:true};
+ const styled=await reconstructOnDonor({source,donor,textureARC:arc,bindProfile:profile});
+ assert.notDeepEqual(styled.arc,baseline.arc);assert.equal(styled.arc.length,arc.length);
+ assert.deepEqual(decodeTextureArchive(styled.arc).entries[0],decodeTextureArchive(arc).entries[0]);
+ assert.equal(decodeDonor(styled.model).report.triangles,1);assert.equal(styled.report.gameVerified,false);
 });
 test("Normal rebuild produces complete header relocations and stays inside measured budgets", async () => {
   const donor = modelFixture(),

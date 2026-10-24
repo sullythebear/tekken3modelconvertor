@@ -16,6 +16,7 @@ import {
 import { SurfaceIndex, triangleRecord, materialSampler } from "./surface.js";
 import { rebuildNativeNormals } from "./native-rebuild.js";
 import { quantize, rgba555, writeTIM, readARC } from "./ps1.js";
+import {pixelateRGBA} from './art-atlas.js';
 
 function abort(signal) {
   if (signal?.aborted) throw Error("Native reconstruction cancelled");
@@ -186,7 +187,7 @@ export async function bakeDonorTextures(
   archive,
   surfaces,
   sample,
-  { onProgress = () => {}, signal } = {},
+  { onProgress = () => {}, signal, art = null } = {},
 ) {
   const pixels = new Map(
       archive.tiles.map((tile) => {
@@ -279,7 +280,7 @@ export async function bakeDonorTextures(
       rgba.set(pixels.get(t.entry), offset);
       offset += pixels.get(t.entry).length;
     }
-    const q = quantize(rgba, tiles[0].palette.length);
+    const q = quantize(art?pixelateRGBA(rgba,art.pixelation,art.dither,tiles[0].width,art.colorLevels):rgba, tiles[0].palette.length);
     offset = 0;
     for (const t of tiles) {
       const indices = q.indices.slice(offset, offset + t.indices.length);
@@ -342,7 +343,7 @@ export async function reconstructOnDonor({
       archive,
       surfaces.regional,
       materialSampler(surfaces.materials, { mode: materialMode }),
-      { onProgress, signal },
+      { onProgress, signal, art:source.artSettings },
     ),
     arc = patchArchive(textureARC, baked.replacements),
     rebuilt = rebuildNativeNormals(projection.bytes, profile.frames),

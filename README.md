@@ -2,9 +2,15 @@
 
 Nieuw, onafhankelijk ontwikkeld desktopproject. **De volledige ontwikkelopdracht is nog niet afgerond. Deze release is een werkende assetvoorbereidingstool met native PS1/Tekken-codecs, geen gevalideerde speelbare-characterconverter.** De UI exporteert inmiddels native **kandidaten**; een bewezen speelbaar pakket blijft geblokkeerd zolang donor-bindkalibratie en runtime-integratie niet in de game zijn gevalideerd.
 
+## Art Director 0.6.0 — experimenteel
+
+Geïntegreerde stijlpresetbediening, feature-/silhouetbewuste oppervlakteclustering met attribuutoptimalisatie, regionale vorm- en UV-correcties, gewogen atlas, echte dithering/texturebake, derde simulatieview en project-/profielopslag. Alle instellingen zijn gekoppeld aan de vermelde uitvoerstap; previeweffecten zijn afzonderlijk gemarkeerd. Zie [Art Director](docs/ART_DIRECTOR.md).
+
+Nikki, een zelfgemaakte rig en Cesium Man zijn met baseline plus drie presets vergeleken. De nieuwe route behoudt op meerdere aanzichten meer silhouet, maar Nikki blijft met circa 3.700 triangles ruim boven doel 900. Authentieke Namco-referenties, nieuwe facial-loop-topologie en bewezen gameplay ontbreken. **Deze artistieke fase is nog niet geaccepteerd.** De softwaretests zijn geen artistiek kwaliteitsbewijs.
+
 ## Windows gebruiken
 
-Open `release/Tekken3ConversionStudio-0.5.0-x64.exe`, of pak de Windows-ZIP volledig uit en open `Tekken 3 Conversion Studio.exe`. De Electron-runtime is inbegrepen: geen Python, Blender, browser, terminal of losse server nodig. Het bouwen van Windows-bestanden is op Linux uitgevoerd; starten op Windows is nog niet geverifieerd. De EXE is niet digitaal ondertekend.
+Open `release/Tekken3ConversionStudio-0.6.0-x64.exe`, of pak de Windows-ZIP volledig uit en open `Tekken 3 Conversion Studio.exe`. De Electron-runtime is inbegrepen: geen Python, Blender, browser, terminal of losse server nodig. Het bouwen van Windows-bestanden is op Linux uitgevoerd; starten op Windows is nog niet geverifieerd. De EXE is niet digitaal ondertekend.
 
 1. Importeer FBX, OBJ/MTL of GLB/glTF met de bijbehorende bestanden.
 2. Voeg zo nodig later TGA/PNG/JPEG-textures toe. Controleer materiaaltoewijzingen in de zijbalk; deze zijn handmatig te corrigeren.

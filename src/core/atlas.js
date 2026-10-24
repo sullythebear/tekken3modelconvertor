@@ -1,4 +1,5 @@
 import {materialUVDomains} from "./uv-domain.js";
+import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
 import {configureSkinning} from "./skinning.js";
 import * as THREE from "three";
 import { clone } from "three/addons/utils/SkeletonUtils.js";
@@ -38,7 +39,7 @@ function coordinate(texture, u, v) {
 }
 export async function bakeAtlas(
   converted,
-  { size = 256, alphaCutoff = 0.5, onProgress = () => {} } = {},
+  { size = 256, alphaCutoff = 0.5, onProgress = () => {}, art = null } = {},
 ) {
   const root = clone(converted.root);
   root.traverse((m) => {
@@ -57,22 +58,26 @@ export async function bakeAtlas(
     );
   const domains = materialUVDomains(root, materials);
   const grid = Math.ceil(Math.sqrt(materials.length)),
-    cell = Math.floor(size / grid / 4) * 4,
+    defaultCell = Math.floor(size / grid / 4) * 4,
     gutter = 2,
     atlas = canvas(size, size),
     ctx = atlas.getContext("2d"),
     rgba = new Uint8Array(size * size * 4),
     tiles = [],
     warnings = [];
+  const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
+  const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
   for (let i = 0; i < materials.length; i++) {
+    const cell=layout[i].side;
+    const sampleSize=art?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
     const m = materials[i],
       origin = domains.get(m),
       tile = canvas(cell, cell),
       tc = tile.getContext("2d"),
       image = tc.createImageData(cell, cell),
-      base = pixels(m.map, 512),
-      alpha = pixels(m.alphaMap, 512),
-      normal = pixels(m.normalMap, 512),
+      base = pixels(m.map, sampleSize),
+      alpha = pixels(m.alphaMap, sampleSize),
+      normal = pixels(m.normalMap, sampleSize),
       color =
         m.color?.clone().convertLinearToSRGB() ?? new THREE.Color(1, 1, 1);
     if (m.metalnessMap || m.roughnessMap || m.specularMap)
@@ -107,8 +112,8 @@ export async function bakeAtlas(
         let shade = 1;
         if (normal) {
           const n = sample(normal, m.normalMap),
-            nx = n[0] / 127.5 - 1,
-            ny = n[1] / 127.5 - 1,
+            nx = (n[0] / 127.5 - 1) * (m.normalScale?.x ?? 1),
+            ny = (n[1] / 127.5 - 1) * (m.normalScale?.y ?? 1),
             nz = n[2] / 127.5 - 1;
           shade =
             0.7 +
@@ -135,14 +140,15 @@ export async function bakeAtlas(
           p,
         );
       }
-    const q = quantize(new Uint8Array(image.data), 16);
+    const colors=artTextureColors(m.name,art);
+    const q = quantize(art?pixelateRGBA(image.data,art.pixelation,art.dither,cell,art.colorLevels):new Uint8Array(image.data), colors);
     tc.putImageData(
       new ImageData(new Uint8ClampedArray(q.rgba), cell, cell),
       0,
       0,
     );
-    const ox = (i % grid) * cell,
-      oy = Math.floor(i / grid) * cell;
+    const ox = layout[i].x,
+      oy = layout[i].y;
     ctx.drawImage(tile, ox, oy);
     for (let y = 0; y < cell; y++)
       rgba.set(
@@ -152,7 +158,7 @@ export async function bakeAtlas(
     tiles.push({
       material: m.name,
       sourceUVOrigin: origin,
-      clut: 64 + i,
+      clut: art ? ((480+i)<<6)|48 : 64 + i,
       x: ox,
       y: oy,
       width: cell,
@@ -164,10 +170,10 @@ export async function bakeAtlas(
         height: cell,
         indices: q.indices,
         palette: q.palette,
-        x: ox / 4,
-        y: oy,
-        clutX: i * 16,
-        clutY: 1,
+        x: timLayout?timLayout[i].x:ox / (colors===256?2:4),
+        y: timLayout?timLayout[i].y:oy,
+        clutX: art ? 768 : i * 16,
+        clutY: art ? 480+i : 1,
       }),
     });
     onProgress({
@@ -180,6 +186,7 @@ export async function bakeAtlas(
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.NearestFilter;
   texture.minFilter = THREE.NearestFilter;
+  if(art?.filter==='linear'){texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;}
   const newMaterial = new THREE.MeshBasicMaterial({
     map: texture,
     alphaTest: alphaCutoff,
@@ -200,7 +207,7 @@ export async function bakeAtlas(
         ? g.groups
         : [{ start: 0, count: g.attributes.position.count, materialIndex: 0 }];
     for (const group of groups) {
-      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material);
+      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width;
       for (let j = group.start; j < group.start + group.count; j++) {
         const u = Math.max(0, Math.min(1, uv.getX(j) - origin[0])),
           v = Math.max(0, Math.min(1, uv.getY(j) - origin[1]));
@@ -212,6 +219,7 @@ export async function bakeAtlas(
       }
     }
     g.setAttribute("uv", uv);
+    if(art?.flat)g.computeVertexNormals();
     g.clearGroups();
     mesh.geometry = g;
     mesh.material = newMaterial;
@@ -219,6 +227,7 @@ export async function bakeAtlas(
   warnings.push(
     "Normal-map bake uses a fixed tangent-space light; no high-to-low surface projection or game lighting calibration is claimed.",
   );
+  if(art)warnings.push('Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout.');
   configureSkinning(root);
   return {
     root,
@@ -226,7 +235,7 @@ export async function bakeAtlas(
     rgba,
     tiles,
     warnings,
-    textureBytes: (size * size) / 2,
-    paletteBytes: materials.length * 32,
+    textureBytes: tiles.reduce((n,t)=>n+t.width*t.height*(t.palette.length===256?1:.5),0),
+    paletteBytes: tiles.reduce((n,t)=>n+t.palette.byteLength,0),
   };
 }

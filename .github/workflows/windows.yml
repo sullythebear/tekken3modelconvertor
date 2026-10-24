@@ -28,6 +28,8 @@ jobs:
       - run: npx playwright-core install chromium
       - run: npm run test:visual
       - run: npm run test:reference
+      - name: Art presets, project round-trip and simulation shaders
+        run: npm run test:art
       - run: npm run test:skinning
       - run: npm run test:mapping
       - run: npm run test:native
@@ -48,4 +50,5 @@ jobs:
             artifacts/distribution/
             artifacts/skinning/
             artifacts/reference/
+            artifacts/art-director/
             artifacts/windows-capture-fixture-*/

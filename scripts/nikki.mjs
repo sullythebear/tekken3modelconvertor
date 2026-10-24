@@ -154,7 +154,7 @@ else {
         if (!t.atlas) return null;
         return t.atlas.tiles.map(tile => ({material: tile.material, opaque: Array.from(tile.indices).filter(i => tile.palette[i] !== 0).length, transparent: Array.from(tile.indices).filter(i => tile.palette[i] === 0).length}));
       });
-      if (!atlasChecks || atlasChecks.length !== 8 || atlasChecks.some(t => !/Eyeshell/.test(t.material) && !t.opaque))
+      if (!atlasChecks || atlasChecks.length < 8 || atlasChecks.length > 14 || atlasChecks.some(t => !/Eyeshell/.test(t.material) && !t.opaque))
         throw Error("Nikki atlas is missing, has incorrect material count, or dropped an opaque material");
       const close = await page.evaluate(() => {
         const t = window.studioTest, T = t.THREE, head = t.source.skeleton.mapping.head.getWorldPosition(new T.Vector3());

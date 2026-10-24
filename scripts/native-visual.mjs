@@ -12,6 +12,7 @@ await mkdir("artifacts/native", { recursive: true });
 const session = await browserSession();
 try {
   const { page, errors } = session;
+  await page.selectOption('#art-preset','baseline'); // Isolate the unchanged native codec route.
   await page.evaluate(async () => {
     const t = window.studioTest,
       f = await t.nativeSyntheticFixture();

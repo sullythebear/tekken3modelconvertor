@@ -21,7 +21,7 @@ npm run dist:win:portable
 
 De test-/buildinstructies zijn opgeslagen; uitvoering op Windows staat nog open. Electron 45 vereist een ondersteunde Windows-versie. Controleer de actuele Electron-systeemvereisten als oudere Windows-versies nodig zijn.
 
-Uitvoer: `release/Tekken 3 Conversion Studio-0.5.0-win.zip` (volledig uitpakken) en `release/Tekken3ConversionStudio-0.5.0-x64.exe` (portable NSIS-container met de Electron-runtime). Geen externe server, Python, Blender of Node-runtime nodig voor eindgebruikers. Er is nog geen Authenticode-certificaat ingesteld. Geen automatische update/publicatie.
+Uitvoer: `release/Tekken 3 Conversion Studio-0.6.0-win.zip` (volledig uitpakken) en `release/Tekken3ConversionStudio-0.6.0-x64.exe` (portable NSIS-container met de Electron-runtime). Geen externe server, Python, Blender of Node-runtime nodig voor eindgebruikers. Er is nog geen Authenticode-certificaat ingesteld. Geen automatische update/publicatie.
 
 De Linux-build kan dezelfde distributies genereren. De uiteindelijke cloudrelease gebruikt `ELECTRON_BUILDER_COMPRESSION_LEVEL=1` om onnodig dure maximumcompressie te vermijden; dit verandert alleen de verpakkingsgrootte/snelheid. Cloudcachepad:
 

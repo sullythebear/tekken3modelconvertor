@@ -1,4 +1,7 @@
 import {facialLandmarkLocks} from "./landmarks.js";
+import {planRegionMaterials} from './region-materials.js';
+import {removeOccludedShells} from './occlusion.js';
+import {artSettings,artPriority,artRegion,reconstructClusters,shapeRegion,measureArtQuality,geometricBoundaryMask,calibrateRegionBudgets} from './art-director.js';
 import {configureSkinning} from "./skinning.js";
 import * as THREE from "three";
 import { clone } from "three/addons/utils/SkeletonUtils.js";
@@ -94,6 +97,7 @@ export async function convertCharacter(
   signal,
 ) {
   await MeshoptSimplifier.ready;
+  const art = settings.art ? artSettings(settings.art) : null;
   if (source.stats.invalidPositions) throw Error("Non-finite source positions");
   const root = clone(source.root),
     materialCopies = new Map(),
@@ -158,7 +162,7 @@ export async function convertCharacter(
         t < Math.min(idx.length, group.start + group.count);
         t += 3
       ) {
-        const votes = [0, 1, 2].map((k) => vertexRegion(mesh, idx[t + k], box));
+        const votes = [0, 1, 2].map((k) => art&&Object.hasOwn(art.meshRoles??{},mesh.name)?'manual:'+art.meshRoles[mesh.name]:vertexRegion(mesh, idx[t + k], box));
         const role =
           votes.find((r) => votes.filter((v) => v === r).length >= 2) ??
           votes[0];
@@ -176,12 +180,18 @@ export async function convertCharacter(
           indices: new Uint32Array(indices),
           triangles: indices.length / 3,
           importance:
-            regionImportance(role, material?.name) *
+            art ? artPriority(role,material?.name,art)/Math.sqrt(indices.length/3) : regionImportance(role, material?.name) *
             (role === "head" ? settings.headPriority : 1),
         });
       }
     }
   });
+  if(art){
+    planRegionMaterials(parts);calibrateRegionBudgets(parts,art.reference);
+    const boxes=new Map();
+    for(const p of parts){const r=artRegion(p.role,p.material?.name);if(!boxes.has(r))boxes.set(r,new THREE.Box3());for(const i of p.indices)boxes.get(r).expandByPoint(new THREE.Vector3().fromBufferAttribute(p.g.attributes.position,i).applyMatrix4(p.mesh.matrixWorld));}
+    for(const p of parts)p.artPivot=boxes.get(artRegion(p.role,p.material?.name)).getCenter(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
+  }
   const budgets = allocateBudget(parts, settings.triangles),
     byMesh = new Map(),
     report = [];
@@ -193,11 +203,13 @@ export async function convertCharacter(
       fraction: i / parts.length,
       detail: `${p.mesh.name} / ${p.role}`,
     });
-    const g = subsetGeometry(p.g, p.indices),
+    const g = subsetGeometry(p.g, p.indices);
+    if(p.uvCrop){const uv=g.attributes.uv,c=p.uvCrop;for(let v=0;v<uv.count;v++)uv.setXY(v,(uv.getX(v)-c.minU)/c.spanU,(uv.getY(v)-c.minV)/c.spanV);}
+    const
       positions = g.attributes.position.array,
       uv = g.attributes.uv,
       n = g.attributes.normal,
-      locks = facialLandmarkLocks(p.mesh, g, p.material?.name);
+      locks = facialLandmarkLocks(p.mesh, g, p.role==='manual:head'?'Head':p.material?.name);
     const attrs = new Float32Array(g.attributes.position.count * 5);
     for (let v = 0; v < g.attributes.position.count; v++) {
       attrs.set(
@@ -213,8 +225,22 @@ export async function convertCharacter(
     }
     let indices = new Uint32Array(g.index.array),
       error = 0,
-      budgetDiagnostic = null;
-    if (p.triangles > budgets[i]) {
+      budgetDiagnostic = null,
+      reconstruction = null;
+    if (art) {
+      const shells=art.occlusionCleanup&&/body/i.test(p.material?.name)?removeOccludedShells(g,new Uint32Array(g.index.array)):null;
+      if(shells?.removed)g.setIndex(new THREE.BufferAttribute(shells.indices,1));
+      const protectedMask=geometricBoundaryMask(g);
+      if(locks&&art.face>=50)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=locks.mask[v];
+      reconstruction = reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
+      indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
+      const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
+      reconstruction.occludedShellTriangles=shells?.removed??0;
+      if(indices.length>budgets[i]*3){
+        [indices,error]=MeshoptSimplifier.simplifyWithAttributes(indices,positions,3,attrs,5,[12,12,.1,.1,.1],protectedMask,budgets[i]*3,settings.error,['Permissive','RegularizeLight']);
+        reconstruction.finish='attribute-aware topology optimization after reconstruction';
+      }
+    } else if (p.triangles > budgets[i]) {
       [indices, error] = MeshoptSimplifier.simplifyWithAttributes(
         indices,
         positions,
@@ -243,7 +269,9 @@ export async function convertCharacter(
         };
       }
     }
-    const reduced = subsetGeometry(g, indices);
+    let reduced = subsetGeometry(g, indices);
+    if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot);
+    if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
     g.dispose();
     if (!reduced.attributes.normal) reduced.computeVertexNormals();
     if (!byMesh.has(p.mesh)) byMesh.set(p.mesh, []);
@@ -259,6 +287,7 @@ export async function convertCharacter(
       after: indices.length / 3,
       error,
       budgetDiagnostic,
+      reconstruction,
     });
     await new Promise((r) => setTimeout(r, 0));
   }
@@ -310,7 +339,7 @@ export async function convertCharacter(
   );
   const skeleton = analyzeSkeleton(root),
     poses = deformationProbe(root, skeleton);
-  return {
+  const result = {
     root,
     stats,
     warnings,
@@ -320,4 +349,6 @@ export async function convertCharacter(
     settings: { ...settings },
     gameVerified: false,
   };
+  if(art)result.quality=measureArtQuality(source,result);
+  return result;
 }

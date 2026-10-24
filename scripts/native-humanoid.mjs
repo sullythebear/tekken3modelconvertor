@@ -5,6 +5,7 @@ await mkdir("artifacts/native-humanoid", { recursive: true });
 const session = await browserSession();
 try {
   const { page } = session;
+  await page.selectOption('#art-preset','baseline'); // Authored donor baseline, not an art acceptance test.
   await page.evaluate(async () => {
     const t = window.studioTest,
       f = await t.nativeHumanoidFixture();

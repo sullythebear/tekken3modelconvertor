@@ -1,4 +1,4 @@
-# Werkelijke implementatiestatus — 0.5.0
+# Werkelijke implementatiestatus — 0.6.0
 
 De definitie van voltooid is **nog niet gehaald**. Op 24 oktober 2026 is de donor-reconstructiepipeline toegevoegd en inhoudelijk getest, met de echte Nikki-bron en zelfgemaakte donorfixtures; originele Nina-bestanden en een game ontbreken.
 
@@ -37,3 +37,7 @@ Test-Windows.cmd installeert een private runtime, bouwt/start de Studio, test ec
 Nikki is beschikbaar en getest. Voor echte donor-/gamevalidatie ontbreken originele USA `SLUS_004.02`, Nina P1 3DMK-record 111 + texture-ARC-record 113 en exacte Expanded-build-/patchinformatie. De desktopapp kan deze lokaal extraheren uit een ISO/BIN of losse BNS + executable en opslaan als gecontroleerd donor-ZIP. ISO/BIN-extractie is alleen-lezen; raw-sector EDC/ECC wordt niet geverifieerd of herbouwd.
 
 Na ontvangst van de donor zijn echte-filediagnose, donor-framecontrole, eventuele nieuwe topology voor Nikki, runtime-integratie en daadwerkelijke game-/animatie-/identiteitsvalidatie nog noodzakelijk. De synthetische tests maken die stappen niet automatisch voltooid.
+
+## Art Director 0.6.0
+
+De geïntegreerde module en presets wijzigen echte geometrie en textures; derde preview en projectopslag zijn toegevoegd. Zie ART_DIRECTOR.md. De nieuwe reconstructie blijft experimenteel: Nikki circa 3.700 triangles bij doel 900; geen echte Namco-stijlcalibratie of runtimeverificatie. Parametrische facial loops, volumetrische hair-retopologie, betrouwbare kledingsegmentatie en artistieke eindacceptatie ontbreken. De fase is niet voltooid.

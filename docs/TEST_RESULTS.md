@@ -1,3 +1,24 @@
+# Art Director 0.6.0 — 24 oktober 2026
+
+De nieuwe presets zijn tegenover de oude baseline uitgevoerd op Nikki, een authored rig en de SHA-gecontroleerde Cesium Man. De vergelijkingen gebruiken dezelfde camera's: front, side, back, three-quarter en face. Voor alle methoden worden ook guard/reach/crouch-beelden en numerieke bronrigdiagnostiek verzameld. Deze zijn geen Tekken-gamebewegingen.
+
+| Nikki, doel 900 | Triangles | Front IoU | Side IoU | Back IoU |
+|---|---:|---:|---:|---:|
+| Baseline | 3.860 | 0,920 | 0,887 | 0,920 |
+| Authentic | 3.705 | circa 0,928 | circa 0,907 | circa 0,926 |
+| Classic PS1 | 3.715 | circa 0,928 | circa 0,903 | circa 0,924 |
+| Expanded | 3.736 | circa 0,933 | circa 0,909 | circa 0,927 |
+
+De laatste machineleesbare cijfers staan in artifacts/art-director/comparison.json; alpha-/palettebaking kan een pixel verschil veroorzaken. De gezichts-landmarks blijven binnen numerieke tolerantie behouden, maar dat bewijst geen betere artistieke identiteit. Een echte 128×128/256-kleuren hoofd-TIM wordt voor Nikki Authentic/Expanded teruggelezen; dit is meer gezichtskleurdetail dan de oude 4-bit bake. Andere tiles blijven 4-bit.
+
+De 0.6.0-unit-/integratieregressie heeft **94 geslaagde tests**. Nieuwe inhoudscontroles omvatten clustering/landmarks, UV-crop-equivalentie, proporties, texturepixels, begrensde projectroundtrip, metadata-onafhankelijke facial drift, native texturewijzigingen met intacte capaciteit, native referentiemetingen, ray-shellcleanup en niet-overlappende mixed-bit TIM-staging. Browserchecks controleren ook echte projectopslag/heropening, shadercompilatie van de derde view en teruggelezen voorbereidingsexports met GLB-/TIM-hashes.
+
+De bestaande import/texture-, 12-invloeden CPU/GPU-, bronmapping-, native UI-, humanoid- en Linux-desktopregressies zijn opnieuw gecontroleerd. De authored native-/mappingtests kiezen expliciet de oude baseline om de codec-/mappingroute afzonderlijk te testen. De gewone conversie-/shadervergelijkingen testen de nieuwe presets. De native ART-pixeltest controleert dat artinstellingen werkelijk ARC-bytes veranderen zonder recordcapaciteit of niet-textureleden te beschadigen.
+
+**Artistieke acceptatie: niet geslaagd.** Silhouetscores verbeteren op meerdere aanzichten, maar het budget wordt niet gehaald en laarzen/kledingdetail blijven zichtbaar onvoldoende. De shellcleanup-proef verbeterde dat niet en staat standaard uit. Originele Namco-characterreferenties, parametrische facial loops, volledige haar-/kledingreconstructie, daadwerkelijke Nina-gameplay en Windows-uitvoering van 0.6.0 zijn nog niet geverifieerd. De nieuwe softwarefuncties en groene tests maken dat niet voltooid. Zie ART_DIRECTOR.md en de beelden in Validation-0.6.0.zip.
+
+---
+
 # Aanvulling: donor-imagegrenzen en Windows-log
 
 Het aangeleverde Windows-log toont geslaagde bootstrap/build, 80 tests en Nikki-desktopimport/voorbereidingsexport. Donorinput faalde op de oude gecombineerde ISO9660-volume-/blokgroottemelding. De exacte oorzaak van dat lokale bestand is nog niet bekend.

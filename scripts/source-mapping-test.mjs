@@ -5,6 +5,7 @@ const session = await browserSession();
 await mkdir('artifacts/source-mapping', {recursive: true});
 try {
   const {page} = session;
+  await page.selectOption('#art-preset','baseline'); // Keep mapping validation independent of art reconstruction.
   const profile = await page.evaluate(async () => {
     const t = window.studioTest, f = await t.nativeHumanoidFixture();
     await t.load([{name: 'authored-human.glb', data: f.source}]);

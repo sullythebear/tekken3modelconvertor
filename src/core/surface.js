@@ -61,6 +61,19 @@ export class SurfaceIndex {
     }
     return result;
   }
+  raycast(origin,direction,maxDistance,exclude=null){
+    const ray=new THREE.Ray(origin,direction),stack=[this.root],point=new THREE.Vector3(),boxHit=new THREE.Vector3();
+    let result=null,best=maxDistance;
+    while(stack.length){const node=stack.pop();
+      if(!ray.intersectBox(node.box,boxHit))continue;
+      if(!node.box.containsPoint(origin)&&boxHit.distanceTo(origin)>best)continue;
+      if(!node.ids){stack.push(node.left,node.right);continue;}
+      for(const id of node.ids){const t=this.triangles[id];if(t===exclude)continue;
+        if(!ray.intersectTriangle(...t.points,false,point))continue;const distance=point.distanceTo(origin);
+        if(distance>1e-7&&distance<best){best=distance;result={triangle:t,distance,point:point.clone()};}
+      }
+    }return result;
+  }
 }
 export function triangleRecord(
   points,
