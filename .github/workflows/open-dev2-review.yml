@@ -1,0 +1,41 @@
+name: Open recovered dev2 review
+on:
+  push:
+    branches: [automation/dev2-review-pr]
+    paths: ['.github/workflows/open-dev2-review.yml']
+permissions:
+  contents: read
+jobs:
+  review-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Open review without merging or changing source history
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          existing=$(gh pr list --repo "$GH_REPO" --base main --head recovery/070-dev2 --state open --json url --jq '.[0].url // empty')
+          if [ -n "$existing" ]; then
+            echo "$existing"
+            exit 0
+          fi
+          cat > "$RUNNER_TEMP/dev2-pr.md" <<'BODY'
+          The interrupted dev.2 working tree had never been committed. This recovers it in a checkpoint before changes, repairs a boot projection that selected lowered hands, restricts facial landmark picking to head surfaces, and fixes Windows ASAR validation paths.
+
+          Source checkpoint: e25c13acd6a879bc4004a5f473f1ee4eeb348b14. Validated development source: 9e63ddedb750e5aefb42fbc67c3fd1c086669131.
+
+          Validation: 113 unit/integration tests; 28 conversion/export/rendering runs across Nikki, Cesium Man and two authored fixtures; skinning, native fixture and desktop IPC checks. The actual packaged Windows portable EXE passed its authored import/convert/export smoke test in run https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40126426650.
+
+          Downloads and HTML/PNG review: https://github.com/sullythebear/tekken3modelconvertor/releases/tag/v0.7.0-dev.2 . Nikki has 5,071 artistic triangles and an explicitly lossy 890-triangle candidate. Human artistic acceptance remains pending; hair, eye rims, ankle/heel textures and low-budget losses still need review. Nikki's full large project ZIP round-trip was not verified; its correction profile and the authored full project round-trip passed.
+
+          No original source models or game bytes are published. Real Nina capacity, calibrated references, Tekken animations and gameplay remain unverified. Do not treat fixture exports or local rig poses as game compatibility. No automatic merge is requested.
+          BODY
+          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head recovery/070-dev2 --title 'Recover and validate Conversion Studio 0.7.0-dev.2 for visual review' --body-file "$RUNNER_TEMP/dev2-pr.md" 2>&1); then
+            echo "::error title=Review PR could not be created::$result"
+            exit 1
+          fi
+          echo "$result"
