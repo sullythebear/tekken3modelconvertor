@@ -1,9 +1,10 @@
 {
-  "generated": "2026-10-24T19:26:31.461Z",
+  "generated": "2026-10-24T19:36:02.162Z",
   "recoveredCommit": "e25c13acd6a879bc4004a5f473f1ee4eeb348b14",
   "tests": {
-    "passed": 112,
-    "failed": 0
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0
   },
   "conversionRuns": 28,
   "sourceFilesPublished": false,
@@ -17,8 +18,8 @@
     },
     {
       "path": "REVIEW.md",
-      "bytes": 4685,
-      "sha256": "b8b34483934782495078d6d6dc05e01fd6ae4cc635602227eb3317b4f227a4ac"
+      "bytes": 5698,
+      "sha256": "10b97ff9703487129844a254991bbec5025d72de4f1a86c2233765428d4166d0"
     },
     {
       "path": "boots/CESIUM-ATTRIBUTION.txt",
@@ -982,8 +983,8 @@
     },
     {
       "path": "cloud-unit.xml",
-      "bytes": 23320,
-      "sha256": "195928e179b4b1b503c10164c186c076ff223ad320442f36300f15a7c7f2d7b3"
+      "bytes": 23538,
+      "sha256": "51be1dcaba5bcbf483d21698ed2635ba43397107fe72eb453d8aa35111fc9ae5"
     },
     {
       "path": "combined/CESIUM-ATTRIBUTION.txt",
@@ -4791,6 +4792,11 @@
       "sha256": "3b85f511fcea82200449b2e61c5405120b8949b0cfc2d017d37049c58f35b66b"
     },
     {
+      "path": "landmark-editor-results.json",
+      "bytes": 609,
+      "sha256": "c97d1afdde03ffe899f2c5f2ba2970df1ce06b09018fabd49d609eb9a5c336b1"
+    },
+    {
       "path": "native-humanoid.txt",
       "bytes": 87,
       "sha256": "df8039adef4f8b728239842ea37b5cfe5e80ec0b50cee77e94be5b0d55a1bd1d"
@@ -5751,14 +5757,24 @@
       "sha256": "f07d786fc36655255da42785b981c69e5d6b1b3c8569761535b75724fd1921b3"
     },
     {
+      "path": "presets-and-project.txt",
+      "bytes": 239,
+      "sha256": "9ee5691f7cf831fbf7e1338f16eb03653b0f7dfabed78350ae0385e2dd3b723b"
+    },
+    {
       "path": "skinning.txt",
       "bytes": 131,
       "sha256": "a261d12a44ad23c8c4ca97e5cb5c08e58015b4afdd2b4bc7b3bb1f67553d12d0"
     },
     {
+      "path": "source-mapping.txt",
+      "bytes": 117,
+      "sha256": "84840f5e2c9e656d2d34e71dc561654abb031f7d6d9a6d0e8a0d375d9e2ac7dc"
+    },
+    {
       "path": "technical-summary.json",
       "bytes": 554148,
-      "sha256": "217c1fb4cfd7c31e984a3503e1f99345303c58833c6576e0b14f4f89fcefd68a"
+      "sha256": "2edbbb506764cbc9512b0cba9bb4d482766329afde6595162ce67eba7727ba7a"
     },
     {
       "path": "v060/CESIUM-ATTRIBUTION.txt",

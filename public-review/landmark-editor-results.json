@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "model": "nikki",
+      "status": "PASS",
+      "selected": {
+        "name": "F_MED_CargoLying_LOD0005",
+        "materials": [
+          "MI_CargoLying_Head"
+        ]
+      },
+      "finiteNoseCorrection": true,
+      "projectRoundTrip": false,
+      "profileRoundTrip": true
+    },
+    {
+      "model": "crest",
+      "status": "PASS",
+      "selected": {
+        "name": "Head_1",
+        "materials": [
+          "Skin"
+        ]
+      },
+      "finiteNoseCorrection": true,
+      "projectRoundTrip": true,
+      "profileRoundTrip": true
+    }
+  ],
+  "gameVerified": false
+}

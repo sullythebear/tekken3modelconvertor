@@ -1253,7 +1253,7 @@ if (new URLSearchParams(location.search).has("test"))
     },
   };
 
-installLandmarkEditor({view:sourceView,getSource:()=>source,getProfile:()=>artProfile,changed:artChanged,status});
+installLandmarkEditor({view:sourceView,getSource:()=>source,getProfile:()=>artProfile,changed:artChanged,status,prepare:returnSourcePose});
 $('hair-method').onchange=()=>{artProfile.hairMethod=$('hair-method').value;artChanged();};
 
 $('optimize-candidate').onclick=async()=>{

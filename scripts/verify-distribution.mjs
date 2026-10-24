@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {extractFile} from '@electron/asar';
+try {
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 const asar = 'release/win-unpacked/resources/app.asar';
 const hashes = {};
@@ -30,3 +31,11 @@ await writeFile('artifacts/distribution/verification.json', JSON.stringify({
   note: 'Archive contents and PE structure validation do not prove Windows execution or game compatibility.',
 }, null, 2));
 console.log(`Distribution ${pkg.version}: packaged renderer, version, IPC, backup module and Windows PE headers verified.`);
+
+} catch (error) {
+  if (process.env.GITHUB_ACTIONS) {
+    const message=String(error.stack??error).replaceAll('%','%25').replaceAll('\r','%0D').replaceAll('\n','%0A');
+    console.error(`::error title=Windows package verification::${message}`);
+  } else console.error(error);
+  process.exitCode=1;
+}

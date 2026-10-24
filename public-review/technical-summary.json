@@ -14843,9 +14843,9 @@
     "src/core/torso-bake.js": "c0c0392de10b111617e4c10e4f05c4b10d284f06badeb8b1d3f064461b21fa48",
     "src/core/uv-domain.js": "d500ef4445c67fb16ec24e939fec35d04854fa02f6cc4163a5b1315f01f9aa45",
     "src/core/uv-reconstruction.js": "ab996b97990116e3bb6fa7b75050cb29f8de7a77c7db8113a6d870c289c506f7",
-    "src/ui/app.js": "39e86b0e6402c275decf2ac444fc4b1596b166bd71fc3347c68cca34ac63fee8",
+    "src/ui/app.js": "98c97ccb9ab0df3994496f59fc423bafe706dad0a133b9c06afd7ca31baf9183",
     "src/ui/index.html": "33d70de84763b04da0e94b8ea92af3680885d63f91e965a714d8ab342f857761",
-    "src/ui/landmark-editor.js": "f8a9b1041cec5c546b66d61d10e7e19f7e70ee012c504cdf85d80fa6501c9aa1",
+    "src/ui/landmark-editor.js": "e11e888bae8b7a4d2db77c381bd48c389c32f473fc84de2994961db3851012fc",
     "src/ui/ps1-preview.js": "24b4cff4cfc66495ea28e9d492afb55e9fb9719b1196026ec3d9d88c857a98f8",
     "src/ui/style.css": "23ae93e688bad7c37a92cb8f79840a7e3a199798987e17f6bb1beb3a954d0d1f",
     "src/ui/view.js": "5d686c1a1c47a08df0b6c1f283c39d9e5d87de29a239781b6b590ab2b4dddfa1"

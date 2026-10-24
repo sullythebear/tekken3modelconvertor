@@ -54,3 +54,13 @@ test('Boot projection excludes a lowered hand outside the measured leg footprint
  assert.ok(result.geometry.boundingBox.max.x<.4,'A same-side hand must not become the outer boot shell');
  assert.ok(result.projectionTriangles<projection.index.count/3);
 });
+
+test('Face landmark picking excludes hair, eyes and body sharing the full facial skeleton',async()=>{
+ const {facePickSurfaces}=await import('../src/ui/landmark-editor.js');
+ const root=new THREE.Group(),bone=new THREE.Bone(),surfaces=[];
+ for(const name of ['Head','FaceAcc','EyeTeeth','Body']){
+  const mesh=new THREE.SkinnedMesh(new THREE.BoxGeometry(),new THREE.MeshStandardMaterial({name}));
+  mesh.skeleton={bones:[bone]};root.add(mesh);surfaces.push(mesh);
+ }
+ assert.deepEqual(facePickSurfaces({root,skeleton:{mapping:{head:bone}}}),[surfaces[0]]);
+});

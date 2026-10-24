@@ -77,3 +77,20 @@ request, not a claimed Tekken limit.
 The Windows publishing workflow builds the portable EXE, checks its ASAR and PE,
 then launches that exact EXE to import/convert/export an authored fixture before
 publishing a prerelease. A Linux cross-build alone cannot pass this Windows test.
+
+## Additional recovery checks
+
+The full suite was rerun after the detached-hand and facial-picking regressions:
+113 tests passed, zero failed/skipped. Actual browser clicks placed a nose
+landmark on Nikki's Head material, excluding hair/eyes sharing the same rig;
+its reusable profile was exported/reset/imported and compared. The authored
+crest character additionally passed a full project ZIP save/open round-trip.
+Nikki's full 222 MiB-source project ZIP round-trip exceeded the test's initial
+30-second download timeout and remains unverified; its smaller correction
+profile round-trip passed. Presets/project persistence and unnamed source
+skeleton mapping UI tests were also rerun successfully.
+
+The Windows workflow's first attempt built successfully and passed unit and
+desktop IPC tests, then failed distribution verification; it did not execute
+the portable smoke test or publish a release. Subsequent verifier errors are
+reported as explicit public CI annotations, while retaining a failing exit code.
