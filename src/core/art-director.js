@@ -11,6 +11,7 @@ export function artSettings(input={}) {
  for(const key of ['stylization','face','angular','pixelation','hair']){
   if(!Number.isFinite(out[key])||out[key]<0||out[key]>100)throw Error('Art parameter outside 0..100: '+key);
  }
+ if(![undefined,'v060','face','hair','boots','combined'].includes(out.reconstruction))throw Error('Invalid reconstruction stage');
  out.regions??={};out.corrections??={};
  if(![undefined,0,15,31].includes(out.colorLevels))throw Error('Invalid color quantization');
  if(![undefined,'nearest','linear'].includes(out.filter))throw Error('Invalid texture filter');

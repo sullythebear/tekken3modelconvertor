@@ -202,3 +202,12 @@ test('Pose preview callback errors restore changed source quaternions',()=>{
  assert.throws(()=>deformationProbe(root,analyzeSkeleton(root),()=>{throw Error('capture failure');}),/capture failure/);
  assert.deepEqual(arm.quaternion.toArray(),saved.toArray());
 });
+test('New surface topology honours persisted regional removal and preserves source',async()=>{
+ const root=new THREE.Group(),mat=new THREE.MeshStandardMaterial();mat.name='Head';const mesh=new THREE.Mesh(new THREE.PlaneGeometry(2,2,24,24),mat);mesh.name='FaceChart';root.add(mesh);root.updateMatrixWorld(true);
+ const source={root,stats:inspectScene(root),warnings:[]};
+ const settings={triangles:100,headPriority:2,error:.2,art:{preset:'authentic',reconstruction:'face',meshRoles:{FaceChart:'head'}}};
+ const generated=await convertCharacter(source,settings);
+ assert.ok(generated.report.some(p=>p.reconstruction.generatedVertices>0));
+ const removed=await convertCharacter(source,{...settings,art:{...settings.art,corrections:{head:{remove:true}}}});
+ assert.equal(removed.stats.triangles,0);assert.equal(inspectScene(root).triangles,1152);
+});

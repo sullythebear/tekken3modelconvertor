@@ -1,4 +1,5 @@
-import {facialLandmarkLocks} from "./landmarks.js";
+import {reconstructUVSurface} from './uv-reconstruction.js';
+import {facialLandmarkLocks,facialSurfaceAnchors} from "./landmarks.js";
 import {planRegionMaterials} from './region-materials.js';
 import {removeOccludedShells} from './occlusion.js';
 import {artSettings,artPriority,artRegion,reconstructClusters,shapeRegion,measureArtQuality,geometricBoundaryMask,calibrateRegionBudgets} from './art-director.js';
@@ -203,7 +204,7 @@ export async function convertCharacter(
       fraction: i / parts.length,
       detail: `${p.mesh.name} / ${p.role}`,
     });
-    const g = subsetGeometry(p.g, p.indices);
+    let g = subsetGeometry(p.g, p.indices);
     if(p.uvCrop){const uv=g.attributes.uv,c=p.uvCrop;for(let v=0;v<uv.count;v++)uv.setXY(v,(uv.getX(v)-c.minU)/c.spanU,(uv.getY(v)-c.minV)/c.spanV);}
     const
       positions = g.attributes.position.array,
@@ -227,7 +228,18 @@ export async function convertCharacter(
       error = 0,
       budgetDiagnostic = null,
       reconstruction = null;
-    if (art) {
+    const reconstructFace=/head/i.test(p.material?.name??'')&&!/hair|faceacc|lash|eye|teeth/i.test(p.material?.name??'');
+    const reconstructBoots=/body/i.test(p.material?.name??'')&&/lowerleg|foot/i.test(p.role);
+    const reconstructHair=/hair|faceacc|strand/i.test(p.material?.name??'');
+    const stage=art?.reconstruction??'boots';
+    if (art && stage!=='v060' && ((reconstructFace&&['combined','face'].includes(stage)) || (reconstructBoots&&['combined','boots'].includes(stage)) || (reconstructHair&&['combined','hair'].includes(stage)))) {
+      const anchors=reconstructFace?facialSurfaceAnchors(p.mesh,g):[];
+      const candidate=reconstructUVSurface(g,{target:Math.max(reconstructFace?800:reconstructHair?600:400,budgets[i]),anchors});
+      if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const {geometry,...metadata}=candidate;reconstruction=metadata;}
+      else reconstruction={method:'v0.6 fallback',reason:candidate.reason};
+    }
+    if (art && !reconstruction?.generatedVertices) {
+      const fallbackReason=reconstruction?.reason;
       const shells=art.occlusionCleanup&&/body/i.test(p.material?.name)?removeOccludedShells(g,new Uint32Array(g.index.array)):null;
       if(shells?.removed)g.setIndex(new THREE.BufferAttribute(shells.indices,1));
       const protectedMask=geometricBoundaryMask(g);
@@ -236,11 +248,12 @@ export async function convertCharacter(
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
       reconstruction.occludedShellTriangles=shells?.removed??0;
+      if(fallbackReason)reconstruction.fallbackReason=fallbackReason;
       if(indices.length>budgets[i]*3){
         [indices,error]=MeshoptSimplifier.simplifyWithAttributes(indices,positions,3,attrs,5,[12,12,.1,.1,.1],protectedMask,budgets[i]*3,settings.error,['Permissive','RegularizeLight']);
         reconstruction.finish='attribute-aware topology optimization after reconstruction';
       }
-    } else if (p.triangles > budgets[i]) {
+    } else if (!art && p.triangles > budgets[i]) {
       [indices, error] = MeshoptSimplifier.simplifyWithAttributes(
         indices,
         positions,
@@ -269,6 +282,7 @@ export async function convertCharacter(
         };
       }
     }
+    if(art?.corrections[artRegion(p.role,p.material?.name)]?.remove)indices=new Uint32Array();
     let reduced = subsetGeometry(g, indices);
     if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot);
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}

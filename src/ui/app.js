@@ -44,7 +44,7 @@ let artTimer,artDirty=false;
 $('art-camera').onchange=()=>{if($('art-camera').value==='face'&&source?.skeleton.mapping.head){const target=source.skeleton.mapping.head.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.075,.06));sourceView.controls.target.copy(target);sourceView.camera.position.copy(target).add(new THREE.Vector3(0,.025,.62));sourceView.controls.update();}else sourceView.reset(Number($('art-camera').value)||0);resultView.sync(sourceView);simulationView.sync(sourceView);};
 $('art-mesh-apply').onclick=()=>{if(!$('art-mesh').value)return;artProfile.meshRoles??={};artProfile.meshRoles[$('art-mesh').value]=$('art-region').value;artChanged();};
 $('reference-measure').onclick=()=>$('reference-files').click();
-$('reference-files').onchange=async e=>{try{const files=[...e.target.files],model=files.find(f=>/\.3dm$/i.test(f.name)),arc=files.find(f=>/\.arc$/i.test(f.name));if(!model||!arc)throw Error('Choose a model .3dm and texture .arc');const measured=await measureStyleReference(new Uint8Array(await model.arrayBuffer()),new Uint8Array(await arc.arrayBuffer()),model.name);artProfile.reference={modelSha256:measured.modelSha256,roleFractions:measured.roleFractions};await save('style-reference.json',strToU8(JSON.stringify(measured,null,2)));status(`Measured ${measured.triangles} reference triangles; world proportions need calibrated frames.`,1);}catch(e){showError(e);}};
+$('reference-files').onchange=async e=>{try{const files=[...e.target.files],model=files.find(f=>/\.3dm$/i.test(f.name)),arc=files.find(f=>/\.arc$/i.test(f.name));if(!model||!arc)throw Error('Choose a model .3dm and texture .arc');const measured=await measureStyleReference(new Uint8Array(await model.arrayBuffer()),new Uint8Array(await arc.arrayBuffer()),model.name);artProfile.reference=measured;await save('style-reference.json',strToU8(JSON.stringify(measured,null,2)));status(`Measured ${measured.triangles} reference triangles; world proportions need calibrated frames.`,1);}catch(e){showError(e);}};
 function artChanged(){if(source&&!busy){if(nativeMode)returnSourcePose();clearNativeCandidate();artDirty=!!converted;setBusy(false);if(artDirty)status('Art settings changed; reconvert before export.');if($("art-live").checked){clearTimeout(artTimer);artTimer=setTimeout(()=>runConvert(),450);}}}
 for(const [key,label]of [['stylization','Polygon stylization'],['face','Face preservation'],['angular','Angular body shaping'],['pixelation','Texture pixelation'],['hair','Hair preservation']]){
  const labelNode=document.createElement('label'),input=document.createElement('input'),output=document.createElement('output');
@@ -1218,6 +1218,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 // Read-only diagnostic/test hooks; no filesystem or IPC bypass.
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
+    setReconstruction(stage) { artProfile.reconstruction=stage; },
     syntheticCharacter,
     deformationProbe,
     nativeSyntheticFixture,

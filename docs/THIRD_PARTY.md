@@ -4,6 +4,8 @@ De applicatie is nieuw geschreven. Directe afhankelijkheden zijn exact gepind; a
 
 | Package | Versie | Licentie | Gebruik |
 |---|---|---|---|
+| delaunator | 5.0.1 | ISC | UV-chart triangulatie |
+| robust-predicates | 3.0.3 | Unlicense | robuuste geometrische predicates (transitief) |
 | three | 0.186.1 | MIT | rendering, FBX/OBJ/MTL/glTF/TGA import, GLB inspectie-export |
 | meshoptimizer | 1.3.0 | MIT | attribuutbewuste reductie, Meshopt glTF decoding |
 | fflate | 0.8.3 | MIT | voorbereidingspakket-ZIP |

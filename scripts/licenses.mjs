@@ -1,6 +1,8 @@
 import { readFile, mkdir, writeFile, readdir, cp } from "node:fs/promises";
 const packages = [
   "three",
+  "delaunator",
+  "robust-predicates",
   "meshoptimizer",
   "fflate",
   "electron",

@@ -21,3 +21,25 @@ export function facialLandmarkLocks(mesh, geometry, materialName='') {
   for(let i=0;i<position.count;i++)if(positions.has(key(i)))mask[i]=1;
   return {mask,landmarks:matched,lockedVertices:mask.reduce((n,v)=>n+v,0)};
 }
+
+// Semantic bone locations in the mesh's bind-local coordinates. Return only
+// anchors close to this particular surface partition (exclude remote jaw/neck).
+export function facialSurfaceAnchors(mesh, geometry) {
+  if (!mesh.skeleton) return [];
+  const position = geometry.attributes.position;
+  const inverse = mesh.matrixWorld.clone().invert();
+  const limitSquared = new THREE.Box3().setFromBufferAttribute(position)
+    .getSize(new THREE.Vector3()).lengthSq() * .0144;
+  const anchors = [];
+  for (const bone of mesh.skeleton.bones) {
+    if (!/^FACIAL_[CLR]_(NoseTip|LipCorner|LipUpper|LipLower|EyelidUpperA|EyelidLowerA)$/i.test(bone.name)) continue;
+    const point = bone.getWorldPosition(new THREE.Vector3()).applyMatrix4(inverse);
+    let vertex = 0, distance = Infinity;
+    for (let v = 0; v < position.count; v++) {
+      const d = new THREE.Vector3().fromBufferAttribute(position, v).distanceToSquared(point);
+      if (d < distance) { vertex = v; distance = d; }
+    }
+    if (distance < limitSquared) anchors.push({name: bone.name, vertex});
+  }
+  return anchors;
+}

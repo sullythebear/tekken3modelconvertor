@@ -1,3 +1,7 @@
+# 0.7.0-dev.1 reconstruction checkpoint
+
+New UV-surface reconstruction targets damaged Nikki boot shafts. Face/hair experiments retain fallbacks and are not artistically accepted. See [implementation and reproduction](docs/RECONSTRUCTION_070.md). This is not a completed 0.7 release or verified game integration.
+
 # Tekken 3 Conversion Studio
 
 Nieuw, onafhankelijk ontwikkeld desktopproject. **De volledige ontwikkelopdracht is nog niet afgerond. Deze release is een werkende assetvoorbereidingstool met native PS1/Tekken-codecs, geen gevalideerde speelbare-characterconverter.** De UI exporteert inmiddels native **kandidaten**; een bewezen speelbaar pakket blijft geblokkeerd zolang donor-bindkalibratie en runtime-integratie niet in de game zijn gevalideerd.

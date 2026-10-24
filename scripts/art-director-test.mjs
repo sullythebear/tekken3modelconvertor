@@ -6,7 +6,7 @@ import {unzipSync} from 'fflate';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {readTIM} from '../src/core/ps1.js';
-const out='artifacts/art-director';await mkdir(out,{recursive:true});
+const out=process.env.ART_OUTPUT??'artifacts/art-director';await mkdir(out,{recursive:true});
 const session=await browserSession(),{page}=session;
 page.on('console',m=>{if(m.type()==='error'&&/Shader Error|VALIDATE_STATUS/.test(m.text()))session.errors.push(m.text());});
 const results=[];
@@ -27,7 +27,7 @@ try {
   }
   for(const preset of process.env.ART_PRESETS?.split(',')??['baseline','authentic','classic','expanded']){
    const dir=`${out}/${model}-${preset}`;await mkdir(dir,{recursive:true});
-   await page.selectOption('#art-preset',preset);await page.click('#convert');
+   await page.selectOption('#art-preset',preset);if(process.env.ART_RECONSTRUCTION)await page.evaluate(stage=>window.studioTest.setReconstruction(stage),process.env.ART_RECONSTRUCTION);await page.click('#convert');
    await page.waitForFunction(()=>!document.querySelector('#convert').disabled,null,{timeout:300000});
    if(!await page.evaluate(()=>!!window.studioTest.converted))throw Error(await page.locator('#status').innerText());
    const silhouettes=[];
@@ -65,7 +65,7 @@ try {
    results.push({model,preset,triangles:report.conversion.stats.triangles,atlas:report.atlas?.tiles,silhouettes,quality:report.conversion.quality});
    console.log(model,preset,report.conversion.stats.triangles,silhouettes.map(s=>s.iou.toFixed(3)).join(','));
   }
-  if(model==='synthetic'){
+  if(model==='synthetic'&&!process.env.ART_RECONSTRUCTION){
    await page.uncheck('#art-live');await page.selectOption('#art-region','head');await page.fill('#art-priority','2');await page.locator('#art-priority').dispatchEvent('change');
    const pending=page.waitForEvent('download');await page.click('#project-save');await(await pending).saveAs(`${out}/authored-project.zip`);
    await page.selectOption('#art-preset','classic');await page.setInputFiles('#project-file',`${out}/authored-project.zip`);

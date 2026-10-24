@@ -123,7 +123,7 @@ function archiveFixture() {
 }
 test('Style reference measures actual native row density and texture dimensions without claiming world proportions',async()=>{
  const measured=await measureStyleReference(modelFixture(),archiveFixture(),'authored fixture');
- assert.equal(measured.triangles,1);assert.equal(measured.roleFractions.spine,1);assert.equal(measured.textures[0].width,16);assert.match(measured.proportions,/NOT MEASURED/);
+ assert.match(measured.textureArchiveSha256,/^[a-f0-9]{64}$/);assert.equal(measured.triangles,1);assert.equal(measured.roleFractions.spine,1);assert.equal(measured.textures[0].width,16);assert.match(measured.proportions,/NOT MEASURED/);
 });
 test("CPU BVH nearest points and barycentrics are geometrically correct", () => {
   const record = triangleRecord([
