@@ -18,7 +18,7 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
  for(const p of parts){
   const name=p.name,face=(/head|face/i.test(name)||p.region==='head')&&!/hair|faceacc|eye|iris|sclera|lash|teeth/i.test(name),hair=/hair|faceacc/i.test(name),eyes=/eye|iris|sclera|lash/i.test(name)&&!/teeth/i.test(name),boot=/envelope/i.test(name),torso=/spine|hips/.test(p.region);
   p.kind=face?'face':hair?'hair':eyes?'eyes':boot?'boots':torso?'clothing':'body';
-  p.minimum=Math.min(p.triangles,face?240:hair?/fringe/i.test(name)?150:140:eyes?/iris/i.test(name)?24:/sclera/i.test(name)?36:24:boot?64:torso?50:p.region==='unknown'?0:8);
+  p.minimum=Math.min(p.triangles,face?240:hair?/fringe|cards/i.test(name)?150:140:eyes?/iris/i.test(name)?24:/sclera/i.test(name)?36:24:boot?64:torso?50:p.region==='unknown'?0:8);
   p.importance=(face?10:hair?7:eyes?10:boot?4:torso?3:2)/Math.sqrt(Math.max(1,p.triangles));
  }
  const budgets=allocateBudget(parts,triangles),byMesh=new Map(),report=[];
@@ -39,7 +39,7 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
   }
   const anatomical=p.region!=='unknown',errorLimit=!anatomical?1:p.kind==='face'?.01:p.kind==='hair'?.012:p.kind==='eyes'?.01:.012;
 
-  const [indices,error]=input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
+  const [indices,error]=input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
   if(!byMesh.has(p.mesh))byMesh.set(p.mesh,[]);byMesh.get(p.mesh).push({...p,indices});
   report.push({mesh:p.mesh.name,region:p.region,material:p.name,before:p.triangles,target:budgets[i],after:indices.length/3,error,errorLimit,kind:p.kind,protectedMinimum:p.minimum,lockedVertices:mask.reduce((n,v)=>n+v,0),qualityLimited:indices.length>budgets[i]*3,retainedFraction:indices.length/input.length,warning:indices.length>budgets[i]*3?'Requested count exceeded to retain protected features / bounded geometric error':indices.length<input.length?'Lossy geometry reduction; inspect this region in the report':null});
  }

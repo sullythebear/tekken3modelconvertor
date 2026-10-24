@@ -5,8 +5,8 @@ import path from "node:path";
 export async function browserSession() {
   if (process.env.T3CS_AUTOMATION === "1") {
     const app = await _electron.launch({
-      executablePath: path.resolve("node_modules/electron/dist/" + (process.platform === "win32" ? "electron.exe" : "electron")),
-      args: process.platform === "win32" ? ["."] : ["--no-sandbox", "--ozone-platform=headless", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "."],
+      executablePath: process.env.T3CS_PACKAGED_APP ? path.resolve(process.env.T3CS_PACKAGED_APP) : path.resolve("node_modules/electron/dist/" + (process.platform === "win32" ? "electron.exe" : "electron")),
+      args: process.env.T3CS_PACKAGED_APP ? [] : process.platform === "win32" ? ["."] : ["--no-sandbox", "--ozone-platform=headless", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "."],
       env: {...process.env, ...(process.platform === "linux" ? {XDG_CONFIG_HOME: "/workspace/.t3cs-config", XDG_CACHE_HOME: "/workspace/.t3cs-cache"} : {})},
       timeout: 60000,
     });

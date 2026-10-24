@@ -73,10 +73,11 @@ export function reconstructHairVolume(g,material,{preservation=90,textureSize=12
  const output=material.clone();output.name=material.name+'_volume';output.map=texture;output.color.set(0xffffff);output.normalMap=null;output.alphaMap=null;output.alphaTest=0;output.transparent=false;output.side=THREE.DoubleSide;
  const supplements=[];
  if(method==='hybrid'||method==='auto'&&(material.alphaMap||material.alphaTest>0)){
-  const fringe=[];for(const t of records){const d=t.center.clone().sub(center);if(t.center.y>=(eyeHeight??box.max.y-height*.28)&&d.z>0&&Math.abs(Math.atan2(d.x,d.z))<1.15)fringe.push(...t.ids);}
-  if(fringe.length){const cards=subsetSurface(g,fringe),p=cards.attributes.position;for(let i=0;i<p.count;i++){const direction=new THREE.Vector3(p.getX(i)-center.x,0,p.getZ(i)-center.z).normalize();p.setXYZ(i,p.getX(i)+direction.x*height*.002,p.getY(i),p.getZ(i)+direction.z*height*.002);}const m=material.clone();m.name+='_fringe';supplements.push({geometry:cards,material:m,role:'hair-fringe'});}
+  const fringe=records.flatMap(t=>t.ids);
+  const volumePosition=geometry.attributes.position;for(let i=0;i<volumePosition.count;i++){volumePosition.setX(i,center.x+(volumePosition.getX(i)-center.x)*.94);volumePosition.setZ(i,center.z+(volumePosition.getZ(i)-center.z)*.94);}geometry.computeVertexNormals();
+  if(fringe.length){const cards=subsetSurface(g,fringe),p=cards.attributes.position;for(let i=0;i<p.count;i++){const direction=new THREE.Vector3(p.getX(i)-center.x,0,p.getZ(i)-center.z).normalize();p.setXYZ(i,p.getX(i)+direction.x*height*.002,p.getY(i),p.getZ(i)+direction.z*height*.002);}const m=material.clone();m.name+='_cards';supplements.push({geometry:cards,material:m,role:'hair-cards'});}
  }
- return {geometry,material:output,supplements,method:supplements.length?'hybrid opaque volume with original alpha-cutout fringe':'opacity-aware radial hair volume',generatedVertices:hits.length,triangles:indices.length/3,alphaRejected,oppositeRejected,maximumDiscardedWeight:transferred.maximumDiscardedWeight,limitations:'A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections'};
+ return {geometry,material:output,supplements,method:supplements.length?'inset support volume with silhouette-preserving source alpha cards':'opacity-aware radial hair volume',generatedVertices:hits.length,triangles:indices.length/3,alphaRejected,oppositeRejected,maximumDiscardedWeight:transferred.maximumDiscardedWeight,limitations:'A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections'};
 }
 
 // Keep disconnected alpha sheets and their UVs. Permissive collapses can join
