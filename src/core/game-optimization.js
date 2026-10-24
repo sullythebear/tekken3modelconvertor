@@ -16,13 +16,13 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
  const root=clone(artistic.root),parts=[],materials=new Map(),textures=new Map();root.updateMatrixWorld(true);
  root.traverse(mesh=>{if(!mesh.isMesh)return;mesh.geometry=mesh.geometry.clone();const copy=material=>{if(materials.has(material))return materials.get(material);const m=material.clone();for(const [k,v]of Object.entries(m))if(v?.isTexture){if(!textures.has(v))textures.set(v,v.clone());m[k]=textures.get(v);}materials.set(material,m);return m;};mesh.material=Array.isArray(mesh.material)?mesh.material.map(copy):copy(mesh.material);const g=mesh.geometry;if(!g.index)g.setIndex(Array.from({length:g.attributes.position.count},(_,i)=>i));const mats=Array.isArray(mesh.material)?mesh.material:[mesh.material];for(const [i,group]of (g.groups.length?g.groups:[{start:0,count:g.index.count,materialIndex:0}]).entries()){const name=mats[group.materialIndex]?.name??'',region=mesh.userData.studioRegions?.[i]?.role??'unknown',count=group.count/3,priority=/head|face/i.test(name)&&!/hair|faceacc/i.test(name)?6:/hair|faceacc/i.test(name)?4:/envelope/i.test(name)?3:1;parts.push({mesh,g,group,name,region,triangles:count,importance:priority/Math.sqrt(Math.max(1,count))});}});
  for(const p of parts){
-  const name=p.name,face=(/head|face/i.test(name)||p.region==='head')&&!/hair|faceacc|eye|iris|sclera|lash|teeth/i.test(name),hair=/hair|faceacc/i.test(name),eyes=/eye|iris|sclera|lash/i.test(name)&&!/teeth/i.test(name),boot=/envelope/i.test(name),torso=/spine|hips/.test(p.region);
-  p.kind=face?'face':hair?'hair':eyes?'eyes':boot?'boots':torso?'clothing':'body';
-  p.minimum=Math.min(p.triangles,face?240:hair?/fringe|cards/i.test(name)?150:140:eyes?/iris/i.test(name)?24:/sclera/i.test(name)?36:24:boot?64:torso?50:p.region==='unknown'?0:8);
-  p.importance=(face?10:hair?7:eyes?10:boot?4:torso?3:2)/Math.sqrt(Math.max(1,p.triangles));
+  const name=p.name,face=(/head|face/i.test(name)||p.region==='head')&&!/hair|faceacc|eye|iris|sclera|lash|teeth/i.test(name),hair=/hair|faceacc/i.test(name)&&!/^(left|right)Foot$/.test(p.region),eyes=/eye|iris|sclera|lash/i.test(name)&&!/teeth/i.test(name),boot=/envelope/i.test(name),torso=/spine|hips/.test(p.region);
+  const support=hair&&/_volume$/i.test(name)&&(Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material]).some(m=>/_cards$/i.test(m.name)),teeth=/teeth/i.test(name);
+  p.kind=support?'hair-support':teeth?'teeth':face?'face':hair?'hair':eyes?'eyes':boot?'boots':torso?'clothing':'body';
+  p.minimum=Math.min(p.triangles,support?48:teeth?8:face?240:hair?/fringe|cards/i.test(name)?150:140:eyes?/iris/i.test(name)?24:/sclera/i.test(name)?36:24:boot?64:torso?50:p.region==='unknown'?0:8);
+  p.importance=(support?2:teeth?.3:face?10:hair?7:eyes?10:boot?4:torso?3:2)/Math.sqrt(Math.max(1,p.triangles));
  }
- const budgets=allocateBudget(parts,triangles),byMesh=new Map(),report=[];
- for(let i=0;i<parts.length;i++)budgets[i]=Math.max(budgets[i],parts[i].minimum);
+ const budgets=allocateBudget(parts,triangles,parts.map(p=>p.minimum)),byMesh=new Map(),report=[];
 
  for(let i=0;i<parts.length;i++){
   const p=parts[i],position=p.g.attributes.position,uv=p.g.attributes.uv,attrs=new Float32Array(position.count*2);for(let v=0;v<position.count;v++)attrs.set([uv?.getX(v)??0,uv?.getY(v)??0],v*2);
@@ -37,9 +37,9 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
     for(const v of candidates){const value=position.getX(v)*Math.cos(angle*Math.PI/4)+position.getZ(v)*Math.sin(angle*Math.PI/4);if(value>score){score=value;best=v;}}if(best>=0)mask[best]=1;
    }
   }
-  const anatomical=p.region!=='unknown',errorLimit=!anatomical?1:p.kind==='face'?.01:p.kind==='hair'?.012:p.kind==='eyes'?.01:.012;
+  const anatomical=p.region!=='unknown',errorLimit=!anatomical?1:p.kind==='hair-support'?.08:p.kind==='teeth'?.15:p.kind==='face'?.01:p.kind==='hair'?.018:p.kind==='eyes'?.01:.012;
 
-  const [indices,error]=input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
+  const [indices,error]=input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,p.kind==='eyes'&&/sclera|eyeshell/i.test(p.name)?[.25,.25]:[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
   if(!byMesh.has(p.mesh))byMesh.set(p.mesh,[]);byMesh.get(p.mesh).push({...p,indices});
   report.push({mesh:p.mesh.name,region:p.region,material:p.name,before:p.triangles,target:budgets[i],after:indices.length/3,error,errorLimit,kind:p.kind,protectedMinimum:p.minimum,lockedVertices:mask.reduce((n,v)=>n+v,0),qualityLimited:indices.length>budgets[i]*3,retainedFraction:indices.length/input.length,warning:indices.length>budgets[i]*3?'Requested count exceeded to retain protected features / bounded geometric error':indices.length<input.length?'Lossy geometry reduction; inspect this region in the report':null});
  }

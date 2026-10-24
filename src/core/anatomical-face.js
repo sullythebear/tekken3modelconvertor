@@ -63,10 +63,10 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  for(const side of ['L','R']){
   const names=[`FACIAL_${side}_EyelidUpperA1`,`FACIAL_${side}_EyelidUpperA3`,`FACIAL_${side}_EyelidLowerA3`,`FACIAL_${side}_EyelidLowerA1`];
   if(names.every(n=>anchors[n])){
-   const target=names.reduce((p,n)=>p.add(anchors[n]),new THREE.Vector3()).multiplyScalar(.25),boundary=measuredLoop(target);
-   const traced=traceEyeAperture(source,eyeSurface,anchors[`FACIAL_${side}_EyelidUpperA`],{x,y,z,radius,eyeSpacing});
+   const manualContour=names.some(n=>Object.hasOwn(corrections,n)),target=names.reduce((p,n)=>p.add(anchors[n]),new THREE.Vector3()).multiplyScalar(.25),boundary=manualContour?null:measuredLoop(target);
+   const traced=manualContour?null:traceEyeAperture(source,eyeSurface,anchors[`FACIAL_${side}_EyelidUpperA`],{x,y,z,radius,eyeSpacing});
    const surfacePoints=traced??(boundary?resampleClosedLoop(boundary,12):names.map(n=>anchors[n]));
-   features.push({name:side+' eye',contour:surfacePoints.map(parameter),surfacePoints,measuredBoundary:!!boundary||!!traced,eyeSurfaceIntersection:!!traced,open:true});
+   features.push({name:side+' eye',contour:surfacePoints.map(parameter),surfacePoints,manualContour,measuredBoundary:!!boundary||!!traced,eyeSurfaceIntersection:!!traced,open:true});
   }
  }
  const mouthNames=['FACIAL_L_LipCorner','FACIAL_C_LipUpper','FACIAL_R_LipCorner','FACIAL_C_LipLower'];
@@ -126,5 +126,5 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
 
  const texture=surfaceTexture(rgba,textureSize,textureSize);texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.needsUpdate=true;
  const outputMaterial=material.clone();outputMaterial.name=material.name+'_anatomical';outputMaterial.color.set(0xffffff);outputMaterial.map=texture;outputMaterial.normalMap=null;outputMaterial.alphaMap=null;outputMaterial.specularMap=null;outputMaterial.aoMap=null;outputMaterial.roughnessMap=null;outputMaterial.metalnessMap=null;
- return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,frontTextureFraction:.8,triangulation,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
+ return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection,manualContour:!!f.manualContour})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,frontTextureFraction:.8,triangulation,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
 }

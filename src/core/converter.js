@@ -1,5 +1,5 @@
 import {shortGarmentTriangles} from './garment-segmentation.js';
-import {semantic} from './skeleton.js';
+import {boneSemantic} from './skeleton.js';
 import {rebakeTorso} from './torso-bake.js';
 import {reconstructBootEnvelope} from './boot-envelope.js';
 import {reconstructHairVolume,reconstructHairCards} from './hair-volume.js';
@@ -44,13 +44,14 @@ export function removeUnusedRenderAttributes(geometry, materials) {
   }
   return removed;
 }
-export function allocateBudget(parts, budget) {
+export function allocateBudget(parts, budget, minimums = null) {
   if (!Number.isInteger(budget) || budget < parts.length)
     throw Error(
       `Budget must be at least ${parts.length} for these regions/materials.`,
     );
-  const a = parts.map(() => 1);
-  let left = budget - a.length;
+  const a = minimums ? minimums.slice() : parts.map(() => 1);
+  if(a.length!==parts.length||a.some((n,i)=>!Number.isInteger(n)||n<0||n>parts[i].triangles))throw Error('Invalid protected region budget');
+  let left = Math.max(0,budget-a.reduce((sum,n)=>sum+n,0));
   while (left > 0) {
     const eligible = parts
       .map((p, i) => ({ i, weight: p.triangles * p.importance }))
@@ -163,15 +164,16 @@ export async function convertCharacter(
         ? mesh.material
         : [mesh.material];
     for (const group of groups) {
-      const regions = new Map(),garmentTriangles=art&&/body/i.test(materials[group.materialIndex]?.name??'')&&['combined','boots'].includes(art.reconstruction??'combined')?shortGarmentTriangles(mesh,g,group,semantic):new Set();
+      const regions = new Map(),garmentTriangles=art&&/body/i.test(materials[group.materialIndex]?.name??'')&&['combined','boots'].includes(art.reconstruction??'combined')?shortGarmentTriangles(mesh,g,group,boneSemantic):new Set();
       for (
         let t = group.start;
         t < Math.min(idx.length, group.start + group.count);
         t += 3
       ) {
+        const rawVotes=[0,1,2].map(k=>vertexRegion(mesh,idx[t+k],box));
         const anatomicalHead=art&&['face','combined'].includes(art.reconstruction??'combined')&&/head/i.test(materials[group.materialIndex]?.name??'')&&!/hair|faceacc|eye|lash|teeth/i.test(materials[group.materialIndex]?.name??'');
-        const anatomicalHair=art&&['hair','combined'].includes(art.reconstruction??'combined')&&/hair|faceacc|strand/i.test(materials[group.materialIndex]?.name??'');
-        const votes = [0, 1, 2].map((k) => anatomicalHair?'hair':anatomicalHead?'head':art&&Object.hasOwn(art.meshRoles??{},mesh.name)?'manual:'+art.meshRoles[mesh.name]:vertexRegion(mesh, idx[t + k], box));
+        const anatomicalHair=art&&['hair','combined'].includes(art.reconstruction??'combined')&&/hair|faceacc|strand/i.test(materials[group.materialIndex]?.name??'')&&!rawVotes.some(role=>/^(left|right)Foot$/.test(role));
+        const votes = [0,1,2].map(k=>art&&Object.hasOwn(art.meshRoles??{},mesh.name)?'manual:'+art.meshRoles[mesh.name]:anatomicalHair?'hair':anatomicalHead?'head':rawVotes[k]);
         if(art&&/body/i.test(materials[group.materialIndex]?.name??'')&&['boots','combined'].includes(art.reconstruction??'combined'))for(let v=0;v<votes.length;v++)if(/^(left|right)(Foot|UpperLeg)$/.test(votes[v]))votes[v]=votes[v].replace(/Foot|UpperLeg/,'LowerLeg');
         const role = garmentTriangles.has(t)&&votes.some(v=>/^(left|right)(UpperLeg|LowerLeg)$/.test(v))?'hips':
           votes.find((r) => votes.filter((v) => v === r).length >= 2) ??
@@ -241,7 +243,7 @@ export async function convertCharacter(
       supplements=[];
     const reconstructFace=(/head|face/i.test(p.material?.name??'')||p.role==='head'&&(/head|face/i.test(p.mesh.name)||art?.faceLandmarkMesh===p.mesh.name))&&!/hair|faceacc|lash|eye|teeth/i.test(p.material?.name??'');
     const reconstructBoots=/body/i.test(p.material?.name??'')&&/lowerleg|foot/i.test(p.role);
-    const reconstructHair=/hair|faceacc|strand/i.test(p.material?.name??'');
+    const reconstructHair=p.role==='manual:hair'||!p.role.startsWith('manual:')&&!/^(left|right)Foot$/.test(p.role)&&/hair|faceacc|strand/i.test(p.material?.name??'');
     const reconstructLashes=/lash/i.test(p.material?.name??'')&&art?.face>=80;
     const stage=art?.reconstruction??'combined';
     if (art && stage!=='v060' && (((reconstructFace||reconstructLashes)&&['combined','face'].includes(stage)) || (reconstructBoots&&['combined','boots','dev1'].includes(stage)) || (reconstructHair&&['combined','hair'].includes(stage)))) {

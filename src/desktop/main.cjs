@@ -1,6 +1,12 @@
 const { app, BrowserWindow, dialog, ipcMain } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs/promises");
+// Private-input automation keeps Chromium runtime data with the temporary
+// assets. Production launches retain the normal per-user application profile.
+if(process.env.T3CS_AUTOMATION==='1'&&process.env.T3CS_TEST_PROFILE){
+  app.setPath('userData',path.resolve(process.env.T3CS_TEST_PROFILE));
+  app.setPath('sessionData',path.resolve(process.env.T3CS_TEST_PROFILE));
+}
 const ROOT = path.resolve(__dirname, "../../dist");
 let main;
 const inputPaths = new Set();

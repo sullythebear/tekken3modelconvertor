@@ -6,6 +6,7 @@ import {sourceRecords,transferSurfaceAttributes,surfaceTexture,subsetSurface} fr
 // front hemisphere must contain real hair: back hair cannot close over a face.
 export function reconstructHairVolume(g,material,{preservation=90,textureSize=128,headCenter=null,method='auto',eyeHeight=null}={}){
  const records=sourceRecords(g,material,triangleRecord);if(!records.length)return {geometry:null,reason:'No source hair surface'};
+ if(records.length<=500&&!material.alphaMap&&!material.transparent&&!material.alphaTest){const geometry=g.clone();return {geometry,material:material.clone(),generatedVertices:geometry.attributes.position.count,triangles:records.length,method:'Already low-poly opaque hair retained; no unnecessary resampling',sourceRetained:true};}
  const surface=new SurfaceIndex(records),sample=materialSampler([material]),box=new THREE.Box3().setFromBufferAttribute(g.attributes.position),size=box.getSize(new THREE.Vector3());
  // Current importer presents upright bind geometry. Reject sideways meshes
  // rather than silently treating a shoulder-to-shoulder axis as hair length.
@@ -86,6 +87,6 @@ export function reconstructHairVolume(g,material,{preservation=90,textureSize=12
 export function reconstructHairCards(g,material,simplifier,{preservation=90}={}){
  const input=new Uint32Array(g.index.array),target=Math.max(200,Math.round(input.length/3*(.03+preservation*.0015))),uv=g.attributes.uv;
  if(!uv)return {geometry:null,reason:'Hair cards require source UVs'};
- const [index,error]=simplifier.simplifyWithAttributes(input,g.attributes.position.array,3,uv.array,2,[4,4],null,target*3,.007,['RegularizeLight']);
+ const [index,error]=input.length>target*3?simplifier.simplifyWithAttributes(input,g.attributes.position.array,3,uv.array,2,[4,4],null,target*3,.007,['RegularizeLight']):[input,0];
  const geometry=subsetSurface(g,index);geometry.computeVertexNormals();return {geometry,material:material.clone(),generatedVertices:geometry.attributes.position.count,triangles:index.length/3,method:'UV-preserving disconnected alpha cards with bounded surface error',sourceTriangles:input.length/3,target,error,alphaPreserved:true};
 }
