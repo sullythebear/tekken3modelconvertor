@@ -54,7 +54,7 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
   const hit=source.raycast(origin,direction.clone().negate(),radius*5);
   if(hit&&hit.point.clone().sub(center).dot(direction)>radius*.08){hit.barycentric=hit.triangle.triangle.getBarycoord(hit.point,new THREE.Vector3());return hit;}
   const level=minY+Math.max(.0001,Math.min(.9999,q.y))*height,key=level.toFixed(6);
-  if(!slices.has(key)){const segments=[];for(const t of source.triangles){const cross=[];for(let k=0;k<3;k++){const a=t.points[k],b=t.points[(k+1)%3],da=(a.x-center.x)*y.x+(a.y-center.y)*y.y+(a.z-center.z)*y.z-level,db=(b.x-center.x)*y.x+(b.y-center.y)*y.y+(b.z-center.z)*y.z-level;if(da*db<0)cross.push(a.clone().lerp(b,da/(da-db)));}if(cross.length===2)segments.push(new THREE.Line3(...cross));}slices.set(key,segments);if(slices.size>32)slices.delete(slices.keys().next().value);}
+  if(!slices.has(key)){const segments=[];for(const t of source.triangles){const cross=[];for(let k=0;k<3;k++){const a=t.points[k],b=t.points[(k+1)%3],da=a.clone().sub(center).dot(y)-level,db=b.clone().sub(center).dot(y)-level;if(da*db<0)cross.push(a.clone().lerp(b,da/(da-db)));}if(cross.length===2)segments.push(new THREE.Line3(...cross));}slices.set(key,segments);}
   let best=null,distance=Infinity;for(const segment of slices.get(key)){const point=segment.closestPointToPoint(origin,true,new THREE.Vector3()),d=point.distanceToSquared(origin);if(d<distance){best=point;distance=d;}}
   return source.nearest(best??origin.clone().addScaledVector(direction,-radius*2.5));
  };

@@ -71,8 +71,7 @@ export async function bakeAtlas(
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
   const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
-  const pixelCache=new Map();
-  const cachedPixels=(texture,size,dataMap=false)=>{const image=texture?.image;if(!image)return null;let sizes=pixelCache.get(image);if(!sizes){sizes=new Map();pixelCache.set(image,sizes);}const key=`${size}:${dataMap}`;if(!sizes.has(key))sizes.set(key,pixels(texture,size,dataMap));return sizes.get(key);};
+  const cachedPixels=(texture,size,dataMap=false)=>pixels(texture,size,dataMap);
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].side;
     const sampleSize=art&&/hair|faceacc|strand/i.test(materials[i].name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
@@ -195,7 +194,6 @@ export async function bakeAtlas(
     });
     await new Promise((r) => setTimeout(r, 0));
   }
-  pixelCache.clear();
   const texture = new THREE.CanvasTexture(atlas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.NearestFilter;

@@ -18,6 +18,5 @@ export function refineSurfaceCurvature(points,triangles,project,insert,{constrai
   candidates.sort((a,b)=>b.error-a.error);
   for(const {q}of candidates){if(inserted>=maxInsertions)break;const before=points.length;insert(points,triangles,q);inserted+=points.length-before;}
  }
- cache.clear();
  return {inserted,tolerance,initialMaximumError,lastMeasuredErrorBeforeInsertion:lastMaximumError,discontinuousSamples,insertionLimit:maxInsertions,method:'Measured source-surface chord error; constrained conforming edge insertion'};
 }
