@@ -1,7 +1,7 @@
 name: Publish Windows development review
 on:
   push:
-    branches: [main, recovery/070-dev2, development/070-dev4]
+    branches: [main, recovery/070-dev2, development/070-dev5]
   workflow_dispatch:
 permissions:
   contents: read
@@ -85,7 +85,7 @@ jobs:
         run: throw 'Nikki project roundtrip did not pass; see the published sanitized measurement report.'
   open-review-pr:
     needs: review
-    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev4'
+    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev5'
     runs-on: ubuntu-latest
     continue-on-error: true
     permissions:
@@ -99,9 +99,9 @@ jobs:
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
-          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev4 --state open --json url --jq '.[0].url // empty')
+          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev5 --state open --json url --jq '.[0].url // empty')
           if [ -n "$existing" ]; then echo "$existing"; exit 0; fi
-          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev4 --title '0.7.0-dev.4: visual corrections and verified Nikki project persistence' --body-file docs/PR_070_DEV4.md 2>&1); then
+          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev5 --title '0.7.0-dev.5: visual corrections and verified Nikki project persistence' --body-file docs/PR_070_DEV5.md 2>&1); then
             echo "::error title=Review PR unavailable::$result"
             exit 1
           fi

@@ -1,51 +1,70 @@
-# 0.7.0-dev.4 — visual review, not artistic approval
+# 0.7.0-dev.5 — visual refinement, awaiting human review
 
-Base: e00dc874c15154a23de1587dc4d5d159ad41f1a3, preserved unchanged.
-Branch: development/070-dev4. No automatic merge, no donor/gameplay claim.
+Base: 960c6b55597b75fdbb9590c2df3d2ac7485ac511 (dev.4).
+Branch: development/070-dev5. Existing commits, releases, formats and main are preserved.
+No original-game research was performed in this phase. Fixtures are not gameplay evidence.
 
-## Accepted changes and their limits
+## Changes that are actually used
 
-- **Face:** internal rig lip/nose controls are first projected onto the visible source surface before assigning chart coordinates. Semantic levels no longer create three entire skull rings each; the explicit eye and mouth constraints remain. Nikki's head falls from 2,439 to 1,407 triangles. Source-specific contour tracing/manual overrides are retained. Fine eyelid alignment, lip shape and the angular jaw still require judgement.
-- **Hair:** the inset support shell uses bounded simplification with open borders locked. Its count falls from 640 to 480; the 1,905 outer card triangles are unchanged. Cards alone still expose holes at the back; volumes alone look blocky around the forehead and long ends. Hybrid remains the automatic choice for Nikki. The authored opaque crest remains a different test case; no Nikki-specific mesh indices or material IDs are used.
-- **Cutouts:** area filtering with alpha-weighted RGB and a real binary cutoff is applied to lashes. It prevents transparent black texels from contaminating visible colour and reduces weak-alpha stippling. It deliberately does not change the existing hair cutoff, which must retain thin source strands. Cutouts still cannot reproduce modern soft transparency.
-- **Clothing:** front/back rebaked torso/hip maps get 256-pixel staging tiles, giving each side about twice its earlier useful linear texel width. The existing 512 atlas and 128-pixel face tile are retained. This costs more preparation texture bytes and CLUT/VRAM layout is still not a measured native donor allocation. Dark-colour dithering is reduced proportionally to luminance so black fabric is not artificially speckled. Shorts segmentation/geometry remains the dev.3 method; coarse hems are not claimed fixed.
-- **Memory:** importer creates Blob URLs lazily and avoids copying a full-span model ArrayBuffer before read-only parsing. Selected source files, project byte identity and mapping validation are unchanged. Windows receipts now distinguish summed working sets, private committed bytes and the separate Node test harness. Neither counter is unique resident RAM. Linux does not provide the Windows private-bytes counter and reports it as unavailable.
+**Face.** Coarse support topology is refined locally from measured source-surface chord error, keeping explicit eye/mouth constraints. Flat patches receive no arbitrary subdivision; discontinuous projection samples are excluded. The finite insertion allowance and pre-insertion errors are reported, not presented as a final geometric or artistic pass. Source UV overlap remains unsuitable for generating geometry. New UV density transitions get their own topology rows. Nikki's head falls from 1,407 to **965 triangles**.
 
-Nikki artistic: **6,395 triangles**, down **1,192 (15.7%)** from dev.3's 7,587. These are generated geometry reductions, not a preview shader. Other counts: Cesium Man 953; authored short hair 1,931; authored crest 2,195.
+The measured jaw/eye-spacing interval receives 70% of the existing head tile height; neck retains 20%, scalp 10%. The horizontal face allocation and real exported 128-pixel/256-colour head TIM remain. Unsupported jaw measurements retain uniform V. A closed template-mouth patch uses measured lip positions and local source UV correspondence instead of projecting through the open source mouth to a remote surface. Ambiguous local UV spans retain the documented projection fallback. Eye and mouth contours are transferred to the candidate's region metadata and explicitly protected during optimization. Bone-landmark lookup is restricted to the actual face partition, rather than accidentally choosing a closer eye or tooth in another group.
 
-| Experimental target | dev.3 actual | dev.4 actual |
+**Hair and lashes.** Area filtering retains the original source hair cutoff (Nikki: 0.2), with alpha-weighted colour only for diffuse maps. Opacity-green and normal RGB are data; unused alpha must not erase them. This is not the rejected blanket 0.5 cutoff. Nikki's 1,905 outer card triangles and 480 inset-support triangles are unchanged: improved continuity is not obtained by adding hair geometry. Hair framing can use the global anatomical head bone even when that parent is absent from a mesh's weighted bone list; otherwise source bounds remain the fallback. Ends and some card seams remain angular.
+
+Candidate cards are processed as independent edge-connected sheets. UV-seam relaxation is allowed only for identical skin assignments; mixed assignments retain conservative topology and coincident deformation seams are protected. No collapse can bridge independent sheets. The report includes each component's policy, target, count and error. This does **not** provide a polygon-count improvement for Nikki's hair in the final lowest candidate (658 vs 656); conservative fallbacks are not counted as visual improvements.
+
+**Clothing.** Measured dihedral creases in the lower hip region protect pocket/hem source features through clustering and the final candidate. This is driven by anatomical region and physical surface normals, not Nikki mesh indices or texture colours. Flat tessellation and nonmanifold contacts are excluded; the feature allocation is finite. Nikki's hip region increases from 252 to **337 triangles**, retaining more cargo-pocket boundaries. The improved dev.4 shorts segmentation and sharp 256-pixel rebaked garment tiles remain. The lower hem is still visibly coarse; it is not declared fixed.
+
+## Geometry measurements and tradeoffs
+
+Nikki artistic: **6,038 triangles**, down **357 (5.6%)** from dev.4's 6,395.
+Head saves 442; hip feature protection adds 85. Other artistic regions retain their counts.
+Cesium Man: 953; authored short hair: 1,931; authored crest: 1,879.
+
+| Experimental request | dev.4 actual | dev.5 actual |
 |---:|---:|---:|
-| 900 | 1,974 | 1,983 |
-| 1,200 | 1,997 | 2,002 |
-| 1,500 | 2,046 | 2,059 |
-| 2,000 | 2,301 | 2,280 |
+| 900 | 1,983 | 1,999 |
+| 1,200 | 2,002 | 2,028 |
+| 1,500 | 2,059 | 2,086 |
+| 2,000 | 2,280 | 2,341 |
 
-**All requested targets remain unmet.** Lower artistic cost does not automatically lower the quality-constrained candidate floor. The 1,974 vs 1,983 comparison is included to judge similar actual cost, rather than comparing different budgets as proof of quality. No count is an established Tekken 3 limit.
+**No requested candidate target is met.** The artistic model is smaller, but the final candidates are slightly larger because measured lip/eye/pocket features are retained. This is not reported as successful budget reduction. The matched-cost gallery compares 1,983 vs 1,999 triangles (16 difference, about 0.8%). Every region's counts, locks, retained fraction, error and component fallback are available in JSON and the report table. No request is claimed to be measured game capacity.
 
-## Rejected changes and remaining problems
+## Rejected experiments and unresolved quality
 
-Aggressive support simplification (0.025/permissive borders) created a forehead opening. A general 0.5 alpha threshold removed too much hair. Both were reverted; rejected frames are linked in the gallery.
+A 3D diagonal-quality criterion produced face folds/texture slivers despite a technically finite mesh; it was removed. The accepted pipeline keeps constrained chart triangulation with source-measured refinement.
 
-Additional exterior-chart and normal-based boot correspondence filters did not convincingly fix the rear heel markings, so those experiments were also reverted. The dev.3 boot reconstruction is preserved. Rear and side close-ups expose the unresolved heel/sole transition: a single ring envelope bridges the source heel/arch geometry, and small underside colour regions become stretched. This needs a more specific heel/sole topology; it is not declared repaired by a texture filter. The new dark dithering changes fabric appearance only.
+A source-measured sole/arch experiment generated concavity and a separate sole chart, but made texture leakage under the foot worse. Global anatomy lookup exposed an unweighted foot-parent issue, but that alone did not make the result good. This experiment was removed from production. Its screenshots are linked beside the original sole. The existing dev.4 boot reconstruction remains: heel/sole shape, underside colours and ankle folds still require a more reliable layered-foot reconstruction. No previously rejected exterior/normal colour filter was restored.
 
-Fine lash/eye contours, jaw/skin faceting, hair tips and seams, angular clothing hems, lost pockets/zipper detail, and low-budget silhouette loss remain. Artistic acceptance is pending the user's screenshot review. No original Nina donor, calibrated native bind or Expanded runtime is available; native fixture checks are not gameplay verification.
+Fine eyelid/eyelash contours, angular jaw/neck shading, hair ends, some card transitions, coarse clothing hems and low-budget detail loss remain. Better texels, finite geometry, IoU and passing tests do not establish artistic acceptance. The user must review the screenshots.
 
-## Evidence and reproduction
+## Memory and private project reliability
 
-Download Visual-Review.zip, unpack, open index.html. It links dev.2, dev.3 and dev.4; identical source views; face/eyes/mouth, hair, boots/heels/side ankles, clothing, wireframes and diagnostic movement; all budgets and hair methods. The 27 common Nikki source PNGs were byte-identical to dev.3 in the cloud check. New heel/side images for dev.3 are rendered from its pinned source checkout with the same current camera script. Dev.2 has no such new close-ups; the gallery labels unavailable views instead of fabricating them.
+Raw 8-bit diffuse data uses a view instead of another full RGBA copy. Full-size scratch canvases are explicitly released after readback. Data maps are resampled directly into small buffers without full-resolution scratch surfaces. Per-image/per-size/per-data-role caching avoids repeated resampling, and is cleared before final atlas construction. A pre-data-map-correction isolation check retained all 13 non-face TIM hashes while only the intentionally reconstructed face changed; the subsequent data-channel correction intentionally changes baked texture sampling.
 
-Node 24 developer reproduction, no Blender:
+The original FBX/TGA buffers remain unchanged. Project schema, compression, safe mapping snapshots and strict native mapping validation are unchanged. Old source data remains available until a replacement import succeeds; it is not discarded early merely to lower a memory score. The full private roundtrip validates ZIP/FBX hashes, all 23 TGA headers and byte identity of all 24 saved assets, then reconverts after reopening.
+
+Windows measurements use the same 250 ms Electron per-process samples as dev.4: summed working sets, private committed bytes and separate Node harness RSS. Phase summaries use those same samples; an unobserved phase is unavailable, never zero. Synchronous harness verification can block its sampler. Working sets can double-count shared pages; private committed bytes are not unique resident RAM. One hosted-run measurement per version is not a controlled benchmark. The authoritative new timings, phase peaks, cleanup and executable receipts are in `windows-nikki-project.json` and `WINDOWS-STATUS.md` in the downloaded report.
+
+Secret NIKKI_DOWNLOAD_URL is read only through the test environment. Original ZIP/FBX/TGAs, project ZIPs, runtime profiles and raw private logs remain outside public artifacts/caches/releases and are cleaned up. Only sanitized counters, generated images and safe report files are published.
+
+## Checks and reproduction
+
+140 unit/integration tests (all 130 previous cases plus 10 focused cases), FBX 7400/7500/7700 and TGA/image binding, CPU/GPU skinning, native UI/humanoid fixtures, mapping, Cesium source animation, source Electron/desktop IPC and synthetic preset/project regression. Actual Windows EXE and private Nikki project receipts are separately produced by the publishing workflow; this document alone does not claim they passed.
+
+Unpack Visual-Review.zip and open index.html. The gallery includes dev.3/dev.4/dev.5, identical full/detail/pose cameras, measured budget losses, matched actual cost, hair methods, other models and rejected variants. All **31** common Nikki source views matched dev.4 byte-for-byte in the cloud run. New sole cameras are rendered from the exact old checkouts with the same current camera script.
+
+Developer reproduction with Node 24 and existing dependencies (no Blender):
 
 ```
 npm ci
 npm run build
 npm test
-# private local asset directory; never commit it
-NIKKI_DIR=/private/nikki node scripts/dev4-review.mjs
+npm run test:reference
+NIKKI_DIR=/private/nikki node scripts/dev5-review.mjs
 ```
 
-The pinned Cesium fixture is downloaded/validated by `npm run test:reference`. The earlier images are safe archived evidence retained in the repository. To reproduce the added dev.3 heel cameras, create a detached worktree at e00dc87, install the same dependencies, build it, and supply DEV3_WORKTREE to the review script. REPORT_ONLY=1 regenerates HTML and measurements; REVIEW_ONLY selects named stages. Neither script publishes private model files.
+For the added old-version sole close-ups, build detached worktrees at e00dc87 and 960c6b5 and pass DEV3_WORKTREE and DEV4_WORKTREE. Existing archived evidence supplies the other old-version images. REPORT_ONLY=1 rebuilds HTML/metrics; REVIEW_ONLY selects stages. `node scripts/package-dev5-evidence.mjs` copies an allowlist and creates exact evidence hashes; `node scripts/verify-review-evidence.mjs` validates them. Preparation/model/project formats are excluded from that package.
 
-Cloud checks: all 124 existing unit/integration cases plus six focused new tests; source visual import/export, skinning CPU/GPU, mapping, Cesium animation, native humanoid and native UI fixtures, desktop IPC and source Electron smoke. The actual Windows executable and private full Nikki roundtrip are tested by publish-review.yml; their authoritative results are windows-unit.xml, windows-portable.json, windows-nikki-project.json and WINDOWS-STATUS.md in the downloaded report. Do not infer a Windows pass from this document alone.
-
-The secret URL is only an environment input. Download ZIP/FBX hashes, TGA presence and headers, all 24 saved/reopened asset hashes and conversion statistics are validated. Source FBX/TGAs, project ZIPs, runtime profiles, caches and raw error logs stay under a private temporary directory and are cleaned up. Only sanitized metrics, generated screenshots and safe evidence formats are published. Missing permissions/download failure remains FAIL with a sanitized cause.
+Main is not merged. No Nina/Expanded gameplay or artistic completion is claimed.

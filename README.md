@@ -1,3 +1,5 @@
+0.7.0-dev.5: [visual refinement, measured tradeoffs and reproduction](docs/REVIEW_070_DEV5.md). Artistic approval remains pending; candidate counts are not reduced.
+
 0.7.0-dev.4: [visual changes, measured limits and reproduction](docs/REVIEW_070_DEV4.md). Artistic and gameplay acceptance remain pending.
 
 > **0.7.0-dev.3:** [visual corrections and private Windows test](docs/REVIEW_070_DEV3.md). Artistieke goedkeuring en echte Tekken-gamevalidatie staan nog open.

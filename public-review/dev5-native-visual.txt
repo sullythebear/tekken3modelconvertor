@@ -1,0 +1,1 @@
+Native UI reconstruction, export, reimport and texel validation passed (synthetic fixture only).

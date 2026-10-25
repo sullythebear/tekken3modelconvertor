@@ -1,0 +1,84 @@
+{
+  "scope": "Isolated early canvas-buffer change before data-map filtering correction; face deliberately excluded; this is not artistic acceptance",
+  "baselineCommit": "960c6b55597b75fdbb9590c2df3d2ac7485ac511",
+  "nonFaceChecks": [
+    {
+      "path": "textures/00.tim",
+      "baseline": "71ce2a894bc4b999d0ec7087c1eab031937f0397b535582ad67bd9bf3ab149ba",
+      "current": "71ce2a894bc4b999d0ec7087c1eab031937f0397b535582ad67bd9bf3ab149ba",
+      "equal": true
+    },
+    {
+      "path": "textures/01.tim",
+      "baseline": "528a655e2083aea2c9e4865f35cb96a29d0f7ae09c545ed61c06d357da838842",
+      "current": "528a655e2083aea2c9e4865f35cb96a29d0f7ae09c545ed61c06d357da838842",
+      "equal": true
+    },
+    {
+      "path": "textures/02.tim",
+      "baseline": "cff832850882f7607a5667c3c855a3723728456ea5c256316bb5eb0d5f4068d8",
+      "current": "cff832850882f7607a5667c3c855a3723728456ea5c256316bb5eb0d5f4068d8",
+      "equal": true
+    },
+    {
+      "path": "textures/03.tim",
+      "baseline": "49629535d374af59d65817a8ca6067827831b47a879465b6db0f6cd9a9376152",
+      "current": "49629535d374af59d65817a8ca6067827831b47a879465b6db0f6cd9a9376152",
+      "equal": true
+    },
+    {
+      "path": "textures/04.tim",
+      "baseline": "1041c959d82d95a89b67bad0faebada336aa9848973d5b7b4b6e265a4a1d1cd7",
+      "current": "1041c959d82d95a89b67bad0faebada336aa9848973d5b7b4b6e265a4a1d1cd7",
+      "equal": true
+    },
+    {
+      "path": "textures/05.tim",
+      "baseline": "137c3b99af70371f85028984a689edc0f16363e26bb4f2b0acea1d431dc106d3",
+      "current": "137c3b99af70371f85028984a689edc0f16363e26bb4f2b0acea1d431dc106d3",
+      "equal": true
+    },
+    {
+      "path": "textures/06.tim",
+      "baseline": "a1215032404451252a819b7beafa7a810bf2f00a0fefad43d078a1b6d8e551bd",
+      "current": "a1215032404451252a819b7beafa7a810bf2f00a0fefad43d078a1b6d8e551bd",
+      "equal": true
+    },
+    {
+      "path": "textures/07.tim",
+      "baseline": "d3f911bed185cf19611aac3530ea4cb6e96b6f34474a86524a6d695fad082591",
+      "current": "d3f911bed185cf19611aac3530ea4cb6e96b6f34474a86524a6d695fad082591",
+      "equal": true
+    },
+    {
+      "path": "textures/08.tim",
+      "baseline": "470c2760d17d30bcd82f5a680b04debdcc4c964c44e75f14966c990f3db5bf84",
+      "current": "470c2760d17d30bcd82f5a680b04debdcc4c964c44e75f14966c990f3db5bf84",
+      "equal": true
+    },
+    {
+      "path": "textures/09.tim",
+      "baseline": "917bc2a09dda044cb977a85c4cec3f5a7ebd2527370a74bae93ec262564e1e88",
+      "current": "917bc2a09dda044cb977a85c4cec3f5a7ebd2527370a74bae93ec262564e1e88",
+      "equal": true
+    },
+    {
+      "path": "textures/10.tim",
+      "baseline": "117b5a274be5392da39835499812182746fc882dbd3d65dd125d38e06dc264b5",
+      "current": "117b5a274be5392da39835499812182746fc882dbd3d65dd125d38e06dc264b5",
+      "equal": true
+    },
+    {
+      "path": "textures/11.tim",
+      "baseline": "c2d5b9133ce0fa711fca0f703af4b1426a4d48fb0c7eb4c9be086f370ad14553",
+      "current": "c2d5b9133ce0fa711fca0f703af4b1426a4d48fb0c7eb4c9be086f370ad14553",
+      "equal": true
+    },
+    {
+      "path": "textures/12.tim",
+      "baseline": "bfad8a11fc70a32a9477b71fc614a3d04ffbea37015ef36195bbf6f2aedd1f66",
+      "current": "bfad8a11fc70a32a9477b71fc614a3d04ffbea37015ef36195bbf6f2aedd1f66",
+      "equal": true
+    }
+  ]
+}

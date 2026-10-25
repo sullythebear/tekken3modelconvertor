@@ -1,3 +1,5 @@
+0.7.0-dev.5: [visual refinement, measured tradeoffs and reproduction](REVIEW_070_DEV5.md). Artistic approval remains pending; candidate counts are not reduced.
+
 0.7.0-dev.4: [visual changes, measured limits and reproduction](REVIEW_070_DEV4.md). Artistic and gameplay acceptance remain pending.
 
 > **Current: 0.7.0-dev.3** — [visual corrections, measured project roundtrip and remaining limits](REVIEW_070_DEV3.md). Cloud regression: 124 tests passed. Published Windows receipts are authoritative for Windows checks. Older notes below are historical.
