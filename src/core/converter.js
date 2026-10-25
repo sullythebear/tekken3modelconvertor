@@ -1,3 +1,4 @@
+import {creaseFeatures} from './crease-features.js';
 import {shortGarmentTriangles} from './garment-segmentation.js';
 import {boneSemantic} from './skeleton.js';
 import {rebakeTorso} from './torso-bake.js';
@@ -110,6 +111,7 @@ export async function convertCharacter(
   const root = clone(source.root),
     materialCopies = new Map(),
     textureCopies = new Map();
+  const anatomicalBones=[];root.traverse(o=>{if(o.isBone)anatomicalBones.push(o);});
   const copyMaterial = (mat) => {
     if (materialCopies.has(mat)) return materialCopies.get(mat);
     const c = mat.clone();
@@ -248,7 +250,7 @@ export async function convertCharacter(
     const stage=art?.reconstruction??'combined';
     if (art && stage!=='v060' && (((reconstructFace||reconstructLashes)&&['combined','face'].includes(stage)) || (reconstructBoots&&['combined','boots','dev1'].includes(stage)) || (reconstructHair&&['combined','hair'].includes(stage)))) {
       const anchors=reconstructFace?facialSurfaceAnchors(p.mesh,g):[];
-      const headBone=p.mesh.skeleton?.bones.find(b=>/^(head|mixamorig:head)$/i.test(b.name));
+      const headBone=anatomicalBones.find(b=>boneSemantic(b)==='head');
       const hairCenter=headBone?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
       let projectionGeometry=null;
       if(reconstructBoots&&stage!=='dev1'){
@@ -265,7 +267,7 @@ export async function convertCharacter(
         const support=candidate.geometry,reducedSupport=simplifyHairSupport(support,MeshoptSimplifier);
         support.dispose();candidate.geometry=reducedSupport.geometry;candidate.supportReduction=reducedSupport.report;
       }
-      if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
+      if(candidate.geometry){if(candidate.contourPoints)p.faceContours=candidate.contourPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'v0.6 fallback',reason:candidate.reason};
     }
     if (art && !reconstruction?.generatedVertices) {
@@ -273,11 +275,12 @@ export async function convertCharacter(
       const shells=art.occlusionCleanup&&/body/i.test(p.material?.name)?removeOccludedShells(g,new Uint32Array(g.index.array)):null;
       if(shells?.removed)g.setIndex(new THREE.BufferAttribute(shells.indices,1));
       const protectedMask=geometricBoundaryMask(g);
+      const creases=p.role==='hips'&&['combined','boots'].includes(stage)?creaseFeatures(g):null;if(creases){for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=creases.mask[v];p.protectedPoints=creases.points;}
       if(locks&&art.face>=50)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=locks.mask[v];
       reconstruction = reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
-      reconstruction.occludedShellTriangles=shells?.removed??0;
+      reconstruction.occludedShellTriangles=shells?.removed??0;if(creases)reconstruction.creaseProtection=creases.report;
       if(fallbackReason)reconstruction.fallbackReason=fallbackReason;
       if(indices.length>budgets[i]*3){
         [indices,error]=MeshoptSimplifier.simplifyWithAttributes(indices,positions,3,attrs,5,[12,12,.1,.1,.1],protectedMask,budgets[i]*3,settings.error,['Permissive','RegularizeLight']);
@@ -374,7 +377,7 @@ export async function convertCharacter(
       const start = indices.length;
       for (const i of p.geometry.index.array) indices.push(i + offset);
       combined.addGroup(start, indices.length - start, p.materialIndex);
-      metadata.push({ start, count: indices.length - start, role: p.role });
+      metadata.push({ start, count: indices.length - start, role: p.role, ...(p.faceContours?{faceContours:p.faceContours}:{}),...(p.protectedPoints?{protectedPoints:p.protectedPoints}:{}) });
       offset += p.geometry.attributes.position.count;
       p.geometry.dispose();
     }

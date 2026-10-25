@@ -1,3 +1,4 @@
+import {refineSurfaceCurvature} from './curvature-topology.js';
 import * as THREE from 'three';
 import {sourceEyeSurface,traceEyeAperture} from './eye-aperture.js';
 import {surfaceConnectivity,resampleClosedLoop} from './surface-connectivity.js';
@@ -6,7 +7,7 @@ import {SurfaceIndex,triangleRecord,materialSampler} from './surface.js';
 import {sourceRecords,transferSurfaceAttributes,surfaceTexture} from './projected-topology.js';
 
 function pointInPolygon(p,ring){let inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++)if((ring[i].y>p.y)!==(ring[j].y>p.y)&&p.x<(ring[j].x-ring[i].x)*(p.y-ring[i].y)/(ring[j].y-ring[i].y)+ring[i].x)inside=!inside;return inside;}
-function insertPoint(points,triangles,q){
+export function insertPoint(points,triangles,q){
  if(points.some(p=>p.distanceToSquared(q)<1e-14))return;
  const selected=[];
  for(let t=0;t<triangles.length;t++){
@@ -93,29 +94,51 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
   if(!feature.open){const c=template.length;template.push(feature.center);for(let k=0;k<count;k++)triangles.push([innerOffset+k,innerOffset+(k+1)%count,c]);}
   holeOffset+=count;
  }
- const frontCount=Math.max(9,8+Math.round(detail/6)),gridRows=8+Math.round(detail/15);
+ const frontCount=Math.max(9,9+Math.round(detail/12)),gridRows=7+Math.round(detail/20);
  const angles=[-Math.PI,-2.6,-2.1,-1.7,...Array.from({length:frontCount},(_,i)=>-1.45+i*2.9/(frontCount-1)),1.7,2.1,2.6,Math.PI];
  // Limit anatomical density to useful eye/nose/lip levels, not every source rig bone.
- const semanticLevels=['FACIAL_C_NoseTip','FACIAL_C_LipUpper','FACIAL_C_LipLower','FACIAL_L_EyelidUpperA1','FACIAL_L_EyelidLowerA1','FACIAL_L_EyelidUpperFurrow','FACIAL_C_Chin1','FACIAL_C_Chin3','FACIAL_C_Jawline'].filter(n=>anchors[n]).map(n=>parameter(anchors[n]).y);
- const rows=[...new Set([...Array.from({length:gridRows+1},(_,i)=>i/gridRows),...semanticLevels])].filter(v=>v>=0&&v<=1).sort((a,b)=>a-b);
+ const rows=Array.from({length:gridRows+1},(_,i)=>i/gridRows);
  for(const row of rows)for(const angle of angles){
   const q=new THREE.Vector2(angle,row);
   if(!holes.some(h=>pointInPolygon(q,h)))insertPoint(template,triangles,q);
+ }
+ // Anatomical support levels stay local instead of circling the whole skull.
+ for(const name of ['FACIAL_C_NoseTip','FACIAL_C_Chin1','FACIAL_C_Chin3','FACIAL_C_Jawline'])if(anchors[name]){
+  const q=parameter(anchors[name]);for(const dx of [-.16,0,.16]){const p=q.clone();p.x+=dx;if(!holes.some(h=>pointInPolygon(p,h)))insertPoint(template,triangles,p);}
  }
  for(const name of ['FACIAL_C_NoseTip','FACIAL_C_LipUpperSkin','FACIAL_C_LipLower','FACIAL_C_Chin','FACIAL_L_EyelidUpperFurrow','FACIAL_R_EyelidUpperFurrow','FACIAL_C_Chin1','FACIAL_C_Chin3','FACIAL_C_Jawline','FACIAL_L_Jawline','FACIAL_R_Jawline'])if(anchors[name]){
   const q=parameter(anchors[name]);if(!holes.some(h=>pointInPolygon(q,h)))insertPoint(template,triangles,q);
  }
  const constraints=[];let offset=4;for(const hole of holes){for(let k=0;k<hole.length;k++)constraints.push([offset+k,offset+(k+1)%hole.length]);offset+=hole.length;}
  offset=4+holes.reduce((n,h)=>n+h.length,0);const innerOffsets=[];for(const f of features){innerOffsets.push(offset);for(let k=0;k<f.contour.length;k++)constraints.push([offset+k,offset+(k+1)%f.contour.length]);offset+=f.contour.length+(f.open?0:1);}
+ const chin=anchors.FACIAL_C_Chin1??anchors.FACIAL_C_Chin??anchors.FACIAL_C_Jawline;
+ const measuredLow=chin?Math.max(.02,parameter(chin).y-.025):0,measuredHigh=Math.min(.98,parameter(left).y+eyeSpacing/height*.95),validFaceRange=!!chin&&measuredHigh-measuredLow>.2&&measuredHigh-measuredLow<.85;
+ const faceLow=validFaceRange?measuredLow:0,faceHigh=validFaceRange?measuredHigh:1;
+ if(validFaceRange)for(const row of [faceLow,faceHigh])for(const angle of angles){const q=new THREE.Vector2(angle,row);if(!holes.some(h=>pointInPolygon(q,h)))insertPoint(template,triangles,q);}
+ const curvature=refineSurfaceCurvature(template,triangles,project,insertPoint,{constraints,tolerance:radius*(.012+(100-detail)*.00015),maxInsertions:100,accept:q=>Math.abs(q.x)<1.45&&q.y>=faceLow&&q.y<=faceHigh&&!features.some(f=>!f.open&&pointInPolygon(q,f.contour))});
+ const projected=template.map(project);
  const triangulation=improveTriangulation(template,triangles,constraints,{scaleY:height/radius});
- const hits=template.map(project);
+ const hits=projected;
  features.forEach((f,i)=>f.surfacePoints.forEach((p,k)=>{hits[innerOffsets[i]+k]=source.nearest(p);}));
  for(const name of Object.keys(anchors).filter(n=>/Eyelid(Upper|Lower)A[13]$|NoseTip$|LipCorner$|LipUpper$|LipLower$/.test(n))){const q=parameter(anchors[name]),vertex=template.findIndex(p=>p.distanceToSquared(q)<1e-12);if(vertex>=0)hits[vertex]=source.nearest(anchors[name]);}
+ // An open source mouth has no skin surface at its centre. Projecting there
+ // can hit the rear skull or a remote lip edge. Close only this template patch
+ // from measured lip positions and transfer its local source UV correspondence.
+ const hitUV=h=>h.triangle.uvs?h.triangle.uvs.reduce((v,p,k)=>v.addScaledVector(p,h.barycentric.getComponent(k)),new THREE.Vector2()):new THREE.Vector2();
+ const patchCentres=new Set(),sourceUV=hits.map(hitUV);
+ features.forEach((f,i)=>{if(f.open)return;const start=innerOffsets[i],id=start+f.contour.length,ring=hits.slice(start,id),point=ring.reduce((p,h)=>p.add(h.point),new THREE.Vector3()).multiplyScalar(1/ring.length),uv=sourceUV.slice(start,id),span=new THREE.Box2().setFromPoints(uv).getSize(new THREE.Vector2());
+  hits[id]={...source.nearest(point),point};sourceUV[id]=uv.reduce((p,q)=>p.add(q),new THREE.Vector2()).multiplyScalar(1/uv.length);
+  if(span.x<.5&&span.y<.5)patchCentres.add(id);
+ });
  // Reserve 80% of the actual exported head texture for the front face.
  // This increases useful eye/lip texels without raising the atlas tile size.
  const angleToU=a=>a< -1.45?.1*(a+Math.PI)/(Math.PI-1.45):a>1.45?.9+.1*(a-1.45)/(Math.PI-1.45):.1+.8*(a+1.45)/2.9;
  const uToAngle=u=>u<.1?-Math.PI+u/.1*(Math.PI-1.45):u>.9?1.45+(u-.9)/.1*(Math.PI-1.45):-1.45+(u-.1)/.8*2.9;
- const positions=hits.map(h=>h.point),uvs=template.map(q=>new THREE.Vector2(angleToU(q.x),q.y));
+ // Allocate real texels to the measured jaw-to-forehead interval instead of
+ // spending most of this tile on neck/scalp. Unsupported rigs keep uniform V.
+ const heightToV=v=>!validFaceRange?v:v<faceLow?.2*v/faceLow:v>faceHigh?.9+.1*(v-faceHigh)/(1-faceHigh):.2+.7*(v-faceLow)/(faceHigh-faceLow);
+ const vToHeight=v=>!validFaceRange?v:v<.2?v/.2*faceLow:v>.9?faceHigh+(v-.9)/.1*(1-faceHigh):faceLow+(v-.2)/.7*(faceHigh-faceLow);
+ const positions=hits.map(h=>h.point),uvs=template.map(q=>new THREE.Vector2(angleToU(q.x),heightToV(q.y)));
  const transferred=transferSurfaceAttributes(g,hits,positions,uvs),geometry=transferred.geometry,indices=[];
  for(let ids of triangles){const p=ids.map(i=>positions[i]),normal=p[1].clone().sub(p[0]).cross(p[2].clone().sub(p[0]));if(normal.lengthSq()<1e-14)continue;const outward=p[0].clone().sub(center);outward.addScaledVector(y,-outward.dot(y));if(normal.dot(outward)<0)ids=[ids[0],ids[2],ids[1]];indices.push(...ids);}
  geometry.setIndex(indices);geometry.computeVertexNormals();
@@ -125,13 +148,13 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  for(let t=0;t<indices.length;t+=3){const ids=indices.slice(t,t+3),p=ids.map(i=>uvs[i]),min=new THREE.Vector2(1,1),max=new THREE.Vector2();p.forEach(q=>{min.min(q);max.max(q);});for(let bx=Math.floor(min.x*binSize);bx<=Math.floor(max.x*binSize);bx++)for(let by=Math.floor(min.y*binSize);by<=Math.floor(max.y*binSize);by++){const key=bx+','+by;if(!bins.has(key))bins.set(key,[]);bins.get(key).push(ids);}}
  for(let row=0;row<textureSize;row++)for(let col=0;col<textureSize;col++){
   const uv=new THREE.Vector2((col+.5)/textureSize,(row+.5)/textureSize);let hit=null;
-  for(const ids of bins.get(Math.floor(uv.x*binSize)+','+Math.floor(uv.y*binSize))??[]){const [a,b,c]=ids.map(i=>uvs[i]),ab=b.clone().sub(a),ac=c.clone().sub(a),v=uv.clone().sub(a),area=ab.cross(ac);if(Math.abs(area)<1e-12)continue;const weights=[0,v.cross(ac)/area,ab.cross(v)/area];weights[0]=1-weights[1]-weights[2];if(Math.min(...weights)<-1e-7)continue;const point=new THREE.Vector3();ids.forEach((id,k)=>point.addScaledVector(positions[id],weights[k]));let normal=new THREE.Triangle(...ids.map(id=>positions[id])).getNormal(new THREE.Vector3());if(point.clone().sub(center).dot(z)>0&&Math.abs(uToAngle(uv.x))<1.2)normal=z;hit=source.raycast(point.clone().addScaledVector(normal,radius*2.5),normal.clone().negate(),radius*5);if(hit)hit.barycentric=hit.triangle.triangle.getBarycoord(hit.point,new THREE.Vector3());else hit=source.nearest(point);break;}
+  for(const ids of bins.get(Math.floor(uv.x*binSize)+','+Math.floor(uv.y*binSize))??[]){const [a,b,c]=ids.map(i=>uvs[i]),ab=b.clone().sub(a),ac=c.clone().sub(a),v=uv.clone().sub(a),area=ab.cross(ac);if(Math.abs(area)<1e-12)continue;const weights=[0,v.cross(ac)/area,ab.cross(v)/area];weights[0]=1-weights[1]-weights[2];if(Math.min(...weights)<-1e-7)continue;const point=new THREE.Vector3();ids.forEach((id,k)=>point.addScaledVector(positions[id],weights[k]));if(ids.some(id=>patchCentres.has(id))){hit={triangle:triangleRecord(ids.map(id=>positions[id]),{uvs:ids.map(id=>sourceUV[id]),material}),point,barycentric:new THREE.Vector3(...weights)};break;}let normal=new THREE.Triangle(...ids.map(id=>positions[id])).getNormal(new THREE.Vector3());if(point.clone().sub(center).dot(z)>0&&Math.abs(uToAngle(uv.x))<1.2)normal=z;hit=source.raycast(point.clone().addScaledVector(normal,radius*2.5),normal.clone().negate(),radius*5);if(hit)hit.barycentric=hit.triangle.triangle.getBarycoord(hit.point,new THREE.Vector3());else hit=source.nearest(point);break;}
   // Fill outside apertures as padding; the mesh itself retains the openings.
-  if(!hit)hit=project(new THREE.Vector2(uToAngle(uv.x),uv.y));
+  if(!hit)hit=project(new THREE.Vector2(uToAngle(uv.x),vToHeight(uv.y)));
   rgba.set(sample(hit),(row*textureSize+col)*4);
  }
 
  const texture=surfaceTexture(rgba,textureSize,textureSize);texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.needsUpdate=true;
  const outputMaterial=material.clone();outputMaterial.name=material.name+'_anatomical';outputMaterial.color.set(0xffffff);outputMaterial.map=texture;outputMaterial.normalMap=null;outputMaterial.alphaMap=null;outputMaterial.specularMap=null;outputMaterial.aoMap=null;outputMaterial.roughnessMap=null;outputMaterial.metalnessMap=null;
- return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection,manualContour:!!f.manualContour})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,frontTextureFraction:.8,triangulation,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
+ return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,contourPoints:features.map((f,i)=>({name:f.name,points:f.contour.map((_,k)=>positions[innerOffsets[i]+k].toArray())})),featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection,manualContour:!!f.manualContour})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,mouthTextureMode:patchCentres.size?'Measured local lip UV correspondence over a closed source-mouth gap':'Source ray projection fallback',frontTextureFraction:.8,faceTextureVRange:validFaceRange?{source:[faceLow,faceHigh],allocated:[.2,.9]}:null,triangulation,curvature,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
 }

@@ -1,4 +1,4 @@
-import {filteredRGBA,cutoutThreshold} from './texture-filter.js';
+import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
 import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
 import {configureSkinning} from "./skinning.js";
@@ -12,11 +12,11 @@ function canvas(w, h) {
   c.height = h;
   return c;
 }
-function pixels(texture, size) {
-  const c = canvas(size, size),
-    ctx = c.getContext("2d", { willReadFrequently: true }),
-    im = texture?.image;
-  if (!im) return null;
+function pixels(texture, size, dataMap=false) {
+  const im=texture?.image;if(!im)return null;
+  if(dataMap&&im.data)return resampleDataMap(im,size);
+  const c=canvas(size,size),ctx=c.getContext('2d',{willReadFrequently:true});
+  let scratch=null;
   if (im.data) {
     const src = canvas(im.width, im.height),
       sc = src.getContext("2d");
@@ -24,13 +24,15 @@ function pixels(texture, size) {
     if (data.length !== im.width * im.height * 4)
       throw Error("Unsupported texture channel layout");
     sc.putImageData(
-      new ImageData(new Uint8ClampedArray(data), im.width, im.height),
+      new ImageData(data.BYTES_PER_ELEMENT===1?new Uint8ClampedArray(data.buffer,data.byteOffset,data.byteLength):new Uint8ClampedArray(data), im.width, im.height),
       0,
       0,
     );
-    ctx.drawImage(src, 0, 0, size, size);
+    ctx.drawImage(src, 0, 0, size, size);scratch=src;
   } else ctx.drawImage(im, 0, 0, size, size);
-  return ctx.getImageData(0, 0, size, size);
+  const result=ctx.getImageData(0, 0, size, size);
+  if(scratch)scratch.width=scratch.height=1;
+  c.width=c.height=1;return result;
 }
 function coordinate(texture, u, v) {
   texture.updateMatrix();
@@ -69,6 +71,8 @@ export async function bakeAtlas(
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
   const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
+  const pixelCache=new Map();
+  const cachedPixels=(texture,size,dataMap=false)=>{const image=texture?.image;if(!image)return null;let sizes=pixelCache.get(image);if(!sizes){sizes=new Map();pixelCache.set(image,sizes);}const key=`${size}:${dataMap}`;if(!sizes.has(key))sizes.set(key,pixels(texture,size,dataMap));return sizes.get(key);};
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].side;
     const sampleSize=art&&/hair|faceacc|strand/i.test(materials[i].name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
@@ -77,9 +81,9 @@ export async function bakeAtlas(
       tile = canvas(cell, cell),
       tc = tile.getContext("2d"),
       image = tc.createImageData(cell, cell),
-      base = pixels(m.map, sampleSize),
-      alpha = pixels(m.alphaMap, sampleSize),
-      normal = pixels(m.normalMap, sampleSize),
+      base = cachedPixels(m.map, sampleSize),
+      alpha = cachedPixels(m.alphaMap, sampleSize,true),
+      normal = cachedPixels(m.normalMap, sampleSize,true),
       color =
         m.color?.clone().convertLinearToSRGB() ?? new THREE.Color(1, 1, 1);
     if (m.metalnessMap || m.roughnessMap || m.specularMap)
@@ -97,12 +101,12 @@ export async function bakeAtlas(
             Math.max(0, Math.min(1, (y - gutter) / (cell - 1 - 2 * gutter))),
           sample = (img, tex) => {
             if (!img) return [255, 255, 255, 255];
-            if(art&&/lash/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
+            if(art&&/lash|hair|faceacc|strand/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
               const footprint=.25/(cell-1-2*gutter),coordinates=[];
               for(const dx of [-footprint,footprint])for(const dy of [-footprint,footprint]){
                 const q=coordinate(tex,Math.max(0,Math.min(1,u+dx))+origin[0],Math.max(0,Math.min(1,v+dy))+origin[1]);coordinates.push([q.x,q.y]);
               }
-              return filteredRGBA(img,coordinates);
+              return filteredRGBA(img,coordinates,{alphaWeighted:tex===m.map});
             }
             const uv = coordinate(tex, u + origin[0], v + origin[1]),
               sx = Math.max(
@@ -191,6 +195,7 @@ export async function bakeAtlas(
     });
     await new Promise((r) => setTimeout(r, 0));
   }
+  pixelCache.clear();
   const texture = new THREE.CanvasTexture(atlas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.NearestFilter;
