@@ -1,7 +1,7 @@
 name: Publish Windows development review
 on:
   push:
-    branches: [main, recovery/070-dev2]
+    branches: [main, recovery/070-dev2, development/070-dev3]
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,14 +31,24 @@ jobs:
       - run: node scripts/verify-distribution.mjs
       - name: Launch actual portable Windows EXE and exercise import / convert / export
         run: node scripts/portable-smoke.mjs
+      - name: Nikki project roundtrip in the actual packaged Windows application
+        id: nikki
+        continue-on-error: true
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
       - name: Collect review without source models or game files
         shell: pwsh
         run: |
           Copy-Item artifacts/distribution/verification.json public-review/windows-distribution.json
           Copy-Item artifacts/desktop/runtime.json public-review/windows-desktop.json
           Copy-Item artifacts/portable-smoke/windows.json public-review/windows-portable.json
+          Copy-Item artifacts/project-roundtrip/results.json public-review/windows-nikki-project.json
           $bad = Get-ChildItem public-review -Recurse -File | Where-Object { $_.Extension -notin '.png','.html','.json','.xml','.txt','.md' }
           if ($bad) { throw "Unexpected file in public review" }
+          node scripts/verify-review-evidence.mjs
+          if ($LASTEXITCODE -ne 0) { throw "Evidence byte validation failed" }
           Compress-Archive -Path public-review/* -DestinationPath release/Visual-Review.zip
       - name: Publish prerelease and downloadable files
         shell: pwsh
@@ -53,6 +63,8 @@ jobs:
             gh release create $tag --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title "Conversion Studio $version — visual review required" --notes-file public-review/REVIEW.md
             if ($LASTEXITCODE -ne 0) { throw "Release creation failed" }
           }
+          $tagSha = gh api "repos/$env:GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha'
+          if ($LASTEXITCODE -ne 0 -or $tagSha -ne $env:GITHUB_SHA) { throw "Release tag belongs to another commit; existing tags are never moved" }
           gh release upload $tag release/Visual-Review.zip "release/Tekken3ConversionStudio-$version-x64.exe" --clobber --repo $env:GITHUB_REPOSITORY
           if ($LASTEXITCODE -ne 0) { throw "Release upload failed" }
       - uses: actions/upload-artifact@v4
@@ -63,5 +75,32 @@ jobs:
             release/*.exe
             release/Visual-Review.zip
             public-review/
-            artifacts/desktop/
-            artifacts/distribution/
+            artifacts/desktop/runtime.json
+            artifacts/desktop/*-desktop.png
+            artifacts/distribution/verification.json
+      - name: Preserve failure status of the private-input project test
+        if: always() && steps.nikki.outcome != 'success'
+        run: throw 'Nikki project roundtrip did not pass; see the published sanitized measurement report.'
+  open-review-pr:
+    needs: review
+    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev3'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open review PR, never merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev3 --state open --json url --jq '.[0].url // empty')
+          if [ -n "$existing" ]; then echo "$existing"; exit 0; fi
+          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev3 --title '0.7.0-dev.3: visual corrections and verified Nikki project persistence' --body-file docs/PR_070_DEV3.md 2>&1); then
+            echo "::error title=Review PR unavailable::$result"
+            exit 1
+          fi
+          echo "$result"

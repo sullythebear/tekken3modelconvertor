@@ -160,11 +160,12 @@ try {
   assert.ok(r.conversion.stats.triangles < before);
   assert.ok(r.conversion.stats.triangles > 100);
   assert.equal(r.conversion.stats.invalidPositions, 0);
-  assert.ok(r.atlas && r.atlas.tiles.length === 3);
+  assert.deepEqual(r.atlas.tiles.map(t => t.material).sort(), ["Clothing", "Hair", "Hair_volume", "Skin"]);
+  assert.ok(r.atlas.tiles.every(t => t.width > 0 && t.height > 0 && [4, 8].includes(t.bitDepth)));
   assert.equal(r.exportGate.ready, false);
   assert.ok(r.conversion.poses.every((p) => p.finite && p.samples > 0));
   tests.push(
-    `Synthetic GLB skinning + anatomical reduction: ${before} → ${r.conversion.stats.triangles} triangles, 3 palette tiles, three pose diagnostics`,
+    `Synthetic GLB skinning + anatomical reduction: ${before} → ${r.conversion.stats.triangles} triangles, 4 palette tiles (separate hair volume and shared foot material), three pose diagnostics`,
   );
   assert.equal(await page.locator("#animation option").count(), 1);
   await page.click("#play-animation");
@@ -292,9 +293,9 @@ try {
     jsonSize = glb.readUInt32LE(12),
     gltf = JSON.parse(glb.subarray(20, 20 + jsonSize).toString());
   assert.equal(gltf.animations.length, 1);
-  assert.equal(Object.keys(z).filter((k) => k.endsWith(".tim")).length, 3);
+  assert.equal(Object.keys(z).filter((k) => k.endsWith(".tim")).length, r.atlas.tiles.length);
   tests.push(
-    "Preparation export contains valid GLB magic, 3 TIM assets, screenshots and explicit gameVerified:false",
+    "Preparation export contains valid GLB magic, 4 TIM assets, screenshots and explicit gameVerified:false",
   );
   const second = await page.evaluate(() => {
     const t = window.studioTest;

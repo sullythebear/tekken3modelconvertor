@@ -1,103 +1,138 @@
-# 0.7.0-dev.2 — recovered development build, awaiting visual acceptance
+# 0.7.0-dev.3 — visual corrections, awaiting the user's approval
 
-This version is not an artistically approved or verified playable Tekken character.
-See [recovery inventory](RECOVERY_070_DEV2.md) for the source checkpoint.
+Starts at `9e63ddedb750e5aefb42fbc67c3fd1c086669131` on `recovery/070-dev2`.
+Development is on `development/070-dev3`; no old commit/tag is replaced and no
+automatic merge is performed. This is not 0.8.0 or a second application.
 
-## Implemented reconstruction
+## What changed
 
-- Face: source-measured anatomical cylindrical chart, explicit paired eyelid and
-  mouth support rings, constrained quality diagonal flips and surface projection.
-  Source UVs are sampled through source-triangle barycentrics; their overlapping
-  layout does not define the new topology. Identical upper/lower centre bones are
-  insufficient: distinct A1/A3 contour anchors or manual corrections are required.
-  Original contour, nose and lip anchors are projected onto the actual source.
-  The resulting texture is baked against the generated triangles. This is new
-  geometry, not subdivision. Unsupported anatomy explicitly retains a fallback;
-  such a fallback is not counted as a reconstruction improvement.
-- Hair: alpha-valid radial envelope around the measured head, with source fringe
-  cards preserved in the hybrid method. Fringe simplification retains actual UV,
-  transparency and rig attributes. Automatic/cards/volume/hybrid correction is
-  available. This is not yet a universal solution for braids or arbitrary layers.
-- Clothing/legs: outer-shell cross-sections form a continuous thigh-to-boot
-  envelope with denser ankle/toe levels and a sole cap. Source correspondence is
-  constrained to the measured leg footprint. Hidden inner surfaces are skipped
-  by selecting the outer intersection. General multilayer garment recognition
-  remains incomplete. Physical torso texture rebaking preserves printed detail.
-- Attribute transfer aggregates categorical joint IDs across all skin sets,
-  interpolates weights and normalizes retained influences. UVs/materials belong
-  to the generated surface. Source geometry is retained unmodified.
-- Optimization is a separate, explicitly lossy candidate stage. Its requested
-  triangle count, region losses and unverified capacity status are reported.
-  A candidate must not inherit the artistic intermediate's stale quality report.
+- **Eyes:** contours can now be measured from the visible intersection of the
+  actual source eye and head surfaces, in one consistent coordinate frame.
+  The generated eyelid apertures have twelve contour vertices instead of four
+  interior rig controls. Source boundaries are another available measurement;
+  unsupported cases retain their explicit fallback. Manual corrections override
+  automatic intersection tracing and remain stored in profiles/projects.
+- **Lips/jaw:** eight measured lip points where available, additional source chin
+  and jaw constraints, and more useful face texture area. Eighty percent of the
+  exported cylindrical head texture width is reserved for the face without
+  increasing its 128-pixel atlas tile. Normal-map detail is baked into the face
+  texture through the existing static-detail material sampler.
+- **Hair:** partially occupied volume cells retain valid boundary triangles;
+  source cards overlay an inset support volume instead of only covering the
+  front fringe. Non-permissive UV-aware card reduction has a bounded error.
+  Explicit volume/cards/hybrid methods and automatic selection are compared.
+  Already coarse opaque hair is retained. Shared material names no longer cause
+  foot-weighted geometry to be reconstructed as hair. No new controls/presets.
+- **Boots:** UV-chart connectivity, measured exterior shaft samples and spatial
+  chart limits distinguish garment correspondence from hidden skin. Texture
+  projection follows the actual generated triangles where a garment layer can
+  be identified. The improved shaft/ankle/sole geometry is retained. Reconstructed
+  leg tiles receive 128 pixels when the existing atlas can accommodate them.
+- **Clothing:** compact garment UV islands around measured hip/knee locations
+  stay with the hip surface, instead of being swept into a leg volume. Both
+  torso and hip pieces receive physical front/back texture rebaking. This removes
+  the long crotch protrusion in the Nikki comparison. Corrected skeleton roles
+  are respected when detecting those garment regions.
+- **Optimization:** protected minimum allocations are subtracted before the
+  remainder is distributed. Eye/mouth boundaries and sampled silhouette extrema
+  are locked; geometric error is bounded. Interior hair-support geometry and
+  teeth receive less priority than the visible hair cards and face. If a request
+  cannot carry those features, the count remains higher and is reported unmet.
+  Neither the requested nor actual counts establish a Tekken capacity.
 
-## Reproduce
+## Nikki project defect and performance
+
+The old timeout concealed a real error: project saving called the strict mapping
+exporter, which refused Nikki's ambiguous automatic bone roles before producing
+any ZIP. Projects now snapshot explicit mapping overrides and preserve unresolved
+ambiguity; they do not silently accept the first ambiguous bone. Standalone
+mapping export retains its strict validation. Dev.2 projects remain readable.
+New project mapping-state snapshots require dev.3 when reopened.
+
+Saving also avoids a duplicate copy of all 232,047,502 input bytes and uses ZIP
+compression level 1. In the initial Linux desktop measurement, saving took 4.51 s,
+reopening 6.35 s, and the ZIP was 49,789,433 bytes. The earlier level-6 Node-only
+serializer measured 10.43 s and 41,126,549 bytes; those are different scopes, not
+a whole-application before/after benchmark. Faster saving costs a larger ZIP.
+
+The first real Windows source-app run passed: saving 5.18 s, reopening 6.67 s,
+ZIP 49,789,433 bytes, peak aggregate app working set 3,726,100 KiB and peak test
+harness RSS 555,458,560 bytes. It checked all 24 asset hashes and converted before
+and after reopening. The release workflow repeats this in the actual packaged
+Windows application; `windows-nikki-project.json` is its authoritative receipt.
+Working-set sums can count shared pages more than once; these are single-run
+measurements, not a RAM requirement or speed guarantee for another PC.
+
+## Private Windows input
+
+Set the repository secret `NIKKI_DOWNLOAD_URL`. The workflow passes it as an
+environment variable, never as a command argument or printed value. Download
+errors are sanitized; confirmation HTML is not logged. ZIP and FBX SHA-256 must
+match the known input, and one FBX plus 23 valid TGA headers must be present.
+
+Original assets, the project ZIP, runtime profile, caches, crash data and browser
+console traces stay in a private directory under the runner's temporary folder.
+The app's test-only profile is isolated there before startup. Cleanup runs even
+on failure; a cleanup failure makes the test fail. Only the sanitized measurement
+JSON is eligible for artifacts/release copying. npm's dependency cache contains
+no model data. Public evidence copying uses an extension allowlist, excludes
+preparation/project/model files, checks every cloud evidence hash, and rejects
+symlinks. `.gitattributes` preserves the LF bytes of evidence on Windows.
+
+## Visual report and reproduction
+
+Unpack `Visual-Review.zip` and open `index.html`. It links full-size original,
+0.6.0, dev.1, dev.2 and dev.3 images, front/back/both sides/quarter, eyes/mouth/face,
+hair, boots/ankles, shorts, wireframe and diagnostic movement. Separate sections
+show requested budgets, per-region losses, and hair-method comparisons. A dev.2
+2000-triangle control helps compare similar actual costs with dev.3's quality
+floor; comparing 890 triangles with approximately 2000 alone would be unfair.
+
+Developer reproduction (Node 24, no Blender):
 
 ```
 npm ci
-npm test
 npm run build
-NIKKI_DIR=/path/to/extracted/model REVIEW_OUTPUT=artifacts/recovery-review-dev2 npm run test:review
+npm test
+git worktree add --detach ../dev2-baseline 9e63dde
 ```
 
-On PowerShell set `$env:NIKKI_DIR` and `$env:REVIEW_OUTPUT` first. Nikki remains a
-private local input. Cesium Man must first be fetched by `npm run test:reference`;
-the pinned reference hash and attribution are validated. The authored short-hair
-and crest-hair fixtures need no downloads. Seven stages run for four models.
+Use the same node_modules dependencies in the baseline worktree, run its build,
+and set `NIKKI_DIR` to the private extracted assets and `DEV2_WORKTREE` to that
+worktree. Fetch the pinned Cesium reference with `npm run test:reference`.
+Then run `node scripts/dev3-review.mjs`. `REVIEW_ONLY` selects comma-separated
+stages for repair/reruns; `REPORT_ONLY=1` rebuilds the gallery from existing data.
+The report generator never publishes private assets. Windows project testing is
+`node --use-env-proxy scripts/project-roundtrip-test.mjs`; source files and raw
+project ZIPs are deliberately absent from its artifact.
 
-To render an existing result inventory into the gallery without rerunning it:
-`REPORT_ONLY=1 REVIEW_OUTPUT=artifacts/recovery-review-dev2 node scripts/reconstruction-review.mjs`.
-To copy only permitted evidence extensions into `public-review`, also set
-`PUBLISH_REVIEW=1`. Preparation packages and raw models/textures are excluded.
+## What remains unresolved
 
-The 0.6.0 and dev.1 comparison columns execute the preserved algorithm routes
-inside the current application, rather than launching old binary executables.
-All stages use identical camera definitions, scale, resolution and lighting.
-The HTML links full-size front/back/side/quarter, face, hair, boot, wireframe and
-motion images. Missing rig-specific views are explicitly marked unavailable.
+The user has not approved any dev.2 or dev.3 artistic result. Hair ends/card alpha,
+small heel markings, coarse clothing hems, ankle folds, fine outfit/zipper detail
+and the angular face at gameplay distance still need judgement. Requested low
+budgets are not forced; the larger artistic intermediate is not a game export.
+Numeric silhouette scores and triangle retention are supporting measurements.
+Unsupported models without facial evidence still use a reported fallback.
 
-## Remaining acceptance work
+No original Nina model/ARC, calibrated donor bind frames or Expanded runtime was
+available. Native exporter checks use authored fixtures only. Diagnostic idle,
+walk, crouch, reach, guard, punch, kick and lip/head motion are not Tekken gameplay.
+For Nina P1 validation use the matching USA SLUS_004.02, 3DMK record 111 and ARC
+record 113 through the existing local extraction/import route. No game integration
+or artistic completion is claimed.
 
-The new face is angular and the printed outfit is clearer, but eye rims, jaw/lip
-shape, hair clumps/gaps, ankle/heel texture leakage and overlap at shorts require
-human review. Low-budget optimization can discard important facial/hair detail.
-Numeric silhouette scores and a green suite do not approve artistic quality.
+## Final cloud geometry measurements
 
-The eight diagnostic poses include idle, walk, crouch, reach, guard, punch, kick
-and head/lip movement. These are local source-rig diagnostics, not Tekken motions.
-Cesium additionally supplies a real source clip. No real Tekken animation,
-Nina-capacity validation, game loading or gameplay was performed.
+Nikki artistic dev.3: **7,587 triangles** (dev.2: 5,071). The extra outer cards and restored lashes are real geometry, not a free quality gain.
 
-For local Nina P1 validation supply the matching USA `SLUS_004.02`, 3DMK record
-111 and ARC record 113, or use the existing local disc extraction/import route.
-Do not publish these copyrighted bytes. Original references for Nina/Jin/
-Hwoarang/Xiaoyu/Paul are still needed to calibrate actual Namco topology and
-budgets using the existing local reference measurement route. 900 is a test
-request, not a claimed Tekken limit.
+| Experimental request | Actual triangles | Target met |
+|---:|---:|:---|
+| 900 | 1,974 | No |
+| 1,200 | 1,997 | No |
+| 1,500 | 2,046 | No |
+| 2,000 | 2,301 | No |
 
-The Windows publishing workflow builds the portable EXE, checks its ASAR and PE,
-then launches that exact EXE to import/convert/export an authored fixture before
-publishing a prerelease. A Linux cross-build alone cannot pass this Windows test.
+The matched-cost dev.2 control has 1,993 triangles. No measured game capacity is implied by any target. Cesium Man: 953; authored short hair: 1,931; authored crest: 2,755. All counts refer to the actual rendered meshes.
 
-## Additional recovery checks
-
-The full suite was rerun after the detached-hand and facial-picking regressions:
-113 tests passed, zero failed/skipped. Actual browser clicks placed a nose
-landmark on Nikki's Head material, excluding hair/eyes sharing the same rig;
-its reusable profile was exported/reset/imported and compared. The authored
-crest character additionally passed a full project ZIP save/open round-trip.
-Nikki's full 222 MiB-source project ZIP round-trip exceeded the test's initial
-30-second download timeout and remains unverified; its smaller correction
-profile round-trip passed. Presets/project persistence and unnamed source
-skeleton mapping UI tests were also rerun successfully.
-
-The Windows workflow's first attempt built successfully and passed unit and
-desktop IPC tests, then failed distribution verification; it did not execute
-the portable smoke test or publish a release. Subsequent verifier errors are
-reported as explicit public CI annotations, while retaining a failing exit code.
-
-The second Windows attempt exposed the precise verification defect:
-@electron/asar directory traversal uses host path separators. A slash-delimited
-`src/desktop/main.cjs` lookup incorrectly searched a literal `src/desktop` header
-key on Windows. The verifier now normalizes archive entry paths for the host;
-byte equality, package metadata and PE assertions are unchanged. Actual portable
-execution is a separate CI step and must still pass before release publishing.
+The existing visual integration check passes with four verified material tiles: Clothing, Skin, Hair_volume and Hair. The foot now retains its shared source Hair material rather than becoming a hair volume; export readback verifies all four TIM files.

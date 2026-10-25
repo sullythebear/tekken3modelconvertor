@@ -1,0 +1,3323 @@
+{
+  "model": "nikki",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 132336,
+        "triangles": 44112,
+        "materials": 8,
+        "textures": 17,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "CargoLying_1002_N.tga",
+          "bytes": 1048594,
+          "role": "normal"
+        },
+        {
+          "name": "Nikki FN.fbx",
+          "bytes": 5554672,
+          "role": "model"
+        },
+        {
+          "name": "T_CargoLying_Body_D.tga",
+          "bytes": 16777234,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Body_M.tga",
+          "bytes": 16777234,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_Body_N.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Body_S.tga",
+          "bytes": 16777234,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+          "bytes": 262162,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+          "bytes": 262162,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+          "bytes": 262162,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+          "bytes": 262162,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_D.tga",
+          "bytes": 16777234,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_M.tga",
+          "bytes": 16777234,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_N.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_S.tga",
+          "bytes": 16777234,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_Strands.tga",
+          "bytes": 16777234,
+          "role": "opacity"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_Tangent.tga",
+          "bytes": 16777234,
+          "role": "tangent"
+        },
+        {
+          "name": "T_CargoLying_Head_D.tga",
+          "bytes": 8388626,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Head_M.tga",
+          "bytes": 8388626,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_Head_N.tga",
+          "bytes": 8388626,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Head_S.tga",
+          "bytes": 8388626,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+          "bytes": 1048594,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Teeth_SRMO_Baked_REVISED.tga",
+          "bytes": 1048594,
+          "role": "mask"
+        },
+        {
+          "name": "T_Cosmetics_eyelashMat_D.tga",
+          "bytes": 4194322,
+          "role": "diffuse"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 433,
+        "mapping": [
+          {
+            "role": "hips",
+            "name": "pelvis",
+            "row": 3,
+            "confidence": "name-match",
+            "position": [
+              0,
+              98.0571389,
+              -0.5301266999999783
+            ]
+          },
+          {
+            "role": "spine",
+            "name": "spine_01",
+            "row": 1,
+            "confidence": "name-match",
+            "position": [
+              -2.9999999950756304e-7,
+              104.20740840000003,
+              -1.2431091999999753
+            ]
+          },
+          {
+            "role": "leftShoulder",
+            "name": "clavicle_l",
+            "row": 11,
+            "confidence": "name-match",
+            "position": [
+              3.294614700000003,
+              136.61601538429002,
+              -4.113717399474076
+            ]
+          },
+          {
+            "role": "leftUpperArm",
+            "name": "upperarm_l",
+            "row": 12,
+            "confidence": "name-match",
+            "position": [
+              13.037049795579328,
+              135.54464575261454,
+              -5.8202836969074925
+            ]
+          },
+          {
+            "role": "leftLowerArm",
+            "name": "lowerarm_l",
+            "row": 13,
+            "confidence": "name-match",
+            "position": [
+              32.96282884999388,
+              118.12214842336019,
+              -6.582325677051426
+            ]
+          },
+          {
+            "role": "leftHand",
+            "name": "hand_l",
+            "row": 14,
+            "confidence": "name-match",
+            "position": [
+              48.17425596396407,
+              104.4381261922847,
+              3.3544667329283104
+            ]
+          },
+          {
+            "role": "rightShoulder",
+            "name": "clavicle_r",
+            "row": 15,
+            "confidence": "name-match",
+            "position": [
+              -3.2946183999999956,
+              136.61601538429,
+              -4.113718099474058
+            ]
+          },
+          {
+            "role": "rightUpperArm",
+            "name": "upperarm_r",
+            "row": 16,
+            "confidence": "name-match",
+            "position": [
+              -13.037060195579324,
+              135.54457425261472,
+              -5.820283996907635
+            ]
+          },
+          {
+            "role": "rightLowerArm",
+            "name": "lowerarm_r",
+            "row": 17,
+            "confidence": "name-match",
+            "position": [
+              -32.96485231754535,
+              118.12436414967667,
+              -6.582281735564053
+            ]
+          },
+          {
+            "role": "rightHand",
+            "name": "hand_r",
+            "row": 18,
+            "confidence": "name-match",
+            "position": [
+              -48.177824184502285,
+              104.44211621398576,
+              3.354555379510228
+            ]
+          },
+          {
+            "role": "head",
+            "name": "head",
+            "row": 19,
+            "confidence": "name-match",
+            "position": [
+              -0.000002399999997441384,
+              152.03424694214593,
+              -1.687190303587156
+            ]
+          },
+          {
+            "role": "leftUpperLeg",
+            "name": "thigh_l",
+            "row": 5,
+            "confidence": "name-match",
+            "position": [
+              8.7052889,
+              96.97993400000003,
+              -0.7797666999999779
+            ]
+          },
+          {
+            "role": "leftLowerLeg",
+            "name": "calf_l",
+            "row": 6,
+            "confidence": "name-match",
+            "position": [
+              12.449081999955354,
+              54.61088420062119,
+              -0.9882477999426199
+            ]
+          },
+          {
+            "role": "leftFoot",
+            "name": "foot_l",
+            "row": 7,
+            "confidence": "name-match",
+            "position": [
+              14.826181499999997,
+              8.296009900000001,
+              -7.354582099999999
+            ]
+          },
+          {
+            "role": "rightUpperLeg",
+            "name": "thigh_r",
+            "row": 8,
+            "confidence": "name-match",
+            "position": [
+              -8.705288899999992,
+              96.97993400000003,
+              -0.7797666999999783
+            ]
+          },
+          {
+            "role": "rightLowerLeg",
+            "name": "calf_r",
+            "row": 9,
+            "confidence": "name-match",
+            "position": [
+              -12.447867499955382,
+              54.61078290062099,
+              -0.9882474999426116
+            ]
+          },
+          {
+            "role": "rightFoot",
+            "name": "foot_r",
+            "row": 10,
+            "confidence": "name-match",
+            "position": [
+              -14.823737700000002,
+              8.295822100000002,
+              -7.354500899999998
+            ]
+          }
+        ],
+        "missing": [],
+        "ambiguous": [
+          "leftShoulder",
+          "rightShoulder",
+          "head"
+        ],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 132336,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 8,
+        "extendedMeshes": 6
+      },
+      "materials": [
+        {
+          "name": "MI_CargoLying_FaceAcc_Alt_Under",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.2,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_FaceAcc_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "alphaMap": {
+              "name": "T_CargoLying_FaceAcc_Strands.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_FaceAcc_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_FaceAcc_D.tga",
+            "normal": "T_CargoLying_FaceAcc_StrandsN.tga",
+            "specular": "T_CargoLying_FaceAcc_S.tga",
+            "opacity": "T_CargoLying_FaceAcc_Strands.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyelashes",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.15,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            },
+            "alphaMap": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_Cosmetics_eyelashMat_D.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_iris",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Iris_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Iris_N_Baked.tga",
+            "uvRemap": {
+              "bounds": [
+                0.33837890625,
+                0.33837890625,
+                0.66162109375,
+                0.66162109375
+              ],
+              "method": "inferred iris subchart to full baked iris texture"
+            },
+            "specularApproximation": "low iris highlight; clear eye shell provides corneal reflection"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_sclera",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Sclera_N_Baked.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Teeth",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+              "width": 512,
+              "height": 512
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Teeth_D_Baked_REVISED.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyeshell",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 0.08,
+          "alphaTest": 0,
+          "transparent": true,
+          "textures": {},
+          "resolution": {
+            "method": "untextured-eye-shell-fallback",
+            "assumption": "transparent corneal cover"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Head",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Head_D.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Head_N.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Head_S.tga",
+              "width": 2048,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Head_D.tga",
+            "normal": "T_CargoLying_Head_N.tga",
+            "specular": "T_CargoLying_Head_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        }
+      ],
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under: inferred green-channel strand opacity from T_CargoLying_FaceAcc_Strands.tga; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_FaceAcc_Alt_Under → T_CargoLying_FaceAcc_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Body → T_CargoLying_Body_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_Eyelashes: inferred eyelash green-channel cutout and dark fibre tint from grayscale texture; verify visually.",
+        "Material-family fallback: MI_CargoLying_Eyelashes → T_Cosmetics_eyelashMat_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_iris → T_CargoLying_Eye_Iris_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_sclera → T_CargoLying_Eye_Sclera_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Teeth → T_CargoLying_Teeth_D_Baked_REVISED.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_EyeTeeth: compact pupil-weighted UV chart mapped to full iris images; source UV buffers preserved.",
+        "MI_CargoLying_EyeTeeth: eye iris, sclera and teeth separated using source pupil/eye/teeth/tongue skin influences; original positions, UVs and weights preserved.",
+        "MI_CargoLying_Eyeshell: untextured eye shell approximated as transparent corneal cover; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_Head → T_CargoLying_Head_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Preserved up to 8 skin influences per vertex across all joint sets."
+      ]
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 5077,
+        "triangles": 5386,
+        "materials": 12,
+        "textures": 29,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "materials": [
+        {
+          "name": "MI_CargoLying_FaceAcc_Alt_Under",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.2,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_FaceAcc_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "alphaMap": {
+              "name": "T_CargoLying_FaceAcc_Strands.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_FaceAcc_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_FaceAcc_D.tga",
+            "normal": "T_CargoLying_FaceAcc_StrandsN.tga",
+            "specular": "T_CargoLying_FaceAcc_S.tga",
+            "opacity": "T_CargoLying_FaceAcc_Strands.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_torso",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_legs_right",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_legs_left",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_arms_right",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_arms_left",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyelashes",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.15,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            },
+            "alphaMap": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_Cosmetics_eyelashMat_D.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_iris",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Iris_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Iris_N_Baked.tga",
+            "uvRemap": {
+              "bounds": [
+                0.33837890625,
+                0.33837890625,
+                0.66162109375,
+                0.66162109375
+              ],
+              "method": "inferred iris subchart to full baked iris texture"
+            },
+            "specularApproximation": "low iris highlight; clear eye shell provides corneal reflection"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_sclera",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Sclera_N_Baked.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Teeth",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+              "width": 512,
+              "height": 512
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Teeth_D_Baked_REVISED.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyeshell",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 0.08,
+          "alphaTest": 0,
+          "transparent": true,
+          "textures": {},
+          "resolution": {
+            "method": "untextured-eye-shell-fallback",
+            "assumption": "transparent corneal cover"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Head",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Head_D.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Head_N.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Head_S.tga",
+              "width": 2048,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Head_D.tga",
+            "normal": "T_CargoLying_Head_N.tga",
+            "specular": "T_CargoLying_Head_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        }
+      ],
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under: inferred green-channel strand opacity from T_CargoLying_FaceAcc_Strands.tga; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_FaceAcc_Alt_Under → T_CargoLying_FaceAcc_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Body → T_CargoLying_Body_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_Eyelashes: inferred eyelash green-channel cutout and dark fibre tint from grayscale texture; verify visually.",
+        "Material-family fallback: MI_CargoLying_Eyelashes → T_Cosmetics_eyelashMat_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_iris → T_CargoLying_Eye_Iris_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_sclera → T_CargoLying_Eye_Sclera_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Teeth → T_CargoLying_Teeth_D_Baked_REVISED.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_EyeTeeth: compact pupil-weighted UV chart mapped to full iris images; source UV buffers preserved.",
+        "MI_CargoLying_EyeTeeth: eye iris, sclera and teeth separated using source pupil/eye/teeth/tongue skin influences; original positions, UVs and weights preserved.",
+        "MI_CargoLying_Eyeshell: untextured eye shell approximated as transparent corneal cover; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_Head → T_CargoLying_Head_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Preserved up to 8 skin influences per vertex across all joint sets.",
+        "F_MED_CargoLying_LOD0: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0001: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0001: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0002: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0002: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0003: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0003: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0004: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0004: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0005: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0005: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "Appearance error / protected topology prevent the requested budget: 5386 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+      ],
+      "regions": [
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "head",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 9660,
+          "target": 180,
+          "after": 773,
+          "error": 0.07987895607948303,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.9318077146694697,
+            "clusters": 3183,
+            "step": 5.763189078408665,
+            "method": "feature-constrained surface clustering",
+            "region": "hair",
+            "maxDeviation": 1.965857966785634,
+            "lockedVertices": 866,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "spine",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 194,
+          "target": 26,
+          "after": 104,
+          "error": 0.07765932381153107,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.6068544821444664,
+            "clusters": 172,
+            "step": 3.91231050688851,
+            "method": "feature-constrained surface clustering",
+            "region": "hair",
+            "maxDeviation": 1.0011510293517178,
+            "lockedVertices": 166,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "rightShoulder",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 6,
+          "target": 6,
+          "after": 6,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 10,
+            "step": 0.8452083849127885,
+            "method": "feature-constrained surface clustering",
+            "region": "hair",
+            "maxDeviation": 0.21628683180495187,
+            "lockedVertices": 10,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "leftShoulder",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 6,
+          "target": 6,
+          "after": 6,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 8,
+            "step": 0.7164247804818916,
+            "method": "feature-constrained surface clustering",
+            "region": "hair",
+            "maxDeviation": 0.1833314112388687,
+            "lockedVertices": 8,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "spine",
+          "material": "MI_CargoLying_Body_torso",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 5601,
+          "target": 35,
+          "after": 309,
+          "error": 0.07908082008361816,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.780049743289183,
+            "clusters": 1124,
+            "step": 7.800442723472683,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 3.550625338405646,
+            "lockedVertices": 476,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18904745101928708
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightLowerLeg",
+          "material": "MI_CargoLying_Body_legs_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 3065,
+          "target": 26,
+          "after": 986,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "separate physical-chart reconstruction",
+            "generatedVertices": 661,
+            "charts": [
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 50,
+                "semanticAnchors": 0,
+                "triangles": 50,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 29,
+                "semanticAnchors": 0,
+                "triangles": 27,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 160,
+                "semanticAnchors": 0,
+                "triangles": 203,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 94,
+                "semanticAnchors": 0,
+                "triangles": 108,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 57,
+                "semanticAnchors": 0,
+                "triangles": 60,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 40,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 38,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 130,
+                "semanticAnchors": 0,
+                "triangles": 172,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 63,
+                "semanticAnchors": 0,
+                "triangles": 70,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "sourceTriangles": 208,
+                "fallback": "Chart coverage differs by more than 3 percent"
+              }
+            ],
+            "triangles": 986,
+            "semanticAnchors": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.11333407342433928
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftLowerLeg",
+          "material": "MI_CargoLying_Body_legs_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 3065,
+          "target": 26,
+          "after": 980,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "separate physical-chart reconstruction",
+            "generatedVertices": 657,
+            "charts": [
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 50,
+                "semanticAnchors": 0,
+                "triangles": 50,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 29,
+                "semanticAnchors": 0,
+                "triangles": 27,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 158,
+                "semanticAnchors": 0,
+                "triangles": 201,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 95,
+                "semanticAnchors": 0,
+                "triangles": 110,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 56,
+                "semanticAnchors": 0,
+                "triangles": 58,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 39,
+                "semanticAnchors": 0,
+                "triangles": 41,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 38,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 129,
+                "semanticAnchors": 0,
+                "triangles": 171,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 63,
+                "semanticAnchors": 0,
+                "triangles": 70,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "sourceTriangles": 208,
+                "fallback": "Chart coverage differs by more than 3 percent"
+              }
+            ],
+            "triangles": 980,
+            "semanticAnchors": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.11333407342433928
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "hips",
+          "material": "MI_CargoLying_Body_torso",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 4162,
+          "target": 30,
+          "after": 295,
+          "error": 0.07865660637617111,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.479886182047998,
+            "clusters": 1037,
+            "step": 11.422596060534634,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 3.442947110025535,
+            "lockedVertices": 520,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.1885307419300079
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightShoulder",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 399,
+          "target": 10,
+          "after": 117,
+          "error": 0.07621388137340546,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.7113059907915884,
+            "clusters": 238,
+            "step": 3.320458983810873,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.7231510610437193,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightHand",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1958,
+          "target": 21,
+          "after": 90,
+          "error": 0.07937196642160416,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.6091546290161372,
+            "clusters": 455,
+            "step": 1.9559549234350802,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09550228595733641
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftShoulder",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 395,
+          "target": 10,
+          "after": 119,
+          "error": 0.07069569826126099,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.648690728973838,
+            "clusters": 242,
+            "step": 5.169589272485567,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.7250672162342557,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftUpperLeg",
+          "material": "MI_CargoLying_Body_legs_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1384,
+          "target": 18,
+          "after": 123,
+          "error": 0.07729243487119675,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.23026746864073,
+            "clusters": 599,
+            "step": 11.650770674031303,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 3.887806453136552,
+            "lockedVertices": 211,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.1488923931121826
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightUpperLeg",
+          "material": "MI_CargoLying_Body_legs_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1380,
+          "target": 18,
+          "after": 129,
+          "error": 0.07534436136484146,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.888636876643125,
+            "clusters": 595,
+            "step": 13.287907684225019,
+            "method": "feature-constrained surface clustering",
+            "region": "legs",
+            "maxDeviation": 3.8876590907216064,
+            "lockedVertices": 211,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.15118578672409055
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightUpperArm",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 934,
+          "target": 15,
+          "after": 100,
+          "error": 0.07631609588861465,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.331760985194959,
+            "clusters": 327,
+            "step": 8.074424862612693,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 157,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightLowerArm",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 658,
+          "target": 12,
+          "after": 76,
+          "error": 0.07638662308454514,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.0561241707372657,
+            "clusters": 246,
+            "step": 8.28214360963884,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftUpperArm",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 935,
+          "target": 14,
+          "after": 99,
+          "error": 0.07242707163095474,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.680001782312277,
+            "clusters": 379,
+            "step": 6.921462875773705,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 158,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftLowerArm",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 658,
+          "target": 12,
+          "after": 74,
+          "error": 0.07127280533313751,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.9167994426762573,
+            "clusters": 275,
+            "step": 7.825831540815712,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftHand",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1708,
+          "target": 19,
+          "after": 83,
+          "error": 0.07888896018266678,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.701211242159471,
+            "clusters": 353,
+            "step": 5.128400977013003,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09744702339172362
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0002",
+          "region": "head",
+          "material": "MI_CargoLying_Eyelashes",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 492,
+          "target": 46,
+          "after": 134,
+          "error": 0.04244260489940643,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 320,
+            "step": 1.2763260257462543,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.22454356310609833,
+            "lockedVertices": 268,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Eye_iris",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 432,
+          "target": 43,
+          "after": 44,
+          "error": 0.027325157076120377,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.029267215605079094,
+            "clusters": 228,
+            "step": 0.8429436744023675,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.1482987671879415,
+            "lockedVertices": 102,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Eye_sclera",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 504,
+          "target": 47,
+          "after": 106,
+          "error": 0.0793386846780777,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 288,
+            "step": 1.0475571818824339,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.18429634547311907,
+            "lockedVertices": 168,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Teeth",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 820,
+          "target": 59,
+          "after": 154,
+          "error": 0.0781894251704216,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.20719088992378706,
+            "clusters": 389,
+            "step": 0.46099793772989317,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.21376534057549004,
+            "lockedVertices": 146,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0004",
+          "region": "head",
+          "material": "MI_CargoLying_Eyeshell",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 226,
+          "target": 31,
+          "after": 78,
+          "error": 0.07246465981006622,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 140,
+            "step": 1.0274208255070723,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.1807537637837312,
+            "lockedVertices": 101,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0005",
+          "region": "head",
+          "material": "MI_CargoLying_Head",
+          "protectedLandmarks": [
+            "FACIAL_C_LipUpper",
+            "FACIAL_L_LipUpper",
+            "FACIAL_R_LipUpper",
+            "FACIAL_L_LipCorner",
+            "FACIAL_R_LipCorner",
+            "FACIAL_C_LipLower",
+            "FACIAL_L_LipLower",
+            "FACIAL_R_LipLower",
+            "FACIAL_L_EyelidUpperA",
+            "FACIAL_R_EyelidUpperA",
+            "FACIAL_L_EyelidLowerA",
+            "FACIAL_R_EyelidLowerA",
+            "FACIAL_C_NoseTip"
+          ],
+          "lockedVertices": 71,
+          "before": 5042,
+          "target": 147,
+          "after": 319,
+          "error": 0.07978437095880508,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.658889201045341,
+            "clusters": 2038,
+            "step": 0.7717032571247076,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.7160119387899169,
+            "lockedVertices": 317,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0005",
+          "region": "spine",
+          "material": "MI_CargoLying_Head",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 428,
+          "target": 43,
+          "after": 82,
+          "error": 0.07864167541265488,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 256,
+            "step": 2.955047813600553,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.5198804630084939,
+            "lockedVertices": 125,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "dev1",
+          "dither": false,
+          "flat": false
+        }
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "finite": true,
+          "maxDisplacement": 43.59184163350872,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.524482997995138,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "finite": true,
+          "maxDisplacement": 93.67300038839421,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 2,
+          "maxEdgeStretch": 4.4139849393432256,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "finite": true,
+          "maxDisplacement": 57.7404875606041,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.3230605959556327,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "finite": true,
+          "maxDisplacement": 0.0001360148555486325,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "finite": true,
+          "maxDisplacement": 4.419183116740286,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.5972712127651283,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "finite": true,
+          "maxDisplacement": 56.32729112267856,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 5,
+          "maxEdgeStretch": 4.908599620331144,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "finite": true,
+          "maxDisplacement": 7.300389092019306,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 3.0128535723688183,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "finite": true,
+          "maxDisplacement": 9.815111309975382,
+          "samples": 2869,
+          "checkedEdges": 16158,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.282302393273056,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "MEASURED",
+          "values": [
+            {
+              "name": "FACIAL_C_LipUpper",
+              "distance": 2.7755575615628914e-17
+            },
+            {
+              "name": "FACIAL_L_LipUpper",
+              "distance": 1.1102230246251565e-16
+            },
+            {
+              "name": "FACIAL_R_LipUpper",
+              "distance": 1.7763568394002505e-15
+            },
+            {
+              "name": "FACIAL_L_LipCorner",
+              "distance": 1.7763568394002505e-15
+            },
+            {
+              "name": "FACIAL_R_LipCorner",
+              "distance": 4.440892098500626e-16
+            },
+            {
+              "name": "FACIAL_C_LipLower",
+              "distance": 1.7763568394002505e-15
+            },
+            {
+              "name": "FACIAL_L_LipLower",
+              "distance": 1.790180836524724e-15
+            },
+            {
+              "name": "FACIAL_R_LipLower",
+              "distance": 1.790180836524724e-15
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 8.881784197001252e-16
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_C_NoseTip",
+              "distance": 1.7764110486817194e-15
+            }
+          ],
+          "maxDistance": 1.790180836524724e-15,
+          "note": "Nearest surviving source landmark samples; not facial recognition"
+        },
+        "sourceHealth": {
+          "triangles": 44112,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 3,
+          "uvDensityLogStdDev": 2.029129582959244,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 5386,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 52,
+          "uvDensityLogStdDev": 3.6857942903985976,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 5386,
+        "sourceTriangles": 44112,
+        "reconstruction": [
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under",
+            "maxDistance": 1.9318077146694697,
+            "clusters": 3183,
+            "step": 5.763189078408665,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.965857966785634,
+            "lockedVertices": 866,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under",
+            "maxDistance": 0.6068544821444664,
+            "clusters": 172,
+            "step": 3.91231050688851,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.0011510293517178,
+            "lockedVertices": 166,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under",
+            "maxDistance": 0,
+            "clusters": 10,
+            "step": 0.8452083849127885,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.21628683180495187,
+            "lockedVertices": 10,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under",
+            "maxDistance": 0,
+            "clusters": 8,
+            "step": 0.7164247804818916,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1833314112388687,
+            "lockedVertices": 8,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "torso",
+            "material": "MI_CargoLying_Body_torso",
+            "maxDistance": 2.780049743289183,
+            "clusters": 1124,
+            "step": 7.800442723472683,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.550625338405646,
+            "lockedVertices": 476,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18904745101928708
+            }
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "MI_CargoLying_Body_legs_right",
+            "method": "separate physical-chart reconstruction",
+            "generatedVertices": 661,
+            "charts": [
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 50,
+                "semanticAnchors": 0,
+                "triangles": 50,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 29,
+                "semanticAnchors": 0,
+                "triangles": 27,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 160,
+                "semanticAnchors": 0,
+                "triangles": 203,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 94,
+                "semanticAnchors": 0,
+                "triangles": 108,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 57,
+                "semanticAnchors": 0,
+                "triangles": 60,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 40,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 38,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 130,
+                "semanticAnchors": 0,
+                "triangles": 172,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 63,
+                "semanticAnchors": 0,
+                "triangles": 70,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "sourceTriangles": 208,
+                "fallback": "Chart coverage differs by more than 3 percent"
+              }
+            ],
+            "triangles": 986,
+            "semanticAnchors": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.11333407342433928
+            }
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "MI_CargoLying_Body_legs_left",
+            "method": "separate physical-chart reconstruction",
+            "generatedVertices": 657,
+            "charts": [
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 50,
+                "semanticAnchors": 0,
+                "triangles": 50,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 29,
+                "semanticAnchors": 0,
+                "triangles": 27,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 158,
+                "semanticAnchors": 0,
+                "triangles": 201,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 95,
+                "semanticAnchors": 0,
+                "triangles": 110,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 56,
+                "semanticAnchors": 0,
+                "triangles": 58,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 39,
+                "semanticAnchors": 0,
+                "triangles": 41,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 38,
+                "semanticAnchors": 0,
+                "triangles": 44,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 129,
+                "semanticAnchors": 0,
+                "triangles": 171,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "method": "source-chart surface reconstruction",
+                "generatedVertices": 63,
+                "semanticAnchors": 0,
+                "triangles": 70,
+                "skinTransfer": "barycentric bone-weight aggregation across all influence sets",
+                "maximumDiscardedWeight": 0,
+                "note": "UV-fitted topology; not a calibrated Tekken facial template"
+              },
+              {
+                "sourceTriangles": 208,
+                "fallback": "Chart coverage differs by more than 3 percent"
+              }
+            ],
+            "triangles": 980,
+            "semanticAnchors": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.11333407342433928
+            }
+          },
+          {
+            "region": "torso",
+            "material": "MI_CargoLying_Body_torso",
+            "maxDistance": 2.479886182047998,
+            "clusters": 1037,
+            "step": 11.422596060534634,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.442947110025535,
+            "lockedVertices": 520,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.1885307419300079
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 1.7113059907915884,
+            "clusters": 238,
+            "step": 3.320458983810873,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.7231510610437193,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 1.6091546290161372,
+            "clusters": 455,
+            "step": 1.9559549234350802,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09550228595733641
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.648690728973838,
+            "clusters": 242,
+            "step": 5.169589272485567,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.7250672162342557,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          },
+          {
+            "region": "legs",
+            "material": "MI_CargoLying_Body_legs_left",
+            "maxDistance": 2.23026746864073,
+            "clusters": 599,
+            "step": 11.650770674031303,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.887806453136552,
+            "lockedVertices": 211,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.1488923931121826
+            }
+          },
+          {
+            "region": "legs",
+            "material": "MI_CargoLying_Body_legs_right",
+            "maxDistance": 2.888636876643125,
+            "clusters": 595,
+            "step": 13.287907684225019,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.8876590907216064,
+            "lockedVertices": 211,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.15118578672409055
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 2.331760985194959,
+            "clusters": 327,
+            "step": 8.074424862612693,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 157,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 2.0561241707372657,
+            "clusters": 246,
+            "step": 8.28214360963884,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.680001782312277,
+            "clusters": 379,
+            "step": 6.921462875773705,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 158,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.9167994426762573,
+            "clusters": 275,
+            "step": 7.825831540815712,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.701211242159471,
+            "clusters": 353,
+            "step": 5.128400977013003,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09744702339172362
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyelashes",
+            "maxDistance": 0,
+            "clusters": 320,
+            "step": 1.2763260257462543,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.22454356310609833,
+            "lockedVertices": 268,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_iris",
+            "maxDistance": 0.029267215605079094,
+            "clusters": 228,
+            "step": 0.8429436744023675,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1482987671879415,
+            "lockedVertices": 102,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_sclera",
+            "maxDistance": 0,
+            "clusters": 288,
+            "step": 1.0475571818824339,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.18429634547311907,
+            "lockedVertices": 168,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Teeth",
+            "maxDistance": 0.20719088992378706,
+            "clusters": 389,
+            "step": 0.46099793772989317,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.21376534057549004,
+            "lockedVertices": 146,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyeshell",
+            "maxDistance": 0,
+            "clusters": 140,
+            "step": 1.0274208255070723,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1807537637837312,
+            "lockedVertices": 101,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Head",
+            "maxDistance": 0.658889201045341,
+            "clusters": 2038,
+            "step": 0.7717032571247076,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.7160119387899169,
+            "lockedVertices": 317,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Head",
+            "maxDistance": 0,
+            "clusters": 256,
+            "step": 2.955047813600553,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.5198804630084939,
+            "lockedVertices": 125,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 2
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 5
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied."
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_torso: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_legs_right: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_legs_left: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_arms_right: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_arms_left: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Head: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 40064,
+      "paletteBytes": 864,
+      "tiles": [
+        {
+          "material": "MI_CargoLying_FaceAcc_Alt_Under",
+          "clut": 30768,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_torso",
+          "clut": 30832,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_right",
+          "clut": 30896,
+          "x": 64,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_left",
+          "clut": 30960,
+          "x": 128,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_right",
+          "clut": 31024,
+          "x": 192,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_left",
+          "clut": 31088,
+          "x": 0,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eyelashes",
+          "clut": 31152,
+          "x": 64,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_iris",
+          "clut": 31216,
+          "x": 128,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_sclera",
+          "clut": 31280,
+          "x": 192,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Teeth",
+          "clut": 31344,
+          "x": 224,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eyeshell",
+          "clut": 31408,
+          "x": 192,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Head",
+          "clut": 31472,
+          "x": 128,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 8
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.9386628501328972,
+      "sourcePixels": 4845,
+      "preparedPixels": 4637
+    },
+    {
+      "view": "side",
+      "iou": 0.9307400379506642,
+      "sourcePixels": 3147,
+      "preparedPixels": 2958
+    },
+    {
+      "view": "left-side",
+      "iou": 0.9202783929136349,
+      "sourcePixels": 3152,
+      "preparedPixels": 2918
+    },
+    {
+      "view": "right-side",
+      "iou": 0.9307400379506642,
+      "sourcePixels": 3147,
+      "preparedPixels": 2958
+    },
+    {
+      "view": "back",
+      "iou": 0.9399590163934426,
+      "sourcePixels": 4846,
+      "preparedPixels": 4621
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.9153027823240589,
+      "sourcePixels": 4863,
+      "preparedPixels": 4499
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "finite": true,
+      "maxDisplacement": 43.55750075258848,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 6.155486629888513,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "finite": true,
+      "maxDisplacement": 93.59920644714045,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 12.893392482371809,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "finite": true,
+      "maxDisplacement": 57.69500062270655,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 7.719695387059207,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "finite": true,
+      "maxDisplacement": 0.0001500505936863202,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "finite": true,
+      "maxDisplacement": 4.415697234363048,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 4.3360274767067395,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "finite": true,
+      "maxDisplacement": 56.71384290500253,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 3.3540621438396006,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "finite": true,
+      "maxDisplacement": 7.367810035715941,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 8.49620044495353,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "finite": true,
+      "maxDisplacement": 9.823836914101888,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.9788959447478676,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "exportValidation": {
+    "glbSha256": "53cd9d7cef2c6e29b6340b9cd396cc423df5e5545b0cf20aea5321c11baca5a0",
+    "timHashes": {
+      "textures/00.tim": "bf32964d3ad124233265458b00c54d12589f24e5a8d32f372c65d58548c88420",
+      "textures/01.tim": "51194da5794bb50b6e6dfdeffa460ddf3fb439d1f46fe9217c0068e18c25f923",
+      "textures/02.tim": "dcf9b9210c0ea4d277bc24ed51d261965927b3005a6e56d2b79b7439a76be50d",
+      "textures/03.tim": "6e7e12cca769834ea898d68b9db5f52a63e180f98083ba3857679cfab3864bcb",
+      "textures/04.tim": "f3031755e4547983c533c1def9770ba6a1b33e1a8664896f23141a237d48367e",
+      "textures/05.tim": "ccec896654c571f283612a3c4ee8b223ce7299cb9765c205affe5626fe8430a3",
+      "textures/06.tim": "46543e6f106429ddf7f695e3bc7b1cc4f9c9d0447046034fbd26ef092515a8f8",
+      "textures/07.tim": "4b8dbc964b347b4ea5c20a4f9e011c19f18a24fe10af2852afc5ff8586487cac",
+      "textures/08.tim": "df8cf5ba2571a01bcbd9336726a410d99ef1814aeb52ad7bc62e565d112f6eac",
+      "textures/09.tim": "70708847e31302cbbe058cb565e56c8d1a3e84ef7f808006aadf969b61964fc4",
+      "textures/10.tim": "6ea541aa3711f027c5dc514bbc1f5d51f6b1151561ee9a965c3c18e9b33f3a71",
+      "textures/11.tim": "3b948b660c5dab2255d5b4f3121e8e4338c5eac48e2627690bdc45fde66c4d58"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/04.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/05.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/06.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/07.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/08.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/09.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/10.tim",
+        "width": 16,
+        "height": 16,
+        "colors": 16
+      },
+      {
+        "path": "textures/11.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}

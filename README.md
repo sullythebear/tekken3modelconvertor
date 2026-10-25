@@ -1,3 +1,5 @@
+> **0.7.0-dev.3:** [visual corrections and private Windows test](docs/REVIEW_070_DEV3.md). Artistieke goedkeuring en echte Tekken-gamevalidatie staan nog open.
+
 > **0.7.0-dev.2 recovery:** [source recovery inventory](docs/RECOVERY_070_DEV2.md) · [reconstruction and review instructions](docs/REVIEW_070_DEV2.md). Development evidence requires human visual acceptance; game compatibility is unverified.
 
 # 0.7.0-dev.1 reconstruction checkpoint
