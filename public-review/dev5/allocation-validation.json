@@ -1,0 +1,118 @@
+{
+  "version": "0.7.0-dev.5.1",
+  "referenceCommit": "6a5fae2ce63caa2fffed950f6ad5ace516c473e9",
+  "sameGLBAndAllTIMHashes": true,
+  "identicalPreparedImages": 31,
+  "readbackStats": {
+    "requests": 20,
+    "reads": 18,
+    "hits": 2,
+    "peakRetainedBytes": 2097152,
+    "retainedBytes": 0
+  },
+  "hashes": {
+    "glbSha256": "b0c7fed3887c1672bdd2ce02856b0cc632d0e77379a46321e28bcc42256903a4",
+    "timHashes": {
+      "textures/00.tim": "71ce2a894bc4b999d0ec7087c1eab031937f0397b535582ad67bd9bf3ab149ba",
+      "textures/01.tim": "9c0da6b01d5b87e0105824d8db960bc62cf0fecb2c02c42d93fcae5fbdd08fa4",
+      "textures/02.tim": "cff832850882f7607a5667c3c855a3723728456ea5c256316bb5eb0d5f4068d8",
+      "textures/03.tim": "49629535d374af59d65817a8ca6067827831b47a879465b6db0f6cd9a9376152",
+      "textures/04.tim": "1041c959d82d95a89b67bad0faebada336aa9848973d5b7b4b6e265a4a1d1cd7",
+      "textures/05.tim": "137c3b99af70371f85028984a689edc0f16363e26bb4f2b0acea1d431dc106d3",
+      "textures/06.tim": "d0f412e2620f484b52f4ad294686137bf2e94160863ec5f5a477d513e5aa3d63",
+      "textures/07.tim": "b9dbee92b1a3155bd109af7eca1f10e7f9443de5e681f8c3ab03531abbbfb2fb",
+      "textures/08.tim": "95a3448916d767a695030f61b25359ed5c59fa6aff714c4bc748337246ef80f4",
+      "textures/09.tim": "917bc2a09dda044cb977a85c4cec3f5a7ebd2527370a74bae93ec262564e1e88",
+      "textures/10.tim": "833592889c3fb5c392e26e70d1e3279f845d4ff4d8826c83dde6d147872900a5",
+      "textures/11.tim": "c2d5b9133ce0fa711fca0f703af4b1426a4d48fb0c7eb4c9be086f370ad14553",
+      "textures/12.tim": "bfad8a11fc70a32a9477b71fc614a3d04ffbea37015ef36195bbf6f2aedd1f66",
+      "textures/13.tim": "604166fe005e9e490866cf8532b006c315f3d4cb63fde98e71da4fbb9ed4f921"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/04.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/05.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16
+      },
+      {
+        "path": "textures/06.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/07.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/08.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16
+      },
+      {
+        "path": "textures/09.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16
+      },
+      {
+        "path": "textures/10.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/11.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16
+      },
+      {
+        "path": "textures/12.tim",
+        "width": 16,
+        "height": 16,
+        "colors": 16
+      },
+      {
+        "path": "textures/13.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256
+      }
+    ]
+  }
+}

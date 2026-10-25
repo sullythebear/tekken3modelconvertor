@@ -1,9 +1,9 @@
 {
-  "version": "0.7.0-dev.5",
+  "version": "0.7.0-dev.5.1",
   "galleryPath": "dev5/index.html",
-  "generated": "2026-10-25T12:18:33.616Z",
+  "generated": "2026-10-25T13:08:17.845Z",
   "tests": {
-    "passed": 140,
+    "passed": 142,
     "failed": 0,
     "skipped": 0
   },
@@ -968,8 +968,8 @@
     },
     {
       "path": "cloud-nikki-project.json",
-      "bytes": 64330,
-      "sha256": "db4e0f918d99ae4d14fa4abfd844db45bcad93d1b00528a6dc98b4bfd72a4019"
+      "bytes": 64314,
+      "sha256": "6bf7f224579eeddc2191a9b8a5c1cba2a1c567dc20328af80423599ae9118b72"
     },
     {
       "path": "cloud-source-electron.json",
@@ -978,13 +978,13 @@
     },
     {
       "path": "cloud-unit.xml",
-      "bytes": 29291,
-      "sha256": "c3585f4b810d7b4c26dc01f9178dfd94c204526f97737b1638751722285b8171"
+      "bytes": 29721,
+      "sha256": "19310e38e0f94e97e434397e803547fec5613d04d6975b306c58835707b63044"
     },
     {
       "path": "cloud-validation.json",
-      "bytes": 708373,
-      "sha256": "296fb0b3754185ac532068aba57d1a5510781b54ae7c7278c7ce6aa48c9290f7"
+      "bytes": 708479,
+      "sha256": "485693c573e09a4365887303146c41914680cd1faef587397d243fc6e00e472f"
     },
     {
       "path": "combined/CESIUM-ATTRIBUTION.txt",
@@ -14592,6 +14592,11 @@
       "sha256": "17b48b9aba3ee2c3cd13d8af905c99bae5a2bb0408d2e4222c74e02ca3ac7623"
     },
     {
+      "path": "dev5/allocation-validation.json",
+      "bytes": 3399,
+      "sha256": "4a8be3ba41783ef18b14f18d1f7b9ce914e9d647221b54306d2a62bbbb3b864a"
+    },
+    {
       "path": "dev5/budget1200/comparison.json",
       "bytes": 29930,
       "sha256": "c25f2233ede16c7cc964bc09b4fcf48c141fa0129f81708326bda82d24404f9e"
@@ -22373,13 +22378,33 @@
     },
     {
       "path": "dev5/index.html",
-      "bytes": 68284,
-      "sha256": "0e968ca87740c6a71c055e513b0a493cd5206b70be25802bc404ebd261ec192b"
+      "bytes": 68971,
+      "sha256": "7a5de187671f2086a5b42ee20c434cbd34eff94ba5391ac4d8f6ecbb0cacbbb7"
     },
     {
       "path": "dev5/memory-pixel-isolation.json",
       "bytes": 3320,
       "sha256": "fe509ce06e0bfc908d42ab289d84c7b3cc6abb5203129cff4abc72b959886d10"
+    },
+    {
+      "path": "dev5/performance/dev4-vs-dev5.json",
+      "bytes": 2386,
+      "sha256": "82ef03b214c5fdeee39c05e213a88b74290fe6863803bfb8078c9b6eacdc33fc"
+    },
+    {
+      "path": "dev5/performance/last-use-vs-dev4.json",
+      "bytes": 2542,
+      "sha256": "e35a2e0d4d33f06c54cc89b54e44f1e3b61c15fd915f56c3cce615cee9eef28d"
+    },
+    {
+      "path": "dev5/performance/rejected-allocation.json",
+      "bytes": 2557,
+      "sha256": "98cf044b12a23218daa54fe3c1cc56a23978fbe4c02f0db2e06e2b21d50decee"
+    },
+    {
+      "path": "dev5/performance/uncached-atlas.json",
+      "bytes": 2485,
+      "sha256": "88c7b05c089a578368914827834a962b86d3f970414c07c5c2ac15002a6a8992"
     },
     {
       "path": "dev5/rejected/face-3d.png",
@@ -22398,8 +22423,8 @@
     },
     {
       "path": "dev5/technical-summary.json",
-      "bytes": 668806,
-      "sha256": "1c8f571a2bbabdbd839f3ac6c18164602fd0393cbbc2b0251d0296c99ae66dc0"
+      "bytes": 668908,
+      "sha256": "d785ab4ef088217799b25705a9394bbd43b0eb52f84dbec8523579d257c4f528"
     },
     {
       "path": "face/CESIUM-ATTRIBUTION.txt",
@@ -24303,8 +24328,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 266,
-      "sha256": "cf6ce4e95b956d08448d1115c85da3fb120a96f98aee7b3f8e4e79f625e0f10b"
+      "bytes": 270,
+      "sha256": "efb81520e9f139b185c6dad64f1981748b38d892a3fca7717a28932ed57eaf29"
     },
     {
       "path": "landmark-editor-results.json",
@@ -25283,8 +25308,8 @@
     },
     {
       "path": "REVIEW.md",
-      "bytes": 8937,
-      "sha256": "c23089977ee91adc602fa9abde1a7b686ecfcad0d1de8d39b1bfbd67142dbe0b"
+      "bytes": 10948,
+      "sha256": "9e04e5c7210ee8e8e0ad84ee27f39b6bebbb2a15bb33167d5109b476f7ec9267"
     },
     {
       "path": "skinning.txt",

@@ -1,7 +1,7 @@
 {
-  "version": "0.7.0-dev.5",
+  "version": "0.7.0-dev.5.1",
   "tests": {
-    "passed": 140,
+    "passed": 142,
     "failed": 0,
     "skipped": 0
   },
@@ -19639,7 +19639,7 @@
       "src/core/anatomical-face.js": "6c0cf45342c08e857c15e268bf35f0f257ca9c8f085f657c525cacb06c7ad5c0",
       "src/core/art-atlas.js": "d0481a9179355809284395c4e2bbcc7ca3167cdc8973d125ef4d153867cfc8e5",
       "src/core/art-director.js": "141d35424627dbfe60bdeb4da477b1fa21a087e0a3f85ba033f725bab1917d30",
-      "src/core/atlas.js": "e50e6c34d7e7117aa568723ca0071cc87312be9766f968593a664d3b367f4b77",
+      "src/core/atlas.js": "9149119a2834a1db94f6486c2b31486b225139cd662d8b337a06d134137f695c",
       "src/core/backup.mjs": "d364b7ebb5af959617dad041325495fc6620f66052917eab632203197f531945",
       "src/core/bind-estimator.js": "d44b53d9be7f0cdda4f526f22b6b4e05af91ea4fc89466f736aa3dd6f2a2dc98",
       "src/core/bind.js": "0aa40c7cae7b77822d259be8f05f769076f3b12807a049c1484573999d8ab298",
@@ -19671,6 +19671,7 @@
       "src/core/occlusion.js": "67f3e622836679c44bfe0b0e697b96a142d9ad2984545725e46f04c1df238b12",
       "src/core/projected-topology.js": "f18557ac0714701019700549fb3c3f4acee2dd0fb9344d3b81aeee8547d34505",
       "src/core/ps1.js": "f79911b25032616044e0b827b022d603cab896723ec3075b05dc7146b711e626",
+      "src/core/readback-cache.js": "9c42e558a17343be1ffd3bf16305c3a7bd8506337b880aac6c51945a9aa89adb",
       "src/core/region-materials.js": "986fc2294d48a3c8994563b602eb3572b9dc0eb6acbf741a9447bfdf80fc5a87",
       "src/core/skeleton.js": "c755f7e8ec658709ecd5cc781f5affaa4e530f9d85376a41884686cf1cff311b",
       "src/core/skinning.js": "2007d36fed6ddde2de96d7e93e595b25843eeec99344042e20f672a1bcfc2816",
@@ -19683,7 +19684,7 @@
       "src/core/torso-bake.js": "c0c0392de10b111617e4c10e4f05c4b10d284f06badeb8b1d3f064461b21fa48",
       "src/core/uv-domain.js": "d500ef4445c67fb16ec24e939fec35d04854fa02f6cc4163a5b1315f01f9aa45",
       "src/core/uv-reconstruction.js": "ab996b97990116e3bb6fa7b75050cb29f8de7a77c7db8113a6d870c289c506f7",
-      "src/ui/app.js": "b8f6739bc173f9a5cf7fff9f3beb3af11e66751202069dde8d7a8d6bccb1b0e5",
+      "src/ui/app.js": "314c8c94ea391322ed10bb79730ba2d6d791ff2a489625fe1cc6e671659d9913",
       "src/ui/index.html": "33d70de84763b04da0e94b8ea92af3680885d63f91e965a714d8ab342f857761",
       "src/ui/landmark-editor.js": "e11e888bae8b7a4d2db77c381bd48c389c32f473fc84de2994961db3851012fc",
       "src/ui/ps1-preview.js": "24b4cff4cfc66495ea28e9d492afb55e9fb9719b1196026ec3d9d88c857a98f8",

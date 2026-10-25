@@ -368,6 +368,7 @@ function report() {
           warnings: atlas.warnings,
           textureBytes: atlas.textureBytes,
           paletteBytes: atlas.paletteBytes,
+          readbackStats: atlas.readbackStats,
           tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette }) => ({
             material,
             clut,

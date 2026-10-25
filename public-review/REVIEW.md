@@ -1,3 +1,15 @@
+# Additional 0.7.0-dev.5.1 allocation correction
+
+The original dev.5 tag and release remain immutable. This build keeps its artistic output: the GLB, all 14 TIM hashes and every prepared Nikki image match exactly. It adds two cache tests (142 total).
+
+The first dev.5 Windows measurement showed no performance win. A controlled dev.4/dev.5 ABBA comparison on one VM measured about 2.7% higher private committed memory for the original dev.5. A scalar/projection-cache experiment did not reliably lower it and is not included. Removing all retained readbacks lowered private memory by about 4.1% versus that original dev.5 in a separate controlled run, but repeated pixel reads added work. These are two samples per version, not broad benchmark guarantees.
+
+The accepted correction retains only images with future consumers and deletes them on their last use. Unique readbacks are never cached. Nikki performs 18 unique reads and 2 hits for 20 requests; the cache itself peaks at 2 MiB and finishes at zero. The same unique pixel work and output values are retained. This cache-only counter is not process RAM. The final last-use/dev.4 ABBA comparison observed about 1.8% higher private committed memory for the candidate median, with overlapping ranges and only two runs each. It does not demonstrate lower total app memory. Cold conversion timing varied; the two warm reconversions were approximately unchanged. Retention is reduced in the cache itself, but the total-memory goal remains open. All adverse measurements are retained rather than selecting only the favourable cache-isolation run. The current actual Windows build/roundtrip and phase memory are in the Windows receipts; do not infer their values from the older runs.
+
+The comparison gallery below is the same dev.5 artistic evidence; allocation-validation.json proves unchanged output. Both previous numerical performance comparisons and the rejected variants remain available under performance/. Main remains unmerged.
+
+---
+
 # 0.7.0-dev.5 — visual refinement, awaiting human review
 
 Base: 960c6b55597b75fdbb9590c2df3d2ac7485ac511 (dev.4).
@@ -51,7 +63,7 @@ Secret NIKKI_DOWNLOAD_URL is read only through the test environment. Original ZI
 
 ## Checks and reproduction
 
-140 unit/integration tests (all 130 previous cases plus 10 focused cases), FBX 7400/7500/7700 and TGA/image binding, CPU/GPU skinning, native UI/humanoid fixtures, mapping, Cesium source animation, source Electron/desktop IPC and synthetic preset/project regression. Actual Windows EXE and private Nikki project receipts are separately produced by the publishing workflow; this document alone does not claim they passed.
+142 unit/integration tests (all 130 previous cases plus 10 feature cases and two cache cases), FBX 7400/7500/7700 and TGA/image binding, CPU/GPU skinning, native UI/humanoid fixtures, mapping, Cesium source animation, source Electron/desktop IPC and synthetic preset/project regression. Actual Windows EXE and private Nikki project receipts are separately produced by the publishing workflow; this document alone does not claim they passed.
 
 Unpack Visual-Review.zip and open index.html. The gallery includes dev.3/dev.4/dev.5, identical full/detail/pose cameras, measured budget losses, matched actual cost, hair methods, other models and rejected variants. All **31** common Nikki source views matched dev.4 byte-for-byte in the cloud run. New sole cameras are rendered from the exact old checkouts with the same current camera script.
 

@@ -1,0 +1,83 @@
+{
+  "method": "Same Windows VM, same harness and 250 ms counters; ABBA order; two samples per version are not a general benchmark",
+  "source": {
+    "baseline": "6a5fae2ce63caa2fffed950f6ad5ace516c473e9",
+    "candidate": "f50c55e0c3b2b9e8be87f18e42b6078a3df16619",
+    "variant": "Scalar slice distances and bounded projection caches; no geometry/texture parameter change"
+  },
+  "status": "PASS",
+  "runs": [
+    {
+      "label": "1-baseline",
+      "version": "baseline",
+      "saveMs": 3298.5136999999995,
+      "reopenMs": 3713.3888000000006,
+      "convertMs": 2889.9228000000003,
+      "appWorkingSetKiB": 3488972,
+      "appPrivateCommittedKiB": 3295364,
+      "harnessRssBytes": 405094400,
+      "zipBytes": 49789433
+    },
+    {
+      "label": "2-candidate",
+      "version": "candidate",
+      "saveMs": 3138.2028999999984,
+      "reopenMs": 3995.9642999999996,
+      "convertMs": 3360.3936000000003,
+      "appWorkingSetKiB": 3628460,
+      "appPrivateCommittedKiB": 3434744,
+      "harnessRssBytes": 403578880,
+      "zipBytes": 49789433
+    },
+    {
+      "label": "3-candidate",
+      "version": "candidate",
+      "saveMs": 3062.8467999999993,
+      "reopenMs": 4009.7577999999994,
+      "convertMs": 2883.8065000000006,
+      "appWorkingSetKiB": 3473136,
+      "appPrivateCommittedKiB": 3277308,
+      "harnessRssBytes": 404000768,
+      "zipBytes": 49789433
+    },
+    {
+      "label": "4-baseline",
+      "version": "baseline",
+      "saveMs": 3252.286000000001,
+      "reopenMs": 4278.670399999999,
+      "convertMs": 2952.2881000000007,
+      "appWorkingSetKiB": 3466496,
+      "appPrivateCommittedKiB": 3286684,
+      "harnessRssBytes": 402567168,
+      "zipBytes": 49789433
+    }
+  ],
+  "sourceAssetsPublished": false,
+  "medians": {
+    "baseline": {
+      "saveMs": 3275.3998500000002,
+      "reopenMs": 3996.0296,
+      "convertMs": 2921.1054500000005,
+      "appWorkingSetKiB": 3477734,
+      "appPrivateCommittedKiB": 3291024,
+      "harnessRssBytes": 403830784
+    },
+    "candidate": {
+      "saveMs": 3100.524849999999,
+      "reopenMs": 4002.8610499999995,
+      "convertMs": 3122.1000500000005,
+      "appWorkingSetKiB": 3550798,
+      "appPrivateCommittedKiB": 3356026,
+      "harnessRssBytes": 403789824
+    }
+  },
+  "candidateToBaseline": {
+    "saveMs": 0.9466095719580614,
+    "reopenMs": 1.001709559408669,
+    "convertMs": 1.0688077179822453,
+    "appWorkingSetKiB": 1.0210090823507492,
+    "appPrivateCommittedKiB": 1.019751299291649,
+    "harnessRssBytes": 0.9998985713778571
+  },
+  "privateSourceRemoved": true
+}

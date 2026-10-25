@@ -1,3 +1,5 @@
+0.7.0-dev.5.1: allocation correction with identical dev.5 artistic output; see [review notes](REVIEW_070_DEV5.md). Original releases are preserved.
+
 0.7.0-dev.5: [visual refinement, measured tradeoffs and reproduction](REVIEW_070_DEV5.md). Artistic approval remains pending; candidate counts are not reduced.
 
 0.7.0-dev.4: [visual changes, measured limits and reproduction](REVIEW_070_DEV4.md). Artistic and gameplay acceptance remain pending.
