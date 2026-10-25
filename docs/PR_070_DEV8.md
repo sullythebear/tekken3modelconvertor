@@ -1,0 +1,5 @@
+Dev.7 retained coarse hand triangles and faceted skin baking. Dev.8 regularizes hand diagonals and redistributes safe interior samples back onto the measured source hand without adding triangles. Skin normal-map baking now uses confidence-checked source tangent frames with bounded detail around preserved source lighting. Rectangular hand tiles double hand texel area while preserving existing face, lash, eye and boot resolutions; the square-allocation experiment was rejected.
+
+182 passing unit tests, four-model visual comparisons, same-cost candidates, private Nikki project roundtrip and actual Windows executable checks. The report explicitly classifies all 38 position contacts and retains one small pose-diverging pelvis contact as unresolved. Zero unexplained boundaries/winding conflicts and the protected face remain regression gates.
+
+Human artistic review required. Shoulder clothing deformation remains; no gameplay verification. No original private/game assets published. Do not merge automatically.

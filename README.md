@@ -1,3 +1,5 @@
+0.7.0-dev.8: source-projected hand sampling and tangent-space skin baking; see [review notes](docs/REVIEW_070_DEV8.md). Artistic acceptance and actual gameplay remain unverified.
+
 0.7.0-dev.7: repaired anatomical seams/winding and efficient material-aware candidates; see [review notes](docs/REVIEW_070_DEV7.md) and [technical claim audit](docs/TECHNICAL_CLAIMS_070_DEV7.md). Human artistic acceptance and actual gameplay remain pending.
 
 0.7.0-dev.6: source-connected body/hand reduction and source-derived skin baking; see [review notes](docs/REVIEW_070_DEV6.md). Human artistic review and real game validation remain pending.

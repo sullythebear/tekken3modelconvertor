@@ -1,0 +1,2704 @@
+{
+  "model": "synthetic",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 15,
+        "vertices": 3215,
+        "triangles": 4784,
+        "materials": 3,
+        "textures": 0,
+        "skinnedMeshes": 15,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "authored.glb",
+          "bytes": 253604,
+          "role": "model"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 17,
+        "mapping": [
+          {
+            "role": "hips",
+            "name": "Hips",
+            "row": 3,
+            "confidence": "name-match",
+            "position": [
+              0,
+              0.95,
+              0
+            ]
+          },
+          {
+            "role": "spine",
+            "name": "Spine",
+            "row": 1,
+            "confidence": "name-match",
+            "position": [
+              0,
+              1.2,
+              0
+            ]
+          },
+          {
+            "role": "head",
+            "name": "Head",
+            "row": 19,
+            "confidence": "name-match",
+            "position": [
+              0,
+              1.68,
+              0
+            ]
+          },
+          {
+            "role": "leftShoulder",
+            "name": "LeftShoulder",
+            "row": 11,
+            "confidence": "name-match",
+            "position": [
+              0.16,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftUpperArm",
+            "name": "LeftArm",
+            "row": 12,
+            "confidence": "name-match",
+            "position": [
+              0.28,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftLowerArm",
+            "name": "LeftForeArm",
+            "row": 13,
+            "confidence": "name-match",
+            "position": [
+              0.5800000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftHand",
+            "name": "LeftHand",
+            "row": 14,
+            "confidence": "name-match",
+            "position": [
+              0.8400000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightShoulder",
+            "name": "RightShoulder",
+            "row": 15,
+            "confidence": "name-match",
+            "position": [
+              -0.16,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightUpperArm",
+            "name": "RightArm",
+            "row": 16,
+            "confidence": "name-match",
+            "position": [
+              -0.28,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightLowerArm",
+            "name": "RightForeArm",
+            "row": 17,
+            "confidence": "name-match",
+            "position": [
+              -0.5800000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "rightHand",
+            "name": "RightHand",
+            "row": 18,
+            "confidence": "name-match",
+            "position": [
+              -0.8400000000000001,
+              1.5,
+              0
+            ]
+          },
+          {
+            "role": "leftUpperLeg",
+            "name": "LeftUpLeg",
+            "row": 5,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.8999999999999999,
+              0
+            ]
+          },
+          {
+            "role": "leftLowerLeg",
+            "name": "LeftLeg",
+            "row": 6,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.4799999999999999,
+              0
+            ]
+          },
+          {
+            "role": "leftFoot",
+            "name": "LeftFoot",
+            "row": 7,
+            "confidence": "name-match",
+            "position": [
+              0.13,
+              0.06999999999999995,
+              0.06
+            ]
+          },
+          {
+            "role": "rightUpperLeg",
+            "name": "RightUpLeg",
+            "row": 8,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.8999999999999999,
+              0
+            ]
+          },
+          {
+            "role": "rightLowerLeg",
+            "name": "RightLeg",
+            "row": 9,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.4799999999999999,
+              0
+            ]
+          },
+          {
+            "role": "rightFoot",
+            "name": "RightFoot",
+            "row": 10,
+            "confidence": "name-match",
+            "position": [
+              -0.13,
+              0.06999999999999995,
+              0.06
+            ]
+          }
+        ],
+        "missing": [],
+        "ambiguous": [],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 3215,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 1,
+        "extendedMeshes": 0
+      },
+      "materials": [
+        {
+          "name": "Clothing",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Skin",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Hair",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        }
+      ],
+      "warnings": []
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 15,
+        "vertices": 2239,
+        "triangles": 3496,
+        "materials": 4,
+        "textures": 1,
+        "skinnedMeshes": 15,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "materials": [
+        {
+          "name": "Clothing",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Skin",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        },
+        {
+          "name": "Hair_volume",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        },
+        {
+          "name": "Hair",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {},
+          "resolution": {
+            "method": "untextured"
+          }
+        }
+      ],
+      "warnings": [
+        "Appearance error / protected topology prevent the requested budget: 3496 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+      ],
+      "regions": [
+        {
+          "mesh": "Torso",
+          "region": "spine",
+          "material": "Clothing",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 816,
+          "target": 54,
+          "after": 816,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 54,
+            "error": 0.033748775720596313,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 11,
+              "unexpectedOpenEdges": 11,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00000935307507665731
+            },
+            "fallbackReason": "Reduction introduced a discontinuity; reliable source surface retained",
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Head_1",
+          "region": "head",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1064,
+          "target": 279,
+          "after": 336,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 279,
+            "error": 0.017594261094927788,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000006235383843275045
+            },
+            "fallbackReason": "Both eye centres and nose required",
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "Hair",
+          "region": "hair",
+          "material": "Hair_volume",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 840,
+          "target": 216,
+          "after": 1180,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "frameSource": "anatomical source head bone",
+            "method": "opacity-aware radial hair volume",
+            "generatedVertices": 642,
+            "triangles": 1180,
+            "alphaRejected": 0,
+            "oppositeRejected": 36,
+            "maximumDiscardedWeight": 0,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "LeftUpperArm",
+          "region": "leftUpperArm",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 216,
+          "target": 28,
+          "after": 120,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01244756393134594,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000035930492003099665
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "LeftForearm",
+          "region": "leftLowerArm",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 216,
+          "target": 28,
+          "after": 120,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012452014721930027,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030215885208026364
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "LeftHand_1",
+          "region": "leftHand",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 48,
+          "target": 14,
+          "after": 48,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": {
+              "method": "Source-projected interior hand redistribution",
+              "moved": 0,
+              "attempted": 4,
+              "before": {
+                "mean": 0.8362970006212628,
+                "minimum": 0.810599799746156
+              },
+              "after": {
+                "mean": 0.8359906234787622,
+                "minimum": 0.8105762933429866
+              },
+              "reason": "Source retained: quality or local orientation guard rejected redistribution"
+            },
+            "handLayout": {
+              "method": "Constrained hand diagonal regularization; no added vertices or triangles",
+              "flips": 0,
+              "attempts": 96,
+              "positionsMoved": 0,
+              "trianglesAdded": 0
+            },
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000018708281676967652
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "LeftThigh",
+          "region": "leftUpperLeg",
+          "material": "Clothing",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 252,
+          "target": 30,
+          "after": 124,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01776878349483013,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005043999844759917
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "LeftShin",
+          "region": "leftLowerLeg",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 252,
+          "target": 30,
+          "after": 122,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017413485795259476,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004452297252287281
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "LeftFoot_1",
+          "region": "leftFoot",
+          "material": "Hair",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 48,
+          "target": 48,
+          "after": 48,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030347982083988577
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightUpperArm",
+          "region": "rightUpperArm",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 216,
+          "target": 27,
+          "after": 120,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012447725050151348,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000035930492003099665
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightForearm",
+          "region": "rightLowerArm",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 216,
+          "target": 27,
+          "after": 120,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012452014721930027,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030215885208026364
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightHand_1",
+          "region": "rightHand",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 48,
+          "target": 13,
+          "after": 48,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": {
+              "method": "Source-projected interior hand redistribution",
+              "moved": 0,
+              "attempted": 4,
+              "before": {
+                "mean": 0.8362970006212628,
+                "minimum": 0.810599799746156
+              },
+              "after": {
+                "mean": 0.8359906234787622,
+                "minimum": 0.8105762933429866
+              },
+              "reason": "Source retained: quality or local orientation guard rejected redistribution"
+            },
+            "handLayout": {
+              "method": "Constrained hand diagonal regularization; no added vertices or triangles",
+              "flips": 0,
+              "attempts": 96,
+              "positionsMoved": 0,
+              "trianglesAdded": 0
+            },
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000018708281676967652
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightThigh",
+          "region": "rightUpperLeg",
+          "material": "Clothing",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 252,
+          "target": 29,
+          "after": 124,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01776854507625103,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005043999844759917
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightShin",
+          "region": "rightLowerLeg",
+          "material": "Skin",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 252,
+          "target": 29,
+          "after": 122,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017413532361388206,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004452297252287281
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "RightFoot_1",
+          "region": "rightFoot",
+          "material": "Hair",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 48,
+          "target": 48,
+          "after": 48,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030347982083988577
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "combined",
+          "dither": false,
+          "flat": false
+        }
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "affectedBones": 4,
+          "finite": true,
+          "maxDisplacement": 0.4028043157300531,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000084,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "affectedBones": 4,
+          "finite": true,
+          "maxDisplacement": 0.8655722449648497,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000104,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "affectedBones": 4,
+          "finite": true,
+          "maxDisplacement": 0.5335428946837815,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000078,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "affectedBones": 4,
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "hand-flex",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "hand-relax",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "thumb-motion",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "wrist-roll",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 5.245208734017126e-8,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "arms-raised",
+          "affectedBones": 2,
+          "finite": true,
+          "maxDisplacement": 0.7409940805472779,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000102,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "affectedBones": 4,
+          "finite": true,
+          "maxDisplacement": 0.3650815881490856,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000104,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "affectedBones": 2,
+          "finite": true,
+          "maxDisplacement": 0.587558810204103,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000098,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "affectedBones": 2,
+          "finite": true,
+          "maxDisplacement": 0.617796193536839,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.0000000000000027,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "affectedBones": 1,
+          "finite": true,
+          "maxDisplacement": 0.06424855556901769,
+          "samples": 2239,
+          "checkedEdges": 10488,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.000000000000001,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "NOT MEASURED: no semantic face surface"
+        },
+        "sourceHealth": {
+          "triangles": 4784,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 1.116429210468012,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 3496,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 1.1720016776954965,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 3496,
+        "sourceTriangles": 4784,
+        "reconstruction": [
+          {
+            "region": "spine",
+            "material": "Clothing",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 54,
+            "error": 0.033748775720596313,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 11,
+              "unexpectedOpenEdges": 11,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00000935307507665731
+            },
+            "fallbackReason": "Reduction introduced a discontinuity; reliable source surface retained",
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "head",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 279,
+            "error": 0.017594261094927788,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000006235383843275045
+            },
+            "fallbackReason": "Both eye centres and nose required",
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "hair",
+            "material": "Hair_volume",
+            "frameSource": "anatomical source head bone",
+            "method": "opacity-aware radial hair volume",
+            "generatedVertices": 642,
+            "triangles": 1180,
+            "alphaRejected": 0,
+            "oppositeRejected": 36,
+            "maximumDiscardedWeight": 0,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01244756393134594,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000035930492003099665
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012452014721930027,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030215885208026364
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftHand",
+            "material": "Skin",
+            "handSurface": {
+              "method": "Source-projected interior hand redistribution",
+              "moved": 0,
+              "attempted": 4,
+              "before": {
+                "mean": 0.8362970006212628,
+                "minimum": 0.810599799746156
+              },
+              "after": {
+                "mean": 0.8359906234787622,
+                "minimum": 0.8105762933429866
+              },
+              "reason": "Source retained: quality or local orientation guard rejected redistribution"
+            },
+            "handLayout": {
+              "method": "Constrained hand diagonal regularization; no added vertices or triangles",
+              "flips": 0,
+              "attempts": 96,
+              "positionsMoved": 0,
+              "trianglesAdded": 0
+            },
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000018708281676967652
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Clothing",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01776878349483013,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005043999844759917
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017413485795259476,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004452297252287281
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftFoot",
+            "material": "Hair",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030347982083988577
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012447725050151348,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000035930492003099665
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.012452014721930027,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030215885208026364
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightHand",
+            "material": "Skin",
+            "handSurface": {
+              "method": "Source-projected interior hand redistribution",
+              "moved": 0,
+              "attempted": 4,
+              "before": {
+                "mean": 0.8362970006212628,
+                "minimum": 0.810599799746156
+              },
+              "after": {
+                "mean": 0.8359906234787622,
+                "minimum": 0.8105762933429866
+              },
+              "reason": "Source retained: quality or local orientation guard rejected redistribution"
+            },
+            "handLayout": {
+              "method": "Constrained hand diagonal regularization; no added vertices or triangles",
+              "flips": 0,
+              "attempts": 96,
+              "positionsMoved": 0,
+              "trianglesAdded": 0
+            },
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000018708281676967652
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Clothing",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01776854507625103,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005043999844759917
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Skin",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017413532361388206,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004452297252287281
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightFoot",
+            "material": "Hair",
+            "handSurface": null,
+            "handLayout": null,
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 0,
+            "lockedVertices": 0,
+            "trackedSkinBones": 1,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 0,
+              "outputOpenEdges": 0,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000030347982083988577
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 0
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "hand-flex",
+            "edges": 0
+          },
+          {
+            "pose": "hand-relax",
+            "edges": 0
+          },
+          {
+            "pose": "thumb-motion",
+            "edges": 0
+          },
+          {
+            "pose": "wrist-roll",
+            "edges": 0
+          },
+          {
+            "pose": "arms-raised",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 0
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied.",
+        "duplicateCleanup": [
+          {
+            "mesh": "Torso",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "Head_1",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "Hair",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftUpperArm",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftForearm",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftHand_1",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftThigh",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftShin",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "LeftFoot_1",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightUpperArm",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightForearm",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightHand_1",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightThigh",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightShin",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          },
+          {
+            "mesh": "RightFoot_1",
+            "removed": 0,
+            "byRegion": {},
+            "policy": "Exact same-winding material/UV/deformation equivalence only; no source-surface welding"
+          }
+        ],
+        "windingRepairs": [
+          {
+            "mesh": "Torso",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "Head_1",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "Hair",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftUpperArm",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftForearm",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftHand_1",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftThigh",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftShin",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "LeftFoot_1",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightUpperArm",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightForearm",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightHand_1",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightThigh",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightShin",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "RightFoot_1",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          }
+        ],
+        "seamRepair": {
+          "splitTriangles": 0,
+          "unavailableSkin": 0,
+          "addedBones": 0,
+          "tolerance": 0.0000027829122319730317,
+          "policy": "Only coincident head/torso and garment/leg interfaces; UVs interpolated on their own material, categorical bone identities mapped explicitly"
+        },
+        "integrity": {
+          "triangles": 3496,
+          "openEdges": 62,
+          "byRegion": {
+            "hair": 62
+          },
+          "classifications": {
+            "alpha-or-hair": 62
+          },
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 24,
+          "sourceInconsistentWinding": 0,
+          "sourceNonmanifoldEdges": 0,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 0,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        }
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 17408,
+      "paletteBytes": 128,
+      "readbackStats": {
+        "requests": 1,
+        "reads": 1,
+        "hits": 0,
+        "peakRetainedBytes": 0,
+        "retainedBytes": 0
+      },
+      "tiles": [
+        {
+          "material": "Clothing",
+          "clut": 30768,
+          "x": 256,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "Skin",
+          "clut": 30832,
+          "x": 288,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "Hair_volume",
+          "clut": 30896,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "Hair",
+          "clut": 30960,
+          "x": 128,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "anatomyStatistics": {
+    "triangles": {
+      "spine": 816,
+      "eyes-lashes-teeth": 336,
+      "hair": 1180,
+      "leftUpperArm": 120,
+      "leftLowerArm": 120,
+      "palms-wrists": 96,
+      "leftUpperLeg": 124,
+      "leftLowerLeg": 122,
+      "leftFoot": 48,
+      "rightUpperArm": 120,
+      "rightLowerArm": 120,
+      "rightUpperLeg": 124,
+      "rightLowerLeg": 122,
+      "rightFoot": 48
+    },
+    "coincidentTriangleCandidates": {},
+    "hiddenGeometry": "Not certified by static views; no blind deletion",
+    "note": "Face/neck use anatomical UV zones; fingers use structural digit chains and skin weights; boot separation uses measured garment cuff. Coincident faces are diagnostic candidates, not automatically redundant."
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.9967783505154639,
+      "sourcePixels": 6206,
+      "preparedPixels": 6190
+    },
+    {
+      "view": "side",
+      "iou": 0.9968469560999272,
+      "sourcePixels": 4122,
+      "preparedPixels": 4111
+    },
+    {
+      "view": "left-side",
+      "iou": 0.9973281515666748,
+      "sourcePixels": 4116,
+      "preparedPixels": 4107
+    },
+    {
+      "view": "right-side",
+      "iou": 0.9968469560999272,
+      "sourcePixels": 4122,
+      "preparedPixels": 4111
+    },
+    {
+      "view": "back",
+      "iou": 0.9975743855109961,
+      "sourcePixels": 6181,
+      "preparedPixels": 6172
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.9965859209884571,
+      "sourcePixels": 6151,
+      "preparedPixels": 6130
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.402804315730053,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000169,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.8655722449648494,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000162,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.5335428946837816,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000012,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-flex",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-relax",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "thumb-motion",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "wrist-roll",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 5.2452087118126656e-8,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "arms-raised",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 0.7409940805472779,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000149,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.3650815881490855,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000014,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 0.5875588102041032,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.000000000000015,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 0.6177961935368387,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000062,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "affectedBones": 1,
+      "finite": true,
+      "maxDisplacement": 0.06424974913472917,
+      "samples": 3215,
+      "checkedEdges": 14352,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.0000000000000016,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "poseSeamContinuity": [
+    {
+      "pose": "guard",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "reach",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "crouch",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "idle",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-flex",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-relax",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "arms-raised",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "walk",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "punch",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "kick",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "face-motion",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000028252914883118685,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    }
+  ],
+  "poseContacts": [
+    {
+      "pose": "guard",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "reach",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "crouch",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "idle",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "hand-flex",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "hand-relax",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "arms-raised",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "walk",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "punch",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "kick",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "face-motion",
+      "contacts": 0,
+      "byCategory": {},
+      "byRegion": {},
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.00002782912231973032,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    }
+  ],
+  "poseTransfer": {
+    "matchedBones": 17,
+    "duplicateSourceNames": 0,
+    "mode": "Hierarchy paths and bind-relative rotation deltas; no name-only matching"
+  },
+  "exportValidation": {
+    "headGeometrySha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "faceInteriorGeometrySha256": null,
+    "faceInteriorTextureSha256": null,
+    "glbSha256": "d2ffa902bc7e17825f31d65824b6d5a19258c722290ad0d5628de0d294cde780",
+    "timHashes": {
+      "textures/00.tim": "6191df56149a4b84787e39a2b4c478c215fadaa226682f375e942029ac7f5dfe",
+      "textures/01.tim": "ef8c8eab27e10f01a2838f0df11fefe0537d4a922e80e0dd513f25ef7848fa8b",
+      "textures/02.tim": "10a39bafddf881a5ca10724eb1e447c1a45d7ade27dadfc6996f8257e5c2397d",
+      "textures/03.tim": "f2691f4f531cd2ce13a9a082564a5858978b7a8eae223e401f630c35d56f5c5d"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "5a648d8015900d89664e00e125df179636301a2d8fa191c1aa2bd9358ea53a69",
+        "paletteSha256": "c2612fb1135e95efb93b7da2a683430bcb8c0ecc8259abf70d2da0c46b9e8345"
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "5a648d8015900d89664e00e125df179636301a2d8fa191c1aa2bd9358ea53a69",
+        "paletteSha256": "00892d872ac20df38403d2b297ecc50db5d1a923d1440126b97df48121fa936d"
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "111ce3c2a38d83a2e4706bde4abddd509d7f8248116c6832b06745bdc349e09f",
+        "paletteSha256": "03a5d193e7f8733b035dbd6b7c6f2870721834b7f8e52691077d49ad55049004"
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "111ce3c2a38d83a2e4706bde4abddd509d7f8248116c6832b06745bdc349e09f",
+        "paletteSha256": "03a5d193e7f8733b035dbd6b7c6f2870721834b7f8e52691077d49ad55049004"
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}

@@ -131,7 +131,7 @@ export async function bakeAtlas(
             ny = (n[1] / 127.5 - 1) * (m.normalScale?.y ?? 1),
             nz = n[2] / 127.5 - 1;
           if(m.userData?.t3csSkinSurface)mappedNormal=new THREE.Vector3(nx,ny,nz).normalize();
-          else shade =
+          shade =
             0.7 +
             0.3 *
               Math.max(
@@ -140,7 +140,7 @@ export async function bakeAtlas(
                   Math.max(0.01, Math.hypot(nx, ny, nz)),
               );
         }
-        shade*=sourceSkinLighting(m,u,v,mappedNormal);
+        shade=m.userData?.t3csSkinSurface?sourceSkinLighting(m,u,v,mappedNormal,shade):shade*sourceSkinLighting(m,u,v);
         const p = (y * cell + x) * 4;
         image.data.set(
           [

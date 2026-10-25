@@ -1,0 +1,25 @@
+{
+  "triangles": 7503,
+  "openEdges": 825,
+  "byRegion": {
+    "hair": 94,
+    "hair-cards": 443,
+    "spine": 16,
+    "hips": 32,
+    "head": 240
+  },
+  "classifications": {
+    "alpha-or-hair": 621,
+    "measured-aperture-or-source-open": 80,
+    "preserved-source-mesh-border": 124
+  },
+  "unexpectedByRegion": {},
+  "sourceOpenEdges": 1072,
+  "sourceInconsistentWinding": 0,
+  "sourceNonmanifoldEdges": 137,
+  "unexpectedEdges": 0,
+  "inconsistentWinding": 0,
+  "nonmanifoldEdges": 38,
+  "degenerateTriangles": 0,
+  "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+}

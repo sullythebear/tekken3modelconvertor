@@ -1,0 +1,22 @@
+{
+  "contacts": 43,
+  "byCategory": {
+    "coincident-face-contact": 40,
+    "same-surface-branch": 3
+  },
+  "byRegion": {
+    "hair": 3,
+    "hair-cards": 18,
+    "spine": 3,
+    "rightShoulder/spine": 1,
+    "hips": 5,
+    "rightShoulder": 1,
+    "rightHand": 12
+  },
+  "divergentContacts": 0,
+  "divergentByCategory": {},
+  "divergentByRegion": {},
+  "maxGap": 4.642761259666451e-10,
+  "tolerance": 0.0020437663571394415,
+  "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+}

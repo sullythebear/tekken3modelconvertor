@@ -1,0 +1,11 @@
+{
+  "contacts": 0,
+  "byCategory": {},
+  "byRegion": {},
+  "divergentContacts": 0,
+  "divergentByCategory": {},
+  "divergentByRegion": {},
+  "maxGap": 0,
+  "tolerance": 0.00002782912231973032,
+  "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+}

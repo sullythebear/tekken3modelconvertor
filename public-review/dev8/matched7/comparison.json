@@ -1,0 +1,1266 @@
+{
+  "results": [
+    {
+      "model": "nikki",
+      "preset": "authentic",
+      "triangles": 4092,
+      "atlas": [
+        {
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+          "clut": 30768,
+          "x": 128,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+          "clut": 30832,
+          "x": 256,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_torso_rebaked_rebaked",
+          "clut": 30896,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_right_envelope",
+          "clut": 30960,
+          "x": 0,
+          "y": 384,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 8
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_left_envelope",
+          "clut": 31024,
+          "x": 128,
+          "y": 384,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 8
+        },
+        {
+          "material": "MI_CargoLying_Body_torso_rebaked_rebaked",
+          "clut": 31088,
+          "x": 256,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_right",
+          "clut": 31152,
+          "x": 320,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 8,
+          "sourceSkinBake": {
+            "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+            "size": 256,
+            "sourceTriangles": 1991,
+            "measuredTexels": 5822,
+            "retainedBytes": 327680,
+            "staticLighting": true
+          }
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_right_hand",
+          "clut": 31216,
+          "x": 384,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 8,
+          "sourceSkinBake": {
+            "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+            "size": 256,
+            "sourceTriangles": 1958,
+            "measuredTexels": 1696,
+            "retainedBytes": 327680,
+            "staticLighting": true
+          }
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_left",
+          "clut": 31280,
+          "x": 448,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 8,
+          "sourceSkinBake": {
+            "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+            "size": 256,
+            "sourceTriangles": 1988,
+            "measuredTexels": 7649,
+            "retainedBytes": 327680,
+            "staticLighting": true
+          }
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_left_hand",
+          "clut": 31344,
+          "x": 256,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 8,
+          "sourceSkinBake": {
+            "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+            "size": 256,
+            "sourceTriangles": 1708,
+            "measuredTexels": 32543,
+            "retainedBytes": 327680,
+            "staticLighting": true
+          }
+        },
+        {
+          "material": "MI_CargoLying_Eyelashes",
+          "clut": 31408,
+          "x": 384,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_iris",
+          "clut": 31472,
+          "x": 256,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_sclera",
+          "clut": 31536,
+          "x": 320,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Teeth",
+          "clut": 31600,
+          "x": 352,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eyeshell",
+          "clut": 31664,
+          "x": 384,
+          "y": 448,
+          "width": 16,
+          "height": 16,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Head_anatomical",
+          "clut": 31728,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 8
+        }
+      ],
+      "silhouettes": [
+        {
+          "view": "front",
+          "iou": 0.9688843398157625,
+          "sourcePixels": 4845,
+          "preparedPixels": 4773
+        },
+        {
+          "view": "side",
+          "iou": 0.957680250783699,
+          "sourcePixels": 3147,
+          "preparedPixels": 3098
+        },
+        {
+          "view": "left-side",
+          "iou": 0.9617794486215538,
+          "sourcePixels": 3152,
+          "preparedPixels": 3110
+        },
+        {
+          "view": "right-side",
+          "iou": 0.957680250783699,
+          "sourcePixels": 3147,
+          "preparedPixels": 3098
+        },
+        {
+          "view": "back",
+          "iou": 0.9686860417519443,
+          "sourcePixels": 4846,
+          "preparedPixels": 4773
+        },
+        {
+          "view": "three-quarter",
+          "iou": 0.9659253213629871,
+          "sourcePixels": 4863,
+          "preparedPixels": 4772
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "MEASURED",
+          "values": [
+            {
+              "name": "FACIAL_C_LipUpper",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_LipUpper",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_LipUpper",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_LipCorner",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_LipCorner",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_C_LipLower",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_LipLower",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_LipLower",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0
+            },
+            {
+              "name": "FACIAL_C_NoseTip",
+              "distance": 0
+            }
+          ],
+          "maxDistance": 0,
+          "note": "Nearest surviving source landmark samples; not facial recognition",
+          "reference": "artistic intermediate"
+        },
+        "sourceHealth": {
+          "triangles": 44112,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 3,
+          "uvDensityLogStdDev": 2.029129582959244,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 4092,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 44,
+          "uvDensityLogStdDev": 2.959188363020015,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 4092,
+        "sourceTriangles": 44112,
+        "reconstruction": [
+          {
+            "region": "hair-cards",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+            "method": "Source alpha cards over inset support volume, bounded UV-aware reduction",
+            "sharesSourceRegion": true,
+            "reduction": {
+              "before": 9866,
+              "after": 1905,
+              "error": 0.006953099276870489
+            }
+          },
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+            "frameSource": "anatomical source head bone",
+            "method": "inset support volume with silhouette-preserving source alpha cards",
+            "generatedVertices": 386,
+            "triangles": 640,
+            "alphaRejected": 2654,
+            "oppositeRejected": 4077,
+            "maximumDiscardedWeight": 0.03548138569534019,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "supportReduction": {
+              "before": 640,
+              "after": 480,
+              "error": 0.00793109368532896,
+              "errorLimit": 0.008,
+              "scope": "Inset support only; open boundaries locked; outer alpha cards unchanged"
+            },
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "spine",
+            "material": "MI_CargoLying_Body_torso_rebaked",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.033943988382816315,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 269,
+            "lockedVertices": 364,
+            "trackedSkinBones": 24,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 182,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 251,
+              "outputOpenEdges": 251,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 11,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0004863870326583077
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "MI_CargoLying_Body_legs_right_envelope",
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 216,
+            "sourceCollarVertices": 31,
+            "projectionTriangles": 4142,
+            "outerLayer": {
+              "components": 4,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 368,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "MI_CargoLying_Body_legs_left_envelope",
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 216,
+            "sourceCollarVertices": 31,
+            "projectionTriangles": 4141,
+            "outerLayer": {
+              "components": 5,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 368,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "hips",
+            "material": "MI_CargoLying_Body_torso_rebaked",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.0348249152302742,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 193,
+            "lockedVertices": 262,
+            "trackedSkinBones": 23,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 176,
+              "outputOpenEdges": 176,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 7,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0005093145811175182
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "creaseProtection": {
+              "method": "Measured lower-region dihedral creases; source UV seams welded only for analysis",
+              "selectedEdges": 24,
+              "availableEdges": 469,
+              "minAngle": 55,
+              "lowerFraction": 0.6,
+              "maxEdges": 24
+            },
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          },
+          {
+            "region": "rightShoulder",
+            "material": "MI_CargoLying_Body_arms_right",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017285779118537903,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 120,
+            "lockedVertices": 120,
+            "trackedSkinBones": 14,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 113,
+              "outputOpenEdges": 113,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 1,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00023604809055393418
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightHand",
+            "material": "MI_CargoLying_Body_arms_right_hand",
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 180,
+            "error": 0.01196550764143467,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 35,
+            "lockedVertices": 35,
+            "trackedSkinBones": 24,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 32,
+              "outputOpenEdges": 32,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 2,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00023544557574816524
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftShoulder",
+            "material": "MI_CargoLying_Body_arms_left",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01791996881365776,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 120,
+            "lockedVertices": 120,
+            "trackedSkinBones": 14,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 111,
+              "outputOpenEdges": 111,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00023631057756633644
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "MI_CargoLying_Body_arms_right",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017099929973483086,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 88,
+            "lockedVertices": 88,
+            "trackedSkinBones": 16,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 86,
+              "outputOpenEdges": 86,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00036909547397806725
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "MI_CargoLying_Body_arms_right",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017801804468035698,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 84,
+            "lockedVertices": 84,
+            "trackedSkinBones": 16,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 68,
+              "outputOpenEdges": 68,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00033389324192168585
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "MI_CargoLying_Body_arms_left",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017003891989588737,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 89,
+            "lockedVertices": 89,
+            "trackedSkinBones": 16,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 87,
+              "outputOpenEdges": 87,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00036909547397806725
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "MI_CargoLying_Body_arms_left",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017734937369823456,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 84,
+            "lockedVertices": 84,
+            "trackedSkinBones": 16,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 68,
+              "outputOpenEdges": 68,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00033389324192168585
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftHand",
+            "material": "MI_CargoLying_Body_arms_left_hand",
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "target": 180,
+            "error": 0.011974385008215904,
+            "errorLimit": 0.012,
+            "boundaryLockedVertices": 35,
+            "lockedVertices": 35,
+            "trackedSkinBones": 24,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 32,
+              "outputOpenEdges": 32,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00023544557574816524
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyelashes",
+            "generatedVertices": 146,
+            "triangles": 200,
+            "method": "UV-preserving disconnected alpha cards with bounded surface error",
+            "sourceTriangles": 492,
+            "target": 200,
+            "error": 0.004234963562339544,
+            "alphaPreserved": true,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_iris",
+            "maxDistance": 0.029267215605079094,
+            "clusters": 228,
+            "step": 0.8429436744023675,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1482987671879415,
+            "lockedVertices": 102,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_sclera",
+            "maxDistance": 0,
+            "clusters": 288,
+            "step": 1.0475571818824339,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.18429634547311907,
+            "lockedVertices": 168,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Teeth",
+            "maxDistance": 0.20719088992378706,
+            "clusters": 389,
+            "step": 0.46099793772989317,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.21376534057549004,
+            "lockedVertices": 146,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyeshell",
+            "maxDistance": 0,
+            "clusters": 140,
+            "step": 1.0274208255070723,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1807537637837312,
+            "lockedVertices": 101,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Head_anatomical",
+            "method": "anatomical cylindrical head with explicit eye/mouth support rings",
+            "triangles": 1016,
+            "generatedVertices": 581,
+            "contourPoints": [
+              {
+                "name": "L eye",
+                "points": [
+                  [
+                    3.7271668562674423,
+                    155.57949083599692,
+                    5.5702595100646635
+                  ],
+                  [
+                    3.1527348550342733,
+                    155.88504901554936,
+                    6.134042046421858
+                  ],
+                  [
+                    2.820890538814966,
+                    155.93094161819693,
+                    6.264945004028549
+                  ],
+                  [
+                    2.610224222172714,
+                    155.92186151065764,
+                    6.281450705780637
+                  ],
+                  [
+                    2.4259512391375764,
+                    155.88519265338434,
+                    6.255810412357124
+                  ],
+                  [
+                    2.211264411700956,
+                    155.79528277784783,
+                    6.179997903468367
+                  ],
+                  [
+                    1.8241322283041976,
+                    155.57405607765898,
+                    5.927764725719519
+                  ],
+                  [
+                    2.0059428840078044,
+                    155.19928634526374,
+                    6.005397144555618
+                  ],
+                  [
+                    2.391799101685763,
+                    155.17184198921643,
+                    6.172007014728259
+                  ],
+                  [
+                    2.6180481579140973,
+                    155.14056303819484,
+                    6.1982011953842076
+                  ],
+                  [
+                    2.8667213956712754,
+                    155.13702433923157,
+                    6.176237394790702
+                  ],
+                  [
+                    3.2561685414438224,
+                    155.20364983132424,
+                    6.024026233116006
+                  ]
+                ]
+              },
+              {
+                "name": "R eye",
+                "points": [
+                  [
+                    -1.9313091995265828,
+                    155.574665074336,
+                    5.750344060082144
+                  ],
+                  [
+                    -2.369834992576131,
+                    155.7820665281355,
+                    6.034485143473932
+                  ],
+                  [
+                    -2.6051937750263403,
+                    155.8675410659641,
+                    6.103431026879391
+                  ],
+                  [
+                    -2.8001559922948416,
+                    155.90705914267684,
+                    6.11428056728053
+                  ],
+                  [
+                    -3.014935466587036,
+                    155.90222094002334,
+                    6.082985386188385
+                  ],
+                  [
+                    -3.3174634236030647,
+                    155.82987448335683,
+                    5.946944660865889
+                  ],
+                  [
+                    -3.8955323009069733,
+                    155.51975794480921,
+                    5.280160724089971
+                  ],
+                  [
+                    -3.4111582178352826,
+                    155.16541708577634,
+                    5.827458217614084
+                  ],
+                  [
+                    -3.0387600632781426,
+                    155.09867247872575,
+                    5.995266818997164
+                  ],
+                  [
+                    -2.791728414231522,
+                    155.09660832505202,
+                    6.035465289461477
+                  ],
+                  [
+                    -2.5512712369431987,
+                    155.11673285270243,
+                    6.014475172584479
+                  ],
+                  [
+                    -2.1010546544920436,
+                    155.1204311704032,
+                    5.850018292905329
+                  ]
+                ]
+              },
+              {
+                "name": "mouth",
+                "points": [
+                  [
+                    2.0306998336238475,
+                    149.86306492029496,
+                    6.670776716984286
+                  ],
+                  [
+                    0.9185444940938337,
+                    150.5549436113731,
+                    7.926145154933833
+                  ],
+                  [
+                    -0.1442567747935311,
+                    150.74818171626498,
+                    8.217561668607253
+                  ],
+                  [
+                    -1.1782194086166844,
+                    150.5749944317019,
+                    7.866914844198252
+                  ],
+                  [
+                    -2.2042571044869628,
+                    149.8893382575494,
+                    6.5251821144218365
+                  ],
+                  [
+                    -1.056556953048903,
+                    149.44061066918803,
+                    7.70627120743054
+                  ],
+                  [
+                    -0.14554531476160504,
+                    149.36564005454818,
+                    7.929206484720492
+                  ],
+                  [
+                    0.7918304540758496,
+                    149.42535202715572,
+                    7.764188900764957
+                  ]
+                ]
+              }
+            ],
+            "featureLoops": [
+              {
+                "name": "L eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "R eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "mouth",
+                "vertices": 8,
+                "aperture": false,
+                "measuredBoundary": false,
+                "eyeSurfaceIntersection": false,
+                "manualContour": false
+              }
+            ],
+            "maximumDiscardedWeight": 0.04839260621951261,
+            "sourceUVIndependent": true,
+            "neckBoundary": {
+              "sourceVertices": 24,
+              "method": "Measured nonplanar source collar; canonical periodic seam"
+            },
+            "mouthTextureMode": "Measured local lip UV correspondence over a closed source-mouth gap",
+            "frontTextureFraction": 0.8,
+            "faceTextureVRange": {
+              "source": [
+                0.3657214901538162,
+                0.8238516020147765
+              ],
+              "allocated": [
+                0.2,
+                0.9
+              ]
+            },
+            "triangulation": {
+              "flips": 2057
+            },
+            "curvature": {
+              "inserted": 100,
+              "tolerance": 0.1341701929645632,
+              "initialMaximumError": 4.526593770045612,
+              "lastMeasuredErrorBeforeInsertion": 4.526593770045612,
+              "discontinuousSamples": 0,
+              "insertionLimit": 100,
+              "method": "Measured source-surface chord error; constrained conforming edge insertion"
+            },
+            "calibration": "Semantic source measurements; template layout not calibrated to original Namco geometry",
+            "boundaryValidation": {
+              "sourceBorder": 48,
+              "measuredAperture": 24,
+              "unexplained": 0,
+              "tolerance": 0.000038926338552553586,
+              "valid": true
+            },
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 0
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "hand-flex",
+            "edges": 0
+          },
+          {
+            "pose": "hand-relax",
+            "edges": 0
+          },
+          {
+            "pose": "thumb-motion",
+            "edges": 0
+          },
+          {
+            "pose": "wrist-roll",
+            "edges": 0
+          },
+          {
+            "pose": "arms-raised",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 0
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW AFTER LOSSY OPTIMIZATION",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied.",
+        "windingRepairs": [
+          {
+            "mesh": "F_MED_CargoLying_LOD0",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 51,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "F_MED_CargoLying_LOD0001",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 35,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "F_MED_CargoLying_LOD0002",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 4,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "F_MED_CargoLying_LOD0003",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 5,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "F_MED_CargoLying_LOD0004",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 2,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          },
+          {
+            "mesh": "F_MED_CargoLying_LOD0005",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 1,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          }
+        ],
+        "seamRepair": {
+          "splitTriangles": 26,
+          "unavailableSkin": 0,
+          "addedBones": 0,
+          "tolerance": 0.00020437663571394414,
+          "policy": "Only coincident head/torso and garment/leg interfaces; UVs interpolated on their own material, categorical bone identities mapped explicitly"
+        },
+        "integrity": {
+          "triangles": 4092,
+          "openEdges": 609,
+          "byRegion": {
+            "hair": 39,
+            "hair-cards": 282,
+            "spine": 16,
+            "hips": 32,
+            "head": 240
+          },
+          "classifications": {
+            "alpha-or-hair": 405,
+            "preserved-source-mesh-border": 204
+          },
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 825,
+          "sourceInconsistentWinding": 0,
+          "sourceNonmanifoldEdges": 38,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 43,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        }
+      }
+    }
+  ],
+  "game": "NOT TESTED",
+  "authenticReferenceComparison": "NOT RUN: authentic reference geometry unavailable"
+}

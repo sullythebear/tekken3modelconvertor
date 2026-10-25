@@ -1,0 +1,20 @@
+[
+  {
+    "variant": "dev8-probe",
+    "triangles": 7503,
+    "geometryAndSkinSha256": "5a2858105e4a90a30cce774f7f5f9b38c7a350daf42c009480a5ec0e32dcbf06",
+    "scope": "Canonical triangle position and all joint/weight accessors; excludes UVs, normals and textures; no source vertices published"
+  },
+  {
+    "variant": "dev8-skin",
+    "triangles": 7503,
+    "geometryAndSkinSha256": "5a2858105e4a90a30cce774f7f5f9b38c7a350daf42c009480a5ec0e32dcbf06",
+    "scope": "Canonical triangle position and all joint/weight accessors; excludes UVs, normals and textures; no source vertices published"
+  },
+  {
+    "variant": "dev8-tangent",
+    "triangles": 7503,
+    "geometryAndSkinSha256": "5a2858105e4a90a30cce774f7f5f9b38c7a350daf42c009480a5ec0e32dcbf06",
+    "scope": "Canonical triangle position and all joint/weight accessors; excludes UVs, normals and textures; no source vertices published"
+  }
+]
