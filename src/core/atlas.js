@@ -1,3 +1,4 @@
+import {readbackCache} from './readback-cache.js';
 import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
 import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
@@ -71,10 +72,11 @@ export async function bakeAtlas(
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
   const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
-  const cachedPixels=(texture,size,dataMap=false)=>pixels(texture,size,dataMap);
+  const samplingSize=m=>art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
+  const requests=materials.flatMap(m=>[{texture:m.map,size:samplingSize(m)},{texture:m.alphaMap,size:samplingSize(m),data:true},{texture:m.normalMap,size:samplingSize(m),data:true}]),cache=readbackCache(requests,pixels),cachedPixels=cache.read;
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].side;
-    const sampleSize=art&&/hair|faceacc|strand/i.test(materials[i].name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
+    const sampleSize=samplingSize(materials[i]);
     const m = materials[i],
       origin = domains.get(m),
       tile = canvas(cell, cell),
@@ -194,6 +196,7 @@ export async function bakeAtlas(
     });
     await new Promise((r) => setTimeout(r, 0));
   }
+  cache.clear();
   const texture = new THREE.CanvasTexture(atlas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.NearestFilter;
@@ -246,6 +249,7 @@ export async function bakeAtlas(
     canvas: atlas,
     rgba,
     tiles,
+    readbackStats:{...cache.stats},
     warnings,
     textureBytes: tiles.reduce((n,t)=>n+t.width*t.height*(t.palette.length===256?1:.5),0),
     paletteBytes: tiles.reduce((n,t)=>n+t.palette.byteLength,0),

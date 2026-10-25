@@ -1,4 +1,4 @@
-name: Controlled dev5 atlas cache comparison
+name: Controlled final dev5 cache comparison
 on:
   push:
     branches: [automation/070-dev5-performance]
@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/checkout@v4
         with:
-          ref: 6a5fae2ce63caa2fffed950f6ad5ace516c473e9
+          ref: 960c6b55597b75fdbb9590c2df3d2ac7485ac511
           path: baseline
       - uses: actions/setup-node@v4
         with:
@@ -25,7 +25,7 @@ jobs:
           cache-dependency-path: current/package-lock.json
       - name: Verify the bounded allocation variant against published dev5
         working-directory: current
-        run: git diff --exit-code 6a5fae2ce63caa2fffed950f6ad5ace516c473e9 HEAD -- src package.json package-lock.json scripts/build.mjs ':!src/core/atlas.js'
+        run: git diff --exit-code 6a5fae2ce63caa2fffed950f6ad5ace516c473e9 HEAD -- src package.json package-lock.json scripts/build.mjs ':!src/core/atlas.js' ':!src/core/readback-cache.js' ':!src/ui/app.js'
       - run: npm ci
         working-directory: current
       - run: npm ci
@@ -50,12 +50,12 @@ jobs:
           $folder = 'current/artifacts/controlled-memory'
           $bad = Get-ChildItem $folder -Recurse -File | Where-Object { $_.Extension -notin '.json','.md' }
           if ($bad) { throw 'Unexpected performance evidence format' }
-          Compress-Archive -Path "$folder/*" -DestinationPath "Windows-Cache-$env:GITHUB_RUN_ID.zip"
+          Compress-Archive -Path "$folder/*" -DestinationPath "Windows-LastUse-$env:GITHUB_RUN_ID.zip"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Controlled-Windows-performance
-          path: Windows-Cache-*.zip
+          path: Windows-LastUse-*.zip
   publish:
     needs: measure
     runs-on: ubuntu-latest
@@ -69,4 +69,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        run: gh release upload v0.7.0-dev.5 Windows-Cache-*.zip --repo "$GH_REPO"
+        run: gh release upload v0.7.0-dev.5 Windows-LastUse-*.zip --repo "$GH_REPO"
