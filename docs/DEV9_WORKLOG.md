@@ -8,7 +8,7 @@ Maximaal acht uur effectieve ontwikkeling; geen minimumduur of toezegging na een
 Branch: `development/070-dev9`.
 Laatste gepubliceerde veilige baseline: `b04f9bcefe7d44793e9107ef8fa7d75719e79033` (dev.8).
 Laatste dev.9-checkpoint: zie `git log --oneline development/070-dev9`; dit log wordt vóór iedere checkpointcommit bijgewerkt (de eigen commit kan niet zijn eigen hash bevatten).
-Status: baseline vastgelegd; nog geen dev.9-wijziging als getest of verbeterd aangemerkt.
+Status: meerdere gerichte cycli uitgevoerd. Alleen hieronder expliciet geaccepteerde onderdelen zijn veiliggesteld; handretopologie blijft een afzonderlijk, nog niet artistiek geaccepteerd experiment.
 
 ## Regressiebasis
 
@@ -74,3 +74,12 @@ Cyclus 3: vijf fingerpatches met ieder één gesloten palm-interface gericht rec
 - `materialSampler` leest voor albedo geen ongebruikte normal/roughness/specular/AO-images meer uit. Gerichte getter-traptest bevestigt dat albedo die buffers niet aanraakt, terwijl static-detail ze wel blijft lezen.
 - Volledige suite **190 PASS**, 0 fail/skip; `artifacts/dev9/cycle3-sampler-unit.xml`. Nog geen nieuwe Windows-meting of release.
 - Huidige veilige motorcheckpoint voorafgaand aan handexperiment: 8d18462. Handmodule/converterkoppeling blijven voorlopig on-gecommit experiment; samplerwijziging onafhankelijk veiliggesteld. Eerstvolgende actie: nieuwe handbeelden beoordelen, textureseams/vingertoppen en poses toetsen; alleen behouden bij zichtbare winst.
+
+### Cyclus 4 — daadwerkelijke huidveld-overdracht, structurele fout gevonden
+
+- `configureSkinning` kloont materialen voor de GPU-weergave van alle influences. Daardoor gingen de transient WeakMap-huidvelden verloren, hoewel de userData-metadata bleef bestaan. Dit verklaart waarom eerdere bron-normalbaking in de echte gecombineerde route grotendeels vlak bleef.
+- De materiaalclone neemt nu dezelfde immutable bronvelden mee, zonder extra floatbufferkopie of serialisatie. Nieuwe end-to-end unit-test met twee skinsets en drie herconfiguraties bevestigt de werkelijke belichtingswaarde, niet alleen metadata.
+- **191 tests PASS**, 0 fail/skip (`artifacts/dev9/cycle4-unit.xml`).
+- Afzonderlijke Nikki-render zonder nieuwe handgeometrie: 7503 triangles, integriteit behouden. Huid heeft nu daadwerkelijk vormschaduw, maar de 64-pixel/RGB555-overgangen zijn zichtbaar grof. Deze correctie is een noodzakelijke functionele reparatie, nog geen bewijs dat de huid artistiek klaar is. Detailvergelijking: `artifacts/dev9/cycle4-skin-field/`.
+- Directe UV-interpolatie van de nieuwe vingers is verworpen wegens rode kledingpixels op de duim. De grotere handtile is eveneens verworpen: atlaspacking verlaagde de resolutie van andere huidtiles. De vingerbake wordt nu bij de oorspronkelijke texturekosten met de gerepareerde huidroute opnieuw beoordeeld.
+- Volgende concrete actie: beelden `cycle4-hand-lit` vergelijken met `cycle4-skin-field`, daarna betere bron-correspondentie/quantisatie onderzoeken en niet alleen extra geometrie toevoegen. Geen dev.9-release of Windows-uitkomst geclaimd.

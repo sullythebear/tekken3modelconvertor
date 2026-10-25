@@ -1,3 +1,4 @@
+import {copySkinField} from './skin-surface.js';
 import * as THREE from 'three';
 const textureCache = new WeakMap();
 export function skinSets(geometry) {
@@ -67,6 +68,7 @@ mat4 t3csSkinMatrix() {
 function extendMaterial(material, mesh) {
   // Per-mesh uniforms avoid leaking another skeleton's influence texture through shared materials.
   const copy = material.clone();
+  copySkinField(material, copy);
   copy.onBeforeCompile = shader => {
     const info = influenceTexture(mesh.geometry);
     shader.uniforms.t3csInfluences = {value: info.texture};
