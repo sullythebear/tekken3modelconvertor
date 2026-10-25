@@ -77,3 +77,16 @@ test("Actual material texture channels drive detail baking; default albedo mode 
   assert.notDeepEqual(albedo, baked);
   assert.equal(baked[3], 255);
 });
+
+test('albedo projection does not read unused detail image buffers', () => {
+  const material = new THREE.MeshStandardMaterial();
+  const detail = new THREE.Texture();
+  Object.defineProperty(detail, 'image', {get() {throw Error('Unneeded detail readback');}});
+  material.normalMap = detail;
+  const triangle = triangleRecord([
+    new THREE.Vector3(0,0,0),new THREE.Vector3(1,0,0),new THREE.Vector3(0,1,0),
+  ], {material});
+  const rgba = materialSampler([material])({triangle,barycentric:new THREE.Vector3(1,0,0)});
+  assert.ok(rgba.every(value => Math.abs(value - 255) < 1e-9));
+  assert.throws(() => materialSampler([material],{mode:'static-detail'}), /Unneeded detail readback/);
+});

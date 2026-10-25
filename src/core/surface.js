@@ -110,7 +110,7 @@ function imagePixels(image) {
 export function materialSampler(materials, { mode = "albedo" } = {}) {
   const maps = new Map();
   for (const m of materials)
-    for (const name of [
+    for (const name of (mode === "static-detail" ? [
       "map",
       "alphaMap",
       "normalMap",
@@ -118,7 +118,7 @@ export function materialSampler(materials, { mode = "albedo" } = {}) {
       "roughnessMap",
       "specularMap",
       "aoMap",
-    ])
+    ] : ["map", "alphaMap"]))
       if (m[name] && !maps.has(m[name]))
         maps.set(m[name], imagePixels(m[name].image));
   const sample = (texture, uv) => {

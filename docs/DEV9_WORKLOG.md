@@ -60,9 +60,17 @@ Windows dev.8: save 5,183 s; reopen 6,984 s; eerste conversie 6,749 s; ZIP 49.78
 
 - Oorzaak: bron bevat al samenvallende fysieke faces met afwijkende UV-eilanden en skinweights die één aantoonbare 8-bit quantisatiestap verschillen. Niet door willekeurig vertex-welden opgelost.
 - `reconcileCoincidentSkin`: alleen zelfde mesh/materiaal, bewezen duplicaat-triangle, identieke bonesupport, gemeten 255-rooster en kleine foutgrens. Geen geometrie/UV-normalen samenvoegen; hoofd/haar/handen beschermd. Verschillende materialen, grotere verschillen en andere bonesupport blijven intact.
-- Nikki: 2 fysieke punten / 25 vertexkopieën consistent gemaakt; maximale L1-weightwijziging circa 0,011765. Alle 13 offline én live diagnostische poses hebben 0 divergerende contacten. De 38 positiecontacten blijven structureel bestaan; nul onverklaarde boundaries/windingconflicten behouden.
+- Nikki: 2 fysieke punten / 25 vertexkopieën consistent gemaakt; maximale L1-weightwijziging circa 0,011765. Alle 13 offline en de 10 live vastgelegde diagnostische poses hebben 0 divergerende contacten. De 38 positiecontacten blijven structureel bestaan; nul onverklaarde boundaries/windingconflicten behouden.
 - Volledige suite **189 PASS**, nul fail/skipped (`artifacts/dev9/cycle2-unit.xml`). Live beelden/private broncorrespondenties: `artifacts/dev9/cycle2-seam/`.
 
 ### Eerstvolgende concrete actie
 
 Cyclus 3: vijf fingerpatches met ieder één gesloten palm-interface gericht reconstrueren. Anatomische source-bonecurves + rayprojectie, behoud de echte bronringen, skintransfer en echte texturebaking. Eerst prototype; bij schade niet als verbetering publiceren. Daarna schouder-/kledingdiagnose, huid/haar en regionale optimalisatie. Nog geen dev.9-release of Windows-validatie uitgevoerd.
+
+### Cyclus 3 — handexperimenten en onafhankelijke readbackverbetering
+
+- Eerste nieuwe vingeropbouw verwierp de gemeten concave collar; opgelost door de echte boundary-cyclus en 3D-booglengte te behouden, zonder punten op hoek te hersorteren.
+- Prototype engageert op beide Nikki-handen: 5 nieuwe vingers per hand, 0 nieuwe open randen/windingfouten. Eerste variant 580/582 handtriangles tegenover 536/486 baseline. De vingercontour is beter verdeeld, maar textureovergang bij de pols verslechtert. **Nog niet geaccepteerd**, geen artistieke voltooiing. Onderzoek nu betrouwbare oorspronkelijke UV-correspondentie bij vrijwel gelijke kosten.
+- `materialSampler` leest voor albedo geen ongebruikte normal/roughness/specular/AO-images meer uit. Gerichte getter-traptest bevestigt dat albedo die buffers niet aanraakt, terwijl static-detail ze wel blijft lezen.
+- Volledige suite **190 PASS**, 0 fail/skip; `artifacts/dev9/cycle3-sampler-unit.xml`. Nog geen nieuwe Windows-meting of release.
+- Huidige veilige motorcheckpoint voorafgaand aan handexperiment: 8d18462. Handmodule/converterkoppeling blijven voorlopig on-gecommit experiment; samplerwijziging onafhankelijk veiliggesteld. Eerstvolgende actie: nieuwe handbeelden beoordelen, textureseams/vingertoppen en poses toetsen; alleen behouden bij zichtbare winst.
