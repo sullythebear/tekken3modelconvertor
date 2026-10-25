@@ -1,4 +1,4 @@
-name: Controlled dev4-dev5 Windows comparison
+name: Controlled dev5 allocation comparison
 on:
   push:
     branches: [automation/070-dev5-performance]
@@ -13,19 +13,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: current
-          fetch-depth: 2
+          fetch-depth: 0
       - uses: actions/checkout@v4
         with:
-          ref: 960c6b55597b75fdbb9590c2df3d2ac7485ac511
+          ref: 6a5fae2ce63caa2fffed950f6ad5ace516c473e9
           path: baseline
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
           cache-dependency-path: current/package-lock.json
-      - name: Assert candidate product source matches the published dev5
+      - name: Verify the bounded allocation variant against published dev5
         working-directory: current
-        run: git diff --exit-code 6a5fae2ce63caa2fffed950f6ad5ace516c473e9 HEAD -- src package.json package-lock.json scripts/build.mjs
+        run: git diff --exit-code 6a5fae2ce63caa2fffed950f6ad5ace516c473e9 HEAD -- src package.json package-lock.json scripts/build.mjs ':!src/core/anatomical-face.js' ':!src/core/curvature-topology.js'
       - run: npm ci
         working-directory: current
       - run: npm ci
@@ -50,12 +50,12 @@ jobs:
           $folder = 'current/artifacts/controlled-memory'
           $bad = Get-ChildItem $folder -Recurse -File | Where-Object { $_.Extension -notin '.json','.md' }
           if ($bad) { throw 'Unexpected performance evidence format' }
-          Compress-Archive -Path "$folder/*" -DestinationPath "Windows-Performance-$env:GITHUB_RUN_ID.zip"
+          Compress-Archive -Path "$folder/*" -DestinationPath "Windows-Allocation-$env:GITHUB_RUN_ID.zip"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Controlled-Windows-performance
-          path: Windows-Performance-*.zip
+          path: Windows-Allocation-*.zip
   publish:
     needs: measure
     runs-on: ubuntu-latest
@@ -69,4 +69,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        run: gh release upload v0.7.0-dev.5 Windows-Performance-*.zip --repo "$GH_REPO"
+        run: gh release upload v0.7.0-dev.5 Windows-Allocation-*.zip --repo "$GH_REPO"
