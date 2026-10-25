@@ -1,0 +1,72 @@
+name: Controlled dev4-dev5 Windows comparison
+on:
+  push:
+    branches: [automation/070-dev5-performance]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  measure:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: current
+          fetch-depth: 2
+      - uses: actions/checkout@v4
+        with:
+          ref: 960c6b55597b75fdbb9590c2df3d2ac7485ac511
+          path: baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: current/package-lock.json
+      - name: Assert candidate product source matches the published dev5
+        working-directory: current
+        run: git diff --exit-code 6a5fae2ce63caa2fffed950f6ad5ace516c473e9 HEAD -- src package.json package-lock.json scripts/build.mjs
+      - run: npm ci
+        working-directory: current
+      - run: npm ci
+        working-directory: baseline
+      - run: npm run build
+        working-directory: current
+      - run: npm run build
+        working-directory: baseline
+      - run: npx electron-builder --win --dir --x64
+        working-directory: current
+      - run: npx electron-builder --win --dir --x64
+        working-directory: baseline
+      - name: Four full private project rounds, identical VM and harness
+        working-directory: current
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+        run: node --use-env-proxy scripts/dev5-performance.mjs
+      - name: Package sanitized counters only
+        if: always()
+        shell: pwsh
+        run: |
+          $folder = 'current/artifacts/controlled-memory'
+          $bad = Get-ChildItem $folder -Recurse -File | Where-Object { $_.Extension -notin '.json','.md' }
+          if ($bad) { throw 'Unexpected performance evidence format' }
+          Compress-Archive -Path "$folder/*" -DestinationPath "Windows-Performance-$env:GITHUB_RUN_ID.zip"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Controlled-Windows-performance
+          path: Windows-Performance-*.zip
+  publish:
+    needs: measure
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Controlled-Windows-performance
+      - name: Attach measured results without changing the dev5 tag or application
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release upload v0.7.0-dev.5 Windows-Performance-*.zip --repo "$GH_REPO"
