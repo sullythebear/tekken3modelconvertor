@@ -1,0 +1,11 @@
+Binary FBX 7400/7500/7700 (32/64-bit headers) with zlib-compressed geometry/UV arrays: 2 expected triangles each
+FBX source DiffuseColor relationship referencing PNG resolves unique same-stem TGA with actual RGBA pixels; source binding preserved
+OBJ → MTL → TGA explicit material relationship, image dimensions and alpha bytes verified
+Opaque material with unused all-zero TGA alpha stays visible in source and PS1 bake
+OBJ → MTL → PNG explicit relationship and decoded red texel verified
+OBJ → MTL → JPG explicit relationship and decoded red texel verified
+Synthetic GLB skinning + anatomical reduction: 4784 → 3364 triangles, 4 palette tiles (separate hair volume and shared foot material), three pose diagnostics
+Imported source animation plays on both rigs with identical bone quaternions; not a donor/game animation test
+Synthetic back-view silhouette IoU 0.994 exceeds 0.75; not a Nikki identity test
+Preparation export contains valid GLB magic, 4 TIM assets, screenshots and explicit gameVerified:false
+Stationary render is byte-identical on repeat; front/side/back cameras match exactly

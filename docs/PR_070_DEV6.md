@@ -1,0 +1,5 @@
+The former clustering could disconnect skin surfaces and collapse curved fingers. This development branch preserves source anatomical connectivity across the torso, shoulders, arms and hands, locks regional boundaries and includes joint-weight fields in reduction. Source-derived skin UV crops, palettes and normal-based diffuse baking retain more genuine surface variation. The accepted facial reconstruction is protected by an exact geometry signature comparison.
+
+The visual report compares the unchanged dev.5.1 engine with dev.6, including hand/shoulder close-ups, boundary overlays, diagnostic poses, four experimental candidate budgets and a comparison at similar actual cost. Open edges remain explicit review items; no claim of watertightness, artistic approval or real Tekken gameplay is made.
+
+Validation receipts and the actual packaged Windows/private-Nikki project tests are published by Actions. Original source assets, project ZIPs, download secrets and game data are excluded. Do not merge before the user reviews the screenshots.

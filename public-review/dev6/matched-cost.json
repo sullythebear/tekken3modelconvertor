@@ -1,0 +1,16 @@
+{
+  "wanted": 4028,
+  "best": {
+    "requested": 4028,
+    "actual": 4067,
+    "difference": 39
+  },
+  "attempts": [
+    {
+      "requested": 4028,
+      "actual": 4067,
+      "difference": 39
+    }
+  ],
+  "note": "Experimental costs, not measured runtime capacities"
+}

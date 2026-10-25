@@ -1,82 +1,40 @@
-# Additional 0.7.0-dev.5.1 allocation correction
+# 0.7.0-dev.6 — whole-character integrity review
 
-The original dev.5 tag and release remain immutable. This build keeps its artistic output: the GLB, all 14 TIM hashes and every prepared Nikki image match exactly. It adds two cache tests (142 total).
+This is a development build requiring human visual approval. It does not establish real Tekken 3 / Expanded gameplay compatibility.
 
-The first dev.5 Windows measurement showed no performance win. A controlled dev.4/dev.5 ABBA comparison on one VM measured about 2.7% higher private committed memory for the original dev.5. A scalar/projection-cache experiment did not reliably lower it and is not included. Removing all retained readbacks lowered private memory by about 4.1% versus that original dev.5 in a separate controlled run, but repeated pixel reads added work. These are two samples per version, not broad benchmark guarantees.
+Changes:
 
-The accepted correction retains only images with future consumers and deletes them on their last use. Unique readbacks are never cached. Nikki performs 18 unique reads and 2 hits for 20 requests; the cache itself peaks at 2 MiB and finishes at zero. The same unique pixel work and output values are retained. This cache-only counter is not process RAM. The final last-use/dev.4 ABBA comparison observed about 1.8% higher private committed memory for the candidate median, with overlapping ranges and only two runs each. It does not demonstrate lower total app memory. Cold conversion timing varied; the two warm reconversions were approximately unchanged. Retention is reduced in the cache itself, but the total-memory goal remains open. All adverse measurements are retained rather than selecting only the favourable cache-isolation run. The current actual Windows build/roundtrip and phase memory are in the Windows receipts; do not infer their values from the older runs.
+- Source-connectivity reduction replaces blind clustering on torso, shoulders, arms and hands. Regional boundary positions stay invariant during automatic stylization; joint-weight fields contribute to reduction. Unsafe reductions retain the reliable source surface and report the fallback.
+- Hands have independent source UV crops and 8-bit palettes. Original bent finger poses and skinning are retained; no generic spread-finger template is imposed.
+- Skin diffuse shading is baked from original smooth normals. Genuine source colour/normal-map detail is retained, without noise, shiny shaders or fabricated AO. Upper-leg skin receives source-derived form shading where the exterior garment boundary is measured.
+- Whole-scene diagnostics distinguish original open borders, measured eye apertures, hair cards and unexplained boundaries. No arbitrary clothing/alpha hole filling. Counts, winding and nonmanifold edges are reported; public reports contain no original boundary vertex arrays.
+- The accepted face algorithm is unchanged. The report checks the full triangle-ordered geometry/UV/skin attribute signature against dev.5.1.
+- Shared diagnostic instrumentation produces comparable hand, wrist, elbow, shoulder, arm-raising and finger-flex images for both engines. These are source-rig diagnostics, not Tekken animations.
 
-The comparison gallery below is the same dev.5 artistic evidence; allocation-validation.json proves unchanged output. Both previous numerical performance comparisons and the rejected variants remain available under performance/. Main remains unmerged.
-
----
-
-# 0.7.0-dev.5 — visual refinement, awaiting human review
-
-Base: 960c6b55597b75fdbb9590c2df3d2ac7485ac511 (dev.4).
-Branch: development/070-dev5. Existing commits, releases, formats and main are preserved.
-No original-game research was performed in this phase. Fixtures are not gameplay evidence.
-
-## Changes that are actually used
-
-**Face.** Coarse support topology is refined locally from measured source-surface chord error, keeping explicit eye/mouth constraints. Flat patches receive no arbitrary subdivision; discontinuous projection samples are excluded. The finite insertion allowance and pre-insertion errors are reported, not presented as a final geometric or artistic pass. Source UV overlap remains unsuitable for generating geometry. New UV density transitions get their own topology rows. Nikki's head falls from 1,407 to **965 triangles**.
-
-The measured jaw/eye-spacing interval receives 70% of the existing head tile height; neck retains 20%, scalp 10%. The horizontal face allocation and real exported 128-pixel/256-colour head TIM remain. Unsupported jaw measurements retain uniform V. A closed template-mouth patch uses measured lip positions and local source UV correspondence instead of projecting through the open source mouth to a remote surface. Ambiguous local UV spans retain the documented projection fallback. Eye and mouth contours are transferred to the candidate's region metadata and explicitly protected during optimization. Bone-landmark lookup is restricted to the actual face partition, rather than accidentally choosing a closer eye or tooth in another group.
-
-**Hair and lashes.** Area filtering retains the original source hair cutoff (Nikki: 0.2), with alpha-weighted colour only for diffuse maps. Opacity-green and normal RGB are data; unused alpha must not erase them. This is not the rejected blanket 0.5 cutoff. Nikki's 1,905 outer card triangles and 480 inset-support triangles are unchanged: improved continuity is not obtained by adding hair geometry. Hair framing can use the global anatomical head bone even when that parent is absent from a mesh's weighted bone list; otherwise source bounds remain the fallback. Ends and some card seams remain angular.
-
-Candidate cards are processed as independent edge-connected sheets. UV-seam relaxation is allowed only for identical skin assignments; mixed assignments retain conservative topology and coincident deformation seams are protected. No collapse can bridge independent sheets. The report includes each component's policy, target, count and error. This does **not** provide a polygon-count improvement for Nikki's hair in the final lowest candidate (658 vs 656); conservative fallbacks are not counted as visual improvements.
-
-**Clothing.** Measured dihedral creases in the lower hip region protect pocket/hem source features through clustering and the final candidate. This is driven by anatomical region and physical surface normals, not Nikki mesh indices or texture colours. Flat tessellation and nonmanifold contacts are excluded; the feature allocation is finite. Nikki's hip region increases from 252 to **337 triangles**, retaining more cargo-pocket boundaries. The improved dev.4 shorts segmentation and sharp 256-pixel rebaked garment tiles remain. The lower hem is still visibly coarse; it is not declared fixed.
-
-## Geometry measurements and tradeoffs
-
-Nikki artistic: **6,038 triangles**, down **357 (5.6%)** from dev.4's 6,395.
-Head saves 442; hip feature protection adds 85. Other artistic regions retain their counts.
-Cesium Man: 953; authored short hair: 1,931; authored crest: 1,879.
-
-| Experimental request | dev.4 actual | dev.5 actual |
-|---:|---:|---:|
-| 900 | 1,983 | 1,999 |
-| 1,200 | 2,002 | 2,028 |
-| 1,500 | 2,059 | 2,086 |
-| 2,000 | 2,280 | 2,341 |
-
-**No requested candidate target is met.** The artistic model is smaller, but the final candidates are slightly larger because measured lip/eye/pocket features are retained. This is not reported as successful budget reduction. The matched-cost gallery compares 1,983 vs 1,999 triangles (16 difference, about 0.8%). Every region's counts, locks, retained fraction, error and component fallback are available in JSON and the report table. No request is claimed to be measured game capacity.
-
-## Rejected experiments and unresolved quality
-
-A 3D diagonal-quality criterion produced face folds/texture slivers despite a technically finite mesh; it was removed. The accepted pipeline keeps constrained chart triangulation with source-measured refinement.
-
-A source-measured sole/arch experiment generated concavity and a separate sole chart, but made texture leakage under the foot worse. Global anatomy lookup exposed an unweighted foot-parent issue, but that alone did not make the result good. This experiment was removed from production. Its screenshots are linked beside the original sole. The existing dev.4 boot reconstruction remains: heel/sole shape, underside colours and ankle folds still require a more reliable layered-foot reconstruction. No previously rejected exterior/normal colour filter was restored.
-
-Fine eyelid/eyelash contours, angular jaw/neck shading, hair ends, some card transitions, coarse clothing hems and low-budget detail loss remain. Better texels, finite geometry, IoU and passing tests do not establish artistic acceptance. The user must review the screenshots.
-
-## Memory and private project reliability
-
-Raw 8-bit diffuse data uses a view instead of another full RGBA copy. Full-size scratch canvases are explicitly released after readback. Data maps are resampled directly into small buffers without full-resolution scratch surfaces. Per-image/per-size/per-data-role caching avoids repeated resampling, and is cleared before final atlas construction. A pre-data-map-correction isolation check retained all 13 non-face TIM hashes while only the intentionally reconstructed face changed; the subsequent data-channel correction intentionally changes baked texture sampling.
-
-The original FBX/TGA buffers remain unchanged. Project schema, compression, safe mapping snapshots and strict native mapping validation are unchanged. Old source data remains available until a replacement import succeeds; it is not discarded early merely to lower a memory score. The full private roundtrip validates ZIP/FBX hashes, all 23 TGA headers and byte identity of all 24 saved assets, then reconverts after reopening.
-
-Windows measurements use the same 250 ms Electron per-process samples as dev.4: summed working sets, private committed bytes and separate Node harness RSS. Phase summaries use those same samples; an unobserved phase is unavailable, never zero. Synchronous harness verification can block its sampler. Working sets can double-count shared pages; private committed bytes are not unique resident RAM. One hosted-run measurement per version is not a controlled benchmark. The authoritative new timings, phase peaks, cleanup and executable receipts are in `windows-nikki-project.json` and `WINDOWS-STATUS.md` in the downloaded report.
-
-Secret NIKKI_DOWNLOAD_URL is read only through the test environment. Original ZIP/FBX/TGAs, project ZIPs, runtime profiles and raw private logs remain outside public artifacts/caches/releases and are cleaned up. Only sanitized counters, generated images and safe report files are published.
-
-## Checks and reproduction
-
-142 unit/integration tests (all 130 previous cases plus 10 feature cases and two cache cases), FBX 7400/7500/7700 and TGA/image binding, CPU/GPU skinning, native UI/humanoid fixtures, mapping, Cesium source animation, source Electron/desktop IPC and synthetic preset/project regression. Actual Windows EXE and private Nikki project receipts are separately produced by the publishing workflow; this document alone does not claim they passed.
-
-Unpack Visual-Review.zip and open index.html. The gallery includes dev.3/dev.4/dev.5, identical full/detail/pose cameras, measured budget losses, matched actual cost, hair methods, other models and rejected variants. All **31** common Nikki source views matched dev.4 byte-for-byte in the cloud run. New sole cameras are rendered from the exact old checkouts with the same current camera script.
-
-Developer reproduction with Node 24 and existing dependencies (no Blender):
+Reproduce locally with Node 24 and dependencies installed:
 
 ```
 npm ci
 npm run build
 npm test
-npm run test:reference
-NIKKI_DIR=/private/nikki node scripts/dev5-review.mjs
 ```
 
-For the added old-version sole close-ups, build detached worktrees at e00dc87 and 960c6b5 and pass DEV3_WORKTREE and DEV4_WORKTREE. Existing archived evidence supplies the other old-version images. REPORT_ONLY=1 rebuilds HTML/metrics; REVIEW_ONLY selects stages. `node scripts/package-dev5-evidence.mjs` copies an allowlist and creates exact evidence hashes; `node scripts/verify-review-evidence.mjs` validates them. Preparation/model/project formats are excluded from that package.
+For the complete visual comparison, prepare an unchanged checkout at commit `50a82e886275b11586d5f41bc852ebb8962decdb`, build its renderer, and set `DEV51_WORKTREE` to that checkout and `NIKKI_DIR` to your private FBX/TGA folder. Then run `node scripts/dev6-review.mjs`. Cesium Man must be present in each checkout's ignored `artifacts/fixtures/CesiumMan.glb`, with attribution in `artifacts/reference/ATTRIBUTION.txt`. The runner checks its pinned SHA-256. Reports and screenshots are placed in `artifacts/dev6-review`. Raw preparation/project files remain private; only the evidence packager's allowlist is published.
 
-Main is not merged. No Nina/Expanded gameplay or artistic completion is claimed.
+`node scripts/project-roundtrip-test.mjs` validates the private Nikki archive/assets, saves and reopens the whole project, checks byte-identical assets and reconversion, measures timings and memory, and deletes private temporary data. In Windows Actions it uses repository secret `NIKKI_DOWNLOAD_URL`; the publishing workflow also runs it in the actual packaged EXE. The URL, FBX, TGA and project ZIP are excluded from logs, caches and public artifacts. Npm dependency caching contains no model inputs.
+
+Open `index.html` in the downloaded Visual-Review.zip to see the full comparison. Actual Windows outcomes are in WINDOWS-STATUS.md, windows-unit.xml, windows-portable.json and windows-nikki-project.json. Working-set sums may double-count shared pages; private committed bytes are a different counter, not unique resident RAM. One run does not prove a general memory improvement.
+
+Outstanding: review open clothing/neck/boot boundaries, finger silhouette and texture seams under motion. Experimental targets are not measured game capacities; higher actual counts deliberately retain protected surfaces. Artistically approving this release requires the user's screenshot review. Real Nina/Expanded loading and gameplay remain unverified.
+
+## Recorded cloud results
+
+156 unit/integration tests pass, without skipped tests. Browser regressions cover import, source/GPU skinning, two native fixtures, source mapping, Cesium source animation, deterministic rendering, desktop IPC and the source-Electron smoke test. The complete private Nikki project roundtrip also passes; Windows receipts are generated separately by Actions.
+
+Nikki's artistic intermediate has 7,386 triangles (dev.5.1: 6,038). The experimental requests 900 / 1,200 / 1,500 / 2,000 produce 4,028 / 4,028 / 4,031 / 4,047 triangles. None meets its requested target. The actual-cost comparison uses 4,025 baseline triangles versus 4,028 current triangles. These counts are not evidence of donor capacity.
+
+Artistic allocation: head/face/eyes 1,551 (the reconstructed face itself remains 965); hair 2,385; torso 483; hips/clothing 360; shoulders/upper/lower arms 889; hands 1,022; full leg/boot regions 696. The technical JSON provides each side and material separately.
+
+Whole-character diagnostics flag 1,193 unexplained open edges in the baseline and 103 in dev.6: torso 16, hips/clothing 62, full leg/boot regions 12, head 13. No new open edges remain in shoulders, upper/lower arms or hands under this positional test. Those 103 edges are not silently accepted or blindly filled; visibility and intentional clothing openings still need review. The 47 winding inconsistencies are inherited from dev.5.1 and remain unresolved. The optimized candidate introduces no additional unexplained boundary edges relative to the artistic intermediate. These are geometric diagnostics, not a proof of watertightness or animation/game validity.
+
+The artistic head's triangle-ordered geometry, UV and skin attributes have exactly the same SHA-256 signature as dev.5.1. The 128×128 face TIM's pixel indices and 256-colour palette also match exactly. Remaining concerns include clothing/neck/boot borders, faceted skin transitions, overlapping finger silhouettes in the source bent pose, and the higher geometry floor. Please judge the full gallery before granting artistic acceptance.

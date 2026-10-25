@@ -1,3 +1,5 @@
+0.7.0-dev.6: source-connected body/hand reduction and source-derived skin baking; see [review notes](docs/REVIEW_070_DEV6.md). Human artistic review and real game validation remain pending.
+
 0.7.0-dev.5.1: allocation correction with identical dev.5 artistic output; see [review notes](docs/REVIEW_070_DEV5.md). Original releases are preserved.
 
 0.7.0-dev.5: [visual refinement, measured tradeoffs and reproduction](docs/REVIEW_070_DEV5.md). Artistic approval remains pending; candidate counts are not reduced.

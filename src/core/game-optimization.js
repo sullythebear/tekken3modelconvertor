@@ -1,6 +1,6 @@
 import {copySkinField} from './skin-surface.js';
 import {reduceBodySurface} from './body-surface.js';
-import {sceneIntegrity,integritySummary} from './mesh-integrity.js';
+import {sceneIntegrity,integritySummary,compareBoundaries} from './mesh-integrity.js';
 import {simplifyCardComponents} from './card-optimization.js';
 import * as THREE from 'three';
 import {subsetSurface} from './projected-topology.js';
@@ -33,7 +33,7 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
  for(let i=0;i<parts.length;i++){
   const p=parts[i],position=p.g.attributes.position,uv=p.g.attributes.uv,attrs=new Float32Array(position.count*2);for(let v=0;v<position.count;v++)attrs.set([uv?.getX(v)??0,uv?.getY(v)??0],v*2);
   const input=new Uint32Array(p.g.index.array.slice(p.group.start,p.group.start+p.group.count)),locks=facialLandmarkLocks(p.mesh,p.g,p.name,input),mask=locks?.mask??new Uint8Array(position.count);
-  if(p.kind==='face'){
+  if(['face','eyes','teeth','boots'].includes(p.kind)){
    const view=new THREE.BufferGeometry();view.setAttribute('position',position);view.setIndex(new THREE.BufferAttribute(input,1));const boundary=geometricBoundaryMask(view);for(let v=0;v<mask.length;v++)mask[v]|=boundary[v];
    const used=[...new Set(input)];for(const contour of p.faceContours??[])for(const point of contour.points){let nearest=-1,distance=Infinity;for(const v of used){const d=(position.getX(v)-point[0])**2+(position.getY(v)-point[1])**2+(position.getZ(v)-point[2])**2;if(d<distance){nearest=v;distance=d;}}if(nearest>=0)mask[nearest]=1;}
   }
@@ -54,8 +54,14 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
   if(p.continuous){const ids=[...new Set(input)],view=subsetSurface(p.g,input),reduced=reduceBodySurface(view,p.region,MeshoptSimplifier,{target:budgets[i],featureMask:new Uint8Array(ids.map(v=>mask[v]))});indices=new Uint32Array(Array.from(reduced.indices,v=>ids[v]));error=reduced.error;const {indices:unused,...metadata}=reduced;bodyOptimization=metadata;view.dispose();}
   let componentOptimization=null;
   if(p.kind==='hair'&&/cards|fringe/i.test(p.name)&&input.length>budgets[i]*3){const reduced=simplifyCardComponents(p.g,input,MeshoptSimplifier,{target:budgets[i],errorLimit,mask});indices=reduced.indices;error=reduced.error;componentOptimization=reduced.report;}
+  let boundaryValidation=null;
+  if(['face','eyes','teeth','boots'].includes(p.kind)){
+   const before=new THREE.BufferGeometry(),after=new THREE.BufferGeometry();before.setAttribute('position',position);before.setIndex(new THREE.BufferAttribute(input,1));after.setAttribute('position',position);after.setIndex(new THREE.BufferAttribute(indices,1));const attempted=compareBoundaries(before,after),fallback=attempted.unexpectedOpenEdges>0||attempted.inconsistentWinding>attempted.sourceInconsistentWinding;
+   if(fallback){indices=input;error=0;}
+   boundaryValidation={attempted,fallback,reason:fallback?'Protected surface boundary/winding changed; artistic source surface retained':null};
+  }
   if(!byMesh.has(p.mesh))byMesh.set(p.mesh,[]);byMesh.get(p.mesh).push({...p,indices});
-  report.push({mesh:p.mesh.name,region:p.region,material:p.name,before:p.triangles,target:budgets[i],after:indices.length/3,error,errorLimit,kind:p.kind,protectedMinimum:p.minimum,lockedVertices:[...new Set(input)].reduce((n,v)=>n+(mask[v]?1:0),0),protectedCreasePoints:p.protectedPoints?.length??0,contourPoints:p.faceContours?.reduce((n,c)=>n+c.points.length,0)??0,componentOptimization,bodyOptimization,qualityLimited:indices.length>budgets[i]*3,retainedFraction:indices.length/input.length,warning:indices.length>budgets[i]*3?'Requested count exceeded to retain protected features / bounded geometric error':indices.length<input.length?'Lossy geometry reduction; inspect this region in the report':null});
+  report.push({mesh:p.mesh.name,region:p.region,material:p.name,before:p.triangles,target:budgets[i],after:indices.length/3,error,errorLimit,kind:p.kind,protectedMinimum:p.minimum,lockedVertices:[...new Set(input)].reduce((n,v)=>n+(mask[v]?1:0),0),protectedCreasePoints:p.protectedPoints?.length??0,contourPoints:p.faceContours?.reduce((n,c)=>n+c.points.length,0)??0,componentOptimization,bodyOptimization,boundaryValidation,qualityLimited:indices.length>budgets[i]*3,retainedFraction:indices.length/input.length,warning:indices.length>budgets[i]*3?'Requested count exceeded to retain protected features / bounded geometric error':indices.length<input.length?'Lossy geometry reduction; inspect this region in the report':null});
  }
  for(const [mesh,groups]of byMesh){const index=[],ranges=[];for(const p of groups){const start=index.length;index.push(...p.indices);ranges.push({start,count:p.indices.length,materialIndex:p.group.materialIndex,role:p.region,faceContours:p.faceContours,protectedPoints:p.protectedPoints});}const old=mesh.geometry,compact=subsetSurface(old,index);for(const range of ranges)compact.addGroup(range.start,range.count,range.materialIndex);old.dispose();mesh.geometry=compact;mesh.geometry.computeVertexNormals();mesh.userData.studioRegions=ranges.map(({start,count,role,faceContours,protectedPoints})=>({start,count,role,...(faceContours?{faceContours}:{}),...(protectedPoints?{protectedPoints}:{})}));}
  configureSkinning(root);const stats=inspectScene(root),skeleton=analyzeSkeleton(root),poses=deformationProbe(root,skeleton,()=>{},{extended:true});

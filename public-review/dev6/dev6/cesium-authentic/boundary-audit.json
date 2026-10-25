@@ -1,0 +1,28 @@
+{
+  "triangles": 971,
+  "openEdges": 165,
+  "byRegion": {
+    "leftLowerLeg": 14,
+    "rightLowerLeg": 19,
+    "head": 60,
+    "leftUpperLeg": 30,
+    "rightUpperLeg": 26,
+    "hips": 16
+  },
+  "unexpectedByRegion": {
+    "leftLowerLeg": 14,
+    "rightLowerLeg": 19,
+    "head": 60,
+    "leftUpperLeg": 30,
+    "rightUpperLeg": 26,
+    "hips": 16
+  },
+  "sourceOpenEdges": 0,
+  "sourceInconsistentWinding": 0,
+  "sourceNonmanifoldEdges": 0,
+  "unexpectedEdges": 165,
+  "inconsistentWinding": 0,
+  "nonmanifoldEdges": 1,
+  "degenerateTriangles": 0,
+  "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+}
