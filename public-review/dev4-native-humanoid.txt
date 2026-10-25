@@ -1,0 +1,1 @@
+Authored humanoid: 488 native triangles, 15 rows, 15 rebaked tiles; 17368/18720 bytes.

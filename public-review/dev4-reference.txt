@@ -1,0 +1,1 @@
+Cesium Man external regression: 4672 → 1188 triangles, 19 bones, embedded texture and 4 animation samples passed.
