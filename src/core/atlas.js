@@ -1,4 +1,4 @@
-import {sourceSkinLighting} from './skin-surface.js';
+import {sourceSkinLighting,bilinearRGBA} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
 import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
@@ -120,7 +120,7 @@ export async function bakeAtlas(
                 Math.min(img.height - 1, Math.floor(uv.y * img.height)),
               ),
               p = (sy * img.width + sx) * 4;
-            return img.data.subarray(p, p + 4);
+            return m.userData?.t3csSkinSurface?bilinearRGBA(img,uv.x,uv.y):img.data.subarray(p, p + 4);
           };
         const c = sample(base, m.map),
           a = sample(alpha, m.alphaMap);

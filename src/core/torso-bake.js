@@ -16,6 +16,6 @@ export function rebakeTorso(sourceGeometry,lowGeometry,material,{side=128}={}){
   const u=Math.max(0,Math.min(1,((col+.5)/side-.02)/.96)),v=Math.max(0,Math.min(1,((row+.5)/side-.01)/.98)),x=box.min.x+(half?1-u:u)*size.x,y=box.min.y+v*size.y,origin=new THREE.Vector3(x,y,half?box.min.z-radius:box.max.z+radius),direction=new THREE.Vector3(0,0,half?1:-1);
   let hit=surface.raycast(origin,direction,radius*4+size.z);if(hit)hit.barycentric=hit.triangle.triangle.getBarycoord(hit.point,new THREE.Vector3());else hit=surface.nearest(origin);rgba.set(sample(hit),(row*side*2+half*side+col)*4);
  }
- const output=material.clone();output.name=material.name+'_rebaked';output.map=surfaceTexture(rgba,side*2,side);output.color.set(0xffffff);output.normalMap=null;output.alphaMap=null;output.specularMap=null;output.aoMap=null;
+ const output=material.clone();output.name=material.name+'_rebaked';output.userData.t3csProjection='physical-front-back';output.map=surfaceTexture(rgba,side*2,side);output.color.set(0xffffff);output.normalMap=null;output.alphaMap=null;output.specularMap=null;output.aoMap=null;
  return {geometry,material:output,method:'physical front/back torso chart baked from outer source surface',textureWidth:side*2,textureHeight:side};
 }

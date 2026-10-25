@@ -4,7 +4,8 @@ import * as THREE from 'three';
 const fields=new WeakMap();
 export function sourceDiffuse(normal){if(!normal.toArray().every(Number.isFinite)||normal.lengthSq()<1e-12)return 1;return Math.pow(.5+.5*Math.max(0,normal.clone().normalize().dot(new THREE.Vector3(-.3,.5,.8).normalize())),1/2.2);}
 export function copySkinField(source,target){if(fields.has(source))fields.set(target,fields.get(source));}
-export function sourceSkinLighting(material,u,v){const f=fields.get(material);if(!f)return 1;const x=Math.max(0,Math.min(f.size-1,Math.round(u*(f.size-1)))),y=Math.max(0,Math.min(f.size-1,Math.round(v*(f.size-1)))),i=y*f.size+x;return f.valid[i]?f.light[i]:1;}
+export function sourceSkinLighting(material,u,v){const f=fields.get(material);if(!f)return 1;const x=Math.max(0,Math.min(f.size-1,u*(f.size-1))),y=Math.max(0,Math.min(f.size-1,v*(f.size-1))),ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy;let value=0;for(const[dx,dy,w]of[[0,0,(1-fx)*(1-fy)],[1,0,fx*(1-fy)],[0,1,(1-fx)*fy],[1,1,fx*fy]]){const i=Math.min(f.size-1,iy+dy)*f.size+Math.min(f.size-1,ix+dx);value+=w*(f.valid[i]?f.light[i]:1);}return value;}
+
 export function prepareSkinFields(parts,{size=256}={}){
  const groups=new Map();for(const p of parts)if(p.material?.userData?.t3csSkinSurface){if(!groups.has(p.material))groups.set(p.material,[]);groups.get(p.material).push(p);}
  for(const [material,group]of groups){const normals=new Float32Array(size*size*3),count=new Uint16Array(size*size),light=new Float32Array(size*size),valid=new Uint8Array(size*size);let triangles=0;
@@ -20,3 +21,7 @@ export function prepareSkinFields(parts,{size=256}={}){
   fields.set(material,{size,light,valid});material.userData.t3csSkinBake={method:'Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained',size,sourceTriangles:triangles,measuredTexels:covered,retainedBytes:light.byteLength+valid.byteLength,staticLighting:true};
  }
 }
+
+// Interpolate genuine source texels before RGB555 quantization. This is not
+// preview filtering: it affects the baked skin texture itself.
+export function bilinearRGBA(image,u,v){const x=Math.max(0,Math.min(image.width-1,u*image.width-.5)),y=Math.max(0,Math.min(image.height-1,v*image.height-.5)),ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy,out=[0,0,0,0];for(const [dx,dy,w]of[[0,0,(1-fx)*(1-fy)],[1,0,fx*(1-fy)],[0,1,(1-fx)*fy],[1,1,fx*fy]]){const p=(Math.min(image.height-1,iy+dy)*image.width+Math.min(image.width-1,ix+dx))*4;for(let k=0;k<4;k++)out[k]+=image.data[p+k]*w;}return out;}

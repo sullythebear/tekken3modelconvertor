@@ -206,18 +206,20 @@ export function inspectWeights(root) {
 }
 // Finger diagnostics follow skeletal branches, not character-specific bone names.
 // Add a small flex to the source pose; never force a spread or bind-pose hand.
-export function handDiagnosticChannels(analysis){
+export function handDiagnosticChannels(analysis,{amount=.18,mode='fingers'}={}){
  const channels=[];
  for(const role of ['leftHand','rightHand']){
   const hand=analysis.mapping[role];if(!hand)continue;
-  const roots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone));
+  let roots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone));
   if(roots.length<3||roots.length>6)continue;
-  const spread=roots.at(-1).getWorldPosition(new THREE.Vector3()).sub(roots[0].getWorldPosition(new THREE.Vector3()));
+  if(mode==='wrist'){const center=roots.reduce((p,b)=>p.add(b.getWorldPosition(new THREE.Vector3())),new THREE.Vector3()).multiplyScalar(1/roots.length),axis=center.sub(hand.getWorldPosition(new THREE.Vector3()));if(axis.length()>1e-6)channels.push([hand,axis.normalize().applyQuaternion(hand.getWorldQuaternion(new THREE.Quaternion()).invert()),amount]);continue;}
+  if(mode==='thumb'){const directions=roots.map(b=>b.children.find(c=>c.isBone).getWorldPosition(new THREE.Vector3()).sub(b.getWorldPosition(new THREE.Vector3())).normalize()),median=directions.reduce((p,d)=>p.add(d),new THREE.Vector3()).normalize(),scores=directions.map((d,i)=>({i,dot:d.dot(median)})).sort((a,b)=>a.dot-b.dot);if(scores[0].dot>.9||scores[1].dot-scores[0].dot<.08)continue;roots=[roots[scores[0].i]];}
+  const planeRoots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone)),spread=planeRoots.at(-1).getWorldPosition(new THREE.Vector3()).sub(planeRoots[0].getWorldPosition(new THREE.Vector3()));
   if(spread.length()<1e-6)continue;spread.normalize();
   for(const start of roots){let b=start;for(let depth=0;depth<3&&b;depth++){
    const next=b.children.filter(c=>c.isBone);if(next.length!==1)break;
    const axis=spread.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion()).invert()).normalize();
-   channels.push([b,axis,.18]);b=next[0];
+   channels.push([b,axis,amount]);b=next[0];
   }}
  }
  return channels;
@@ -250,7 +252,10 @@ export function deformationProbe(root, analysis, onPose = () => {}, {extended=fa
     ...(extended?[
       ['idle',0],
       ['hand-flex',0,handDiagnosticChannels(analysis)],
-      ['arms-raised',0,[['leftUpperArm','z',.8],['rightUpperArm','z',-.8]]],
+      ['hand-relax',0,handDiagnosticChannels(analysis,{amount:-.12})],
+      ['thumb-motion',0,handDiagnosticChannels(analysis,{amount:.18,mode:'thumb'})],
+      ['wrist-roll',0,handDiagnosticChannels(analysis,{amount:.3,mode:'wrist'})],
+      ['arms-raised',0,['left','right'].flatMap(side=>{const a=analysis.mapping[side+'UpperArm'],b=analysis.mapping[side+'LowerArm'];if(!a||!b)return[];const direction=b.getWorldPosition(new THREE.Vector3()).sub(a.getWorldPosition(new THREE.Vector3())).normalize(),up=new THREE.Vector3(0,1,0),axis=direction.clone().cross(up);if(axis.length()<1e-6)return[];return[[a,axis.normalize().applyQuaternion(a.getWorldQuaternion(new THREE.Quaternion()).invert()),Math.acos(THREE.MathUtils.clamp(direction.dot(up),-1,1))*.75]];})],
       ['walk',0,[['leftUpperLeg','x',.4],['rightUpperLeg','x',-.4],['leftUpperArm','x',-.2],['rightUpperArm','x',.2]]],
       ['punch',0,[['leftUpperArm','y',-.9],['leftLowerArm','z',.25]]],
       ['kick',0,[['rightUpperLeg','x',-.9],['rightLowerLeg','x',.4]]],
@@ -317,6 +322,7 @@ export function deformationProbe(root, analysis, onPose = () => {}, {extended=fa
     });
     results.push({
       pose: label,
+      affectedBones:changes.length,
       finite,
       maxDisplacement,
       samples,

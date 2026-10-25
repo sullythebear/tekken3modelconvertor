@@ -1,3 +1,6 @@
+import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {rebakeTorso} from './torso-bake.js';
+import {repairWinding} from './winding.js';
 import {copySkinField} from './skin-surface.js';
 import {reduceBodySurface} from './body-surface.js';
 import {sceneIntegrity,integritySummary,compareBoundaries} from './mesh-integrity.js';
@@ -11,7 +14,7 @@ import {allocateBudget} from './converter.js';
 import {configureSkinning} from './skinning.js';
 import {facialLandmarkLocks} from './landmarks.js';
 import {inspectScene} from './importer.js';
-import {analyzeSkeleton,deformationProbe} from './skeleton.js';
+import {analyzeSkeleton,deformationProbe,boneSemantic} from './skeleton.js';
 
 // A separate lossy candidate stage. A requested triangle count is not evidence
 // of donor capacity, native topology, bind calibration or runtime compatibility.
@@ -25,10 +28,27 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
   const support=hair&&/_volume$/i.test(name)&&(Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material]).some(m=>/_cards$/i.test(m.name)),teeth=/teeth/i.test(name);
   p.kind=support?'hair-support':teeth?'teeth':face?'face':hair?'hair':eyes?'eyes':boot?'boots':torso?'clothing':'body';
   p.minimum=Math.min(p.triangles,support?48:teeth?8:face?240:hair?/fringe|cards/i.test(name)?150:140:eyes?/iris/i.test(name)?24:/sclera/i.test(name)?36:24:boot?64:torso?50:hand?160:p.region==='unknown'?0:8);
-  if(p.continuous)p.minimum=Math.min(p.triangles,hand?180:48);
+  if(p.continuous)p.minimum=Math.min(p.triangles,hand?80:24);
   p.importance=(support?2:teeth?.3:face?10:hair?7:eyes?10:boot?4:torso?3:hand?8:2)/Math.sqrt(Math.max(1,p.triangles));
  }
  const budgets=allocateBudget(parts,triangles,parts.map(p=>p.minimum)),byMesh=new Map(),report=[];
+
+ // Anatomical labels are not physical cuts. Reduce a continuous material
+ // surface jointly, then reassign surviving triangles by source vertex votes.
+ const jointResults=new Map(),buckets=[];
+ for(let i=0;i<parts.length;i++){const p=parts[i];if(!p.continuous)continue;const hand=/Hand$/.test(p.region);let bucket=buckets.find(b=>b.mesh===p.mesh&&b.hand===hand&&(!hand||b.material===p.group.materialIndex));if(!bucket){bucket={mesh:p.mesh,hand,material:p.group.materialIndex,members:[]};buckets.push(bucket);}bucket.members.push(i);}
+ for(const bucket of buckets){const all=[],owners=new Map(),matByVertex=new Map(),ignoreUV=new Set(),mats=Array.isArray(bucket.mesh.material)?bucket.mesh.material:[bucket.mesh.material];for(const i of bucket.members){const p=parts[i],reproject=mats[p.group.materialIndex].userData?.t3csProjection==='physical-front-back';for(const v of p.g.index.array.slice(p.group.start,p.group.start+p.group.count)){all.push(v);owners.set(v,i);matByVertex.set(v,p.group.materialIndex);if(reproject)ignoreUV.add(v);}}
+  const ids=[...new Set(all)],view=subsetSurface(parts[bucket.members[0]].g,all),locks=new Uint8Array(ids.length);
+  for(const i of bucket.members)for(const point of parts[i].protectedPoints??[]){let best=-1,distance=Infinity;for(let v=0;v<ids.length;v++){const p=view.attributes.position,d=(p.getX(v)-point[0])**2+(p.getY(v)-point[1])**2+(p.getZ(v)-point[2])**2;if(d<distance){distance=d;best=v;}}if(best>=0)locks[best]=1;}
+  let boneMap=null;if(!bucket.hand&&bucket.mesh.skeleton){const categories=new Map();boneMap=bucket.mesh.skeleton.bones.map(b=>{let p=b;while(p&&!boneSemantic(p))p=p.parent;const key=p?boneSemantic(p):'unmapped';if(!categories.has(key))categories.set(key,categories.size);return categories.get(key);});if(categories.size<2)boneMap=null;}
+  const target=bucket.members.reduce((n,i)=>n+budgets[i],0),reduced=reduceBodySurface(view,bucket.hand?parts[bucket.members[0]].region:'joined-body',MeshoptSimplifier,{target,featureMask:locks,candidate:true,boneMap,materialIds:ids.map(v=>matByVertex.get(v)),uvMask:ids.map(v=>ignoreUV.has(v)),maximumError:bucket.hand?null:.018}),assigned=new Map(bucket.members.map(i=>[i,[]]));
+  let mixed=0;for(let t=0;t<reduced.indices.length;t+=3){const tri=Array.from(reduced.indices.slice(t,t+3),v=>ids[v]);if(new Set(tri.map(v=>matByVertex.get(v))).size!==1)mixed++;}
+  const selected=mixed?view.index.array:reduced.indices;
+  for(let t=0;t<selected.length;t+=3){const tri=Array.from(selected.slice(t,t+3),v=>ids[v]),votes=tri.map(v=>owners.get(v)),owner=votes.find(v=>votes.filter(x=>x===v).length>=2)??votes[0];assigned.get(owner).push(...tri);}
+  for(const i of bucket.members){const p=parts[i],material=mats[p.group.materialIndex];if(material.userData?.t3csProjection!=='physical-front-back')continue;const source=subsetSurface(p.g,p.g.index.array.slice(p.group.start,p.group.start+p.group.count)),low=subsetSurface(p.g,assigned.get(i)),bake=rebakeTorso(source,low,material);source.dispose();low.dispose();if(bake){p.geometry=bake.geometry;mats[p.group.materialIndex]=bake.material;bucket.mesh.material=mats;}}
+  const {indices:discard,...metadata}=reduced;metadata.mixedMaterialTriangles=mixed;if(mixed)metadata.fallbackReason='Mixed material ownership rejected; reliable input retained';
+  for(const i of bucket.members)jointResults.set(i,{indices:new Uint32Array(assigned.get(i)),metadata:{...metadata,uvTransfer:ignoreUV.size?'Physical torso charts rebaked; original limb UVs retained':'Source UV correspondence retained',jointRegions:bucket.members.map(i=>parts[i].region),sharedGroupBefore:all.length/3,sharedGroupAfter:selected.length/3}});view.dispose();
+ }
 
  for(let i=0;i<parts.length;i++){
   const p=parts[i],position=p.g.attributes.position,uv=p.g.attributes.uv,attrs=new Float32Array(position.count*2);for(let v=0;v<position.count;v++)attrs.set([uv?.getX(v)??0,uv?.getY(v)??0],v*2);
@@ -51,7 +71,7 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
 
   let [indices,error]=input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,p.kind==='eyes'&&/sclera|eyeshell/i.test(p.name)?[.25,.25]:[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
   let bodyOptimization=null;
-  if(p.continuous){const ids=[...new Set(input)],view=subsetSurface(p.g,input),reduced=reduceBodySurface(view,p.region,MeshoptSimplifier,{target:budgets[i],featureMask:new Uint8Array(ids.map(v=>mask[v]))});indices=new Uint32Array(Array.from(reduced.indices,v=>ids[v]));error=reduced.error;const {indices:unused,...metadata}=reduced;bodyOptimization=metadata;view.dispose();}
+  if(p.continuous){const reduced=jointResults.get(i);indices=reduced.indices;error=reduced.metadata.error;bodyOptimization=reduced.metadata;}
   let componentOptimization=null;
   if(p.kind==='hair'&&/cards|fringe/i.test(p.name)&&input.length>budgets[i]*3){const reduced=simplifyCardComponents(p.g,input,MeshoptSimplifier,{target:budgets[i],errorLimit,mask});indices=reduced.indices;error=reduced.error;componentOptimization=reduced.report;}
   let boundaryValidation=null;
@@ -63,7 +83,9 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
   if(!byMesh.has(p.mesh))byMesh.set(p.mesh,[]);byMesh.get(p.mesh).push({...p,indices});
   report.push({mesh:p.mesh.name,region:p.region,material:p.name,before:p.triangles,target:budgets[i],after:indices.length/3,error,errorLimit,kind:p.kind,protectedMinimum:p.minimum,lockedVertices:[...new Set(input)].reduce((n,v)=>n+(mask[v]?1:0),0),protectedCreasePoints:p.protectedPoints?.length??0,contourPoints:p.faceContours?.reduce((n,c)=>n+c.points.length,0)??0,componentOptimization,bodyOptimization,boundaryValidation,qualityLimited:indices.length>budgets[i]*3,retainedFraction:indices.length/input.length,warning:indices.length>budgets[i]*3?'Requested count exceeded to retain protected features / bounded geometric error':indices.length<input.length?'Lossy geometry reduction; inspect this region in the report':null});
  }
- for(const [mesh,groups]of byMesh){const index=[],ranges=[];for(const p of groups){const start=index.length;index.push(...p.indices);ranges.push({start,count:p.indices.length,materialIndex:p.group.materialIndex,role:p.region,faceContours:p.faceContours,protectedPoints:p.protectedPoints});}const old=mesh.geometry,compact=subsetSurface(old,index);for(const range of ranges)compact.addGroup(range.start,range.count,range.materialIndex);old.dispose();mesh.geometry=compact;mesh.geometry.computeVertexNormals();mesh.userData.studioRegions=ranges.map(({start,count,role,faceContours,protectedPoints})=>({start,count,role,...(faceContours?{faceContours}:{}),...(protectedPoints?{protectedPoints}:{})}));}
+ for(const [mesh,groups]of byMesh){const chunks=[],ranges=[];let offset=0;for(const p of groups){const chunk=p.geometry??subsetSurface(p.g,p.indices);chunks.push(chunk);ranges.push({start:offset,count:chunk.index.count,materialIndex:p.group.materialIndex,role:p.region,faceContours:p.faceContours,protectedPoints:p.protectedPoints});offset+=chunk.index.count;}const old=mesh.geometry,compact=mergeGeometries(chunks,false);if(!compact)throw Error('Incompatible attributes in anatomical candidate');for(const chunk of chunks)chunk.dispose();for(const range of ranges)compact.addGroup(range.start,range.count,range.materialIndex);old.dispose();mesh.geometry=compact;mesh.geometry.computeVertexNormals();mesh.userData.studioRegions=ranges.map(({start,count,role,faceContours,protectedPoints})=>({start,count,role,...(faceContours?{faceContours}:{}),...(protectedPoints?{protectedPoints}:{})}));}
+
+ const windingRepairs=[];root.traverse(m=>{if(m.isMesh)windingRepairs.push({mesh:m.name,...repairWinding(m.geometry)});});
  configureSkinning(root);const stats=inspectScene(root),skeleton=analyzeSkeleton(root),poses=deformationProbe(root,skeleton,()=>{},{extended:true});
- return {...artistic,root,stats,skeleton,poses,report,settings:{...artistic.settings,triangles,phase:'optimized candidate'},gameVerified:false,quality:{...artistic.quality,integrity:integritySummary(sceneIntegrity(root,artistic.root)),facialLandmarks:{...landmarkDrift(artistic.root,root),reference:'artistic intermediate'},outputHealth:meshHealth(root),finiteAnimationPoses:poses.some(p=>p.samples>0)&&poses.every(p=>p.finite),extremeDeformationEdges:poses.map(p=>({pose:p.pose,edges:p.extremeEdges})),triangles:stats.triangles,budgetMet:stats.triangles<=triangles,artisticAcceptance:'REQUIRES HUMAN REVIEW AFTER LOSSY OPTIMIZATION',gameCompatibility:'NOT VERIFIED'},optimization:{artisticTriangles:artistic.stats.triangles,candidateTriangles:stats.triangles,requestedTriangles:triangles,budgetMet:stats.triangles<=triangles,capacityEvidence:'No original donor supplied; requested count is experimental. Protected features and geometric error bounds can exceed it',losses:report},warnings:[...artistic.warnings.map(w=>'Artistic stage: '+w),'Lossy candidate optimization performed. Native capacity and in-game appearance remain unverified.']};
+ return {...artistic,root,stats,skeleton,poses,report,settings:{...artistic.settings,triangles,phase:'optimized candidate'},gameVerified:false,quality:{...artistic.quality,windingRepairs,integrity:integritySummary(sceneIntegrity(root,artistic.root)),facialLandmarks:{...landmarkDrift(artistic.root,root),reference:'artistic intermediate'},outputHealth:meshHealth(root),finiteAnimationPoses:poses.some(p=>p.samples>0)&&poses.every(p=>p.finite),extremeDeformationEdges:poses.map(p=>({pose:p.pose,edges:p.extremeEdges})),triangles:stats.triangles,budgetMet:stats.triangles<=triangles,artisticAcceptance:'REQUIRES HUMAN REVIEW AFTER LOSSY OPTIMIZATION',gameCompatibility:'NOT VERIFIED'},optimization:{artisticTriangles:artistic.stats.triangles,candidateTriangles:stats.triangles,requestedTriangles:triangles,budgetMet:stats.triangles<=triangles,capacityEvidence:'No original donor supplied; requested count is experimental. Protected features and geometric error bounds can exceed it',losses:report},warnings:[...artistic.warnings.map(w=>'Artistic stage: '+w),'Lossy candidate optimization performed. Native capacity and in-game appearance remain unverified.']};
 }

@@ -1,3 +1,4 @@
+import {boundaryLoops} from './boundary-loops.js';
 import {refineSurfaceCurvature} from './curvature-topology.js';
 import * as THREE from 'three';
 import {sourceEyeSurface,traceEyeAperture} from './eye-aperture.js';
@@ -48,7 +49,17 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  const source=new SurfaceIndex(sourceRecords(g,material,triangleRecord));
  const slices=new Map();
  const parameter=p=>{const d=p.clone().sub(center);return new THREE.Vector2(Math.atan2(d.dot(x),d.dot(z)),(d.dot(y)-minY)/height);};
+ // The source neck border is nonplanar. A horizontal min-Y cylinder collapses
+ // it to a point and cannot meet the torso. Keep its measured contour exactly.
+ const neckLoops=boundaryLoops(g).filter(loop=>loop.every(i=>parameter(points[i]).y<.3)),neckLoop=neckLoops.length===1?neckLoops[0]:null;
+ const neck=neckLoop?neckLoop.map(i=>({point:points[i],angle:parameter(points[i]).x})).sort((a,b)=>a.angle-b.angle):[];
+ const neckTop=neck.length?Math.max(...neck.map(n=>n.point.clone().sub(center).dot(y)))+height*.02:minY;
+ const neckPoint=angle=>{for(let i=0;i<neck.length;i++){const a=neck[i],b=neck[(i+1)%neck.length],end=b.angle+(i===neck.length-1?Math.PI*2:0),q=angle<a.angle?angle+Math.PI*2:angle;if(q>=a.angle&&q<=end)return a.point.clone().lerp(b.point,(q-a.angle)/(end-a.angle));}return null;};
  const project=q=>{
+  q=q.clone();if(Math.abs(Math.abs(q.x)-Math.PI)<1e-7)q.x=Math.PI;
+  if(q.y>1-1e-10){const top=points.reduce((a,b)=>a.clone().sub(center).dot(y)>b.clone().sub(center).dot(y)?a:b);return source.nearest(top);}
+  if(neck.length&&q.y<1e-10)return source.nearest(neckPoint(q.x));
+  const low=minY+q.y*height;if(neck.length&&low<neckTop){const base=neckPoint(q.x).clone().sub(center).dot(y);q.y=(low+(base-minY)*(neckTop-low)/(neckTop-minY)-minY)/height;}
   const direction=z.clone().multiplyScalar(Math.cos(q.x)).addScaledVector(x,Math.sin(q.x));
   const origin=center.clone().addScaledVector(y,minY+Math.max(.0001,Math.min(.9999,q.y))*height).addScaledVector(direction,radius*2.5);
   const hit=source.raycast(origin,direction.clone().negate(),radius*5);
@@ -118,7 +129,8 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  const curvature=refineSurfaceCurvature(template,triangles,project,insertPoint,{constraints,tolerance:radius*(.012+(100-detail)*.00015),maxInsertions:100,accept:q=>Math.abs(q.x)<1.45&&q.y>=faceLow&&q.y<=faceHigh&&!features.some(f=>!f.open&&pointInPolygon(q,f.contour))});
  const projected=template.map(project);
  const triangulation=improveTriangulation(template,triangles,constraints,{scaleY:height/radius});
- const hits=projected;
+ for(const n of neck)insertPoint(template,triangles,new THREE.Vector2(n.angle,0));
+ const hits=template.map(project);
  features.forEach((f,i)=>f.surfacePoints.forEach((p,k)=>{hits[innerOffsets[i]+k]=source.nearest(p);}));
  for(const name of Object.keys(anchors).filter(n=>/Eyelid(Upper|Lower)A[13]$|NoseTip$|LipCorner$|LipUpper$|LipLower$/.test(n))){const q=parameter(anchors[name]),vertex=template.findIndex(p=>p.distanceToSquared(q)<1e-12);if(vertex>=0)hits[vertex]=source.nearest(anchors[name]);}
  // An open source mouth has no skin surface at its centre. Projecting there
@@ -156,5 +168,5 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
 
  const texture=surfaceTexture(rgba,textureSize,textureSize);texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.needsUpdate=true;
  const outputMaterial=material.clone();outputMaterial.name=material.name+'_anatomical';outputMaterial.color.set(0xffffff);outputMaterial.map=texture;outputMaterial.normalMap=null;outputMaterial.alphaMap=null;outputMaterial.specularMap=null;outputMaterial.aoMap=null;outputMaterial.roughnessMap=null;outputMaterial.metalnessMap=null;
- return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,contourPoints:features.map((f,i)=>({name:f.name,points:f.contour.map((_,k)=>positions[innerOffsets[i]+k].toArray())})),featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection,manualContour:!!f.manualContour})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,mouthTextureMode:patchCentres.size?'Measured local lip UV correspondence over a closed source-mouth gap':'Source ray projection fallback',frontTextureFraction:.8,faceTextureVRange:validFaceRange?{source:[faceLow,faceHigh],allocated:[.2,.9]}:null,triangulation,curvature,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
+ return {geometry,material:outputMaterial,method:'anatomical cylindrical head with explicit eye/mouth support rings',triangles:indices.length/3,generatedVertices:positions.length,contourPoints:features.map((f,i)=>({name:f.name,points:f.contour.map((_,k)=>positions[innerOffsets[i]+k].toArray())})),featureLoops:features.map(f=>({name:f.name,vertices:f.contour.length,aperture:f.open,measuredBoundary:!!f.measuredBoundary,eyeSurfaceIntersection:!!f.eyeSurfaceIntersection,manualContour:!!f.manualContour})),maximumDiscardedWeight:transferred.maximumDiscardedWeight,sourceUVIndependent:true,neckBoundary:{sourceVertices:neck.length,method:neck.length?'Measured nonplanar source collar; canonical periodic seam':'Source contour unavailable; no guessed closure'},mouthTextureMode:patchCentres.size?'Measured local lip UV correspondence over a closed source-mouth gap':'Source ray projection fallback',frontTextureFraction:.8,faceTextureVRange:validFaceRange?{source:[faceLow,faceHigh],allocated:[.2,.9]}:null,triangulation,curvature,calibration:'Semantic source measurements; template layout not calibrated to original Namco geometry'};
 }

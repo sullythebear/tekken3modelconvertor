@@ -1,3 +1,6 @@
+import {geometryEdges} from './mesh-integrity.js';
+import {conformAnatomicalSeams} from './seam-conform.js';
+import {repairWinding} from './winding.js';
 import {prepareSkinFields} from './skin-surface.js';
 import {reduceBodySurface} from './body-surface.js';
 import {sceneIntegrity,integritySummary} from './mesh-integrity.js';
@@ -210,6 +213,8 @@ export async function convertCharacter(
     for(const p of parts){const r=artRegion(p.role,p.material?.name);if(!boxes.has(r))boxes.set(r,new THREE.Box3());for(const i of p.indices)boxes.get(r).expandByPoint(new THREE.Vector3().fromBufferAttribute(p.g.attributes.position,i).applyMatrix4(p.mesh.matrixWorld));}
     for(const p of parts)p.artPivot=boxes.get(artRegion(p.role,p.material?.name)).getCenter(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
   }
+  const garmentInterfaces=new Map();
+  if(art)for(const p of parts.filter(p=>p.role==='hips')){const view=new THREE.BufferGeometry();view.setAttribute('position',p.g.attributes.position);view.setIndex(new THREE.BufferAttribute(p.indices,1));const edges=geometryEdges(view).edges,keys=new Set([...edges].filter(([k,v])=>v.length===1).map(([k])=>k));if(!garmentInterfaces.has(p.mesh))garmentInterfaces.set(p.mesh,new Set());for(const key of keys)garmentInterfaces.get(p.mesh).add(key);}
   const budgets = allocateBudget(parts, settings.triangles),
     byMesh = new Map(),
     report = [];
@@ -264,7 +269,7 @@ export async function convertCharacter(
         projectionGeometry.setIndex(selected);projectionGeometry.clearGroups();
         if(p.uvCrop){const uv=projectionGeometry.attributes.uv,c=p.uvCrop;for(let v=0;v<uv.count;v++)uv.setXY(v,(uv.getX(v)-c.minU)/c.spanU,(uv.getY(v)-c.minV)/c.spanV);}
       }
-      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g,normalMatrix:new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld)}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
+      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g,normalMatrix:new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld),collarEdges:garmentInterfaces.get(p.mesh)}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
       projectionGeometry?.dispose();
       if(candidate.geometry&&candidate.supplements?.length){
         if(candidate.material)candidate.material.userData.t3csHairSupport=true;
@@ -322,7 +327,7 @@ export async function convertCharacter(
     }
     if(art?.corrections[artRegion(p.role,p.material?.name)]?.remove)indices=new Uint32Array();
     let reduced = subsetGeometry(g, indices);
-    if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot,stage==='combined'&&/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand))$/.test(p.role));
+    if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot,stage==='combined'&&/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|LowerLeg|Foot))$/.test(p.role));
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
     if(art&&['combined','boots'].includes(stage)&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name)&&reduced.attributes.position.count){
       const rebaked=rebakeTorso(g,reduced,p.material);if(rebaked){reduced.dispose();reduced=rebaked.geometry;const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(rebaked.material);p.mesh.material=mats;p.material=rebaked.material;reconstruction.torsoBake={method:rebaked.method,width:rebaked.textureWidth,height:rebaked.textureHeight};}
@@ -396,6 +401,8 @@ export async function convertCharacter(
     if(live.length)mesh.material=live;
     mesh.userData.studioRegions = metadata;
   }
+  const seamRepair=art?conformAnatomicalSeams(root):null;
+  const windingRepairs=[];if(art)root.traverse(m=>{if(m.isMesh)windingRepairs.push({mesh:m.name,...repairWinding(m.geometry)});});
   configureSkinning(root);
   const stats = inspectScene(root);
   if (stats.triangles > settings.triangles)
@@ -417,6 +424,6 @@ export async function convertCharacter(
     settings: { ...settings },
     gameVerified: false,
   };
-  if(art){result.quality=measureArtQuality(source,result);result.quality.integrity=integritySummary(sceneIntegrity(root,source.root));if(result.quality.integrity.unexpectedEdges)warnings.push(`${result.quality.integrity.unexpectedEdges} open boundary edges differ from source borders / measured eye apertures. Inspect boundary diagnostics; geometric and artistic acceptance remain pending.`);}
+  if(art){result.quality=measureArtQuality(source,result);result.quality.windingRepairs=windingRepairs;result.quality.seamRepair=seamRepair;result.quality.integrity=integritySummary(sceneIntegrity(root,source.root));if(result.quality.integrity.unexpectedEdges)warnings.push(`${result.quality.integrity.unexpectedEdges} open boundary edges differ from source borders / measured eye apertures. Inspect boundary diagnostics; geometric and artistic acceptance remain pending.`);}
   return result;
 }
