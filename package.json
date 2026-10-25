@@ -1,6 +1,6 @@
 {
   "name": "tekken3-conversion-studio",
-  "version": "0.7.0-dev.3",
+  "version": "0.7.0-dev.4",
   "private": true,
   "description": "Offline character preparation studio with PS1 asset codecs and explicit game validation gates",
   "author": "Tekken 3 Conversion Studio contributors",

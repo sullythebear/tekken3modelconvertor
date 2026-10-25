@@ -48,12 +48,15 @@ export async function importCharacter(files, modelName) {
     const k = key(f.name);
     if (byName.has(k)) collisions.add(k);
     byName.set(k, f);
-    urls.set(f.name, URL.createObjectURL(new Blob([f.data])));
+
   }
   if (collisions.size) {
     for (const u of urls.values()) URL.revokeObjectURL(u);
     throw Error(`Ambiguous duplicate filenames: ${[...collisions].join(", ")}`);
   }
+  // Create immutable Blob copies only when a loader actually requests them.
+  // In particular the parsed FBX and unused maps need no Blob duplicate.
+  const fileURL = f => {if(!urls.has(f.name))urls.set(f.name,URL.createObjectURL(new Blob([f.data])));return urls.get(f.name);};
   const imageFiles = files.filter(f => ["tga", "png", "jpg", "jpeg"].includes(ext(f.name)));
   const resolveFile = url => {
     const exact = byName.get(key(url)); if (exact) return exact;
@@ -80,7 +83,7 @@ export async function importCharacter(files, modelName) {
   manager.setURLModifier((url) => {
     if (url.startsWith("data:") || url.startsWith("blob:")) return url;
     const f = resolveFile(url);
-    if (f) return urls.get(f.name);
+    if (f) return fileURL(f);
     missing.add(key(url));
     return "data:application/octet-stream;base64,";
   });
@@ -92,10 +95,7 @@ export async function importCharacter(files, modelName) {
     const data =
       model.data instanceof ArrayBuffer
         ? model.data
-        : model.data.buffer.slice(
-            model.data.byteOffset,
-            model.data.byteOffset + model.data.byteLength,
-          );
+        : model.data.byteOffset===0&&model.data.byteLength===model.data.buffer.byteLength?model.data.buffer:model.data.buffer.slice(model.data.byteOffset,model.data.byteOffset+model.data.byteLength);
     if (ext(model.name) === "fbx") {
       root = new FBXLoader(manager).parse(data, "");
       animations = root.animations ?? [];
@@ -137,7 +137,7 @@ export async function importCharacter(files, modelName) {
       const id = file.name + ":" + (role === "diffuse" || role === "specular" ? "srgb" : "data");
       if (!loaded.has(id)) {
         const loader = ext(file.name) === "tga" ? new TGALoader(manager) : new THREE.TextureLoader(manager);
-        const texture = await loader.loadAsync(urls.get(file.name));
+        const texture = await loader.loadAsync(fileURL(file));
         texture.name = file.name;
         texture.colorSpace = role === "diffuse" || role === "specular" ? THREE.SRGBColorSpace : THREE.NoColorSpace;
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;

@@ -1,3 +1,5 @@
+0.7.0-dev.4: [visual changes, measured limits and reproduction](REVIEW_070_DEV4.md). Artistic and gameplay acceptance remain pending.
+
 > **Current: 0.7.0-dev.3** — [visual corrections, measured project roundtrip and remaining limits](REVIEW_070_DEV3.md). Cloud regression: 124 tests passed. Published Windows receipts are authoritative for Windows checks. Older notes below are historical.
 
 > Current recovery: **0.7.0-dev.2**, 113 unit/integration tests passed after recovery. See [recovery inventory](RECOVERY_070_DEV2.md) and [current reconstruction review](REVIEW_070_DEV2.md). The following original 0.6.0 notes are historical. Windows CI receipts are included in the published review ZIP; game compatibility and artistic acceptance remain unverified.

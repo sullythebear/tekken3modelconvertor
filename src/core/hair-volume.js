@@ -90,3 +90,11 @@ export function reconstructHairCards(g,material,simplifier,{preservation=90}={})
  const [index,error]=input.length>target*3?simplifier.simplifyWithAttributes(input,g.attributes.position.array,3,uv.array,2,[4,4],null,target*3,.007,['RegularizeLight']):[input,0];
  const geometry=subsetSurface(g,index);geometry.computeVertexNormals();return {geometry,material:material.clone(),generatedVertices:geometry.attributes.position.count,triangles:index.length/3,method:'UV-preserving disconnected alpha cards with bounded surface error',sourceTriangles:input.length/3,target,error,alphaPreserved:true};
 }
+
+// The inset shell fills card gaps; its open silhouette boundary must survive.
+// Unlike the outer cards this shell can trade interior detail for fewer faces.
+export function simplifyHairSupport(geometry,simplifier,{target=180,errorLimit=.008}={}){
+ const input=new Uint32Array(geometry.index.array);
+ const [index,error]=input.length>target*3?simplifier.simplify(input,geometry.attributes.position.array,3,target*3,errorLimit,['LockBorder','RegularizeLight']):[input,0];
+ return {geometry:subsetSurface(geometry,index),report:{before:input.length/3,after:index.length/3,error,errorLimit,scope:'Inset support only; open boundaries locked; outer alpha cards unchanged'}};
+}

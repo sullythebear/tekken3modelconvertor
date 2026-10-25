@@ -57,6 +57,13 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
   let best=null,distance=Infinity;for(const segment of slices.get(key)){const point=segment.closestPointToPoint(origin,true,new THREE.Vector3()),d=point.distanceToSquared(origin);if(d<distance){best=point;distance=d;}}
   return source.nearest(best??origin.clone().addScaledVector(direction,-radius*2.5));
  };
+ // Rig lip controls can lie behind the skin. Establish visible 3D surface
+ // correspondence before computing the chart; internal depth must not skew UVs.
+ for(const name of Object.keys(anchors).filter(n=>/Lip|NoseTip/.test(n))){
+  if(Object.hasOwn(corrections,name))continue;
+  const hit=source.raycast(anchors[name].clone().addScaledVector(z,radius*3),z.clone().negate(),radius*6);
+  if(hit)anchors[name]=hit.point.clone();
+ }
  const eyeSurface=referenceRoot?sourceEyeSurface(referenceRoot,inverse):null;
  const features=[],boundaries=surfaceConnectivity(source.triangles).loops,eyeSpacing=left.distanceTo(right);
  function measuredLoop(target){return boundaries.map(points=>({points,center:points.reduce((p,v)=>p.add(v),new THREE.Vector3()).multiplyScalar(1/points.length),box:new THREE.Box3().setFromPoints(points)})).filter(b=>b.center.distanceTo(target)<eyeSpacing*.45&&b.box.getSize(new THREE.Vector3()).length()<eyeSpacing*.9).sort((a,b)=>a.center.distanceToSquared(target)-b.center.distanceToSquared(target))[0]?.points;}
@@ -90,7 +97,7 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  const angles=[-Math.PI,-2.6,-2.1,-1.7,...Array.from({length:frontCount},(_,i)=>-1.45+i*2.9/(frontCount-1)),1.7,2.1,2.6,Math.PI];
  // Limit anatomical density to useful eye/nose/lip levels, not every source rig bone.
  const semanticLevels=['FACIAL_C_NoseTip','FACIAL_C_LipUpper','FACIAL_C_LipLower','FACIAL_L_EyelidUpperA1','FACIAL_L_EyelidLowerA1','FACIAL_L_EyelidUpperFurrow','FACIAL_C_Chin1','FACIAL_C_Chin3','FACIAL_C_Jawline'].filter(n=>anchors[n]).map(n=>parameter(anchors[n]).y);
- const rows=[...new Set([...Array.from({length:gridRows+1},(_,i)=>i/gridRows),...semanticLevels.flatMap(v=>[v-.012,v,v+.012])])].filter(v=>v>=0&&v<=1).sort((a,b)=>a-b);
+ const rows=[...new Set([...Array.from({length:gridRows+1},(_,i)=>i/gridRows),...semanticLevels])].filter(v=>v>=0&&v<=1).sort((a,b)=>a-b);
  for(const row of rows)for(const angle of angles){
   const q=new THREE.Vector2(angle,row);
   if(!holes.some(h=>pointInPolygon(q,h)))insertPoint(template,triangles,q);

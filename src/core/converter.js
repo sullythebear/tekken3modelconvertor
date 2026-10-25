@@ -2,7 +2,7 @@ import {shortGarmentTriangles} from './garment-segmentation.js';
 import {boneSemantic} from './skeleton.js';
 import {rebakeTorso} from './torso-bake.js';
 import {reconstructBootEnvelope} from './boot-envelope.js';
-import {reconstructHairVolume,reconstructHairCards} from './hair-volume.js';
+import {reconstructHairVolume,reconstructHairCards,simplifyHairSupport} from './hair-volume.js';
 import {reconstructAnatomicalFace} from './anatomical-face.js';
 import {reconstructUVSurface} from './uv-reconstruction.js';
 import {facialLandmarkLocks,facialSurfaceAnchors} from "./landmarks.js";
@@ -261,6 +261,10 @@ export async function convertCharacter(
       }
       const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
       projectionGeometry?.dispose();
+      if(candidate.geometry&&candidate.supplements?.length){
+        const support=candidate.geometry,reducedSupport=simplifyHairSupport(support,MeshoptSimplifier);
+        support.dispose();candidate.geometry=reducedSupport.geometry;candidate.supportReduction=reducedSupport.report;
+      }
       if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'v0.6 fallback',reason:candidate.reason};
     }

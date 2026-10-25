@@ -1,3 +1,4 @@
+import {filteredRGBA,cutoutThreshold} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
 import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
 import {configureSkinning} from "./skinning.js";
@@ -70,7 +71,7 @@ export async function bakeAtlas(
   const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].side;
-    const sampleSize=art?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
+    const sampleSize=art&&/hair|faceacc|strand/i.test(materials[i].name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
     const m = materials[i],
       origin = domains.get(m),
       tile = canvas(cell, cell),
@@ -96,6 +97,13 @@ export async function bakeAtlas(
             Math.max(0, Math.min(1, (y - gutter) / (cell - 1 - 2 * gutter))),
           sample = (img, tex) => {
             if (!img) return [255, 255, 255, 255];
+            if(art&&/lash/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
+              const footprint=.25/(cell-1-2*gutter),coordinates=[];
+              for(const dx of [-footprint,footprint])for(const dy of [-footprint,footprint]){
+                const q=coordinate(tex,Math.max(0,Math.min(1,u+dx))+origin[0],Math.max(0,Math.min(1,v+dy))+origin[1]);coordinates.push([q.x,q.y]);
+              }
+              return filteredRGBA(img,coordinates);
+            }
             const uv = coordinate(tex, u + origin[0], v + origin[1]),
               sx = Math.max(
                 0,
@@ -134,7 +142,7 @@ export async function bakeAtlas(
             (m.transparent || m.alphaTest > 0 ? c[3] / 255 : 1) *
               (alpha ? a[1] / 255 : 1) *
               (m.opacity ?? 1) >=
-            (m.alphaTest > 0 ? m.alphaTest : alphaCutoff)
+            (art&&/lash/i.test(m.name)?cutoutThreshold(m,alphaCutoff):(m.alphaTest > 0 ? m.alphaTest : alphaCutoff))
               ? 255
               : 0,
           ],
