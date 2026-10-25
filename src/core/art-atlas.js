@@ -16,19 +16,19 @@ export function artAtlasLayout(materials,size,art) {
  const cells=materials.map((m,i)=>{
   const name=m.name,face=/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name),hair=/hair|faceacc/i.test(name),torso=/body_torso/i.test(name),eye=/iris|lash/i.test(name);
   const side=m.userData?.t3csSkinSurface?base/4:face?(art.face>80?base/2:base/4):hair?(art.hair>85?base/2:base/4):torso?(art.pixelation<75?(/_rebaked$/i.test(name)?base:base/2):base/4):/envelope/i.test(name)?base/2:/body/i.test(name)?base/4:eye?(/lash/i.test(name)&&art.face>80?base/2:base/4):/eyeshell/i.test(name)?16:base/8;
-  return {i,side:Math.max(16,side),priority:face?6:hair?5:torso?4:eye?3.5:/envelope/i.test(name)?3:1};
+  return {i,side:Math.max(16,side),wide:!!(m.userData?.t3csSkinSurface&&m.userData.t3csSkinPart==='hand'),priority:face?6:hair?5:torso?4:eye?3.5:/envelope/i.test(name)?3:1};
  });
  const occupied=[],out=[];let used=0;
- const ordered=cells.sort((a,b)=>b.side-a.side||b.priority-a.priority||a.i-b.i);
+ const ordered=cells.sort((a,b)=>b.side*b.side*(b.wide?2:1)-a.side*a.side*(a.wide?2:1)||b.priority-a.priority||a.i-b.i);
  for(let i=0;i<ordered.length;i++){
   const c=ordered[i],reserve=(ordered.length-i-1)*16*16;let found=null;
   for(let side=c.side;side>=16&&!found;side/=2){
    // Reserve a minimal tile for every remaining material. Greedy allocation
    // previously exhausted the atlas before the final boot/material tile.
-   if(used+side*side+reserve>size*size)continue;
-   for(let y=0;y+side<=size&&!found;y+=16)for(let x=0;x+side<=size;x+=16)if(!occupied.some(r=>x<r.x+r.side&&x+side>r.x&&y<r.y+r.side&&y+side>r.y)){found={x,y,side};break;}
+   const width=Math.min(size,side*(c.wide?2:1)),height=side;if(used+width*height+reserve>size*size)continue;
+   for(let y=0;y+height<=size&&!found;y+=16)for(let x=0;x+width<=size;x+=16)if(!occupied.some(r=>x<r.x+r.width&&x+width>r.x&&y<r.y+r.height&&y+height>r.y)){found={x,y,side,width,height};break;}
   }
-  if(!found)throw Error('Art atlas packing failed; reduce material count');occupied.push(found);used+=found.side*found.side;out[c.i]=found;
+  if(!found)throw Error('Art atlas packing failed; reduce material count');occupied.push(found);used+=found.width*found.height;out[c.i]=found;
  }
  return out;
 }

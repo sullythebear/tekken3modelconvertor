@@ -72,17 +72,17 @@ export async function bakeAtlas(
     tiles = [],
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
-  const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art,m)}))):null;
+  const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].width??layout[i].side,height:layout[i].height??layout[i].side,colors:artTextureColors(m.name,art,m)}))):null;
   const samplingSize=m=>art&&m.userData?.t3csSkinSurface?1024:art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
   const requests=materials.flatMap(m=>[{texture:m.map,size:samplingSize(m)},{texture:m.alphaMap,size:samplingSize(m),data:true},{texture:m.normalMap,size:samplingSize(m),data:true}]),cache=readbackCache(requests,pixels),cachedPixels=cache.read;
   for (let i = 0; i < materials.length; i++) {
-    const cell=layout[i].side;
+    const cell=layout[i].width??layout[i].side,cellHeight=layout[i].height??layout[i].side;
     const sampleSize=samplingSize(materials[i]);
     const m = materials[i],
       origin = domains.get(m),
-      tile = canvas(cell, cell),
+      tile = canvas(cell, cellHeight),
       tc = tile.getContext("2d"),
-      image = tc.createImageData(cell, cell),
+      image = tc.createImageData(cell, cellHeight),
       base = cachedPixels(m.map, sampleSize),
       alpha = cachedPixels(m.alphaMap, sampleSize,true),
       normal = cachedPixels(m.normalMap, sampleSize,true),
@@ -92,7 +92,7 @@ export async function bakeAtlas(
       warnings.push(
         `${m.name}: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.`,
       );
-    for (let y = 0; y < cell; y++)
+    for (let y = 0; y < cellHeight; y++)
       for (let x = 0; x < cell; x++) {
         const u = Math.max(
             0,
@@ -100,7 +100,7 @@ export async function bakeAtlas(
           ),
           v =
             1 -
-            Math.max(0, Math.min(1, (y - gutter) / (cell - 1 - 2 * gutter))),
+            Math.max(0, Math.min(1, (y - gutter) / (cellHeight - 1 - 2 * gutter))),
           sample = (img, tex) => {
             if (!img) return [255, 255, 255, 255];
             if(art&&/lash|hair|faceacc|strand/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
@@ -124,13 +124,14 @@ export async function bakeAtlas(
           };
         const c = sample(base, m.map),
           a = sample(alpha, m.alphaMap);
-        let shade = 1;
+        let shade = 1,mappedNormal=null;
         if (normal) {
           const n = sample(normal, m.normalMap),
             nx = (n[0] / 127.5 - 1) * (m.normalScale?.x ?? 1),
             ny = (n[1] / 127.5 - 1) * (m.normalScale?.y ?? 1),
             nz = n[2] / 127.5 - 1;
-          shade =
+          if(m.userData?.t3csSkinSurface)mappedNormal=new THREE.Vector3(nx,ny,nz).normalize();
+          else shade =
             0.7 +
             0.3 *
               Math.max(
@@ -139,7 +140,7 @@ export async function bakeAtlas(
                   Math.max(0.01, Math.hypot(nx, ny, nz)),
               );
         }
-        shade*=sourceSkinLighting(m,u,v);
+        shade*=sourceSkinLighting(m,u,v,mappedNormal);
         const p = (y * cell + x) * 4;
         image.data.set(
           [
@@ -159,14 +160,14 @@ export async function bakeAtlas(
     const colors=artTextureColors(m.name,art,m);
     const q = quantize(art?pixelateRGBA(image.data,art.pixelation,art.dither,cell,art.colorLevels):new Uint8Array(image.data), colors);
     tc.putImageData(
-      new ImageData(new Uint8ClampedArray(q.rgba), cell, cell),
+      new ImageData(new Uint8ClampedArray(q.rgba), cell, cellHeight),
       0,
       0,
     );
     const ox = layout[i].x,
       oy = layout[i].y;
     ctx.drawImage(tile, ox, oy);
-    for (let y = 0; y < cell; y++)
+    for (let y = 0; y < cellHeight; y++)
       rgba.set(
         q.rgba.subarray(y * cell * 4, (y + 1) * cell * 4),
         ((oy + y) * size + ox) * 4,
@@ -179,12 +180,12 @@ export async function bakeAtlas(
       x: ox,
       y: oy,
       width: cell,
-      height: cell,
+      height: cellHeight,
       palette: q.palette,
       indices: q.indices,
       tim: writeTIM({
         width: cell,
-        height: cell,
+        height: cellHeight,
         indices: q.indices,
         palette: q.palette,
         x: timLayout?timLayout[i].x:ox / (colors===256?2:4),
@@ -225,14 +226,14 @@ export async function bakeAtlas(
         ? g.groups
         : [{ start: 0, count: g.attributes.position.count, materialIndex: 0 }];
     for (const group of groups) {
-      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width;
+      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width,cellHeight=tile.height;
       for (let j = group.start; j < group.start + group.count; j++) {
         const u = Math.max(0, Math.min(1, uv.getX(j) - origin[0])),
           v = Math.max(0, Math.min(1, uv.getY(j) - origin[1]));
         uv.setXY(
           j,
           (tile.x + gutter + u * (cell - 1 - 2 * gutter)) / size,
-          1 - (tile.y + gutter + (1 - v) * (cell - 1 - 2 * gutter)) / size,
+          1 - (tile.y + gutter + (1 - v) * (cellHeight - 1 - 2 * gutter)) / size,
         );
       }
     }
