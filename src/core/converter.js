@@ -1,3 +1,6 @@
+import {prepareSkinFields} from './skin-surface.js';
+import {reduceBodySurface} from './body-surface.js';
+import {sceneIntegrity,integritySummary} from './mesh-integrity.js';
 import {creaseFeatures} from './crease-features.js';
 import {shortGarmentTriangles} from './garment-segmentation.js';
 import {boneSemantic} from './skeleton.js';
@@ -202,7 +205,7 @@ export async function convertCharacter(
     }
   });
   if(art){
-    planRegionMaterials(parts);calibrateRegionBudgets(parts,art.reference);
+    planRegionMaterials(parts);if((art.reconstruction??'combined')==='combined')prepareSkinFields(parts);calibrateRegionBudgets(parts,art.reference);
     const boxes=new Map();
     for(const p of parts){const r=artRegion(p.role,p.material?.name);if(!boxes.has(r))boxes.set(r,new THREE.Box3());for(const i of p.indices)boxes.get(r).expandByPoint(new THREE.Vector3().fromBufferAttribute(p.g.attributes.position,i).applyMatrix4(p.mesh.matrixWorld));}
     for(const p of parts)p.artPivot=boxes.get(artRegion(p.role,p.material?.name)).getCenter(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
@@ -261,9 +264,10 @@ export async function convertCharacter(
         projectionGeometry.setIndex(selected);projectionGeometry.clearGroups();
         if(p.uvCrop){const uv=projectionGeometry.attributes.uv,c=p.uvCrop;for(let v=0;v<uv.count;v++)uv.setXY(v,(uv.getX(v)-c.minU)/c.spanU,(uv.getY(v)-c.minV)/c.spanV);}
       }
-      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
+      const candidate=reconstructFace?reconstructAnatomicalFace(p.mesh,g,p.material,{detail:art.face,referenceRoot:root,corrections:!art.faceLandmarkMesh||art.faceLandmarkMesh===p.mesh.name?art.faceLandmarks??{}:{}}):reconstructLashes?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.face}):reconstructHair&&art.hairMethod==='cards'?reconstructHairCards(g,p.material,MeshoptSimplifier,{preservation:art.hair}):reconstructHair?reconstructHairVolume(g,p.material,{preservation:art.hair,headCenter:hairCenter,method:art.hairMethod??'auto',eyeHeight:p.mesh.skeleton?.bones.find(b=>b.name==='FACIAL_L_EyelidUpperA')?.getWorldPosition(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert()).y}):reconstructBoots&&stage!=='dev1'?reconstructBootEnvelope(g,p.material,{projectionGeometry:projectionGeometry??g,normalMatrix:new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld)}):reconstructUVSurface(g,{target:Math.max(reconstructHair?600:400,budgets[i]),anchors});
       projectionGeometry?.dispose();
       if(candidate.geometry&&candidate.supplements?.length){
+        if(candidate.material)candidate.material.userData.t3csHairSupport=true;
         const support=candidate.geometry,reducedSupport=simplifyHairSupport(support,MeshoptSimplifier);
         support.dispose();candidate.geometry=reducedSupport.geometry;candidate.supportReduction=reducedSupport.report;
       }
@@ -277,12 +281,13 @@ export async function convertCharacter(
       const protectedMask=geometricBoundaryMask(g);
       const creases=p.role==='hips'&&['combined','boots'].includes(stage)?creaseFeatures(g):null;if(creases){for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=creases.mask[v];p.protectedPoints=creases.points;}
       if(locks&&art.face>=50)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=locks.mask[v];
-      reconstruction = reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
+      const continuous=/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand))$/.test(p.role)&&stage==='combined';
+      reconstruction = continuous?reduceBodySurface(g,p.role,MeshoptSimplifier,{target:budgets[i],featureMask:protectedMask}):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
       reconstruction.occludedShellTriangles=shells?.removed??0;if(creases)reconstruction.creaseProtection=creases.report;
       if(fallbackReason)reconstruction.fallbackReason=fallbackReason;
-      if(indices.length>budgets[i]*3){
+      if(!continuous&&indices.length>budgets[i]*3){
         [indices,error]=MeshoptSimplifier.simplifyWithAttributes(indices,positions,3,attrs,5,[12,12,.1,.1,.1],protectedMask,budgets[i]*3,settings.error,['Permissive','RegularizeLight']);
         reconstruction.finish='attribute-aware topology optimization after reconstruction';
       }
@@ -317,7 +322,7 @@ export async function convertCharacter(
     }
     if(art?.corrections[artRegion(p.role,p.material?.name)]?.remove)indices=new Uint32Array();
     let reduced = subsetGeometry(g, indices);
-    if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot);
+    if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot,stage==='combined'&&/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand))$/.test(p.role));
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
     if(art&&['combined','boots'].includes(stage)&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name)&&reduced.attributes.position.count){
       const rebaked=rebakeTorso(g,reduced,p.material);if(rebaked){reduced.dispose();reduced=rebaked.geometry;const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(rebaked.material);p.mesh.material=mats;p.material=rebaked.material;reconstruction.torsoBake={method:rebaked.method,width:rebaked.textureWidth,height:rebaked.textureHeight};}
@@ -412,6 +417,6 @@ export async function convertCharacter(
     settings: { ...settings },
     gameVerified: false,
   };
-  if(art)result.quality=measureArtQuality(source,result);
+  if(art){result.quality=measureArtQuality(source,result);result.quality.integrity=integritySummary(sceneIntegrity(root,source.root));if(result.quality.integrity.unexpectedEdges)warnings.push(`${result.quality.integrity.unexpectedEdges} open boundary edges differ from source borders / measured eye apertures. Inspect boundary diagnostics; geometric and artistic acceptance remain pending.`);}
   return result;
 }

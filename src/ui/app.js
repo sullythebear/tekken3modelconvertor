@@ -1,3 +1,4 @@
+import {sceneIntegrity} from '../core/mesh-integrity.js';
 import {snapshotProjectMapping,restoreProjectMapping} from '../core/skeleton.js';
 import {optimizeGameCandidate} from '../core/game-optimization.js';
 import {configureSkinning} from '../core/skinning.js';
@@ -369,7 +370,7 @@ function report() {
           textureBytes: atlas.textureBytes,
           paletteBytes: atlas.paletteBytes,
           readbackStats: atlas.readbackStats,
-          tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette }) => ({
+          tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette, sourceSkinBake }) => ({
             material,
             clut,
             x,
@@ -377,6 +378,7 @@ function report() {
             width,
             height,
             bitDepth:palette.length===256?8:4,
+            ...(sourceSkinBake?{sourceSkinBake}:{}),
           })),
         }
       : null,
@@ -1226,6 +1228,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
     configureSkinning,
+    sceneIntegrity,
     setReconstruction(stage) { artProfile.reconstruction=stage; },
     syntheticCharacter,
     deformationProbe,

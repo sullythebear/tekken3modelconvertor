@@ -1,0 +1,12 @@
+import {geometricBoundaryMask}from'./art-director.js';import{compareBoundaries}from'./mesh-integrity.js';import{subsetSurface}from'./projected-topology.js';
+export function reduceBodySurface(g,role,simplifier,{target=200,featureMask=null}={}){
+ const hand=/Hand$/.test(role),p=g.attributes.position,uv=g.attributes.uv,n=g.attributes.normal,mask=geometricBoundaryMask(g),sets=[['skinIndex','skinWeight'],...Object.keys(g.attributes).filter(n=>/^joints_\d+$/.test(n)).map(n=>[n,n.replace('joints_','weights_')])].filter(([j,w])=>g.attributes[j]&&g.attributes[w]),totals=new Map();
+ for(let v=0;v<p.count;v++)for(const[j,w]of sets)for(let k=0;k<g.attributes[j].itemSize;k++){const b=g.attributes[j].getComponent(v,k),weight=g.attributes[w].getComponent(v,k);if(weight>0)totals.set(b,(totals.get(b)??0)+weight);}
+ if(featureMask)for(let i=0;i<mask.length;i++)mask[i]|=featureMask[i];
+ const bones=[...totals].sort((a,b)=>b[1]-a[1]).slice(0,24).map(b=>b[0]),boneIndex=new Map(bones.map((b,i)=>[b,i])),stride=5+bones.length,attributes=new Float32Array(p.count*stride);let residualLocked=0;
+ for(let v=0;v<p.count;v++){const base=v*stride;attributes.set([uv?.getX(v)??0,uv?.getY(v)??0,n?.getX(v)??0,n?.getY(v)??0,n?.getZ(v)??1],base);let residual=0;for(const[j,w]of sets)for(let k=0;k<g.attributes[j].itemSize;k++){const b=g.attributes[j].getComponent(v,k),weight=g.attributes[w].getComponent(v,k),i=boneIndex.get(b);if(i!==undefined)attributes[base+5+i]+=weight;else residual+=weight;}if(residual>.02){mask[v]=1;residualLocked++;}}
+ const source=new Uint32Array(g.index.array),goal=Math.min(source.length/3,Math.max(hand?180:48,target)),errorLimit=hand?.012:/spine|hips/.test(role)?.035:.018,weights=[.8,.8,.003,.003,.003,...bones.map(()=>.025)];
+ const[index,error]=source.length>goal*3?simplifier.simplifyWithAttributes(source,p.array,3,attributes,stride,weights,mask,goal*3,errorLimit,['Permissive','RegularizeLight']):[source,0],output=subsetSurface(g,index),integrity=compareBoundaries(g,output);output.dispose();
+ const fallback=integrity.unexpectedOpenEdges>0||integrity.inconsistentWinding>integrity.sourceInconsistentWinding;
+ return {indices:fallback?source:index,method:hand?'Source-anatomical hand topology with weighted joint fields':'Continuous body topology with invariant regional borders',target:goal,error,errorLimit,trackedSkinBones:bones.length,residualLockedVertices:residualLocked,integrity,fallbackReason:fallback?'Reduction introduced a discontinuity; reliable source surface retained':null};
+}

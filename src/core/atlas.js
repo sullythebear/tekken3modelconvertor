@@ -1,3 +1,4 @@
+import {sourceSkinLighting} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
 import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
@@ -71,8 +72,8 @@ export async function bakeAtlas(
     tiles = [],
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
-  const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art)}))):null;
-  const samplingSize=m=>art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
+  const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].side,height:layout[i].side,colors:artTextureColors(m.name,art,m)}))):null;
+  const samplingSize=m=>art&&m.userData?.t3csSkinSurface?1024:art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
   const requests=materials.flatMap(m=>[{texture:m.map,size:samplingSize(m)},{texture:m.alphaMap,size:samplingSize(m),data:true},{texture:m.normalMap,size:samplingSize(m),data:true}]),cache=readbackCache(requests,pixels),cachedPixels=cache.read;
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].side;
@@ -138,6 +139,7 @@ export async function bakeAtlas(
                   Math.max(0.01, Math.hypot(nx, ny, nz)),
               );
         }
+        shade*=sourceSkinLighting(m,u,v);
         const p = (y * cell + x) * 4;
         image.data.set(
           [
@@ -154,7 +156,7 @@ export async function bakeAtlas(
           p,
         );
       }
-    const colors=artTextureColors(m.name,art);
+    const colors=artTextureColors(m.name,art,m);
     const q = quantize(art?pixelateRGBA(image.data,art.pixelation,art.dither,cell,art.colorLevels):new Uint8Array(image.data), colors);
     tc.putImageData(
       new ImageData(new Uint8ClampedArray(q.rgba), cell, cell),
@@ -171,6 +173,7 @@ export async function bakeAtlas(
       );
     tiles.push({
       material: m.name,
+      sourceSkinBake:m.userData?.t3csSkinBake??null,
       sourceUVOrigin: origin,
       clut: art ? ((480+i)<<6)|48 : 64 + i,
       x: ox,

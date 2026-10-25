@@ -204,6 +204,24 @@ export function inspectWeights(root) {
   });
   return { vertices, invalid, unnormalized };
 }
+// Finger diagnostics follow skeletal branches, not character-specific bone names.
+// Add a small flex to the source pose; never force a spread or bind-pose hand.
+export function handDiagnosticChannels(analysis){
+ const channels=[];
+ for(const role of ['leftHand','rightHand']){
+  const hand=analysis.mapping[role];if(!hand)continue;
+  const roots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone));
+  if(roots.length<3||roots.length>6)continue;
+  const spread=roots.at(-1).getWorldPosition(new THREE.Vector3()).sub(roots[0].getWorldPosition(new THREE.Vector3()));
+  if(spread.length()<1e-6)continue;spread.normalize();
+  for(const start of roots){let b=start;for(let depth=0;depth<3&&b;depth++){
+   const next=b.children.filter(c=>c.isBone);if(next.length!==1)break;
+   const axis=spread.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion()).invert()).normalize();
+   channels.push([b,axis,.18]);b=next[0];
+  }}
+ }
+ return channels;
+}
 // A diagnostic of source rig deformation, not a Tekken motion compatibility proof.
 export function deformationProbe(root, analysis, onPose = () => {}, {extended=false}={}) {
   const results = [];
@@ -231,6 +249,8 @@ export function deformationProbe(root, analysis, onPose = () => {}, {extended=fa
     ["crouch", -0.6],
     ...(extended?[
       ['idle',0],
+      ['hand-flex',0,handDiagnosticChannels(analysis)],
+      ['arms-raised',0,[['leftUpperArm','z',.8],['rightUpperArm','z',-.8]]],
       ['walk',0,[['leftUpperLeg','x',.4],['rightUpperLeg','x',-.4],['leftUpperArm','x',-.2],['rightUpperArm','x',.2]]],
       ['punch',0,[['leftUpperArm','y',-.9],['leftLowerArm','z',.25]]],
       ['kick',0,[['rightUpperLeg','x',-.9],['rightLowerLeg','x',.4]]],
@@ -239,11 +259,11 @@ export function deformationProbe(root, analysis, onPose = () => {}, {extended=fa
   ]) {
     const changes = [];
     for (const [key,axis,degrees] of channels??["leftUpperArm","rightUpperArm","leftUpperLeg","rightUpperLeg"].map(key=>[key,"z",angle])) {
-      const b = key.startsWith("@")?root.getObjectByName(key.slice(1)):analysis.mapping[key];
+      const b = key?.isBone?key:key.startsWith("@")?root.getObjectByName(key.slice(1)):analysis.mapping[key];
       if (b) {
         changes.push([b, b.quaternion.clone()]);
         b.quaternion.multiply(
-          q.setFromAxisAngle(new THREE.Vector3(axis==="x"?1:0,axis==="y"?1:0,axis==="z"?1:0), degrees),
+          q.setFromAxisAngle(axis?.isVector3?axis:new THREE.Vector3(axis==="x"?1:0,axis==="y"?1:0,axis==="z"?1:0), degrees),
         );
       }
     }

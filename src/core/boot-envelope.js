@@ -1,3 +1,4 @@
+import {sourceDiffuse} from './skin-surface.js';
 import * as THREE from 'three';
 import {SurfaceIndex,triangleRecord,materialSampler} from './surface.js';
 import {surfaceConnectivity} from './surface-connectivity.js';
@@ -5,7 +6,7 @@ import {sourceRecords,transferSurfaceAttributes,surfaceTexture} from './projecte
 
 // Horizontal source cross-sections preserve the toe/heel offsets. Outermost
 // ray intersections select the visible clothing shell over underlying skin.
-export function reconstructBootEnvelope(g,material,{columns=12,textureSize=128,projectionGeometry=g}={}){
+export function reconstructBootEnvelope(g,material,{columns=12,textureSize=128,projectionGeometry=g,normalMatrix=new THREE.Matrix3()}={}){
  const box=new THREE.Box3().setFromBufferAttribute(g.attributes.position),size=box.getSize(new THREE.Vector3());
  // A same-side / below-hip test also admits a lowered hand. Keep projection
  // correspondences inside the measured leg's transverse footprint, otherwise
@@ -56,9 +57,11 @@ export function reconstructBootEnvelope(g,material,{columns=12,textureSize=128,p
  const transfer=transferSurfaceAttributes(projectionGeometry,hits,positions,uvs),geometry=transfer.geometry;geometry.setIndex(indices);geometry.computeVertexNormals();
  const sample=materialSampler([material]),rgba=new Uint8Array(textureSize*textureSize*4);for(let row=0;row<textureSize;row++)for(let col=0;col<textureSize;col++){
   const u=(col+.5)/textureSize,v=(row+.5)/textureSize,c=Math.min(columns-1,Math.floor(u*columns)),r=Math.min(levels.length-2,Math.max(0,levels.findIndex(y=>y>v)-1)),s=u*columns-c,t=(v-levels[r])/(levels[r+1]-levels[r]),a=r*(columns+1)+c,b=a+1,d=a+columns+1,e=d+1;
-  const ids=s>=t?[a,b,e]:[a,e,d],weights=s>=t?[1-s,s-t,t]:[1-t,s,t-s],point=new THREE.Vector3();ids.forEach((id,k)=>point.addScaledVector(positions[id],weights[k]));rgba.set(sample(nearestVisible(point,u,v)),(row*textureSize+col)*4);
+  const ids=s>=t?[a,b,e]:[a,e,d],weights=s>=t?[1-s,s-t,t]:[1-t,s,t-s],point=new THREE.Vector3();ids.forEach((id,k)=>point.addScaledVector(positions[id],weights[k]));const hit=nearestVisible(point,u,v),color=sample(hit),sourceNormals=projectionGeometry.attributes.normal;
+  if(bootSurface&&point.y>cuff&&sourceNormals){const n=hit.triangle.ids.reduce((normal,id,k)=>normal.addScaledVector(new THREE.Vector3().fromBufferAttribute(sourceNormals,id),hit.barycentric.getComponent(k)),new THREE.Vector3()).applyNormalMatrix(normalMatrix),shade=sourceDiffuse(n);for(let k=0;k<3;k++)color[k]=Math.round(color[k]*shade);}
+  rgba.set(color,(row*textureSize+col)*4);
  };
  const map=surfaceTexture(rgba,textureSize,textureSize);map.colorSpace=THREE.SRGBColorSpace;map.wrapS=THREE.RepeatWrapping;map.needsUpdate=true;
- const output=material.clone();output.name=material.name+'_envelope';output.color.set(0xffffff);output.map=map;output.normalMap=null;output.alphaMap=null;output.specularMap=null;
+ const output=material.clone();output.name=material.name+'_envelope';output.userData.t3csLegSurface=true;output.color.set(0xffffff);output.map=map;output.normalMap=null;output.alphaMap=null;output.specularMap=null;
  return {geometry,material:output,method:'joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap',generatedVertices:hits.length,projectionTriangles:source.triangles.length,outerLayer:{components:components.length,isolated:!!bootSurface,charts:charts.length,garmentCharts:garmentCharts.length,cuffFraction:(cuff-box.min.y)/size.y,exteriorVotes:chosen?.[1]??0,textureCorrespondence:'Actual low-poly triangles, nearest connected exterior garment where identified'},triangles:indices.length/3,maximumDiscardedWeight:transfer.maximumDiscardedWeight,coverage:'Continuous thigh/knee/shaft/ankle/foot region when upper leg is available',clothingSelection:'Outermost spatial surface; does not infer every garment layer from names'};
 }

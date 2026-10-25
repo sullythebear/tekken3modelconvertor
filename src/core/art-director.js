@@ -104,17 +104,19 @@ export function reconstructClusters(g,target,{featureMask=null,art,role,material
  return best?{...best,method:'feature-constrained surface clustering',region,maxDeviation,lockedVertices:locked.reduce((s,v)=>s+v,0)}:
   {indices:new Uint32Array(original),method:'source retained: reconstruction exceeded deviation guard',region,maxDeviation,lockedVertices:locked.reduce((s,v)=>s+v,0),maxDistance:0};
 }
-export function shapeRegion(g,art,role,material,pivot=null) {
+export function shapeRegion(g,art,role,material,pivot=null,preserveBoundary=false) {
  const region=artRegion(role,material),c=art.corrections[region]??{},p=g.attributes.position;
  const box=new THREE.Box3().setFromBufferAttribute(p),center=pivot??box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
- const dimensions=size.toArray().filter(v=>v>1e-6),scale=c.scale??1,step=(dimensions.length?Math.min(...dimensions):0)*(['head','hair'].includes(region)?0:art.angular/100*.025);
+ const boundary=preserveBoundary?geometricBoundaryMask(g):null;
+ const dimensions=size.toArray().filter(v=>v>1e-6),scale=c.scale??1,step=preserveBoundary?0:(dimensions.length?Math.min(...dimensions):0)*(['head','hair'].includes(region)?0:art.angular/100*.025);
  for(let i=0;i<p.count;i++)for(let k=0;k<3;k++){
+  if(boundary?.[i])continue;
   let value=center.getComponent(k)+(p.getComponent(i,k)-center.getComponent(k))*scale;
   if(step>0)value+= (Math.round(value/step)*step-value)*art.stylization/100;
   p.setComponent(i,k,value);
  }
  p.needsUpdate=true;g.computeVertexNormals();
- return {region,scale,snapStep:step};
+ return {region,scale,snapStep:preserveBoundary?0:step,...(preserveBoundary?{continuityPreserved:true,requestedScale:scale}: {})};
 }
 export function measureArtQuality(source,converted) {
  const regions=converted.report,missing=regions.filter(p=>p.before>0&&!p.after);
