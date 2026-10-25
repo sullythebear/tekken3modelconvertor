@@ -40,3 +40,29 @@ Windows dev.8: save 5,183 s; reopen 6,984 s; eerste conversie 6,749 s; ZIP 49.78
 
 - Repository is schoon en HEAD is exact b04f9bc. Nieuwe dev.9-branch gemaakt.
 - Volgende concrete actie: 182 tests opnieuw uitvoeren; het bekkencontact en de anatomische handgroepen met broncorrespondentie lokaliseren. Geen verbeteringen geclaimd.
+
+### Cyclus 0 — baseline en diagnose afgerond
+
+- 182 baseline-tests opnieuw PASS (`artifacts/dev9/baseline-unit.xml`).
+- Nieuwe gerichte probe `scripts/dev9-probe.mjs` en offline diagnostics; outputs onder `artifacts/dev9/` zijn **privé**, nooit integraal publiceren.
+- Eerste probe mislukte door onnodige serialisatie van alle morphtargets (Node heap overflow). Opgenomen in diagnose, niet als app-regressie geteld. Probe beperkt nu expliciet de uitgelezen geometrykanalen; geen grotere heap als camouflage.
+- Nikki: 75 morphtargets per bronmesh, alle neutrale influences nul. De volledige bron blijft behouden.
+- Offline sampler gecontroleerd met volledige skinsets; zonder bestaande `configureSkinning` was de diagnostische bindmeting onjuist. De loader past nu dezelfde volledige LBS toe; source/converted bindafwijking beide circa 0,000155 bronunits.
+
+### Cyclus 1 — tijdelijke morphtargetkopie vermijden, geaccepteerd
+
+- `cloneWorkingGeometry` kopieert uitsluitend werkkanalen die de bestaande converter behoudt; geen tijdelijke kopie van alle daarna weggegooide morphtargets. Originele previews/assetbytes blijven intact.
+- Twee nieuwe tests voor morphbuffers, interleaving, extra skinsets en onafhankelijke werkbuffers PASS.
+- 14 gemeenschappelijke gerichte screenshots byte-identiek aan de baseline. Bestandsgrootte/Windows-memory nog niet opnieuw gemeten; nog geen prestatiewinst geclaimd.
+- Evidence: `artifacts/dev9/cycle1-working-buffers/` en `tests/working-geometry.test.mjs`.
+
+### Cyclus 2 — bekkencontact repareren, geaccepteerd na gerichte controles
+
+- Oorzaak: bron bevat al samenvallende fysieke faces met afwijkende UV-eilanden en skinweights die één aantoonbare 8-bit quantisatiestap verschillen. Niet door willekeurig vertex-welden opgelost.
+- `reconcileCoincidentSkin`: alleen zelfde mesh/materiaal, bewezen duplicaat-triangle, identieke bonesupport, gemeten 255-rooster en kleine foutgrens. Geen geometrie/UV-normalen samenvoegen; hoofd/haar/handen beschermd. Verschillende materialen, grotere verschillen en andere bonesupport blijven intact.
+- Nikki: 2 fysieke punten / 25 vertexkopieën consistent gemaakt; maximale L1-weightwijziging circa 0,011765. Alle 13 offline én live diagnostische poses hebben 0 divergerende contacten. De 38 positiecontacten blijven structureel bestaan; nul onverklaarde boundaries/windingconflicten behouden.
+- Volledige suite **189 PASS**, nul fail/skipped (`artifacts/dev9/cycle2-unit.xml`). Live beelden/private broncorrespondenties: `artifacts/dev9/cycle2-seam/`.
+
+### Eerstvolgende concrete actie
+
+Cyclus 3: vijf fingerpatches met ieder één gesloten palm-interface gericht reconstrueren. Anatomische source-bonecurves + rayprojectie, behoud de echte bronringen, skintransfer en echte texturebaking. Eerst prototype; bij schade niet als verbetering publiceren. Daarna schouder-/kledingdiagnose, huid/haar en regionale optimalisatie. Nog geen dev.9-release of Windows-validatie uitgevoerd.

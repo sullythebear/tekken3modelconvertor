@@ -1,3 +1,5 @@
+import {reconcileCoincidentSkin} from './coincident-skin.js';
+import {cloneWorkingGeometry} from './working-geometry.js';
 import {removeExactDuplicateFaces} from './duplicate-faces.js';
 import {geometryEdges,reconstructionBoundaryCheck} from './mesh-integrity.js';
 import {conformAnatomicalSeams} from './seam-conform.js';
@@ -148,7 +150,7 @@ export async function convertCharacter(
         `${mesh.name}: morph targets excluded from reduced output.`,
       );
     const original = mesh.geometry;
-    const prepared = original.clone();
+    const prepared = cloneWorkingGeometry(original);
     deinterleaveGeometry(prepared);
     prepared.morphAttributes = {};
     const removed = removeUnusedRenderAttributes(prepared,
@@ -404,6 +406,7 @@ export async function convertCharacter(
     mesh.userData.studioRegions = metadata;
   }
   const duplicateCleanup=[];if(art)root.traverse(m=>{if(m.isMesh)duplicateCleanup.push({mesh:m.name,...removeExactDuplicateFaces(m)});});
+  const coincidentSkin=art?reconcileCoincidentSkin(root):null;
   const seamRepair=art?conformAnatomicalSeams(root):null;
   const windingRepairs=[];if(art)root.traverse(m=>{if(m.isMesh)windingRepairs.push({mesh:m.name,...repairWinding(m.geometry)});});
   // Conformity may split original region triangles. Report the actual final
@@ -431,6 +434,6 @@ export async function convertCharacter(
     settings: { ...settings },
     gameVerified: false,
   };
-  if(art){result.quality=measureArtQuality(source,result);result.quality.duplicateCleanup=duplicateCleanup;result.quality.windingRepairs=windingRepairs;result.quality.seamRepair=seamRepair;result.quality.integrity=integritySummary(sceneIntegrity(root,source.root));if(result.quality.integrity.unexpectedEdges)warnings.push(`${result.quality.integrity.unexpectedEdges} open boundary edges differ from source borders / measured eye apertures. Inspect boundary diagnostics; geometric and artistic acceptance remain pending.`);}
+  if(art){result.quality=measureArtQuality(source,result);result.quality.coincidentSkin=coincidentSkin;result.quality.duplicateCleanup=duplicateCleanup;result.quality.windingRepairs=windingRepairs;result.quality.seamRepair=seamRepair;result.quality.integrity=integritySummary(sceneIntegrity(root,source.root));if(result.quality.integrity.unexpectedEdges)warnings.push(`${result.quality.integrity.unexpectedEdges} open boundary edges differ from source borders / measured eye apertures. Inspect boundary diagnostics; geometric and artistic acceptance remain pending.`);}
   return result;
 }
