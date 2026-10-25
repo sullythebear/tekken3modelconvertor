@@ -46,7 +46,7 @@ export function reconstructBootEnvelope(g,material,{columns=12,textureSize=128,p
  const shaft=[...shaftVotes].sort((a,b)=>b[1]-a[1])[0],cuff=shaft?.[0].bounds.max.y;
  const garmentCharts=shaft?.[1]>=12&&cuff<box.max.y-size.y*.08?charts.filter(c=>c.bounds.max.y<=cuff+size.y*.015):[];
  const garmentRecords=garmentCharts.flatMap(c=>c.records),bootSurface=garmentRecords.length?new SurfaceIndex(garmentRecords):null;
- const nearestVisible=(point,u,v)=>bootSurface&&point.y<=cuff-size.y*.001?bootSurface.nearest(point):project(u,v);
+ const nearestVisible=(point,u,v)=>bootSurface&&point.y<=cuff-size.y*.001?bootSurface.nearest(point):source.nearest(point);
  const levels=[0,.015,.03,.05,.08,.12,.18,.26,.36,.48,.6,.72,.84,.94,1],hits=[],positions=[],uvs=[],indices=[];
  const positionKey=i=>[g.attributes.position.getX(i),g.attributes.position.getY(i),g.attributes.position.getZ(i)].map(v=>Math.round(v*1e5)).join(','),collarScore=loop=>loop.reduce((n,i,k)=>n+(collarEdges?.has([positionKey(i),positionKey(loop[(k+1)%loop.length])].sort().join('|'))?1:0),0)/loop.length;
  const collarLoops=boundaryLoops(g).filter(loop=>loop.every(i=>g.attributes.position.getY(i)>box.min.y+size.y*.8)&&(!collarEdges?.size||collarScore(loop)>.8)),collarLoop=collarLoops.sort((a,b)=>collarScore(b)-collarScore(a)||b.reduce((n,i)=>n+g.attributes.position.getY(i),0)/b.length-a.reduce((n,i)=>n+g.attributes.position.getY(i),0)/a.length)[0];

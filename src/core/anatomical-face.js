@@ -51,13 +51,14 @@ export function reconstructAnatomicalFace(mesh,g,material,{detail=90,corrections
  const parameter=p=>{const d=p.clone().sub(center);return new THREE.Vector2(Math.atan2(d.dot(x),d.dot(z)),(d.dot(y)-minY)/height);};
  // The source neck border is nonplanar. A horizontal min-Y cylinder collapses
  // it to a point and cannot meet the torso. Keep its measured contour exactly.
- const neckLoops=boundaryLoops(g).filter(loop=>loop.every(i=>parameter(points[i]).y<.3)),neckLoop=neckLoops.length===1?neckLoops[0]:null;
+ const chinAnchor=anchors.FACIAL_C_Chin1??anchors.FACIAL_C_Chin??anchors.FACIAL_C_Jawline,neckLimit=chinAnchor?parameter(chinAnchor).y-.02:.3,neckLoops=boundaryLoops(g).filter(loop=>loop.every(i=>parameter(points[i]).y<neckLimit)),neckLoop=neckLoops.length===1?neckLoops[0]:null;
  const neck=neckLoop?neckLoop.map(i=>({point:points[i],angle:parameter(points[i]).x})).sort((a,b)=>a.angle-b.angle):[];
  const neckTop=neck.length?Math.max(...neck.map(n=>n.point.clone().sub(center).dot(y)))+height*.02:minY;
  const neckPoint=angle=>{for(let i=0;i<neck.length;i++){const a=neck[i],b=neck[(i+1)%neck.length],end=b.angle+(i===neck.length-1?Math.PI*2:0),q=angle<a.angle?angle+Math.PI*2:angle;if(q>=a.angle&&q<=end)return a.point.clone().lerp(b.point,(q-a.angle)/(end-a.angle));}return null;};
  const project=q=>{
   q=q.clone();if(Math.abs(Math.abs(q.x)-Math.PI)<1e-7)q.x=Math.PI;
   if(q.y>1-1e-10){const top=points.reduce((a,b)=>a.clone().sub(center).dot(y)>b.clone().sub(center).dot(y)?a:b);return source.nearest(top);}
+  if(!neck.length&&q.y<1e-10){const bottom=points.reduce((a,b)=>a.clone().sub(center).dot(y)<b.clone().sub(center).dot(y)?a:b);return source.nearest(bottom);}
   if(neck.length&&q.y<1e-10)return source.nearest(neckPoint(q.x));
   const low=minY+q.y*height;if(neck.length&&low<neckTop){const base=neckPoint(q.x).clone().sub(center).dot(y);q.y=(low+(base-minY)*(neckTop-low)/(neckTop-minY)-minY)/height;}
   const direction=z.clone().multiplyScalar(Math.cos(q.x)).addScaledVector(x,Math.sin(q.x));

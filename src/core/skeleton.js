@@ -210,11 +210,11 @@ export function handDiagnosticChannels(analysis,{amount=.18,mode='fingers'}={}){
  const channels=[];
  for(const role of ['leftHand','rightHand']){
   const hand=analysis.mapping[role];if(!hand)continue;
-  let roots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone));
+  let roots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone&&c.children.some(d=>d.isBone)));
   if(roots.length<3||roots.length>6)continue;
-  if(mode==='wrist'){const center=roots.reduce((p,b)=>p.add(b.getWorldPosition(new THREE.Vector3())),new THREE.Vector3()).multiplyScalar(1/roots.length),axis=center.sub(hand.getWorldPosition(new THREE.Vector3()));if(axis.length()>1e-6)channels.push([hand,axis.normalize().applyQuaternion(hand.getWorldQuaternion(new THREE.Quaternion()).invert()),amount]);continue;}
+  if(mode==='wrist'){const center=roots.reduce((p,b)=>p.add(b.getWorldPosition(new THREE.Vector3())),new THREE.Vector3()).multiplyScalar(1/roots.length),axis=analysis.mapping[role.replace('Hand','LowerArm')]?hand.getWorldPosition(new THREE.Vector3()).sub(analysis.mapping[role.replace('Hand','LowerArm')].getWorldPosition(new THREE.Vector3())):center.sub(hand.getWorldPosition(new THREE.Vector3()));if(axis.length()>1e-6)channels.push([hand,axis.normalize().applyQuaternion(hand.getWorldQuaternion(new THREE.Quaternion()).invert()),amount]);continue;}
   if(mode==='thumb'){const directions=roots.map(b=>b.children.find(c=>c.isBone).getWorldPosition(new THREE.Vector3()).sub(b.getWorldPosition(new THREE.Vector3())).normalize()),median=directions.reduce((p,d)=>p.add(d),new THREE.Vector3()).normalize(),scores=directions.map((d,i)=>({i,dot:d.dot(median)})).sort((a,b)=>a.dot-b.dot);if(scores[0].dot>.9||scores[1].dot-scores[0].dot<.08)continue;roots=[roots[scores[0].i]];}
-  const planeRoots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone)),spread=planeRoots.at(-1).getWorldPosition(new THREE.Vector3()).sub(planeRoots[0].getWorldPosition(new THREE.Vector3()));
+  const planeRoots=hand.children.filter(b=>b.isBone&&b.children.some(c=>c.isBone&&c.children.some(d=>d.isBone))),spread=planeRoots.at(-1).getWorldPosition(new THREE.Vector3()).sub(planeRoots[0].getWorldPosition(new THREE.Vector3()));
   if(spread.length()<1e-6)continue;spread.normalize();
   for(const start of roots){let b=start;for(let depth=0;depth<3&&b;depth++){
    const next=b.children.filter(c=>c.isBone);if(next.length!==1)break;
