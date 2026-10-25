@@ -44,8 +44,8 @@ export function nativeRelocations(input) {
         ok(p + 4 <= end, "Unaligned native hand table");
         const target = v.getUint32(p, true);
         ok(
-          target >= 1536 && target < model.bytes.length,
-          "Native hand table is not a pointer-only table",
+          target >= 1536 && target < model.bytes.length && target % 4 === 0,
+          "Native hand table is not an aligned pointer-only table",
         );
         set.add(p);
       }

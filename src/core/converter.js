@@ -404,6 +404,10 @@ export async function convertCharacter(
   }
   const seamRepair=art?conformAnatomicalSeams(root):null;
   const windingRepairs=[];if(art)root.traverse(m=>{if(m.isMesh)windingRepairs.push({mesh:m.name,...repairWinding(m.geometry)});});
+  // Conformity may split original region triangles. Report the actual final
+  // allocation rather than stale counts from before seam repair.
+  const finalAllocations=new Map();root.traverse(m=>{if(!m.isMesh)return;const mats=Array.isArray(m.material)?m.material:[m.material];for(const group of m.geometry.groups){const role=m.userData.studioRegions?.find(r=>r.start===group.start)?.role,key=m.name+'|'+role+'|'+mats[group.materialIndex]?.name;finalAllocations.set(key,(finalAllocations.get(key)??0)+group.count/3);}});
+  for(const r of report){const count=finalAllocations.get(r.mesh+'|'+r.region+'|'+r.material);if(count!==undefined&&count!==r.after){r.beforeSeamRepair=r.after;r.postRepairTrianglesAdded=count-r.after;r.after=count;}}
   configureSkinning(root);
   const stats = inspectScene(root);
   if (stats.triangles > settings.triangles)

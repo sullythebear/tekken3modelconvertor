@@ -1,7 +1,7 @@
 name: Publish Windows development review
 on:
   push:
-    branches: [main, recovery/070-dev2, development/070-dev6]
+    branches: [main, recovery/070-dev2, development/070-dev7]
   workflow_dispatch:
 permissions:
   contents: read
@@ -85,7 +85,7 @@ jobs:
         run: throw 'Nikki project roundtrip did not pass; see the published sanitized measurement report.'
   open-review-pr:
     needs: review
-    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev6'
+    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev7'
     runs-on: ubuntu-latest
     continue-on-error: true
     permissions:
@@ -99,9 +99,9 @@ jobs:
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
-          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev6 --state open --json url --jq '.[0].url // empty')
+          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev7 --state open --json url --jq '.[0].url // empty')
           if [ -n "$existing" ]; then echo "$existing"; exit 0; fi
-          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev6 --title '0.7.0-dev.6: continuous body surfaces, hands and source-derived skin baking' --body-file docs/PR_070_DEV6.md 2>&1); then
+          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev7 --title '0.7.0-dev.7: source-supported seam repair and efficient anatomical optimization' --body-file docs/PR_070_DEV7.md 2>&1); then
             echo "::error title=Review PR unavailable::$result"
             exit 1
           fi

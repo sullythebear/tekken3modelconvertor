@@ -1,40 +1,66 @@
-# 0.7.0-dev.6 — whole-character integrity review
+# 0.7.0-dev.7 — gerepareerde anatomische aansluitingen en efficiëntere kandidaten
 
-This is a development build requiring human visual approval. It does not establish real Tekken 3 / Expanded gameplay compatibility.
+Artistieke acceptatie: **wacht op menselijke beoordeling**. Geen echte Nina/Expanded-gamevalidatie. Main wordt niet gemerged. Het volledige aangeleverde DOCX is getoetst: zie [claimsaudit](TECHNICAL_CLAIMS_070_DEV7.md). Onbewezen 900-triangle- en 31.000-bytewaarden zijn geen gemeten universele runtimecapaciteit.
 
-Changes:
+## Werkelijke reparaties
 
-- Source-connectivity reduction replaces blind clustering on torso, shoulders, arms and hands. Regional boundary positions stay invariant during automatic stylization; joint-weight fields contribute to reduction. Unsafe reductions retain the reliable source surface and report the fallback.
-- Hands have independent source UV crops and 8-bit palettes. Original bent finger poses and skinning are retained; no generic spread-finger template is imposed.
-- Skin diffuse shading is baked from original smooth normals. Genuine source colour/normal-map detail is retained, without noise, shiny shaders or fabricated AO. Upper-leg skin receives source-derived form shading where the exterior garment boundary is measured.
-- Whole-scene diagnostics distinguish original open borders, measured eye apertures, hair cards and unexplained boundaries. No arbitrary clothing/alpha hole filling. Counts, winding and nonmanifold edges are reported; public reports contain no original boundary vertex arrays.
-- The accepted face algorithm is unchanged. The report checks the full triangle-ordered geometry/UV/skin attribute signature against dev.5.1.
-- Shared diagnostic instrumentation produces comparable hand, wrist, elbow, shoulder, arm-raising and finger-flex images for both engines. These are source-rig diagnostics, not Tekken animations.
+- Oude dev.6-audit: 103 onverklaarde randen. Dezelfde versie onder de nieuwe audit: 97; zes overige markeringen zijn bewezen volledig behouden originele EyeShell-meshgrenzen. De 97 echte reconstructiefouten zijn in dev.7 gerepareerd: **0 onverklaard**.
+- Windingconflicten **47 → 0**. Alleen oriëntatiepariteit over gedeelde geometrische randen wordt hersteld; dit is geen absolute buitenzijdegarantie voor ieder willekeurig gesloten broncomponent.
+- **825 bewust/gecontextualiseerd open randen blijven bestaan**: 621 haar/alpha, 80 gemeten aperturen of bronopeningen, 124 volledig bewezen bron-meshgrenzen. Geen blind cappen van kleding of haar. 38 nonmanifold positiecontacten worden afzonderlijk gemeld (bron: 137); geen claim dat iedere surface manifold of botsingsvrij is.
+- Hals: herstelde echte niet-vlakke bronring, periodieke hoekcorrespondentie en T-junction-conformering. Kleding/benen: echte gedeelde broninterfaces in plaats van een gegiste horizontale doorsnede. Laarzen: consistente stripwinding, echte zoolcentrumfan en materiaalbewuste oppervlakteprojectie.
+- Bestaand kerngezicht behoudt exact dezelfde unieke geometrische/UV/skinattributes en oorspronkelijke ongekwantiseerde gezichtstexels in de gecontroleerde front-face-UV-regio. Hals, schedelkap, winding en globale palettekeuze worden apart gewijzigd/getest; niet de hele TIM byte-identiek genoemd.
+- Huidbaking gebruikt werkelijke bilineaire brontexels en geïnterpoleerde bron-normalvelden vóór RGB555. Geen ruis, nieuwe glans of extra geometrie om facettering te verbergen.
 
-Reproduce locally with Node 24 and dependencies installed:
+## Geometrie en optimalisatie
 
-```
-npm ci
-npm run build
-npm test
-```
+Artistiek model: **7.503 triangles** (dev.6: 7.386). De reparatie kost 117 triangles. Het grote voordeel zit in de kandidaatoptimalisatie, niet een lager artistiek aantal.
 
-For the complete visual comparison, prepare an unchanged checkout at commit `50a82e886275b11586d5f41bc852ebb8962decdb`, build its renderer, and set `DEV51_WORKTREE` to that checkout and `NIKKI_DIR` to your private FBX/TGA folder. Then run `node scripts/dev6-review.mjs`. Cesium Man must be present in each checkout's ignored `artifacts/fixtures/CesiumMan.glb`, with attribution in `artifacts/reference/ATTRIBUTION.txt`. The runner checks its pinned SHA-256. Reports and screenshots are placed in `artifacts/dev6-review`. Raw preparation/project files remain private; only the evidence packager's allowlist is published.
+| Regio, artistiek | Triangles |
+|---|---:|
+| Hoofd inclusief ogen/wimpers/tanden en nek | 1602 |
+| Haarvolume + cards | 2385 |
+| Torso | 507 |
+| Schouders en armen | 889 |
+| Handen/polsen/vingers | 1022 |
+| Kleding/bekken | 362 |
+| Benen en laarzen/voeten | 736 |
+| **Totaal** | **7503** |
 
-`node scripts/project-roundtrip-test.mjs` validates the private Nikki archive/assets, saves and reopens the whole project, checks byte-identical assets and reconversion, measures timings and memory, and deletes private temporary data. In Windows Actions it uses repository secret `NIKKI_DOWNLOAD_URL`; the publishing workflow also runs it in the actual packaged EXE. The URL, FBX, TGA and project ZIP are excluded from logs, caches and public artifacts. Npm dependency caching contains no model inputs.
+De fijnere gemeten onderverdeling staat in het HTML-/JSON-rapport: vingers 846, handpalmen/polsen 176, benen 256, laarzen/voeten 480, gezicht 621, nek 275, schedel 120, ogen/wimpers/tanden 586. Dit zijn bron-/geometriegedreven diagnostische labels, geen native donorbudgetten.
 
-Open `index.html` in the downloaded Visual-Review.zip to see the full comparison. Actual Windows outcomes are in WINDOWS-STATUS.md, windows-unit.xml, windows-portable.json and windows-nikki-project.json. Working-set sums may double-count shared pages; private committed bytes are a different counter, not unique resident RAM. One run does not prove a general memory improvement.
+| Experimenteel doel | Werkelijke dev.7-uitvoer |
+|---|---:|
+| 900 | 2476 |
+| 1200 | 2480 |
+| 1500 | 2504 |
+| 2000 | 2545 |
 
-Outstanding: review open clothing/neck/boot boundaries, finger silhouette and texture seams under motion. Experimental targets are not measured game capacities; higher actual counts deliberately retain protected surfaces. Artistically approving this release requires the user's screenshot review. Real Nina/Expanded loading and gameplay remain unverified.
+Alle vier: 0 onverklaarde randen, 0 windingconflicten. Dev.6 bij doel 2000: 4047. De gezamenlijke materiaalbewuste reductie vermijdt het vastzetten van iedere interne anatomische snede. Echte grenzen, categorical material-ID's, begrensde oppervlakfout, skeletgewichtsvelden, gezichtscontouren en vingers blijven bescherming houden. De doelen worden dus expliciet **niet gehaald**, en zijn geen gamecapaciteit.
 
-## Recorded cloud results
+Bij ongeveer gelijke werkelijke kosten: dev.5.1 **4025**, dev.6 **4047**, dev.7 **4092**. De gallery toont alle drie, zodat herstel niet uitsluitend met meer geometrie wordt verward. Handen in de laagste dev.7-kandidaat behouden 372 triangles versus 868 in de oude dev.6-2000-kandidaat; zichtbare vingers blijven hoekig en vereisen beoordeling.
 
-156 unit/integration tests pass, without skipped tests. Browser regressions cover import, source/GPU skinning, two native fixtures, source mapping, Cesium source animation, deterministic rendering, desktop IPC and the source-Electron smoke test. The complete private Nikki project roundtrip also passes; Windows receipts are generated separately by Actions.
+## Poses en andere personages
 
-Nikki's artistic intermediate has 7,386 triangles (dev.5.1: 6,038). The experimental requests 900 / 1,200 / 1,500 / 2,000 produce 4,028 / 4,028 / 4,031 / 4,047 triangles. None meets its requested target. The actual-cost comparison uses 4,025 baseline triangles versus 4,028 current triangles. These counts are not evidence of donor capacity.
+De oude testoverdracht gebruikte alleen bonenamen. Nikki heeft 29 dubbele namen. De gedeelde testharness koppelt nu alle 433 bones op hiërarchiepad en draagt alleen bind-relatieve rotatieverschillen over; dit verandert de oude conversie-engines niet. Alle versies zijn opnieuw met dezelfde correcte testharness gerenderd.
 
-Artistic allocation: head/face/eyes 1,551 (the reconstructed face itself remains 965); hair 2,385; torso 483; hips/clothing 360; shoulders/upper/lower arms 889; hands 1,022; full leg/boot regions 696. The technical JSON provides each side and material separately.
+In 13 diagnostische poses blijven alle 556 gemeten coincidente gewrichtsposities binnen tolerantie (maximumafstand 2,53e-8 preview-eenheden; tolerantie circa 2,45e-5). Bevat hoofd-, arm-, pols-, duim- en vingerbewegingen waar structurele ketens bestaan. Dit zijn geen echte Tekken-animaties, geen volledige self-intersectiontest en geen gameplaybewijs.
 
-Whole-character diagnostics flag 1,193 unexplained open edges in the baseline and 103 in dev.6: torso 16, hips/clothing 62, full leg/boot regions 12, head 13. No new open edges remain in shoulders, upper/lower arms or hands under this positional test. Those 103 edges are not silently accepted or blindly filled; visibility and intentional clothing openings still need review. The 47 winding inconsistencies are inherited from dev.5.1 and remain unresolved. The optimized candidate introduces no additional unexplained boundary edges relative to the artistic intermediate. These are geometric diagnostics, not a proof of watertightness or animation/game validity.
+Ook opnieuw gerenderd: Cesium Man **1122**, kort-haar synthetisch **3496**, afwijkend-kapsel synthetisch **2976** triangles; elk 0 onverklaarde randen en 0 windingconflicten. Bij onvoldoende betrouwbare gezichtsdata wordt veilige brongeometrie gebruikt. Bij het afwijkende kapsel wordt een onveilige gegenereerde gezichtskandidaat geweigerd; deze fallback telt niet als nieuwe gezichtstopologieverbetering.
 
-The artistic head's triangle-ordered geometry, UV and skin attributes have exactly the same SHA-256 signature as dev.5.1. The 128×128 face TIM's pixel indices and 256-colour palette also match exactly. Remaining concerns include clothing/neck/boot borders, faceted skin transitions, overlapping finger silhouettes in the source bent pose, and the higher geometry floor. Please judge the full gallery before granting artistic acceptance.
+## Tests en Windows
+
+**172 Node-tests**, 0 mislukt/overgeslagen; inclusief alle eerdere regressies. Herhaald: visuele import/conversie, skinning, bronmapping, referentie-import, native fixtureweergave en humanoidfixture, desktop-IPC, Linux Electron-smoke en privé-Nikki-projectronde met byte-identieke 24 assets en verwijderde tijdelijke bestanden.
+
+De releaseworkflow bouwt en start de daadwerkelijke Windows-portable EXE, voert opnieuw de 172 tests, desktoptest en privé-Nikki-projectronde uit. De **daadwerkelijke Windows-resultaten** staan na uitvoering in `WINDOWS-STATUS.md`, `windows-unit.xml`, `windows-portable.json` en `windows-nikki-project.json` in de download; bron-cloudmetingen worden niet als Windowsbewijs gebruikt. Vergelijkbare counters met dev.6: save 5434 ms, reopen 6109 ms, ZIP 49.789.433 bytes, opgetelde working sets 3,44 GiB, private committed 3,26 GiB. Eén run is geen statistisch geheugenbenchmark. Geen claim van unieke residente RAM uit opgetelde working sets.
+
+Nieuwe native controles: ongealigneerde hand-pose-relocatietargets worden geweigerd; manifests labelen de bestaande 31.000-packetguard als voorlopig referentiebeleid. Structuur-/CLUT-/slot-/UV-/relocatietests gebruiken eigen fixtures, geen echte Nina-data.
+
+## Nog te beoordelen / niet opgelost
+
+Handen en kandidaten blijven hoekig; fijne vinger-, huid- en kledingsdetails kunnen verloren gaan. Haarcards behouden transparantieranden en zijn niet geheel gesloten volumes. Numeriek verklaarde grenzen en nul pariteitsconflicten garanderen niet dat iedere kijkhoek of pose artistiek overtuigt. Nonmanifold contacten zijn niet stilzwijgend als gerepareerd aangemerkt. Beoordeel vooral handpalmen, vingers, oksels, nek, huidkleurvakken, korte broek en laarszolen in de grote afbeeldingen.
+
+Geen originele donor, runtimecapaciteit, Nina-bind-/handvariantverificatie of werkelijke gameplay uitgevoerd. Geen BNS-injectie. **Artistieke goedkeuring blijft aan de gebruiker.**
+
+## Reproduceren
+
+`npm ci`; `npm test`; `npm run build`. Maak ongewijzigde dev.5.1/dev.6-worktrees. Met privé `NIKKI_DIR`, `DEV51_WORKTREE`, `DEV6_WORKTREE`: `node scripts/dev7-review.mjs`. `REPORT_ONLY=1` assembleert bestaande meetgegevens. `node scripts/package-dev7-evidence.mjs` publiceert uitsluitend screenshots/tekst, zonder bronbestanden, textures, vertexsegmentarrays of project-ZIP's. De Windows-workflow gebruikt uitsluitend het bestaande `NIKKI_DOWNLOAD_URL` secret; geen bronassets in artifact/cache/release.

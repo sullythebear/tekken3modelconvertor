@@ -1,0 +1,9 @@
+{
+  runtime: { app: '0.7.0-dev.7', electron: '45.0.0', platform: 'linux' },
+  node: 'undefined',
+  buttons: 36,
+  importedSourceOverwrite: 'refused without changing original bytes',
+  discExtractionIPC: 'passed: raw Mode 2 data-track image with larger declared volume extracted byte-exactly with warning; unsupported executable still refused by UI; image unchanged',
+  gameBackupRestoreIPC: 'passed on synthetic files; rollback backup created',
+  importConvertExportIPC: 'passed on linux'
+}

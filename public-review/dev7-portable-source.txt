@@ -1,0 +1,24 @@
+[182724:1025/193416.690749:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[182724:1025/193416.917169:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[182724:1025/193416.917215:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[182724:1025/193416.917226:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[182724:1025/193416.919041:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 182751: Read-only file system (30)
+[182724:1025/193416.934966:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 182769: Read-only file system (30)
+[182724:1025/193416.936356:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[182724:1025/193416.936570:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[182724:1025/193416.938927:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+{
+  status: 'PASS',
+  platform: 'linux',
+  packaged: false,
+  version: '0.7.0-dev.7',
+  nodeIsolated: true,
+  sourceTriangles: 4784,
+  convertedTriangles: 3496,
+  atlasTiles: 4,
+  exportBytes: 639500,
+  fixture: 'authored synthetic; no Nikki or game files',
+  gameVerified: false,
+  mode: 'SOURCE ELECTRON ONLY',
+  executableSha256: 'b36c3ce9b423098a7854f4912f730b0654b41ae183818f887b8f1cd0a90725eb'
+}

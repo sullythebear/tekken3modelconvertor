@@ -1,0 +1,1750 @@
+{
+  "model": "cesium",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 1,
+        "vertices": 3273,
+        "triangles": 4672,
+        "materials": 1,
+        "textures": 1,
+        "skinnedMeshes": 1,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "CesiumMan.glb",
+          "bytes": 438044,
+          "role": "model"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 19,
+        "mapping": [],
+        "missing": [
+          "hips",
+          "spine",
+          "head",
+          "leftShoulder",
+          "leftUpperArm",
+          "leftLowerArm",
+          "leftHand",
+          "rightShoulder",
+          "rightUpperArm",
+          "rightLowerArm",
+          "rightHand",
+          "leftUpperLeg",
+          "leftLowerLeg",
+          "leftFoot",
+          "rightUpperLeg",
+          "rightLowerLeg",
+          "rightFoot"
+        ],
+        "ambiguous": [],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 3273,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 4,
+        "extendedMeshes": 0
+      },
+      "materials": [
+        {
+          "name": "Cesium_Man-effect",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        }
+      ],
+      "warnings": []
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 1,
+        "vertices": 869,
+        "triangles": 1122,
+        "materials": 1,
+        "textures": 1,
+        "skinnedMeshes": 1,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "materials": [
+        {
+          "name": "Cesium_Man-effect",
+          "type": "MeshStandardMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "source-binding"
+          }
+        }
+      ],
+      "warnings": [
+        "Appearance error / protected topology prevent the requested budget: 1122 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+      ],
+      "regions": [
+        {
+          "mesh": "Cesium_Man",
+          "region": "spine",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1408,
+          "target": 105,
+          "after": 154,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 105,
+            "error": 0.032970231026411057,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 124,
+            "lockedVertices": 124,
+            "trackedSkinBones": 11,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 110,
+              "outputOpenEdges": 110,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 1,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00001282316597888204
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "leftLowerLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 352,
+          "target": 53,
+          "after": 94,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 53,
+            "error": 0.01786196604371071,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 15,
+            "lockedVertices": 15,
+            "trackedSkinBones": 5,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 14,
+              "outputOpenEdges": 14,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004476901284441898
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "rightLowerLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 352,
+          "target": 53,
+          "after": 96,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 53,
+            "error": 0.017847277224063873,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 15,
+            "lockedVertices": 15,
+            "trackedSkinBones": 5,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 14,
+              "outputOpenEdges": 14,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004476901028134068
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "head",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 2204,
+          "target": 598,
+          "after": 598,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 598,
+            "error": 0.00843106023967266,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 112,
+            "lockedVertices": 112,
+            "trackedSkinBones": 3,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 90,
+              "outputOpenEdges": 90,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005148511097852406
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "leftUpperLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 146,
+          "target": 34,
+          "after": 70,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01770581491291523,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 43,
+            "lockedVertices": 43,
+            "trackedSkinBones": 8,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 30,
+              "outputOpenEdges": 30,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004229437017627641
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "rightUpperLeg",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 138,
+          "target": 33,
+          "after": 62,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017704950645565987,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 32,
+            "lockedVertices": 32,
+            "trackedSkinBones": 7,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 26,
+              "outputOpenEdges": 26,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000039895449193123244
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        },
+        {
+          "mesh": "Cesium_Man",
+          "region": "hips",
+          "material": "Cesium_Man-effect",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 72,
+          "target": 24,
+          "after": 48,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.013550471514463425,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 38,
+            "lockedVertices": 38,
+            "trackedSkinBones": 7,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 36,
+              "outputOpenEdges": 36,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000036777085715744825
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "creaseProtection": {
+              "method": "Measured lower-region dihedral creases; source UV seams welded only for analysis",
+              "selectedEdges": 0,
+              "availableEdges": 0,
+              "minAngle": 55,
+              "lowerFraction": 0.6,
+              "maxEdges": 24
+            },
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "combined",
+          "dither": false,
+          "flat": false
+        }
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "hand-flex",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "hand-relax",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "thumb-motion",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "wrist-roll",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "arms-raised",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "affectedBones": 0,
+          "finite": true,
+          "maxDisplacement": 3.5454174242286666e-7,
+          "samples": 869,
+          "checkedEdges": 3366,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "NOT MEASURED: no semantic face surface"
+        },
+        "sourceHealth": {
+          "triangles": 4672,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 0.49055281074101903,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 1122,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 0,
+          "uvDensityLogStdDev": 0.5333389887563507,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 1122,
+        "sourceTriangles": 4672,
+        "reconstruction": [
+          {
+            "region": "spine",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 105,
+            "error": 0.032970231026411057,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 124,
+            "lockedVertices": 124,
+            "trackedSkinBones": 11,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 110,
+              "outputOpenEdges": 110,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 1,
+              "degenerateTriangles": 0,
+              "tolerance": 0.00001282316597888204
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 53,
+            "error": 0.01786196604371071,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 15,
+            "lockedVertices": 15,
+            "trackedSkinBones": 5,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 14,
+              "outputOpenEdges": 14,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004476901284441898
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 53,
+            "error": 0.017847277224063873,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 15,
+            "lockedVertices": 15,
+            "trackedSkinBones": 5,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 14,
+              "outputOpenEdges": 14,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004476901028134068
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "head",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 598,
+            "error": 0.00843106023967266,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 112,
+            "lockedVertices": 112,
+            "trackedSkinBones": 3,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 90,
+              "outputOpenEdges": 90,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000005148511097852406
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.01770581491291523,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 43,
+            "lockedVertices": 43,
+            "trackedSkinBones": 8,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 30,
+              "outputOpenEdges": 30,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.000004229437017627641
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.017704950645565987,
+            "errorLimit": 0.018,
+            "boundaryLockedVertices": 32,
+            "lockedVertices": 32,
+            "trackedSkinBones": 7,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 26,
+              "outputOpenEdges": 26,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000039895449193123244
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          },
+          {
+            "region": "hips",
+            "material": "Cesium_Man-effect",
+            "method": "Continuous body topology with invariant regional borders",
+            "target": 48,
+            "error": 0.013550471514463425,
+            "errorLimit": 0.035,
+            "boundaryLockedVertices": 38,
+            "lockedVertices": 38,
+            "trackedSkinBones": 7,
+            "anatomicalWeightFields": false,
+            "materialBoundaryAttribute": false,
+            "residualLockedVertices": 0,
+            "integrity": {
+              "sourceInconsistentWinding": 0,
+              "sourceOpenEdges": 36,
+              "outputOpenEdges": 36,
+              "unexpectedOpenEdges": 0,
+              "inconsistentWinding": 0,
+              "nonmanifoldEdges": 0,
+              "degenerateTriangles": 0,
+              "tolerance": 0.0000036777085715744825
+            },
+            "fallbackReason": null,
+            "occludedShellTriangles": 0,
+            "creaseProtection": {
+              "method": "Measured lower-region dihedral creases; source UV seams welded only for analysis",
+              "selectedEdges": 0,
+              "availableEdges": 0,
+              "minAngle": 55,
+              "lowerFraction": 0.6,
+              "maxEdges": 24
+            },
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0,
+              "continuityPreserved": true,
+              "requestedScale": 1
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 0
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "hand-flex",
+            "edges": 0
+          },
+          {
+            "pose": "hand-relax",
+            "edges": 0
+          },
+          {
+            "pose": "thumb-motion",
+            "edges": 0
+          },
+          {
+            "pose": "wrist-roll",
+            "edges": 0
+          },
+          {
+            "pose": "arms-raised",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 0
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied.",
+        "windingRepairs": [
+          {
+            "mesh": "Cesium_Man",
+            "before": 0,
+            "after": 0,
+            "flippedTriangles": 0,
+            "components": 2,
+            "nonorientableComponents": 0,
+            "policy": "Shared-edge parity with minimum changed surface area; no vertex/UV/weight relocation"
+          }
+        ],
+        "seamRepair": {
+          "splitTriangles": 0,
+          "unavailableSkin": 0,
+          "addedBones": 0,
+          "tolerance": 0.000001913812195076564,
+          "policy": "Only coincident head/torso and garment/leg interfaces; UVs interpolated on their own material, categorical bone identities mapped explicitly"
+        },
+        "integrity": {
+          "triangles": 1122,
+          "openEdges": 0,
+          "byRegion": {},
+          "classifications": {},
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 0,
+          "sourceInconsistentWinding": 0,
+          "sourceNonmanifoldEdges": 0,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 1,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        }
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 512,
+      "paletteBytes": 32,
+      "readbackStats": {
+        "requests": 1,
+        "reads": 1,
+        "hits": 0,
+        "peakRetainedBytes": 0,
+        "retainedBytes": 0
+      },
+      "tiles": [
+        {
+          "material": "Cesium_Man-effect",
+          "clut": 30768,
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "anatomyStatistics": {
+    "triangles": {
+      "spine": 154,
+      "leftLowerLeg": 94,
+      "rightLowerLeg": 96,
+      "eyes-lashes-teeth": 598,
+      "leftUpperLeg": 70,
+      "rightUpperLeg": 62,
+      "hips": 48
+    },
+    "coincidentTriangleCandidates": {},
+    "hiddenGeometry": "Not certified by static views; no blind deletion",
+    "note": "Face/neck use anatomical UV zones; fingers use structural digit chains and skin weights; boot separation uses measured garment cuff. Coincident faces are diagnostic candidates, not automatically redundant."
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.9326160815402038,
+      "sourcePixels": 5261,
+      "preparedPixels": 4978
+    },
+    {
+      "view": "side",
+      "iou": 0.9459183673469388,
+      "sourcePixels": 3905,
+      "preparedPixels": 3723
+    },
+    {
+      "view": "left-side",
+      "iou": 0.9413414945167049,
+      "sourcePixels": 3905,
+      "preparedPixels": 3707
+    },
+    {
+      "view": "right-side",
+      "iou": 0.9459183673469388,
+      "sourcePixels": 3905,
+      "preparedPixels": 3723
+    },
+    {
+      "view": "back",
+      "iou": 0.927760375880971,
+      "sourcePixels": 5083,
+      "preparedPixels": 4764
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.9500086790487763,
+      "sourcePixels": 5720,
+      "preparedPixels": 5514
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-flex",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-relax",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "thumb-motion",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "wrist-roll",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "arms-raised",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "affectedBones": 0,
+      "finite": true,
+      "maxDisplacement": 4.061157240754796e-7,
+      "samples": 1091,
+      "checkedEdges": 14016,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "poseSeamContinuity": [
+    {
+      "pose": "guard",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "reach",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "crouch",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "idle",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-flex",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-relax",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "arms-raised",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "walk",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "punch",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "kick",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "face-motion",
+      "status": "MEASURED",
+      "pairedPositions": 156,
+      "maxGap": 0,
+      "overTolerance": 0,
+      "tolerance": 0.000025406545882448453,
+      "byInterface": {
+        "hips/spine": {
+          "samples": 20,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 90,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerLeg/leftUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerLeg/rightUpperLeg": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/leftUpperLeg": {
+          "samples": 11,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightUpperLeg": {
+          "samples": 7,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    }
+  ],
+  "poseTransfer": {
+    "matchedBones": 19,
+    "duplicateSourceNames": 0,
+    "mode": "Hierarchy paths and bind-relative rotation deltas; no name-only matching"
+  },
+  "exportValidation": {
+    "headGeometrySha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "faceInteriorGeometrySha256": null,
+    "faceInteriorTextureSha256": null,
+    "glbSha256": "3c9bb611b58452a5f66443c998460def2818007eea8ddf1433c5f9fdf613e300",
+    "timHashes": {
+      "textures/00.tim": "810b03b442d36f76badf568d69a166347739d4dc67d48a044c89ce827f77019b"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "4b457fce63eef112d6e0794f1f6da4e7c4737a4506260b07e30f70317c8e29b7",
+        "paletteSha256": "4c28eda30a13c58b34d0c506fb80f30884d44536c60663ede3f9cb52fa566bda"
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}

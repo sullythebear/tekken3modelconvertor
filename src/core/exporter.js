@@ -238,6 +238,7 @@ export function buildNativeCandidate({
       modelId,
       modelBytes: native.bytes,
       packetBytes: native.packetBytes,
+      packetBudget: { bytes: 31000, provenance: "provisional-reference-importer-policy", runtimeCapacityVerified: false },
       gameCompatible: false,
       gameVerified: false,
       limitations: [

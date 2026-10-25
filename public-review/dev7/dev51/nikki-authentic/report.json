@@ -1,0 +1,3613 @@
+{
+  "model": "nikki",
+  "preset": "authentic",
+  "report": {
+    "schema": "t3cs-preparation/1",
+    "viewMode": "original source and preparation",
+    "nativeCandidate": null,
+    "nativeDiagnosticPose": null,
+    "source": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 132336,
+        "triangles": 44112,
+        "materials": 8,
+        "textures": 17,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "files": [
+        {
+          "name": "CargoLying_1002_N.tga",
+          "bytes": 1048594,
+          "role": "normal"
+        },
+        {
+          "name": "Nikki FN.fbx",
+          "bytes": 5554672,
+          "role": "model"
+        },
+        {
+          "name": "T_CargoLying_Body_D.tga",
+          "bytes": 16777234,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Body_M.tga",
+          "bytes": 16777234,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_Body_N.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Body_S.tga",
+          "bytes": 16777234,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+          "bytes": 262162,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+          "bytes": 262162,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+          "bytes": 262162,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+          "bytes": 262162,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_D.tga",
+          "bytes": 16777234,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_M.tga",
+          "bytes": 16777234,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_N.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_S.tga",
+          "bytes": 16777234,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_Strands.tga",
+          "bytes": 16777234,
+          "role": "opacity"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+          "bytes": 16777234,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_FaceAcc_Tangent.tga",
+          "bytes": 16777234,
+          "role": "tangent"
+        },
+        {
+          "name": "T_CargoLying_Head_D.tga",
+          "bytes": 8388626,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Head_M.tga",
+          "bytes": 8388626,
+          "role": "mask"
+        },
+        {
+          "name": "T_CargoLying_Head_N.tga",
+          "bytes": 8388626,
+          "role": "normal"
+        },
+        {
+          "name": "T_CargoLying_Head_S.tga",
+          "bytes": 8388626,
+          "role": "specular"
+        },
+        {
+          "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+          "bytes": 1048594,
+          "role": "diffuse"
+        },
+        {
+          "name": "T_CargoLying_Teeth_SRMO_Baked_REVISED.tga",
+          "bytes": 1048594,
+          "role": "mask"
+        },
+        {
+          "name": "T_Cosmetics_eyelashMat_D.tga",
+          "bytes": 4194322,
+          "role": "diffuse"
+        }
+      ],
+      "skeleton": {
+        "boneCount": 433,
+        "mapping": [
+          {
+            "role": "hips",
+            "name": "pelvis",
+            "row": 3,
+            "confidence": "name-match",
+            "position": [
+              0,
+              98.0571389,
+              -0.5301266999999783
+            ]
+          },
+          {
+            "role": "spine",
+            "name": "spine_01",
+            "row": 1,
+            "confidence": "name-match",
+            "position": [
+              -2.9999999950756304e-7,
+              104.20740840000003,
+              -1.2431091999999753
+            ]
+          },
+          {
+            "role": "leftShoulder",
+            "name": "clavicle_l",
+            "row": 11,
+            "confidence": "name-match",
+            "position": [
+              3.294614700000003,
+              136.61601538429002,
+              -4.113717399474076
+            ]
+          },
+          {
+            "role": "leftUpperArm",
+            "name": "upperarm_l",
+            "row": 12,
+            "confidence": "name-match",
+            "position": [
+              13.037049795579328,
+              135.54464575261454,
+              -5.8202836969074925
+            ]
+          },
+          {
+            "role": "leftLowerArm",
+            "name": "lowerarm_l",
+            "row": 13,
+            "confidence": "name-match",
+            "position": [
+              32.96282884999388,
+              118.12214842336019,
+              -6.582325677051426
+            ]
+          },
+          {
+            "role": "leftHand",
+            "name": "hand_l",
+            "row": 14,
+            "confidence": "name-match",
+            "position": [
+              48.17425596396407,
+              104.4381261922847,
+              3.3544667329283104
+            ]
+          },
+          {
+            "role": "rightShoulder",
+            "name": "clavicle_r",
+            "row": 15,
+            "confidence": "name-match",
+            "position": [
+              -3.2946183999999956,
+              136.61601538429,
+              -4.113718099474058
+            ]
+          },
+          {
+            "role": "rightUpperArm",
+            "name": "upperarm_r",
+            "row": 16,
+            "confidence": "name-match",
+            "position": [
+              -13.037060195579324,
+              135.54457425261472,
+              -5.820283996907635
+            ]
+          },
+          {
+            "role": "rightLowerArm",
+            "name": "lowerarm_r",
+            "row": 17,
+            "confidence": "name-match",
+            "position": [
+              -32.96485231754535,
+              118.12436414967667,
+              -6.582281735564053
+            ]
+          },
+          {
+            "role": "rightHand",
+            "name": "hand_r",
+            "row": 18,
+            "confidence": "name-match",
+            "position": [
+              -48.177824184502285,
+              104.44211621398576,
+              3.354555379510228
+            ]
+          },
+          {
+            "role": "head",
+            "name": "head",
+            "row": 19,
+            "confidence": "name-match",
+            "position": [
+              -0.000002399999997441384,
+              152.03424694214593,
+              -1.687190303587156
+            ]
+          },
+          {
+            "role": "leftUpperLeg",
+            "name": "thigh_l",
+            "row": 5,
+            "confidence": "name-match",
+            "position": [
+              8.7052889,
+              96.97993400000003,
+              -0.7797666999999779
+            ]
+          },
+          {
+            "role": "leftLowerLeg",
+            "name": "calf_l",
+            "row": 6,
+            "confidence": "name-match",
+            "position": [
+              12.449081999955354,
+              54.61088420062119,
+              -0.9882477999426199
+            ]
+          },
+          {
+            "role": "leftFoot",
+            "name": "foot_l",
+            "row": 7,
+            "confidence": "name-match",
+            "position": [
+              14.826181499999997,
+              8.296009900000001,
+              -7.354582099999999
+            ]
+          },
+          {
+            "role": "rightUpperLeg",
+            "name": "thigh_r",
+            "row": 8,
+            "confidence": "name-match",
+            "position": [
+              -8.705288899999992,
+              96.97993400000003,
+              -0.7797666999999783
+            ]
+          },
+          {
+            "role": "rightLowerLeg",
+            "name": "calf_r",
+            "row": 9,
+            "confidence": "name-match",
+            "position": [
+              -12.447867499955382,
+              54.61078290062099,
+              -0.9882474999426116
+            ]
+          },
+          {
+            "role": "rightFoot",
+            "name": "foot_r",
+            "row": 10,
+            "confidence": "name-match",
+            "position": [
+              -14.823737700000002,
+              8.295822100000002,
+              -7.354500899999998
+            ]
+          }
+        ],
+        "missing": [],
+        "ambiguous": [
+          "leftShoulder",
+          "rightShoulder",
+          "head"
+        ],
+        "gameAnimationVerified": false
+      },
+      "weights": {
+        "vertices": 132336,
+        "invalid": 0,
+        "unnormalized": 0
+      },
+      "skinning": {
+        "maxInfluences": 8,
+        "extendedMeshes": 6
+      },
+      "materials": [
+        {
+          "name": "MI_CargoLying_FaceAcc_Alt_Under",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.2,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_FaceAcc_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "alphaMap": {
+              "name": "T_CargoLying_FaceAcc_Strands.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_FaceAcc_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_FaceAcc_D.tga",
+            "normal": "T_CargoLying_FaceAcc_StrandsN.tga",
+            "specular": "T_CargoLying_FaceAcc_S.tga",
+            "opacity": "T_CargoLying_FaceAcc_Strands.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyelashes",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.15,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            },
+            "alphaMap": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_Cosmetics_eyelashMat_D.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_iris",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Iris_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Iris_N_Baked.tga",
+            "uvRemap": {
+              "bounds": [
+                0.33837890625,
+                0.33837890625,
+                0.66162109375,
+                0.66162109375
+              ],
+              "method": "inferred iris subchart to full baked iris texture"
+            },
+            "specularApproximation": "low iris highlight; clear eye shell provides corneal reflection"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_sclera",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Sclera_N_Baked.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Teeth",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+              "width": 512,
+              "height": 512
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Teeth_D_Baked_REVISED.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyeshell",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 0.08,
+          "alphaTest": 0,
+          "transparent": true,
+          "textures": {},
+          "resolution": {
+            "method": "untextured-eye-shell-fallback",
+            "assumption": "transparent corneal cover"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Head",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Head_D.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Head_N.tga",
+              "width": 2048,
+              "height": 1024
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Head_S.tga",
+              "width": 2048,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Head_D.tga",
+            "normal": "T_CargoLying_Head_N.tga",
+            "specular": "T_CargoLying_Head_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        }
+      ],
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under: inferred green-channel strand opacity from T_CargoLying_FaceAcc_Strands.tga; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_FaceAcc_Alt_Under → T_CargoLying_FaceAcc_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Body → T_CargoLying_Body_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_Eyelashes: inferred eyelash green-channel cutout and dark fibre tint from grayscale texture; verify visually.",
+        "Material-family fallback: MI_CargoLying_Eyelashes → T_Cosmetics_eyelashMat_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_iris → T_CargoLying_Eye_Iris_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_sclera → T_CargoLying_Eye_Sclera_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Teeth → T_CargoLying_Teeth_D_Baked_REVISED.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_EyeTeeth: compact pupil-weighted UV chart mapped to full iris images; source UV buffers preserved.",
+        "MI_CargoLying_EyeTeeth: eye iris, sclera and teeth separated using source pupil/eye/teeth/tongue skin influences; original positions, UVs and weights preserved.",
+        "MI_CargoLying_Eyeshell: untextured eye shell approximated as transparent corneal cover; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_Head → T_CargoLying_Head_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Preserved up to 8 skin influences per vertex across all joint sets."
+      ]
+    },
+    "conversion": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 5965,
+        "triangles": 6038,
+        "materials": 14,
+        "textures": 23,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "materials": [
+        {
+          "name": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            },
+            "specularMap": {
+              "name": "T_CargoLying_FaceAcc_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_FaceAcc_D.tga",
+            "normal": "T_CargoLying_FaceAcc_StrandsN.tga",
+            "specular": "T_CargoLying_FaceAcc_S.tga",
+            "opacity": "T_CargoLying_FaceAcc_Strands.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.2,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_FaceAcc_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_FaceAcc_StrandsN.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "alphaMap": {
+              "name": "T_CargoLying_FaceAcc_Strands.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_FaceAcc_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_FaceAcc_D.tga",
+            "normal": "T_CargoLying_FaceAcc_StrandsN.tga",
+            "specular": "T_CargoLying_FaceAcc_S.tga",
+            "opacity": "T_CargoLying_FaceAcc_Strands.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_torso_rebaked",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 256,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_legs_right_envelope",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_legs_left_envelope",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 128,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_torso_rebaked",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 256,
+              "height": 128
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_arms_right",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Body_arms_left",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Body_D.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Body_N.tga",
+              "width": 2048,
+              "height": 2048
+            },
+            "specularMap": {
+              "name": "T_CargoLying_Body_S.tga",
+              "width": 2048,
+              "height": 2048
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Body_D.tga",
+            "normal": "T_CargoLying_Body_N.tga",
+            "specular": "T_CargoLying_Body_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyelashes",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0.15,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            },
+            "alphaMap": {
+              "name": "T_Cosmetics_eyelashMat_D.tga",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_Cosmetics_eyelashMat_D.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_iris",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Iris_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Iris_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Iris_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Iris_N_Baked.tga",
+            "uvRemap": {
+              "bounds": [
+                0.33837890625,
+                0.33837890625,
+                0.66162109375,
+                0.66162109375
+              ],
+              "method": "inferred iris subchart to full baked iris texture"
+            },
+            "specularApproximation": "low iris highlight; clear eye shell provides corneal reflection"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eye_sclera",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+              "width": 256,
+              "height": 256
+            },
+            "normalMap": {
+              "name": "T_CargoLying_Eye_Sclera_N_Baked.tga",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Eye_Sclera_D_Baked.tga",
+            "normal": "T_CargoLying_Eye_Sclera_N_Baked.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Teeth",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "T_CargoLying_Teeth_D_Baked_REVISED.tga",
+              "width": 512,
+              "height": 512
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Teeth_D_Baked_REVISED.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Eyeshell",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 0.08,
+          "alphaTest": 0,
+          "transparent": true,
+          "textures": {},
+          "resolution": {
+            "method": "untextured-eye-shell-fallback",
+            "assumption": "transparent corneal cover"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        },
+        {
+          "name": "MI_CargoLying_Head_anatomical",
+          "type": "MeshPhongMaterial",
+          "vertexColors": false,
+          "opacity": 1,
+          "alphaTest": 0,
+          "transparent": false,
+          "textures": {
+            "map": {
+              "name": "",
+              "width": 256,
+              "height": 256
+            }
+          },
+          "resolution": {
+            "method": "material-family-fallback",
+            "diffuse": "T_CargoLying_Head_D.tga",
+            "normal": "T_CargoLying_Head_N.tga",
+            "specular": "T_CargoLying_Head_S.tga"
+          },
+          "originalAppearance": {
+            "color": [
+              0.6038273590529664,
+              0.6038273590529664,
+              0.6038273590529664
+            ],
+            "vertexColors": true,
+            "specular": [
+              0.2140411404715882,
+              0.2140411404715882,
+              0.2140411404715882
+            ],
+            "shininess": 0.4000000059604645
+          }
+        }
+      ],
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under: inferred green-channel strand opacity from T_CargoLying_FaceAcc_Strands.tga; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_FaceAcc_Alt_Under → T_CargoLying_FaceAcc_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Body → T_CargoLying_Body_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_Eyelashes: inferred eyelash green-channel cutout and dark fibre tint from grayscale texture; verify visually.",
+        "Material-family fallback: MI_CargoLying_Eyelashes → T_Cosmetics_eyelashMat_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_iris → T_CargoLying_Eye_Iris_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Eye_sclera → T_CargoLying_Eye_Sclera_D_Baked.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Material-family fallback: MI_CargoLying_Teeth → T_CargoLying_Teeth_D_Baked_REVISED.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "MI_CargoLying_EyeTeeth: compact pupil-weighted UV chart mapped to full iris images; source UV buffers preserved.",
+        "MI_CargoLying_EyeTeeth: eye iris, sclera and teeth separated using source pupil/eye/teeth/tongue skin influences; original positions, UVs and weights preserved.",
+        "MI_CargoLying_Eyeshell: untextured eye shell approximated as transparent corneal cover; verify against the source shader.",
+        "Material-family fallback: MI_CargoLying_Head → T_CargoLying_Head_D.tga; source shader links are absent. Unreal proxy tint/vertex masks are excluded from albedo rendering; data preserved.",
+        "Preserved up to 8 skin influences per vertex across all joint sets.",
+        "F_MED_CargoLying_LOD0: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0001: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0001: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0002: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0002: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0003: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0003: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0004: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0004: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "F_MED_CargoLying_LOD0005: morph targets excluded from reduced output.",
+        "F_MED_CargoLying_LOD0005: unused reduced-output attributes omitted: color, uv1; source retained.",
+        "Appearance error / protected topology prevent the requested budget: 6038 > 900. See per-region budget diagnostics. Export will enforce limits.",
+        "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+      ],
+      "regions": [
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "hair-cards",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+          "before": 1905,
+          "target": 0,
+          "after": 1905,
+          "reconstruction": {
+            "method": "Source alpha cards over inset support volume, bounded UV-aware reduction",
+            "sharesSourceRegion": true,
+            "reduction": {
+              "before": 9866,
+              "after": 1905,
+              "error": 0.006953099276870489
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0",
+          "region": "hair",
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 9866,
+          "target": 202,
+          "after": 480,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "frameSource": "anatomical source head bone",
+            "method": "inset support volume with silhouette-preserving source alpha cards",
+            "generatedVertices": 386,
+            "triangles": 640,
+            "alphaRejected": 2654,
+            "oppositeRejected": 4077,
+            "maximumDiscardedWeight": 0.03548138569534019,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "supportReduction": {
+              "before": 640,
+              "after": 480,
+              "error": 0.00793109368532896,
+              "errorLimit": 0.008,
+              "scope": "Inset support only; open boundaries locked; outer alpha cards unchanged"
+            },
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "spine",
+          "material": "MI_CargoLying_Body_torso_rebaked",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 5601,
+          "target": 39,
+          "after": 309,
+          "error": 0.07908082008361816,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.780049743289183,
+            "clusters": 1124,
+            "step": 7.800442723472683,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 3.550625338405646,
+            "lockedVertices": 476,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18904745101928708
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightLowerLeg",
+          "material": "MI_CargoLying_Body_legs_right_envelope",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 3880,
+          "target": 33,
+          "after": 348,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 196,
+            "projectionTriangles": 4142,
+            "outerLayer": {
+              "components": 4,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 348,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.16539756581187245
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftLowerLeg",
+          "material": "MI_CargoLying_Body_legs_left_envelope",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 3880,
+          "target": 33,
+          "after": 348,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 196,
+            "projectionTriangles": 4141,
+            "outerLayer": {
+              "components": 5,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 348,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.16539756581187245
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "hips",
+          "material": "MI_CargoLying_Body_torso_rebaked",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 5296,
+          "target": 38,
+          "after": 337,
+          "error": 0.07529792189598083,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.479886182047998,
+            "clusters": 1299,
+            "step": 12.33512167224649,
+            "method": "feature-constrained surface clustering",
+            "region": "torso",
+            "maxDeviation": 3.717996442157882,
+            "lockedVertices": 588,
+            "occludedShellTriangles": 0,
+            "creaseProtection": {
+              "method": "Measured lower-region dihedral creases; source UV seams welded only for analysis",
+              "selectedEdges": 24,
+              "availableEdges": 469,
+              "minAngle": 55,
+              "lowerFraction": 0.6,
+              "maxEdges": 24
+            },
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18824588060379027
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightShoulder",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 399,
+          "target": 12,
+          "after": 117,
+          "error": 0.07621388137340546,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.7113059907915884,
+            "clusters": 238,
+            "step": 3.320458983810873,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.7231510610437193,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightHand",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1958,
+          "target": 24,
+          "after": 90,
+          "error": 0.07937196642160416,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.6091546290161372,
+            "clusters": 455,
+            "step": 1.9559549234350802,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09550228595733641
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftShoulder",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 395,
+          "target": 12,
+          "after": 119,
+          "error": 0.07069569826126099,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.648690728973838,
+            "clusters": 242,
+            "step": 5.169589272485567,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.7250672162342557,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightUpperArm",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 934,
+          "target": 16,
+          "after": 100,
+          "error": 0.07631609588861465,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.331760985194959,
+            "clusters": 327,
+            "step": 8.074424862612693,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 157,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "rightLowerArm",
+          "material": "MI_CargoLying_Body_arms_right",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 658,
+          "target": 13,
+          "after": 76,
+          "error": 0.07638662308454514,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 2.0561241707372657,
+            "clusters": 246,
+            "step": 8.28214360963884,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftUpperArm",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 935,
+          "target": 16,
+          "after": 101,
+          "error": 0.05726218223571777,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.680001782312277,
+            "clusters": 379,
+            "step": 6.921462875773705,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 158,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftLowerArm",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 658,
+          "target": 13,
+          "after": 74,
+          "error": 0.07127280533313751,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.9167994426762573,
+            "clusters": 275,
+            "step": 7.825831540815712,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0001",
+          "region": "leftHand",
+          "material": "MI_CargoLying_Body_arms_left",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 1708,
+          "target": 21,
+          "after": 83,
+          "error": 0.07888896018266678,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 1.701211242159471,
+            "clusters": 353,
+            "step": 5.128400977013003,
+            "method": "feature-constrained surface clustering",
+            "region": "arms",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09744702339172362
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0002",
+          "region": "head",
+          "material": "MI_CargoLying_Eyelashes",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 492,
+          "target": 52,
+          "after": 200,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "generatedVertices": 146,
+            "triangles": 200,
+            "method": "UV-preserving disconnected alpha cards with bounded surface error",
+            "sourceTriangles": 492,
+            "target": 200,
+            "error": 0.004234963562339544,
+            "alphaPreserved": true,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Eye_iris",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 432,
+          "target": 49,
+          "after": 48,
+          "error": 0.01872696913778782,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.029267215605079094,
+            "clusters": 228,
+            "step": 0.8429436744023675,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.1482987671879415,
+            "lockedVertices": 102,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Eye_sclera",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 504,
+          "target": 53,
+          "after": 106,
+          "error": 0.07616586238145828,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 288,
+            "step": 1.0475571818824339,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.18429634547311907,
+            "lockedVertices": 168,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0003",
+          "region": "head",
+          "material": "MI_CargoLying_Teeth",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 820,
+          "target": 67,
+          "after": 154,
+          "error": 0.0781894251704216,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0.20719088992378706,
+            "clusters": 389,
+            "step": 0.46099793772989317,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.21376534057549004,
+            "lockedVertices": 146,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0004",
+          "region": "head",
+          "material": "MI_CargoLying_Eyeshell",
+          "protectedLandmarks": [],
+          "lockedVertices": 0,
+          "before": 226,
+          "target": 35,
+          "after": 78,
+          "error": 0.07164016366004944,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "maxDistance": 0,
+            "clusters": 140,
+            "step": 1.0274208255070723,
+            "method": "feature-constrained surface clustering",
+            "region": "head",
+            "maxDeviation": 0.1807537637837312,
+            "lockedVertices": 101,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        },
+        {
+          "mesh": "F_MED_CargoLying_LOD0005",
+          "region": "head",
+          "material": "MI_CargoLying_Head_anatomical",
+          "protectedLandmarks": [
+            "FACIAL_C_LipUpper",
+            "FACIAL_L_LipUpper",
+            "FACIAL_R_LipUpper",
+            "FACIAL_L_LipCorner",
+            "FACIAL_R_LipCorner",
+            "FACIAL_C_LipLower",
+            "FACIAL_L_LipLower",
+            "FACIAL_R_LipLower",
+            "FACIAL_L_EyelidUpperA",
+            "FACIAL_R_EyelidUpperA",
+            "FACIAL_L_EyelidLowerA",
+            "FACIAL_R_EyelidLowerA",
+            "FACIAL_C_NoseTip"
+          ],
+          "lockedVertices": 71,
+          "before": 5470,
+          "target": 172,
+          "after": 965,
+          "error": 0,
+          "budgetDiagnostic": null,
+          "reconstruction": {
+            "method": "anatomical cylindrical head with explicit eye/mouth support rings",
+            "triangles": 965,
+            "generatedVertices": 557,
+            "contourPoints": [
+              {
+                "name": "L eye",
+                "points": [
+                  [
+                    3.7271668562674423,
+                    155.57949083599692,
+                    5.5702595100646635
+                  ],
+                  [
+                    3.1527348550342733,
+                    155.88504901554936,
+                    6.134042046421858
+                  ],
+                  [
+                    2.820890538814966,
+                    155.93094161819693,
+                    6.264945004028549
+                  ],
+                  [
+                    2.610224222172714,
+                    155.92186151065764,
+                    6.281450705780637
+                  ],
+                  [
+                    2.4259512391375764,
+                    155.88519265338434,
+                    6.255810412357124
+                  ],
+                  [
+                    2.211264411700956,
+                    155.79528277784783,
+                    6.179997903468367
+                  ],
+                  [
+                    1.8241322283041976,
+                    155.57405607765898,
+                    5.927764725719519
+                  ],
+                  [
+                    2.0059428840078044,
+                    155.19928634526374,
+                    6.005397144555618
+                  ],
+                  [
+                    2.391799101685763,
+                    155.17184198921643,
+                    6.172007014728259
+                  ],
+                  [
+                    2.6180481579140973,
+                    155.14056303819484,
+                    6.1982011953842076
+                  ],
+                  [
+                    2.8667213956712754,
+                    155.13702433923157,
+                    6.176237394790702
+                  ],
+                  [
+                    3.2561685414438224,
+                    155.20364983132424,
+                    6.024026233116006
+                  ]
+                ]
+              },
+              {
+                "name": "R eye",
+                "points": [
+                  [
+                    -1.9313091995265828,
+                    155.574665074336,
+                    5.750344060082144
+                  ],
+                  [
+                    -2.369834992576131,
+                    155.7820665281355,
+                    6.034485143473932
+                  ],
+                  [
+                    -2.6051937750263403,
+                    155.8675410659641,
+                    6.103431026879391
+                  ],
+                  [
+                    -2.8001559922948416,
+                    155.90705914267684,
+                    6.11428056728053
+                  ],
+                  [
+                    -3.014935466587036,
+                    155.90222094002334,
+                    6.082985386188385
+                  ],
+                  [
+                    -3.3174634236030647,
+                    155.82987448335683,
+                    5.946944660865889
+                  ],
+                  [
+                    -3.8955323009069733,
+                    155.51975794480921,
+                    5.280160724089971
+                  ],
+                  [
+                    -3.4111582178352826,
+                    155.16541708577634,
+                    5.827458217614084
+                  ],
+                  [
+                    -3.0387600632781426,
+                    155.09867247872575,
+                    5.995266818997164
+                  ],
+                  [
+                    -2.791728414231522,
+                    155.09660832505202,
+                    6.035465289461477
+                  ],
+                  [
+                    -2.5512712369431987,
+                    155.11673285270243,
+                    6.014475172584479
+                  ],
+                  [
+                    -2.1010546544920436,
+                    155.1204311704032,
+                    5.850018292905329
+                  ]
+                ]
+              },
+              {
+                "name": "mouth",
+                "points": [
+                  [
+                    2.0306998336238475,
+                    149.86306492029496,
+                    6.670776716984286
+                  ],
+                  [
+                    0.9185444940938337,
+                    150.5549436113731,
+                    7.926145154933833
+                  ],
+                  [
+                    -0.1442567747935311,
+                    150.74818171626498,
+                    8.217561668607253
+                  ],
+                  [
+                    -1.1782194086166844,
+                    150.5749944317019,
+                    7.866914844198252
+                  ],
+                  [
+                    -2.2042571044869628,
+                    149.8893382575494,
+                    6.5251821144218365
+                  ],
+                  [
+                    -1.056556953048903,
+                    149.44061066918803,
+                    7.70627120743054
+                  ],
+                  [
+                    -0.14554531476160504,
+                    149.36564005454818,
+                    7.929206484720492
+                  ],
+                  [
+                    0.7918304540758496,
+                    149.42535202715572,
+                    7.764188900764957
+                  ]
+                ]
+              }
+            ],
+            "featureLoops": [
+              {
+                "name": "L eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "R eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "mouth",
+                "vertices": 8,
+                "aperture": false,
+                "measuredBoundary": false,
+                "eyeSurfaceIntersection": false,
+                "manualContour": false
+              }
+            ],
+            "maximumDiscardedWeight": 0.04839260621951261,
+            "sourceUVIndependent": true,
+            "mouthTextureMode": "Measured local lip UV correspondence over a closed source-mouth gap",
+            "frontTextureFraction": 0.8,
+            "faceTextureVRange": {
+              "source": [
+                0.3657214901538162,
+                0.8238516020147765
+              ],
+              "allocated": [
+                0.2,
+                0.9
+              ]
+            },
+            "triangulation": {
+              "flips": 2057
+            },
+            "curvature": {
+              "inserted": 100,
+              "tolerance": 0.1341701929645632,
+              "initialMaximumError": 4.526593770045612,
+              "lastMeasuredErrorBeforeInsertion": 4.526593770045612,
+              "discontinuousSamples": 0,
+              "insertionLimit": 100,
+              "method": "Measured source-surface chord error; constrained conforming edge insertion"
+            },
+            "calibration": "Semantic source measurements; template layout not calibrated to original Namco geometry",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        }
+      ],
+      "settings": {
+        "triangles": 900,
+        "headPriority": 2,
+        "error": 0.08,
+        "art": {
+          "name": "Tekken 3 Authentic",
+          "stylization": 55,
+          "face": 90,
+          "angular": 35,
+          "pixelation": 50,
+          "hair": 90,
+          "preset": "authentic",
+          "regions": {},
+          "corrections": {},
+          "reconstruction": "combined",
+          "dither": false,
+          "flat": false
+        }
+      },
+      "poses": [
+        {
+          "pose": "guard",
+          "finite": true,
+          "maxDisplacement": 43.64276911633246,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.524482997995138,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "reach",
+          "finite": true,
+          "maxDisplacement": 93.78243667718273,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 2,
+          "maxEdgeStretch": 4.4139849393432256,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "crouch",
+          "finite": true,
+          "maxDisplacement": 57.807944665988835,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 2.3230605959556327,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "idle",
+          "finite": true,
+          "maxDisplacement": 0.0001414817408846304,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "walk",
+          "finite": true,
+          "maxDisplacement": 4.335922637099596,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.65686722431655,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "punch",
+          "finite": true,
+          "maxDisplacement": 56.32729112267856,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 5,
+          "maxEdgeStretch": 4.908599620331144,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "kick",
+          "finite": true,
+          "maxDisplacement": 7.413652051496398,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.7312049231378077,
+          "kind": "source-rig-diagnostic"
+        },
+        {
+          "pose": "face-motion",
+          "finite": true,
+          "maxDisplacement": 9.81512605547216,
+          "samples": 3881,
+          "checkedEdges": 18114,
+          "extremeEdges": 0,
+          "maxEdgeStretch": 1.9951584766946597,
+          "kind": "source-rig-diagnostic"
+        }
+      ],
+      "quality": {
+        "facialLandmarks": {
+          "status": "MEASURED",
+          "values": [
+            {
+              "name": "FACIAL_C_LipUpper",
+              "distance": 0.6705773930053979
+            },
+            {
+              "name": "FACIAL_L_LipUpper",
+              "distance": 0.949083889443617
+            },
+            {
+              "name": "FACIAL_R_LipUpper",
+              "distance": 0.982081242768137
+            },
+            {
+              "name": "FACIAL_L_LipCorner",
+              "distance": 0.08469370822182326
+            },
+            {
+              "name": "FACIAL_R_LipCorner",
+              "distance": 0.0910770337214258
+            },
+            {
+              "name": "FACIAL_C_LipLower",
+              "distance": 0.030494059673237327
+            },
+            {
+              "name": "FACIAL_L_LipLower",
+              "distance": 0.3602321767749588
+            },
+            {
+              "name": "FACIAL_R_LipLower",
+              "distance": 0.350791245972761
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_L_EyelidUpperA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_R_EyelidUpperA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_L_EyelidLowerA",
+              "distance": 0.740783494717679
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_R_EyelidLowerA",
+              "distance": 0.7544875604970614
+            },
+            {
+              "name": "FACIAL_C_NoseTip",
+              "distance": 0.6348733370382438
+            }
+          ],
+          "maxDistance": 0.982081242768137,
+          "note": "Nearest surviving source landmark samples; not facial recognition"
+        },
+        "sourceHealth": {
+          "triangles": 44112,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 3,
+          "uvDensityLogStdDev": 2.029129582959244,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "outputHealth": {
+          "triangles": 6038,
+          "degenerate": 0,
+          "missingUV": 0,
+          "invalidUV": 0,
+          "reversedNormals": 86,
+          "uvDensityLogStdDev": 2.9811331224010984,
+          "uvMetricNote": "Area-density variation; not a perceptual score or direct correspondence error"
+        },
+        "budgetMet": false,
+        "missingRegions": [],
+        "triangles": 6038,
+        "sourceTriangles": 44112,
+        "reconstruction": [
+          {
+            "region": "hair-cards",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+            "method": "Source alpha cards over inset support volume, bounded UV-aware reduction",
+            "sharesSourceRegion": true,
+            "reduction": {
+              "before": 9866,
+              "after": 1905,
+              "error": 0.006953099276870489
+            }
+          },
+          {
+            "region": "hair",
+            "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+            "frameSource": "anatomical source head bone",
+            "method": "inset support volume with silhouette-preserving source alpha cards",
+            "generatedVertices": 386,
+            "triangles": 640,
+            "alphaRejected": 2654,
+            "oppositeRejected": 4077,
+            "maximumDiscardedWeight": 0.03548138569534019,
+            "limitations": "A radial envelope cannot preserve every separate ponytail or braid; review silhouette and root intersections",
+            "supportReduction": {
+              "before": 640,
+              "after": 480,
+              "error": 0.00793109368532896,
+              "errorLimit": 0.008,
+              "scope": "Inset support only; open boundaries locked; outer alpha cards unchanged"
+            },
+            "shaping": {
+              "region": "hair",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "torso",
+            "material": "MI_CargoLying_Body_torso_rebaked",
+            "maxDistance": 2.780049743289183,
+            "clusters": 1124,
+            "step": 7.800442723472683,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.550625338405646,
+            "lockedVertices": 476,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18904745101928708
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "MI_CargoLying_Body_legs_right_envelope",
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 196,
+            "projectionTriangles": 4142,
+            "outerLayer": {
+              "components": 4,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 348,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.16539756581187245
+            }
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "MI_CargoLying_Body_legs_left_envelope",
+            "method": "joint-region outer-shell reconstruction with toe/heel cross-sections and sole cap",
+            "generatedVertices": 196,
+            "projectionTriangles": 4141,
+            "outerLayer": {
+              "components": 5,
+              "isolated": true,
+              "charts": 13,
+              "garmentCharts": 9,
+              "cuffFraction": 0.5515596913404697,
+              "exteriorVotes": 48,
+              "textureCorrespondence": "Actual low-poly triangles, nearest connected exterior garment where identified"
+            },
+            "triangles": 348,
+            "maximumDiscardedWeight": 0,
+            "coverage": "Continuous thigh/knee/shaft/ankle/foot region when upper leg is available",
+            "clothingSelection": "Outermost spatial surface; does not infer every garment layer from names",
+            "shaping": {
+              "region": "legs",
+              "scale": 1,
+              "snapStep": 0.16539756581187245
+            }
+          },
+          {
+            "region": "torso",
+            "material": "MI_CargoLying_Body_torso_rebaked",
+            "maxDistance": 2.479886182047998,
+            "clusters": 1299,
+            "step": 12.33512167224649,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 3.717996442157882,
+            "lockedVertices": 588,
+            "occludedShellTriangles": 0,
+            "creaseProtection": {
+              "method": "Measured lower-region dihedral creases; source UV seams welded only for analysis",
+              "selectedEdges": 24,
+              "availableEdges": 469,
+              "minAngle": 55,
+              "lowerFraction": 0.6,
+              "maxEdges": 24
+            },
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "torso",
+              "scale": 1,
+              "snapStep": 0.18824588060379027
+            },
+            "torsoBake": {
+              "method": "physical front/back torso chart baked from outer source surface",
+              "width": 256,
+              "height": 128
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 1.7113059907915884,
+            "clusters": 238,
+            "step": 3.320458983810873,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.7231510610437193,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 1.6091546290161372,
+            "clusters": 455,
+            "step": 1.9559549234350802,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09550228595733641
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.648690728973838,
+            "clusters": 242,
+            "step": 5.169589272485567,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.7250672162342557,
+            "lockedVertices": 186,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.10249621897935866
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 2.331760985194959,
+            "clusters": 327,
+            "step": 8.074424862612693,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 157,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_right",
+            "maxDistance": 2.0561241707372657,
+            "clusters": 246,
+            "step": 8.28214360963884,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.680001782312277,
+            "clusters": 379,
+            "step": 6.921462875773705,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.6943969600398905,
+            "lockedVertices": 158,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09427545651793479
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.9167994426762573,
+            "clusters": 275,
+            "step": 7.825831540815712,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 2.437420666028306,
+            "lockedVertices": 135,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.1492383289337158
+            }
+          },
+          {
+            "region": "arms",
+            "material": "MI_CargoLying_Body_arms_left",
+            "maxDistance": 1.701211242159471,
+            "clusters": 353,
+            "step": 5.128400977013003,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 1.718752702961606,
+            "lockedVertices": 87,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "arms",
+              "scale": 1,
+              "snapStep": 0.09744702339172362
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyelashes",
+            "generatedVertices": 146,
+            "triangles": 200,
+            "method": "UV-preserving disconnected alpha cards with bounded surface error",
+            "sourceTriangles": 492,
+            "target": 200,
+            "error": 0.004234963562339544,
+            "alphaPreserved": true,
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_iris",
+            "maxDistance": 0.029267215605079094,
+            "clusters": 228,
+            "step": 0.8429436744023675,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1482987671879415,
+            "lockedVertices": 102,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eye_sclera",
+            "maxDistance": 0,
+            "clusters": 288,
+            "step": 1.0475571818824339,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.18429634547311907,
+            "lockedVertices": 168,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Teeth",
+            "maxDistance": 0.20719088992378706,
+            "clusters": 389,
+            "step": 0.46099793772989317,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.21376534057549004,
+            "lockedVertices": 146,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Eyeshell",
+            "maxDistance": 0,
+            "clusters": 140,
+            "step": 1.0274208255070723,
+            "method": "feature-constrained surface clustering",
+            "maxDeviation": 0.1807537637837312,
+            "lockedVertices": 101,
+            "occludedShellTriangles": 0,
+            "finish": "attribute-aware topology optimization after reconstruction",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          },
+          {
+            "region": "head",
+            "material": "MI_CargoLying_Head_anatomical",
+            "method": "anatomical cylindrical head with explicit eye/mouth support rings",
+            "triangles": 965,
+            "generatedVertices": 557,
+            "contourPoints": [
+              {
+                "name": "L eye",
+                "points": [
+                  [
+                    3.7271668562674423,
+                    155.57949083599692,
+                    5.5702595100646635
+                  ],
+                  [
+                    3.1527348550342733,
+                    155.88504901554936,
+                    6.134042046421858
+                  ],
+                  [
+                    2.820890538814966,
+                    155.93094161819693,
+                    6.264945004028549
+                  ],
+                  [
+                    2.610224222172714,
+                    155.92186151065764,
+                    6.281450705780637
+                  ],
+                  [
+                    2.4259512391375764,
+                    155.88519265338434,
+                    6.255810412357124
+                  ],
+                  [
+                    2.211264411700956,
+                    155.79528277784783,
+                    6.179997903468367
+                  ],
+                  [
+                    1.8241322283041976,
+                    155.57405607765898,
+                    5.927764725719519
+                  ],
+                  [
+                    2.0059428840078044,
+                    155.19928634526374,
+                    6.005397144555618
+                  ],
+                  [
+                    2.391799101685763,
+                    155.17184198921643,
+                    6.172007014728259
+                  ],
+                  [
+                    2.6180481579140973,
+                    155.14056303819484,
+                    6.1982011953842076
+                  ],
+                  [
+                    2.8667213956712754,
+                    155.13702433923157,
+                    6.176237394790702
+                  ],
+                  [
+                    3.2561685414438224,
+                    155.20364983132424,
+                    6.024026233116006
+                  ]
+                ]
+              },
+              {
+                "name": "R eye",
+                "points": [
+                  [
+                    -1.9313091995265828,
+                    155.574665074336,
+                    5.750344060082144
+                  ],
+                  [
+                    -2.369834992576131,
+                    155.7820665281355,
+                    6.034485143473932
+                  ],
+                  [
+                    -2.6051937750263403,
+                    155.8675410659641,
+                    6.103431026879391
+                  ],
+                  [
+                    -2.8001559922948416,
+                    155.90705914267684,
+                    6.11428056728053
+                  ],
+                  [
+                    -3.014935466587036,
+                    155.90222094002334,
+                    6.082985386188385
+                  ],
+                  [
+                    -3.3174634236030647,
+                    155.82987448335683,
+                    5.946944660865889
+                  ],
+                  [
+                    -3.8955323009069733,
+                    155.51975794480921,
+                    5.280160724089971
+                  ],
+                  [
+                    -3.4111582178352826,
+                    155.16541708577634,
+                    5.827458217614084
+                  ],
+                  [
+                    -3.0387600632781426,
+                    155.09867247872575,
+                    5.995266818997164
+                  ],
+                  [
+                    -2.791728414231522,
+                    155.09660832505202,
+                    6.035465289461477
+                  ],
+                  [
+                    -2.5512712369431987,
+                    155.11673285270243,
+                    6.014475172584479
+                  ],
+                  [
+                    -2.1010546544920436,
+                    155.1204311704032,
+                    5.850018292905329
+                  ]
+                ]
+              },
+              {
+                "name": "mouth",
+                "points": [
+                  [
+                    2.0306998336238475,
+                    149.86306492029496,
+                    6.670776716984286
+                  ],
+                  [
+                    0.9185444940938337,
+                    150.5549436113731,
+                    7.926145154933833
+                  ],
+                  [
+                    -0.1442567747935311,
+                    150.74818171626498,
+                    8.217561668607253
+                  ],
+                  [
+                    -1.1782194086166844,
+                    150.5749944317019,
+                    7.866914844198252
+                  ],
+                  [
+                    -2.2042571044869628,
+                    149.8893382575494,
+                    6.5251821144218365
+                  ],
+                  [
+                    -1.056556953048903,
+                    149.44061066918803,
+                    7.70627120743054
+                  ],
+                  [
+                    -0.14554531476160504,
+                    149.36564005454818,
+                    7.929206484720492
+                  ],
+                  [
+                    0.7918304540758496,
+                    149.42535202715572,
+                    7.764188900764957
+                  ]
+                ]
+              }
+            ],
+            "featureLoops": [
+              {
+                "name": "L eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "R eye",
+                "vertices": 12,
+                "aperture": true,
+                "measuredBoundary": true,
+                "eyeSurfaceIntersection": true,
+                "manualContour": false
+              },
+              {
+                "name": "mouth",
+                "vertices": 8,
+                "aperture": false,
+                "measuredBoundary": false,
+                "eyeSurfaceIntersection": false,
+                "manualContour": false
+              }
+            ],
+            "maximumDiscardedWeight": 0.04839260621951261,
+            "sourceUVIndependent": true,
+            "mouthTextureMode": "Measured local lip UV correspondence over a closed source-mouth gap",
+            "frontTextureFraction": 0.8,
+            "faceTextureVRange": {
+              "source": [
+                0.3657214901538162,
+                0.8238516020147765
+              ],
+              "allocated": [
+                0.2,
+                0.9
+              ]
+            },
+            "triangulation": {
+              "flips": 2057
+            },
+            "curvature": {
+              "inserted": 100,
+              "tolerance": 0.1341701929645632,
+              "initialMaximumError": 4.526593770045612,
+              "lastMeasuredErrorBeforeInsertion": 4.526593770045612,
+              "discontinuousSamples": 0,
+              "insertionLimit": 100,
+              "method": "Measured source-surface chord error; constrained conforming edge insertion"
+            },
+            "calibration": "Semantic source measurements; template layout not calibrated to original Namco geometry",
+            "shaping": {
+              "region": "head",
+              "scale": 1,
+              "snapStep": 0
+            }
+          }
+        ],
+        "finiteAnimationPoses": true,
+        "extremeDeformationEdges": [
+          {
+            "pose": "guard",
+            "edges": 0
+          },
+          {
+            "pose": "reach",
+            "edges": 2
+          },
+          {
+            "pose": "crouch",
+            "edges": 0
+          },
+          {
+            "pose": "idle",
+            "edges": 0
+          },
+          {
+            "pose": "walk",
+            "edges": 0
+          },
+          {
+            "pose": "punch",
+            "edges": 5
+          },
+          {
+            "pose": "kick",
+            "edges": 0
+          },
+          {
+            "pose": "face-motion",
+            "edges": 0
+          }
+        ],
+        "artisticAcceptance": "REQUIRES HUMAN REVIEW",
+        "gameCompatibility": "NOT VERIFIED",
+        "referenceCalibration": "Provisional artistic settings. No authentic character geometry measurements supplied."
+      }
+    },
+    "atlas": {
+      "warnings": [
+        "MI_CargoLying_FaceAcc_Alt_Under_volume: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_FaceAcc_Alt_Under_cards: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_arms_right: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "MI_CargoLying_Body_arms_left: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.",
+        "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
+        "Preparation 4/8-bit TIMs use staging VRAM/CLUT coordinates, not the game allocation. Native export retains the donor texture layout."
+      ],
+      "textureBytes": 130176,
+      "paletteBytes": 928,
+      "readbackStats": {
+        "requests": 20,
+        "reads": 18,
+        "hits": 2,
+        "peakRetainedBytes": 2097152,
+        "retainedBytes": 0
+      },
+      "tiles": [
+        {
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+          "clut": 30768,
+          "x": 128,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+          "clut": 30832,
+          "x": 256,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_torso_rebaked",
+          "clut": 30896,
+          "x": 0,
+          "y": 128,
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_right_envelope",
+          "clut": 30960,
+          "x": 64,
+          "y": 384,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_legs_left_envelope",
+          "clut": 31024,
+          "x": 192,
+          "y": 384,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_torso_rebaked",
+          "clut": 31088,
+          "x": 256,
+          "y": 128,
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_right",
+          "clut": 31152,
+          "x": 320,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Body_arms_left",
+          "clut": 31216,
+          "x": 384,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eyelashes",
+          "clut": 31280,
+          "x": 384,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_iris",
+          "clut": 31344,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eye_sclera",
+          "clut": 31408,
+          "x": 448,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Teeth",
+          "clut": 31472,
+          "x": 480,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Eyeshell",
+          "clut": 31536,
+          "x": 448,
+          "y": 416,
+          "width": 16,
+          "height": 16,
+          "bitDepth": 4
+        },
+        {
+          "material": "MI_CargoLying_Head_anatomical",
+          "clut": 31600,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "bitDepth": 8
+        }
+      ]
+    },
+    "donor": null,
+    "exportGate": {
+      "ready": false,
+      "errors": [
+        "Load the original Nina 3DMK and texture ARC from your own USA disc.",
+        "Donor bind calibration has not been validated in the game; playability is unverified.",
+        "No verified Expanded custom-model loader/version. T3CM requires a compatible runtime patch.",
+        "Donor animation and in-game deformation tests have not run."
+      ]
+    },
+    "gameVerified": false,
+    "limitations": [
+      "No donor bind calibration or runtime patch has been verified.",
+      "No in-game animation checks have run.",
+      "Source rig diagnostics are not donor animation tests.",
+      "Atlas bake approximates normal shading; metallic/specular maps are not physically baked."
+    ]
+  },
+  "anatomyStatistics": {
+    "triangles": {
+      "hair": 480,
+      "hair-cards": 1905,
+      "spine": 309,
+      "boots-feet": 480,
+      "legs": 216,
+      "hips": 337,
+      "rightShoulder": 117,
+      "palms-wrists": 70,
+      "fingers": 103,
+      "leftShoulder": 119,
+      "rightUpperArm": 100,
+      "rightLowerArm": 76,
+      "leftUpperArm": 101,
+      "leftLowerArm": 74,
+      "eyes-lashes-teeth": 586,
+      "face": 621,
+      "neck": 220,
+      "scalp": 124
+    },
+    "coincidentTriangleCandidates": {
+      "hair-cards": 15,
+      "spine": 2,
+      "hips": 6,
+      "fingers": 3
+    },
+    "hiddenGeometry": "Not certified by static views; no blind deletion",
+    "note": "Face/neck use anatomical UV zones; fingers use structural digit chains and skin weights; boot separation uses measured garment cuff. Coincident faces are diagnostic candidates, not automatically redundant."
+  },
+  "silhouettes": [
+    {
+      "view": "front",
+      "iou": 0.9614675138348022,
+      "sourcePixels": 4845,
+      "preparedPixels": 4725
+    },
+    {
+      "view": "side",
+      "iou": 0.950187969924812,
+      "sourcePixels": 3147,
+      "preparedPixels": 3078
+    },
+    {
+      "view": "left-side",
+      "iou": 0.9509068167604753,
+      "sourcePixels": 3152,
+      "preparedPixels": 3087
+    },
+    {
+      "view": "right-side",
+      "iou": 0.950187969924812,
+      "sourcePixels": 3147,
+      "preparedPixels": 3078
+    },
+    {
+      "view": "back",
+      "iou": 0.9596889707386945,
+      "sourcePixels": 4846,
+      "preparedPixels": 4731
+    },
+    {
+      "view": "three-quarter",
+      "iou": 0.9566905005107252,
+      "sourcePixels": 4863,
+      "preparedPixels": 4715
+    }
+  ],
+  "sourcePoseDiagnostics": [
+    {
+      "pose": "guard",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 43.55750075258848,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 6.155486629888513,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 93.59920644714045,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 12.893392482371809,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 57.69500062270655,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 7.719695387059207,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.0001500505936863202,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-flex",
+      "affectedBones": 28,
+      "finite": true,
+      "maxDisplacement": 5.096407711210646,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 2.2332667782300235,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-relax",
+      "affectedBones": 28,
+      "finite": true,
+      "maxDisplacement": 3.5393866072919686,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.751943756477561,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "thumb-motion",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 3.056528039791386,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.5125906629346804,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "wrist-roll",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 2.886351106244245,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.1124296133658642,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "arms-raised",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 94.09824876879541,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 11,
+      "maxEdgeStretch": 6.444864226036522,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 4.415697234363048,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 4.3360274767067395,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 56.71384290500253,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 3.3540621438396006,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 7.367810035715941,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 8.49620044495353,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 9.823836914101888,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.9788959447478676,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "poseSeamContinuity": [
+    {
+      "pose": "guard",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "reach",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "crouch",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "idle",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-flex",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-relax",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "arms-raised",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "walk",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "punch",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "kick",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "face-motion",
+      "status": "UNAVAILABLE",
+      "pairedPositions": 0,
+      "maxGap": null,
+      "overTolerance": null,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {},
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    }
+  ],
+  "poseTransfer": {
+    "matchedBones": 433,
+    "duplicateSourceNames": 29,
+    "mode": "Hierarchy paths and bind-relative rotation deltas; no name-only matching"
+  },
+  "exportValidation": {
+    "headGeometrySha256": "db1e6efdb4be6a10249920c8e0ca1891b9e84126c75bbc6a36adf103bf6f2e7a",
+    "faceInteriorGeometrySha256": "b608d39380f9d55cfb0af8d8cd0b63338b84f282679d0d85cdd460ee325ad20b",
+    "faceInteriorTextureSha256": "b61b871098b2f54e05c2a03199cfb5ab483d97b98590d08aac32cd9544848ba4",
+    "glbSha256": "b0c7fed3887c1672bdd2ce02856b0cc632d0e77379a46321e28bcc42256903a4",
+    "timHashes": {
+      "textures/00.tim": "71ce2a894bc4b999d0ec7087c1eab031937f0397b535582ad67bd9bf3ab149ba",
+      "textures/01.tim": "9c0da6b01d5b87e0105824d8db960bc62cf0fecb2c02c42d93fcae5fbdd08fa4",
+      "textures/02.tim": "cff832850882f7607a5667c3c855a3723728456ea5c256316bb5eb0d5f4068d8",
+      "textures/03.tim": "49629535d374af59d65817a8ca6067827831b47a879465b6db0f6cd9a9376152",
+      "textures/04.tim": "1041c959d82d95a89b67bad0faebada336aa9848973d5b7b4b6e265a4a1d1cd7",
+      "textures/05.tim": "137c3b99af70371f85028984a689edc0f16363e26bb4f2b0acea1d431dc106d3",
+      "textures/06.tim": "d0f412e2620f484b52f4ad294686137bf2e94160863ec5f5a477d513e5aa3d63",
+      "textures/07.tim": "b9dbee92b1a3155bd109af7eca1f10e7f9443de5e681f8c3ab03531abbbfb2fb",
+      "textures/08.tim": "95a3448916d767a695030f61b25359ed5c59fa6aff714c4bc748337246ef80f4",
+      "textures/09.tim": "917bc2a09dda044cb977a85c4cec3f5a7ebd2527370a74bae93ec262564e1e88",
+      "textures/10.tim": "833592889c3fb5c392e26e70d1e3279f845d4ff4d8826c83dde6d147872900a5",
+      "textures/11.tim": "c2d5b9133ce0fa711fca0f703af4b1426a4d48fb0c7eb4c9be086f370ad14553",
+      "textures/12.tim": "bfad8a11fc70a32a9477b71fc614a3d04ffbea37015ef36195bbf6f2aedd1f66",
+      "textures/13.tim": "604166fe005e9e490866cf8532b006c315f3d4cb63fde98e71da4fbb9ed4f921"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "d1646342d0dd91d76f76e4e873dcfa8ff40fdc8808bd6b9a35163e998b80a80b",
+        "paletteSha256": "8ef0048fb7869237e22150918a3dab44460308657d9a4023c977bd6c58f77d0d"
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "a4fd1fbe27d5df1f275e863d32bef2f6f413e4b32612845650beb6c4fa367ecc",
+        "paletteSha256": "0bd02bf8bbe26e4ead15b57069f9f508295347ce0ac5ce1723f9f7d108a843a9"
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16,
+        "pixelSha256": "3c06b800d70f248265a3b7bb50b5c92204469479ea4e0358e609bed79286c851",
+        "paletteSha256": "a2cccafac8de4ac4dcfb5f3e39632a3af3c699c176b52e22b7eedfb36fa1c4d7"
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "a253eadb7c12cf5d958c65ef3e6125b17c365f909fa45c7e088e5fe28715374a",
+        "paletteSha256": "fc9eeb816a17abf307a634608e990b8cf68d951421fcd1a3fa1ef3c442389b44"
+      },
+      {
+        "path": "textures/04.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "a40385771f2806fe5f8be586aea1fef1a30d8aa02578f1a9b07e7fce2efad605",
+        "paletteSha256": "bba1168402ba80faece181ef780d87c43960b18297add1a94c2c4c5ba0d0fcfa"
+      },
+      {
+        "path": "textures/05.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16,
+        "pixelSha256": "825d78f5e5bc092adf33efad86d5de729b028b3a9e22715b60b285d8a58c1352",
+        "paletteSha256": "5ecefbe6c3e9c4d0edb8ed23c657de13a8d9a83afe6e5fdcc78580d000ba4938"
+      },
+      {
+        "path": "textures/06.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16,
+        "pixelSha256": "911ae481023292463ead8be7c39455b2a6ce52b125a65e6447d1fb131bbf8472",
+        "paletteSha256": "5584623ec06f8dd03b4255b9080a8d7db862b1b58eb96cbcab7ee78a3622c52c"
+      },
+      {
+        "path": "textures/07.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16,
+        "pixelSha256": "30d1e6e34c6f5586732194d0cf20845be421f9f1272d717dbd692bff85f613cd",
+        "paletteSha256": "8e0ba5829ca0d93a6fa0afd3c33c904c6ed5bc53a1cd157d89c0ab1dbe1eaf8a"
+      },
+      {
+        "path": "textures/08.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "9604dad934b84a0a502a098d0bcf875d152af93c12f818985ad872daa03ee10a",
+        "paletteSha256": "bb482eb73c029d80580a722023444d7316bf24c00f355e990d3560e3657c1f00"
+      },
+      {
+        "path": "textures/09.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16,
+        "pixelSha256": "95b9e9fe35510e3a4609d1cbd02bea40219c1802cda647ce94887bc3385b03de",
+        "paletteSha256": "2933933014c048de08138a5232f0433eff7921e157058b737f65b469d6aa9aa4"
+      },
+      {
+        "path": "textures/10.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "32f1e28733383dcb3b07063f985f815f9374ce415c77b75282d2f39acb0d0f51",
+        "paletteSha256": "d10adca5ca279d992d8fa38abe3a489b39adfc395df6677b83b286027626c4b1"
+      },
+      {
+        "path": "textures/11.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "d5a6c3a91a74b54494bd6b17e069ba31630990c691dda5d8571476cb45ab26b8",
+        "paletteSha256": "bda629622d632ad3dc8f199b14c88e82d4bf14b3775d8ed2c9b4a3b52fc15f22"
+      },
+      {
+        "path": "textures/12.tim",
+        "width": 16,
+        "height": 16,
+        "colors": 16,
+        "pixelSha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+        "paletteSha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      {
+        "path": "textures/13.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256,
+        "pixelSha256": "c34b4cde2faa24aa3d347788659ad906043d7a9f1c6600783e67d87850fea255",
+        "paletteSha256": "32a92a3726bf89d47287950f2550d0677d594ad3cee2594980d0f02d57be4a01"
+      }
+    ]
+  },
+  "visualAcceptance": "NOT ACCEPTED — human and game review required"
+}
