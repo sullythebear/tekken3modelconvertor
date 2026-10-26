@@ -83,3 +83,18 @@ Cyclus 3: vijf fingerpatches met ieder één gesloten palm-interface gericht rec
 - Afzonderlijke Nikki-render zonder nieuwe handgeometrie: 7503 triangles, integriteit behouden. Huid heeft nu daadwerkelijk vormschaduw, maar de 64-pixel/RGB555-overgangen zijn zichtbaar grof. Deze correctie is een noodzakelijke functionele reparatie, nog geen bewijs dat de huid artistiek klaar is. Detailvergelijking: `artifacts/dev9/cycle4-skin-field/`.
 - Directe UV-interpolatie van de nieuwe vingers is verworpen wegens rode kledingpixels op de duim. De grotere handtile is eveneens verworpen: atlaspacking verlaagde de resolutie van andere huidtiles. De vingerbake wordt nu bij de oorspronkelijke texturekosten met de gerepareerde huidroute opnieuw beoordeeld.
 - Volgende concrete actie: beelden `cycle4-hand-lit` vergelijken met `cycle4-skin-field`, daarna betere bron-correspondentie/quantisatie onderzoeken en niet alleen extra geometrie toevoegen. Geen dev.9-release of Windows-uitkomst geclaimd.
+
+### Hervatting en tijdregistratie
+
+- Eerste geregistreerde actieve blok: 22:47:05–23:42:50 UTC op 25 oktober, circa 55m45s; enkele slotcommando's daarna zijn niet afzonderlijk getimed. De lange onderbreking telt niet als ontwikkeltijd.
+- Werkmap bereikbaar bij hervatting, alle ongecommitte handbestanden nog aanwezig. Hervatting gemeten op 26 oktober 09:49:58 UTC / 10:49:58 CET. Niet opnieuw begonnen; bestaande proefresultaten opnieuw gelezen.
+
+### Cyclus 5 — nieuwe anatomische handtopologie, checkpoint voor verdere beoordeling
+
+- Vijf gemeten bone-curves, eigen ringtopologie en echte bron-collarinterfaces; volledige source-surface-correspondentie en alle skinsets blijven behouden. Unknown rigs behouden expliciet de bestaande fallback.
+- Gescheiden broncomponenten met alleen puntcontact worden niet geweld. Nikki's 250 extra rechterwijsvingerfaces zijn de zilveren ringen, geen verborgen afval. Losse accessoire behouden, begrensd vereenvoudigd naar 56 faces met dezelfde absolute foutmaat als de gehele hand.
+- Eerste axiale tip verloor maximaal circa 1,25 bronunits aan distale vorm. Bidirectionele meting bracht dit aan het licht; die variant is verworpen. Gemeten bron-frontier geeft nu maximaal circa 0,54 bronunits, grotendeels handpalm; gemiddelde bronafstand blijft circa 0,08 versus 0,034 bij de oude reductie. **Geen artistieke voltooiing geclaimd**. Verdere ringverdeling bij gelijke kosten blijft nodig.
+- Huidige proef: rechterhand 476 / linkerhand 420 faces; samen 896 versus 1022 baseline. Nikki totaal 7377. Accessoire aanwezig, geen rode kledingpixels op duim. Nul onverklaarde boundaries, nul windingconflicten, 825 verklaarde boundaries, 37 positiecontacten; alle 13 live diagnostische poses zonder divergerend contact.
+- **196 tests PASS**, 0 fail/skip (`artifacts/dev9/cycle5-unit.xml`). Nieuwe tests gebruiken zelfgeschreven geometrie met naamloze fingerbones, twee influence-sets, beweging, bronintegriteit en een los torusaccessoire. Geen privébrondata in tests.
+- `scripts/dev9-hand-quality.mjs` meet beide richtingen met zeven samples per triangle en vijf handposes. Publieke samenvatting bevat alleen afstanden/aantallen, geen bronvertices. `scene-private.json` blijft strikt privé.
+- Eerstvolgende concrete actie: kostgelijke distale ringverdeling en echte lineaire texturebemonstering beoordelen; daarna schouder/kleding, huidfacettering, haar en kandidaatbudgetten. Windows dev.9 nog niet getest. Geen release gepubliceerd.

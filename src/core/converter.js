@@ -1,3 +1,4 @@
+import {reconstructAnatomicalHand} from './hand-reconstruction.js';
 import {reconcileCoincidentSkin} from './coincident-skin.js';
 import {cloneWorkingGeometry} from './working-geometry.js';
 import {removeExactDuplicateFaces} from './duplicate-faces.js';
@@ -282,6 +283,11 @@ export async function convertCharacter(
       }
       if(candidate.geometry){if(candidate.contourPoints)p.faceContours=candidate.contourPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'source topology fallback',reason:candidate.reason};
+    }
+    if(art&&stage==='combined'&&/^(left|right)Hand$/.test(p.role)){
+      const hand=p.mesh.skeleton?.bones.find(b=>boneSemantic(b)===p.role),candidate=reconstructAnatomicalHand(g,p.material,{mesh:p.mesh,hand,simplifier:MeshoptSimplifier});
+      if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(candidate.material);p.mesh.material=mats;p.material=candidate.material;const{geometry,material,...metadata}=candidate;reconstruction=metadata;}
+      else reconstruction={method:'source hand fallback',reason:candidate.reason};
     }
     if (art && !reconstruction?.generatedVertices) {
       const fallbackReason=reconstruction?.reason;
