@@ -5,6 +5,7 @@ import * as THREE from "three";
 export function edgeConnectedSurfaces(
   geometry,
   indices = geometry.index.array,
+  { respectUV = false } = {},
 ) {
   const p = geometry.attributes.position;
   const scale = new THREE.Box3()
@@ -15,7 +16,13 @@ export function edgeConnectedSurfaces(
   const key = (i) =>
     [p.getX(i), p.getY(i), p.getZ(i)]
       .map((v) => Math.round(v / epsilon))
-      .join(",");
+      .join(",") +
+    (respectUV && geometry.attributes.uv
+      ? ":" +
+        [geometry.attributes.uv.getX(i), geometry.attributes.uv.getY(i)]
+          .map((v) => Math.round(v * 1e6))
+          .join(",")
+      : "");
   const parents = Array.from({ length: indices.length / 3 }, (_, i) => i),
     edges = new Map();
   const root = (i) => {
@@ -40,4 +47,18 @@ export function edgeConnectedSurfaces(
     components.get(r).push(indices[t], indices[t + 1], indices[t + 2]);
   }
   return [...components.values()];
+}
+
+export function uvChartLabels(geometry) {
+  const labels = new Int32Array(geometry.attributes.position.count).fill(-1),
+    ambiguous = new Uint8Array(labels.length),
+    components = edgeConnectedSurfaces(geometry, geometry.index.array, {
+      respectUV: true,
+    });
+  for (let chart = 0; chart < components.length; chart++)
+    for (const v of components[chart]) {
+      if (labels[v] >= 0 && labels[v] !== chart) ambiguous[v] = 1;
+      else labels[v] = chart;
+    }
+  return { labels, ambiguous, count: components.length };
 }

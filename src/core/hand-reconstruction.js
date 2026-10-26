@@ -1,3 +1,4 @@
+import {uvRasterLookup} from './uv-raster.js';
 import { edgeConnectedSurfaces } from "./surface-components.js";
 import * as THREE from "three";
 import { boundaryLoops } from "./boundary-loops.js";
@@ -335,6 +336,7 @@ export function reconstructAnatomicalHand(
   }
   const hits = [],
     positions = [],
+    preservationPoints = [],
     outUV = [],
     indices = [],
     digitFaces = paths.map(() => []),
@@ -424,6 +426,7 @@ export function reconstructAnatomicalHand(
         ) ?? path.surface.nearest(f.center),
       tipId = append(tip, tip.point, chart(0.5, path.length)),
       last = rings.at(-1);
+    for(const fraction of [0,.25,.5,.75])preservationPoints.push(positions[last[Math.floor(columns*fraction)]].toArray());
     for (let col = 0; col < columns; col++)
       indices.push(last[col], last[col + 1], tipId);
     for (let t = start; t < indices.length; t += 3)
@@ -529,6 +532,7 @@ export function reconstructAnatomicalHand(
     }
     return sourceSkinLighting(material, old.x, old.y, mapped, fallback);
   };
+  const rasterFaces=digitFaces.flat(),raster=uvRasterLookup(rasterFaces.map(tri=>tri.map(i=>outUV[i])),textureSize);
   const sample = materialSampler([material],{filter:"linear"}),
     rgba = new Uint8Array(textureSize * textureSize * 4);
   for (let row = 0; row < textureSize; row++)
@@ -571,7 +575,8 @@ export function reconstructAnatomicalHand(
         const d = Math.min(paths.length - 1, Math.floor(u * paths.length)),
           path = paths[d];
         let surfacePoint = null;
-        for (const tri of digitFaces[d]) {
+        const face=raster[row*textureSize+col];
+        if(face>=0){const tri=rasterFaces[face];
           const [a, b, c] = tri.map((i) => outUV[i]),
             det = (b.y - c.y) * (a.x - c.x) + (c.x - b.x) * (a.y - c.y);
           if (Math.abs(det) < 1e-10) continue;
@@ -584,7 +589,6 @@ export function reconstructAnatomicalHand(
               .multiplyScalar(wa)
               .addScaledVector(positions[tri[1]], wb)
               .addScaledVector(positions[tri[2]], wc);
-            break;
           }
         }
         const hit = surfacePoint
@@ -624,7 +628,7 @@ export function reconstructAnatomicalHand(
     generatedTriangles: indices.length / 3,
     sourceCorrespondence: true,
   };
-  return {
+  const result = {
     geometry,
     material: output,
     generatedVertices: hits.length,
@@ -639,5 +643,8 @@ export function reconstructAnatomicalHand(
     sourceFingerTriangles: sourceFingerCounts,
     accessories: accessoryReports,
     surfaceQuality,
+    protectedDigitContourCount:preservationPoints.length,
   };
+  Object.defineProperty(result,"preservationPoints",{value:preservationPoints});
+  return result;
 }

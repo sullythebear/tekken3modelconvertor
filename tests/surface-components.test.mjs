@@ -1,7 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import * as THREE from "three";
-import { edgeConnectedSurfaces } from "../src/core/surface-components.js";
+import {
+  edgeConnectedSurfaces,
+  uvChartLabels,
+} from "../src/core/surface-components.js";
 
 test("Measured shared edges connect UV-split faces without welding their attributes", () => {
   const g = new THREE.BufferGeometry();
@@ -20,6 +23,11 @@ test("Measured shared edges connect UV-split faces without welding their attribu
   const before = g.toJSON();
   assert.deepEqual(edgeConnectedSurfaces(g), [[0, 1, 2, 3, 4, 5]]);
   assert.deepEqual(g.toJSON(), before);
+  assert.equal(
+    edgeConnectedSurfaces(g, g.index.array, { respectUV: true }).length,
+    2,
+  );
+  assert.equal(uvChartLabels(g).count, 2);
 });
 test("A point contact and a detached accessory remain separate surfaces", () => {
   const g = new THREE.BufferGeometry();

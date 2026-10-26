@@ -287,7 +287,7 @@ export async function convertCharacter(
     }
     if(art&&stage==='combined'&&/^(left|right)Hand$/.test(p.role)){
       const hand=p.mesh.skeleton?.bones.find(b=>boneSemantic(b)===p.role),candidate=reconstructAnatomicalHand(g,p.material,{mesh:p.mesh,hand,simplifier:MeshoptSimplifier});
-      if(candidate.geometry){g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(candidate.material);p.mesh.material=mats;p.material=candidate.material;const{geometry,material,...metadata}=candidate;reconstruction=metadata;}
+      if(candidate.geometry){p.protectedPoints=candidate.preservationPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(candidate.material);p.mesh.material=mats;p.material=candidate.material;const{geometry,material,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'source hand fallback',reason:candidate.reason};
     }
     if (art && !reconstruction?.generatedVertices) {
