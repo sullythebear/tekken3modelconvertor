@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {artSettings,reconstructClusters,shapeRegion,ART_PRESETS,landmarkDrift,artRegion} from '../src/core/art-director.js';
-import {artAtlasLayout,pixelateRGBA,stagingTIMLayout} from '../src/core/art-atlas.js';
+import {artAtlasLayout,pixelateRGBA,stagingTIMLayout,artTextureColors} from '../src/core/art-atlas.js';
 import {readStudioProject,writeStudioProject} from '../src/core/studio-project.js';
 import {zipSync,strToU8} from 'fflate';
 import {planRegionMaterials} from '../src/core/region-materials.js';
@@ -65,4 +65,8 @@ test('Body shaping edits geometry; adaptive atlases reserve larger face tiles an
  assert.ok(layout[0].side>layout[3].side);
  for(let i=0;i<layout.length;i++)for(let j=i+1;j<layout.length;j++){const a=layout[i],b=layout[j];assert.ok(a.x+a.side<=b.x||b.x+b.side<=a.x||a.y+a.side<=b.y||b.y+b.side<=a.y);}
  const data=new Uint8Array([117,123,129,0,132,147,161,255]);const out=pixelateRGBA(data,100,true);assert.notDeepEqual(out,data);assert.equal(out[3],0);assert.equal(out[7],255);
+});
+
+test('Source-diffuse body charts retain RGB555 color variation without taking texels from protected face or eye tiles',()=>{
+ const art=artSettings(),body=new THREE.MeshBasicMaterial(),face=new THREE.MeshBasicMaterial(),eye=new THREE.MeshBasicMaterial();body.name='Body_torso_rebaked';face.name='Head_anatomical';eye.name='Eye_iris';const materials=[body,face,eye],before=artAtlasLayout(materials,512,art);assert.equal(artTextureColors(body.name,art,body),16);body.userData.t3csSurfaceDiffuse={sourceNormals:true,static:true};assert.equal(artTextureColors(body.name,art,body),256);assert.deepEqual(artAtlasLayout(materials,512,art),before);assert.equal(artTextureColors(face.name,art,face),256);assert.equal(artTextureColors(eye.name,art,eye),16);
 });

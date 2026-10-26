@@ -345,7 +345,7 @@ export async function convertCharacter(
     if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot,stage==='combined'&&/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|UpperLeg|LowerLeg|Foot))$/.test(p.role));
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
     if(art&&['combined','boots'].includes(stage)&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name)&&reduced.attributes.position.count){
-      const rebaked=rebakeTorso(g,reduced,p.material);if(rebaked){reduced.dispose();reduced=rebaked.geometry;const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(rebaked.material);p.mesh.material=mats;p.material=rebaked.material;reconstruction.torsoBake={method:rebaked.method,width:rebaked.textureWidth,height:rebaked.textureHeight};}
+      const rebaked=rebakeTorso(g,reduced,p.material,{height:stage==='combined'?(art.pixelation<75?256:64):128,diffuse:stage==='combined',normalMatrix:new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld)});if(rebaked){reduced.dispose();reduced=rebaked.geometry;const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(rebaked.material);p.mesh.material=mats;p.material=rebaked.material;reconstruction.torsoBake={method:rebaked.method,width:rebaked.textureWidth,height:rebaked.textureHeight};}
     }
     if(!reduced.index)reduced.setIndex(Array.from({length:reduced.attributes.position.count},(_,i)=>i));
     g.dispose();

@@ -40,7 +40,7 @@ export function pixelateRGBA(bytes,strength,dither=false,width=4,colorLevels=0) 
  }
  return out;
 }
-export function artTextureColors(name,art,material=null){if(material?.userData?.t3csSkinSurface||material?.userData?.t3csLegSurface)return 256;return art?.face>80&&/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name)?256:16;}
+export function artTextureColors(name,art,material=null){if(material?.userData?.t3csSkinSurface||material?.userData?.t3csLegSurface||material?.userData?.t3csSurfaceDiffuse)return 256;return art?.face>80&&/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name)?256:16;}
 export function stagingTIMLayout(tiles){
  let x=0,y=0,height=0;
  return tiles.map(t=>{
