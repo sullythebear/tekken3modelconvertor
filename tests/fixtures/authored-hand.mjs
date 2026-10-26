@@ -73,11 +73,13 @@ export function authoredHand(accessory = false) {
   }
   for (let t = 0; t < indices.length; t += 3)
     [indices[t + 1], indices[t + 2]] = [indices[t + 2], indices[t + 1]];
+  let accessoryStart=null;
   if (accessory) {
     const torus = new THREE.TorusGeometry(0.13, 0.02, 6, 24);
     torus.rotateX(Math.PI / 2);
     torus.translate(0, 0.8, 0);
     const offset = position.length / 3;
+    accessoryStart=offset;
     for (let i = 0; i < torus.attributes.position.count; i++)
       vertex(
         new THREE.Vector3()
@@ -108,5 +110,5 @@ export function authoredHand(accessory = false) {
   mesh.add(hand);
   mesh.bind(new THREE.Skeleton(bones));
   mesh.updateMatrixWorld(true);
-  return { g, material, mesh, hand };
+  return { g, material, mesh, hand,accessoryStart };
 }

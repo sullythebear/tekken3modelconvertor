@@ -49,3 +49,12 @@ export function uvRasterLookup(triangles, width, height = width) {
   }
   return lookup;
 }
+
+// Extend genuine covered texels only within their own chart's gutter domain.
+// Unseeded charts remain explicit failures instead of becoming black skin.
+export function dilateChartTexels(rgba,valid,charts,width,height=width){
+ const count=width*height;if(rgba.length!==count*4||valid.length!==count||charts.length!==count)throw Error('Invalid chart dilation buffers');
+ const queue=new Int32Array(count);let end=0;for(let i=0;i<count;i++)if(valid[i])queue[end++]=i;const seeds=end;
+ for(let start=0;start<end;start++){const i=queue[start],x=i%width,y=Math.floor(i/width);for(const n of [x?i-1:-1,x<width-1?i+1:-1,y?i-width:-1,y<height-1?i+width:-1])if(n>=0&&!valid[n]&&charts[n]===charts[i]){rgba.set(rgba.subarray(i*4,i*4+4),n*4);valid[n]=1;queue[end++]=n;}}
+ return{measuredTexels:seeds,dilatedTexels:end-seeds,unfilledTexels:count-end};
+}

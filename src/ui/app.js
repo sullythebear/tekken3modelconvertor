@@ -4,6 +4,7 @@ import {optimizeGameCandidate} from '../core/game-optimization.js';
 import {configureSkinning} from '../core/skinning.js';
 import {readDonorPackage} from "../core/donor-package.js";
 import {ART_PRESETS,artSettings} from '../core/art-director.js';
+import {reuseExactProjectAssets} from '../core/project-assets.js';
 import {readStudioProject,writeStudioProject} from '../core/studio-project.js';
 import {measureStyleReference} from '../core/style-reference.js';
 import {simulationModel} from './ps1-preview.js';
@@ -84,7 +85,8 @@ $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
 $('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});await save('character-project.zip',bytes);status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
 $('project-open').onclick=()=>$('project-file').click();
-$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
+$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));const reuse=reuseExactProjectAssets(p.records,files);p.records=reuse.records;projectAssetReuse={reusedFiles:reuse.reusedFiles,reusedBytes:reuse.reusedBytes};await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
+let projectAssetReuse = null;
 let source = null,
   converted = null,
   atlas = null,
@@ -1227,6 +1229,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 // Read-only diagnostic/test hooks; no filesystem or IPC bypass.
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
+    get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
     sceneIntegrity,
     setReconstruction(stage) { artProfile.reconstruction=stage; },

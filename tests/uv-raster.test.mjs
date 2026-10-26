@@ -30,3 +30,5 @@ test("UV raster clips large charts to actual target pixels without discarding co
   );
   assert.throws(() => uvRasterLookup([], 0), /dimensions/);
 });
+
+test('Chart gutters copy only actual source texels and never bleed from an adjacent chart',async()=>{const {dilateChartTexels}=await import('../src/core/uv-raster.js'),rgba=new Uint8Array(8*4),valid=new Uint8Array(8),charts=new Uint8Array([0,0,1,1,0,0,1,1]);rgba.set([200,10,20,255],0);rgba.set([10,20,200,255],7*4);valid[0]=valid[7]=1;const result=dilateChartTexels(rgba,valid,charts,4,2);assert.equal(result.unfilledTexels,0);for(let i=0;i<8;i++)assert.deepEqual(Array.from(rgba.slice(i*4,i*4+4)),charts[i]?[10,20,200,255]:[200,10,20,255]);const unseeded=dilateChartTexels(new Uint8Array(8*4),new Uint8Array(8),charts,4,2);assert.equal(unseeded.unfilledTexels,8);});

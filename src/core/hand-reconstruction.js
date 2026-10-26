@@ -1,16 +1,15 @@
-import {uvRasterLookup} from './uv-raster.js';
+import {bakeHandSurface} from './hand-bake.js';
 import { edgeConnectedSurfaces } from "./surface-components.js";
 import * as THREE from "three";
 import { boundaryLoops } from "./boundary-loops.js";
 import { reduceBodySurface } from "./body-surface.js";
-import { SurfaceIndex, triangleRecord, materialSampler } from "./surface.js";
+import { SurfaceIndex, triangleRecord } from "./surface.js";
 import {
   transferSurfaceAttributes,
   surfaceTexture,
   subsetSurface,
 } from "./projected-topology.js";
 import { skinSets } from "./skinning.js";
-import { sourceSkinLighting } from "./skin-surface.js";
 import { repairWinding } from "./winding.js";
 import { compareBoundaries } from "./mesh-integrity.js";
 
@@ -103,7 +102,7 @@ export function reconstructAnatomicalHand(
       for (const r of patches[d])
         if (r.ids.every((i) => ids.has(i))) triangles.push(r);
       if (loops.length) open.push(triangles);
-      else accessories.push(triangles);
+      else accessories.push({records:triangles,digit:d});
     }
     if (open.length !== 1) return fail("Ambiguous connected finger surfaces");
     patches[d] = open[0];
@@ -310,7 +309,7 @@ export function reconstructAnatomicalHand(
   palmView.dispose();
   const accessoryReports = [];
   for (const component of accessories) {
-    const source = component.flatMap((r) => r.ids),
+    const source = component.records.flatMap((r) => r.ids),
       ids = [...new Set(source)],
       view = subsetSurface(g, source),
       reduced = reduceBodySurface(view, "hand-accessory", simplifier, {
@@ -326,6 +325,7 @@ export function reconstructAnatomicalHand(
     palmIndex.push(...Array.from(reduced.indices, (i) => ids[i]));
     view.dispose();
     accessoryReports.push({
+      finger: component.digit,
       before: source.length / 3,
       after: reduced.indices.length / 3,
       error: reduced.error,
@@ -502,115 +502,13 @@ export function reconstructAnatomicalHand(
     geometry.dispose();
     return fail("Generated hand failed source boundary / winding guard");
   }
-  const normalMaterial = material.normalMap
-      ? new THREE.MeshBasicMaterial({ map: material.normalMap })
-      : null,
-    normalSample = normalMaterial ? materialSampler([normalMaterial],{filter:"linear"}) : null;
-  const lighting = (hit) => {
-    const old = hit.triangle.ids.reduce(
-      (q, i, k) =>
-        q.addScaledVector(
-          new THREE.Vector2().fromBufferAttribute(uv, i),
-          hit.barycentric.getComponent(k),
-        ),
-      new THREE.Vector2(),
-    );
-    let mapped = null,
-      fallback = 1;
-    if (normalSample) {
-      const n = normalSample({
-        triangle: { material: normalMaterial, uvs: [old, old, old] },
-        barycentric: new THREE.Vector3(1, 0, 0),
-      });
-      mapped = new THREE.Vector3(
-        (n[0] / 127.5 - 1) * (material.normalScale?.x ?? 1),
-        (n[1] / 127.5 - 1) * (material.normalScale?.y ?? 1),
-        n[2] / 127.5 - 1,
-      ).normalize();
-      fallback =
-        0.7 + 0.3 * Math.max(0, mapped.dot(new THREE.Vector3(-0.3, 0.5, 0.8)));
-    }
-    return sourceSkinLighting(material, old.x, old.y, mapped, fallback);
-  };
-  const rasterFaces=digitFaces.flat(),raster=uvRasterLookup(rasterFaces.map(tri=>tri.map(i=>outUV[i])),textureSize);
-  const sample = materialSampler([material],{filter:"linear"}),
-    rgba = new Uint8Array(textureSize * textureSize * 4);
-  for (let row = 0; row < textureSize; row++)
-    for (let col = 0; col < textureSize; col++) {
-      const u = (col + 0.5) / textureSize,
-        v = (row + 0.5) / textureSize;
-      let color;
-      if (v >= 0.55) {
-        const old = new THREE.Vector2(u, (v - 0.55) / 0.45),
-          hit = {
-            triangle: { uvs: [old, old, old], material },
-            barycentric: new THREE.Vector3(1, 0, 0),
-          };
-        color = sample(hit);
-        const normal = normalSample
-            ? normalSample({
-                triangle: { material: normalMaterial, uvs: [old, old, old] },
-                barycentric: new THREE.Vector3(1, 0, 0),
-              })
-            : null,
-          mapped = normal
-            ? new THREE.Vector3(
-                (normal[0] / 127.5 - 1) * (material.normalScale?.x ?? 1),
-                (normal[1] / 127.5 - 1) * (material.normalScale?.y ?? 1),
-                normal[2] / 127.5 - 1,
-              ).normalize()
-            : null;
-        const light = sourceSkinLighting(
-          material,
-          old.x,
-          old.y,
-          mapped,
-          mapped
-            ? 0.7 +
-                0.3 * Math.max(0, mapped.dot(new THREE.Vector3(-0.3, 0.5, 0.8)))
-            : 1,
-        );
-        for (let k = 0; k < 3; k++) color[k] *= light;
-      } else {
-        const d = Math.min(paths.length - 1, Math.floor(u * paths.length)),
-          path = paths[d];
-        let surfacePoint = null;
-        const face=raster[row*textureSize+col];
-        if(face>=0){const tri=rasterFaces[face];
-          const [a, b, c] = tri.map((i) => outUV[i]),
-            det = (b.y - c.y) * (a.x - c.x) + (c.x - b.x) * (a.y - c.y);
-          if (Math.abs(det) < 1e-10) continue;
-          const wa = ((b.y - c.y) * (u - c.x) + (c.x - b.x) * (v - c.y)) / det,
-            wb = ((c.y - a.y) * (u - c.x) + (a.x - c.x) * (v - c.y)) / det,
-            wc = 1 - wa - wb;
-          if (Math.min(wa, wb, wc) >= -1e-6) {
-            surfacePoint = positions[tri[0]]
-              .clone()
-              .multiplyScalar(wa)
-              .addScaledVector(positions[tri[1]], wb)
-              .addScaledVector(positions[tri[2]], wc);
-          }
-        }
-        const hit = surfacePoint
-          ? path.surface.nearest(surfacePoint)
-          : path.project(
-              THREE.MathUtils.clamp((u * paths.length - d - 0.02) / 0.96, 0, 1),
-              path.base +
-                THREE.MathUtils.clamp((v - 0.005) / 0.49, 0, 1) *
-                  (path.length - path.base),
-            );
-        color = sample(hit);
-        const light = lighting(hit);
-        for (let k = 0; k < 3; k++) color[k] *= light;
-      }
-      rgba.set(
-        color.map((v) => Math.round(v)),
-        (row * textureSize + col) * 4,
-      );
-    }
+  const bake=bakeHandSurface({g,material,paths,palmSources:palm.concat(...accessories.map(a=>a.records)),accessories,positions,outUV,digitFaces,size:textureSize});
+  if(!bake.rgba){geometry.dispose();return fail(bake.reason);}
+  const {rgba}=bake;
   const output = material.clone();
   output.name = material.name + "_anatomical";
   output.map = surfaceTexture(rgba, textureSize, textureSize);
+  output.map.wrapS=THREE.ClampToEdgeWrapping;
   output.color.set(0xffffff);
   for (const name of [
     "normalMap",
@@ -627,6 +525,8 @@ export function reconstructAnatomicalHand(
     sourceTriangles: records.length,
     generatedTriangles: indices.length / 3,
     sourceCorrespondence: true,
+    coverage:bake.coverage,
+    accessoryTextureTransfer:bake.accessoryTextureTransfer,
   };
   const result = {
     geometry,

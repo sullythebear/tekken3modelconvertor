@@ -28,7 +28,7 @@ jobs:
         run: |
           if (Test-Path artifacts/project-roundtrip/results.json) {
             $r = Get-Content artifacts/project-roundtrip/results.json | ConvertFrom-Json
-            $safe = @{status=$r.status;error=$r.error;phases=$r.phases;zipBytes=$r.zipBytes;peakAppWorkingSetKiB=$r.peakAppWorkingSetKiB;peakHarnessRssBytes=$r.peakHarnessRssBytes;privateTemporaryFilesRemoved=$r.privateTemporaryFilesRemoved} | ConvertTo-Json -Compress -Depth 8
+            $safe = @{status=$r.status;error=$r.error;phases=$r.phases;zipBytes=$r.zipBytes;peakAppWorkingSetKiB=$r.peakAppWorkingSetKiB;peakHarnessRssBytes=$r.peakHarnessRssBytes;peakAppPrivateBytesKiB=$r.peakAppPrivateBytesKiB;phaseMemory=$r.phaseMemory;rawAssetReuse=$r.rawAssetReuse;privateTemporaryFilesRemoved=$r.privateTemporaryFilesRemoved} | ConvertTo-Json -Compress -Depth 8
             Write-Host "::notice title=Private Nikki project measurements::$safe"
           }
       - uses: actions/upload-artifact@v4

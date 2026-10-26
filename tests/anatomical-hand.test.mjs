@@ -77,3 +77,15 @@ test("Closed source finger accessories survive as separate geometry rather than 
     ),
   );
 });
+
+test('Unreferenced clothing texels never enter an anatomically baked hand or its gutters',async()=>{
+ await MeshoptSimplifier.ready;const fixture=authoredHand(),data=new Uint8Array(16*16*4);for(let y=0;y<16;y++)for(let x=0;x<16;x++)data.set(x<8?[180,140,100,255]:[255,0,0,255],(y*16+x)*4);fixture.material.color.set(0xffffff);fixture.material.map=new THREE.DataTexture(data,16,16);for(let v=0;v<fixture.g.attributes.uv.count;v++)fixture.g.attributes.uv.setXY(v,fixture.g.attributes.uv.getX(v)*.4,fixture.g.attributes.uv.getY(v)*.4);const before=data.slice(),r=reconstructAnatomicalHand(fixture.g,fixture.material,{...fixture,simplifier:MeshoptSimplifier,textureSize:64});assert.ok(r.geometry,r.reason);const pixels=r.material.map.image.data;for(let i=0;i<pixels.length;i+=4)assert.deepEqual(Array.from(pixels.slice(i,i+4)),[180,140,100,255]);assert.equal(r.material.userData.t3csSkinBake.coverage.unfilledTexels,0);assert.deepEqual(data,before);
+});
+
+test('Constant source UVs seed real source color instead of becoming an empty black hand chart',async()=>{
+ await MeshoptSimplifier.ready;const fixture=authoredHand();fixture.g.attributes.uv.array.fill(0);fixture.material.color.set(0xffffff);const r=reconstructAnatomicalHand(fixture.g,fixture.material,{...fixture,simplifier:MeshoptSimplifier,textureSize:32});assert.ok(r.geometry,r.reason);assert.equal(r.material.userData.t3csSkinBake.coverage.unfilledTexels,0);assert.ok(r.material.userData.t3csSkinBake.coverage.undersampledSeeds>0);assert.ok(r.material.map.image.data.every(v=>v===255));
+});
+test('A measured nearby closed accessory transfers its true source color onto the underlying finger without extra geometry',async()=>{
+ await MeshoptSimplifier.ready;const fixture=authoredHand(true),data=new Uint8Array(16*16*4);for(let y=0;y<16;y++)for(let x=0;x<16;x++)data.set(x<8?[180,140,100,255]:x>=14&&y>=14?[240,240,240,255]:[255,0,0,255],(y*16+x)*4);fixture.material.color.set(0xffffff);fixture.material.map=new THREE.DataTexture(data,16,16);for(let v=0;v<fixture.g.attributes.uv.count;v++)fixture.g.attributes.uv.setXY(v,v<fixture.accessoryStart?fixture.g.attributes.uv.getX(v)*.4:.95,v<fixture.accessoryStart?fixture.g.attributes.uv.getY(v)*.4:.95);
+ const r=reconstructAnatomicalHand(fixture.g,fixture.material,{...fixture,simplifier:MeshoptSimplifier,textureSize:128});assert.ok(r.geometry,r.reason);const transfer=r.material.userData.t3csSkinBake.accessoryTextureTransfer;assert.ok(transfer.components.some(c=>c.projected));assert.ok(transfer.paintedTexels>0);const pixels=r.material.map.image.data;let silver=0;for(let row=0;row<Math.floor(128*.495);row++)for(let col=0;col<128;col++){const i=(row*128+col)*4;if(pixels[i]>220&&pixels[i+1]>220&&pixels[i+2]>220)silver++;assert.ok(pixels[i+1]>80,'Unreferenced clothing red must not enter a finger');}assert.ok(silver>0);assert.equal(r.accessories.length,1);
+});

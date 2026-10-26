@@ -28,6 +28,7 @@ try{
  const projectBytes=await readFile(project);report.zipBytes=projectBytes.length;
  await phase('verify-all-project-assets',async()=>{const p=readStudioProject(projectBytes);assert.equal(p.records.length,24);for(const f of p.records){const expected=originals.get(f.name);assert.ok(expected);assert.equal(f.data.length,expected.bytes);assert.equal(hash(f.data),expected.sha256);}});
  await phase('reopen',async()=>{await page.setInputFiles('#project-file',project);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Project restored'),null,{timeout:120000});});
+ report.rawAssetReuse=await page.evaluate(()=>window.studioTest.projectAssetReuse);assert.equal(report.rawAssetReuse.reusedFiles,24);assert.equal(report.rawAssetReuse.reusedBytes,report.input.sourceBytes);
  assert.deepEqual(await page.evaluate(()=>window.studioTest.source.stats),originalStats);
  await phase('convert-after-reopen',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
  assert.deepEqual(await page.evaluate(()=>window.studioTest.report().conversion.stats),before);assert.equal(session.errors.length,0,session.errors.join('\n'));report.status='PASS';report.exactAssetReadback=true;report.sourceStats=originalStats;report.convertedStats=before;

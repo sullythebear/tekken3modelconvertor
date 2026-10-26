@@ -62,3 +62,18 @@ export function uvChartLabels(geometry) {
     }
   return { labels, ambiguous, count: components.length };
 }
+
+// UV sheets are categorical only while their source correspondence survives.
+// A physical rebake replaces torso UVs, so those old sheets must not impose a
+// false topology floor. Material ownership remains categorical in both cases.
+export function optimizationSheetIds(geometry, materials, reprojected) {
+  const charts = uvChartLabels(geometry), keys = new Map(),
+    labels = new Int32Array(materials.length), ambiguous = new Uint8Array(materials.length);
+  for (let v = 0; v < labels.length; v++) {
+    const key = `${materials[v]}:${reprojected[v] ? 'rebaked' : charts.labels[v]}`;
+    if (!keys.has(key)) keys.set(key, keys.size);
+    labels[v] = keys.get(key);
+    ambiguous[v] = reprojected[v] ? 0 : charts.ambiguous[v];
+  }
+  return {labels, ambiguous, count: keys.size};
+}
