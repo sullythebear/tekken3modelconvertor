@@ -1,3 +1,4 @@
+import {reduceSourceLimb} from './source-chart-reduction.js';
 import {armDisplacementFields} from './joint-fields.js';
 import {reconstructAnatomicalHand} from './hand-reconstruction.js';
 import {reconcileCoincidentSkin} from './coincident-skin.js';
@@ -300,7 +301,8 @@ export async function convertCharacter(
       const continuous=/^(head|hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|UpperLeg|LowerLeg|Foot))$/.test(p.role)&&stage==='combined'&&!(p.role==='head'&&/eye|iris|sclera|lash|teeth/i.test(p.material?.name??''));
       const reprojectedBody=continuous&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name??'')&&canRebakeTorso(g);
       const deformationFields=continuous&&/^(spine|hips|(left|right)(Shoulder|UpperArm))$/.test(p.role)?armDisplacementFields(p.mesh,g):null;
-      reconstruction = continuous?reduceBodySurface(g,p.role,MeshoptSimplifier,{
+      const sourceLimb=/^(left|right)(Shoulder|UpperArm|LowerArm|UpperLeg|LowerLeg|Foot)$/.test(p.role);
+      reconstruction = continuous?(sourceLimb?reduceSourceLimb:reduceBodySurface)(g,p.role,MeshoptSimplifier,{
         target:budgets[i],featureMask:protectedMask,reprojectUV:reprojectedBody,deformationFields,
       }):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;

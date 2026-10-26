@@ -79,3 +79,16 @@ export function optimizationSheetIds(geometry, materials, reprojected) {
   }
   return { labels, ambiguous, count: keys.size };
 }
+
+export function mixedUVSheetTriangles(indices, charts) {
+  let mixed = 0;
+  for (let t = 0; t < indices.length; t += 3) {
+    const labels = new Set();
+    for (let k = 0; k < 3; k++) {
+      const v = indices[t + k];
+      if (!charts.ambiguous[v]) labels.add(charts.labels[v]);
+    }
+    if (labels.size > 1) mixed++;
+  }
+  return mixed;
+}

@@ -95,6 +95,7 @@ for (const d of datasets)
       model,
       requestedTriangles: d.budget ?? null,
       triangles: c.stats.triangles,
+      optimization: c.optimization ? safeCounts(c.optimization) : null,
       regions: c.regions.map((p) => ({
         region: p.region,
         before: p.before,
@@ -354,6 +355,42 @@ for (const model of ["cesium", "synthetic", "crest"])
       "kick",
     ],
   );
+html +=
+  "<h2>Oorzaakanalyse: geometrie, normals en gebakken bronkleur</h2><p>Deze grijze renders gebruiken dezelfde dev.9-geometrie, camera en verlichting, met alleen een andere normal-interpolatie. Geen textures of extra polygonen. Dit zijn testmaterialen, geen nieuwe product- of exportinstellingen. De gewone galerij toont de werkelijk gebakken PS1-kleuren.</p><section><table><tr><th>Vlakke normals</th><th>Geïnterpoleerde normals</th></tr>";
+for (const view of ["full", "shoulder", "hand"])
+  html +=
+    "<tr>" +
+    ["flat", "smooth"]
+      .map((mode) => {
+        const file = `dev9/nikki/geometry-${mode}-${view}-prepared.png`;
+        return `<td><a href="${file}"><img loading="lazy" src="${file}" alt="${mode} ${view}"></a></td>`;
+      })
+      .join("") +
+    "</tr>";
+html +=
+  "</table></section><h3>Texture-ablaties bij exact dezelfde geometrie</h3><p>Vier tussenproeven met identieke camera’s en geometry-/UV-/skin-/bind-hashes: zie bake-ablation-provenance.json. De 16-kleurenvariant is verworpen wegens blokvormige huidkleuren. De behouden 256-kleurenvariant kost 65.536 extra stagingtexturebytes; donorcapaciteit is niet bevestigd. Dit zijn ontwikkelingstussenbeelden, niet de definitieve dev.9-handtexture.</p><section><table><tr><th>Oude 256×128 bronbake</th><th>Volledige 256×256 bronbake</th><th>Bronnormals / 16 kleuren — VERWORPEN</th><th>Bronnormals / 256 kleuren — behouden</th></tr>";
+const ablations = [
+  ["original", "cycle8-compact-fields"],
+  ["resolution", "cycle9-body-resolution"],
+  ["diffuse16-rejected", "cycle9-body-diffuse16"],
+  ["diffuse256", "cycle9-body-diffuse256"],
+];
+for (const view of ["left-shoulder", "hips", "arms-raised-shoulder"]) {
+  html += "<tr>";
+  for (const [id, folder] of ablations) {
+    const target = path.join(publicRoot, "ablations", id);
+    await mkdir(target, { recursive: true });
+    const file = view + "-prepared.png";
+    await copyFile(
+      path.join("artifacts/dev9", folder, file),
+      path.join(target, file),
+    );
+    const rel = `ablations/${id}/${file}`;
+    html += `<td><a href="${rel}"><img loading="lazy" src="${rel}" alt="${id} ${view}"></a></td>`;
+  }
+  html += "</tr>";
+}
+html += "</table></section>";
 html +=
   "<h2>Regionale kosten en integriteit</h2><section><table><tr><th>Variant</th><th>Regioverdeling</th><th>Integriteit / contacten</th></tr>";
 for (const r of summary.results.filter((r) => r.model === "nikki")) {
