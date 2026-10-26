@@ -1,0 +1,2294 @@
+{
+  "id": "matched7",
+  "model": "nikki",
+  "requestedTriangles": null,
+  "triangles": 2545,
+  "optimization": {
+    "collarReduction": {
+      "before": 7503,
+      "after": 7463,
+      "removedTriangles": 40,
+      "collapsedSharedSamples": 20,
+      "rejected": 17,
+      "policy": "Coordinated collinear neck seam collapse; unchanged vertex positions, material-local UV selection, symmetric topology/winding validation"
+    },
+    "artisticTriangles": 7503,
+    "candidateTriangles": 2545,
+    "requestedTriangles": 2000,
+    "budgetMet": false,
+    "capacityEvidence": "No original donor supplied; requested count is experimental. Protected features and geometric error bounds can exceed it"
+  },
+  "regions": [
+    {
+      "region": "hair",
+      "before": 480,
+      "target": 71,
+      "after": 71,
+      "kind": "hair-support",
+      "error": 0.053495850414037704,
+      "errorLimit": 0.08,
+      "lockedVertices": 0,
+      "minimum": 48,
+      "qualityLimited": false,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "hair-cards",
+      "before": 1905,
+      "target": 313,
+      "after": 664,
+      "kind": "hair",
+      "error": 0.017988062016114272,
+      "errorLimit": 0.018,
+      "lockedVertices": 30,
+      "minimum": 150,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": {
+        "method": "Independent connected-sheet simplification; UV error bounded; component bridging impossible",
+        "components": 30,
+        "componentFloor": 60,
+        "deformationSeamLocks": 0
+      }
+    },
+    {
+      "region": "spine",
+      "before": 487,
+      "target": 59,
+      "after": 90,
+      "kind": "clothing",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "rightLowerLeg",
+      "before": 368,
+      "target": 104,
+      "after": 126,
+      "kind": "boots",
+      "error": 0.01176497247070074,
+      "errorLimit": 0.012,
+      "lockedVertices": 58,
+      "minimum": 64,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "leftLowerLeg",
+      "before": 368,
+      "target": 104,
+      "after": 124,
+      "kind": "boots",
+      "error": 0.011998208239674568,
+      "errorLimit": 0.012,
+      "lockedVertices": 58,
+      "minimum": 64,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "hips",
+      "before": 362,
+      "target": 54,
+      "after": 182,
+      "kind": "clothing",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 18,
+      "minimum": 24,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "rightShoulder",
+      "before": 149,
+      "target": 37,
+      "after": 11,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "rightHand",
+      "before": 536,
+      "target": 178,
+      "after": 192,
+      "kind": "body",
+      "error": 0.027277816087007523,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 80,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Source-anatomical hand topology with weighted joint fields",
+        "target": 178,
+        "error": 0.027277816087007523,
+        "errorLimit": 0.028,
+        "boundaryLockedVertices": 35,
+        "lockedVertices": 35,
+        "trackedSkinBones": 24,
+        "anatomicalWeightFields": false,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 32,
+          "outputOpenEdges": 32,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 0,
+          "degenerateTriangles": 0,
+          "tolerance": 0.00023474031967912152
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Source UV correspondence retained",
+        "sharedGroupBefore": 536,
+        "sharedGroupAfter": 192
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "leftShoulder",
+      "before": 147,
+      "target": 37,
+      "after": 6,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "rightUpperArm",
+      "before": 154,
+      "target": 37,
+      "after": 8,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "rightLowerArm",
+      "before": 142,
+      "target": 37,
+      "after": 41,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "leftUpperArm",
+      "before": 159,
+      "target": 38,
+      "after": 16,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "leftLowerArm",
+      "before": 138,
+      "target": 37,
+      "after": 38,
+      "kind": "body",
+      "error": 0.017845073714852333,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 24,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Continuous body topology with invariant regional borders",
+        "target": 336,
+        "error": 0.017845073714852333,
+        "errorLimit": 0.018,
+        "boundaryLockedVertices": 410,
+        "lockedVertices": 428,
+        "trackedSkinBones": 13,
+        "anatomicalWeightFields": true,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 196,
+          "outputOpenEdges": 196,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 4,
+          "degenerateTriangles": 0,
+          "tolerance": 0.0011904816155022496
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Physical torso charts rebaked; original limb UVs retained",
+        "sharedGroupBefore": 1738,
+        "sharedGroupAfter": 392
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "leftHand",
+      "before": 486,
+      "target": 173,
+      "after": 180,
+      "kind": "body",
+      "error": 0.027779387310147285,
+      "errorLimit": 0.012,
+      "lockedVertices": 0,
+      "minimum": 80,
+      "qualityLimited": true,
+      "bodyOptimization": {
+        "method": "Source-anatomical hand topology with weighted joint fields",
+        "target": 173,
+        "error": 0.027779387310147285,
+        "errorLimit": 0.028,
+        "boundaryLockedVertices": 35,
+        "lockedVertices": 35,
+        "trackedSkinBones": 24,
+        "anatomicalWeightFields": false,
+        "materialBoundaryAttribute": true,
+        "residualLockedVertices": 0,
+        "integrity": {
+          "sourceInconsistentWinding": 0,
+          "sourceOpenEdges": 32,
+          "outputOpenEdges": 32,
+          "unexpectedOpenEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 0,
+          "degenerateTriangles": 0,
+          "tolerance": 0.00023474031967912152
+        },
+        "fallbackReason": null,
+        "mixedMaterialTriangles": 0,
+        "uvTransfer": "Source UV correspondence retained",
+        "sharedGroupBefore": 486,
+        "sharedGroupAfter": 180
+      },
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 200,
+      "target": 98,
+      "after": 98,
+      "kind": "eyes",
+      "error": 0.008256949484348297,
+      "errorLimit": 0.01,
+      "lockedVertices": 84,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 48,
+      "target": 48,
+      "after": 48,
+      "kind": "eyes",
+      "error": 0,
+      "errorLimit": 0.01,
+      "lockedVertices": 48,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 106,
+      "target": 90,
+      "after": 106,
+      "kind": "eyes",
+      "error": 0,
+      "errorLimit": 0.01,
+      "lockedVertices": 72,
+      "minimum": 36,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 154,
+      "target": 10,
+      "after": 60,
+      "kind": "teeth",
+      "error": 0.1359419971704483,
+      "errorLimit": 0.15,
+      "lockedVertices": 55,
+      "minimum": 8,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 78,
+      "target": 70,
+      "after": 70,
+      "kind": "eyes",
+      "error": 0.006735894363373518,
+      "errorLimit": 0.01,
+      "lockedVertices": 50,
+      "minimum": 24,
+      "qualityLimited": false,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    },
+    {
+      "region": "head",
+      "before": 996,
+      "target": 405,
+      "after": 414,
+      "kind": "face",
+      "error": 0.009984062053263187,
+      "errorLimit": 0.01,
+      "lockedVertices": 108,
+      "minimum": 240,
+      "qualityLimited": true,
+      "bodyOptimization": null,
+      "componentOptimization": null
+    }
+  ],
+  "integrity": {
+    "triangles": 2545,
+    "openEdges": 589,
+    "byRegion": {
+      "hair": 27,
+      "hair-cards": 274,
+      "spine": 16,
+      "hips": 32,
+      "head": 240
+    },
+    "classifications": {
+      "alpha-or-hair": 385,
+      "measured-aperture-or-source-open": 80,
+      "preserved-source-mesh-border": 124
+    },
+    "unexpectedByRegion": {},
+    "sourceOpenEdges": 1072,
+    "sourceInconsistentWinding": 0,
+    "sourceNonmanifoldEdges": 137,
+    "unexpectedEdges": 0,
+    "inconsistentWinding": 0,
+    "nonmanifoldEdges": 17,
+    "degenerateTriangles": 0,
+    "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+  },
+  "contacts": {
+    "contacts": 17,
+    "byCategory": {
+      "coincident-face-contact": 14,
+      "same-surface-branch": 3
+    },
+    "byRegion": {
+      "hair": 3,
+      "hair-cards": 10,
+      "hips": 4
+    },
+    "divergentContacts": 0,
+    "divergentByCategory": {},
+    "divergentByRegion": {},
+    "maxGap": 0,
+    "tolerance": 0.0020437663571394415,
+    "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+  },
+  "poseContacts": [
+    {
+      "pose": "guard",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "reach",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "crouch",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "idle",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "hand-flex",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "hand-relax",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "arms-raised",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "walk",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "punch",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "kick",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    },
+    {
+      "pose": "face-motion",
+      "contacts": 17,
+      "byCategory": {
+        "coincident-face-contact": 14,
+        "same-surface-branch": 3
+      },
+      "byRegion": {
+        "hair": 3,
+        "hair-cards": 10,
+        "hips": 4
+      },
+      "divergentContacts": 0,
+      "divergentByCategory": {},
+      "divergentByRegion": {},
+      "maxGap": 0,
+      "tolerance": 0.0020437663571394415,
+      "scope": "Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification"
+    }
+  ],
+  "poseSeams": [
+    {
+      "pose": "guard",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 3.866685027076036e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 3.86668642074252e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "reach",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 3.813036980037573e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 3.813039796793421e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "crouch",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.3608986567711715e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.36089808855599e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "idle",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-flex",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "hand-relax",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "thumb-motion",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "wrist-roll",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "arms-raised",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "walk",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.063758711686978e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.006060816953808e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "punch",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "kick",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.0838067750875575e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    },
+    {
+      "pose": "face-motion",
+      "status": "MEASURED",
+      "pairedPositions": 206,
+      "maxGap": 2.5205275787027404e-8,
+      "overTolerance": 0,
+      "tolerance": 0.000024514743390866462,
+      "byInterface": {
+        "leftShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/spine": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightShoulder/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "rightLowerArm/rightUpperArm": {
+          "samples": 5,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftShoulder/leftUpperArm": {
+          "samples": 8,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "head/spine": {
+          "samples": 24,
+          "maxGap": 2.5205275787027404e-8,
+          "overTolerance": 0
+        },
+        "hips/spine": {
+          "samples": 14,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "hips/rightLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.03737085125451e-9,
+          "overTolerance": 0
+        },
+        "hips/leftLowerLeg": {
+          "samples": 32,
+          "maxGap": 4.037370629075211e-9,
+          "overTolerance": 0
+        },
+        "rightHand/rightLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftLowerArm/leftUpperArm": {
+          "samples": 6,
+          "maxGap": 0,
+          "overTolerance": 0
+        },
+        "leftHand/leftLowerArm": {
+          "samples": 32,
+          "maxGap": 0,
+          "overTolerance": 0
+        }
+      },
+      "scope": "Bind-coincident anatomical interface samples; not complete collision detection or game-animation certification"
+    }
+  ],
+  "poseDiagnostics": [
+    {
+      "pose": "guard",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 43.55750075258848,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 6.155486629888513,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "reach",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 93.59920644714045,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 12.893392482371809,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "crouch",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 57.69500062270655,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 7.719695387059207,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "idle",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 0.0001500505936863202,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-flex",
+      "affectedBones": 28,
+      "finite": true,
+      "maxDisplacement": 5.096407711210646,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 2.2332667782300235,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "hand-relax",
+      "affectedBones": 28,
+      "finite": true,
+      "maxDisplacement": 3.5393866072919686,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.751943756477561,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "thumb-motion",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 3.056528039791386,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.5125906629346804,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "wrist-roll",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 2.886351106244245,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.1124296133658642,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "arms-raised",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 94.09824876879541,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 11,
+      "maxEdgeStretch": 6.444864226036522,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "walk",
+      "affectedBones": 4,
+      "finite": true,
+      "maxDisplacement": 4.415697234363048,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 4.3360274767067395,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "punch",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 56.71384290500253,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 3.3540621438396006,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "kick",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 7.367810035715941,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 2,
+      "maxEdgeStretch": 8.49620044495353,
+      "kind": "source-rig-diagnostic"
+    },
+    {
+      "pose": "face-motion",
+      "affectedBones": 2,
+      "finite": true,
+      "maxDisplacement": 9.823836914101888,
+      "samples": 6267,
+      "checkedEdges": 43563,
+      "extremeEdges": 0,
+      "maxEdgeStretch": 1.9788959447478676,
+      "kind": "source-rig-diagnostic"
+    }
+  ],
+  "anatomyStatistics": {
+    "triangles": {
+      "hair": 71,
+      "hair-cards": 664,
+      "spine": 90,
+      "boots-feet": 120,
+      "legs": 130,
+      "hips": 182,
+      "rightShoulder": 11,
+      "fingers": 283,
+      "palms-wrists": 89,
+      "leftShoulder": 6,
+      "rightUpperArm": 8,
+      "rightLowerArm": 41,
+      "leftUpperArm": 16,
+      "leftLowerArm": 38,
+      "eyes-lashes-teeth": 382,
+      "face": 253,
+      "neck": 127,
+      "scalp": 34
+    },
+    "coincidentTriangleCandidates": {
+      "hair": 3,
+      "hair-cards": 11,
+      "hips": 6,
+      "fingers": 2
+    },
+    "hiddenGeometry": "Not certified by static views; no blind deletion",
+    "note": "Face/neck use anatomical UV zones; fingers use structural digit chains and skin weights; boot separation uses measured garment cuff. Coincident faces are diagnostic candidates, not automatically redundant."
+  },
+  "textureBytes": 158848,
+  "paletteBytes": 3872,
+  "tiles": [
+    {
+      "material": "MI_CargoLying_FaceAcc_Alt_Under_volume",
+      "clut": 30768,
+      "x": 128,
+      "y": 256,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_FaceAcc_Alt_Under_cards",
+      "clut": 30832,
+      "x": 256,
+      "y": 256,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Body_torso_rebaked_rebaked",
+      "clut": 30896,
+      "x": 0,
+      "y": 0,
+      "width": 256,
+      "height": 256,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Body_legs_right_envelope",
+      "clut": 30960,
+      "x": 0,
+      "y": 384,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 8
+    },
+    {
+      "material": "MI_CargoLying_Body_legs_left_envelope",
+      "clut": 31024,
+      "x": 128,
+      "y": 384,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 8
+    },
+    {
+      "material": "MI_CargoLying_Body_torso_rebaked_rebaked",
+      "clut": 31088,
+      "x": 256,
+      "y": 0,
+      "width": 256,
+      "height": 256,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Body_arms_right",
+      "clut": 31152,
+      "x": 320,
+      "y": 384,
+      "width": 64,
+      "height": 64,
+      "bitDepth": 8,
+      "sourceSkinBake": {
+        "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+        "size": 256,
+        "sourceTriangles": 1991,
+        "measuredTexels": 5822,
+        "retainedBytes": 327680,
+        "staticLighting": true
+      }
+    },
+    {
+      "material": "MI_CargoLying_Body_arms_right_hand",
+      "clut": 31216,
+      "x": 384,
+      "y": 384,
+      "width": 64,
+      "height": 64,
+      "bitDepth": 8,
+      "sourceSkinBake": {
+        "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+        "size": 256,
+        "sourceTriangles": 1958,
+        "measuredTexels": 1696,
+        "retainedBytes": 327680,
+        "staticLighting": true
+      }
+    },
+    {
+      "material": "MI_CargoLying_Body_arms_left",
+      "clut": 31280,
+      "x": 448,
+      "y": 384,
+      "width": 64,
+      "height": 64,
+      "bitDepth": 8,
+      "sourceSkinBake": {
+        "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+        "size": 256,
+        "sourceTriangles": 1988,
+        "measuredTexels": 7649,
+        "retainedBytes": 327680,
+        "staticLighting": true
+      }
+    },
+    {
+      "material": "MI_CargoLying_Body_arms_left_hand",
+      "clut": 31344,
+      "x": 256,
+      "y": 448,
+      "width": 64,
+      "height": 64,
+      "bitDepth": 8,
+      "sourceSkinBake": {
+        "method": "Original smooth surface-normal diffuse lighting; source albedo and normal-map detail retained",
+        "size": 256,
+        "sourceTriangles": 1708,
+        "measuredTexels": 32543,
+        "retainedBytes": 327680,
+        "staticLighting": true
+      }
+    },
+    {
+      "material": "MI_CargoLying_Eyelashes",
+      "clut": 31408,
+      "x": 384,
+      "y": 256,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Eye_iris",
+      "clut": 31472,
+      "x": 256,
+      "y": 384,
+      "width": 64,
+      "height": 64,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Eye_sclera",
+      "clut": 31536,
+      "x": 320,
+      "y": 448,
+      "width": 32,
+      "height": 32,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Teeth",
+      "clut": 31600,
+      "x": 352,
+      "y": 448,
+      "width": 32,
+      "height": 32,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Eyeshell",
+      "clut": 31664,
+      "x": 384,
+      "y": 448,
+      "width": 16,
+      "height": 16,
+      "bitDepth": 4
+    },
+    {
+      "material": "MI_CargoLying_Head_anatomical",
+      "clut": 31728,
+      "x": 0,
+      "y": 256,
+      "width": 128,
+      "height": 128,
+      "bitDepth": 8
+    }
+  ],
+  "exportValidation": {
+    "headGeometrySha256": "96686c1f8377ca1140122abab090b18c68ec97b6fa1149c6070a4cc92aa7f475",
+    "faceInteriorGeometrySha256": "cf8c2d4d0544244ce12f663f51df3da61eed6532d750478d2c7fa0767951113c",
+    "faceInteriorTextureSha256": "b61b871098b2f54e05c2a03199cfb5ab483d97b98590d08aac32cd9544848ba4",
+    "glbSha256": "c2cd5cdc712c1c22896d64f1e21d0ff0e49353afe69459646b397c6fdecc86f0",
+    "timHashes": {
+      "textures/00.tim": "71ce2a894bc4b999d0ec7087c1eab031937f0397b535582ad67bd9bf3ab149ba",
+      "textures/01.tim": "9c0da6b01d5b87e0105824d8db960bc62cf0fecb2c02c42d93fcae5fbdd08fa4",
+      "textures/02.tim": "3948c1d6255de0dabad10f987752ea3cea74a51bc071bfdf5a3f156ba808ca04",
+      "textures/03.tim": "06701c9abda857640055ec55a4b65f49edcd1fa33a2c4117485ddad21943a552",
+      "textures/04.tim": "530f984735d312357c7d18732f76bbc14d1982b8d48f4f6fad87dbd0c5d3ade1",
+      "textures/05.tim": "e4a8aebb26c69984afce1bcd032902557fc7458649f8a8c6e89d8e25e179a3d1",
+      "textures/06.tim": "3cf4d28e2efcc4ff58c08baee9ba151bf3581af02e76ce99a09856ae2e0e14ff",
+      "textures/07.tim": "691365ad2d58b79bec5f409d31395a56d2621e6f0b15026db034498702b7fa28",
+      "textures/08.tim": "3aaf516c95e17f9bb11d8bab73f2976e43f4f26a81e4ee2a8f6bb9337b9fe68d",
+      "textures/09.tim": "b39e96841ed27c3396514171b8fd587042d7db59a9ff78ecc402a081a998270a",
+      "textures/10.tim": "9446122a1b2feafc9475100d3b7d08e2c7c24318d858c1b2d984ca82edeba149",
+      "textures/11.tim": "463500c4f683ce49b8786933702cc261b35bc08e8435db9b89be039d38f085e0",
+      "textures/12.tim": "0eb8a5094786050d0f5b22e8348f91f7ecba221f37e59644567f75ba61b262e9",
+      "textures/13.tim": "031330f27f793c6936e0da0656e6464b48f993d59e24fd6c19f9f4286e1e7551",
+      "textures/14.tim": "ae995f61873b7d92d890269be36c9fadc8658d782e397b40c67067009c916142",
+      "textures/15.tim": "863506d39e25163096f3fc58dfcbffa53b2266647e3cbe3a8e170dcff71e0540"
+    },
+    "timValidation": [
+      {
+        "path": "textures/00.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "d1646342d0dd91d76f76e4e873dcfa8ff40fdc8808bd6b9a35163e998b80a80b",
+        "paletteSha256": "8ef0048fb7869237e22150918a3dab44460308657d9a4023c977bd6c58f77d0d"
+      },
+      {
+        "path": "textures/01.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "a4fd1fbe27d5df1f275e863d32bef2f6f413e4b32612845650beb6c4fa367ecc",
+        "paletteSha256": "0bd02bf8bbe26e4ead15b57069f9f508295347ce0ac5ce1723f9f7d108a843a9"
+      },
+      {
+        "path": "textures/02.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16,
+        "pixelSha256": "4eac8b4669573e2012cca9825fdb6463cc7dcce10cbf570e6df8ccb05473e3b1",
+        "paletteSha256": "04b7c5cc473ef223b00beec6f8d4dc4c8c4f94ac36413b4e80bce9b0b0f07431"
+      },
+      {
+        "path": "textures/03.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256,
+        "pixelSha256": "bf53f7914a96734a64db47b812814cebf0f91355038a370e49ca6ce678ab6dd3",
+        "paletteSha256": "efc78642b5e5fae34a03dfdb7a03d4fdf6deaadce4ff2837ad41b3b5674c130e"
+      },
+      {
+        "path": "textures/04.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256,
+        "pixelSha256": "21a48179edac16019a188810e45e3ef566af0067ef7b5e1ea8cc786f5f1cea94",
+        "paletteSha256": "118c69be58e82f6096128a3cfe726817e4daa4dc00060463d2d00b87fa458bd5"
+      },
+      {
+        "path": "textures/05.tim",
+        "width": 256,
+        "height": 256,
+        "colors": 16,
+        "pixelSha256": "8258b5f1b96dd79a54a1e519419a878ce2fd356d850457d70cc64c92f3b30644",
+        "paletteSha256": "618594b38432da2bded01c84cda8e800f5dd2730d1fec28d68b9d0d6d3084b86"
+      },
+      {
+        "path": "textures/06.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 256,
+        "pixelSha256": "44d73387867543db13e5214ad190e701b23f2cee592cd1c6da43e6eea208573a",
+        "paletteSha256": "89d3615383b3627e928b73d47681deefa3fb6f43843935eef2f35a591298eca9"
+      },
+      {
+        "path": "textures/07.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 256,
+        "pixelSha256": "619789ef9574c1dacda804680864128fe2108a1e9312788a0e4cee7608d75022",
+        "paletteSha256": "f21261d9cb0d5d71af8c4c9bb48abceebc593a688e59997d312f9e1c54ee3361"
+      },
+      {
+        "path": "textures/08.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 256,
+        "pixelSha256": "e14f78f88f4c7cf4fdf08535dd5aa26e98d7af3ecf0589fc2658bf1158b51602",
+        "paletteSha256": "65f4d2c53916839fc3de2e2b11c805e4f8f4da18e401667c5c2081daa5d4e32c"
+      },
+      {
+        "path": "textures/09.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 256,
+        "pixelSha256": "d11c3124a5eb93ec1cece5c6ff6127bdf93b42fd090179c4474a748cdb91fec2",
+        "paletteSha256": "c4a0964cfb6bc9fe2587d3bd23954775fee8481df2f020ca69bd620530d9b230"
+      },
+      {
+        "path": "textures/10.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 16,
+        "pixelSha256": "9604dad934b84a0a502a098d0bcf875d152af93c12f818985ad872daa03ee10a",
+        "paletteSha256": "bb482eb73c029d80580a722023444d7316bf24c00f355e990d3560e3657c1f00"
+      },
+      {
+        "path": "textures/11.tim",
+        "width": 64,
+        "height": 64,
+        "colors": 16,
+        "pixelSha256": "95b9e9fe35510e3a4609d1cbd02bea40219c1802cda647ce94887bc3385b03de",
+        "paletteSha256": "2933933014c048de08138a5232f0433eff7921e157058b737f65b469d6aa9aa4"
+      },
+      {
+        "path": "textures/12.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "32f1e28733383dcb3b07063f985f815f9374ce415c77b75282d2f39acb0d0f51",
+        "paletteSha256": "d10adca5ca279d992d8fa38abe3a489b39adfc395df6677b83b286027626c4b1"
+      },
+      {
+        "path": "textures/13.tim",
+        "width": 32,
+        "height": 32,
+        "colors": 16,
+        "pixelSha256": "d5a6c3a91a74b54494bd6b17e069ba31630990c691dda5d8571476cb45ab26b8",
+        "paletteSha256": "bda629622d632ad3dc8f199b14c88e82d4bf14b3775d8ed2c9b4a3b52fc15f22"
+      },
+      {
+        "path": "textures/14.tim",
+        "width": 16,
+        "height": 16,
+        "colors": 16,
+        "pixelSha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+        "paletteSha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      {
+        "path": "textures/15.tim",
+        "width": 128,
+        "height": 128,
+        "colors": 256,
+        "pixelSha256": "89007a32130273b062db05440daebafdead1c5969cdeb8472fb3c00163744801",
+        "paletteSha256": "032d4e1f87cca1951b21330b9a998709a9aaf59810d4a4fdc02c8d772945bfa7"
+      }
+    ]
+  }
+}

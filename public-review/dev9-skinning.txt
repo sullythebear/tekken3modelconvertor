@@ -1,0 +1,1 @@
+Twelve-influence skinning: binary FBX 7400/7500/7700, GLB, CPU/GPU (0.000000 pixel mismatch), reduction and GLB round-trip passed.

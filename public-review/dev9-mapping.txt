@@ -1,0 +1,1 @@
+Source mapping UI: unnamed rig rebuilt on 15 donor rows; profile round-trip and stale candidate invalidation passed.

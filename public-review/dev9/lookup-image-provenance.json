@@ -1,0 +1,93 @@
+{
+  "scope": "Same UV-chart constraints and camera, lookup-only speed change",
+  "images": [
+    {
+      "file": "left-hand-clay-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "idle-hand-source.png",
+      "identical": true
+    },
+    {
+      "file": "thumb-motion-hand-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-front-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "hand-flex-hand-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-back-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-relax-hand-source.png",
+      "identical": true
+    },
+    {
+      "file": "right-hand-front-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-normals-source.png",
+      "identical": true
+    },
+    {
+      "file": "right-hand-front-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-front-source.png",
+      "identical": true
+    },
+    {
+      "file": "front-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "front-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-normals-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "hand-relax-hand-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "idle-hand-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "right-hand-back-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-back-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "right-hand-back-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "left-hand-clay-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-flex-hand-prepared.png",
+      "identical": true
+    },
+    {
+      "file": "thumb-motion-hand-prepared.png",
+      "identical": true
+    }
+  ]
+}

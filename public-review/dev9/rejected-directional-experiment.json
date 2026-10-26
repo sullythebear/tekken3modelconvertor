@@ -1,0 +1,209 @@
+{
+  "accepted": false,
+  "baselineTriangles": 7481,
+  "experimentTriangles": 7479,
+  "reason": "No convincing visual improvement; higher mean and P95 upper-arm errors in most poses despite preserving all source skin channels",
+  "measurements": [
+    {
+      "pose": "neutral",
+      "region": "rightShoulder",
+      "baselineTriangles": 149,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03521883794472371,
+      "experimentMean": 0.03609259766521952,
+      "baselineP95": 0.2376886989036282,
+      "experimentP95": 0.2376886989036282
+    },
+    {
+      "pose": "neutral",
+      "region": "leftShoulder",
+      "baselineTriangles": 147,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03473210856681759,
+      "experimentMean": 0.03473210856681757,
+      "baselineP95": 0.20645706879607306,
+      "experimentP95": 0.20645706879607306
+    },
+    {
+      "pose": "neutral",
+      "region": "rightUpperArm",
+      "baselineTriangles": 156,
+      "experimentTriangles": 156,
+      "baselineMean": 0.10172807497688441,
+      "experimentMean": 0.10764231027393786,
+      "baselineP95": 0.28792829201297027,
+      "experimentP95": 0.3186988748481054
+    },
+    {
+      "pose": "neutral",
+      "region": "leftUpperArm",
+      "baselineTriangles": 155,
+      "experimentTriangles": 155,
+      "baselineMean": 0.1054015744357218,
+      "experimentMean": 0.11195301603011552,
+      "baselineP95": 0.2807081260176192,
+      "experimentP95": 0.3180467318874232
+    },
+    {
+      "pose": "guard",
+      "region": "rightShoulder",
+      "baselineTriangles": 149,
+      "experimentTriangles": 147,
+      "baselineMean": 0.035507150484695604,
+      "experimentMean": 0.035104790343424494,
+      "baselineP95": 0.2212695882660842,
+      "experimentP95": 0.2212695882660842
+    },
+    {
+      "pose": "guard",
+      "region": "leftShoulder",
+      "baselineTriangles": 147,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03377504626541472,
+      "experimentMean": 0.03377504626541471,
+      "baselineP95": 0.1959930321755896,
+      "experimentP95": 0.1959930321755896
+    },
+    {
+      "pose": "guard",
+      "region": "rightUpperArm",
+      "baselineTriangles": 156,
+      "experimentTriangles": 156,
+      "baselineMean": 0.10684040021822289,
+      "experimentMean": 0.11524675964241046,
+      "baselineP95": 0.3086145383413826,
+      "experimentP95": 0.32755570477766227
+    },
+    {
+      "pose": "guard",
+      "region": "leftUpperArm",
+      "baselineTriangles": 155,
+      "experimentTriangles": 155,
+      "baselineMean": 0.11160943101016225,
+      "experimentMean": 0.11844980636152341,
+      "baselineP95": 0.3128848588045417,
+      "experimentP95": 0.3472915502831613
+    },
+    {
+      "pose": "reach",
+      "region": "rightShoulder",
+      "baselineTriangles": 149,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03607746517121224,
+      "experimentMean": 0.03647903893425619,
+      "baselineP95": 0.210812493491149,
+      "experimentP95": 0.210812493491149
+    },
+    {
+      "pose": "reach",
+      "region": "leftShoulder",
+      "baselineTriangles": 147,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03519606720242198,
+      "experimentMean": 0.0351960672024219,
+      "baselineP95": 0.18036572282506977,
+      "experimentP95": 0.18036572282506977
+    },
+    {
+      "pose": "reach",
+      "region": "rightUpperArm",
+      "baselineTriangles": 156,
+      "experimentTriangles": 156,
+      "baselineMean": 0.12214256256424241,
+      "experimentMean": 0.1374214907514217,
+      "baselineP95": 0.3577287197282653,
+      "experimentP95": 0.3979474784492734
+    },
+    {
+      "pose": "reach",
+      "region": "leftUpperArm",
+      "baselineTriangles": 155,
+      "experimentTriangles": 155,
+      "baselineMean": 0.13353083328318296,
+      "experimentMean": 0.13728588290627516,
+      "baselineP95": 0.3952279708819267,
+      "experimentP95": 0.420807287669609
+    },
+    {
+      "pose": "arms-raised",
+      "region": "rightShoulder",
+      "baselineTriangles": 149,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03033037122305832,
+      "experimentMean": 0.03132314060463555,
+      "baselineP95": 0.18978908041255974,
+      "experimentP95": 0.18978908041255974
+    },
+    {
+      "pose": "arms-raised",
+      "region": "leftShoulder",
+      "baselineTriangles": 147,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03125219564519343,
+      "experimentMean": 0.03125219564519347,
+      "baselineP95": 0.18465598497872854,
+      "experimentP95": 0.18465598497872854
+    },
+    {
+      "pose": "arms-raised",
+      "region": "rightUpperArm",
+      "baselineTriangles": 156,
+      "experimentTriangles": 156,
+      "baselineMean": 0.13275546673551367,
+      "experimentMean": 0.1328982394700549,
+      "baselineP95": 0.3703307134901495,
+      "experimentP95": 0.3671147854296272
+    },
+    {
+      "pose": "arms-raised",
+      "region": "leftUpperArm",
+      "baselineTriangles": 155,
+      "experimentTriangles": 155,
+      "baselineMean": 0.1435670832819925,
+      "experimentMean": 0.15042408962907267,
+      "baselineP95": 0.40659114665073054,
+      "experimentP95": 0.45083804479132983
+    },
+    {
+      "pose": "punch",
+      "region": "rightShoulder",
+      "baselineTriangles": 149,
+      "experimentTriangles": 147,
+      "baselineMean": 0.03521883794472371,
+      "experimentMean": 0.03609259766521952,
+      "baselineP95": 0.2376886989036282,
+      "experimentP95": 0.2376886989036282
+    },
+    {
+      "pose": "punch",
+      "region": "leftShoulder",
+      "baselineTriangles": 147,
+      "experimentTriangles": 147,
+      "baselineMean": 0.030841361774120883,
+      "experimentMean": 0.030841361774120914,
+      "baselineP95": 0.19114910867242574,
+      "experimentP95": 0.19114910867242574
+    },
+    {
+      "pose": "punch",
+      "region": "rightUpperArm",
+      "baselineTriangles": 156,
+      "experimentTriangles": 156,
+      "baselineMean": 0.10172807497688441,
+      "experimentMean": 0.10764231027393786,
+      "baselineP95": 0.28792829201297027,
+      "experimentP95": 0.3186988748481054
+    },
+    {
+      "pose": "punch",
+      "region": "leftUpperArm",
+      "baselineTriangles": 155,
+      "experimentTriangles": 155,
+      "baselineMean": 0.10235175264455457,
+      "experimentMean": 0.10858862963829548,
+      "baselineP95": 0.27289899241567206,
+      "experimentP95": 0.31366430597777606
+    }
+  ],
+  "codeRestoredTo": "6b77d2a"
+}

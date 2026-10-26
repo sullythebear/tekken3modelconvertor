@@ -1,0 +1,185 @@
+{
+  "scope": "All converted geometry attributes, indices, groups and neutral bone transforms; source image. No private source geometry published.",
+  "identicalGeometry": true,
+  "identicalSourceCamera": true,
+  "sourceCameraChecks": [
+    {
+      "file": "arms-raised-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "arms-raised-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "crouch-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "crouch-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "front-source.png",
+      "identical": true
+    },
+    {
+      "file": "guard-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "guard-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-flex-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-flex-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-relax-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "hand-relax-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "idle-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "idle-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "kick-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "kick-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "left-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "punch-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "punch-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "reach-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "reach-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "right-shoulder-source.png",
+      "identical": true
+    },
+    {
+      "file": "thumb-motion-hips-source.png",
+      "identical": true
+    },
+    {
+      "file": "thumb-motion-shoulder-source.png",
+      "identical": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "cycle8-compact-fields",
+      "geometryUVNormalsSkinAndBindSha256": "3e56e1bf30f971a22b751b4573dd6f3b88896720881fd423edd030687f78f98b",
+      "triangles": 7481,
+      "textureBytes": 167040,
+      "paletteBytes": 3872,
+      "bodyTiles": [
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        }
+      ],
+      "sourceFrontSha256": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3"
+    },
+    {
+      "id": "cycle9-body-resolution",
+      "geometryUVNormalsSkinAndBindSha256": "3e56e1bf30f971a22b751b4573dd6f3b88896720881fd423edd030687f78f98b",
+      "triangles": 7481,
+      "textureBytes": 167040,
+      "paletteBytes": 3872,
+      "bodyTiles": [
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        }
+      ],
+      "sourceFrontSha256": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3"
+    },
+    {
+      "id": "cycle9-body-diffuse16",
+      "geometryUVNormalsSkinAndBindSha256": "3e56e1bf30f971a22b751b4573dd6f3b88896720881fd423edd030687f78f98b",
+      "triangles": 7481,
+      "textureBytes": 167040,
+      "paletteBytes": 3872,
+      "bodyTiles": [
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 4
+        }
+      ],
+      "sourceFrontSha256": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3"
+    },
+    {
+      "id": "cycle9-body-diffuse256",
+      "geometryUVNormalsSkinAndBindSha256": "3e56e1bf30f971a22b751b4573dd6f3b88896720881fd423edd030687f78f98b",
+      "triangles": 7481,
+      "textureBytes": 232576,
+      "paletteBytes": 4832,
+      "bodyTiles": [
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 8
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "bitDepth": 8
+        }
+      ],
+      "sourceFrontSha256": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3"
+    }
+  ]
+}

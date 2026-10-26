@@ -1,0 +1,435 @@
+{
+  "scope": "Parser module-reference lifetime only; same source morph buffers and geometry; diagnostic GC is not production peak RAM",
+  "sourceSceneCountersIdentical": true,
+  "before": {
+    "label": "retained-parser-state",
+    "scope": "Isolated Chromium source import; retained JS heap after two test-only GC requests, not production GC or process/GPU peak RAM",
+    "bundleSha256": "c597680ec460a06f248a9c505ef80f3697610f3ee8103ae6c5b3797b9bfad719",
+    "durationMs": 5300.845568,
+    "beforeDiagnosticGC": {
+      "usedSize": 32887684,
+      "totalSize": 101400576,
+      "embedderHeapUsedSize": 16577320,
+      "backingStorageSize": 714000078
+    },
+    "afterDiagnosticGC": {
+      "usedSize": 32680760,
+      "totalSize": 33505280,
+      "embedderHeapUsedSize": 16574568,
+      "backingStorageSize": 705591271
+    },
+    "source": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 132336,
+        "triangles": 44112,
+        "materials": 8,
+        "textures": 17,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "morphTargets": 450,
+      "activeMorphs": 0,
+      "morphBuffersUniqueBytes": 119102400
+    },
+    "privateSourceFilesPublished": false
+  },
+  "after": {
+    "label": "released-parser-state",
+    "scope": "Isolated Chromium source import; retained JS heap after two test-only GC requests, not production GC or process/GPU peak RAM",
+    "bundleSha256": "006952399393b220427aace57d798c1701c0be27559f794391504df104acdaff",
+    "durationMs": 5351.474272,
+    "beforeDiagnosticGC": {
+      "usedSize": 9291152,
+      "totalSize": 77877248,
+      "embedderHeapUsedSize": 17104232,
+      "backingStorageSize": 879508244
+    },
+    "afterDiagnosticGC": {
+      "usedSize": 9070164,
+      "totalSize": 9719808,
+      "embedderHeapUsedSize": 16574776,
+      "backingStorageSize": 705576422
+    },
+    "source": {
+      "stats": {
+        "meshes": 6,
+        "vertices": 132336,
+        "triangles": 44112,
+        "materials": 8,
+        "textures": 17,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "morphTargets": 450,
+      "activeMorphs": 0,
+      "morphBuffersUniqueBytes": 119102400
+    },
+    "privateSourceFilesPublished": false
+  },
+  "retainedJsHeapBytesSaved": 23610596,
+  "images": [
+    {
+      "image": "arms-raised-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "3df3d27a4cfad98d13ce1d7f7bda50f8c46fb5de3f790d6a2e013489f18f5629",
+      "sha256After": "3df3d27a4cfad98d13ce1d7f7bda50f8c46fb5de3f790d6a2e013489f18f5629"
+    },
+    {
+      "image": "arms-raised-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "arms-raised-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "298bf2d86fbd097285ed3631c3b30bcac22a2ea7544353d21370f424c46c779c",
+      "sha256After": "298bf2d86fbd097285ed3631c3b30bcac22a2ea7544353d21370f424c46c779c"
+    },
+    {
+      "image": "arms-raised-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "16341829bfcb4b01b3f28b1ca31879dcd225954dcdcaae8cfca40ec4c571fef0",
+      "sha256After": "16341829bfcb4b01b3f28b1ca31879dcd225954dcdcaae8cfca40ec4c571fef0"
+    },
+    {
+      "image": "crouch-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "5c58d3ed9a60d9b24b7563f5752e035f577ed83cd879ae2e13e58705612ff61f",
+      "sha256After": "5c58d3ed9a60d9b24b7563f5752e035f577ed83cd879ae2e13e58705612ff61f"
+    },
+    {
+      "image": "crouch-hips-source.png",
+      "identical": true,
+      "sha256Before": "887d27283e2e98bab79412220df2b499d5c68d869433a3594b720364c1b295d7",
+      "sha256After": "887d27283e2e98bab79412220df2b499d5c68d869433a3594b720364c1b295d7"
+    },
+    {
+      "image": "crouch-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "89cac9fbce693d5b0e63c24f60e948de406d7fe201038491d65b0190944a1e49",
+      "sha256After": "89cac9fbce693d5b0e63c24f60e948de406d7fe201038491d65b0190944a1e49"
+    },
+    {
+      "image": "crouch-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "7a701a906c45e5cff2690a71159913817157e22ae7a9e1d5ebbdd4cf297ae619",
+      "sha256After": "7a701a906c45e5cff2690a71159913817157e22ae7a9e1d5ebbdd4cf297ae619"
+    },
+    {
+      "image": "front-prepared.png",
+      "identical": true,
+      "sha256Before": "230b45f381f5e93f32d3984289e5fffeea806a60ca67cda27c760079aed972a8",
+      "sha256After": "230b45f381f5e93f32d3984289e5fffeea806a60ca67cda27c760079aed972a8"
+    },
+    {
+      "image": "front-source.png",
+      "identical": true,
+      "sha256Before": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3",
+      "sha256After": "c4e24cee1355a7022deacf14a7780b1f4c07b66cb550244056462d1faa9290d3"
+    },
+    {
+      "image": "guard-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "1bb58b2ce8bc8ed2e24dcaad835b14a9df9c3920977b8ef2e00e96dd7f94a4b8",
+      "sha256After": "1bb58b2ce8bc8ed2e24dcaad835b14a9df9c3920977b8ef2e00e96dd7f94a4b8"
+    },
+    {
+      "image": "guard-hips-source.png",
+      "identical": true,
+      "sha256Before": "dbe3d404e01075324e83f6f83a450e4e0324845d2e9f226e2ab6dfe1c726d20a",
+      "sha256After": "dbe3d404e01075324e83f6f83a450e4e0324845d2e9f226e2ab6dfe1c726d20a"
+    },
+    {
+      "image": "guard-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "a27da7c3937a3c549b7ede83aff1e3ca9c61d46dd04f9da72f43c5c51fb56400",
+      "sha256After": "a27da7c3937a3c549b7ede83aff1e3ca9c61d46dd04f9da72f43c5c51fb56400"
+    },
+    {
+      "image": "guard-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "af6e804457997211a88d2a5b51704efee4cfd4dd58d4033f7c4cabea7ca69b60",
+      "sha256After": "af6e804457997211a88d2a5b51704efee4cfd4dd58d4033f7c4cabea7ca69b60"
+    },
+    {
+      "image": "hand-flex-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c",
+      "sha256After": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c"
+    },
+    {
+      "image": "hand-flex-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "hand-flex-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "hand-flex-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    },
+    {
+      "image": "hand-relax-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c",
+      "sha256After": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c"
+    },
+    {
+      "image": "hand-relax-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "hand-relax-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "hand-relax-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    },
+    {
+      "image": "hips-prepared.png",
+      "identical": true,
+      "sha256Before": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c",
+      "sha256After": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c"
+    },
+    {
+      "image": "hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "idle-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c",
+      "sha256After": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c"
+    },
+    {
+      "image": "idle-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "idle-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "idle-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    },
+    {
+      "image": "kick-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "289488a605972aee044220b2ceee3a9394db34d420b312b10d663be27508fe8a",
+      "sha256After": "289488a605972aee044220b2ceee3a9394db34d420b312b10d663be27508fe8a"
+    },
+    {
+      "image": "kick-hips-source.png",
+      "identical": true,
+      "sha256Before": "66485744defdd1da127cbbd478bca096d27099ff41d6da590ff717ffdf69ab48",
+      "sha256After": "66485744defdd1da127cbbd478bca096d27099ff41d6da590ff717ffdf69ab48"
+    },
+    {
+      "image": "kick-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "kick-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    },
+    {
+      "image": "left-hand-back-prepared.png",
+      "identical": true,
+      "sha256Before": "6d8400bcfc94b582242e61a10db381401d65d7858c285bf53f0fa44e541b9942",
+      "sha256After": "6d8400bcfc94b582242e61a10db381401d65d7858c285bf53f0fa44e541b9942"
+    },
+    {
+      "image": "left-hand-back-source.png",
+      "identical": true,
+      "sha256Before": "1ce0f3c892eafee05794cf12e4fa25902d31db6b88cecca965165aff84116ffb",
+      "sha256After": "1ce0f3c892eafee05794cf12e4fa25902d31db6b88cecca965165aff84116ffb"
+    },
+    {
+      "image": "left-hand-clay-prepared.png",
+      "identical": true,
+      "sha256Before": "00928e844bb5674ac18df7ac9f255b39b0cba8d0b2ed2be41cc2d74fe8a46dc7",
+      "sha256After": "00928e844bb5674ac18df7ac9f255b39b0cba8d0b2ed2be41cc2d74fe8a46dc7"
+    },
+    {
+      "image": "left-hand-clay-source.png",
+      "identical": true,
+      "sha256Before": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1",
+      "sha256After": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1"
+    },
+    {
+      "image": "left-hand-front-prepared.png",
+      "identical": true,
+      "sha256Before": "9fd5395acebd7dc019f75ef7e3ca8a8abc68c2e4cec3deed9faa91914f0c9956",
+      "sha256After": "9fd5395acebd7dc019f75ef7e3ca8a8abc68c2e4cec3deed9faa91914f0c9956"
+    },
+    {
+      "image": "left-hand-front-source.png",
+      "identical": true,
+      "sha256Before": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1",
+      "sha256After": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1"
+    },
+    {
+      "image": "left-hand-normals-prepared.png",
+      "identical": true,
+      "sha256Before": "a33a3b83b0a01d9f896898ef845aba37c0cefcbdd78d7547b1f92a1da3198a1e",
+      "sha256After": "a33a3b83b0a01d9f896898ef845aba37c0cefcbdd78d7547b1f92a1da3198a1e"
+    },
+    {
+      "image": "left-hand-normals-source.png",
+      "identical": true,
+      "sha256Before": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1",
+      "sha256After": "1ca1fbdf9c7863d00a1bab6ee5b122110e599026fc81a7faf4f4c09859f287a1"
+    },
+    {
+      "image": "left-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "left-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    },
+    {
+      "image": "punch-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "58ff50e12e798333f31f0c967247461a6799ae46e5001718af0179441416d68f",
+      "sha256After": "58ff50e12e798333f31f0c967247461a6799ae46e5001718af0179441416d68f"
+    },
+    {
+      "image": "punch-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "punch-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "73b362780c5b20f770207a55de87bc48d209d5e1467f1cc0725b0ea1d8aa7d4d",
+      "sha256After": "73b362780c5b20f770207a55de87bc48d209d5e1467f1cc0725b0ea1d8aa7d4d"
+    },
+    {
+      "image": "punch-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "074fddfa9904b11392e0e917e0362a00c9bf91159b09903fc317fc69d0b0578d",
+      "sha256After": "074fddfa9904b11392e0e917e0362a00c9bf91159b09903fc317fc69d0b0578d"
+    },
+    {
+      "image": "reach-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "43baadb0c65394236af83168fd234465cff06284c0398021d1c0adc970635f88",
+      "sha256After": "43baadb0c65394236af83168fd234465cff06284c0398021d1c0adc970635f88"
+    },
+    {
+      "image": "reach-hips-source.png",
+      "identical": true,
+      "sha256Before": "2e27d0f28302049fe91f0fdd54fe0046403a8ba74034a0e0b4f98e316453bbcc",
+      "sha256After": "2e27d0f28302049fe91f0fdd54fe0046403a8ba74034a0e0b4f98e316453bbcc"
+    },
+    {
+      "image": "reach-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "a297488365545cc961803ab81644b0c8207af8855a74167d80befecafda060c5",
+      "sha256After": "a297488365545cc961803ab81644b0c8207af8855a74167d80befecafda060c5"
+    },
+    {
+      "image": "reach-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "65973af1192a2200a8019d967563eae0914773c2a776918697ba9a539a6bba8e",
+      "sha256After": "65973af1192a2200a8019d967563eae0914773c2a776918697ba9a539a6bba8e"
+    },
+    {
+      "image": "right-hand-back-prepared.png",
+      "identical": true,
+      "sha256Before": "88f00792e38a5294e3033be24d06f7d4e8c73d75b5a3b72ed2f9d0e511eac064",
+      "sha256After": "88f00792e38a5294e3033be24d06f7d4e8c73d75b5a3b72ed2f9d0e511eac064"
+    },
+    {
+      "image": "right-hand-back-source.png",
+      "identical": true,
+      "sha256Before": "1c005492d326ca8c88df4601b7ffed633df0081d40ca1fc43fbb601959846824",
+      "sha256After": "1c005492d326ca8c88df4601b7ffed633df0081d40ca1fc43fbb601959846824"
+    },
+    {
+      "image": "right-hand-front-prepared.png",
+      "identical": true,
+      "sha256Before": "28d0376fbf65b150c1f117a4a4390a1c33606c453b664d1d56029a1ac6413a1d",
+      "sha256After": "28d0376fbf65b150c1f117a4a4390a1c33606c453b664d1d56029a1ac6413a1d"
+    },
+    {
+      "image": "right-hand-front-source.png",
+      "identical": true,
+      "sha256Before": "6fdbf0c8213c81ad1d47ccaf44c9bd555d72d0837bab64ff5942079bf5f19471",
+      "sha256After": "6fdbf0c8213c81ad1d47ccaf44c9bd555d72d0837bab64ff5942079bf5f19471"
+    },
+    {
+      "image": "right-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "393a2de29510c3d4f167abd855de80537923dafb44de165ce1ce9be2bf903795",
+      "sha256After": "393a2de29510c3d4f167abd855de80537923dafb44de165ce1ce9be2bf903795"
+    },
+    {
+      "image": "right-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "5f3ade1bd8e9c2f8e80ec03a087c81ad75d7e19d3bf1c3a85da19da1e676a0a1",
+      "sha256After": "5f3ade1bd8e9c2f8e80ec03a087c81ad75d7e19d3bf1c3a85da19da1e676a0a1"
+    },
+    {
+      "image": "thumb-motion-hips-prepared.png",
+      "identical": true,
+      "sha256Before": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c",
+      "sha256After": "73f6aab714b499382820afcae03bd113cfb139882d314fac6b1a75d2826da27c"
+    },
+    {
+      "image": "thumb-motion-hips-source.png",
+      "identical": true,
+      "sha256Before": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c",
+      "sha256After": "c6a3a0e23977e05726436424eafc2e3b526869da0324cb5ed3c63ac5c5cfc92c"
+    },
+    {
+      "image": "thumb-motion-shoulder-prepared.png",
+      "identical": true,
+      "sha256Before": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f",
+      "sha256After": "249afba770d46fce6f05bacf9e1b361a3617d6262331085ceabd2eb9e430df1f"
+    },
+    {
+      "image": "thumb-motion-shoulder-source.png",
+      "identical": true,
+      "sha256Before": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5",
+      "sha256After": "abc26a4c62d31f9cc33fcb4f52fa3ba74866dbd196f5c349b51c4aa4aa70a1b5"
+    }
+  ]
+}

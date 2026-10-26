@@ -1,0 +1,251 @@
+{
+  "scope": "Source-checkout Windows Electron, not the final portable EXE; one runner sample per checkpoint, no statistically reliable speed/RAM claim",
+  "beforeParserCleanup": {
+    "run": "https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40360778023",
+    "packaged": false,
+    "error": null,
+    "phaseMemory": [
+      {
+        "phase": "import",
+        "samples": 32,
+        "appWorkingSetKiB": 2534496,
+        "appPrivateCommittedKiB": 2305484,
+        "harnessRssBytes": 406089728
+      },
+      {
+        "phase": "convert-before-save",
+        "samples": 28,
+        "appWorkingSetKiB": 2592076,
+        "appPrivateCommittedKiB": 2345908,
+        "harnessRssBytes": 374829056
+      },
+      {
+        "phase": "save",
+        "samples": 21,
+        "appWorkingSetKiB": 2616172,
+        "appPrivateCommittedKiB": 2394164,
+        "harnessRssBytes": 374800384
+      },
+      {
+        "phase": "verify-all-project-assets",
+        "samples": 0,
+        "appWorkingSetKiB": null,
+        "appPrivateCommittedKiB": null,
+        "harnessRssBytes": null
+      },
+      {
+        "phase": "reopen",
+        "samples": 28,
+        "appWorkingSetKiB": 3439376,
+        "appPrivateCommittedKiB": 3233572,
+        "harnessRssBytes": 608755712
+      },
+      {
+        "phase": "convert-after-reopen",
+        "samples": 24,
+        "appWorkingSetKiB": 3095128,
+        "appPrivateCommittedKiB": 2883596,
+        "harnessRssBytes": 424198144
+      }
+    ],
+    "phases": [
+      {
+        "name": "import",
+        "status": "PASS",
+        "durationMs": 7816.9989000000005
+      },
+      {
+        "name": "convert-before-save",
+        "status": "PASS",
+        "durationMs": 6956.8243
+      },
+      {
+        "name": "save",
+        "status": "PASS",
+        "durationMs": 5204.971700000002
+      },
+      {
+        "name": "verify-all-project-assets",
+        "status": "PASS",
+        "durationMs": 1527.3350000000028
+      },
+      {
+        "name": "reopen",
+        "status": "PASS",
+        "durationMs": 6815.8700999999965
+      },
+      {
+        "name": "convert-after-reopen",
+        "status": "PASS",
+        "durationMs": 5908.6158
+      }
+    ],
+    "zipBytes": 49789433,
+    "download": {
+      "source": "private secret",
+      "events": [
+        {
+          "stage": "headers",
+          "host": "drive.google.com",
+          "status": 303,
+          "step": 0,
+          "attempt": 1
+        },
+        {
+          "stage": "headers",
+          "host": "drive.usercontent.google.com",
+          "status": 200,
+          "step": 1,
+          "attempt": 1
+        },
+        {
+          "stage": "headers",
+          "host": "drive.usercontent.google.com",
+          "status": 200,
+          "step": 2,
+          "attempt": 1
+        },
+        {
+          "stage": "complete",
+          "bytes": 39660475,
+          "confirmationRequests": 2,
+          "attempt": 1
+        }
+      ]
+    },
+    "peakHarnessRssBytes": 608755712,
+    "peakAppWorkingSetKiB": 3439376,
+    "status": "PASS",
+    "rawAssetReuse": {
+      "reusedFiles": 24,
+      "reusedBytes": 232047502
+    },
+    "peakAppPrivateBytesKiB": 3233572,
+    "privateTemporaryFilesRemoved": true
+  },
+  "afterParserCleanup": {
+    "run": "https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40361364562",
+    "packaged": false,
+    "phaseMemory": [
+      {
+        "phase": "import",
+        "samples": 20,
+        "appWorkingSetKiB": 2744844,
+        "appPrivateCommittedKiB": 2509260,
+        "harnessRssBytes": 407429120
+      },
+      {
+        "phase": "convert-before-save",
+        "samples": 22,
+        "appWorkingSetKiB": 2613324,
+        "appPrivateCommittedKiB": 2363304,
+        "harnessRssBytes": 407621632
+      },
+      {
+        "phase": "save",
+        "samples": 17,
+        "appWorkingSetKiB": 2537616,
+        "appPrivateCommittedKiB": 2252000,
+        "harnessRssBytes": 376262656
+      },
+      {
+        "phase": "verify-all-project-assets",
+        "samples": 0,
+        "appWorkingSetKiB": null,
+        "appPrivateCommittedKiB": null,
+        "harnessRssBytes": null
+      },
+      {
+        "phase": "reopen",
+        "samples": 21,
+        "appWorkingSetKiB": 3174872,
+        "appPrivateCommittedKiB": 2962116,
+        "harnessRssBytes": 660701184
+      },
+      {
+        "phase": "convert-after-reopen",
+        "samples": 19,
+        "appWorkingSetKiB": 3104116,
+        "appPrivateCommittedKiB": 2891916,
+        "harnessRssBytes": 660594688
+      }
+    ],
+    "error": null,
+    "status": "PASS",
+    "privateTemporaryFilesRemoved": true,
+    "rawAssetReuse": {
+      "reusedFiles": 24,
+      "reusedBytes": 232047502
+    },
+    "peakAppPrivateBytesKiB": 2962116,
+    "download": {
+      "source": "private secret",
+      "events": [
+        {
+          "stage": "headers",
+          "host": "drive.google.com",
+          "status": 303,
+          "step": 0,
+          "attempt": 1
+        },
+        {
+          "stage": "headers",
+          "host": "drive.usercontent.google.com",
+          "status": 200,
+          "step": 1,
+          "attempt": 1
+        },
+        {
+          "stage": "headers",
+          "host": "drive.usercontent.google.com",
+          "status": 200,
+          "step": 2,
+          "attempt": 1
+        },
+        {
+          "stage": "complete",
+          "bytes": 39660475,
+          "confirmationRequests": 2,
+          "attempt": 1
+        }
+      ]
+    },
+    "peakAppWorkingSetKiB": 3174872,
+    "phases": [
+      {
+        "name": "import",
+        "status": "PASS",
+        "durationMs": 4960.7306
+      },
+      {
+        "name": "convert-before-save",
+        "status": "PASS",
+        "durationMs": 5349.7654999999995
+      },
+      {
+        "name": "save",
+        "status": "PASS",
+        "durationMs": 4328.719099999998
+      },
+      {
+        "name": "verify-all-project-assets",
+        "status": "PASS",
+        "durationMs": 1363.4874999999993
+      },
+      {
+        "name": "reopen",
+        "status": "PASS",
+        "durationMs": 4961.0432999999975
+      },
+      {
+        "name": "convert-after-reopen",
+        "status": "PASS",
+        "durationMs": 4773.350500000004
+      }
+    ],
+    "peakHarnessRssBytes": 660701184,
+    "zipBytes": 49789433
+  },
+  "otherBeforeCheckpointPeakWorkingSetKiB": 3108228,
+  "warning": "Runner and GC variability is substantial; a previous pre-cleanup checkpoint had lower summed working sets than this after-cleanup run"
+}

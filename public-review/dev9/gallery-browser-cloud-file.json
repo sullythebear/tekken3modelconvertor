@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED",
+  "scope": "Cloud Chromium local file scheme",
+  "reason": "ERR_BLOCKED_BY_ADMINISTRATOR",
+  "isApplicationRegression": false,
+  "nextCheck": "Actual Windows Edge file:// validation is required before release"
+}

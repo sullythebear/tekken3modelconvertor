@@ -1,7 +1,8 @@
 name: Publish Windows development review
 on:
   push:
-    branches: [main, recovery/070-dev2, development/070-dev8]
+    branches: [development/070-dev9]
+    paths: ["src/**", "scripts/**", "package*.json", ".github/workflows/publish-review.yml", "public-review/evidence-manifest.json"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,6 +40,8 @@ jobs:
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
         run: node --use-env-proxy scripts/project-roundtrip-test.mjs
       - name: Collect review without source models or game files
+        env:
+          NIKKI_OUTCOME: ${{ steps.nikki.outcome }}
         shell: pwsh
         run: |
           Copy-Item artifacts/distribution/verification.json public-review/windows-distribution.json
@@ -49,10 +52,27 @@ jobs:
           if ($bad) { throw "Unexpected file in public review" }
           node scripts/windows-review-status.mjs
           if ($LASTEXITCODE -ne 0) { throw "Windows status report failed" }
-          node scripts/verify-review-evidence.mjs
-          if ($LASTEXITCODE -ne 0) { throw "Evidence byte validation failed" }
-          Compress-Archive -Path public-review/* -DestinationPath release/Visual-Review.zip
+          if ($env:NIKKI_OUTCOME -eq 'success') {
+            $env:WINDOWS_RECEIPTS = '1'
+            node scripts/stage-review-payload.mjs
+            if ($LASTEXITCODE -ne 0) { throw "Validated allowlisted payload staging failed" }
+            $edgeCandidates = @("${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe")
+            $edge = $edgeCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+            if (-not $edge) { throw "Windows offline-report browser unavailable" }
+            $env:CHROMIUM_PATH = $edge
+            node scripts/review-browser-test.mjs artifacts/review-payload
+            if ($LASTEXITCODE -ne 0) { throw "Actual offline Windows report test failed" }
+            Copy-Item artifacts/dev9/gallery-browser.json public-review/windows-gallery-browser.json
+            node scripts/finalize-review-browser.mjs
+            if ($LASTEXITCODE -ne 0) { throw "Windows browser receipt validation failed" }
+            node scripts/verify-review-evidence.mjs artifacts/review-payload
+            if ($LASTEXITCODE -ne 0) { throw "Evidence byte validation failed" }
+            Compress-Archive -Path artifacts/review-payload/* -DestinationPath release/Visual-Review.zip
+          } else {
+            Write-Warning 'Private project validation failed; no release payload will be published.'
+          }
       - name: Publish prerelease and downloadable files
+        if: success() && steps.nikki.outcome == 'success'
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
@@ -67,7 +87,7 @@ jobs:
           }
           $tagSha = gh api "repos/$env:GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha'
           if ($LASTEXITCODE -ne 0 -or $tagSha -ne $env:GITHUB_SHA) { throw "Release tag belongs to another commit; existing tags are never moved" }
-          gh release upload $tag release/Visual-Review.zip "release/Tekken3ConversionStudio-$version-x64.exe" --clobber --repo $env:GITHUB_REPOSITORY
+          gh release upload $tag release/Visual-Review.zip "release/Tekken3ConversionStudio-$version-x64.exe" --repo $env:GITHUB_REPOSITORY
           if ($LASTEXITCODE -ne 0) { throw "Release upload failed" }
       - uses: actions/upload-artifact@v4
         if: always()
@@ -76,7 +96,10 @@ jobs:
           path: |
             release/*.exe
             release/Visual-Review.zip
-            public-review/
+            artifacts/review-payload/
+            public-review/windows-unit.xml
+            public-review/windows-nikki-project.json
+            public-review/WINDOWS-STATUS.md
             artifacts/desktop/runtime.json
             artifacts/desktop/*-desktop.png
             artifacts/distribution/verification.json
@@ -85,7 +108,7 @@ jobs:
         run: throw 'Nikki project roundtrip did not pass; see the published sanitized measurement report.'
   open-review-pr:
     needs: review
-    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev8'
+    if: always() && needs.review.result == 'success' && github.ref == 'refs/heads/development/070-dev9'
     runs-on: ubuntu-latest
     continue-on-error: true
     permissions:
@@ -99,9 +122,9 @@ jobs:
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
-          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev8 --state open --json url --jq '.[0].url // empty')
+          existing=$(gh pr list --repo "$GH_REPO" --base main --head development/070-dev9 --state open --json url --jq '.[0].url // empty')
           if [ -n "$existing" ]; then echo "$existing"; exit 0; fi
-          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev8 --title '0.7.0-dev.8: source-projected hands and confidence-checked skin baking' --body-file docs/PR_070_DEV8.md 2>&1); then
+          if ! result=$(gh pr create --repo "$GH_REPO" --base main --head development/070-dev9 --title '0.7.0-dev.9: anatomical fingers, source skin transfer and verified contact continuity' --body-file docs/PR_070_DEV9.md 2>&1); then
             echo "::error title=Review PR unavailable::$result"
             exit 1
           fi

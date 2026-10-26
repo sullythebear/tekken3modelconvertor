@@ -1,0 +1,609 @@
+<!doctype html><html lang="nl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Dev.9 — echte beelden en meetgegevens</title><style>body{font:18px system-ui;background:#101823;color:#eef3ff;margin:24px}a{color:#9cf}section{overflow:auto}table{border-collapse:collapse}td,th{padding:10px;border:1px solid #345;vertical-align:top}img{width:clamp(280px,calc((100vw - 180px)/4),510px);max-height:650px;object-fit:contain}pre{white-space:pre-wrap}.warn{color:#ffbd89}nav a{margin-right:18px}</style><h1>0.7.0-dev.9 — artistieke beoordeling gevraagd</h1><p>Klik op een afbeelding voor de volledige resolutie. Brede budgettabellen kunnen horizontaal worden verschoven.</p><p class="warn">Geen definitieve artistieke goedkeuring en geen geverifieerde Tekken/Expanded-gameplay. Doelbudgetten zijn experimenteel; werkelijk behaalde aantallen staan bij elk beeld.</p><nav><a href="#hands">Handen</a><a href="#body">Schouders en huid</a><a href="#poses">Beweging</a><a href="#budgets">Kandidaten</a><a href="technical-summary.json">Alle meetgegevens</a><a href="../WINDOWS-STATUS.md">Windows-testmetingen</a><a href="../REVIEW.md">Status en beperkingen</a></nav><p>Oude beelden en meetgegevens komen uit de gepubliceerde dev.7- en dev.8-galerijen. Bronbeelden worden byte-voor-byte gecontroleerd om identieke camera, schaal, belichting en resolutie vast te stellen. De nieuwe beelden komen uit dezelfde volledige import/conversie/exporttest. Diagnostische poses zijn geen Tekken-animaties. Bronmodellen, brontextures, projecten en gamebestanden zijn uitgesloten.</p><p>Nieuw: structurele bron-geprojecteerde vingers, echte kleur-overdracht van kleine vingeraccessoires, source-UV-sheetbehoud bij reductie, gerepareerde overdracht van huid-normalvelden, volledige torso-texelhoogte en conservatieve contactreconciliatie. Gezichtskern en zijn onbewerkte texture zijn identiek gebleven. De kledingvervorming bij extreme schouderposes is nog niet volledig opgelost; handen blijven bewust low-poly. Beoordeel verbeteringen en beperkingen in de grote afbeeldingen.</p><h2 id="hands">Handen en polsen bij vrijwel gelijke artistieke handkosten</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 7503 triangles</th><th>dev8 — 7503 triangles</th><th>dev9 — 7481 triangles</th></tr><tr><td><a href="dev9/nikki/left-hand-front-source.png"><img loading="lazy" src="dev9/nikki/left-hand-front-source.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev7/nikki/left-hand-front-prepared.png"><img loading="lazy" src="dev7/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev8/nikki/left-hand-front-prepared.png"><img loading="lazy" src="dev8/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev9/nikki/left-hand-front-prepared.png"><img loading="lazy" src="dev9/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td></tr><tr><td><a href="dev9/nikki/left-hand-back-source.png"><img loading="lazy" src="dev9/nikki/left-hand-back-source.png" alt="left-hand-back"></a><br>left-hand-back</td><td><a href="dev7/nikki/left-hand-back-prepared.png"><img loading="lazy" src="dev7/nikki/left-hand-back-prepared.png" alt="left-hand-back"></a><br>left-hand-back</td><td><a href="dev8/nikki/left-hand-back-prepared.png"><img loading="lazy" src="dev8/nikki/left-hand-back-prepared.png" alt="left-hand-back"></a><br>left-hand-back</td><td><a href="dev9/nikki/left-hand-back-prepared.png"><img loading="lazy" src="dev9/nikki/left-hand-back-prepared.png" alt="left-hand-back"></a><br>left-hand-back</td></tr><tr><td><a href="dev9/nikki/right-hand-front-source.png"><img loading="lazy" src="dev9/nikki/right-hand-front-source.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="dev7/nikki/right-hand-front-prepared.png"><img loading="lazy" src="dev7/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="dev8/nikki/right-hand-front-prepared.png"><img loading="lazy" src="dev8/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="dev9/nikki/right-hand-front-prepared.png"><img loading="lazy" src="dev9/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td></tr><tr><td><a href="dev9/nikki/right-hand-back-source.png"><img loading="lazy" src="dev9/nikki/right-hand-back-source.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="dev7/nikki/right-hand-back-prepared.png"><img loading="lazy" src="dev7/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="dev8/nikki/right-hand-back-prepared.png"><img loading="lazy" src="dev8/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="dev9/nikki/right-hand-back-prepared.png"><img loading="lazy" src="dev9/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td></tr><tr><td><a href="dev9/nikki/left-wrist-front-source.png"><img loading="lazy" src="dev9/nikki/left-wrist-front-source.png" alt="left-wrist-front"></a><br>left-wrist-front</td><td><a href="dev7/nikki/left-wrist-front-prepared.png"><img loading="lazy" src="dev7/nikki/left-wrist-front-prepared.png" alt="left-wrist-front"></a><br>left-wrist-front</td><td><a href="dev8/nikki/left-wrist-front-prepared.png"><img loading="lazy" src="dev8/nikki/left-wrist-front-prepared.png" alt="left-wrist-front"></a><br>left-wrist-front</td><td><a href="dev9/nikki/left-wrist-front-prepared.png"><img loading="lazy" src="dev9/nikki/left-wrist-front-prepared.png" alt="left-wrist-front"></a><br>left-wrist-front</td></tr><tr><td><a href="dev9/nikki/right-wrist-back-source.png"><img loading="lazy" src="dev9/nikki/right-wrist-back-source.png" alt="right-wrist-back"></a><br>right-wrist-back</td><td><a href="dev7/nikki/right-wrist-back-prepared.png"><img loading="lazy" src="dev7/nikki/right-wrist-back-prepared.png" alt="right-wrist-back"></a><br>right-wrist-back</td><td><a href="dev8/nikki/right-wrist-back-prepared.png"><img loading="lazy" src="dev8/nikki/right-wrist-back-prepared.png" alt="right-wrist-back"></a><br>right-wrist-back</td><td><a href="dev9/nikki/right-wrist-back-prepared.png"><img loading="lazy" src="dev9/nikki/right-wrist-back-prepared.png" alt="right-wrist-back"></a><br>right-wrist-back</td></tr><tr><td><a href="dev9/nikki/left-hand-flex-close-source.png"><img loading="lazy" src="dev9/nikki/left-hand-flex-close-source.png" alt="left-hand-flex-close"></a><br>left-hand-flex-close</td><td><a href="dev7/nikki/left-hand-flex-close-prepared.png"><img loading="lazy" src="dev7/nikki/left-hand-flex-close-prepared.png" alt="left-hand-flex-close"></a><br>left-hand-flex-close</td><td><a href="dev8/nikki/left-hand-flex-close-prepared.png"><img loading="lazy" src="dev8/nikki/left-hand-flex-close-prepared.png" alt="left-hand-flex-close"></a><br>left-hand-flex-close</td><td><a href="dev9/nikki/left-hand-flex-close-prepared.png"><img loading="lazy" src="dev9/nikki/left-hand-flex-close-prepared.png" alt="left-hand-flex-close"></a><br>left-hand-flex-close</td></tr><tr><td><a href="dev9/nikki/right-hand-flex-close-source.png"><img loading="lazy" src="dev9/nikki/right-hand-flex-close-source.png" alt="right-hand-flex-close"></a><br>right-hand-flex-close</td><td><a href="dev7/nikki/right-hand-flex-close-prepared.png"><img loading="lazy" src="dev7/nikki/right-hand-flex-close-prepared.png" alt="right-hand-flex-close"></a><br>right-hand-flex-close</td><td><a href="dev8/nikki/right-hand-flex-close-prepared.png"><img loading="lazy" src="dev8/nikki/right-hand-flex-close-prepared.png" alt="right-hand-flex-close"></a><br>right-hand-flex-close</td><td><a href="dev9/nikki/right-hand-flex-close-prepared.png"><img loading="lazy" src="dev9/nikki/right-hand-flex-close-prepared.png" alt="right-hand-flex-close"></a><br>right-hand-flex-close</td></tr><tr><td><a href="dev9/nikki/left-hand-relax-close-source.png"><img loading="lazy" src="dev9/nikki/left-hand-relax-close-source.png" alt="left-hand-relax-close"></a><br>left-hand-relax-close</td><td><a href="dev7/nikki/left-hand-relax-close-prepared.png"><img loading="lazy" src="dev7/nikki/left-hand-relax-close-prepared.png" alt="left-hand-relax-close"></a><br>left-hand-relax-close</td><td><a href="dev8/nikki/left-hand-relax-close-prepared.png"><img loading="lazy" src="dev8/nikki/left-hand-relax-close-prepared.png" alt="left-hand-relax-close"></a><br>left-hand-relax-close</td><td><a href="dev9/nikki/left-hand-relax-close-prepared.png"><img loading="lazy" src="dev9/nikki/left-hand-relax-close-prepared.png" alt="left-hand-relax-close"></a><br>left-hand-relax-close</td></tr><tr><td><a href="dev9/nikki/right-thumb-motion-close-source.png"><img loading="lazy" src="dev9/nikki/right-thumb-motion-close-source.png" alt="right-thumb-motion-close"></a><br>right-thumb-motion-close</td><td><a href="dev7/nikki/right-thumb-motion-close-prepared.png"><img loading="lazy" src="dev7/nikki/right-thumb-motion-close-prepared.png" alt="right-thumb-motion-close"></a><br>right-thumb-motion-close</td><td><a href="dev8/nikki/right-thumb-motion-close-prepared.png"><img loading="lazy" src="dev8/nikki/right-thumb-motion-close-prepared.png" alt="right-thumb-motion-close"></a><br>right-thumb-motion-close</td><td><a href="dev9/nikki/right-thumb-motion-close-prepared.png"><img loading="lazy" src="dev9/nikki/right-thumb-motion-close-prepared.png" alt="right-thumb-motion-close"></a><br>right-thumb-motion-close</td></tr><tr><td><a href="dev9/nikki/right-wrist-roll-close-source.png"><img loading="lazy" src="dev9/nikki/right-wrist-roll-close-source.png" alt="right-wrist-roll-close"></a><br>right-wrist-roll-close</td><td><a href="dev7/nikki/right-wrist-roll-close-prepared.png"><img loading="lazy" src="dev7/nikki/right-wrist-roll-close-prepared.png" alt="right-wrist-roll-close"></a><br>right-wrist-roll-close</td><td><a href="dev8/nikki/right-wrist-roll-close-prepared.png"><img loading="lazy" src="dev8/nikki/right-wrist-roll-close-prepared.png" alt="right-wrist-roll-close"></a><br>right-wrist-roll-close</td><td><a href="dev9/nikki/right-wrist-roll-close-prepared.png"><img loading="lazy" src="dev9/nikki/right-wrist-roll-close-prepared.png" alt="right-wrist-roll-close"></a><br>right-wrist-roll-close</td></tr></table></section><h2 id="body">Huid, kleding, schouders en voeten</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 7503 triangles</th><th>dev8 — 7503 triangles</th><th>dev9 — 7481 triangles</th></tr><tr><td><a href="dev9/nikki/front-source.png"><img loading="lazy" src="dev9/nikki/front-source.png" alt="front"></a><br>front</td><td><a href="dev7/nikki/front-prepared.png"><img loading="lazy" src="dev7/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev8/nikki/front-prepared.png"><img loading="lazy" src="dev8/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev9/nikki/front-prepared.png"><img loading="lazy" src="dev9/nikki/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/nikki/back-source.png"><img loading="lazy" src="dev9/nikki/back-source.png" alt="back"></a><br>back</td><td><a href="dev7/nikki/back-prepared.png"><img loading="lazy" src="dev7/nikki/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev8/nikki/back-prepared.png"><img loading="lazy" src="dev8/nikki/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev9/nikki/back-prepared.png"><img loading="lazy" src="dev9/nikki/back-prepared.png" alt="back"></a><br>back</td></tr><tr><td><a href="dev9/nikki/left-side-source.png"><img loading="lazy" src="dev9/nikki/left-side-source.png" alt="left-side"></a><br>left-side</td><td><a href="dev7/nikki/left-side-prepared.png"><img loading="lazy" src="dev7/nikki/left-side-prepared.png" alt="left-side"></a><br>left-side</td><td><a href="dev8/nikki/left-side-prepared.png"><img loading="lazy" src="dev8/nikki/left-side-prepared.png" alt="left-side"></a><br>left-side</td><td><a href="dev9/nikki/left-side-prepared.png"><img loading="lazy" src="dev9/nikki/left-side-prepared.png" alt="left-side"></a><br>left-side</td></tr><tr><td><a href="dev9/nikki/right-side-source.png"><img loading="lazy" src="dev9/nikki/right-side-source.png" alt="right-side"></a><br>right-side</td><td><a href="dev7/nikki/right-side-prepared.png"><img loading="lazy" src="dev7/nikki/right-side-prepared.png" alt="right-side"></a><br>right-side</td><td><a href="dev8/nikki/right-side-prepared.png"><img loading="lazy" src="dev8/nikki/right-side-prepared.png" alt="right-side"></a><br>right-side</td><td><a href="dev9/nikki/right-side-prepared.png"><img loading="lazy" src="dev9/nikki/right-side-prepared.png" alt="right-side"></a><br>right-side</td></tr><tr><td><a href="dev9/nikki/three-quarter-source.png"><img loading="lazy" src="dev9/nikki/three-quarter-source.png" alt="three-quarter"></a><br>three-quarter</td><td><a href="dev7/nikki/three-quarter-prepared.png"><img loading="lazy" src="dev7/nikki/three-quarter-prepared.png" alt="three-quarter"></a><br>three-quarter</td><td><a href="dev8/nikki/three-quarter-prepared.png"><img loading="lazy" src="dev8/nikki/three-quarter-prepared.png" alt="three-quarter"></a><br>three-quarter</td><td><a href="dev9/nikki/three-quarter-prepared.png"><img loading="lazy" src="dev9/nikki/three-quarter-prepared.png" alt="three-quarter"></a><br>three-quarter</td></tr><tr><td><a href="dev9/nikki/left-shoulder-front-source.png"><img loading="lazy" src="dev9/nikki/left-shoulder-front-source.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="dev7/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="dev7/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="dev8/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="dev8/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="dev9/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="dev9/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td></tr><tr><td><a href="dev9/nikki/right-shoulder-back-source.png"><img loading="lazy" src="dev9/nikki/right-shoulder-back-source.png" alt="right-shoulder-back"></a><br>right-shoulder-back</td><td><a href="dev7/nikki/right-shoulder-back-prepared.png"><img loading="lazy" src="dev7/nikki/right-shoulder-back-prepared.png" alt="right-shoulder-back"></a><br>right-shoulder-back</td><td><a href="dev8/nikki/right-shoulder-back-prepared.png"><img loading="lazy" src="dev8/nikki/right-shoulder-back-prepared.png" alt="right-shoulder-back"></a><br>right-shoulder-back</td><td><a href="dev9/nikki/right-shoulder-back-prepared.png"><img loading="lazy" src="dev9/nikki/right-shoulder-back-prepared.png" alt="right-shoulder-back"></a><br>right-shoulder-back</td></tr><tr><td><a href="dev9/nikki/left-elbow-front-source.png"><img loading="lazy" src="dev9/nikki/left-elbow-front-source.png" alt="left-elbow-front"></a><br>left-elbow-front</td><td><a href="dev7/nikki/left-elbow-front-prepared.png"><img loading="lazy" src="dev7/nikki/left-elbow-front-prepared.png" alt="left-elbow-front"></a><br>left-elbow-front</td><td><a href="dev8/nikki/left-elbow-front-prepared.png"><img loading="lazy" src="dev8/nikki/left-elbow-front-prepared.png" alt="left-elbow-front"></a><br>left-elbow-front</td><td><a href="dev9/nikki/left-elbow-front-prepared.png"><img loading="lazy" src="dev9/nikki/left-elbow-front-prepared.png" alt="left-elbow-front"></a><br>left-elbow-front</td></tr><tr><td><a href="dev9/nikki/clothing-close-source.png"><img loading="lazy" src="dev9/nikki/clothing-close-source.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="dev7/nikki/clothing-close-prepared.png"><img loading="lazy" src="dev7/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="dev8/nikki/clothing-close-prepared.png"><img loading="lazy" src="dev8/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="dev9/nikki/clothing-close-prepared.png"><img loading="lazy" src="dev9/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td></tr><tr><td><a href="dev9/nikki/boots-close-source.png"><img loading="lazy" src="dev9/nikki/boots-close-source.png" alt="boots-close"></a><br>boots-close</td><td><a href="dev7/nikki/boots-close-prepared.png"><img loading="lazy" src="dev7/nikki/boots-close-prepared.png" alt="boots-close"></a><br>boots-close</td><td><a href="dev8/nikki/boots-close-prepared.png"><img loading="lazy" src="dev8/nikki/boots-close-prepared.png" alt="boots-close"></a><br>boots-close</td><td><a href="dev9/nikki/boots-close-prepared.png"><img loading="lazy" src="dev9/nikki/boots-close-prepared.png" alt="boots-close"></a><br>boots-close</td></tr><tr><td><a href="dev9/nikki/heels-close-source.png"><img loading="lazy" src="dev9/nikki/heels-close-source.png" alt="heels-close"></a><br>heels-close</td><td><a href="dev7/nikki/heels-close-prepared.png"><img loading="lazy" src="dev7/nikki/heels-close-prepared.png" alt="heels-close"></a><br>heels-close</td><td><a href="dev8/nikki/heels-close-prepared.png"><img loading="lazy" src="dev8/nikki/heels-close-prepared.png" alt="heels-close"></a><br>heels-close</td><td><a href="dev9/nikki/heels-close-prepared.png"><img loading="lazy" src="dev9/nikki/heels-close-prepared.png" alt="heels-close"></a><br>heels-close</td></tr><tr><td><a href="dev9/nikki/ankles-side-source.png"><img loading="lazy" src="dev9/nikki/ankles-side-source.png" alt="ankles-side"></a><br>ankles-side</td><td><a href="dev7/nikki/ankles-side-prepared.png"><img loading="lazy" src="dev7/nikki/ankles-side-prepared.png" alt="ankles-side"></a><br>ankles-side</td><td><a href="dev8/nikki/ankles-side-prepared.png"><img loading="lazy" src="dev8/nikki/ankles-side-prepared.png" alt="ankles-side"></a><br>ankles-side</td><td><a href="dev9/nikki/ankles-side-prepared.png"><img loading="lazy" src="dev9/nikki/ankles-side-prepared.png" alt="ankles-side"></a><br>ankles-side</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/nikki/boundary-prepared.png"><img loading="lazy" src="dev7/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev8/nikki/boundary-prepared.png"><img loading="lazy" src="dev8/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev9/nikki/boundary-prepared.png"><img loading="lazy" src="dev9/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/nikki/contacts-prepared.png"><img loading="lazy" src="dev7/nikki/contacts-prepared.png" alt="contacts"></a><br>contacts</td><td><a href="dev8/nikki/contacts-prepared.png"><img loading="lazy" src="dev8/nikki/contacts-prepared.png" alt="contacts"></a><br>contacts</td><td><a href="dev9/nikki/contacts-prepared.png"><img loading="lazy" src="dev9/nikki/contacts-prepared.png" alt="contacts"></a><br>contacts</td></tr><tr><td><a href="dev9/nikki/winding-source.png"><img loading="lazy" src="dev9/nikki/winding-source.png" alt="winding"></a><br>winding</td><td><a href="dev7/nikki/winding-prepared.png"><img loading="lazy" src="dev7/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev8/nikki/winding-prepared.png"><img loading="lazy" src="dev8/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev9/nikki/winding-prepared.png"><img loading="lazy" src="dev9/nikki/winding-prepared.png" alt="winding"></a><br>winding</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/nikki/normals-prepared.png"><img loading="lazy" src="dev7/nikki/normals-prepared.png" alt="normals"></a><br>normals</td><td><a href="dev8/nikki/normals-prepared.png"><img loading="lazy" src="dev8/nikki/normals-prepared.png" alt="normals"></a><br>normals</td><td><a href="dev9/nikki/normals-prepared.png"><img loading="lazy" src="dev9/nikki/normals-prepared.png" alt="normals"></a><br>normals</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/nikki/materials-prepared.png"><img loading="lazy" src="dev7/nikki/materials-prepared.png" alt="materials"></a><br>materials</td><td><a href="dev8/nikki/materials-prepared.png"><img loading="lazy" src="dev8/nikki/materials-prepared.png" alt="materials"></a><br>materials</td><td><a href="dev9/nikki/materials-prepared.png"><img loading="lazy" src="dev9/nikki/materials-prepared.png" alt="materials"></a><br>materials</td></tr><tr><td><a href="dev9/nikki/wireframe-source.png"><img loading="lazy" src="dev9/nikki/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev7/nikki/wireframe-prepared.png"><img loading="lazy" src="dev7/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev8/nikki/wireframe-prepared.png"><img loading="lazy" src="dev8/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev9/nikki/wireframe-prepared.png"><img loading="lazy" src="dev9/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr></table></section><h2 id="">Beschermd gezicht en kapsel</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 7503 triangles</th><th>dev8 — 7503 triangles</th><th>dev9 — 7481 triangles</th></tr><tr><td><a href="dev9/nikki/face-source.png"><img loading="lazy" src="dev9/nikki/face-source.png" alt="face"></a><br>face</td><td><a href="dev7/nikki/face-prepared.png"><img loading="lazy" src="dev7/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev8/nikki/face-prepared.png"><img loading="lazy" src="dev8/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev9/nikki/face-prepared.png"><img loading="lazy" src="dev9/nikki/face-prepared.png" alt="face"></a><br>face</td></tr><tr><td><a href="dev9/nikki/face-side-source.png"><img loading="lazy" src="dev9/nikki/face-side-source.png" alt="face-side"></a><br>face-side</td><td><a href="dev7/nikki/face-side-prepared.png"><img loading="lazy" src="dev7/nikki/face-side-prepared.png" alt="face-side"></a><br>face-side</td><td><a href="dev8/nikki/face-side-prepared.png"><img loading="lazy" src="dev8/nikki/face-side-prepared.png" alt="face-side"></a><br>face-side</td><td><a href="dev9/nikki/face-side-prepared.png"><img loading="lazy" src="dev9/nikki/face-side-prepared.png" alt="face-side"></a><br>face-side</td></tr><tr><td><a href="dev9/nikki/face-quarter-source.png"><img loading="lazy" src="dev9/nikki/face-quarter-source.png" alt="face-quarter"></a><br>face-quarter</td><td><a href="dev7/nikki/face-quarter-prepared.png"><img loading="lazy" src="dev7/nikki/face-quarter-prepared.png" alt="face-quarter"></a><br>face-quarter</td><td><a href="dev8/nikki/face-quarter-prepared.png"><img loading="lazy" src="dev8/nikki/face-quarter-prepared.png" alt="face-quarter"></a><br>face-quarter</td><td><a href="dev9/nikki/face-quarter-prepared.png"><img loading="lazy" src="dev9/nikki/face-quarter-prepared.png" alt="face-quarter"></a><br>face-quarter</td></tr><tr><td><a href="dev9/nikki/eyes-close-source.png"><img loading="lazy" src="dev9/nikki/eyes-close-source.png" alt="eyes-close"></a><br>eyes-close</td><td><a href="dev7/nikki/eyes-close-prepared.png"><img loading="lazy" src="dev7/nikki/eyes-close-prepared.png" alt="eyes-close"></a><br>eyes-close</td><td><a href="dev8/nikki/eyes-close-prepared.png"><img loading="lazy" src="dev8/nikki/eyes-close-prepared.png" alt="eyes-close"></a><br>eyes-close</td><td><a href="dev9/nikki/eyes-close-prepared.png"><img loading="lazy" src="dev9/nikki/eyes-close-prepared.png" alt="eyes-close"></a><br>eyes-close</td></tr><tr><td><a href="dev9/nikki/mouth-close-source.png"><img loading="lazy" src="dev9/nikki/mouth-close-source.png" alt="mouth-close"></a><br>mouth-close</td><td><a href="dev7/nikki/mouth-close-prepared.png"><img loading="lazy" src="dev7/nikki/mouth-close-prepared.png" alt="mouth-close"></a><br>mouth-close</td><td><a href="dev8/nikki/mouth-close-prepared.png"><img loading="lazy" src="dev8/nikki/mouth-close-prepared.png" alt="mouth-close"></a><br>mouth-close</td><td><a href="dev9/nikki/mouth-close-prepared.png"><img loading="lazy" src="dev9/nikki/mouth-close-prepared.png" alt="mouth-close"></a><br>mouth-close</td></tr><tr><td><a href="dev9/nikki/hair-close-source.png"><img loading="lazy" src="dev9/nikki/hair-close-source.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev7/nikki/hair-close-prepared.png"><img loading="lazy" src="dev7/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev8/nikki/hair-close-prepared.png"><img loading="lazy" src="dev8/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev9/nikki/hair-close-prepared.png"><img loading="lazy" src="dev9/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td></tr></table></section><h2 id="poses">Diagnostische poses: huid/cloth en bekkencontact</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 7503 triangles</th><th>dev8 — 7503 triangles</th><th>dev9 — 7481 triangles</th></tr><tr><td><a href="dev9/nikki/arms-raised-source.png"><img loading="lazy" src="dev9/nikki/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev7/nikki/arms-raised-prepared.png"><img loading="lazy" src="dev7/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev8/nikki/arms-raised-prepared.png"><img loading="lazy" src="dev8/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev9/nikki/arms-raised-prepared.png"><img loading="lazy" src="dev9/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr><tr><td><a href="dev9/nikki/left-arms-raised-close-source.png"><img loading="lazy" src="dev9/nikki/left-arms-raised-close-source.png" alt="left-arms-raised-close"></a><br>left-arms-raised-close</td><td><a href="dev7/nikki/left-arms-raised-close-prepared.png"><img loading="lazy" src="dev7/nikki/left-arms-raised-close-prepared.png" alt="left-arms-raised-close"></a><br>left-arms-raised-close</td><td><a href="dev8/nikki/left-arms-raised-close-prepared.png"><img loading="lazy" src="dev8/nikki/left-arms-raised-close-prepared.png" alt="left-arms-raised-close"></a><br>left-arms-raised-close</td><td><a href="dev9/nikki/left-arms-raised-close-prepared.png"><img loading="lazy" src="dev9/nikki/left-arms-raised-close-prepared.png" alt="left-arms-raised-close"></a><br>left-arms-raised-close</td></tr><tr><td><a href="dev9/nikki/right-arms-raised-close-source.png"><img loading="lazy" src="dev9/nikki/right-arms-raised-close-source.png" alt="right-arms-raised-close"></a><br>right-arms-raised-close</td><td><a href="dev7/nikki/right-arms-raised-close-prepared.png"><img loading="lazy" src="dev7/nikki/right-arms-raised-close-prepared.png" alt="right-arms-raised-close"></a><br>right-arms-raised-close</td><td><a href="dev8/nikki/right-arms-raised-close-prepared.png"><img loading="lazy" src="dev8/nikki/right-arms-raised-close-prepared.png" alt="right-arms-raised-close"></a><br>right-arms-raised-close</td><td><a href="dev9/nikki/right-arms-raised-close-prepared.png"><img loading="lazy" src="dev9/nikki/right-arms-raised-close-prepared.png" alt="right-arms-raised-close"></a><br>right-arms-raised-close</td></tr><tr><td><a href="dev9/nikki/guard-source.png"><img loading="lazy" src="dev9/nikki/guard-source.png" alt="guard"></a><br>guard</td><td><a href="dev7/nikki/guard-prepared.png"><img loading="lazy" src="dev7/nikki/guard-prepared.png" alt="guard"></a><br>guard</td><td><a href="dev8/nikki/guard-prepared.png"><img loading="lazy" src="dev8/nikki/guard-prepared.png" alt="guard"></a><br>guard</td><td><a href="dev9/nikki/guard-prepared.png"><img loading="lazy" src="dev9/nikki/guard-prepared.png" alt="guard"></a><br>guard</td></tr><tr><td><a href="dev9/nikki/reach-source.png"><img loading="lazy" src="dev9/nikki/reach-source.png" alt="reach"></a><br>reach</td><td><a href="dev7/nikki/reach-prepared.png"><img loading="lazy" src="dev7/nikki/reach-prepared.png" alt="reach"></a><br>reach</td><td><a href="dev8/nikki/reach-prepared.png"><img loading="lazy" src="dev8/nikki/reach-prepared.png" alt="reach"></a><br>reach</td><td><a href="dev9/nikki/reach-prepared.png"><img loading="lazy" src="dev9/nikki/reach-prepared.png" alt="reach"></a><br>reach</td></tr><tr><td><a href="dev9/nikki/crouch-source.png"><img loading="lazy" src="dev9/nikki/crouch-source.png" alt="crouch"></a><br>crouch</td><td><a href="dev7/nikki/crouch-prepared.png"><img loading="lazy" src="dev7/nikki/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev8/nikki/crouch-prepared.png"><img loading="lazy" src="dev8/nikki/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev9/nikki/crouch-prepared.png"><img loading="lazy" src="dev9/nikki/crouch-prepared.png" alt="crouch"></a><br>crouch</td></tr><tr><td><a href="dev9/nikki/walk-source.png"><img loading="lazy" src="dev9/nikki/walk-source.png" alt="walk"></a><br>walk</td><td><a href="dev7/nikki/walk-prepared.png"><img loading="lazy" src="dev7/nikki/walk-prepared.png" alt="walk"></a><br>walk</td><td><a href="dev8/nikki/walk-prepared.png"><img loading="lazy" src="dev8/nikki/walk-prepared.png" alt="walk"></a><br>walk</td><td><a href="dev9/nikki/walk-prepared.png"><img loading="lazy" src="dev9/nikki/walk-prepared.png" alt="walk"></a><br>walk</td></tr><tr><td><a href="dev9/nikki/punch-source.png"><img loading="lazy" src="dev9/nikki/punch-source.png" alt="punch"></a><br>punch</td><td><a href="dev7/nikki/punch-prepared.png"><img loading="lazy" src="dev7/nikki/punch-prepared.png" alt="punch"></a><br>punch</td><td><a href="dev8/nikki/punch-prepared.png"><img loading="lazy" src="dev8/nikki/punch-prepared.png" alt="punch"></a><br>punch</td><td><a href="dev9/nikki/punch-prepared.png"><img loading="lazy" src="dev9/nikki/punch-prepared.png" alt="punch"></a><br>punch</td></tr><tr><td><a href="dev9/nikki/kick-source.png"><img loading="lazy" src="dev9/nikki/kick-source.png" alt="kick"></a><br>kick</td><td><a href="dev7/nikki/kick-prepared.png"><img loading="lazy" src="dev7/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev8/nikki/kick-prepared.png"><img loading="lazy" src="dev8/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev9/nikki/kick-prepared.png"><img loading="lazy" src="dev9/nikki/kick-prepared.png" alt="kick"></a><br>kick</td></tr><tr><td><a href="dev9/nikki/hand-flex-source.png"><img loading="lazy" src="dev9/nikki/hand-flex-source.png" alt="hand-flex"></a><br>hand-flex</td><td><a href="dev7/nikki/hand-flex-prepared.png"><img loading="lazy" src="dev7/nikki/hand-flex-prepared.png" alt="hand-flex"></a><br>hand-flex</td><td><a href="dev8/nikki/hand-flex-prepared.png"><img loading="lazy" src="dev8/nikki/hand-flex-prepared.png" alt="hand-flex"></a><br>hand-flex</td><td><a href="dev9/nikki/hand-flex-prepared.png"><img loading="lazy" src="dev9/nikki/hand-flex-prepared.png" alt="hand-flex"></a><br>hand-flex</td></tr><tr><td><a href="dev9/nikki/thumb-motion-source.png"><img loading="lazy" src="dev9/nikki/thumb-motion-source.png" alt="thumb-motion"></a><br>thumb-motion</td><td><a href="dev7/nikki/thumb-motion-prepared.png"><img loading="lazy" src="dev7/nikki/thumb-motion-prepared.png" alt="thumb-motion"></a><br>thumb-motion</td><td><a href="dev8/nikki/thumb-motion-prepared.png"><img loading="lazy" src="dev8/nikki/thumb-motion-prepared.png" alt="thumb-motion"></a><br>thumb-motion</td><td><a href="dev9/nikki/thumb-motion-prepared.png"><img loading="lazy" src="dev9/nikki/thumb-motion-prepared.png" alt="thumb-motion"></a><br>thumb-motion</td></tr><tr><td><a href="dev9/nikki/wrist-roll-source.png"><img loading="lazy" src="dev9/nikki/wrist-roll-source.png" alt="wrist-roll"></a><br>wrist-roll</td><td><a href="dev7/nikki/wrist-roll-prepared.png"><img loading="lazy" src="dev7/nikki/wrist-roll-prepared.png" alt="wrist-roll"></a><br>wrist-roll</td><td><a href="dev8/nikki/wrist-roll-prepared.png"><img loading="lazy" src="dev8/nikki/wrist-roll-prepared.png" alt="wrist-roll"></a><br>wrist-roll</td><td><a href="dev9/nikki/wrist-roll-prepared.png"><img loading="lazy" src="dev9/nikki/wrist-roll-prepared.png" alt="wrist-roll"></a><br>wrist-roll</td></tr></table></section><h2 id="budgets">Experimentele doelbudgetten — vergelijk werkelijke kosten</h2><section><table><tr><th>Modern bronmodel</th><th>budget1500 — 2475 triangles</th><th>budget1750 — 2474 triangles</th><th>budget2000 — 2513 triangles</th><th>budget2250 — 2624 triangles</th><th>budget2500 — 2794 triangles</th></tr><tr><td><a href="dev9/nikki/front-source.png"><img loading="lazy" src="dev9/nikki/front-source.png" alt="front"></a><br>front</td><td><a href="budget1500/nikki/front-prepared.png"><img loading="lazy" src="budget1500/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="budget1750/nikki/front-prepared.png"><img loading="lazy" src="budget1750/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="budget2000/nikki/front-prepared.png"><img loading="lazy" src="budget2000/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="budget2250/nikki/front-prepared.png"><img loading="lazy" src="budget2250/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="budget2500/nikki/front-prepared.png"><img loading="lazy" src="budget2500/nikki/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/nikki/face-source.png"><img loading="lazy" src="dev9/nikki/face-source.png" alt="face"></a><br>face</td><td><a href="budget1500/nikki/face-prepared.png"><img loading="lazy" src="budget1500/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="budget1750/nikki/face-prepared.png"><img loading="lazy" src="budget1750/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="budget2000/nikki/face-prepared.png"><img loading="lazy" src="budget2000/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="budget2250/nikki/face-prepared.png"><img loading="lazy" src="budget2250/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="budget2500/nikki/face-prepared.png"><img loading="lazy" src="budget2500/nikki/face-prepared.png" alt="face"></a><br>face</td></tr><tr><td><a href="dev9/nikki/hair-close-source.png"><img loading="lazy" src="dev9/nikki/hair-close-source.png" alt="hair-close"></a><br>hair-close</td><td><a href="budget1500/nikki/hair-close-prepared.png"><img loading="lazy" src="budget1500/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="budget1750/nikki/hair-close-prepared.png"><img loading="lazy" src="budget1750/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="budget2000/nikki/hair-close-prepared.png"><img loading="lazy" src="budget2000/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="budget2250/nikki/hair-close-prepared.png"><img loading="lazy" src="budget2250/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="budget2500/nikki/hair-close-prepared.png"><img loading="lazy" src="budget2500/nikki/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td></tr><tr><td><a href="dev9/nikki/left-hand-front-source.png"><img loading="lazy" src="dev9/nikki/left-hand-front-source.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget1500/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget1500/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget1750/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget1750/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget2000/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget2000/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget2250/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget2250/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget2500/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget2500/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td></tr><tr><td><a href="dev9/nikki/right-hand-front-source.png"><img loading="lazy" src="dev9/nikki/right-hand-front-source.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget1500/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget1500/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget1750/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget1750/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget2000/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget2000/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget2250/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget2250/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget2500/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget2500/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td></tr><tr><td><a href="dev9/nikki/right-hand-back-source.png"><img loading="lazy" src="dev9/nikki/right-hand-back-source.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="budget1500/nikki/right-hand-back-prepared.png"><img loading="lazy" src="budget1500/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="budget1750/nikki/right-hand-back-prepared.png"><img loading="lazy" src="budget1750/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="budget2000/nikki/right-hand-back-prepared.png"><img loading="lazy" src="budget2000/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="budget2250/nikki/right-hand-back-prepared.png"><img loading="lazy" src="budget2250/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td><td><a href="budget2500/nikki/right-hand-back-prepared.png"><img loading="lazy" src="budget2500/nikki/right-hand-back-prepared.png" alt="right-hand-back"></a><br>right-hand-back</td></tr><tr><td><a href="dev9/nikki/left-shoulder-front-source.png"><img loading="lazy" src="dev9/nikki/left-shoulder-front-source.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget1500/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget1500/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget1750/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget1750/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget2000/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget2000/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget2250/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget2250/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget2500/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget2500/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td></tr><tr><td><a href="dev9/nikki/clothing-close-source.png"><img loading="lazy" src="dev9/nikki/clothing-close-source.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget1500/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget1500/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget1750/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget1750/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget2000/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget2000/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget2250/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget2250/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget2500/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget2500/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td></tr><tr><td><a href="dev9/nikki/wireframe-source.png"><img loading="lazy" src="dev9/nikki/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget1500/nikki/wireframe-prepared.png"><img loading="lazy" src="budget1500/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget1750/nikki/wireframe-prepared.png"><img loading="lazy" src="budget1750/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget2000/nikki/wireframe-prepared.png"><img loading="lazy" src="budget2000/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget2250/nikki/wireframe-prepared.png"><img loading="lazy" src="budget2250/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget2500/nikki/wireframe-prepared.png"><img loading="lazy" src="budget2500/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="budget1500/nikki/boundary-prepared.png"><img loading="lazy" src="budget1500/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="budget1750/nikki/boundary-prepared.png"><img loading="lazy" src="budget1750/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="budget2000/nikki/boundary-prepared.png"><img loading="lazy" src="budget2000/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="budget2250/nikki/boundary-prepared.png"><img loading="lazy" src="budget2250/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="budget2500/nikki/boundary-prepared.png"><img loading="lazy" src="budget2500/nikki/boundary-prepared.png" alt="boundary"></a><br>boundary</td></tr><tr><td><a href="dev9/nikki/winding-source.png"><img loading="lazy" src="dev9/nikki/winding-source.png" alt="winding"></a><br>winding</td><td><a href="budget1500/nikki/winding-prepared.png"><img loading="lazy" src="budget1500/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="budget1750/nikki/winding-prepared.png"><img loading="lazy" src="budget1750/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="budget2000/nikki/winding-prepared.png"><img loading="lazy" src="budget2000/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="budget2250/nikki/winding-prepared.png"><img loading="lazy" src="budget2250/nikki/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="budget2500/nikki/winding-prepared.png"><img loading="lazy" src="budget2500/nikki/winding-prepared.png" alt="winding"></a><br>winding</td></tr><tr><td><a href="dev9/nikki/arms-raised-source.png"><img loading="lazy" src="dev9/nikki/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget1500/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget1500/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget1750/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget1750/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget2000/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget2000/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget2250/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget2250/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget2500/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget2500/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr><tr><td><a href="dev9/nikki/kick-source.png"><img loading="lazy" src="dev9/nikki/kick-source.png" alt="kick"></a><br>kick</td><td><a href="budget1500/nikki/kick-prepared.png"><img loading="lazy" src="budget1500/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="budget1750/nikki/kick-prepared.png"><img loading="lazy" src="budget1750/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="budget2000/nikki/kick-prepared.png"><img loading="lazy" src="budget2000/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="budget2250/nikki/kick-prepared.png"><img loading="lazy" src="budget2250/nikki/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="budget2500/nikki/kick-prepared.png"><img loading="lazy" src="budget2500/nikki/kick-prepared.png" alt="kick"></a><br>kick</td></tr></table></section><h2 id="">Bij ongeveer gelijke werkelijke kosten: oude kandidaten versus dev.9</h2><section><table><tr><th>Modern bronmodel</th><th>matched7 — 2545 triangles</th><th>matched8 — 2551 triangles</th><th>budget2000 — 2513 triangles</th></tr><tr><td><a href="dev9/nikki/front-source.png"><img loading="lazy" src="dev9/nikki/front-source.png" alt="front"></a><br>front</td><td><a href="matched7/nikki/front-prepared.png"><img loading="lazy" src="matched7/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="matched8/nikki/front-prepared.png"><img loading="lazy" src="matched8/nikki/front-prepared.png" alt="front"></a><br>front</td><td><a href="budget2000/nikki/front-prepared.png"><img loading="lazy" src="budget2000/nikki/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/nikki/face-source.png"><img loading="lazy" src="dev9/nikki/face-source.png" alt="face"></a><br>face</td><td><a href="matched7/nikki/face-prepared.png"><img loading="lazy" src="matched7/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="matched8/nikki/face-prepared.png"><img loading="lazy" src="matched8/nikki/face-prepared.png" alt="face"></a><br>face</td><td><a href="budget2000/nikki/face-prepared.png"><img loading="lazy" src="budget2000/nikki/face-prepared.png" alt="face"></a><br>face</td></tr><tr><td><a href="dev9/nikki/left-hand-front-source.png"><img loading="lazy" src="dev9/nikki/left-hand-front-source.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="matched7/nikki/left-hand-front-prepared.png"><img loading="lazy" src="matched7/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="matched8/nikki/left-hand-front-prepared.png"><img loading="lazy" src="matched8/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="budget2000/nikki/left-hand-front-prepared.png"><img loading="lazy" src="budget2000/nikki/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td></tr><tr><td><a href="dev9/nikki/right-hand-front-source.png"><img loading="lazy" src="dev9/nikki/right-hand-front-source.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="matched7/nikki/right-hand-front-prepared.png"><img loading="lazy" src="matched7/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="matched8/nikki/right-hand-front-prepared.png"><img loading="lazy" src="matched8/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td><td><a href="budget2000/nikki/right-hand-front-prepared.png"><img loading="lazy" src="budget2000/nikki/right-hand-front-prepared.png" alt="right-hand-front"></a><br>right-hand-front</td></tr><tr><td><a href="dev9/nikki/left-shoulder-front-source.png"><img loading="lazy" src="dev9/nikki/left-shoulder-front-source.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="matched7/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="matched7/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="matched8/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="matched8/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td><td><a href="budget2000/nikki/left-shoulder-front-prepared.png"><img loading="lazy" src="budget2000/nikki/left-shoulder-front-prepared.png" alt="left-shoulder-front"></a><br>left-shoulder-front</td></tr><tr><td><a href="dev9/nikki/clothing-close-source.png"><img loading="lazy" src="dev9/nikki/clothing-close-source.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="matched7/nikki/clothing-close-prepared.png"><img loading="lazy" src="matched7/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="matched8/nikki/clothing-close-prepared.png"><img loading="lazy" src="matched8/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td><td><a href="budget2000/nikki/clothing-close-prepared.png"><img loading="lazy" src="budget2000/nikki/clothing-close-prepared.png" alt="clothing-close"></a><br>clothing-close</td></tr><tr><td><a href="dev9/nikki/wireframe-source.png"><img loading="lazy" src="dev9/nikki/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="matched7/nikki/wireframe-prepared.png"><img loading="lazy" src="matched7/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="matched8/nikki/wireframe-prepared.png"><img loading="lazy" src="matched8/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="budget2000/nikki/wireframe-prepared.png"><img loading="lazy" src="budget2000/nikki/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr><tr><td><a href="dev9/nikki/arms-raised-source.png"><img loading="lazy" src="dev9/nikki/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="matched7/nikki/arms-raised-prepared.png"><img loading="lazy" src="matched7/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="matched8/nikki/arms-raised-prepared.png"><img loading="lazy" src="matched8/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="budget2000/nikki/arms-raised-prepared.png"><img loading="lazy" src="budget2000/nikki/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr></table></section><p>De kolomkop toont het werkelijke aantal: deze vergelijking is geen claim van exact gelijke aantallen. Een gunstiger score door extra geometrie geldt niet als bewezen artistieke verbetering.</p><h2 id="">Algemene regressie: cesium</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 1122 triangles</th><th>dev8 — 1122 triangles</th><th>dev9 — 1122 triangles</th></tr><tr><td><a href="dev9/cesium/front-source.png"><img loading="lazy" src="dev9/cesium/front-source.png" alt="front"></a><br>front</td><td><a href="dev7/cesium/front-prepared.png"><img loading="lazy" src="dev7/cesium/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev8/cesium/front-prepared.png"><img loading="lazy" src="dev8/cesium/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev9/cesium/front-prepared.png"><img loading="lazy" src="dev9/cesium/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/cesium/back-source.png"><img loading="lazy" src="dev9/cesium/back-source.png" alt="back"></a><br>back</td><td><a href="dev7/cesium/back-prepared.png"><img loading="lazy" src="dev7/cesium/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev8/cesium/back-prepared.png"><img loading="lazy" src="dev8/cesium/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev9/cesium/back-prepared.png"><img loading="lazy" src="dev9/cesium/back-prepared.png" alt="back"></a><br>back</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td></tr><tr><td><a href="dev9/cesium/hair-close-source.png"><img loading="lazy" src="dev9/cesium/hair-close-source.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev7/cesium/hair-close-prepared.png"><img loading="lazy" src="dev7/cesium/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev8/cesium/hair-close-prepared.png"><img loading="lazy" src="dev8/cesium/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev9/cesium/hair-close-prepared.png"><img loading="lazy" src="dev9/cesium/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td><td>Niet van toepassing / alleen outputdiagnostiek</td></tr><tr><td><a href="dev9/cesium/wireframe-source.png"><img loading="lazy" src="dev9/cesium/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev7/cesium/wireframe-prepared.png"><img loading="lazy" src="dev7/cesium/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev8/cesium/wireframe-prepared.png"><img loading="lazy" src="dev8/cesium/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev9/cesium/wireframe-prepared.png"><img loading="lazy" src="dev9/cesium/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/cesium/boundary-prepared.png"><img loading="lazy" src="dev7/cesium/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev8/cesium/boundary-prepared.png"><img loading="lazy" src="dev8/cesium/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev9/cesium/boundary-prepared.png"><img loading="lazy" src="dev9/cesium/boundary-prepared.png" alt="boundary"></a><br>boundary</td></tr><tr><td><a href="dev9/cesium/winding-source.png"><img loading="lazy" src="dev9/cesium/winding-source.png" alt="winding"></a><br>winding</td><td><a href="dev7/cesium/winding-prepared.png"><img loading="lazy" src="dev7/cesium/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev8/cesium/winding-prepared.png"><img loading="lazy" src="dev8/cesium/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev9/cesium/winding-prepared.png"><img loading="lazy" src="dev9/cesium/winding-prepared.png" alt="winding"></a><br>winding</td></tr><tr><td><a href="dev9/cesium/arms-raised-source.png"><img loading="lazy" src="dev9/cesium/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev7/cesium/arms-raised-prepared.png"><img loading="lazy" src="dev7/cesium/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev8/cesium/arms-raised-prepared.png"><img loading="lazy" src="dev8/cesium/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev9/cesium/arms-raised-prepared.png"><img loading="lazy" src="dev9/cesium/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr><tr><td><a href="dev9/cesium/crouch-source.png"><img loading="lazy" src="dev9/cesium/crouch-source.png" alt="crouch"></a><br>crouch</td><td><a href="dev7/cesium/crouch-prepared.png"><img loading="lazy" src="dev7/cesium/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev8/cesium/crouch-prepared.png"><img loading="lazy" src="dev8/cesium/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev9/cesium/crouch-prepared.png"><img loading="lazy" src="dev9/cesium/crouch-prepared.png" alt="crouch"></a><br>crouch</td></tr><tr><td><a href="dev9/cesium/kick-source.png"><img loading="lazy" src="dev9/cesium/kick-source.png" alt="kick"></a><br>kick</td><td><a href="dev7/cesium/kick-prepared.png"><img loading="lazy" src="dev7/cesium/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev8/cesium/kick-prepared.png"><img loading="lazy" src="dev8/cesium/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev9/cesium/kick-prepared.png"><img loading="lazy" src="dev9/cesium/kick-prepared.png" alt="kick"></a><br>kick</td></tr></table></section><h2 id="">Algemene regressie: synthetic</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 3496 triangles</th><th>dev8 — 3496 triangles</th><th>dev9 — 3496 triangles</th></tr><tr><td><a href="dev9/synthetic/front-source.png"><img loading="lazy" src="dev9/synthetic/front-source.png" alt="front"></a><br>front</td><td><a href="dev7/synthetic/front-prepared.png"><img loading="lazy" src="dev7/synthetic/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev8/synthetic/front-prepared.png"><img loading="lazy" src="dev8/synthetic/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev9/synthetic/front-prepared.png"><img loading="lazy" src="dev9/synthetic/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/synthetic/back-source.png"><img loading="lazy" src="dev9/synthetic/back-source.png" alt="back"></a><br>back</td><td><a href="dev7/synthetic/back-prepared.png"><img loading="lazy" src="dev7/synthetic/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev8/synthetic/back-prepared.png"><img loading="lazy" src="dev8/synthetic/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev9/synthetic/back-prepared.png"><img loading="lazy" src="dev9/synthetic/back-prepared.png" alt="back"></a><br>back</td></tr><tr><td><a href="dev9/synthetic/face-source.png"><img loading="lazy" src="dev9/synthetic/face-source.png" alt="face"></a><br>face</td><td><a href="dev7/synthetic/face-prepared.png"><img loading="lazy" src="dev7/synthetic/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev8/synthetic/face-prepared.png"><img loading="lazy" src="dev8/synthetic/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev9/synthetic/face-prepared.png"><img loading="lazy" src="dev9/synthetic/face-prepared.png" alt="face"></a><br>face</td></tr><tr><td><a href="dev9/synthetic/hair-close-source.png"><img loading="lazy" src="dev9/synthetic/hair-close-source.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev7/synthetic/hair-close-prepared.png"><img loading="lazy" src="dev7/synthetic/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev8/synthetic/hair-close-prepared.png"><img loading="lazy" src="dev8/synthetic/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev9/synthetic/hair-close-prepared.png"><img loading="lazy" src="dev9/synthetic/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td></tr><tr><td><a href="dev9/synthetic/left-hand-front-source.png"><img loading="lazy" src="dev9/synthetic/left-hand-front-source.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev7/synthetic/left-hand-front-prepared.png"><img loading="lazy" src="dev7/synthetic/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev8/synthetic/left-hand-front-prepared.png"><img loading="lazy" src="dev8/synthetic/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev9/synthetic/left-hand-front-prepared.png"><img loading="lazy" src="dev9/synthetic/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td></tr><tr><td><a href="dev9/synthetic/wireframe-source.png"><img loading="lazy" src="dev9/synthetic/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev7/synthetic/wireframe-prepared.png"><img loading="lazy" src="dev7/synthetic/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev8/synthetic/wireframe-prepared.png"><img loading="lazy" src="dev8/synthetic/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev9/synthetic/wireframe-prepared.png"><img loading="lazy" src="dev9/synthetic/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/synthetic/boundary-prepared.png"><img loading="lazy" src="dev7/synthetic/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev8/synthetic/boundary-prepared.png"><img loading="lazy" src="dev8/synthetic/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev9/synthetic/boundary-prepared.png"><img loading="lazy" src="dev9/synthetic/boundary-prepared.png" alt="boundary"></a><br>boundary</td></tr><tr><td><a href="dev9/synthetic/winding-source.png"><img loading="lazy" src="dev9/synthetic/winding-source.png" alt="winding"></a><br>winding</td><td><a href="dev7/synthetic/winding-prepared.png"><img loading="lazy" src="dev7/synthetic/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev8/synthetic/winding-prepared.png"><img loading="lazy" src="dev8/synthetic/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev9/synthetic/winding-prepared.png"><img loading="lazy" src="dev9/synthetic/winding-prepared.png" alt="winding"></a><br>winding</td></tr><tr><td><a href="dev9/synthetic/arms-raised-source.png"><img loading="lazy" src="dev9/synthetic/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev7/synthetic/arms-raised-prepared.png"><img loading="lazy" src="dev7/synthetic/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev8/synthetic/arms-raised-prepared.png"><img loading="lazy" src="dev8/synthetic/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev9/synthetic/arms-raised-prepared.png"><img loading="lazy" src="dev9/synthetic/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr><tr><td><a href="dev9/synthetic/crouch-source.png"><img loading="lazy" src="dev9/synthetic/crouch-source.png" alt="crouch"></a><br>crouch</td><td><a href="dev7/synthetic/crouch-prepared.png"><img loading="lazy" src="dev7/synthetic/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev8/synthetic/crouch-prepared.png"><img loading="lazy" src="dev8/synthetic/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev9/synthetic/crouch-prepared.png"><img loading="lazy" src="dev9/synthetic/crouch-prepared.png" alt="crouch"></a><br>crouch</td></tr><tr><td><a href="dev9/synthetic/kick-source.png"><img loading="lazy" src="dev9/synthetic/kick-source.png" alt="kick"></a><br>kick</td><td><a href="dev7/synthetic/kick-prepared.png"><img loading="lazy" src="dev7/synthetic/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev8/synthetic/kick-prepared.png"><img loading="lazy" src="dev8/synthetic/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev9/synthetic/kick-prepared.png"><img loading="lazy" src="dev9/synthetic/kick-prepared.png" alt="kick"></a><br>kick</td></tr></table></section><h2 id="">Algemene regressie: crest</h2><section><table><tr><th>Modern bronmodel</th><th>dev7 — 2976 triangles</th><th>dev8 — 2976 triangles</th><th>dev9 — 2976 triangles</th></tr><tr><td><a href="dev9/crest/front-source.png"><img loading="lazy" src="dev9/crest/front-source.png" alt="front"></a><br>front</td><td><a href="dev7/crest/front-prepared.png"><img loading="lazy" src="dev7/crest/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev8/crest/front-prepared.png"><img loading="lazy" src="dev8/crest/front-prepared.png" alt="front"></a><br>front</td><td><a href="dev9/crest/front-prepared.png"><img loading="lazy" src="dev9/crest/front-prepared.png" alt="front"></a><br>front</td></tr><tr><td><a href="dev9/crest/back-source.png"><img loading="lazy" src="dev9/crest/back-source.png" alt="back"></a><br>back</td><td><a href="dev7/crest/back-prepared.png"><img loading="lazy" src="dev7/crest/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev8/crest/back-prepared.png"><img loading="lazy" src="dev8/crest/back-prepared.png" alt="back"></a><br>back</td><td><a href="dev9/crest/back-prepared.png"><img loading="lazy" src="dev9/crest/back-prepared.png" alt="back"></a><br>back</td></tr><tr><td><a href="dev9/crest/face-source.png"><img loading="lazy" src="dev9/crest/face-source.png" alt="face"></a><br>face</td><td><a href="dev7/crest/face-prepared.png"><img loading="lazy" src="dev7/crest/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev8/crest/face-prepared.png"><img loading="lazy" src="dev8/crest/face-prepared.png" alt="face"></a><br>face</td><td><a href="dev9/crest/face-prepared.png"><img loading="lazy" src="dev9/crest/face-prepared.png" alt="face"></a><br>face</td></tr><tr><td><a href="dev9/crest/hair-close-source.png"><img loading="lazy" src="dev9/crest/hair-close-source.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev7/crest/hair-close-prepared.png"><img loading="lazy" src="dev7/crest/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev8/crest/hair-close-prepared.png"><img loading="lazy" src="dev8/crest/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td><td><a href="dev9/crest/hair-close-prepared.png"><img loading="lazy" src="dev9/crest/hair-close-prepared.png" alt="hair-close"></a><br>hair-close</td></tr><tr><td><a href="dev9/crest/left-hand-front-source.png"><img loading="lazy" src="dev9/crest/left-hand-front-source.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev7/crest/left-hand-front-prepared.png"><img loading="lazy" src="dev7/crest/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev8/crest/left-hand-front-prepared.png"><img loading="lazy" src="dev8/crest/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td><td><a href="dev9/crest/left-hand-front-prepared.png"><img loading="lazy" src="dev9/crest/left-hand-front-prepared.png" alt="left-hand-front"></a><br>left-hand-front</td></tr><tr><td><a href="dev9/crest/wireframe-source.png"><img loading="lazy" src="dev9/crest/wireframe-source.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev7/crest/wireframe-prepared.png"><img loading="lazy" src="dev7/crest/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev8/crest/wireframe-prepared.png"><img loading="lazy" src="dev8/crest/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td><td><a href="dev9/crest/wireframe-prepared.png"><img loading="lazy" src="dev9/crest/wireframe-prepared.png" alt="wireframe"></a><br>wireframe</td></tr><tr><td>Niet van toepassing / alleen outputdiagnostiek</td><td><a href="dev7/crest/boundary-prepared.png"><img loading="lazy" src="dev7/crest/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev8/crest/boundary-prepared.png"><img loading="lazy" src="dev8/crest/boundary-prepared.png" alt="boundary"></a><br>boundary</td><td><a href="dev9/crest/boundary-prepared.png"><img loading="lazy" src="dev9/crest/boundary-prepared.png" alt="boundary"></a><br>boundary</td></tr><tr><td><a href="dev9/crest/winding-source.png"><img loading="lazy" src="dev9/crest/winding-source.png" alt="winding"></a><br>winding</td><td><a href="dev7/crest/winding-prepared.png"><img loading="lazy" src="dev7/crest/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev8/crest/winding-prepared.png"><img loading="lazy" src="dev8/crest/winding-prepared.png" alt="winding"></a><br>winding</td><td><a href="dev9/crest/winding-prepared.png"><img loading="lazy" src="dev9/crest/winding-prepared.png" alt="winding"></a><br>winding</td></tr><tr><td><a href="dev9/crest/arms-raised-source.png"><img loading="lazy" src="dev9/crest/arms-raised-source.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev7/crest/arms-raised-prepared.png"><img loading="lazy" src="dev7/crest/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev8/crest/arms-raised-prepared.png"><img loading="lazy" src="dev8/crest/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td><td><a href="dev9/crest/arms-raised-prepared.png"><img loading="lazy" src="dev9/crest/arms-raised-prepared.png" alt="arms-raised"></a><br>arms-raised</td></tr><tr><td><a href="dev9/crest/crouch-source.png"><img loading="lazy" src="dev9/crest/crouch-source.png" alt="crouch"></a><br>crouch</td><td><a href="dev7/crest/crouch-prepared.png"><img loading="lazy" src="dev7/crest/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev8/crest/crouch-prepared.png"><img loading="lazy" src="dev8/crest/crouch-prepared.png" alt="crouch"></a><br>crouch</td><td><a href="dev9/crest/crouch-prepared.png"><img loading="lazy" src="dev9/crest/crouch-prepared.png" alt="crouch"></a><br>crouch</td></tr><tr><td><a href="dev9/crest/kick-source.png"><img loading="lazy" src="dev9/crest/kick-source.png" alt="kick"></a><br>kick</td><td><a href="dev7/crest/kick-prepared.png"><img loading="lazy" src="dev7/crest/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev8/crest/kick-prepared.png"><img loading="lazy" src="dev8/crest/kick-prepared.png" alt="kick"></a><br>kick</td><td><a href="dev9/crest/kick-prepared.png"><img loading="lazy" src="dev9/crest/kick-prepared.png" alt="kick"></a><br>kick</td></tr></table></section><h2>Oorzaakanalyse: geometrie, normals en gebakken bronkleur</h2><p>Deze grijze renders gebruiken dezelfde dev.9-geometrie, camera en verlichting, met alleen een andere normal-interpolatie. Geen textures of extra polygonen. Dit zijn testmaterialen, geen nieuwe product- of exportinstellingen. De gewone galerij toont de werkelijk gebakken PS1-kleuren.</p><section><table><tr><th>Vlakke normals</th><th>Geïnterpoleerde normals</th></tr><tr><td><a href="dev9/nikki/geometry-flat-full-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-flat-full-prepared.png" alt="flat full"></a></td><td><a href="dev9/nikki/geometry-smooth-full-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-smooth-full-prepared.png" alt="smooth full"></a></td></tr><tr><td><a href="dev9/nikki/geometry-flat-shoulder-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-flat-shoulder-prepared.png" alt="flat shoulder"></a></td><td><a href="dev9/nikki/geometry-smooth-shoulder-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-smooth-shoulder-prepared.png" alt="smooth shoulder"></a></td></tr><tr><td><a href="dev9/nikki/geometry-flat-hand-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-flat-hand-prepared.png" alt="flat hand"></a></td><td><a href="dev9/nikki/geometry-smooth-hand-prepared.png"><img loading="lazy" src="dev9/nikki/geometry-smooth-hand-prepared.png" alt="smooth hand"></a></td></tr></table></section><h3>Texture-ablaties bij exact dezelfde geometrie</h3><p>Vier tussenproeven met identieke camera’s en geometry-/UV-/skin-/bind-hashes: zie bake-ablation-provenance.json. De 16-kleurenvariant is verworpen wegens blokvormige huidkleuren. De behouden 256-kleurenvariant kost 65.536 extra stagingtexturebytes; donorcapaciteit is niet bevestigd. Dit zijn ontwikkelingstussenbeelden, niet de definitieve dev.9-handtexture.</p><section><table><tr><th>Oude 256×128 bronbake</th><th>Volledige 256×256 bronbake</th><th>Bronnormals / 16 kleuren — VERWORPEN</th><th>Bronnormals / 256 kleuren — behouden</th></tr><tr><td><a href="ablations/original/left-shoulder-prepared.png"><img loading="lazy" src="ablations/original/left-shoulder-prepared.png" alt="original left-shoulder"></a></td><td><a href="ablations/resolution/left-shoulder-prepared.png"><img loading="lazy" src="ablations/resolution/left-shoulder-prepared.png" alt="resolution left-shoulder"></a></td><td><a href="ablations/diffuse16-rejected/left-shoulder-prepared.png"><img loading="lazy" src="ablations/diffuse16-rejected/left-shoulder-prepared.png" alt="diffuse16-rejected left-shoulder"></a></td><td><a href="ablations/diffuse256/left-shoulder-prepared.png"><img loading="lazy" src="ablations/diffuse256/left-shoulder-prepared.png" alt="diffuse256 left-shoulder"></a></td></tr><tr><td><a href="ablations/original/hips-prepared.png"><img loading="lazy" src="ablations/original/hips-prepared.png" alt="original hips"></a></td><td><a href="ablations/resolution/hips-prepared.png"><img loading="lazy" src="ablations/resolution/hips-prepared.png" alt="resolution hips"></a></td><td><a href="ablations/diffuse16-rejected/hips-prepared.png"><img loading="lazy" src="ablations/diffuse16-rejected/hips-prepared.png" alt="diffuse16-rejected hips"></a></td><td><a href="ablations/diffuse256/hips-prepared.png"><img loading="lazy" src="ablations/diffuse256/hips-prepared.png" alt="diffuse256 hips"></a></td></tr><tr><td><a href="ablations/original/arms-raised-shoulder-prepared.png"><img loading="lazy" src="ablations/original/arms-raised-shoulder-prepared.png" alt="original arms-raised-shoulder"></a></td><td><a href="ablations/resolution/arms-raised-shoulder-prepared.png"><img loading="lazy" src="ablations/resolution/arms-raised-shoulder-prepared.png" alt="resolution arms-raised-shoulder"></a></td><td><a href="ablations/diffuse16-rejected/arms-raised-shoulder-prepared.png"><img loading="lazy" src="ablations/diffuse16-rejected/arms-raised-shoulder-prepared.png" alt="diffuse16-rejected arms-raised-shoulder"></a></td><td><a href="ablations/diffuse256/arms-raised-shoulder-prepared.png"><img loading="lazy" src="ablations/diffuse256/arms-raised-shoulder-prepared.png" alt="diffuse256 arms-raised-shoulder"></a></td></tr></table></section><h2>Regionale kosten en integriteit</h2><section><table><tr><th>Variant</th><th>Regioverdeling</th><th>Integriteit / contacten</th></tr><tr><td>dev7: 7503<br>Doel: artistiek<br>Texture: 158848 B, CLUT: 3872 B<br><a href="dev7/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair-cards&quot;: 1905,
+  &quot;hair&quot;: 480,
+  &quot;spine&quot;: 507,
+  &quot;rightLowerLeg&quot;: 368,
+  &quot;leftLowerLeg&quot;: 368,
+  &quot;hips&quot;: 362,
+  &quot;rightShoulder&quot;: 149,
+  &quot;rightHand&quot;: 536,
+  &quot;leftShoulder&quot;: 147,
+  &quot;rightUpperArm&quot;: 154,
+  &quot;rightLowerArm&quot;: 142,
+  &quot;leftUpperArm&quot;: 159,
+  &quot;leftLowerArm&quot;: 138,
+  &quot;leftHand&quot;: 486,
+  &quot;head&quot;: 1602
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 7503,
+    &quot;openEdges&quot;: 825,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 94,
+      &quot;hair-cards&quot;: 443,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 240
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 621,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 124
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 38,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 38,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 33,
+      &quot;same-surface-branch&quot;: 5
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair-cards&quot;: 17,
+      &quot;spine&quot;: 11,
+      &quot;hips&quot;: 7,
+      &quot;rightShoulder&quot;: 1,
+      &quot;rightHand&quot;: 2
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 4.634801102799397e-8,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>dev8: 7503<br>Doel: artistiek<br>Texture: 167040 B, CLUT: 3872 B<br><a href="dev8/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair-cards&quot;: 1905,
+  &quot;hair&quot;: 480,
+  &quot;spine&quot;: 507,
+  &quot;rightLowerLeg&quot;: 368,
+  &quot;leftLowerLeg&quot;: 368,
+  &quot;hips&quot;: 362,
+  &quot;rightShoulder&quot;: 149,
+  &quot;rightHand&quot;: 536,
+  &quot;leftShoulder&quot;: 147,
+  &quot;rightUpperArm&quot;: 154,
+  &quot;rightLowerArm&quot;: 142,
+  &quot;leftUpperArm&quot;: 159,
+  &quot;leftLowerArm&quot;: 138,
+  &quot;leftHand&quot;: 486,
+  &quot;head&quot;: 1602
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 7503,
+    &quot;openEdges&quot;: 825,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 94,
+      &quot;hair-cards&quot;: 443,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 240
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 621,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 124
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 38,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 38,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 33,
+      &quot;same-surface-branch&quot;: 5
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair-cards&quot;: 17,
+      &quot;spine&quot;: 11,
+      &quot;hips&quot;: 7,
+      &quot;rightShoulder&quot;: 1,
+      &quot;rightHand&quot;: 2
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 4.634801102799397e-8,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>matched7: 2545<br>Doel: artistiek<br>Texture: 158848 B, CLUT: 3872 B<br><a href="matched7/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 71,
+  &quot;hair-cards&quot;: 664,
+  &quot;spine&quot;: 90,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 182,
+  &quot;rightShoulder&quot;: 11,
+  &quot;rightHand&quot;: 192,
+  &quot;leftShoulder&quot;: 6,
+  &quot;rightUpperArm&quot;: 8,
+  &quot;rightLowerArm&quot;: 41,
+  &quot;leftUpperArm&quot;: 16,
+  &quot;leftLowerArm&quot;: 38,
+  &quot;leftHand&quot;: 180,
+  &quot;head&quot;: 796
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2545,
+    &quot;openEdges&quot;: 589,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 27,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 240
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 385,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 124
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 17,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 17,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 14,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 3,
+      &quot;hair-cards&quot;: 10,
+      &quot;hips&quot;: 4
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>matched8: 2551<br>Doel: artistiek<br>Texture: 167040 B, CLUT: 3872 B<br><a href="matched8/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 71,
+  &quot;hair-cards&quot;: 664,
+  &quot;spine&quot;: 90,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 182,
+  &quot;rightShoulder&quot;: 11,
+  &quot;rightHand&quot;: 192,
+  &quot;leftShoulder&quot;: 6,
+  &quot;rightUpperArm&quot;: 8,
+  &quot;rightLowerArm&quot;: 41,
+  &quot;leftUpperArm&quot;: 16,
+  &quot;leftLowerArm&quot;: 38,
+  &quot;leftHand&quot;: 186,
+  &quot;head&quot;: 796
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2551,
+    &quot;openEdges&quot;: 589,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 27,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 240
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 385,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 124
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 17,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 17,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 14,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 3,
+      &quot;hair-cards&quot;: 10,
+      &quot;hips&quot;: 4
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>dev9: 7481<br>Doel: artistiek<br>Texture: 232576 B, CLUT: 4832 B<br><a href="dev9/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair-cards&quot;: 1905,
+  &quot;hair&quot;: 480,
+  &quot;spine&quot;: 473,
+  &quot;rightLowerLeg&quot;: 368,
+  &quot;leftLowerLeg&quot;: 368,
+  &quot;hips&quot;: 342,
+  &quot;rightShoulder&quot;: 149,
+  &quot;rightHand&quot;: 556,
+  &quot;leftShoulder&quot;: 147,
+  &quot;rightUpperArm&quot;: 156,
+  &quot;rightLowerArm&quot;: 142,
+  &quot;leftUpperArm&quot;: 155,
+  &quot;leftLowerArm&quot;: 138,
+  &quot;leftHand&quot;: 500,
+  &quot;head&quot;: 1602
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 7481,
+    &quot;openEdges&quot;: 825,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 94,
+      &quot;hair-cards&quot;: 443,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 240
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 621,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 124
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 32,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 32,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 28,
+      &quot;same-surface-branch&quot;: 4
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair-cards&quot;: 17,
+      &quot;spine&quot;: 8,
+      &quot;hips&quot;: 5,
+      &quot;rightShoulder&quot;: 1,
+      &quot;rightHand&quot;: 1
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>budget1500: 2475<br>Doel: 1500<br>Texture: 232448 B, CLUT: 4800 B<br><a href="budget1500/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 61,
+  &quot;hair-cards&quot;: 664,
+  &quot;spine&quot;: 81,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 164,
+  &quot;rightShoulder&quot;: 13,
+  &quot;rightHand&quot;: 206,
+  &quot;leftShoulder&quot;: 10,
+  &quot;rightUpperArm&quot;: 7,
+  &quot;rightLowerArm&quot;: 43,
+  &quot;leftUpperArm&quot;: 13,
+  &quot;leftLowerArm&quot;: 43,
+  &quot;leftHand&quot;: 202,
+  &quot;head&quot;: 718
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2475,
+    &quot;openEdges&quot;: 537,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 25,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 190
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 383,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 74
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 12,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 12,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 9,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 2,
+      &quot;hair-cards&quot;: 10
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>budget1750: 2474<br>Doel: 1750<br>Texture: 232448 B, CLUT: 4800 B<br><a href="budget1750/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 64,
+  &quot;hair-cards&quot;: 664,
+  &quot;spine&quot;: 81,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 168,
+  &quot;rightShoulder&quot;: 13,
+  &quot;rightHand&quot;: 200,
+  &quot;leftShoulder&quot;: 10,
+  &quot;rightUpperArm&quot;: 7,
+  &quot;rightLowerArm&quot;: 43,
+  &quot;leftUpperArm&quot;: 11,
+  &quot;leftLowerArm&quot;: 43,
+  &quot;leftHand&quot;: 202,
+  &quot;head&quot;: 718
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2474,
+    &quot;openEdges&quot;: 538,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 26,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 190
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 384,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 74
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 13,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 13,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 10,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 2,
+      &quot;hair-cards&quot;: 10,
+      &quot;hips&quot;: 1
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>budget2000: 2513<br>Doel: 2000<br>Texture: 232448 B, CLUT: 4800 B<br><a href="budget2000/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 73,
+  &quot;hair-cards&quot;: 664,
+  &quot;spine&quot;: 81,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 176,
+  &quot;rightShoulder&quot;: 13,
+  &quot;rightHand&quot;: 200,
+  &quot;leftShoulder&quot;: 10,
+  &quot;rightUpperArm&quot;: 9,
+  &quot;rightLowerArm&quot;: 41,
+  &quot;leftUpperArm&quot;: 15,
+  &quot;leftLowerArm&quot;: 43,
+  &quot;leftHand&quot;: 202,
+  &quot;head&quot;: 736
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2513,
+    &quot;openEdges&quot;: 539,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 27,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 190
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 385,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 74
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 16,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 16,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 13,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 3,
+      &quot;hair-cards&quot;: 10,
+      &quot;hips&quot;: 3
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>budget2250: 2624<br>Doel: 2250<br>Texture: 232448 B, CLUT: 4800 B<br><a href="budget2250/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 79,
+  &quot;hair-cards&quot;: 665,
+  &quot;spine&quot;: 81,
+  &quot;rightLowerLeg&quot;: 126,
+  &quot;leftLowerLeg&quot;: 124,
+  &quot;hips&quot;: 184,
+  &quot;rightShoulder&quot;: 13,
+  &quot;rightHand&quot;: 216,
+  &quot;leftShoulder&quot;: 10,
+  &quot;rightUpperArm&quot;: 11,
+  &quot;rightLowerArm&quot;: 41,
+  &quot;leftUpperArm&quot;: 17,
+  &quot;leftLowerArm&quot;: 43,
+  &quot;leftHand&quot;: 208,
+  &quot;head&quot;: 806
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2624,
+    &quot;openEdges&quot;: 542,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 29,
+      &quot;hair-cards&quot;: 275,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 190
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 388,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 74
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 20,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 20,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 17,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 4,
+      &quot;hair-cards&quot;: 10,
+      &quot;hips&quot;: 6
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr><tr><td>budget2500: 2794<br>Doel: 2500<br>Texture: 232448 B, CLUT: 4800 B<br><a href="budget2500/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>{
+  &quot;hair&quot;: 86,
+  &quot;hair-cards&quot;: 670,
+  &quot;spine&quot;: 89,
+  &quot;rightLowerLeg&quot;: 130,
+  &quot;leftLowerLeg&quot;: 130,
+  &quot;hips&quot;: 195,
+  &quot;rightShoulder&quot;: 15,
+  &quot;rightHand&quot;: 242,
+  &quot;leftShoulder&quot;: 13,
+  &quot;rightUpperArm&quot;: 10,
+  &quot;rightLowerArm&quot;: 42,
+  &quot;leftUpperArm&quot;: 16,
+  &quot;leftLowerArm&quot;: 42,
+  &quot;leftHand&quot;: 236,
+  &quot;head&quot;: 878
+}</pre></td><td><pre>{
+  &quot;integrity&quot;: {
+    &quot;triangles&quot;: 2794,
+    &quot;openEdges&quot;: 541,
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 29,
+      &quot;hair-cards&quot;: 274,
+      &quot;spine&quot;: 16,
+      &quot;hips&quot;: 32,
+      &quot;head&quot;: 190
+    },
+    &quot;classifications&quot;: {
+      &quot;alpha-or-hair&quot;: 387,
+      &quot;measured-aperture-or-source-open&quot;: 80,
+      &quot;preserved-source-mesh-border&quot;: 74
+    },
+    &quot;unexpectedByRegion&quot;: {},
+    &quot;sourceOpenEdges&quot;: 1072,
+    &quot;sourceInconsistentWinding&quot;: 0,
+    &quot;sourceNonmanifoldEdges&quot;: 137,
+    &quot;unexpectedEdges&quot;: 0,
+    &quot;inconsistentWinding&quot;: 0,
+    &quot;nonmanifoldEdges&quot;: 22,
+    &quot;degenerateTriangles&quot;: 0,
+    &quot;note&quot;: &quot;Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled.&quot;
+  },
+  &quot;contacts&quot;: {
+    &quot;contacts&quot;: 22,
+    &quot;byCategory&quot;: {
+      &quot;coincident-face-contact&quot;: 19,
+      &quot;same-surface-branch&quot;: 3
+    },
+    &quot;byRegion&quot;: {
+      &quot;hair&quot;: 5,
+      &quot;hair-cards&quot;: 12,
+      &quot;hips&quot;: 5
+    },
+    &quot;divergentContacts&quot;: 0,
+    &quot;divergentByCategory&quot;: {},
+    &quot;divergentByRegion&quot;: {},
+    &quot;maxGap&quot;: 0,
+    &quot;tolerance&quot;: 0.0020437663571394415,
+    &quot;scope&quot;: &quot;Position contacts with more than two incident triangles; category is structural evidence, not automatic legitimacy or collision certification&quot;
+  }
+}</pre></td></tr></table></section><h2>Bronrig versus conversie: resterende schouderstrain</h2><p>De huidige Nikki-input bevat 0 echte bronanimatieclips en 0 animatietracks. Deze proeven draaien geselecteerde bones en zijn geen originele animaties of gameplay. Ook de bron heeft meetbare shoulder-strain; de langere low-poly-randen kunnen de absolute rek vergroten. Nul onverklaarde gaten is dus geen bewijs van natuurlijke kledingvervorming.</p><p><a href="pose-stress-summary.json">Volledige aggregaten zonder bronvertices</a>. Aantallen edges zijn niet rechtstreeks vergelijkbaar bij verschillende tessellatie. Onderstaande rek is genormaliseerd op de bronkarakterhoogte; het is geen artistieke score of universele foutgrens.</p><section><table><tr><th>Pose / regio</th><th>Max edgeverhouding bron / conversie</th><th>Max toename als % karakterhoogte bron / conversie</th></tr><tr><td>guard / spine</td><td>1.281 / 1.281</td><td>0.218% / 0.283%</td></tr><tr><td>guard / leftShoulder</td><td>1.442 / 1.442</td><td>0.136% / 0.218%</td></tr><tr><td>guard / rightShoulder</td><td>1.442 / 1.442</td><td>0.136% / 0.206%</td></tr><tr><td>guard / leftShoulder/leftUpperArm</td><td>1.931 / 1.931</td><td>0.215% / 0.613%</td></tr><tr><td>guard / rightShoulder/rightUpperArm</td><td>1.931 / 1.931</td><td>0.215% / 0.215%</td></tr><tr><td>guard / leftUpperArm</td><td>1.567 / 1.452</td><td>0.150% / 0.597%</td></tr><tr><td>guard / rightUpperArm</td><td>1.567 / 1.383</td><td>0.150% / 0.599%</td></tr><tr><td>reach / spine</td><td>1.916 / 1.916</td><td>0.546% / 0.684%</td></tr><tr><td>reach / leftShoulder</td><td>2.187 / 2.187</td><td>0.308% / 0.391%</td></tr><tr><td>reach / rightShoulder</td><td>2.186 / 2.186</td><td>0.308% / 0.365%</td></tr><tr><td>reach / leftShoulder/leftUpperArm</td><td>3.238 / 3.238</td><td>0.479% / 1.187%</td></tr><tr><td>reach / rightShoulder/rightUpperArm</td><td>3.238 / 3.238</td><td>0.479% / 0.479%</td></tr><tr><td>reach / leftUpperArm</td><td>2.265 / 1.947</td><td>0.363% / 1.303%</td></tr><tr><td>reach / rightUpperArm</td><td>2.265 / 1.807</td><td>0.363% / 1.303%</td></tr><tr><td>arms-raised / spine</td><td>2.636 / 2.636</td><td>0.633% / 0.942%</td></tr><tr><td>arms-raised / leftShoulder</td><td>4.738 / 4.738</td><td>0.534% / 1.156%</td></tr><tr><td>arms-raised / rightShoulder</td><td>4.738 / 4.738</td><td>0.534% / 1.156%</td></tr><tr><td>arms-raised / leftShoulder/leftUpperArm</td><td>6.445 / 6.445</td><td>0.773% / 2.780%</td></tr><tr><td>arms-raised / rightShoulder/rightUpperArm</td><td>6.445 / 6.445</td><td>0.773% / 2.592%</td></tr><tr><td>arms-raised / leftUpperArm</td><td>4.365 / 2.586</td><td>0.736% / 3.365%</td></tr><tr><td>arms-raised / rightUpperArm</td><td>4.365 / 2.564</td><td>0.736% / 3.364%</td></tr></table></section><p>Een bestaande armraise/guard/punch-clip op dezelfde bronrig, inclusief eventuele twist-/corrective-bones, zou betrouwbare aanvullende referentie geven. Zonder zulke data wordt een aangenomen correctiebone-aansturing niet als gevalideerde animatiecompatibiliteit geïmplementeerd.</p><h2>Bescherming en nog openstaande beoordeling</h2><pre>{
+  &quot;geometryIdentical&quot;: true,
+  &quot;textureIdentical&quot;: true
+}</pre><p>Haarcards hebben echte componentranden; deze worden niet blind aan elkaar gelast. Ogen, oogleden, handcontouren, UV-sheets, gewrichten en fysieke buitenranden kunnen verdere reductie begrenzen. Verklaarde open randen en positionele contacten zijn apart van werkelijke ontbrekende oppervlakken gemeten. Nul onverklaarde randen betekent geen collision- of gameplaycertificaat.</p><p>De grotere torso-palette gebruikt extra stagingtexturegeheugen. Native donorcapaciteit is niet aangetoond. Originele Nina-bestanden, een Expanded-installatie en echte gameanimaties zijn niet beschikbaar; native fixtures zijn alleen synthetische checks. Beoordeel vooral vingers, oksels in opgeheven poses, huidfacettering, haargaten en verlies van detail in de kandidaten.</p><p>Cesium Man ©2017 Cesium, CC BY 4.0; aangepaste screenshots. <a href="CESIUM-ATTRIBUTION.txt">Bron, licentie en wijzigingsvermelding</a>. Nikki is privé aangeleverd. De twee synthetische kapsels en handen zijn eigen regressiefixtures.</p></html>

@@ -1,0 +1,15 @@
+{
+  "accepted": false,
+  "reason": "No convincing visible quality gain; UV and skin constraints increased candidate cost",
+  "baselineCandidateTriangles": 2507,
+  "experimentCandidateTriangles": 2522,
+  "baselineHairCardTriangles": 664,
+  "experimentHairCardTriangles": 679,
+  "componentFloor": 60,
+  "actualComponents": 30,
+  "weightedComponents": 28,
+  "overCapacityFallbackComponents": 1,
+  "unexpectedEdges": 0,
+  "windingConflicts": 0,
+  "codeRestoredTo": "6b77d2a"
+}

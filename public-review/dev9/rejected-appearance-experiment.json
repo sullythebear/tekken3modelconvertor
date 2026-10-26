@@ -1,0 +1,9 @@
+{
+  "accepted": false,
+  "reason": "No visible effect at the measured source shoulder boundaries; no blind cost-weight increase attempted",
+  "beforeTriangles": 7481,
+  "afterTriangles": 7481,
+  "commonPreparedImages": 24,
+  "byteIdenticalPreparedImages": 24,
+  "codeRestoredTo": "3af2c83"
+}

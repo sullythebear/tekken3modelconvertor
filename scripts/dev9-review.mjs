@@ -7,6 +7,7 @@ import {
   writeFile,
   readdir,
   copyFile,
+  unlink,
 } from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
@@ -191,6 +192,14 @@ for (const dir of ["src/core", "src/ui"])
       summary.engineHashes[dir + "/" + f] = hash(
         await readFile(path.join(dir, f)),
       );
+summary.buildHashes = {};
+for (const file of [
+  "scripts/build.mjs",
+  "scripts/extended-loader-patches.mjs",
+  "package-lock.json",
+  "dist/app.js",
+])
+  summary.buildHashes[file] = hash(await readFile(file));
 const e = (s) =>
   String(s).replace(
     /[&<>"']/g,
@@ -199,7 +208,7 @@ const e = (s) =>
         c
       ],
   );
-let html = `<!doctype html><html lang="nl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Dev.9 — echte beelden en meetgegevens</title><style>body{font:18px system-ui;background:#101823;color:#eef3ff;margin:24px}a{color:#9cf}section{overflow:auto}table{border-collapse:collapse}td,th{padding:10px;border:1px solid #345;vertical-align:top}img{width:510px;max-height:650px;object-fit:contain}pre{white-space:pre-wrap}.warn{color:#ffbd89}nav a{margin-right:18px}</style><h1>0.7.0-dev.9 — artistieke beoordeling gevraagd</h1><p class="warn">Geen definitieve artistieke goedkeuring en geen geverifieerde Tekken/Expanded-gameplay. Doelbudgetten zijn experimenteel; werkelijk behaalde aantallen staan bij elk beeld.</p><nav><a href="#hands">Handen</a><a href="#body">Schouders en huid</a><a href="#poses">Beweging</a><a href="#budgets">Kandidaten</a><a href="technical-summary.json">Alle meetgegevens</a><a href="../WINDOWS-STATUS.md">Windows-testmetingen</a><a href="../REVIEW.md">Status en beperkingen</a></nav><p>Oude beelden en meetgegevens komen uit de gepubliceerde dev.7- en dev.8-galerijen. Bronbeelden worden byte-voor-byte gecontroleerd om identieke camera, schaal, belichting en resolutie vast te stellen. De nieuwe beelden komen uit dezelfde volledige import/conversie/exporttest. Diagnostische poses zijn geen Tekken-animaties. Bronmodellen, brontextures, projecten en gamebestanden zijn uitgesloten.</p><p>Nieuw: structurele bron-geprojecteerde vingers, echte kleur-overdracht van kleine vingeraccessoires, source-UV-sheetbehoud bij reductie, gerepareerde overdracht van huid-normalvelden, volledige torso-texelhoogte en conservatieve contactreconciliatie. Gezichtskern en zijn onbewerkte texture zijn identiek gebleven. De kledingvervorming bij extreme schouderposes is nog niet volledig opgelost; handen blijven bewust low-poly. Beoordeel verbeteringen en beperkingen in de grote afbeeldingen.</p>`;
+let html = `<!doctype html><html lang="nl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Dev.9 — echte beelden en meetgegevens</title><style>body{font:18px system-ui;background:#101823;color:#eef3ff;margin:24px}a{color:#9cf}section{overflow:auto}table{border-collapse:collapse}td,th{padding:10px;border:1px solid #345;vertical-align:top}img{width:clamp(280px,calc((100vw - 180px)/4),510px);max-height:650px;object-fit:contain}pre{white-space:pre-wrap}.warn{color:#ffbd89}nav a{margin-right:18px}</style><h1>0.7.0-dev.9 — artistieke beoordeling gevraagd</h1><p>Klik op een afbeelding voor de volledige resolutie. Brede budgettabellen kunnen horizontaal worden verschoven.</p><p class="warn">Geen definitieve artistieke goedkeuring en geen geverifieerde Tekken/Expanded-gameplay. Doelbudgetten zijn experimenteel; werkelijk behaalde aantallen staan bij elk beeld.</p><nav><a href="#hands">Handen</a><a href="#body">Schouders en huid</a><a href="#poses">Beweging</a><a href="#budgets">Kandidaten</a><a href="technical-summary.json">Alle meetgegevens</a><a href="../WINDOWS-STATUS.md">Windows-testmetingen</a><a href="../REVIEW.md">Status en beperkingen</a></nav><p>Oude beelden en meetgegevens komen uit de gepubliceerde dev.7- en dev.8-galerijen. Bronbeelden worden byte-voor-byte gecontroleerd om identieke camera, schaal, belichting en resolutie vast te stellen. De nieuwe beelden komen uit dezelfde volledige import/conversie/exporttest. Diagnostische poses zijn geen Tekken-animaties. Bronmodellen, brontextures, projecten en gamebestanden zijn uitgesloten.</p><p>Nieuw: structurele bron-geprojecteerde vingers, echte kleur-overdracht van kleine vingeraccessoires, source-UV-sheetbehoud bij reductie, gerepareerde overdracht van huid-normalvelden, volledige torso-texelhoogte en conservatieve contactreconciliatie. Gezichtskern en zijn onbewerkte texture zijn identiek gebleven. De kledingvervorming bij extreme schouderposes is nog niet volledig opgelost; handen blijven bewust low-poly. Beoordeel verbeteringen en beperkingen in de grote afbeeldingen.</p>`;
 async function gallery(title, model, ids, views, anchor = "") {
   html += `<h2 id="${anchor}">${e(title)}</h2><section><table><tr><th>Modern bronmodel</th>${ids.map((id) => `<th>${e(id)} — ${row(id, model).triangles} triangles</th>`).join("")}</tr>`;
   for (const view of views) {
@@ -399,7 +408,64 @@ for (const r of summary.results.filter((r) => r.model === "nikki")) {
   html += `<tr><td>${e(r.id)}: ${r.triangles}<br>Doel: ${r.requestedTriangles ?? "artistiek"}<br>Texture: ${r.textureBytes} B, CLUT: ${r.paletteBytes} B<br><a href="${r.id}/nikki/measurements.json">Constraint-, pose- en exportmetingen</a></td><td><pre>${e(JSON.stringify(by, null, 2))}</pre></td><td><pre>${e(JSON.stringify({ integrity: r.integrity, contacts: r.contacts }, null, 2))}</pre></td></tr>`;
 }
 html += "</table></section>";
-html += `<h2>Bescherming en nog openstaande beoordeling</h2><pre>${e(JSON.stringify(summary.faceCore, null, 2))}</pre><p>Haarcards hebben echte componentranden; deze worden niet blind aan elkaar gelast. Ogen, oogleden, handcontouren, UV-sheets, gewrichten en fysieke buitenranden kunnen verdere reductie begrenzen. Verklaarde open randen en positionele contacten zijn apart van werkelijke ontbrekende oppervlakken gemeten. Nul onverklaarde randen betekent geen collision- of gameplaycertificaat.</p><p>De grotere torso-palette gebruikt extra stagingtexturegeheugen. Native donorcapaciteit is niet aangetoond. Originele Nina-bestanden, een Expanded-installatie en echte gameanimaties zijn niet beschikbaar; native fixtures zijn alleen synthetische checks. Beoordeel vooral vingers, oksels in opgeheven poses, huidfacettering, haargaten en verlies van detail in de kandidaten.</p><p>Cesium Man ©2017 Cesium, CC BY 4.0; aangepaste screenshots. Nikki is privé aangeleverd. De twee synthetische kapsels en handen zijn eigen regressiefixtures.</p></html>`;
+const stress = JSON.parse(
+  await readFile("artifacts/dev9/pose-stress-summary.json", "utf8"),
+);
+await copyFile(
+  "artifacts/dev9/pose-stress-summary.json",
+  path.join(publicRoot, "pose-stress-summary.json"),
+);
+summary.sourceAnimationClips = stress.sourceAnimationClips;
+html += `<h2>Bronrig versus conversie: resterende schouderstrain</h2><p>De huidige Nikki-input bevat ${stress.sourceAnimationClips} echte bronanimatieclips en ${stress.sourceAnimationTracks} animatietracks. Deze proeven draaien geselecteerde bones en zijn geen originele animaties of gameplay. Ook de bron heeft meetbare shoulder-strain; de langere low-poly-randen kunnen de absolute rek vergroten. Nul onverklaarde gaten is dus geen bewijs van natuurlijke kledingvervorming.</p><p><a href="pose-stress-summary.json">Volledige aggregaten zonder bronvertices</a>. Aantallen edges zijn niet rechtstreeks vergelijkbaar bij verschillende tessellatie. Onderstaande rek is genormaliseerd op de bronkarakterhoogte; het is geen artistieke score of universele foutgrens.</p><section><table><tr><th>Pose / regio</th><th>Max edgeverhouding bron / conversie</th><th>Max toename als % karakterhoogte bron / conversie</th></tr>`;
+for (const p of stress.poses.filter((p) =>
+  ["guard", "reach", "arms-raised"].includes(p.pose),
+))
+  for (const role of [
+    "spine",
+    "leftShoulder",
+    "rightShoulder",
+    "leftShoulder/leftUpperArm",
+    "rightShoulder/rightUpperArm",
+    "leftUpperArm",
+    "rightUpperArm",
+  ]) {
+    const a = p.source[role],
+      b = p.converted[role];
+    if (!a || !b) continue;
+    html += `<tr><td>${e(p.pose)} / ${e(role)}</td><td>${a.maxStretch.toFixed(3)} / ${b.maxStretch.toFixed(3)}</td><td>${(a.maxIncreaseOverHeight * 100).toFixed(3)}% / ${(b.maxIncreaseOverHeight * 100).toFixed(3)}%</td></tr>`;
+  }
+html +=
+  "</table></section><p>Een bestaande armraise/guard/punch-clip op dezelfde bronrig, inclusief eventuele twist-/corrective-bones, zou betrouwbare aanvullende referentie geven. Zonder zulke data wordt een aangenomen correctiebone-aansturing niet als gevalideerde animatiecompatibiliteit geïmplementeerd.</p>";
+html += `<h2>Bescherming en nog openstaande beoordeling</h2><pre>${e(JSON.stringify(summary.faceCore, null, 2))}</pre><p>Haarcards hebben echte componentranden; deze worden niet blind aan elkaar gelast. Ogen, oogleden, handcontouren, UV-sheets, gewrichten en fysieke buitenranden kunnen verdere reductie begrenzen. Verklaarde open randen en positionele contacten zijn apart van werkelijke ontbrekende oppervlakken gemeten. Nul onverklaarde randen betekent geen collision- of gameplaycertificaat.</p><p>De grotere torso-palette gebruikt extra stagingtexturegeheugen. Native donorcapaciteit is niet aangetoond. Originele Nina-bestanden, een Expanded-installatie en echte gameanimaties zijn niet beschikbaar; native fixtures zijn alleen synthetische checks. Beoordeel vooral vingers, oksels in opgeheven poses, huidfacettering, haargaten en verlies van detail in de kandidaten.</p><p>Cesium Man ©2017 Cesium, CC BY 4.0; aangepaste screenshots. <a href="CESIUM-ATTRIBUTION.txt">Bron, licentie en wijzigingsvermelding</a>. Nikki is privé aangeleverd. De twee synthetische kapsels en handen zijn eigen regressiefixtures.</p></html>`;
+// Keep every displayed PNG plus the original-camera evidence, not thousands
+// of unused duplicates in the downloadable review. Raw render outputs remain
+// untouched in artifacts; older published review folders are never pruned.
+const retainedImages = new Set(
+  [...html.matchAll(/src="([^"]+\.png)"/g)].map((m) => m[1]),
+);
+for (const check of summary.sourceCameraChecks)
+  for (const id of ["dev7", "dev8", "dev9"])
+    retainedImages.add(`${id}/${check.model}/${check.view}-source.png`);
+async function pruneGeneratedPNGs(dir) {
+  for (const item of await readdir(dir, { withFileTypes: true })) {
+    if (item.isSymbolicLink()) throw Error("No evidence symlinks");
+    const file = path.join(dir, item.name);
+    if (item.isDirectory()) await pruneGeneratedPNGs(file);
+    else if (
+      item.name.endsWith(".png") &&
+      !retainedImages.has(
+        path.relative(publicRoot, file).split(path.sep).join("/"),
+      )
+    )
+      await unlink(file);
+  }
+}
+await pruneGeneratedPNGs(publicRoot);
+summary.retainedReviewPNGCount = retainedImages.size;
+await copyFile(
+  "artifacts/reference/ATTRIBUTION.txt",
+  path.join(publicRoot, "CESIUM-ATTRIBUTION.txt"),
+);
 await writeFile(path.join(publicRoot, "index.html"), html);
 await writeFile(
   path.join(publicRoot, "technical-summary.json"),

@@ -1,0 +1,15 @@
+{
+  "version": "0.7.0-dev.9",
+  "status": "PASS",
+  "mode": "HTTP rendering only; cloud browser file scheme blocked by administrator policy",
+  "offlineFileTest": false,
+  "gallerySha256": "3eb85e36e1b89eeeec065f02294db54c53d81b48e7b8a21935eac3e8f6178aea",
+  "referencedImages": 432,
+  "relativeLinksChecked": 451,
+  "pngHeadersValid": true,
+  "firstVisibleImageDecoded": true,
+  "budgetNavigationPassed": true,
+  "pageErrors": [],
+  "onlineRequests": [],
+  "privateAssetsPublished": false
+}

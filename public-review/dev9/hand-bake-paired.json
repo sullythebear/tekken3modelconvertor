@@ -1,0 +1,77 @@
+{
+  "platform": "linux",
+  "node": "v24.19.0",
+  "method": "Same process, alternating AB/BA, two warmup rounds, six measured samples per method. CPU stage only, not Windows app performance.",
+  "identicalTexels": true,
+  "medians": {
+    "baseline": 358.2147594999999,
+    "current": 264.6637464999999
+  },
+  "ratio": 0.7388409870922696,
+  "results": {
+    "baseline": [
+      {
+        "durationMs": 366.878598,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 427.806106,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 357.43095200000016,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 358.99856699999964,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 347.524899,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 330.2867759999999,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      }
+    ],
+    "current": [
+      {
+        "durationMs": 302.395094,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 287.0699089999998,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 243.4454310000001,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 261.93382399999973,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 267.39366900000005,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      },
+      {
+        "durationMs": 211.4707470000003,
+        "sha256": "b6394a70d9023e294c5dd5b848bfb6e5b0056dba5641e9744052d5d28634865e",
+        "triangles": 690
+      }
+    ]
+  }
+}
