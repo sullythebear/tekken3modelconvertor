@@ -90,3 +90,11 @@ test('albedo projection does not read unused detail image buffers', () => {
   assert.ok(rgba.every(value => Math.abs(value - 255) < 1e-9));
   assert.throws(() => materialSampler([material],{mode:'static-detail'}), /Unneeded detail readback/);
 });
+
+test('Linear source-surface sampling retains measured texel blends and texture transforms',()=>{
+ const data=new Uint8Array([0,20,40,255,200,100,60,255,0,20,40,255,200,100,60,255]);
+ const texture=new THREE.DataTexture(data,2,2);texture.flipY=false;
+ const material=new THREE.MeshBasicMaterial({map:texture});const triangle=triangleRecord([new THREE.Vector3(),new THREE.Vector3(1,0,0),new THREE.Vector3(0,1,0)],{material,uvs:[new THREE.Vector2(.5,.5),new THREE.Vector2(.5,.5),new THREE.Vector2(.5,.5)]}),hit={triangle,barycentric:new THREE.Vector3(1,0,0)};
+ const smooth=materialSampler([material],{filter:'linear'})(hit);assert.ok(Math.abs(smooth[0]-100)<1e-8);assert.ok(Math.abs(smooth[1]-60)<1e-8);assert.equal(smooth[3],255);
+ assert.ok(materialSampler([material])(hit)[0]>199);texture.offset.x=-.25;assert.ok(materialSampler([material],{filter:'linear'})(hit)[0]<1e-8);assert.throws(()=>materialSampler([material],{filter:'unknown'}),/filter/);
+});

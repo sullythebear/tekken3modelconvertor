@@ -2,6 +2,11 @@ import * as THREE from 'three';
 import {SurfaceIndex,triangleRecord,materialSampler} from './surface.js';
 import {sourceRecords,surfaceTexture} from './projected-topology.js';
 
+export function canRebakeTorso(g){
+ const p=g?.attributes?.position;if(!p?.count)return false;
+ const size=new THREE.Box3().setFromBufferAttribute(p).getSize(new THREE.Vector3());return size.x>=1e-6&&size.y>=1e-6;
+}
+
 // Give the torso a physical front/back chart. Resampling a whole modern body
 // atlas wasted most PS1 texels on unused UV islands, destroying outfit patterns.
 // Keep the existing low-poly torso geometry where its silhouette already works.

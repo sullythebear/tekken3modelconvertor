@@ -1,3 +1,4 @@
+import {armDisplacementFields} from './joint-fields.js';
 import {reconstructAnatomicalHand} from './hand-reconstruction.js';
 import {reconcileCoincidentSkin} from './coincident-skin.js';
 import {cloneWorkingGeometry} from './working-geometry.js';
@@ -11,7 +12,7 @@ import {sceneIntegrity,integritySummary} from './mesh-integrity.js';
 import {creaseFeatures} from './crease-features.js';
 import {shortGarmentTriangles} from './garment-segmentation.js';
 import {boneSemantic} from './skeleton.js';
-import {rebakeTorso} from './torso-bake.js';
+import {rebakeTorso,canRebakeTorso} from './torso-bake.js';
 import {reconstructBootEnvelope} from './boot-envelope.js';
 import {reconstructHairVolume,reconstructHairCards,simplifyHairSupport} from './hair-volume.js';
 import {reconstructAnatomicalFace} from './anatomical-face.js';
@@ -297,7 +298,11 @@ export async function convertCharacter(
       const creases=p.role==='hips'&&['combined','boots'].includes(stage)?creaseFeatures(g):null;if(creases){for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=creases.mask[v];p.protectedPoints=creases.points;}
       if(locks&&art.face>=50)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=locks.mask[v];
       const continuous=/^(head|hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|UpperLeg|LowerLeg|Foot))$/.test(p.role)&&stage==='combined'&&!(p.role==='head'&&/eye|iris|sclera|lash|teeth/i.test(p.material?.name??''));
-      reconstruction = continuous?reduceBodySurface(g,p.role,MeshoptSimplifier,{target:budgets[i],featureMask:protectedMask}):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
+      const reprojectedBody=continuous&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name??'')&&canRebakeTorso(g);
+      const deformationFields=continuous&&/^(spine|hips|(left|right)(Shoulder|UpperArm))$/.test(p.role)?armDisplacementFields(p.mesh,g):null;
+      reconstruction = continuous?reduceBodySurface(g,p.role,MeshoptSimplifier,{
+        target:budgets[i],featureMask:protectedMask,reprojectUV:reprojectedBody,deformationFields,
+      }):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
       reconstruction.occludedShellTriangles=shells?.removed??0;if(creases)reconstruction.creaseProtection=creases.report;

@@ -237,7 +237,7 @@ export function reconstructAnatomicalHand(
       return item;
     });
     const phase = angle(collar[0]),
-      levels = [distances[1], distances[2], length * 0.95].filter(
+      levels = [distances[1], distances[2], (distances[2]+length*.95)/2, length * 0.95].filter(
         (s, i, a) =>
           s > base + length * 0.025 &&
           (i === 0 || s > a[i - 1] + length * 0.025),
@@ -502,7 +502,7 @@ export function reconstructAnatomicalHand(
   const normalMaterial = material.normalMap
       ? new THREE.MeshBasicMaterial({ map: material.normalMap })
       : null,
-    normalSample = normalMaterial ? materialSampler([normalMaterial]) : null;
+    normalSample = normalMaterial ? materialSampler([normalMaterial],{filter:"linear"}) : null;
   const lighting = (hit) => {
     const old = hit.triangle.ids.reduce(
       (q, i, k) =>
@@ -529,7 +529,7 @@ export function reconstructAnatomicalHand(
     }
     return sourceSkinLighting(material, old.x, old.y, mapped, fallback);
   };
-  const sample = materialSampler([material]),
+  const sample = materialSampler([material],{filter:"linear"}),
     rgba = new Uint8Array(textureSize * textureSize * 4);
   for (let row = 0; row < textureSize; row++)
     for (let col = 0; col < textureSize; col++) {

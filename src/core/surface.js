@@ -1,3 +1,4 @@
+import {bilinearRGBA} from './skin-surface.js';
 import * as THREE from "three";
 import { bakeMaterialDetail, tangentNormal } from "./material-bake.js";
 // CPU BVH shared by donor projection and texture baking. Coordinates are world-space.
@@ -107,7 +108,8 @@ function imagePixels(image) {
   ctx.drawImage(image, 0, 0);
   return ctx.getImageData(0, 0, c.width, c.height);
 }
-export function materialSampler(materials, { mode = "albedo" } = {}) {
+export function materialSampler(materials, { mode = "albedo", filter = "nearest" } = {}) {
+  if (!["nearest", "linear"].includes(filter)) throw Error("Unsupported surface sampling filter");
   const maps = new Map();
   for (const m of materials)
     for (const name of (mode === "static-detail" ? [
@@ -127,6 +129,7 @@ export function materialSampler(materials, { mode = "albedo" } = {}) {
     const q = uv.clone();
     texture.updateMatrix();
     texture.transformUv(q);
+    if (filter === "linear") return bilinearRGBA(im, q.x, q.y);
     const x = Math.max(0, Math.min(im.width - 1, Math.floor(q.x * im.width))),
       y = Math.max(0, Math.min(im.height - 1, Math.floor(q.y * im.height)));
     return im.data.subarray((y * im.width + x) * 4, (y * im.width + x) * 4 + 4);
