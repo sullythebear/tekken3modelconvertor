@@ -2,7 +2,7 @@ name: Private Nikki project roundtrip
 on:
   push:
     branches: [development/070-dev8, development/070-dev9]
-    paths: ['src/**', 'scripts/project-roundtrip-test.mjs', 'scripts/browser.mjs', 'package*.json', '.github/workflows/dev3-project.yml']
+    paths: ['src/**', 'scripts/project-roundtrip-test.mjs', 'scripts/browser.mjs', 'scripts/extended-loader-patches.mjs', 'scripts/build.mjs', 'scripts/drive-download.mjs', 'package*.json', '.github/workflows/dev3-project.yml']
   workflow_dispatch:
 permissions:
   contents: read
