@@ -98,3 +98,7 @@ Cyclus 3: vijf fingerpatches met ieder één gesloten palm-interface gericht rec
 - **196 tests PASS**, 0 fail/skip (`artifacts/dev9/cycle5-unit.xml`). Nieuwe tests gebruiken zelfgeschreven geometrie met naamloze fingerbones, twee influence-sets, beweging, bronintegriteit en een los torusaccessoire. Geen privébrondata in tests.
 - `scripts/dev9-hand-quality.mjs` meet beide richtingen met zeven samples per triangle en vijf handposes. Publieke samenvatting bevat alleen afstanden/aantallen, geen bronvertices. `scene-private.json` blijft strikt privé.
 - Eerstvolgende concrete actie: kostgelijke distale ringverdeling en echte lineaire texturebemonstering beoordelen; daarna schouder/kleding, huidfacettering, haar en kandidaatbudgetten. Windows dev.9 nog niet getest. Geen release gepubliceerd.
+
+### Vroege Windows-controle gestart
+
+De bestaande private projectworkflow draait nu ook op dev.9. Alleen `results.json` wordt geüpload; bron-download en project-ZIP blijven in een apart tijdelijk pad en worden opgeruimd, foutmeldingen verwijderen URLs. De setup-node-cache bevat uitsluitend npm-dependencies. Deze vroege run controleert het huidige checkpoint; een latere verpakte dev.9-EXE moet afzonderlijk opnieuw getest worden. Er is nog geen Windows-uitslag bekend.
