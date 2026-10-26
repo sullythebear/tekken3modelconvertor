@@ -35,3 +35,14 @@ test('Drive downloader preserves existing files and removes incomplete/non-ZIP o
   await assert.rejects(downloadDriveZIP(url,path.join(root,'invalid.zip'),{fetchImpl:async()=>new Response('<html>not a ZIP</html>')}),/not a ZIP/);
   assert.deepEqual(await readdir(root),['Model.zip']);
 });
+
+test('Interrupted Drive streams clean partial files, retry once and report only bounded non-secret transfer facts',async()=>{
+ const root=await mkdtemp(path.join(tmpdir(),'t3cs-drive-')),file=path.join(root,'Model.zip'),events=[];let calls=0;
+ const fetchImpl=async()=>{calls++;if(calls>1)return new Response(zip);let n=0;return new Response(new ReadableStream({pull(controller){if(n++===0)controller.enqueue(zip.slice(0,8));else controller.error(new DOMException('https://private.invalid/secret-token','TimeoutError'));}}));};
+ const r=await downloadDriveZIP(url,file,{fetchImpl,onProgress:e=>events.push(e)});assert.equal(calls,2);assert.equal(r.bytes,zip.length);assert.deepEqual(new Uint8Array(await readFile(file)),zip);assert.deepEqual(await readdir(root),['Model.zip']);assert.ok(events.some(e=>e.stage==='transient-retry'&&e.reason.includes('8 bytes')));assert.ok(!JSON.stringify(events).includes('secret-token'));assert.ok(!JSON.stringify(events).includes('AuthoredFixture'));
+});
+test('Drive denial is not retried and failed streams leave no private partial output',async()=>{
+ const root=await mkdtemp(path.join(tmpdir(),'t3cs-drive-')),file=path.join(root,'Model.zip');let calls=0;
+ await assert.rejects(downloadDriveZIP(url,file,{fetchImpl:async()=>{calls++;return new Response('denied',{status:403});}}),/HTTP 403/);assert.equal(calls,1);
+ await assert.rejects(downloadDriveZIP(url,file,{retries:0,fetchImpl:async()=>new Response(new ReadableStream({start(c){c.error(new DOMException('private secret','TimeoutError'));}}))}),/ZIP-transfer.*0 bytes/);assert.deepEqual(await readdir(root),[]);
+});

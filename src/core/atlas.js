@@ -1,4 +1,5 @@
-import {sourceSkinLighting,bilinearRGBA} from './skin-surface.js';
+import {dilateChartTexels} from './uv-raster.js';
+import {sourceSkinLighting,bilinearRGBA,sourceSkinCoverage} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
 import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
 import {materialUVDomains} from "./uv-domain.js";
@@ -92,15 +93,18 @@ export async function bakeAtlas(
       warnings.push(
         `${m.name}: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.`,
       );
+    const coverage=art&&origin[0]===0&&origin[1]===0?sourceSkinCoverage(m,cell,cellHeight,gutter):null;
+    let coverageStats=null;
     for (let y = 0; y < cellHeight; y++)
       for (let x = 0; x < cell; x++) {
-        const u = Math.max(
+        const pixel=y*cell+x;if(coverage&&!coverage.valid[pixel])continue;const seed=coverage?.seeds.get(pixel);
+        const u = seed?.u ?? Math.max(
             0,
             Math.min(1, (x - gutter) / (cell - 1 - 2 * gutter)),
           ),
-          v =
+          v = seed?.v ?? (
             1 -
-            Math.max(0, Math.min(1, (y - gutter) / (cellHeight - 1 - 2 * gutter))),
+            Math.max(0, Math.min(1, (y - gutter) / (cellHeight - 1 - 2 * gutter)))),
           sample = (img, tex) => {
             if (!img) return [255, 255, 255, 255];
             if(art&&/lash|hair|faceacc|strand/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
@@ -157,6 +161,7 @@ export async function bakeAtlas(
           p,
         );
       }
+    if(coverage)coverageStats={...dilateChartTexels(image.data,coverage.valid,new Uint8Array(cell*cellHeight),cell,cellHeight),sourceTriangles:coverage.sourceTriangles,subpixelSourceSeeds:coverage.seeds.size};
     const colors=artTextureColors(m.name,art,m);
     const q = quantize(art?pixelateRGBA(image.data,art.pixelation,art.dither,cell,art.colorLevels):new Uint8Array(image.data), colors);
     tc.putImageData(
@@ -174,6 +179,7 @@ export async function bakeAtlas(
       );
     tiles.push({
       material: m.name,
+      sourceCoverage:coverageStats,
       sourceSkinBake:m.userData?.t3csSkinBake??null,
       sourceUVOrigin: origin,
       clut: art ? ((480+i)<<6)|48 : 64 + i,

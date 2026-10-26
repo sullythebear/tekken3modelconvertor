@@ -38,7 +38,19 @@ function confirmation(html,current,id) {
   }
   throw Error('Google Drive did not provide a public ZIP or a supported download confirmation form');
 }
-export async function downloadDriveZIP(input,destination,{fetchImpl=globalThis.fetch,maxBytes=1024**3}={}) {
+function transient(error){return ['AbortError','TimeoutError'].includes(error.name)||['ETIMEDOUT','ECONNRESET','UND_ERR_SOCKET','UND_ERR_CONNECT_TIMEOUT'].includes(error.cause?.code??error.code);}
+function transferFailure(error,stage,host,bytes=0,status=null){
+ const e=new Error(`Drive ${stage} interrupted on ${host}${status?` (HTTP ${status})`:''} after ${bytes} bytes: ${error.cause?.code??error.code??error.name}`);e.retryable=transient(error);return e;
+}
+export async function downloadDriveZIP(input,destination,{fetchImpl=globalThis.fetch,maxBytes=1024**3,retries=1,onProgress=()=>{}}={}){
+ if(!Number.isInteger(retries)||retries<0||retries>2)throw Error('Invalid bounded download retry count');
+ for(let attempt=1;attempt<=retries+1;attempt++){
+  const emit=event=>onProgress({...event,attempt});
+  try{return await downloadDriveZIPAttempt(input,destination,{fetchImpl,maxBytes,onProgress:emit});}
+  catch(error){if(!error.retryable||attempt>retries)throw error;emit({stage:'transient-retry',reason:error.message});}
+ }
+}
+async function downloadDriveZIPAttempt(input,destination,{fetchImpl,maxBytes,onProgress}) {
   const requested=allowed(input),id=requested.searchParams.get('id')??requested.pathname.match(/\/file\/d\/([\w-]+)/)?.[1];
   if(!id||!/^[-\w]+$/.test(id))throw Error('Google Drive file id is missing or invalid');
   let url=new URL('https://drive.google.com/uc');url.searchParams.set('export','download');url.searchParams.set('id',id);
@@ -48,7 +60,8 @@ export async function downloadDriveZIP(input,destination,{fetchImpl=globalThis.f
     if(jar.size)headers.cookie=[...jar].map(([k,v])=>`${k}=${v}`).join('; ');
     let response;
     try{response=await fetchImpl(url,{redirect:'manual',headers,signal:AbortSignal.timeout(300000)});}
-    catch(error){throw new Error(`Network/proxy connection to ${url.hostname} failed: ${error.cause?.code??error.code??error.name}`,{cause:error});}
+    catch(error){throw transferFailure(error,'connection',url.hostname);}
+    onProgress({stage:'headers',host:url.hostname,status:response.status,step});
     for(const cookie of response.headers.getSetCookie?.()??[]) {
       const pair=cookie.split(';')[0],at=pair.indexOf('=');if(at>0)jar.set(pair.slice(0,at),pair.slice(at+1));
     }
@@ -59,7 +72,7 @@ export async function downloadDriveZIP(input,destination,{fetchImpl=globalThis.f
     }
     if(!response.ok){await response.body?.cancel();throw Error(`HTTP ${response.status} from ${url.hostname}; download not completed`);}
     if((response.headers.get('content-type')??'').includes('text/html')) {
-      const html=await boundedHTML(response);
+      let html;try{html=await boundedHTML(response);}catch(error){if(transient(error))throw transferFailure(error,'confirmation-transfer',url.hostname,0,response.status);throw error;}
       url=confirmation(html,url,id);continue;
     }
     const declared=Number(response.headers.get('content-length'));
@@ -78,8 +91,9 @@ export async function downloadDriveZIP(input,destination,{fetchImpl=globalThis.f
       await handle.close();
       // link is atomic and refuses to overwrite an existing local asset.
       await link(temp,destination);await unlink(temp);
+      onProgress({stage:'complete',bytes:total,confirmationRequests:step});
       return {bytes:total,sha256:hash.digest('hex'),fileId:id,confirmationRequests:step,destination};
-    }catch(error){await handle.close().catch(()=>{});await unlink(temp).catch(()=>{});throw error;}
+    }catch(error){await handle.close().catch(()=>{});await unlink(temp).catch(()=>{});if(transient(error))throw transferFailure(error,'ZIP-transfer',url.hostname,total,response.status);throw error;}
   }
   throw Error('Drive confirmation/redirect limit exceeded');
 }

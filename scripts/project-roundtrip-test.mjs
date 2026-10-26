@@ -8,7 +8,7 @@ try{
  let inputDir=process.env.NIKKI_DIR;
  if(!inputDir){
   if(!process.env.NIKKI_DOWNLOAD_URL)throw Error('NIKKI_DOWNLOAD_URL secret or NIKKI_DIR local input is required');
-  const zipPath=path.join(privateDir,'source.zip');await downloadDriveZIP(process.env.NIKKI_DOWNLOAD_URL,zipPath);const bytes=await readFile(zipPath);assert.equal(hash(bytes),'cfab424fd9c250b8da2d0f6be5012d228967cdf3ba1cacf8c17ee977fac8a418','Source ZIP SHA-256 differs from validated Nikki input');
+  const zipPath=path.join(privateDir,'source.zip');report.download={source:'private secret',events:[]};await downloadDriveZIP(process.env.NIKKI_DOWNLOAD_URL,zipPath,{onProgress:event=>report.download.events.push(event)});const bytes=await readFile(zipPath);assert.equal(hash(bytes),'cfab424fd9c250b8da2d0f6be5012d228967cdf3ba1cacf8c17ee977fac8a418','Source ZIP SHA-256 differs from validated Nikki input');
   inputDir=path.join(privateDir,'input');await mkdir(inputDir);let expanded=0;
   const zip=unzipSync(bytes,{filter:f=>{if(!/\.(fbx|tga)$/i.test(f.name))return false;expanded+=f.originalSize;if(expanded>512*1024**2)throw Error('Source expansion exceeds 512 MiB');if(f.name.split(/[\\/]/).some(p=>p==='..')||/^[\\/]|^[a-z]:/i.test(f.name))throw Error('Unsafe source ZIP entry');return true;}});
   const seen=new Set();for(const [name,data]of Object.entries(zip)){const base=name.split(/[\\/]/).at(-1);if(seen.has(base))throw Error('Duplicate source asset');seen.add(base);await writeFile(path.join(inputDir,base),data);}

@@ -1,29 +1,347 @@
-import * as THREE from 'three';
+import * as THREE from "three";
+import { uvRasterLookup } from "./uv-raster.js";
 // Transient, source-derived normal fields. Not project data, not GLB extras.
 // Fields use original smooth normals, before regional reduction/flat shading.
-const fields=new WeakMap();
-export function sourceDiffuse(normal){if(!normal.toArray().every(Number.isFinite)||normal.lengthSq()<1e-12)return 1;return Math.pow(.5+.5*Math.max(0,normal.clone().normalize().dot(new THREE.Vector3(-.3,.5,.8).normalize())),1/2.2);}
-export function copySkinField(source,target){if(fields.has(source))fields.set(target,fields.get(source));}
-export function sourceSkinLighting(material,u,v,mappedNormal=null,fallbackFactor=1){const f=fields.get(material);if(!f)return 1;const x=Math.max(0,Math.min(f.size-1,u*(f.size-1))),y=Math.max(0,Math.min(f.size-1,v*(f.size-1))),ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy;let value=0;const normal=new THREE.Vector3(),tangent=new THREE.Vector3();let sign=0,confidence=0;for(const[dx,dy,w]of[[0,0,(1-fx)*(1-fy)],[1,0,fx*(1-fy)],[0,1,(1-fx)*fy],[1,1,fx*fy]]){const i=Math.min(f.size-1,iy+dy)*f.size+Math.min(f.size-1,ix+dx);value+=w*(f.valid[i]?f.light[i]:1);if(mappedNormal&&f.normal){normal.addScaledVector(new THREE.Vector3().fromArray(f.normal,i*3),w);tangent.addScaledVector(new THREE.Vector3().fromArray(f.tangent,i*3),w);sign+=f.sign[i]*w;confidence+=(f.confidence?.[i]??1)*w;}}if(!mappedNormal||normal.lengthSq()<.01||tangent.lengthSq()<.01)return value*fallbackFactor;if(confidence<.999)return value*fallbackFactor;normal.normalize();tangent.addScaledVector(normal,-tangent.dot(normal)).normalize();const bitangent=new THREE.Vector3().crossVectors(normal,tangent).multiplyScalar(sign<0?-1:1),n=tangent.multiplyScalar(mappedNormal.x).addScaledVector(bitangent,mappedNormal.y).addScaledVector(normal,mappedNormal.z);const neutral=.7+.3*(.8/Math.hypot(-.3,.5,.8)),ratio=THREE.MathUtils.clamp(sourceDiffuse(n)/Math.max(.01,sourceDiffuse(normal)),.85,1.15);return value*neutral*ratio;}
-
-
-export function prepareSkinFields(parts,{size=256}={}){
- const groups=new Map();for(const p of parts)if(p.material?.userData?.t3csSkinSurface){if(!groups.has(p.material))groups.set(p.material,[]);groups.get(p.material).push(p);}
- for(const [material,group]of groups){const normals=new Float32Array(size*size*3),tangents=new Float32Array(size*size*3),signs=new Float32Array(size*size),confidence=new Uint8Array(size*size),count=new Uint16Array(size*size),light=new Float32Array(size*size),valid=new Uint8Array(size*size);let triangles=0;
-  for(const p of group){const uv=p.g.attributes.uv,n=p.g.attributes.normal,c=p.uvCrop;if(!uv||!n||!c)continue;const matrix=new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld);
-   for(let t=0;t<p.indices.length;t+=3){const ids=Array.from(p.indices.slice(t,t+3)),q=ids.map(i=>new THREE.Vector2((uv.getX(i)-c.minU)/c.spanU*(size-1),(uv.getY(i)-c.minV)/c.spanV*(size-1))),ns=ids.map(i=>new THREE.Vector3().fromBufferAttribute(n,i).applyNormalMatrix(matrix)),[a,b,d]=q,det=(b.y-d.y)*(a.x-d.x)+(d.x-b.x)*(a.y-d.y);if(Math.abs(det)<1e-9)continue;triangles++;
-    const idsPoints=ids.map(i=>new THREE.Vector3().fromBufferAttribute(p.g.attributes.position,i).applyMatrix4(p.mesh.matrixWorld)),e1=idsPoints[1].clone().sub(idsPoints[0]),e2=idsPoints[2].clone().sub(idsPoints[0]),du1=q[1].x-q[0].x,dv1=q[1].y-q[0].y,du2=q[2].x-q[0].x,dv2=q[2].y-q[0].y,uvDet=du1*dv2-du2*dv1,tangent=e1.clone().multiplyScalar(dv2).addScaledVector(e2,-dv1).divideScalar(uvDet).normalize(),bitangent=e2.clone().multiplyScalar(du1).addScaledVector(e1,-du2).divideScalar(uvDet).normalize(),handed=new THREE.Vector3().crossVectors(ns[0],tangent).dot(bitangent)<0?-1:1;
-    const minX=Math.max(0,Math.floor(Math.min(...q.map(p=>p.x)))),maxX=Math.min(size-1,Math.ceil(Math.max(...q.map(p=>p.x)))),minY=Math.max(0,Math.floor(Math.min(...q.map(p=>p.y)))),maxY=Math.min(size-1,Math.ceil(Math.max(...q.map(p=>p.y))));
-    for(let y=minY;y<=maxY;y++)for(let x=minX;x<=maxX;x++){const w0=((b.y-d.y)*(x-d.x)+(d.x-b.x)*(y-d.y))/det,w1=((d.y-a.y)*(x-d.x)+(a.x-d.x)*(y-d.y))/det,w2=1-w0-w1;if(Math.min(w0,w1,w2)<-1e-6)continue;const i=y*size+x;count[i]++;signs[i]+=handed;for(let k=0;k<3;k++)tangents[i*3+k]+=tangent.getComponent(k);for(let k=0;k<3;k++)normals[i*3+k]+=ns[0].getComponent(k)*w0+ns[1].getComponent(k)*w1+ns[2].getComponent(k)*w2;}
-   }
+const fields = new WeakMap();
+export function sourceDiffuse(normal) {
+  if (!normal.toArray().every(Number.isFinite) || normal.lengthSq() < 1e-12)
+    return 1;
+  return Math.pow(
+    0.5 +
+      0.5 *
+        Math.max(
+          0,
+          normal
+            .clone()
+            .normalize()
+            .dot(new THREE.Vector3(-0.3, 0.5, 0.8).normalize()),
+        ),
+    1 / 2.2,
+  );
+}
+export function copySkinField(source, target) {
+  if (fields.has(source)) fields.set(target, fields.get(source));
+}
+export function sourceSkinLighting(
+  material,
+  u,
+  v,
+  mappedNormal = null,
+  fallbackFactor = 1,
+) {
+  const f = fields.get(material);
+  if (!f) return 1;
+  const x = Math.max(0, Math.min(f.size - 1, u * (f.size - 1))),
+    y = Math.max(0, Math.min(f.size - 1, v * (f.size - 1))),
+    ix = Math.floor(x),
+    iy = Math.floor(y),
+    fx = x - ix,
+    fy = y - iy;
+  let value = 0;
+  const normal = new THREE.Vector3(),
+    tangent = new THREE.Vector3();
+  let sign = 0,
+    confidence = 0;
+  for (const [dx, dy, w] of [
+    [0, 0, (1 - fx) * (1 - fy)],
+    [1, 0, fx * (1 - fy)],
+    [0, 1, (1 - fx) * fy],
+    [1, 1, fx * fy],
+  ]) {
+    const i =
+      Math.min(f.size - 1, iy + dy) * f.size + Math.min(f.size - 1, ix + dx);
+    value += w * (f.valid[i] ? f.light[i] : 1);
+    if (mappedNormal && f.normal) {
+      normal.addScaledVector(new THREE.Vector3().fromArray(f.normal, i * 3), w);
+      tangent.addScaledVector(
+        new THREE.Vector3().fromArray(f.tangent, i * 3),
+        w,
+      );
+      sign += f.sign[i] * w;
+      confidence += (f.confidence?.[i] ?? 1) * w;
+    }
   }
-  let covered=0;const queue=new Int32Array(size*size);let end=0;for(let i=0;i<count.length;i++)if(count[i]){const n=new THREE.Vector3(normals[i*3],normals[i*3+1],normals[i*3+2]).divideScalar(count[i]);if(!n.toArray().every(Number.isFinite)||n.length()<.25)continue;confidence[i]=n.length()>.95?1:0;n.normalize();for(let k=0;k<3;k++){normals[i*3+k]=n.getComponent(k);tangents[i*3+k]/=count[i];}signs[i]=Math.sign(signs[i])||1;light[i]=sourceDiffuse(n);valid[i]=1;queue[end++]=i;covered++;}
-  // Dilate real measured values into unused texels; no random detail/occlusion.
-  for(let start=0;start<end;start++){const i=queue[start],x=i%size,y=Math.floor(i/size);for(const j of [x?i-1:-1,x<size-1?i+1:-1,y?i-size:-1,y<size-1?i+size:-1])if(j>=0&&!valid[j]){valid[j]=1;light[j]=light[i];signs[j]=signs[i];confidence[j]=count[j]?0:confidence[i];for(let k=0;k<3;k++){normals[j*3+k]=normals[i*3+k];tangents[j*3+k]=tangents[i*3+k];}queue[end++]=j;}}
-  fields.set(material,{size,light,valid,normal:normals,tangent:tangents,sign:signs,confidence});material.userData.t3csSkinBake={method:'Source smooth normals with UV-derived tangent-space normal mapping; source albedo retained',size,sourceTriangles:triangles,measuredTexels:covered,retainedBytes:light.byteLength+valid.byteLength+normals.byteLength+tangents.byteLength+signs.byteLength+confidence.byteLength,trustedTangentTexels:confidence.reduce((sum,v,i)=>sum+(count[i]&&v?1:0),0),staticLighting:true};
- }
+  if (!mappedNormal || normal.lengthSq() < 0.01 || tangent.lengthSq() < 0.01)
+    return value * fallbackFactor;
+  if (confidence < 0.999) return value * fallbackFactor;
+  normal.normalize();
+  tangent.addScaledVector(normal, -tangent.dot(normal)).normalize();
+  const bitangent = new THREE.Vector3()
+      .crossVectors(normal, tangent)
+      .multiplyScalar(sign < 0 ? -1 : 1),
+    n = tangent
+      .multiplyScalar(mappedNormal.x)
+      .addScaledVector(bitangent, mappedNormal.y)
+      .addScaledVector(normal, mappedNormal.z);
+  const neutral = 0.7 + 0.3 * (0.8 / Math.hypot(-0.3, 0.5, 0.8)),
+    ratio = THREE.MathUtils.clamp(
+      sourceDiffuse(n) / Math.max(0.01, sourceDiffuse(normal)),
+      0.85,
+      1.15,
+    );
+  return value * neutral * ratio;
+}
+
+export function prepareSkinFields(parts, { size = 256 } = {}) {
+  const groups = new Map();
+  for (const p of parts)
+    if (p.material?.userData?.t3csSkinSurface) {
+      if (!groups.has(p.material)) groups.set(p.material, []);
+      groups.get(p.material).push(p);
+    }
+  for (const [material, group] of groups) {
+    const normals = new Float32Array(size * size * 3),
+      tangents = new Float32Array(size * size * 3),
+      signs = new Float32Array(size * size),
+      confidence = new Uint8Array(size * size),
+      count = new Uint16Array(size * size),
+      light = new Float32Array(size * size),
+      valid = new Uint8Array(size * size);
+    let triangles = 0;
+    const sourceUV = [];
+    for (const p of group) {
+      const uv = p.g.attributes.uv,
+        n = p.g.attributes.normal,
+        c = p.uvCrop;
+      if (!uv || !n || !c) continue;
+      const matrix = new THREE.Matrix3().getNormalMatrix(p.mesh.matrixWorld);
+      for (let t = 0; t < p.indices.length; t += 3) {
+        const ids = Array.from(p.indices.slice(t, t + 3)),
+          q = ids.map(
+            (i) =>
+              new THREE.Vector2(
+                ((uv.getX(i) - c.minU) / c.spanU) * (size - 1),
+                ((uv.getY(i) - c.minV) / c.spanV) * (size - 1),
+              ),
+          ),
+          ns = ids.map((i) =>
+            new THREE.Vector3()
+              .fromBufferAttribute(n, i)
+              .applyNormalMatrix(matrix),
+          ),
+          [a, b, d] = q,
+          det = (b.y - d.y) * (a.x - d.x) + (d.x - b.x) * (a.y - d.y);
+        sourceUV.push(
+          ...q.flatMap((p) => [p.x / (size - 1), p.y / (size - 1)]),
+        );
+        if (Math.abs(det) < 1e-9) continue;
+        triangles++;
+        const idsPoints = ids.map((i) =>
+            new THREE.Vector3()
+              .fromBufferAttribute(p.g.attributes.position, i)
+              .applyMatrix4(p.mesh.matrixWorld),
+          ),
+          e1 = idsPoints[1].clone().sub(idsPoints[0]),
+          e2 = idsPoints[2].clone().sub(idsPoints[0]),
+          du1 = q[1].x - q[0].x,
+          dv1 = q[1].y - q[0].y,
+          du2 = q[2].x - q[0].x,
+          dv2 = q[2].y - q[0].y,
+          uvDet = du1 * dv2 - du2 * dv1,
+          tangent = e1
+            .clone()
+            .multiplyScalar(dv2)
+            .addScaledVector(e2, -dv1)
+            .divideScalar(uvDet)
+            .normalize(),
+          bitangent = e2
+            .clone()
+            .multiplyScalar(du1)
+            .addScaledVector(e1, -du2)
+            .divideScalar(uvDet)
+            .normalize(),
+          handed =
+            new THREE.Vector3().crossVectors(ns[0], tangent).dot(bitangent) < 0
+              ? -1
+              : 1;
+        const minX = Math.max(0, Math.floor(Math.min(...q.map((p) => p.x)))),
+          maxX = Math.min(size - 1, Math.ceil(Math.max(...q.map((p) => p.x)))),
+          minY = Math.max(0, Math.floor(Math.min(...q.map((p) => p.y)))),
+          maxY = Math.min(size - 1, Math.ceil(Math.max(...q.map((p) => p.y))));
+        for (let y = minY; y <= maxY; y++)
+          for (let x = minX; x <= maxX; x++) {
+            const w0 =
+                ((b.y - d.y) * (x - d.x) + (d.x - b.x) * (y - d.y)) / det,
+              w1 = ((d.y - a.y) * (x - d.x) + (a.x - d.x) * (y - d.y)) / det,
+              w2 = 1 - w0 - w1;
+            if (Math.min(w0, w1, w2) < -1e-6) continue;
+            const i = y * size + x;
+            count[i]++;
+            signs[i] += handed;
+            for (let k = 0; k < 3; k++)
+              tangents[i * 3 + k] += tangent.getComponent(k);
+            for (let k = 0; k < 3; k++)
+              normals[i * 3 + k] +=
+                ns[0].getComponent(k) * w0 +
+                ns[1].getComponent(k) * w1 +
+                ns[2].getComponent(k) * w2;
+          }
+      }
+    }
+    let covered = 0;
+    const queue = new Int32Array(size * size);
+    let end = 0;
+    for (let i = 0; i < count.length; i++)
+      if (count[i]) {
+        const n = new THREE.Vector3(
+          normals[i * 3],
+          normals[i * 3 + 1],
+          normals[i * 3 + 2],
+        ).divideScalar(count[i]);
+        if (!n.toArray().every(Number.isFinite) || n.length() < 0.25) continue;
+        confidence[i] = n.length() > 0.95 ? 1 : 0;
+        n.normalize();
+        for (let k = 0; k < 3; k++) {
+          normals[i * 3 + k] = n.getComponent(k);
+          tangents[i * 3 + k] /= count[i];
+        }
+        signs[i] = Math.sign(signs[i]) || 1;
+        light[i] = sourceDiffuse(n);
+        valid[i] = 1;
+        queue[end++] = i;
+        covered++;
+      }
+    // Dilate real measured values into unused texels; no random detail/occlusion.
+    for (let start = 0; start < end; start++) {
+      const i = queue[start],
+        x = i % size,
+        y = Math.floor(i / size);
+      for (const j of [
+        x ? i - 1 : -1,
+        x < size - 1 ? i + 1 : -1,
+        y ? i - size : -1,
+        y < size - 1 ? i + size : -1,
+      ])
+        if (j >= 0 && !valid[j]) {
+          valid[j] = 1;
+          light[j] = light[i];
+          signs[j] = signs[i];
+          confidence[j] = count[j] ? 0 : confidence[i];
+          for (let k = 0; k < 3; k++) {
+            normals[j * 3 + k] = normals[i * 3 + k];
+            tangents[j * 3 + k] = tangents[i * 3 + k];
+          }
+          queue[end++] = j;
+        }
+    }
+    const coverageUV = new Float32Array(sourceUV);
+    fields.set(material, {
+      size,
+      light,
+      valid,
+      coverageUV,
+      normal: normals,
+      tangent: tangents,
+      sign: signs,
+      confidence,
+    });
+    material.userData.t3csSkinBake = {
+      method:
+        "Source smooth normals with UV-derived tangent-space normal mapping; source albedo retained",
+      size,
+      sourceTriangles: triangles,
+      measuredTexels: covered,
+      retainedBytes:
+        coverageUV.byteLength +
+        light.byteLength +
+        valid.byteLength +
+        normals.byteLength +
+        tangents.byteLength +
+        signs.byteLength +
+        confidence.byteLength,
+      trustedTangentTexels: confidence.reduce(
+        (sum, v, i) => sum + (count[i] && v ? 1 : 0),
+        0,
+      ),
+      staticLighting: true,
+    };
+  }
 }
 
 // Interpolate genuine source texels before RGB555 quantization. This is not
 // preview filtering: it affects the baked skin texture itself.
-export function bilinearRGBA(image,u,v){const x=Math.max(0,Math.min(image.width-1,u*image.width-.5)),y=Math.max(0,Math.min(image.height-1,v*image.height-.5)),ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy,out=[0,0,0,0];for(const [dx,dy,w]of[[0,0,(1-fx)*(1-fy)],[1,0,fx*(1-fy)],[0,1,(1-fx)*fy],[1,1,fx*fy]]){const p=(Math.min(image.height-1,iy+dy)*image.width+Math.min(image.width-1,ix+dx))*4;for(let k=0;k<4;k++)out[k]+=image.data[p+k]*w;}return out;}
+export function bilinearRGBA(image, u, v) {
+  const x = Math.max(0, Math.min(image.width - 1, u * image.width - 0.5)),
+    y = Math.max(0, Math.min(image.height - 1, v * image.height - 0.5)),
+    ix = Math.floor(x),
+    iy = Math.floor(y),
+    fx = x - ix,
+    fy = y - iy,
+    out = [0, 0, 0, 0];
+  for (const [dx, dy, w] of [
+    [0, 0, (1 - fx) * (1 - fy)],
+    [1, 0, fx * (1 - fy)],
+    [0, 1, (1 - fx) * fy],
+    [1, 1, fx * fy],
+  ]) {
+    const p =
+      (Math.min(image.height - 1, iy + dy) * image.width +
+        Math.min(image.width - 1, ix + dx)) *
+      4;
+    for (let k = 0; k < 4; k++) out[k] += image.data[p + k] * w;
+  }
+  return out;
+}
+
+// Source UV coverage is private transient evidence. Unused modern atlas regions
+// must not influence a limb palette; subpixel charts use genuine source seeds.
+export function sourceSkinCoverage(material, width, height, gutter = 2) {
+  const f = fields.get(material);
+  if (
+    !f?.coverageUV?.length ||
+    width <= 2 * gutter + 1 ||
+    height <= 2 * gutter + 1
+  )
+    return null;
+  const triangles = [];
+  for (let i = 0; i < f.coverageUV.length; i += 6) {
+    const tri = [];
+    for (let k = 0; k < 3; k++) {
+      const u = f.coverageUV[i + k * 2],
+        v = f.coverageUV[i + k * 2 + 1];
+      if (
+        !Number.isFinite(u) ||
+        !Number.isFinite(v) ||
+        u < 0 ||
+        u > 1 ||
+        v < 0 ||
+        v > 1
+      )
+        return null;
+      tri.push({
+        x: (gutter + 0.5 + u * (width - 1 - 2 * gutter)) / width,
+        y: (gutter + 0.5 + (1 - v) * (height - 1 - 2 * gutter)) / height,
+      });
+    }
+    triangles.push(tri);
+  }
+  const lookup = uvRasterLookup(triangles, width, height),
+    valid = Uint8Array.from(lookup, (v) => (v >= 0 ? 1 : 0)),
+    seeds = new Map();
+  for (let t = 0; t < triangles.length; t++) {
+    const u =
+        (f.coverageUV[t * 6] +
+          f.coverageUV[t * 6 + 2] +
+          f.coverageUV[t * 6 + 4]) /
+        3,
+      v =
+        (f.coverageUV[t * 6 + 1] +
+          f.coverageUV[t * 6 + 3] +
+          f.coverageUV[t * 6 + 5]) /
+        3,
+      x = Math.min(
+        width - 1,
+        Math.max(0, Math.round(gutter + u * (width - 1 - 2 * gutter))),
+      ),
+      y = Math.min(
+        height - 1,
+        Math.max(0, Math.round(gutter + (1 - v) * (height - 1 - 2 * gutter))),
+      ),
+      pixel = y * width + x;
+    if (!valid[pixel]) {
+      valid[pixel] = 1;
+      seeds.set(pixel, { u, v });
+    }
+  }
+  return { valid, seeds, sourceTriangles: triangles.length };
+}

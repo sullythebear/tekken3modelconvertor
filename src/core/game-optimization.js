@@ -78,11 +78,14 @@ export async function optimizeGameCandidate(artistic,{triangles=900}={}){
   }
   const anatomical=p.region!=='unknown',errorLimit=!anatomical?1:p.kind==='hair-support'?.08:p.kind==='teeth'?.15:p.kind==='face'?.01:p.kind==='hair'?.018:p.kind==='eyes'?.01:.012;
 
-  let [indices,error]=p.cutoutVisibility.invisible?[new Uint32Array(),0]:input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,p.kind==='eyes'&&/sclera|eyeshell/i.test(p.name)?[.25,.25]:[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
+  const jointReduction=p.continuous&&!p.cutoutVisibility.invisible?jointResults.get(i):null,componentCards=!p.cutoutVisibility.invisible&&p.kind==='hair'&&/cards|fringe/i.test(p.name)&&input.length>budgets[i]*3;
+  // These routes already have their own measured reduction. Running a second
+  // generic simplifier here only discards its output and consumes CPU/buffers.
+  let [indices,error]=jointReduction||componentCards?[input,0]:p.cutoutVisibility.invisible?[new Uint32Array(),0]:input.length>budgets[i]*3?MeshoptSimplifier.simplifyWithAttributes(input,position.array,3,attrs,2,p.kind==='eyes'&&/sclera|eyeshell/i.test(p.name)?[.25,.25]:[2,2],mask,budgets[i]*3,errorLimit,p.kind==='eyes'||/fringe|cards/i.test(p.name)?['RegularizeLight']:['Permissive','RegularizeLight']):[input,0];
   let bodyOptimization=null;
-  if(p.continuous&&!p.cutoutVisibility.invisible){const reduced=jointResults.get(i);indices=reduced.indices;error=reduced.metadata.error;bodyOptimization=reduced.metadata;}
+  if(jointReduction){const reduced=jointReduction;indices=reduced.indices;error=reduced.metadata.error;bodyOptimization=reduced.metadata;}
   let componentOptimization=null;
-  if(!p.cutoutVisibility.invisible&&p.kind==='hair'&&/cards|fringe/i.test(p.name)&&input.length>budgets[i]*3){const reduced=simplifyCardComponents(p.g,input,MeshoptSimplifier,{target:budgets[i],errorLimit,mask});indices=reduced.indices;error=reduced.error;componentOptimization=reduced.report;}
+  if(componentCards){const reduced=simplifyCardComponents(p.g,input,MeshoptSimplifier,{target:budgets[i],errorLimit,mask});indices=reduced.indices;error=reduced.error;componentOptimization=reduced.report;}
   let boundaryValidation=null;
   if(['face','eyes','teeth','boots'].includes(p.kind)){
    const before=new THREE.BufferGeometry(),after=new THREE.BufferGeometry();before.setAttribute('position',position);before.setIndex(new THREE.BufferAttribute(input,1));after.setAttribute('position',position);after.setIndex(new THREE.BufferAttribute(indices,1));const attempted=compareBoundaries(before,after),fallback=attempted.unexpectedOpenEdges>0||attempted.inconsistentWinding>attempted.sourceInconsistentWinding;

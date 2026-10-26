@@ -68,6 +68,14 @@ try {
    await writeFile(`${dir}/materials-prepared.png`,Buffer.from(materialBoundaries.split(',')[1],'base64'));
    const surfaceNormals=await page.evaluate(()=>{const t=window.studioTest,T=t.THREE,v=t.resultView,root=t.atlas?.root??t.converted.root,old=[];root.traverse(m=>{if(m.isMesh){old.push([m,m.material]);m.material=new T.MeshNormalMaterial({side:T.DoubleSide});}});t.configureSkinning(root);try{t.sourceView.reset(0);v.sync(t.sourceView);return v.shot();}finally{for(const[m,mat]of old){m.material.dispose();m.material=mat;}t.configureSkinning(root);}});
    await writeFile(`${dir}/normals-prepared.png`,Buffer.from(surfaceNormals.split(',')[1],'base64'));
+   if(process.env.ART_CAUSE_DIAGNOSTICS==='1'){
+    const diagnostics=await page.evaluate(()=>{const t=window.studioTest,T=t.THREE,root=t.atlas?.root??t.converted.root,old=[],shots=[];root.traverse(m=>{if(m.isMesh)old.push([m,m.material]);});
+     try{for(const flat of [false,true]){for(const[m]of old)m.material=new T.MeshLambertMaterial({color:0xaaaaaa,flatShading:flat,side:T.DoubleSide});t.configureSkinning(root);
+      for(const[view,role,distance]of [['full',null,0],['shoulder','leftUpperArm',.58],['hand','leftHand',.38]]){if(!role)t.sourceView.reset(0);else{const b=t.source.skeleton.mapping[role];if(!b)continue;const target=b.getWorldPosition(new T.Vector3());t.sourceView.controls.target.copy(target);t.sourceView.camera.position.copy(target).add(new T.Vector3(0,.02,distance));t.sourceView.controls.update();}t.resultView.sync(t.sourceView);shots.push({name:'geometry-'+(flat?'flat':'smooth')+'-'+view,data:t.resultView.shot()});}
+      root.traverse(m=>{if(m.isMesh)for(const material of Array.isArray(m.material)?m.material:[m.material])material.dispose();});
+     }}finally{for(const[m,material]of old)m.material=material;t.configureSkinning(root);}return shots;});
+    for(const shot of diagnostics)await writeFile(`${dir}/${shot.name}-prepared.png`,Buffer.from(shot.data.split(',')[1],'base64'));
+   }
    const wires=await page.evaluate(()=>{const t=window.studioTest,materials=new Set();for(const root of [t.source.root,t.atlas?.root??t.converted.root])root.traverse(m=>{if(m.isMesh)for(const mat of (Array.isArray(m.material)?m.material:[m.material]))materials.add(mat);});const old=[...materials].map(m=>[m,m.wireframe]);try{for(const [m]of old)m.wireframe=true;t.sourceView.reset(0);t.resultView.sync(t.sourceView);return[t.sourceView.shot(),t.resultView.shot()];}finally{for(const [m,w]of old)m.wireframe=w;}});
    for(const [i,kind]of ['source','prepared'].entries())await writeFile(`${dir}/wireframe-${kind}.png`,Buffer.from(wires[i].split(',')[1],'base64'));
    const motion=await page.evaluate(()=>{

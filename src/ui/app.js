@@ -372,7 +372,7 @@ function report() {
           textureBytes: atlas.textureBytes,
           paletteBytes: atlas.paletteBytes,
           readbackStats: atlas.readbackStats,
-          tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette, sourceSkinBake }) => ({
+          tiles: atlas.tiles.map(({ material, clut, x, y, width, height, palette, sourceSkinBake, sourceCoverage }) => ({
             material,
             clut,
             x,
@@ -381,6 +381,7 @@ function report() {
             height,
             bitDepth:palette.length===256?8:4,
             ...(sourceSkinBake?{sourceSkinBake}:{}),
+            ...(sourceCoverage?{sourceCoverage}:{}),
           })),
         }
       : null,
