@@ -1,0 +1,121 @@
+{
+  "version": "0.7.0-dev.9-ui.1",
+  "galleryPath": "index.html",
+  "sourceFilesPublished": false,
+  "conversionCoreUnchanged": true,
+  "originalControlCount": 80,
+  "windowsValidated": false,
+  "gameVerified": false,
+  "files": [
+    {
+      "path": "after/1366x768-advanced.png",
+      "bytes": 304200,
+      "sha256": "e13b5fdd0671473e192a6eb6125ab9e38944d2fb316a670d0b47f3042c28960d"
+    },
+    {
+      "path": "after/1366x768-standard.png",
+      "bytes": 221368,
+      "sha256": "f4864ada17234684128a2004c703fdf073e93f4e122e414a5ca8e2ff6ca08431"
+    },
+    {
+      "path": "after/1920x1080-advanced.png",
+      "bytes": 430933,
+      "sha256": "b047ba4e3118b7fa8e545349d6d727bd45a42c43be8b369df5c762c6c1f6cd26"
+    },
+    {
+      "path": "after/1920x1080-standard.png",
+      "bytes": 300019,
+      "sha256": "ea0b3a8ae13cfda0b4de1a146100558e29f7bc46e68c0abaeacf3ad73c02fbe4"
+    },
+    {
+      "path": "after/2560x1440-advanced.png",
+      "bytes": 583289,
+      "sha256": "be1c5a5c9fd2ee29547fdd6faa9b77f746126c2cf10449f0f442a6e56550f607"
+    },
+    {
+      "path": "after/2560x1440-standard.png",
+      "bytes": 387397,
+      "sha256": "38e812390abc5fd106ff94a795bf5d111fbf4a1ddbda695a4244415e8754d66b"
+    },
+    {
+      "path": "before/1366x768.png",
+      "bytes": 124235,
+      "sha256": "d56b0c56146fb307e1731c77f531304cfd83293bfc78a25908a25178e009245b"
+    },
+    {
+      "path": "before/1920x1080.png",
+      "bytes": 163509,
+      "sha256": "b4f4ba2db174b26ddd83dadbca062982f3825c8ebeb5319b913ce68520f08111"
+    },
+    {
+      "path": "before/2560x1440.png",
+      "bytes": 268245,
+      "sha256": "0ea55d4f4831e1058ffbafc5b13444553cd7676755d9fe94ec0982d5426b7e82"
+    },
+    {
+      "path": "cloud-desktop.txt",
+      "bytes": 496,
+      "sha256": "d2dd914626f58e6988c6af3d6dacc3274e92275bee9835e30f3d32012725f9e6"
+    },
+    {
+      "path": "cloud-mapping.txt",
+      "bytes": 117,
+      "sha256": "84840f5e2c9e656d2d34e71dc561654abb031f7d6d9a6d0e8a0d375d9e2ac7dc"
+    },
+    {
+      "path": "cloud-native-humanoid.txt",
+      "bytes": 87,
+      "sha256": "df8039adef4f8b728239842ea37b5cfe5e80ec0b50cee77e94be5b0d55a1bd1d"
+    },
+    {
+      "path": "cloud-native-visual.txt",
+      "bytes": 97,
+      "sha256": "4ad736dedae02675bfcb253bda68e88131abb56002498d17d351cdd2f198b46b"
+    },
+    {
+      "path": "cloud-nikki-project.json",
+      "bytes": 80530,
+      "sha256": "15db9ff2840a69a311cbde320457ef8e1d68327dcc9a3fb35fcb2fdf1924d3c0"
+    },
+    {
+      "path": "cloud-skinning.txt",
+      "bytes": 131,
+      "sha256": "a261d12a44ad23c8c4ca97e5cb5c08e58015b4afdd2b4bc7b3bb1f67553d12d0"
+    },
+    {
+      "path": "cloud-ui.json",
+      "bytes": 1129,
+      "sha256": "7a03abf11846155aa7965fb1db6c83a89ec19e9666f9c7ba71718ea9d929b5bd"
+    },
+    {
+      "path": "cloud-unit.xml",
+      "bytes": 52647,
+      "sha256": "e0a35d3bcb3b069f4b979fc6214da8a83ee502d7cc8024020cd27b3b559b5061"
+    },
+    {
+      "path": "cloud-visual.txt",
+      "bytes": 1109,
+      "sha256": "f5d4f843838e3d3b28eef583d9f65dcd6d413ff8fa9eb47937b3af08bd006e55"
+    },
+    {
+      "path": "control-map.json",
+      "bytes": 6868,
+      "sha256": "6079b118e1d3ac8ec61f0356b9146dd15960b4814b7dfa076b794e752a5aa9f8"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3960,
+      "sha256": "a9888ec0b31a8f2e3db022efaa5c6486c1df8757c697415a126b77776af6fde5"
+    },
+    {
+      "path": "original-controls.json",
+      "bytes": 14464,
+      "sha256": "f2cc07026dea044a251c3cbabb1d4c2dd8d21c76259a25a17698da3a090a41d9"
+    },
+    {
+      "path": "WORKLOG.md",
+      "bytes": 5444,
+      "sha256": "fc48b9686b58535ef62a621aa85159e05f29ecdaa7ffce2abc09c7c1667d84af"
+    }
+  ]
+}

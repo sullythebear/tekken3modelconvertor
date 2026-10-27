@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "version": "0.7.0-dev.9-ui.1",
+  "packaged": false,
+  "controlCount": 80,
+  "results": [
+    "Every original control exists exactly once",
+    "Beginner defaults expose the four-step workflow without technical panels",
+    "Import two models and switch the actual source model",
+    "Preset changes reach existing Art Director values",
+    "Original conversion and preparation export remain enabled",
+    "Actual preparation export decoded: GLB, TIM, report and screenshots",
+    "Modes preserve real settings; customized preset is signalled",
+    "Actual project save/reopen retains art settings and selected model",
+    "Search, no-results state, Escape focus return and Enter activation",
+    "Explicit multi-category mode",
+    "All four preview layouts keep working render canvases",
+    "Wireframe and skeleton overlays retain their real view handlers",
+    "320×240 preview stays exact across tabs and resize; export geometry unchanged",
+    "Reload restores presentation preferences without source/private asset persistence",
+    "Reduced-motion system preference respected"
+  ],
+  "errors": []
+}

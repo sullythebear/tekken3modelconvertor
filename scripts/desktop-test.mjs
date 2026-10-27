@@ -120,6 +120,7 @@ try {
   assert.equal(extracted.report.sourceModified, false);
   assert.equal(extracted.report.completeDeclaredVolumePresent, false);
   assert.equal(extracted.report.warnings.length, 1);
+  if(await page.locator("#workspace-mode").count()){await page.selectOption("#workspace-mode","advanced");if(!await page.locator("#settings-native").evaluate(n=>n.open))await page.locator("#settings-native>summary").click();}
   await page.click("#disc-image");
   await page.waitForFunction(() => document.querySelector("#status").textContent.includes("SHA-256 is not the supported"));
   assert.equal(await page.locator("#donor-extract").isDisabled(), true);

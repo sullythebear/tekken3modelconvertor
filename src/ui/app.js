@@ -80,7 +80,7 @@ $('art-colorlevels').onchange=()=>{artProfile.colorLevels=Number($('art-colorlev
 $('art-occlusion').onchange=()=>{artProfile.occlusionCleanup=$('art-occlusion').checked;artChanged();};
 function rebuildSimulation(){if(!converted)return;if(simulationView.root)for(const m of collectMaterials(simulationView.root))m.dispose();simulationView.setModel(simulationModel(atlas?.root??converted.root,{snap:$('preview-snap').checked,affine:$('preview-affine').checked,gouraud:$('preview-gouraud').checked}),reference);simulationView.sync(sourceView);}
 for(const id of ['preview-snap','preview-affine','preview-gouraud'])$(id).onchange=rebuildSimulation;
-$('art-resolution').onchange=()=>{simulationView.renderer.setSize($('art-resolution').checked?320:$('simulation').clientWidth,$('art-resolution').checked?240:280,false);simulationView.render();};
+$('art-resolution').onchange=()=>simulationView.setResolution($('art-resolution').checked?[320,240]:null);
 $('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
 $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
@@ -1278,4 +1278,4 @@ $('optimize-candidate').onclick=async()=>{
  }catch(e){showError(e);}finally{setBusy(false);}
 };
 
-installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS});
+installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});

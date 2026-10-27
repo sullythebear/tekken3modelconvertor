@@ -24,6 +24,7 @@ try{
  await phase('convert-before-save',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
  const before=await page.evaluate(()=>window.studioTest.report().conversion.stats);
  const project=path.join(privateDir,'character-project.zip');
+ if(await page.locator('.project-disclosure').count()&&!await page.locator('.project-disclosure').evaluate(n=>n.open))await page.locator('.project-disclosure>summary').click();
  await phase('save',async()=>{await page.click('#project-save',{timeout:120000});await page.waitForFunction(()=>!document.querySelector('#project-save').disabled&&document.querySelector('#status').textContent!=='Saving project…',null,{timeout:120000});assert.match(await page.locator('#status').innerText(),/^Project saved/);await stat(project);});
  const projectBytes=await readFile(project);report.zipBytes=projectBytes.length;
  await phase('verify-all-project-assets',async()=>{const p=readStudioProject(projectBytes);assert.equal(p.records.length,24);for(const f of p.records){const expected=originals.get(f.name);assert.ok(expected);assert.equal(f.data.length,expected.bytes);assert.equal(hash(f.data),expected.sha256);}});

@@ -1,0 +1,92 @@
+name: Validate and publish UI development review
+on:
+  push:
+    branches: [development/070-ui-redesign]
+    paths: ["src/**", "scripts/**", "tests/**", "package*.json", ".github/workflows/ui-review.yml", "public-ui-review/evidence-manifest.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ui-review-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: New-Item -ItemType Directory -Force artifacts/ui-redesign/checks
+      - name: Full unchanged conversion suite and presentation preferences
+        run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ui-redesign/checks/windows-unit.xml "tests/*.test.mjs"
+      - run: npm run build
+      - run: node scripts/desktop-test.mjs
+      - run: node scripts/skinning-test.mjs
+      - run: node scripts/source-mapping-test.mjs
+      - run: node scripts/native-visual.mjs
+      - run: node scripts/native-humanoid.mjs
+      - run: npm run dist:win:portable
+      - run: node scripts/verify-distribution.mjs
+      - run: node scripts/portable-smoke.mjs
+      - name: Private Nikki project in packaged Windows app
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: Actual packaged UI workflows and three desktop resolutions
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/t3cs-ui-test-profile
+        run: node scripts/ui-redesign-test.mjs
+      - name: Both bake modes in packaged Windows app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_RUN_OUTPUT: artifacts/cutout-mode
+        run: node scripts/cutout-mode-test.mjs
+      - name: Package safe UI report and open offline in Edge
+        env:
+          UI_WINDOWS: '1'
+        shell: pwsh
+        run: |
+          node scripts/package-ui-review.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'UI evidence gates failed' }
+          node scripts/verify-review-evidence.mjs public-ui-review
+          if ($LASTEXITCODE -ne 0) { throw 'Report hashes failed' }
+          $edge = @("${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $edge) { throw 'Actual Windows report browser unavailable' }
+          $env:CHROMIUM_PATH = $edge
+          node scripts/ui-report-browser.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Offline Windows report failed' }
+          Copy-Item artifacts/ui-redesign/report-browser.json public-ui-review/windows-browser.json
+          node scripts/package-ui-review.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Final manifest failed' }
+          Compress-Archive -Path public-ui-review/* -DestinationPath release/UI-Review.zip
+      - name: Publish immutable UI prerelease after all gates
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $v = (Get-Content package.json | ConvertFrom-Json).version
+          if ($v -notmatch '^0\.7\.0-dev\.9-ui\.\d+$') { throw 'Not a UI development version' }
+          gh release view "v$v" --repo $env:GITHUB_REPOSITORY 2>$null
+          if ($LASTEXITCODE -eq 0) { throw 'Existing releases are immutable; increment patch version' }
+          gh release create "v$v" --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title "Conversion Studio $v — UI review" --notes-file docs/ui/REVIEW.md "release/Tekken3ConversionStudio-$v-x64.exe" release/UI-Review.zip
+          if ($LASTEXITCODE -ne 0) { throw 'UI release publication failed' }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Windows-UI-review
+          path: |
+            release/*.exe
+            release/UI-Review.zip
+            public-ui-review/
+            artifacts/ui-redesign/after/results.json
+            artifacts/ui-redesign/checks/windows-unit.xml

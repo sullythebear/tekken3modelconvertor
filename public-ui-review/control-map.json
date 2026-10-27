@@ -1,0 +1,402 @@
+[
+  {
+    "id": "import",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "add-textures",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "texture-files",
+    "category": "workflow",
+    "hiddenInput": true
+  },
+  {
+    "id": "files",
+    "category": "workflow",
+    "hiddenInput": true
+  },
+  {
+    "id": "model-select",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-preset",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-stylization",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-face",
+    "category": "face",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-angular",
+    "category": "face",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-pixelation",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-hair",
+    "category": "hair",
+    "hiddenInput": false
+  },
+  {
+    "id": "face-landmark",
+    "category": "face",
+    "hiddenInput": false
+  },
+  {
+    "id": "face-landmark-pick",
+    "category": "face",
+    "hiddenInput": false
+  },
+  {
+    "id": "face-landmark-reset",
+    "category": "face",
+    "hiddenInput": false
+  },
+  {
+    "id": "hair-method",
+    "category": "hair",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-live",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-region",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-mesh",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-mesh-apply",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-priority",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-scale",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-remove",
+    "category": "local",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-dither",
+    "category": "materials",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-flat",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-occlusion",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-resolution",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-filter",
+    "category": "materials",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-colorlevels",
+    "category": "materials",
+    "hiddenInput": false
+  },
+  {
+    "id": "preview-snap",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "preview-affine",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "preview-gouraud",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-save",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-open",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "art-profile-file",
+    "category": "advanced",
+    "hiddenInput": true
+  },
+  {
+    "id": "reference-measure",
+    "category": "advanced",
+    "hiddenInput": false
+  },
+  {
+    "id": "reference-files",
+    "category": "advanced",
+    "hiddenInput": true
+  },
+  {
+    "id": "project-save",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "project-open",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "project-file",
+    "category": "workflow",
+    "hiddenInput": true
+  },
+  {
+    "id": "art-camera",
+    "category": "preview",
+    "hiddenInput": false
+  },
+  {
+    "id": "optimize-candidate",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "triangle-value",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "triangles",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "head-value",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "head",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "error",
+    "category": "geometry",
+    "hiddenInput": false
+  },
+  {
+    "id": "bake",
+    "category": "materials",
+    "hiddenInput": false
+  },
+  {
+    "id": "convert",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "cancel",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "donor-slot",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "game-backup",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "game-restore",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "disc-image",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "donor-extract",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "game-files",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "bns-export",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "donor",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "estimate-bind",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "bind-profile",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "bind-file",
+    "category": "native",
+    "hiddenInput": true
+  },
+  {
+    "id": "native-detail",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "native-build",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "native-export",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "expanded-export",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "source-pose",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "export",
+    "category": "workflow",
+    "hiddenInput": false
+  },
+  {
+    "id": "game-export",
+    "category": "native",
+    "hiddenInput": false
+  },
+  {
+    "id": "skeleton",
+    "category": "toolbar",
+    "hiddenInput": false
+  },
+  {
+    "id": "wireframe",
+    "category": "toolbar",
+    "hiddenInput": false
+  },
+  {
+    "id": "reset",
+    "category": "toolbar",
+    "hiddenInput": false
+  },
+  {
+    "id": "screenshots",
+    "category": "toolbar",
+    "hiddenInput": false
+  },
+  {
+    "id": "probe",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "mapping-apply",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "mapping-reset",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "mapping-save",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "mapping-load",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "mapping-file",
+    "category": "skeleton",
+    "hiddenInput": true
+  },
+  {
+    "id": "native-pose",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "animation",
+    "category": "skeleton",
+    "hiddenInput": false
+  },
+  {
+    "id": "play-animation",
+    "category": "skeleton",
+    "hiddenInput": false
+  }
+]

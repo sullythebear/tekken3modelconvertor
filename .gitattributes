@@ -1,2 +1,3 @@
 # Evidence hashes describe exact bytes, including LF text generated in cloud.
 public-review/** -text
+public-ui-review/** -text

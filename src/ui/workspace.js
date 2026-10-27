@@ -1,70 +1,321 @@
-import {readWorkspacePreferences,writeWorkspacePreferences,CATEGORIES} from './workspace-preferences.js';
-
-// Move existing controls: retain identity, values, labels and registered handlers.
-// This module deliberately has no dependency on conversion or native codecs.
-export function installWorkspace({getState,getArt,presets}) {
- const $=id=>document.getElementById(id),el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
- const storage={getItem:k=>localStorage.getItem(k),setItem:(k,v)=>localStorage.setItem(k,v)};
- let prefs=readWorkspacePreferences(storage),searching=false;
- const workspace=document.querySelector('.workspace'),oldAside=workspace.querySelector('aside'),main=workspace.querySelector('main'),oldSections=[...oldAside.children],toolbar=main.querySelector('.toolbar'),views=main.querySelector('.viewports');
- const originalControls=[...document.querySelectorAll('button[id],input[id],select[id],output[id]')];
- const left=el('aside','workflow-rail');left.setAttribute('aria-label','Conversieworkflow');
- const right=el('aside','inspector');right.id='settings-panel';right.setAttribute('aria-label','Instellingen');
- workspace.insertBefore(left,oldAside);workspace.append(right);
- const shell=el('div','inspector-heading');const title=el('h2',null,'Instellingen'),close=el('button','icon-button','Sluiten');close.id='settings-close';shell.append(title,close);right.append(shell);
- const searchLabel=el('label',null,'Zoek instellingen'),search=el('input');search.id='settings-search';search.type='search';search.placeholder='Bijv. haar, textures of skeleton';searchLabel.htmlFor=search.id;right.append(searchLabel,search);
- const multiLabel=el('label','check'),multi=el('input');multi.type='checkbox';multi.id='settings-multiple';multi.checked=prefs.multiple;multiLabel.append(multi,' Meerdere categorieën openhouden');right.append(multiLabel);
- const categoryTitles=['Geometrie en polygonen','Gezicht en anatomie','Haar','Materialen en textures','Skeleton en animatie','Lokale correcties','Native export','Diagnostiek','Geavanceerd'];const groups=new Map();
- CATEGORIES.forEach((id,i)=>{const d=el('details','settings-category');d.id='settings-'+id;d.dataset.category=id;const s=el('summary',null,categoryTitles[i]),body=el('div','category-body');d.append(s,body);right.append(d);groups.set(id,{details:d,body});});
- const empty=el('p','hint','Geen instellingen gevonden. Probeer een andere zoekterm.');empty.id='settings-empty';empty.hidden=true;right.append(empty);
- function field(id,target){const node=$(id);if(!node)throw Error('Missing existing control '+id);let block=node.closest('label');if(!block){block=el('div','setting-field');const previous=node.previousElementSibling;if(previous?.tagName==='LABEL'){previous.htmlFor=id;block.append(previous);}block.append(node);}if(block.tagName==='LABEL')block.classList.add('setting-field');target.append(block);return block;}
- function section(number,name){const s=el('section','workflow-step');s.append(el('div','step',number+' / WORKFLOW'),el('h2',null,name));left.append(s);return s;}
- const model=section('01','Model');for(const id of ['import','add-textures','files','texture-files','model-select'])field(id,model);model.append(el('p','hint','FBX · OBJ · GLB / glTF\nTGA · PNG · JPEG'));model.append($('drop'));
- const assets=el('details','asset-disclosure');assets.append(el('summary',null,'Bronbestanden'),$('asset-list'));model.append(assets);
- const style=section('02','Stijl');field('art-preset',style);field('triangles',style);field('art-pixelation',style);const badge=el('p','preset-state');badge.id='preset-state';badge.setAttribute('aria-live','polite');style.append(badge);
- const result=section('03','Resultaat');for(const id of ['convert','cancel','export'])field(id,result);result.append(el('p','hint','PS1-voorbereiding is geen bewijs van speelbaarheid. Native validatie vind je bij Instellingen.'));
- const project=el('details','project-disclosure');project.append(el('summary',null,'Project bewaren of openen'));for(const id of ['project-save','project-open','project-file'])field(id,project);left.append(project);
- const settingsOpen=el('button','settings-shortcut','Alle instellingen ↗');settingsOpen.id='settings-open';left.append(settingsOpen);
- const destinations={geometry:['art-stylization','head','error','art-flat','art-occlusion','optimize-candidate'],face:['art-face','art-angular','face-landmark','face-landmark-pick','face-landmark-reset'],hair:['art-hair','hair-method'],materials:['bake','art-dither','art-filter','art-colorlevels'],local:['art-region','art-mesh','art-mesh-apply','art-priority','art-scale','art-remove'],advanced:['art-live','art-save','art-open','art-profile-file','reference-measure','reference-files'],diagnostics:['art-allocations']};
- for(const [category,ids]of Object.entries(destinations))for(const id of ids)field(id,groups.get(category).body);
- const materialDetails=$('materials').closest('details');groups.get('materials').body.append(materialDetails);groups.get('materials').body.append($('art-atlas').closest('details'));
- const bottom=main.querySelector('.bottom');groups.get('diagnostics').body.append(bottom.querySelector('.validation'));groups.get('skeleton').body.append(bottom.querySelector('section'));bottom.remove();
- const detailed=$('report').closest('details');groups.get('diagnostics').body.append(detailed);
- // Entire native section retains its cautions, hidden file inputs and all actions.
- groups.get('native').body.append(oldSections[2]);for(const id of ['source-pose'])field(id,groups.get('native').body);
- for(const id of ['art-resolution','preview-snap','preview-affine','preview-gouraud'])field(id,groups.get('advanced').body);
- for(const node of originalControls){if(oldAside.contains(node)&&node.tagName!=='OUTPUT')field(node.id,groups.get('advanced').body);}
- oldAside.remove();
- // Preview switching only changes layout: the existing synchronized Views survive.
- const simulation=$('simulation').closest('article');simulation.removeAttribute('style');$('simulation').removeAttribute('style');views.append(simulation);views.classList.add('studio-stage');
- const articles=[...views.children];articles[0].dataset.view='source';articles[1].dataset.view='result';articles[2].dataset.view='simulation';
- const previewBar=el('div','preview-bar');const previewLabel=el('label',null,'Weergave'),preview=el('select');preview.id='preview-layout';previewLabel.htmlFor=preview.id;for(const [v,t]of [['compare','Vergelijken'],['source','Bronmodel'],['result','PS1-resultaat'],['simulation','Game-preview']]){const o=el('option',null,t);o.value=v;preview.append(o);}preview.value=prefs.preview;previewBar.append(previewLabel,preview);field('art-camera',previewBar);const caution=el('span','preview-caution','Gesynchroniseerde camera’s · gamecompatibiliteit niet geverifieerd');previewBar.append(caution);toolbar.after(previewBar);
- const compact=el('div','workflow-status');compact.id='workflow-status';compact.setAttribute('role','status');compact.setAttribute('aria-live','polite');main.querySelector('.progress').before(compact);
- const header=document.querySelector('header');const modeWrap=el('div','mode-switch'),modeLabel=el('label',null,'Werkmodus'),mode=el('select');mode.id='workspace-mode';modeLabel.htmlFor=mode.id;for(const [v,t]of [['standard','Standaardmodus'],['advanced','Geavanceerde modus']]){const o=el('option',null,t);o.value=v;mode.append(o);}mode.value=prefs.mode;modeWrap.append(modeLabel,mode);header.insertBefore(modeWrap,header.querySelector('.build'));
- document.body.dataset.studioUi='glass';
- // Readable names; IDs and underlying numerical values are untouched.
- const text={import:'＋ Model importeren','add-textures':'＋ Textures toevoegen',convert:'Converteer naar PS1',export:'Voorbereiding exporteren','project-save':'Project opslaan','project-open':'Project openen',reset:'Camera herstellen',screenshots:'Vergelijking vastleggen'};
- for(const [id,value]of Object.entries(text))$(id).textContent=value;
- function label(id,text,title){const input=$(id),label=input.labels?.[0]??input.previousElementSibling;if(label?.tagName==='LABEL'){const output=label.querySelector('output');label.replaceChildren(text);if(output)label.append(output);label.htmlFor=id;}if(title)input.title=title;}
- label('model-select','Geïmporteerd model');label('art-preset','PS1-stijl');label('triangles','Detailniveau','Experimenteel driehoekdoel; vormbescherming kan een hoger werkelijk aantal vereisen. Geen bewezen gamelimiet.');label('art-pixelation','Retro-textures','Hogere waarden verlagen detail en veranderen de werkelijk gebakken textures.');label('art-face','Gezichtsdetails behouden');label('art-hair','Kapsel behouden');label('art-stylization','Polygonale vormgeving');label('art-angular','Hoekige lichaamsvormen');
- const cameraLabel=$('art-camera').labels?.[0];if(cameraLabel)cameraLabel.textContent='Camera';
- for(const input of document.querySelectorAll('input[id],select[id]')){const prev=input.previousElementSibling;if(prev?.tagName==='LABEL'&&!input.labels?.length)prev.htmlFor=input.id;}
- const save=()=>writeWorkspacePreferences(storage,prefs);
- function apply(){document.body.dataset.workspaceMode=prefs.mode;workspace.dataset.panel=String(prefs.panel);right.hidden=!prefs.panel;settingsOpen.setAttribute('aria-expanded',String(prefs.panel));settingsOpen.setAttribute('aria-controls',right.id);views.dataset.layout=prefs.preview;for(const article of articles)article.hidden=prefs.preview==='compare'?article.dataset.view==='simulation':article.dataset.view!==prefs.preview;for(const [id,g]of groups)g.details.open=prefs.open.includes(id);mode.value=prefs.mode;preview.value=prefs.preview;multi.checked=prefs.multiple;}
- function panel(show,focus=true){prefs.panel=show;apply();save();if(focus)(show?search:settingsOpen).focus();}
- settingsOpen.onclick=()=>panel(!prefs.panel);close.onclick=()=>panel(false);
- mode.onchange=()=>{prefs.mode=mode.value;prefs.panel=prefs.mode==='advanced';apply();save();};preview.onchange=()=>{prefs.preview=preview.value;apply();save();};multi.onchange=()=>{prefs.multiple=multi.checked;if(!prefs.multiple)prefs.open=prefs.open.slice(0,1);apply();save();};
- for(const [id,g]of groups)g.details.addEventListener('toggle',()=>{if(searching)return;const actual=[...groups].filter(([,x])=>x.details.open).map(([key])=>key);if(actual.join('|')===prefs.open.join('|'))return;if(g.details.open&&!prefs.multiple){prefs.open=[id];for(const [other,x]of groups)if(other!==id)x.details.open=false;}else prefs.open=actual;save();});
- search.oninput=()=>{const term=search.value.trim().toLocaleLowerCase('nl');searching=!!term;let found=0;for(const g of groups.values()){const matches=!term||g.details.textContent.toLocaleLowerCase('nl').includes(term)||[...g.details.querySelectorAll('[id]')].some(n=>n.id.includes(term));g.details.hidden=!matches;if(term)g.details.open=matches;else g.details.open=prefs.open.includes(g.details.dataset.category);if(matches)found++;}empty.hidden=found>0;};
- right.addEventListener('keydown',e=>{if(e.key==='Escape'){search.value='';search.oninput();panel(false);}});
- let queued=false;function update(){queued=false;const state=getState(),custom=getArt(),base=presets[custom.preset];const changed=base&&(['stylization','face','angular','pixelation','hair'].some(k=>custom[k]!==base[k])||Object.keys(custom.regions??{}).length||Object.keys(custom.corrections??{}).length||Object.keys(custom.faceLandmarks??{}).length||Object.keys(custom.meshRoles??{}).length||custom.dither||custom.flat||custom.occlusionCleanup||custom.hairMethod&&custom.hairMethod!=='auto'||custom.colorLevels>0||custom.filter&&custom.filter!=='nearest');const message=$('art-preset').value==='baseline'?'Baseline · vorige reductiemethode':changed?'Preset aangepast · eigen instellingen':'Presetwaarden';if(badge.textContent!==message)badge.textContent=message;
- const native=state.nativeCandidate;const words=!state.source?'Importeer een model om te beginnen.':state.busy?'Bezig · '+$('status').textContent:state.artDirty?'Instellingen gewijzigd · opnieuw converteren.':state.converted?`${state.converted.optimization?'Geoptimaliseerde kandidaat':'PS1-voorbereiding'} gereed · ${$('export').disabled?'export nog niet beschikbaar':'voorbereiding exporteerbaar'}. ${native?'Native kandidaat apart gecontroleerd; ':''}Gameplay niet geverifieerd.`:'Model geladen · controleer textures en kies een stijl.';const warnings=$('messages').querySelectorAll('.warning,.error').length;const value=words+(warnings?' Aandachtspunten bij Diagnostiek.':'');if(compact.textContent!==value)compact.textContent=value;
- for(const [id,g]of groups){const count=[...g.body.querySelectorAll('input,select')].filter(n=>n.type!=='file'&&n.type!=='hidden'&&(n.type==='checkbox'?n.checked!==n.defaultChecked:n.tagName==='SELECT'?[...n.options].some(o=>o.defaultSelected)?n.value!==[...n.options].find(o=>o.defaultSelected)?.value:n.selectedIndex>0:n.value!==n.defaultValue)).length;g.details.dataset.custom=String(count);g.details.querySelector('summary').setAttribute('aria-label',categoryTitles[CATEGORIES.indexOf(id)]+(count?' · aangepaste instellingen':''));}
- }
- function schedule(){if(!queued){queued=true;queueMicrotask(update);}}
- document.addEventListener('input',schedule);document.addEventListener('change',schedule);new MutationObserver(schedule).observe($('status'),{childList:true,characterData:true,subtree:true});new MutationObserver(schedule).observe($('messages'),{childList:true,subtree:true});apply();update();
- // Explicit automation convenience for existing algorithm tests, not a production default.
- window.studioPresentation={revealAllSettings(){prefs={...prefs,mode:'advanced',panel:true,multiple:true,open:[...CATEGORIES]};apply();},openCategory(id){if(!groups.has(id))throw Error('Unknown category');prefs.panel=true;prefs.open=prefs.multiple?[...new Set([...prefs.open,id])]:[id];apply();},get preferences(){return structuredClone(prefs);}};
- // Every pre-existing control must remain in the live document exactly once.
- for(const node of originalControls)if(!node.isConnected||$(node.id)!==node)throw Error('UI lost control identity: '+node.id);
+// UI presentation only; preserve existing controls and conversion/project behavior.
+import { readWorkspacePreferences, writeWorkspacePreferences, CATEGORIES } from "./workspace-preferences.js";
+function installWorkspace({ getState, getArt, presets, resizeViews = () => {} }) {
+  const $ = (id) => document.getElementById(id), el = (tag, cls, text2) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text2) n.textContent = text2;
+    return n;
+  };
+  const storage = { getItem: (k) => localStorage.getItem(k), setItem: (k, v) => localStorage.setItem(k, v) };
+  let prefs = readWorkspacePreferences(storage), searching = false;
+  const workspace = document.querySelector(".workspace"), oldAside = workspace.querySelector("aside"), main = workspace.querySelector("main"), oldSections = [...oldAside.children], toolbar = main.querySelector(".toolbar"), views = main.querySelector(".viewports");
+  const originalControls = [...document.querySelectorAll("button[id],input[id],select[id],output[id]")];
+  const left = el("aside", "workflow-rail");
+  left.setAttribute("aria-label", "Conversieworkflow");
+  const right = el("aside", "inspector");
+  right.id = "settings-panel";
+  right.setAttribute("aria-label", "Instellingen");
+  workspace.insertBefore(left, oldAside);
+  workspace.append(right);
+  const shell = el("div", "inspector-heading");
+  const title = el("h2", null, "Instellingen"), close = el("button", "icon-button", "Sluiten");
+  close.id = "settings-close";
+  shell.append(title, close);
+  right.append(shell);
+  const searchLabel = el("label", null, "Zoek instellingen"), search = el("input");
+  search.id = "settings-search";
+  search.type = "search";
+  search.placeholder = "Bijv. haar, textures of skeleton";
+  searchLabel.htmlFor = search.id;
+  right.append(searchLabel, search);
+  const multiLabel = el("label", "check"), multi = el("input");
+  multi.type = "checkbox";
+  multi.id = "settings-multiple";
+  multi.checked = prefs.multiple;
+  multiLabel.append(multi, " Meerdere categorie\xEBn openhouden");
+  right.append(multiLabel);
+  const categoryTitles = ["Geometrie en polygonen", "Gezicht en anatomie", "Haar", "Materialen en textures", "Skeleton en animatie", "Lokale correcties", "Native export", "Diagnostiek", "Geavanceerd"];
+  const groups = /* @__PURE__ */ new Map();
+  CATEGORIES.forEach((id, i) => {
+    const d = el("details", "settings-category");
+    d.id = "settings-" + id;
+    d.dataset.category = id;
+    const s = el("summary", null, categoryTitles[i]), body = el("div", "category-body");
+    d.append(s, body);
+    right.append(d);
+    groups.set(id, { details: d, body });
+  });
+  const empty = el("p", "hint", "Geen instellingen gevonden. Probeer een andere zoekterm.");
+  empty.id = "settings-empty";
+  empty.hidden = true;
+  right.append(empty);
+  function field(id, target) {
+    const node = $(id);
+    if (!node) throw Error("Missing existing control " + id);
+    let block = node.closest("label");
+    if (!block) {
+      block = el("div", "setting-field");
+      const previous = node.previousElementSibling;
+      if (previous?.tagName === "LABEL") {
+        previous.htmlFor = id;
+        block.append(previous);
+      }
+      block.append(node);
+    }
+    if (block.tagName === "LABEL") block.classList.add("setting-field");
+    target.append(block);
+    return block;
+  }
+  function section(number, name) {
+    const s = el("section", "workflow-step");
+    s.append(el("div", "step", number + " / WORKFLOW"), el("h2", null, name));
+    left.append(s);
+    return s;
+  }
+  const model = section("01", "Model");
+  for (const id of ["import", "add-textures", "files", "texture-files", "model-select"]) field(id, model);
+  const assets = el("details", "asset-disclosure");
+  assets.append(el("summary", null, "Bestanden en importhulp"), el("p", "hint", "FBX \xB7 OBJ \xB7 GLB / glTF\nTGA \xB7 PNG \xB7 JPEG"), $("drop"), $("asset-list"));
+  model.append(assets);
+  const style = section("02", "Stijl");
+  field("art-preset", style);
+  field("triangles", style);
+  field("art-pixelation", style);
+  const badge = el("p", "preset-state");
+  badge.id = "preset-state";
+  badge.setAttribute("aria-live", "polite");
+  style.append(badge);
+  const result = section("03", "Resultaat");
+  for (const id of ["convert", "cancel", "export"]) field(id, result);
+  result.append(el("p", "hint", "PS1-voorbereiding is geen bewijs van speelbaarheid. Native validatie vind je bij Instellingen."));
+  const inputStack = el("div", "workflow-inputs");
+  left.prepend(inputStack);
+  inputStack.append(model, style);
+  result.classList.add("result-step");
+  const project = el("details", "project-disclosure");
+  project.append(el("summary", null, "Project bewaren of openen"));
+  for (const id of ["project-save", "project-open", "project-file"]) field(id, project);
+  left.append(project);
+  const settingsOpen = el("button", "settings-shortcut", "Alle instellingen");
+  settingsOpen.id = "settings-open";
+  left.append(settingsOpen);
+  const destinations = { geometry: ["art-stylization", "head", "error", "art-flat", "art-occlusion", "optimize-candidate"], face: ["art-face", "art-angular", "face-landmark", "face-landmark-pick", "face-landmark-reset"], hair: ["art-hair", "hair-method"], materials: ["bake", "art-dither", "art-filter", "art-colorlevels"], local: ["art-region", "art-mesh", "art-mesh-apply", "art-priority", "art-scale", "art-remove"], advanced: ["art-live", "art-save", "art-open", "art-profile-file", "reference-measure", "reference-files"], diagnostics: ["art-allocations"] };
+  for (const [category, ids] of Object.entries(destinations)) for (const id of ids) field(id, groups.get(category).body);
+  const materialDetails = $("materials").closest("details");
+  groups.get("materials").body.append(materialDetails);
+  groups.get("materials").body.append($("art-atlas").closest("details"));
+  const bottom = main.querySelector(".bottom");
+  groups.get("diagnostics").body.append(bottom.querySelector(".validation"));
+  groups.get("skeleton").body.append(bottom.querySelector("section"));
+  bottom.remove();
+  const detailed = $("report").closest("details");
+  groups.get("diagnostics").body.append(detailed);
+  groups.get("native").body.append(oldSections[2]);
+  for (const id of ["source-pose"]) field(id, groups.get("native").body);
+  for (const id of ["art-resolution", "preview-snap", "preview-affine", "preview-gouraud"]) field(id, groups.get("advanced").body);
+  for (const node of originalControls) {
+    if (oldAside.contains(node) && node.tagName !== "OUTPUT") field(node.id, groups.get("advanced").body);
+  }
+  oldAside.remove();
+  const simulation = $("simulation").closest("article");
+  simulation.removeAttribute("style");
+  $("simulation").removeAttribute("style");
+  views.append(simulation);
+  views.classList.add("studio-stage");
+  const articles = [...views.children];
+  articles[0].dataset.view = "source";
+  articles[1].dataset.view = "result";
+  articles[2].dataset.view = "simulation";
+  const previewBar = el("div", "preview-bar");
+  const previewLabel = el("label", null, "Weergave"), preview = el("select");
+  preview.id = "preview-layout";
+  previewLabel.htmlFor = preview.id;
+  for (const [v, t] of [["compare", "Vergelijken"], ["source", "Bronmodel"], ["result", "PS1-resultaat"], ["simulation", "Game-preview"]]) {
+    const o = el("option", null, t);
+    o.value = v;
+    preview.append(o);
+  }
+  preview.value = prefs.preview;
+  previewBar.append(previewLabel, preview);
+  field("art-camera", previewBar);
+  const caution = el("span", "preview-caution", "Gesynchroniseerde camera\u2019s \xB7 gamecompatibiliteit niet geverifieerd");
+  previewBar.append(caution);
+  toolbar.after(previewBar);
+  const compact = el("div", "workflow-status");
+  compact.id = "workflow-status";
+  compact.setAttribute("role", "status");
+  compact.setAttribute("aria-live", "polite");
+  main.querySelector(".progress").before(compact);
+  const header = document.querySelector("header");
+  const modeWrap = el("div", "mode-switch"), modeLabel = el("label", null, "Werkmodus"), mode = el("select");
+  mode.id = "workspace-mode";
+  modeLabel.htmlFor = mode.id;
+  for (const [v, t] of [["standard", "Standaardmodus"], ["advanced", "Geavanceerde modus"]]) {
+    const o = el("option", null, t);
+    o.value = v;
+    mode.append(o);
+  }
+  mode.value = prefs.mode;
+  modeWrap.append(modeLabel, mode);
+  header.insertBefore(modeWrap, header.querySelector(".build"));
+  document.body.dataset.studioUi = "glass";
+  $("status").removeAttribute("role");$("status").setAttribute("aria-live","off");
+  const text = { import: "\uFF0B Model importeren", "add-textures": "\uFF0B Textures toevoegen", convert: "Converteer naar PS1", export: "Voorbereiding exporteren", "project-save": "Project opslaan", "project-open": "Project openen", reset: "Camera herstellen", screenshots: "Vergelijking vastleggen" };
+  for (const [id, value] of Object.entries(text)) $(id).textContent = value;
+  function label(id, text2, title2) {
+    const input = $(id), label2 = input.labels?.[0] ?? input.previousElementSibling;
+    if (label2?.tagName === "LABEL") {
+      const output = label2.querySelector("output");
+      label2.replaceChildren(text2);
+      if (output) label2.append(output);
+      label2.htmlFor = id;
+    }
+    if (title2) input.title = title2;
+  }
+  label("model-select", "Ge\xEFmporteerd model");
+  label("art-preset", "PS1-stijl");
+  label("triangles", "Detailniveau", "Experimenteel driehoekdoel; vormbescherming kan een hoger werkelijk aantal vereisen. Geen bewezen gamelimiet.");
+  label("art-pixelation", "Retro-textures", "Hogere waarden verlagen detail en veranderen de werkelijk gebakken textures.");
+  label("art-face", "Gezichtsdetails behouden");
+  label("art-hair", "Kapsel behouden");
+  label("art-stylization", "Polygonale vormgeving");
+  label("art-angular", "Hoekige lichaamsvormen");
+  for (const option of $("art-preset").options) {
+    option.title = option.textContent;
+    if (option.value === "authentic") option.textContent = "Tekken 3 Authentic";
+    if (option.value === "expanded") option.textContent = "Tekken 3 Expanded";
+    if (option.value === "baseline") option.textContent = "Baseline \xB7 vorige methode";
+  }
+  const cameraLabel = $("art-camera").labels?.[0];
+  if (cameraLabel) cameraLabel.textContent = "Camera";
+  for (const input of document.querySelectorAll("input[id],select[id]")) {
+    const prev = input.previousElementSibling;
+    if (prev?.tagName === "LABEL" && !input.labels?.length) prev.htmlFor = input.id;
+  }
+  const save = () => writeWorkspacePreferences(storage, prefs);
+  function apply() {
+    document.body.dataset.workspaceMode = prefs.mode;
+    workspace.dataset.panel = String(prefs.panel);
+    right.hidden = !prefs.panel;
+    settingsOpen.setAttribute("aria-expanded", String(prefs.panel));
+    settingsOpen.setAttribute("aria-controls", right.id);
+    views.dataset.layout = prefs.preview;
+    for (const article of articles) article.hidden = prefs.preview === "compare" ? article.dataset.view === "simulation" : article.dataset.view !== prefs.preview;
+    for (const [id, g] of groups) {
+      if (prefs.multiple) g.details.removeAttribute("name");
+      else g.details.setAttribute("name", "studio-settings");
+      g.details.open = prefs.open.includes(id);
+    }
+    mode.value = prefs.mode;
+    preview.value = prefs.preview;
+    multi.checked = prefs.multiple;
+    resizeViews();
+  }
+  function panel(show, focus = true) {
+    prefs.panel = show;
+    apply();
+    save();
+    if (focus) (show ? search : settingsOpen).focus();
+  }
+  $('face-landmark-pick').addEventListener('click',()=>{if(!['source','compare'].includes(prefs.preview)){prefs.preview='source';apply();save();}});
+  $('native-pose').addEventListener('change',()=>{if(!['result','compare'].includes(prefs.preview)){prefs.preview='result';apply();save();}});
+  for(const id of ['screenshots','export'])$(id).addEventListener('click',()=>{if(prefs.preview!=='compare'){prefs.preview='compare';apply();save();}},{capture:true});
+  settingsOpen.onclick = () => panel(!prefs.panel);
+  close.onclick = () => panel(false);
+  mode.onchange = () => {
+    prefs.mode = mode.value;
+    prefs.panel = prefs.mode === "advanced";
+    apply();
+    save();
+  };
+  preview.onchange = () => {
+    prefs.preview = preview.value;
+    apply();
+    save();
+  };
+  multi.onchange = () => {
+    prefs.multiple = multi.checked;
+    if (!prefs.multiple) prefs.open = prefs.open.slice(0, 1);
+    apply();
+    save();
+  };
+  for (const [id, g] of groups) g.details.querySelector("summary").addEventListener("click", (event) => {
+    if (searching) return;
+    event.preventDefault();
+    const opening = !g.details.open;
+    prefs.open = opening ? prefs.multiple ? [.../* @__PURE__ */ new Set([...prefs.open, id])] : [id] : prefs.open.filter((x) => x !== id);
+    apply();
+    save();
+  });
+  search.oninput = () => {
+    const term = search.value.trim().toLocaleLowerCase("nl");
+    searching = !!term;
+    let found = 0;
+    for (const g of groups.values()) {
+      const matches = !term || g.details.textContent.toLocaleLowerCase("nl").includes(term) || [...g.details.querySelectorAll("[id]")].some((n) => n.id.includes(term));
+      g.details.hidden = !matches;
+      if (term) {
+        g.details.removeAttribute("name");
+        g.details.open = matches;
+      } else {
+        if (!prefs.multiple) g.details.setAttribute("name", "studio-settings");
+        g.details.open = prefs.open.includes(g.details.dataset.category);
+      }
+      if (matches) found++;
+    }
+    empty.hidden = found > 0;
+  };
+  right.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      search.value = "";
+      search.oninput();
+      panel(false);
+    }
+  });
+  let queued = false;
+  function update() {
+    queued = false;
+    const state = getState(), custom = getArt(), base = presets[custom.preset];
+    const changed = base && (["stylization", "face", "angular", "pixelation", "hair"].some((k) => custom[k] !== base[k]) || Object.keys(custom.regions ?? {}).length || Object.keys(custom.corrections ?? {}).length || Object.keys(custom.faceLandmarks ?? {}).length || Object.keys(custom.meshRoles ?? {}).length || custom.dither || custom.flat || custom.occlusionCleanup || custom.hairMethod && custom.hairMethod !== "auto" || custom.colorLevels > 0 || custom.filter && custom.filter !== "nearest");
+    const message = $("art-preset").value === "baseline" ? "Baseline \xB7 vorige reductiemethode" : changed ? "Preset aangepast \xB7 eigen instellingen" : "Presetwaarden";
+    if (badge.textContent !== message) badge.textContent = message;
+    const native = state.nativeCandidate;
+    const words = !state.source ? "Importeer een model om te beginnen." : state.busy ? "Bezig \xB7 " + $("status").textContent : state.artDirty ? "Instellingen gewijzigd \xB7 opnieuw converteren." : state.converted ? `${state.converted.optimization ? "Geoptimaliseerde kandidaat" : "PS1-voorbereiding"} gereed \xB7 ${$("export").disabled ? "export nog niet beschikbaar" : "voorbereiding exporteerbaar"}. ${native ? "Native kandidaat aanwezig; zie validatie. " : ""}Gameplay niet geverifieerd.` : "Model geladen \xB7 controleer textures en kies een stijl.";
+    const warnings = $("messages").querySelectorAll(".warning,.error").length;
+    const value = words + (warnings ? " Aandachtspunten bij Diagnostiek." : "");
+    if (compact.textContent !== value) compact.textContent = value;
+    for (const [id, g] of groups) {
+      const count = [...g.body.querySelectorAll("input,select")].filter((n) => n.type !== "file" && n.type !== "hidden" && (n.type === "checkbox" ? n.checked !== n.defaultChecked : n.tagName === "SELECT" ? [...n.options].some((o) => o.defaultSelected) ? n.value !== [...n.options].find((o) => o.defaultSelected)?.value : n.selectedIndex > 0 : n.value !== n.defaultValue)).length;
+      g.details.dataset.custom = String(count);
+      g.details.querySelector("summary").setAttribute("aria-label", categoryTitles[CATEGORIES.indexOf(id)] + (count ? " \xB7 aangepaste instellingen" : ""));
+    }
+  }
+  function schedule() {
+    if (!queued) {
+      queued = true;
+      queueMicrotask(update);
+    }
+  }
+  document.addEventListener("input", schedule);
+  document.addEventListener("change", schedule);
+  new MutationObserver(schedule).observe($("status"), { childList: true, characterData: true, subtree: true });
+  new MutationObserver(schedule).observe($("messages"), { childList: true, subtree: true });
+  apply();
+  update();
+  window.studioPresentation = { revealAllSettings() {
+    prefs = { ...prefs, mode: "advanced", panel: true, multiple: true, open: [...CATEGORIES] };
+    apply();
+  }, openCategory(id) {
+    if (!groups.has(id)) throw Error("Unknown category");
+    prefs.panel = true;
+    prefs.open = prefs.multiple ? [.../* @__PURE__ */ new Set([...prefs.open, id])] : [id];
+    apply();
+  }, get preferences() {
+    return structuredClone(prefs);
+  } };
+  for (const node of originalControls) if (!node.isConnected || $(node.id) !== node) throw Error("UI lost control identity: " + node.id);
 }
+export {
+  installWorkspace
+};

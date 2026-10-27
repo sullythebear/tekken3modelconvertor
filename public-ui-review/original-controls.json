@@ -1,0 +1,722 @@
+[
+  {
+    "id": "import",
+    "tag": "button",
+    "type": "submit",
+    "label": "＋ Model & textures",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "add-textures",
+    "tag": "button",
+    "type": "submit",
+    "label": "＋ Add textures to current model",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "texture-files",
+    "tag": "input",
+    "type": "file",
+    "label": "texture-files",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "files",
+    "tag": "input",
+    "type": "file",
+    "label": "files",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "model-select",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Source model",
+    "value": "Import files first",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-preset",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Baseline · previous reductionTekken 3 Authentic · provisionalClassic PS1Tekken 3 Expanded · runtime unverified",
+    "value": "authentic",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-stylization",
+    "tag": "input",
+    "type": "range",
+    "label": "art-stylization",
+    "value": "55",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-face",
+    "tag": "input",
+    "type": "range",
+    "label": "art-face",
+    "value": "90",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-angular",
+    "tag": "input",
+    "type": "range",
+    "label": "art-angular",
+    "value": "35",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-pixelation",
+    "tag": "input",
+    "type": "range",
+    "label": "art-pixelation",
+    "value": "50",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-hair",
+    "tag": "input",
+    "type": "range",
+    "label": "art-hair",
+    "value": "90",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "face-landmark",
+    "tag": "select",
+    "type": "select-one",
+    "label": "L_EyelidUpperA1L_EyelidUpperA3L_EyelidLowerA1L_EyelidLowerA3R_EyelidUpperA1R_EyelidUpperA3R_EyelidLowerA1R_EyelidLowerA3C_NoseTipL",
+    "value": "FACIAL_L_EyelidUpperA1",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "face-landmark-pick",
+    "tag": "button",
+    "type": "submit",
+    "label": "Pick landmark on original face",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "face-landmark-reset",
+    "tag": "button",
+    "type": "submit",
+    "label": "Restore automatic landmark",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "hair-method",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Automatic · inspect resultVolume envelopeVolume + transparent fringePreserve cards",
+    "value": "auto",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-live",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Rebuild after changes",
+    "value": "on",
+    "checked": true,
+    "hidden": false
+  },
+  {
+    "id": "art-region",
+    "tag": "select",
+    "type": "select-one",
+    "label": "headtorsoarmslegshairclothingaccessories",
+    "value": "head",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-mesh",
+    "tag": "select",
+    "type": "select-one",
+    "label": "art-mesh",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-mesh-apply",
+    "tag": "button",
+    "type": "submit",
+    "label": "Assign selected mesh to local region",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-priority",
+    "tag": "input",
+    "type": "number",
+    "label": "art-priority",
+    "value": "1",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-scale",
+    "tag": "input",
+    "type": "number",
+    "label": "art-scale",
+    "value": "1",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-remove",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Omit selected region",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-dither",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Bake ordered color dithering",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-flat",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Export flat face normals",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-occlusion",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Experimental inner-shell removal · inspect joints",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-resolution",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Simulation: 320 × 240 preview only",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-filter",
+    "tag": "select",
+    "type": "select-one",
+    "label": "NearestLinear",
+    "value": "nearest",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-colorlevels",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Auto · pixelation strength32 levels per channel16 levels per channel",
+    "value": "0",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "preview-snap",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Preview only: vertex snapping",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "preview-affine",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Preview only: affine UV interpolation",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "preview-gouraud",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Preview only: Gouraud lighting approximation",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "art-save",
+    "tag": "button",
+    "type": "submit",
+    "label": "Save art profile",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-open",
+    "tag": "button",
+    "type": "submit",
+    "label": "Open art profile",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "art-profile-file",
+    "tag": "input",
+    "type": "file",
+    "label": "art-profile-file",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "reference-measure",
+    "tag": "button",
+    "type": "submit",
+    "label": "Measure local Tekken reference",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "reference-files",
+    "tag": "input",
+    "type": "file",
+    "label": "reference-files",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "project-save",
+    "tag": "button",
+    "type": "submit",
+    "label": "Save project",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "project-open",
+    "tag": "button",
+    "type": "submit",
+    "label": "Open project",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "project-file",
+    "tag": "input",
+    "type": "file",
+    "label": "project-file",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "art-camera",
+    "tag": "select",
+    "type": "select-one",
+    "label": "FrontBackSideThree quarterFace close-up",
+    "value": "0",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "optimize-candidate",
+    "tag": "button",
+    "type": "submit",
+    "label": "Optimize current art model to requested budget",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "triangle-value",
+    "tag": "output",
+    "type": "output",
+    "label": "900",
+    "value": "900",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "triangles",
+    "tag": "input",
+    "type": "range",
+    "label": "Triangle budget 900",
+    "value": "900",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "head-value",
+    "tag": "output",
+    "type": "output",
+    "label": "2×",
+    "value": "2×",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "head",
+    "tag": "input",
+    "type": "range",
+    "label": "Baseline head priority · Art Director uses Face Preservation 2×",
+    "value": "2",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "error",
+    "tag": "input",
+    "type": "number",
+    "label": "Maximum relative geometry error",
+    "value": "0.08",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "bake",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Bake 4/8-bit PS1 texture\n            atlas",
+    "value": "on",
+    "checked": true,
+    "hidden": false
+  },
+  {
+    "id": "convert",
+    "tag": "button",
+    "type": "submit",
+    "label": "Convert to Tekken 3",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "cancel",
+    "tag": "button",
+    "type": "submit",
+    "label": "Cancel conversion",
+    "value": "",
+    "checked": null,
+    "hidden": true
+  },
+  {
+    "id": "donor-slot",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Donor slot",
+    "value": "nina-p1-us",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "game-backup",
+    "tag": "button",
+    "type": "submit",
+    "label": "Back up loaded game files",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "game-restore",
+    "tag": "button",
+    "type": "submit",
+    "label": "Restore game backup…",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "disc-image",
+    "tag": "button",
+    "type": "submit",
+    "label": "Extract Nina from ISO / BIN",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "donor-extract",
+    "tag": "button",
+    "type": "submit",
+    "label": "Save extracted donor package",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "game-files",
+    "tag": "button",
+    "type": "submit",
+    "label": "Load USA executable & BNS",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "bns-export",
+    "tag": "button",
+    "type": "submit",
+    "label": "Save patched BNS copy · experimental",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "donor",
+    "tag": "button",
+    "type": "submit",
+    "label": "Load original donor files",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "estimate-bind",
+    "tag": "button",
+    "type": "submit",
+    "label": "Estimate donor bind · experimental",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "bind-profile",
+    "tag": "button",
+    "type": "submit",
+    "label": "Load donor bind profile",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "bind-file",
+    "tag": "input",
+    "type": "file",
+    "label": "bind-file",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "native-detail",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Bake normal / metallic\n            / specular detail",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "native-build",
+    "tag": "button",
+    "type": "submit",
+    "label": "Rebuild on donor topology",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "native-export",
+    "tag": "button",
+    "type": "submit",
+    "label": "Export native candidate",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "expanded-export",
+    "tag": "button",
+    "type": "submit",
+    "label": "Export Expanded container · loader required",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "source-pose",
+    "tag": "button",
+    "type": "submit",
+    "label": "Return to source pose",
+    "value": "",
+    "checked": null,
+    "hidden": true
+  },
+  {
+    "id": "export",
+    "tag": "button",
+    "type": "submit",
+    "label": "Export preparation package",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "game-export",
+    "tag": "button",
+    "type": "submit",
+    "label": "Game-compatible export · blocked",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "skeleton",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Skeleton",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "wireframe",
+    "tag": "input",
+    "type": "checkbox",
+    "label": "Wireframe",
+    "value": "on",
+    "checked": false,
+    "hidden": false
+  },
+  {
+    "id": "reset",
+    "tag": "button",
+    "type": "submit",
+    "label": "Reset camera",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "screenshots",
+    "tag": "button",
+    "type": "submit",
+    "label": "Capture comparison",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "probe",
+    "tag": "button",
+    "type": "submit",
+    "label": "Run pose diagnostics",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "mapping-apply",
+    "tag": "button",
+    "type": "submit",
+    "label": "Apply mapping",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "mapping-reset",
+    "tag": "button",
+    "type": "submit",
+    "label": "Reset to name detection",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "mapping-save",
+    "tag": "button",
+    "type": "submit",
+    "label": "Save source mapping",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "mapping-load",
+    "tag": "button",
+    "type": "submit",
+    "label": "Load source mapping",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "mapping-file",
+    "tag": "input",
+    "type": "file",
+    "label": "mapping-file",
+    "value": "",
+    "checked": false,
+    "hidden": true
+  },
+  {
+    "id": "native-pose",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Native candidate diagnostic pose",
+    "value": "bind",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "animation",
+    "tag": "select",
+    "type": "select-one",
+    "label": "Source animation",
+    "value": "No source clips",
+    "checked": null,
+    "hidden": false
+  },
+  {
+    "id": "play-animation",
+    "tag": "button",
+    "type": "submit",
+    "label": "Play source clip",
+    "value": "",
+    "checked": null,
+    "hidden": false
+  }
+]

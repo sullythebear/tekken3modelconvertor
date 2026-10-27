@@ -36,10 +36,19 @@ export class View {
     const w = this.element.clientWidth,
       h = this.element.clientHeight;
     if (!w || !h) return;
-    this.renderer.setSize(w, h);
+    if(this.fixedResolution){
+      this.renderer.setSize(this.fixedResolution[0],this.fixedResolution[1],false);
+      this.renderer.domElement.style.width=w+"px";this.renderer.domElement.style.height=h+"px";
+    }else this.renderer.setSize(w, h);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.render();
+  }
+  setResolution(resolution) {
+    this.fixedResolution=resolution;
+    this.renderer.setPixelRatio(resolution?1:Math.min(window.devicePixelRatio,2));
+    this.renderer.domElement.style.imageRendering=resolution?"pixelated":"";
+    this.resize();
   }
   clearModel() {
     this.clearHelper();
