@@ -2912,6 +2912,215 @@
             "method": "Continuous body topology with invariant regional borders"
           }
         ]
+      },
+      "visibility": {
+        "available": true,
+        "resolution": 48,
+        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "cameras": [
+          {
+            "angle": 0,
+            "referenceHits": 215,
+            "missing": 0,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 1.55968992248062,
+            "visibleSource": {
+              "jc_shoe1_tm2 [texture 0]": 4,
+              "jc_shoe2_tm2 [texture 1]": 6,
+              "jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3]": 61,
+              "shirt02_tm2 [texture 4]": 80,
+              "shirt01_tm2 [texture 5]": 4,
+              "arm01_tm2 [texture 6]": 20,
+              "jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9]": 10,
+              "jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11]": 6,
+              "3904cap_tm2 [texture 12]": 2
+            },
+            "visibleCandidate": {
+              "jc_shoe1_tm2 [texture 0]": 4,
+              "jc_shoe2_tm2 [texture 1]": 6,
+              "jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3]": 61,
+              "shirt02_tm2 [texture 4]": 80,
+              "shirt01_tm2 [texture 5]": 4,
+              "arm01_tm2 [texture 6]": 20,
+              "jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9]": 10,
+              "jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11]": 6,
+              "3904cap_tm2 [texture 12]": 2
+            },
+            "transitions": {
+              "jc_shoe1_tm2 [texture 0] → jc_shoe1_tm2 [texture 0]": 4,
+              "jc_shoe2_tm2 [texture 1] → jc_shoe2_tm2 [texture 1]": 6,
+              "jc_leg_tm2 [texture 2] → jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3] → jc_jeans_tm2 [texture 3]": 61,
+              "shirt02_tm2 [texture 4] → shirt02_tm2 [texture 4]": 80,
+              "shirt01_tm2 [texture 5] → shirt01_tm2 [texture 5]": 4,
+              "arm01_tm2 [texture 6] → arm01_tm2 [texture 6]": 20,
+              "jc_hand_tm2 [texture 7] → jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8] → jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9] → jc_arm_tm2 [texture 9]": 10,
+              "jc_neck_tm2 [texture 10] → jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11] → jc_face_tm2 [texture 11]": 6,
+              "3904cap_tm2 [texture 12] → 3904cap_tm2 [texture 12]": 2
+            }
+          },
+          {
+            "angle": 1.5707963267948966,
+            "referenceHits": 122,
+            "missing": 0,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 2.9480874316939887,
+            "visibleSource": {
+              "jc_shoe1_tm2 [texture 0]": 6,
+              "jc_shoe2_tm2 [texture 1]": 3,
+              "jc_leg_tm2 [texture 2]": 8,
+              "jc_jeans_tm2 [texture 3]": 30,
+              "shirt01_tm2 [texture 5]": 28,
+              "shirt02_tm2 [texture 4]": 20,
+              "arm01_tm2 [texture 6]": 8,
+              "jc_hand_tm2 [texture 7]": 2,
+              "jc_arm_tm2 [texture 9]": 2,
+              "jc_face_tm2 [texture 11]": 6,
+              "jc_neck_tm2 [texture 10]": 1,
+              "jc_head_tm2 [texture 13]": 1,
+              "3904cap_tm2 [texture 12]": 7
+            },
+            "visibleCandidate": {
+              "jc_shoe1_tm2 [texture 0]": 6,
+              "jc_shoe2_tm2 [texture 1]": 3,
+              "jc_leg_tm2 [texture 2]": 8,
+              "jc_jeans_tm2 [texture 3]": 30,
+              "shirt01_tm2 [texture 5]": 28,
+              "shirt02_tm2 [texture 4]": 20,
+              "arm01_tm2 [texture 6]": 8,
+              "jc_hand_tm2 [texture 7]": 2,
+              "jc_arm_tm2 [texture 9]": 2,
+              "jc_face_tm2 [texture 11]": 6,
+              "jc_neck_tm2 [texture 10]": 1,
+              "jc_head_tm2 [texture 13]": 1,
+              "3904cap_tm2 [texture 12]": 7
+            },
+            "transitions": {
+              "jc_shoe1_tm2 [texture 0] → jc_shoe1_tm2 [texture 0]": 6,
+              "jc_shoe2_tm2 [texture 1] → jc_shoe2_tm2 [texture 1]": 3,
+              "jc_leg_tm2 [texture 2] → jc_leg_tm2 [texture 2]": 8,
+              "jc_jeans_tm2 [texture 3] → jc_jeans_tm2 [texture 3]": 30,
+              "shirt01_tm2 [texture 5] → shirt01_tm2 [texture 5]": 28,
+              "shirt02_tm2 [texture 4] → shirt02_tm2 [texture 4]": 20,
+              "arm01_tm2 [texture 6] → arm01_tm2 [texture 6]": 8,
+              "jc_hand_tm2 [texture 7] → jc_hand_tm2 [texture 7]": 2,
+              "jc_arm_tm2 [texture 9] → jc_arm_tm2 [texture 9]": 2,
+              "jc_face_tm2 [texture 11] → jc_face_tm2 [texture 11]": 6,
+              "jc_neck_tm2 [texture 10] → jc_neck_tm2 [texture 10]": 1,
+              "jc_head_tm2 [texture 13] → jc_head_tm2 [texture 13]": 1,
+              "3904cap_tm2 [texture 12] → 3904cap_tm2 [texture 12]": 7
+            }
+          },
+          {
+            "angle": 3.141592653589793,
+            "referenceHits": 215,
+            "missing": 0,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 6.82170542635659,
+            "visibleSource": {
+              "jc_shoe1_tm2 [texture 0]": 8,
+              "jc_leg_tm2 [texture 2]": 14,
+              "jc_jeans_tm2 [texture 3]": 53,
+              "shirt01_tm2 [texture 5]": 98,
+              "arm01_tm2 [texture 6]": 14,
+              "jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9]": 10,
+              "shirt02_tm2 [texture 4]": 2,
+              "jc_head_tm2 [texture 13]": 4,
+              "3904cap_tm2 [texture 12]": 4
+            },
+            "visibleCandidate": {
+              "jc_shoe1_tm2 [texture 0]": 8,
+              "jc_leg_tm2 [texture 2]": 14,
+              "jc_jeans_tm2 [texture 3]": 53,
+              "shirt01_tm2 [texture 5]": 98,
+              "arm01_tm2 [texture 6]": 14,
+              "jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9]": 10,
+              "shirt02_tm2 [texture 4]": 2,
+              "jc_head_tm2 [texture 13]": 4,
+              "3904cap_tm2 [texture 12]": 4
+            },
+            "transitions": {
+              "jc_shoe1_tm2 [texture 0] → jc_shoe1_tm2 [texture 0]": 8,
+              "jc_leg_tm2 [texture 2] → jc_leg_tm2 [texture 2]": 14,
+              "jc_jeans_tm2 [texture 3] → jc_jeans_tm2 [texture 3]": 53,
+              "shirt01_tm2 [texture 5] → shirt01_tm2 [texture 5]": 98,
+              "arm01_tm2 [texture 6] → arm01_tm2 [texture 6]": 14,
+              "jc_hand_tm2 [texture 7] → jc_hand_tm2 [texture 7]": 4,
+              "jc_wl_03_tm2 [texture 8] → jc_wl_03_tm2 [texture 8]": 4,
+              "jc_arm_tm2 [texture 9] → jc_arm_tm2 [texture 9]": 10,
+              "shirt02_tm2 [texture 4] → shirt02_tm2 [texture 4]": 2,
+              "jc_head_tm2 [texture 13] → jc_head_tm2 [texture 13]": 4,
+              "3904cap_tm2 [texture 12] → 3904cap_tm2 [texture 12]": 4
+            }
+          },
+          {
+            "angle": 0.7853981633974483,
+            "referenceHits": 194,
+            "missing": 1,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 4.174438687392055,
+            "visibleSource": {
+              "jc_shoe2_tm2 [texture 1]": 7,
+              "jc_shoe1_tm2 [texture 0]": 7,
+              "jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3]": 50,
+              "shirt01_tm2 [texture 5]": 12,
+              "shirt02_tm2 [texture 4]": 62,
+              "arm01_tm2 [texture 6]": 17,
+              "jc_hand_tm2 [texture 7]": 5,
+              "jc_arm_tm2 [texture 9]": 7,
+              "jc_wl_03_tm2 [texture 8]": 1,
+              "jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11]": 7,
+              "3904cap_tm2 [texture 12]": 5
+            },
+            "visibleCandidate": {
+              "jc_shoe2_tm2 [texture 1]": 7,
+              "jc_shoe1_tm2 [texture 0]": 7,
+              "jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3]": 50,
+              "shirt01_tm2 [texture 5]": 12,
+              "shirt02_tm2 [texture 4]": 61,
+              "arm01_tm2 [texture 6]": 17,
+              "jc_hand_tm2 [texture 7]": 5,
+              "jc_arm_tm2 [texture 9]": 7,
+              "jc_wl_03_tm2 [texture 8]": 1,
+              "jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11]": 7,
+              "3904cap_tm2 [texture 12]": 5
+            },
+            "transitions": {
+              "jc_shoe2_tm2 [texture 1] → jc_shoe2_tm2 [texture 1]": 7,
+              "jc_shoe1_tm2 [texture 0] → jc_shoe1_tm2 [texture 0]": 7,
+              "jc_leg_tm2 [texture 2] → jc_leg_tm2 [texture 2]": 12,
+              "jc_jeans_tm2 [texture 3] → jc_jeans_tm2 [texture 3]": 50,
+              "shirt01_tm2 [texture 5] → shirt01_tm2 [texture 5]": 12,
+              "shirt02_tm2 [texture 4] → shirt02_tm2 [texture 4]": 61,
+              "arm01_tm2 [texture 6] → arm01_tm2 [texture 6]": 17,
+              "jc_hand_tm2 [texture 7] → jc_hand_tm2 [texture 7]": 5,
+              "jc_arm_tm2 [texture 9] → jc_arm_tm2 [texture 9]": 7,
+              "jc_wl_03_tm2 [texture 8] → jc_wl_03_tm2 [texture 8]": 1,
+              "jc_neck_tm2 [texture 10] → jc_neck_tm2 [texture 10]": 2,
+              "jc_face_tm2 [texture 11] → jc_face_tm2 [texture 11]": 7,
+              "3904cap_tm2 [texture 12] → 3904cap_tm2 [texture 12]": 5
+            }
+          }
+        ]
       }
     },
     {
@@ -3430,6 +3639,102 @@
             "before": 708,
             "after": 382,
             "method": "Continuous body topology with invariant regional borders"
+          }
+        ]
+      },
+      "visibility": {
+        "available": true,
+        "resolution": 48,
+        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "cameras": [
+          {
+            "angle": 0,
+            "referenceHits": 259,
+            "missing": 2,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 2.9740596627756157,
+            "visibleSource": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 252,
+              "iv_drawable_material.bmp.001 [texture 1]": 4,
+              ".bmp [texture 2]": 3
+            },
+            "visibleCandidate": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 250,
+              "iv_drawable_material.bmp.001 [texture 1]": 4,
+              ".bmp [texture 2]": 3
+            },
+            "transitions": {
+              "player_default_intro_alphakill_d1.bmp [texture 0] → player_default_intro_alphakill_d1.bmp [texture 0]": 250,
+              "iv_drawable_material.bmp.001 [texture 1] → iv_drawable_material.bmp.001 [texture 1]": 4,
+              ".bmp [texture 2] → .bmp [texture 2]": 3
+            }
+          },
+          {
+            "angle": 1.5707963267948966,
+            "referenceHits": 168,
+            "missing": 2,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 1.5963855421686743,
+            "visibleSource": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 148,
+              "iv_drawable_material.bmp.001 [texture 1]": 8,
+              ".bmp [texture 2]": 12
+            },
+            "visibleCandidate": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 146,
+              "iv_drawable_material.bmp.001 [texture 1]": 8,
+              ".bmp [texture 2]": 12
+            },
+            "transitions": {
+              "player_default_intro_alphakill_d1.bmp [texture 0] → player_default_intro_alphakill_d1.bmp [texture 0]": 146,
+              "iv_drawable_material.bmp.001 [texture 1] → iv_drawable_material.bmp.001 [texture 1]": 8,
+              ".bmp [texture 2] → .bmp [texture 2]": 12
+            }
+          },
+          {
+            "angle": 3.141592653589793,
+            "referenceHits": 259,
+            "missing": 2,
+            "changedMaterial": 1,
+            "meanAlbedoByteDelta": 2.90272373540856,
+            "visibleSource": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 238,
+              "iv_drawable_material.bmp.001 [texture 1]": 9,
+              ".bmp [texture 2]": 12
+            },
+            "visibleCandidate": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 237,
+              "iv_drawable_material.bmp.001 [texture 1]": 9,
+              ".bmp [texture 2]": 11
+            },
+            "transitions": {
+              "player_default_intro_alphakill_d1.bmp [texture 0] → player_default_intro_alphakill_d1.bmp [texture 0]": 236,
+              "iv_drawable_material.bmp.001 [texture 1] → iv_drawable_material.bmp.001 [texture 1]": 9,
+              ".bmp [texture 2] → .bmp [texture 2]": 11,
+              ".bmp [texture 2] → player_default_intro_alphakill_d1.bmp [texture 0]": 1
+            }
+          },
+          {
+            "angle": 0.7853981633974483,
+            "referenceHits": 244,
+            "missing": 4,
+            "changedMaterial": 0,
+            "meanAlbedoByteDelta": 2.0638888888888887,
+            "visibleSource": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 235,
+              "iv_drawable_material.bmp.001 [texture 1]": 6,
+              ".bmp [texture 2]": 3
+            },
+            "visibleCandidate": {
+              "player_default_intro_alphakill_d1.bmp [texture 0]": 232,
+              "iv_drawable_material.bmp.001 [texture 1]": 5,
+              ".bmp [texture 2]": 3
+            },
+            "transitions": {
+              "player_default_intro_alphakill_d1.bmp [texture 0] → player_default_intro_alphakill_d1.bmp [texture 0]": 232,
+              "iv_drawable_material.bmp.001 [texture 1] → iv_drawable_material.bmp.001 [texture 1]": 5,
+              ".bmp [texture 2] → .bmp [texture 2]": 3
+            }
           }
         ]
       }
@@ -5645,6 +5950,183 @@
             "before": 60,
             "after": 48,
             "method": "Continuous body topology with invariant regional borders"
+          }
+        ]
+      },
+      "visibility": {
+        "available": true,
+        "resolution": 48,
+        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "cameras": [
+          {
+            "angle": 0,
+            "referenceHits": 214,
+            "missing": 3,
+            "changedMaterial": 7,
+            "meanAlbedoByteDelta": 11.126060237721692,
+            "visibleSource": {
+              "Material.010 [texture 0]": 32,
+              "Material.009 [texture 1]": 70,
+              "Material.006 [texture 3]": 48,
+              "Material.001 [texture 2]": 35,
+              "Material.007 [texture 4]": 8,
+              "Material.011 [texture 5]": 2,
+              "Material.012 [texture 6]": 2,
+              "Material.002 [texture 7]": 11,
+              "Material.014 [texture 8]": 2,
+              "Material.013": 2,
+              "Material.015 [texture 9]": 2
+            },
+            "visibleCandidate": {
+              "Material.010 [texture 0]": 30,
+              "Material.009 [texture 1]": 71,
+              "Material.001 [texture 2]": 39,
+              "Material.006 [texture 3]": 43,
+              "Material.007 [texture 4]": 8,
+              "Material.011 [texture 5]": 2,
+              "Material.012 [texture 6]": 2,
+              "Material.002 [texture 7]": 11,
+              "Material.014 [texture 8]": 2,
+              "Material.013": 1,
+              "Material.015 [texture 9]": 2
+            },
+            "transitions": {
+              "Material.010 [texture 0] → Material.010 [texture 0]": 30,
+              "Material.010 [texture 0] → Material.009 [texture 1]": 2,
+              "Material.009 [texture 1] → Material.009 [texture 1]": 69,
+              "Material.009 [texture 1] → Material.001 [texture 2]": 1,
+              "Material.006 [texture 3] → Material.006 [texture 3]": 43,
+              "Material.001 [texture 2] → Material.001 [texture 2]": 35,
+              "Material.007 [texture 4] → Material.007 [texture 4]": 8,
+              "Material.011 [texture 5] → Material.011 [texture 5]": 2,
+              "Material.012 [texture 6] → Material.012 [texture 6]": 2,
+              "Material.006 [texture 3] → Material.001 [texture 2]": 3,
+              "Material.002 [texture 7] → Material.002 [texture 7]": 10,
+              "Material.014 [texture 8] → Material.014 [texture 8]": 2,
+              "Material.013 → Material.013": 1,
+              "Material.013 → Material.002 [texture 7]": 1,
+              "Material.015 [texture 9] → Material.015 [texture 9]": 2
+            }
+          },
+          {
+            "angle": 1.5707963267948966,
+            "referenceHits": 129,
+            "missing": 0,
+            "changedMaterial": 6,
+            "meanAlbedoByteDelta": 14.575969872603624,
+            "visibleSource": {
+              "Material.010 [texture 0]": 22,
+              "Material.009 [texture 1]": 43,
+              "Material.006 [texture 3]": 39,
+              "Material.001 [texture 2]": 10,
+              "Material.002 [texture 7]": 10,
+              "Material.014 [texture 8]": 1,
+              "Material.015 [texture 9]": 4
+            },
+            "visibleCandidate": {
+              "Material.010 [texture 0]": 19,
+              "Material.009 [texture 1]": 44,
+              "Material.001 [texture 2]": 12,
+              "Material.006 [texture 3]": 39,
+              "Material.002 [texture 7]": 11,
+              "Material.015 [texture 9]": 4
+            },
+            "transitions": {
+              "Material.010 [texture 0] → Material.010 [texture 0]": 19,
+              "Material.010 [texture 0] → Material.009 [texture 1]": 3,
+              "Material.009 [texture 1] → Material.009 [texture 1]": 41,
+              "Material.009 [texture 1] → Material.001 [texture 2]": 2,
+              "Material.006 [texture 3] → Material.006 [texture 3]": 39,
+              "Material.001 [texture 2] → Material.001 [texture 2]": 10,
+              "Material.002 [texture 7] → Material.002 [texture 7]": 10,
+              "Material.014 [texture 8] → Material.002 [texture 7]": 1,
+              "Material.015 [texture 9] → Material.015 [texture 9]": 4
+            }
+          },
+          {
+            "angle": 3.141592653589793,
+            "referenceHits": 214,
+            "missing": 3,
+            "changedMaterial": 14,
+            "meanAlbedoByteDelta": 13.621296019101486,
+            "visibleSource": {
+              "Material.010 [texture 0]": 30,
+              "Material.009 [texture 1]": 77,
+              "Material.006 [texture 3]": 62,
+              "Material.001 [texture 2]": 32,
+              "Material.012 [texture 6]": 1,
+              "Material.011 [texture 5]": 1,
+              "Material.002 [texture 7]": 4,
+              "Material.015 [texture 9]": 7
+            },
+            "visibleCandidate": {
+              "Material.010 [texture 0]": 26,
+              "Material.009 [texture 1]": 73,
+              "Material.001 [texture 2]": 43,
+              "Material.006 [texture 3]": 57,
+              "Material.012 [texture 6]": 1,
+              "Material.011 [texture 5]": 1,
+              "Material.002 [texture 7]": 3,
+              "Material.015 [texture 9]": 7
+            },
+            "transitions": {
+              "Material.010 [texture 0] → Material.010 [texture 0]": 26,
+              "Material.010 [texture 0] → Material.009 [texture 1]": 3,
+              "Material.010 [texture 0] → Material.001 [texture 2]": 1,
+              "Material.009 [texture 1] → Material.009 [texture 1]": 70,
+              "Material.009 [texture 1] → Material.001 [texture 2]": 7,
+              "Material.006 [texture 3] → Material.006 [texture 3]": 57,
+              "Material.001 [texture 2] → Material.001 [texture 2]": 32,
+              "Material.012 [texture 6] → Material.012 [texture 6]": 1,
+              "Material.011 [texture 5] → Material.011 [texture 5]": 1,
+              "Material.006 [texture 3] → Material.001 [texture 2]": 3,
+              "Material.002 [texture 7] → Material.002 [texture 7]": 3,
+              "Material.015 [texture 9] → Material.015 [texture 9]": 7
+            }
+          },
+          {
+            "angle": 0.7853981633974483,
+            "referenceHits": 203,
+            "missing": 1,
+            "changedMaterial": 9,
+            "meanAlbedoByteDelta": 9.5555747010427,
+            "visibleSource": {
+              "Material.010 [texture 0]": 37,
+              "Material.009 [texture 1]": 69,
+              "Material.006 [texture 3]": 46,
+              "Material.001 [texture 2]": 28,
+              "Material.007 [texture 4]": 3,
+              "Material.011 [texture 5]": 1,
+              "Material.002 [texture 7]": 14,
+              "Material.014 [texture 8]": 3,
+              "Material.015 [texture 9]": 2
+            },
+            "visibleCandidate": {
+              "Material.010 [texture 0]": 35,
+              "Material.009 [texture 1]": 66,
+              "Material.001 [texture 2]": 34,
+              "Material.006 [texture 3]": 45,
+              "Material.007 [texture 4]": 2,
+              "Material.011 [texture 5]": 1,
+              "Material.002 [texture 7]": 13,
+              "Material.014 [texture 8]": 3,
+              "Material.015 [texture 9]": 3
+            },
+            "transitions": {
+              "Material.010 [texture 0] → Material.010 [texture 0]": 35,
+              "Material.010 [texture 0] → Material.009 [texture 1]": 2,
+              "Material.009 [texture 1] → Material.009 [texture 1]": 64,
+              "Material.009 [texture 1] → Material.001 [texture 2]": 5,
+              "Material.006 [texture 3] → Material.006 [texture 3]": 45,
+              "Material.001 [texture 2] → Material.001 [texture 2]": 28,
+              "Material.007 [texture 4] → Material.007 [texture 4]": 2,
+              "Material.011 [texture 5] → Material.011 [texture 5]": 1,
+              "Material.007 [texture 4] → Material.001 [texture 2]": 1,
+              "Material.002 [texture 7] → Material.002 [texture 7]": 13,
+              "Material.014 [texture 8] → Material.014 [texture 8]": 3,
+              "Material.002 [texture 7] → Material.015 [texture 9]": 1,
+              "Material.015 [texture 9] → Material.015 [texture 9]": 2
+            }
           }
         ]
       }
