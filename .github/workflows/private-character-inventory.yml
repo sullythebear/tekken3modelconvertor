@@ -2,7 +2,7 @@ name: Private multi-character inventory
 on:
   push:
     branches: [development/070-multi-character]
-    paths: ['src/core/**', 'scripts/private-character-*', '.github/workflows/private-character-inventory.yml']
+    paths: ['src/core/**', 'scripts/private-character-*', 'scripts/private-probe-contract.mjs', 'tests/private-probe-contract.test.mjs', '.github/workflows/private-character-inventory.yml']
   workflow_dispatch:
 permissions:
   contents: read
