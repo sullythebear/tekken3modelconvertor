@@ -9,3 +9,7 @@ Privacy: source archive/models/textures/projects and commercial screenshots stay
 Confirmed generic defect: atlas baking and UV-domain measurement assumed uv0 although imported textures retain their actual texture.channel. Added channel-specific material UV selection for the supported case where baked maps share a UV set, with explicit refusal instead of guessed colours for mixed/missing channels. Manual texture matrices are no longer overwritten when matrixAutoUpdate=false. Five authored UV-domain tests pass; actual browser atlas tests and Nikki pixel regression still pending. This is not a claim that Rhea or Marston is fixed.
 
 Next: run private archive inventory and actual importer probes; inspect actual metadata, prioritize Rhea materials, then Cena hands and Marston eye. Retain Nikki as a positive visual regression. Do not publish a new application release before real model/Windows validation.
+
+First inventory workflow was rejected at validation before any runner/download: job-level env cannot use runner.temp. Moved private path initialization into a runtime step using RUNNER_TEMP. No model presence or download success claimed. Added safe download-error annotations without URL or file id.
+
+Authored browser fixture now verifies real GLB TEXCOORD_1 import and actual blue atlas texel where legacy UV0 would select red; source UV0/UV1 unchanged. Full suite 255 PASS, no failures/skips. Multi-character commercial results remain unverified until input inspection.

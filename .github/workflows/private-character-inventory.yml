@@ -15,8 +15,6 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
-    env:
-      PRIVATE_CHARACTER_DIR: ${{ runner.temp }}/private-character-input
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,6 +22,9 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Initialize private temporary input directory
+        shell: pwsh
+        run: '"PRIVATE_CHARACTER_DIR=$env:RUNNER_TEMP/private-character-input" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append' 
       - name: Download private archive without logging the URL
         env:
           CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
@@ -57,4 +58,4 @@ jobs:
         if: always()
         shell: pwsh
         run: |
-          if (Test-Path $env:PRIVATE_CHARACTER_DIR) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
+          if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
