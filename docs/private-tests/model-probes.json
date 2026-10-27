@@ -510,6 +510,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    40.8271484375,
+                    39.365234375,
+                    31.79296875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -526,6 +537,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    40.8271484375,
+                    39.365234375,
+                    31.79296875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -566,6 +588,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    28.822265625,
+                    28.822265625,
+                    28.822265625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -582,6 +615,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    28.822265625,
+                    28.822265625,
+                    28.822265625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -622,6 +666,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    166.380859375,
+                    111.1611328125,
+                    88.869140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 256,
@@ -638,6 +693,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    166.380859375,
+                    111.1611328125,
+                    88.869140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 256,
@@ -678,6 +744,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    23.96875,
+                    23.2060546875,
+                    23.0263671875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -694,6 +771,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    23.96875,
+                    23.2060546875,
+                    23.0263671875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -734,6 +822,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    161.720703125,
+                    107.5654296875,
+                    85.7265625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 256,
@@ -750,6 +849,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    161.720703125,
+                    107.5654296875,
+                    85.7265625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 256,
@@ -790,6 +900,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    32.7236328125,
+                    32.3671875,
+                    30.060546875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -806,6 +927,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    32.7236328125,
+                    32.3671875,
+                    30.060546875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -846,6 +978,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    88.7265625,
+                    76.314453125,
+                    70.6884765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -862,6 +1005,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    88.7265625,
+                    76.314453125,
+                    70.6884765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -902,6 +1056,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    122.4033203125,
+                    81.19921875,
+                    66.85546875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -918,6 +1083,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    122.4033203125,
+                    81.19921875,
+                    66.85546875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -958,6 +1134,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    185.9521484375,
+                    125.3349609375,
+                    103.19140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -974,6 +1161,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    185.9521484375,
+                    125.3349609375,
+                    103.19140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -1014,6 +1212,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    61.9013671875,
+                    42.822265625,
+                    35.9140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 128,
@@ -1030,6 +1239,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    61.9013671875,
+                    42.822265625,
+                    35.9140625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 128,
@@ -1070,6 +1290,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    44.4814453125,
+                    49.529296875,
+                    38.7587890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 128,
@@ -1086,6 +1317,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    44.4814453125,
+                    49.529296875,
+                    38.7587890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 128,
@@ -1126,6 +1368,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    31.712890625,
+                    31.712890625,
+                    31.712890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -1142,6 +1395,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    31.712890625,
+                    31.712890625,
+                    31.712890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 64,
@@ -1182,6 +1446,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    153.6923828125,
+                    101.521484375,
+                    78.91015625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -1198,6 +1473,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    153.6923828125,
+                    101.521484375,
+                    78.91015625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -1238,6 +1524,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    167.076171875,
+                    112.99609375,
+                    92.693359375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -1254,6 +1551,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    167.076171875,
+                    112.99609375,
+                    92.693359375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -1294,6 +1602,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    116.4091796875,
+                    116.3603515625,
+                    116.3134765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 64,
@@ -1310,6 +1629,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    116.4091796875,
+                    116.3603515625,
+                    116.3134765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 64,
@@ -1350,6 +1680,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    75.599609375,
+                    68.265625,
+                    61.2587890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 128,
@@ -1366,6 +1707,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    75.599609375,
+                    68.265625,
+                    61.2587890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 128,
@@ -1406,6 +1758,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    107.56640625,
+                    97.9541015625,
+                    88.109375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 128,
@@ -1422,6 +1785,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    107.56640625,
+                    97.9541015625,
+                    88.109375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 128,
@@ -1462,6 +1836,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    107.873046875,
+                    77.1640625,
+                    69.9013671875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 16,
@@ -1478,6 +1863,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    107.873046875,
+                    77.1640625,
+                    69.9013671875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 64,
                 "height": 16,
@@ -1518,6 +1914,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    90.470703125,
+                    89.3037109375,
+                    80.9990234375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -1534,6 +1941,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    90.470703125,
+                    89.3037109375,
+                    80.9990234375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -1574,6 +1992,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 951,
+                  "alphaOpaque": 18,
+                  "samples": 1024,
+                  "meanRGB": [
+                    9.779296875,
+                    8.71875,
+                    0.77734375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -1590,6 +2019,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    9.74609375,
+                    8.6982421875,
+                    0.7568359375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 128,
@@ -1630,6 +2070,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    42.5595703125,
+                    40.6591796875,
+                    27.634765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -1646,6 +2097,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    42.5595703125,
+                    40.6591796875,
+                    27.634765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -1686,6 +2148,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    38.939453125,
+                    38.5146484375,
+                    32.890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -1702,6 +2175,17 @@
               },
               "emissiveMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    38.939453125,
+                    38.5146484375,
+                    32.890625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -1721,13 +2205,14 @@
         ]
       },
       "baseline": {
-        "triangles": 2052,
+        "conversionPreset": "baseline",
+        "triangles": 2290,
         "atlas": false,
         "textureBytes": null,
         "paletteBytes": null,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
-          "Appearance error / protected topology prevent the requested budget: 2052 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 2290 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
           "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
         ],
@@ -1736,25 +2221,55 @@
             "region": "head",
             "material": "3904cap_tm2",
             "before": 550,
-            "after": 148
+            "after": 142
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "arm01_tm2",
+            "before": 109,
+            "after": 45
           },
           {
             "region": "spine",
             "material": "arm01_tm2",
-            "before": 310,
-            "after": 82
+            "before": 92,
+            "after": 72
           },
           {
             "region": "head",
             "material": "arm01_tm2",
-            "before": 20,
-            "after": 20
+            "before": 21,
+            "after": 21
           },
           {
-            "region": "spine",
+            "region": "leftUpperArm",
+            "material": "arm01_tm2",
+            "before": 108,
+            "after": 46
+          },
+          {
+            "region": "leftUpperArm",
             "material": "jc_arm_tm2",
-            "before": 324,
-            "after": 52
+            "before": 107,
+            "after": 37
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 29
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 37
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 29
           },
           {
             "region": "spine",
@@ -1784,19 +2299,37 @@
             "region": "head",
             "material": "jc_eye_tm2",
             "before": 80,
-            "after": 28
+            "after": 26
           },
           {
             "region": "head",
             "material": "jc_face_tm2",
             "before": 1248,
-            "after": 418
+            "after": 402
           },
           {
-            "region": "spine",
+            "region": "rightHand",
             "material": "jc_hand_tm2",
-            "before": 1040,
-            "after": 110
+            "before": 512,
+            "after": 68
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8
+          },
+          {
+            "region": "leftHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 64
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8
           },
           {
             "region": "head",
@@ -1931,13 +2464,19 @@
             "after": 59
           },
           {
-            "region": "spine",
+            "region": "rightLowerArm",
             "material": "jc_wl_03_tm2",
-            "before": 104,
-            "after": 4
+            "before": 52,
+            "after": 34
           },
           {
-            "region": "spine",
+            "region": "leftLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 32
+          },
+          {
+            "region": "rightUpperArm",
             "material": "logo_tm2",
             "before": 23,
             "after": 11
@@ -1981,22 +2520,27 @@
         ]
       },
       "authentic": {
-        "triangles": 2634,
+        "conversionPreset": "authentic",
+        "triangles": 4148,
         "atlas": false,
         "textureBytes": null,
         "paletteBytes": null,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
-          "Appearance error / protected topology prevent the requested budget: 2634 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 4148 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
           "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
         ],
         "integrity": {
-          "triangles": 2634,
+          "triangles": 4148,
           "openEdges": 482,
           "byRegion": {
             "head": 145,
-            "spine": 173,
+            "leftUpperArm": 15,
+            "leftLowerArm": 17,
+            "rightUpperArm": 28,
+            "rightLowerArm": 17,
+            "spine": 96,
             "rightLowerLeg": 40,
             "leftLowerLeg": 40,
             "rightUpperLeg": 28,
@@ -2012,7 +2556,7 @@
           "sourceNonmanifoldEdges": 0,
           "unexpectedEdges": 0,
           "inconsistentWinding": 0,
-          "nonmanifoldEdges": 7,
+          "nonmanifoldEdges": 3,
           "degenerateTriangles": 0,
           "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
         },
@@ -2025,24 +2569,59 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
+            "region": "rightUpperArm",
+            "material": "arm01_tm2",
+            "before": 109,
+            "after": 99,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
             "region": "spine",
             "material": "arm01_tm2",
-            "before": 310,
-            "after": 62,
+            "before": 92,
+            "after": 72,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
             "region": "head",
             "material": "arm01_tm2",
-            "before": 20,
-            "after": 20,
+            "before": 21,
+            "after": 21,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "leftUpperArm",
+            "material": "arm01_tm2",
+            "before": 108,
+            "after": 100,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperArm",
             "material": "jc_arm_tm2",
-            "before": 324,
-            "after": 52,
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -2077,7 +2656,7 @@
             "region": "head",
             "material": "jc_eye_tm2",
             "before": 80,
-            "after": 42,
+            "after": 38,
             "method": "feature-constrained surface clustering"
           },
           {
@@ -2088,10 +2667,33 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "rightHand",
             "material": "jc_hand_tm2",
-            "before": 1040,
-            "after": 48,
+            "before": 512,
+            "after": 512,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 512,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -2249,14 +2851,21 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "rightLowerArm",
             "material": "jc_wl_03_tm2",
-            "before": 104,
-            "after": 48,
+            "before": 52,
+            "after": 52,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "leftLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperArm",
             "material": "logo_tm2",
             "before": 23,
             "after": 23,
@@ -2491,6 +3100,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    64.916015625,
+                    55.806640625,
+                    49.0849609375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 1024,
                 "height": 1024,
@@ -2524,6 +3144,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    42.2509765625,
+                    36.421875,
+                    33.0068359375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 256,
                 "height": 256,
@@ -2557,6 +3188,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    120.568359375,
+                    104.33203125,
+                    81.8681640625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 128,
                 "height": 64,
@@ -2576,6 +3218,7 @@
         ]
       },
       "baseline": {
+        "conversionPreset": "baseline",
         "triangles": 4090,
         "atlas": false,
         "textureBytes": null,
@@ -2667,6 +3310,7 @@
         ]
       },
       "authentic": {
+        "conversionPreset": "authentic",
         "triangles": 12862,
         "atlas": false,
         "textureBytes": null,
@@ -3356,6 +4000,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    161.5234375,
+                    112.4208984375,
+                    93.1240234375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 4096,
                 "height": 2048,
@@ -3372,6 +4027,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    126.9462890625,
+                    127.087890625,
+                    254.728515625
+                  ]
+                },
                 "colorSpace": "",
                 "width": 4096,
                 "height": 2048,
@@ -3412,6 +4078,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    114.9638671875,
+                    83.716796875,
+                    75.0400390625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 512,
                 "height": 512,
@@ -3428,6 +4105,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.505859375,
+                    127.3515625,
+                    254.92578125
+                  ]
+                },
                 "colorSpace": "",
                 "width": 512,
                 "height": 512,
@@ -3468,6 +4156,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    125.6103515625,
+                    86.875,
+                    68.509765625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -3484,6 +4183,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.328125,
+                    127.376953125,
+                    254.873046875
+                  ]
+                },
                 "colorSpace": "",
                 "width": 2048,
                 "height": 2048,
@@ -3570,6 +4280,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 509,
+                  "alphaOpaque": 245,
+                  "samples": 1024,
+                  "meanRGB": [
+                    0,
+                    0,
+                    0
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 512,
                 "height": 256,
@@ -3633,6 +4354,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    17.2900390625,
+                    17.66015625,
+                    17.96875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 1024,
                 "height": 1024,
@@ -3649,6 +4381,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    126.99609375,
+                    127.1591796875,
+                    254.8232421875
+                  ]
+                },
                 "colorSpace": "",
                 "width": 1024,
                 "height": 1024,
@@ -3689,6 +4432,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    11.208984375,
+                    12.9912109375,
+                    14.1513671875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -3705,6 +4459,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    126.77734375,
+                    127.5166015625,
+                    254.3701171875
+                  ]
+                },
                 "colorSpace": "",
                 "width": 2048,
                 "height": 2048,
@@ -3745,6 +4510,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    26.501953125,
+                    22.2470703125,
+                    24.306640625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -3761,6 +4537,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.431640625,
+                    127.5185546875,
+                    254.4833984375
+                  ]
+                },
                 "colorSpace": "",
                 "width": 2048,
                 "height": 2048,
@@ -3801,6 +4588,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    61.09375,
+                    61.0458984375,
+                    61.052734375
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 1024,
                 "height": 1024,
@@ -3817,6 +4615,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.2578125,
+                    127.3955078125,
+                    254.33984375
+                  ]
+                },
                 "colorSpace": "",
                 "width": 1024,
                 "height": 1024,
@@ -3857,6 +4666,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    203.0732421875,
+                    93.9775390625,
+                    115.3525390625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -3897,6 +4717,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    41.427734375,
+                    32.064453125,
+                    34.3955078125
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 1024,
@@ -3913,6 +4744,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    126.666015625,
+                    127.0947265625,
+                    254.5126953125
+                  ]
+                },
                 "colorSpace": "",
                 "width": 2048,
                 "height": 1024,
@@ -3953,6 +4795,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    203.0732421875,
+                    93.9775390625,
+                    115.3525390625
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -3993,6 +4846,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    41.0400390625,
+                    41.5029296875,
+                    43.6201171875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 2048,
                 "height": 2048,
@@ -4009,6 +4873,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.1494140625,
+                    126.904296875,
+                    254.5341796875
+                  ]
+                },
                 "colorSpace": "",
                 "width": 2048,
                 "height": 2048,
@@ -4049,6 +4924,17 @@
             "maps": {
               "map": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    17.2802734375,
+                    17.6484375,
+                    17.96875
+                  ]
+                },
                 "colorSpace": "srgb",
                 "width": 1024,
                 "height": 1024,
@@ -4065,6 +4951,17 @@
               },
               "normalMap": {
                 "channel": 0,
+                "imageSummary": {
+                  "kind": "ImageBitmap",
+                  "alphaZero": 0,
+                  "alphaOpaque": 1024,
+                  "samples": 1024,
+                  "meanRGB": [
+                    127.2607421875,
+                    127.0849609375,
+                    254.796875
+                  ]
+                },
                 "colorSpace": "",
                 "width": 1024,
                 "height": 1024,
@@ -4084,7 +4981,8 @@
         ]
       },
       "baseline": {
-        "triangles": 75903,
+        "conversionPreset": "baseline",
+        "triangles": 75931,
         "atlas": true,
         "textureBytes": 32768,
         "paletteBytes": 512,
@@ -4100,15 +4998,21 @@
           "Object_34: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_38: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_42: unused reduced-output attributes omitted: uv1; source retained.",
-          "Appearance error / protected topology prevent the requested budget: 75903 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 75931 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "regions": [
           {
+            "region": "leftHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 3554
+          },
+          {
             "region": "spine",
             "material": "Material.001",
-            "before": 14026,
-            "after": 12710
+            "before": 4402,
+            "after": 3792
           },
           {
             "region": "head",
@@ -4129,10 +5033,40 @@
             "after": 2348
           },
           {
+            "region": "leftUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 422
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 488
+          },
+          {
             "region": "leftLowerLeg",
             "material": "Material.001",
             "before": 2548,
             "after": 2338
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 414
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 476
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 3590
           },
           {
             "region": "rightUpperLeg",
@@ -4201,10 +5135,16 @@
             "after": 1302
           },
           {
-            "region": "spine",
+            "region": "rightHand",
             "material": "Material.011",
-            "before": 458,
-            "after": 430
+            "before": 398,
+            "after": 378
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.011",
+            "before": 60,
+            "after": 52
           },
           {
             "region": "leftLowerLeg",
@@ -4321,21 +5261,28 @@
             "after": 20
           },
           {
-            "region": "spine",
+            "region": "leftHand",
             "material": "Material.013",
             "before": 84,
             "after": 84
           },
           {
-            "region": "spine",
+            "region": "leftHand",
             "material": "Material.012",
-            "before": 458,
-            "after": 436
+            "before": 398,
+            "after": 382
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.012",
+            "before": 60,
+            "after": 56
           }
         ]
       },
       "authentic": {
-        "triangles": 13631,
+        "conversionPreset": "authentic",
+        "triangles": 22787,
         "atlas": true,
         "textureBytes": 8192,
         "paletteBytes": 512,
@@ -4351,17 +5298,18 @@
           "Object_34: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_38: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_42: unused reduced-output attributes omitted: uv1; source retained.",
-          "Appearance error / protected topology prevent the requested budget: 13631 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 22787 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "integrity": {
-          "triangles": 13631,
+          "triangles": 22787,
           "openEdges": 7516,
           "byRegion": {
             "head": 5733,
             "leftLowerLeg": 167,
             "rightLowerLeg": 167,
-            "spine": 1449
+            "spine": 1421,
+            "leftHand": 28
           },
           "classifications": {
             "preserved-source-mesh-border": 5605,
@@ -4373,16 +5321,24 @@
           "sourceNonmanifoldEdges": 46,
           "unexpectedEdges": 0,
           "inconsistentWinding": 0,
-          "nonmanifoldEdges": 124,
+          "nonmanifoldEdges": 122,
           "degenerateTriangles": 0,
           "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
         },
         "regions": [
           {
+            "region": "leftHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 3854,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
+          },
+          {
             "region": "spine",
             "material": "Material.001",
-            "before": 14026,
-            "after": 226,
+            "before": 4402,
+            "after": 320,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -4407,11 +5363,47 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
+            "region": "leftUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
             "region": "leftLowerLeg",
             "material": "Material.001",
             "before": 2548,
             "after": 314,
             "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 142,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 3854,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
           },
           {
             "region": "rightUpperLeg",
@@ -4445,7 +5437,7 @@
             "region": "head",
             "material": "Material.002",
             "before": 7508,
-            "after": 466,
+            "after": 464,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -4491,10 +5483,18 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "rightHand",
             "material": "Material.011",
-            "before": 458,
-            "after": 64,
+            "before": 398,
+            "after": 398,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.011",
+            "before": 60,
+            "after": 48,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -4613,7 +5613,7 @@
             "region": "head",
             "material": "Material.006",
             "before": 3375,
-            "after": 779,
+            "after": 775,
             "method": "Continuous body topology with invariant regional borders"
           },
           {
@@ -4631,17 +5631,26 @@
             "method": "Continuous body topology with invariant regional borders"
           },
           {
-            "region": "spine",
+            "region": "leftHand",
             "material": "Material.013",
             "before": 84,
             "after": 84,
-            "method": "Continuous body topology with invariant regional borders"
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
           },
           {
-            "region": "spine",
+            "region": "leftHand",
             "material": "Material.012",
-            "before": 458,
-            "after": 64,
+            "before": 398,
+            "after": 398,
+            "method": "reliable source hand retained",
+            "reason": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.012",
+            "before": 60,
+            "after": 48,
             "method": "Continuous body topology with invariant regional borders"
           }
         ]
