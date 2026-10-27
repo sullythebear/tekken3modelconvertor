@@ -1,4 +1,7 @@
 {
+  "sourceCommit": "0e68e279f07db8e828f4d98ec5a912985554c331",
+  "workflowRunId": "40598572724",
+  "workflowRunAttempt": "1",
   "status": "PASS",
   "scope": "Numerical importer/conversion diagnostics only; no visual or gameplay acceptance",
   "originalAssetsPublished": false,
