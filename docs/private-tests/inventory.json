@@ -1,0 +1,927 @@
+{
+  "status": "EXTRACTED",
+  "scope": "Archive metadata only; filename matches are not proof of visual identity",
+  "download": {
+    "status": "PASS",
+    "bytes": 42802902,
+    "sha256": "c94a59875a805c769e56a57eeaf0d4b8e54140a9a368326dce8dc8587fbc53b6"
+  },
+  "filesInArchive": 3,
+  "expandedBytes": 46733140,
+  "assets": [
+    {
+      "name": "John Cena.glb",
+      "format": ".glb",
+      "bytes": 460116,
+      "sha256": "97cd06d570f34e566e05950fd3fe355e337acd826e3c4d41cd0df2ed59a45a7f",
+      "id": "97cd06d570f34e56",
+      "gltf": {
+        "meshes": 22,
+        "primitives": 22,
+        "triangles": 6186,
+        "uvSets": [
+          "TEXCOORD_0"
+        ],
+        "vertexColoredPrimitives": 0,
+        "skins": 0,
+        "jointsPerSkin": [],
+        "animations": 0,
+        "materials": [
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 0,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 0,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 1,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 1,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 2,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 2,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 3,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 3,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 4,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 4,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 5,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 5,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 6,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 6,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 7,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 7,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 8,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 8,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 9,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 9,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 10,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 10,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 11,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 11,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 12,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 12,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 13,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 13,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 14,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 14,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 15,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 15,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 16,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 16,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 17,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 17,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 18,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 18,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "MASK",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 19,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 20,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 21,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 21,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 22,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "emissive",
+                "textureIndex": 22,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          }
+        ],
+        "images": 23,
+        "textures": 23,
+        "samplers": [
+          {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+          }
+        ],
+        "missingExternalResources": 0,
+        "remoteResources": 0,
+        "embeddedResources": 24,
+        "issues": []
+      }
+    },
+    {
+      "name": "John Marston.glb",
+      "format": ".glb",
+      "bytes": 2235952,
+      "sha256": "ac97d32c3727e37710b6281984dcfc8d5c09773037252d5e81d7bd60a3485115",
+      "id": "ac97d32c3727e377",
+      "gltf": {
+        "meshes": 7,
+        "primitives": 7,
+        "triangles": 17176,
+        "uvSets": [
+          "TEXCOORD_0"
+        ],
+        "vertexColoredPrimitives": 0,
+        "skins": 1,
+        "jointsPerSkin": [
+          274
+        ],
+        "animations": 0,
+        "materials": [
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 0,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 1,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 1,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 2,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          }
+        ],
+        "images": 3,
+        "textures": 3,
+        "samplers": [
+          {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+          }
+        ],
+        "missingExternalResources": 0,
+        "remoteResources": 0,
+        "embeddedResources": 4,
+        "issues": []
+      }
+    },
+    {
+      "name": "Rhea Ripley.glb",
+      "format": ".glb",
+      "bytes": 44037072,
+      "sha256": "d0762a8df6f724974bdb05b5731732eca1626af6e7c79fe869493a03482a2961",
+      "id": "d0762a8df6f72497",
+      "gltf": {
+        "meshes": 20,
+        "primitives": 20,
+        "triangles": 81469,
+        "uvSets": [
+          "TEXCOORD_0",
+          "TEXCOORD_1"
+        ],
+        "vertexColoredPrimitives": 0,
+        "skins": 0,
+        "jointsPerSkin": [],
+        "animations": 0,
+        "materials": [
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.6,
+            "maps": []
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 0,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 1,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.0863636,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 2,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 3,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 4,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 5,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": []
+          },
+          {
+            "alphaMode": "BLEND",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 6,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 1,
+            "roughnessFactor": 0.5,
+            "maps": []
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 7,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 8,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 9,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 10,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 1,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 11,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 12,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 13,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 14,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": false,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 15,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 1,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 16,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 17,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 15,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 1,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 18,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 19,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          },
+          {
+            "alphaMode": "OPAQUE",
+            "alphaCutoff": 0.5,
+            "doubleSided": true,
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.5,
+            "maps": [
+              {
+                "slot": "baseColor",
+                "textureIndex": 20,
+                "uvSet": 0,
+                "transformed": false
+              },
+              {
+                "slot": "normal",
+                "textureIndex": 21,
+                "uvSet": 0,
+                "transformed": false
+              }
+            ]
+          }
+        ],
+        "images": 22,
+        "textures": 22,
+        "samplers": [
+          {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+          }
+        ],
+        "missingExternalResources": 0,
+        "remoteResources": 0,
+        "embeddedResources": 23,
+        "issues": []
+      }
+    }
+  ],
+  "characterModelCandidates": {
+    "Nikki": [],
+    "John Cena": [
+      "97cd06d570f34e56"
+    ],
+    "John Marston": [
+      "ac97d32c3727e377"
+    ],
+    "Rhea Ripley": [
+      "d0762a8df6f72497"
+    ]
+  },
+  "characterPresenceByFilename": {
+    "Nikki": false,
+    "John Cena": true,
+    "John Marston": true,
+    "Rhea Ripley": true
+  },
+  "originalAssetsPublished": false,
+  "commercialScreenshotsPublished": false
+}
