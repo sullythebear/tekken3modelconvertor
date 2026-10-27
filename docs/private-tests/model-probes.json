@@ -1,0 +1,4651 @@
+{
+  "status": "PASS",
+  "scope": "Numerical importer/conversion diagnostics only; no visual or gameplay acceptance",
+  "originalAssetsPublished": false,
+  "commercialScreenshotsPublished": false,
+  "results": [
+    {
+      "id": "97cd06d570f34e56",
+      "format": ".glb",
+      "status": "PASS",
+      "source": {
+        "stats": {
+          "meshes": 22,
+          "vertices": 4307,
+          "triangles": 6186,
+          "materials": 22,
+          "textures": 23,
+          "skinnedMeshes": 0,
+          "missingUVs": 0,
+          "invalidPositions": 0
+        },
+        "clips": 0,
+        "mappedRoles": [],
+        "meshes": [
+          {
+            "name": "Object_2",
+            "triangles": 550,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.012400000356137753,
+                  -0.9822999835014343
+                ],
+                "max": [
+                  0.9909999966621399,
+                  -0.0142000000923872
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_3",
+            "triangles": 330,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.3828999996185303,
+                  -1
+                ],
+                "max": [
+                  1,
+                  -0.00009999999747378752
+                ]
+              }
+            },
+            "materials": [
+              1
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_4",
+            "triangles": 324,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  -0.00009999999747378752,
+                  -0.9868999719619751
+                ],
+                "max": [
+                  1.0317000150680542,
+                  -0.41530001163482666
+                ]
+              }
+            },
+            "materials": [
+              2
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_5",
+            "triangles": 82,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.013199999928474426,
+                  -0.9785000085830688
+                ],
+                "max": [
+                  0.9925000071525574,
+                  0.21969999372959137
+                ]
+              }
+            },
+            "materials": [
+              3
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_6",
+            "triangles": 118,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.007699999958276749,
+                  -0.2214999943971634
+                ],
+                "max": [
+                  0.9925000071525574,
+                  -0.00839999970048666
+                ]
+              }
+            },
+            "materials": [
+              4
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_7",
+            "triangles": 4,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0,
+                  -1
+                ],
+                "max": [
+                  1,
+                  0
+                ]
+              }
+            },
+            "materials": [
+              5
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_8",
+            "triangles": 80,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  -0.0020000000949949026,
+                  -0.9994999766349792
+                ],
+                "max": [
+                  0.9994999766349792,
+                  -0.0005000000237487257
+                ]
+              }
+            },
+            "materials": [
+              6
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_9",
+            "triangles": 1248,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.008899999782443047,
+                  -0.9958999752998352
+                ],
+                "max": [
+                  0.9958000183105469,
+                  -0.026900000870227814
+                ]
+              }
+            },
+            "materials": [
+              7
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_10",
+            "triangles": 1040,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.00930000003427267,
+                  -0.9825999736785889
+                ],
+                "max": [
+                  0.9921000003814697,
+                  -0.013199999928474426
+                ]
+              }
+            },
+            "materials": [
+              8
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_11",
+            "triangles": 78,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.06379999965429306,
+                  -0.9878000020980835
+                ],
+                "max": [
+                  0.9362999796867371,
+                  -0.011300000362098217
+                ]
+              }
+            },
+            "materials": [
+              9
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_12",
+            "triangles": 580,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.008799999952316284,
+                  -0.9907000064849854
+                ],
+                "max": [
+                  0.9904000163078308,
+                  -0.11140000075101852
+                ]
+              }
+            },
+            "materials": [
+              10
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_13",
+            "triangles": 164,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0,
+                  -0.9994999766349792
+                ],
+                "max": [
+                  1,
+                  0
+                ]
+              }
+            },
+            "materials": [
+              11
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_14",
+            "triangles": 188,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0,
+                  -1
+                ],
+                "max": [
+                  1,
+                  0
+                ]
+              }
+            },
+            "materials": [
+              12
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_15",
+            "triangles": 82,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.009399999864399433,
+                  -0.9771999716758728
+                ],
+                "max": [
+                  0.9896000027656555,
+                  -0.023099999874830246
+                ]
+              }
+            },
+            "materials": [
+              13
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_16",
+            "triangles": 36,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.007799999788403511,
+                  -0.9829999804496765
+                ],
+                "max": [
+                  0.991100013256073,
+                  -0.00009999999747378752
+                ]
+              }
+            },
+            "materials": [
+              14
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_17",
+            "triangles": 282,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.010999999940395355,
+                  -0.9452999830245972
+                ],
+                "max": [
+                  0.9474999904632568,
+                  -0.0038999998942017555
+                ]
+              }
+            },
+            "materials": [
+              15
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_18",
+            "triangles": 116,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.016599999740719795,
+                  -0.9684000015258789
+                ],
+                "max": [
+                  0.9955000281333923,
+                  -0.008700000122189522
+                ]
+              }
+            },
+            "materials": [
+              16
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_19",
+            "triangles": 79,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.007300000172108412,
+                  -0.9544000029563904
+                ],
+                "max": [
+                  0.9916999936103821,
+                  -0.033399999141693115
+                ]
+              }
+            },
+            "materials": [
+              17
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_20",
+            "triangles": 104,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  -0.0885000005364418,
+                  -0.9994999766349792
+                ],
+                "max": [
+                  1.4700000286102295,
+                  -0.0005000000237487257
+                ]
+              }
+            },
+            "materials": [
+              18
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_21",
+            "triangles": 23,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0005000000237487257,
+                  -0.9994999766349792
+                ],
+                "max": [
+                  0.9994999766349792,
+                  -0.0005000000237487257
+                ]
+              }
+            },
+            "materials": [
+              19
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_22",
+            "triangles": 277,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0,
+                  -0.9165999889373779
+                ],
+                "max": [
+                  1.0003999471664429,
+                  -0.00570000009611249
+                ]
+              }
+            },
+            "materials": [
+              20
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_23",
+            "triangles": 401,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0005000000237487257,
+                  -0.9919000267982483
+                ],
+                "max": [
+                  0.9994999766349792,
+                  -0.003000000026077032
+                ]
+              }
+            },
+            "materials": [
+              21
+            ],
+            "groups": []
+          }
+        ],
+        "materials": [
+          {
+            "id": 0,
+            "name": "3904cap_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "name": "arm01_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "name": "jc_arm_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 3,
+            "name": "jc_belt_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 4,
+            "name": "jc_body_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 5,
+            "name": "jc_buckle_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 6,
+            "name": "jc_eye_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 7,
+            "name": "jc_face_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 8,
+            "name": "jc_hand_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 9,
+            "name": "jc_head_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 10,
+            "name": "jc_jeans_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 11,
+            "name": "jc_knee_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 12,
+            "name": "jc_leg_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 13,
+            "name": "jc_neck_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 14,
+            "name": "jc_pants_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 15,
+            "name": "jc_shoe1_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 16,
+            "name": "jc_shoe2_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 17,
+            "name": "jc_tooth_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 16,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 64,
+                "height": 16,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 18,
+            "name": "jc_wl_03_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 19,
+            "name": "logo_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0.5,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 128,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 20,
+            "name": "shirt01_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 21,
+            "name": "shirt02_tm2",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 1,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "emissiveMap": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          }
+        ]
+      },
+      "baseline": {
+        "triangles": 2052,
+        "atlas": false,
+        "textureBytes": null,
+        "paletteBytes": null,
+        "warnings": [
+          "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
+          "Appearance error / protected topology prevent the requested budget: 2052 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+          "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
+        ],
+        "regions": [
+          {
+            "region": "head",
+            "material": "3904cap_tm2",
+            "before": 550,
+            "after": 148
+          },
+          {
+            "region": "spine",
+            "material": "arm01_tm2",
+            "before": 310,
+            "after": 82
+          },
+          {
+            "region": "head",
+            "material": "arm01_tm2",
+            "before": 20,
+            "after": 20
+          },
+          {
+            "region": "spine",
+            "material": "jc_arm_tm2",
+            "before": 324,
+            "after": 52
+          },
+          {
+            "region": "spine",
+            "material": "jc_belt_tm2",
+            "before": 82,
+            "after": 32
+          },
+          {
+            "region": "head",
+            "material": "jc_body_tm2",
+            "before": 92,
+            "after": 50
+          },
+          {
+            "region": "spine",
+            "material": "jc_body_tm2",
+            "before": 26,
+            "after": 22
+          },
+          {
+            "region": "spine",
+            "material": "jc_buckle_tm2",
+            "before": 4,
+            "after": 4
+          },
+          {
+            "region": "head",
+            "material": "jc_eye_tm2",
+            "before": 80,
+            "after": 28
+          },
+          {
+            "region": "head",
+            "material": "jc_face_tm2",
+            "before": 1248,
+            "after": 418
+          },
+          {
+            "region": "spine",
+            "material": "jc_hand_tm2",
+            "before": 1040,
+            "after": 110
+          },
+          {
+            "region": "head",
+            "material": "jc_head_tm2",
+            "before": 78,
+            "after": 30
+          },
+          {
+            "region": "spine",
+            "material": "jc_jeans_tm2",
+            "before": 112,
+            "after": 70
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 154,
+            "after": 38
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 142,
+            "after": 36
+          },
+          {
+            "region": "hips",
+            "material": "jc_jeans_tm2",
+            "before": 78,
+            "after": 46
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 31
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 31
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 36
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 24
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 36
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 24
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 20
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 14
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 14
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 20
+          },
+          {
+            "region": "head",
+            "material": "jc_neck_tm2",
+            "before": 82,
+            "after": 38
+          },
+          {
+            "region": "spine",
+            "material": "jc_pants_tm2",
+            "before": 36,
+            "after": 36
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 63
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 61
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 40
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 40
+          },
+          {
+            "region": "head",
+            "material": "jc_tooth_tm2",
+            "before": 79,
+            "after": 59
+          },
+          {
+            "region": "spine",
+            "material": "jc_wl_03_tm2",
+            "before": 104,
+            "after": 4
+          },
+          {
+            "region": "spine",
+            "material": "logo_tm2",
+            "before": 23,
+            "after": 11
+          },
+          {
+            "region": "spine",
+            "material": "shirt01_tm2",
+            "before": 200,
+            "after": 60
+          },
+          {
+            "region": "head",
+            "material": "shirt01_tm2",
+            "before": 43,
+            "after": 33
+          },
+          {
+            "region": "hips",
+            "material": "shirt01_tm2",
+            "before": 34,
+            "after": 34
+          },
+          {
+            "region": "spine",
+            "material": "shirt02_tm2",
+            "before": 214,
+            "after": 62
+          },
+          {
+            "region": "head",
+            "material": "shirt02_tm2",
+            "before": 171,
+            "after": 59
+          },
+          {
+            "region": "hips",
+            "material": "shirt02_tm2",
+            "before": 16,
+            "after": 16
+          }
+        ]
+      },
+      "authentic": {
+        "triangles": 2634,
+        "atlas": false,
+        "textureBytes": null,
+        "paletteBytes": null,
+        "warnings": [
+          "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
+          "Appearance error / protected topology prevent the requested budget: 2634 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+          "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
+        ],
+        "integrity": {
+          "triangles": 2634,
+          "openEdges": 482,
+          "byRegion": {
+            "head": 145,
+            "spine": 173,
+            "rightLowerLeg": 40,
+            "leftLowerLeg": 40,
+            "rightUpperLeg": 28,
+            "leftUpperLeg": 28,
+            "hips": 28
+          },
+          "classifications": {
+            "preserved-source-mesh-border": 482
+          },
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 482,
+          "sourceInconsistentWinding": 0,
+          "sourceNonmanifoldEdges": 0,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 7,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        },
+        "regions": [
+          {
+            "region": "head",
+            "material": "3904cap_tm2",
+            "before": 550,
+            "after": 192,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "arm01_tm2",
+            "before": 310,
+            "after": 62,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "arm01_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_arm_tm2",
+            "before": 324,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_belt_tm2",
+            "before": 82,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "jc_body_tm2",
+            "before": 92,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_body_tm2_torso_rebaked",
+            "before": 26,
+            "after": 26,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_buckle_tm2",
+            "before": 4,
+            "after": 4,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "jc_eye_tm2",
+            "before": 80,
+            "after": 42,
+            "method": "feature-constrained surface clustering"
+          },
+          {
+            "region": "head",
+            "material": "jc_face_tm2",
+            "before": 1248,
+            "after": 348,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_hand_tm2",
+            "before": 1040,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "jc_head_tm2",
+            "before": 78,
+            "after": 78,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_jeans_tm2",
+            "before": 112,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 154,
+            "after": 94,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 142,
+            "after": 90,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "jc_jeans_tm2",
+            "before": 78,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "jc_neck_tm2",
+            "before": 82,
+            "after": 74,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_pants_tm2",
+            "before": 36,
+            "after": 36,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "jc_tooth_tm2",
+            "before": 79,
+            "after": 75,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "jc_wl_03_tm2",
+            "before": 104,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "logo_tm2",
+            "before": 23,
+            "after": 23,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "shirt01_tm2",
+            "before": 200,
+            "after": 76,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "shirt01_tm2",
+            "before": 43,
+            "after": 43,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "shirt01_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "shirt02_tm2",
+            "before": 214,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "shirt02_tm2",
+            "before": 171,
+            "after": 61,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "shirt02_tm2",
+            "before": 16,
+            "after": 16,
+            "method": "Continuous body topology with invariant regional borders"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ac97d32c3727e377",
+      "format": ".glb",
+      "status": "PASS",
+      "source": {
+        "stats": {
+          "meshes": 7,
+          "vertices": 14331,
+          "triangles": 17176,
+          "materials": 3,
+          "textures": 3,
+          "skinnedMeshes": 7,
+          "missingUVs": 0,
+          "invalidPositions": 0
+        },
+        "clips": 0,
+        "mappedRoles": [],
+        "meshes": [
+          {
+            "name": "Object_280",
+            "triangles": 391,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0007019040058366954,
+                  -0.7021480202674866
+                ],
+                "max": [
+                  0.7084959745407104,
+                  -0.27587899565696716
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_282",
+            "triangles": 1029,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.15551799535751343,
+                  -0.9970700144767761
+                ],
+                "max": [
+                  0.2061769962310791,
+                  -0.8964840173721313
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_284",
+            "triangles": 448,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.5014650225639343,
+                  -0.9980469942092896
+                ],
+                "max": [
+                  0.8271480202674866,
+                  -0.7504879832267761
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_286",
+            "triangles": 13757,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0002899169921875,
+                  -0.9995120167732239
+                ],
+                "max": [
+                  0.9985349774360657,
+                  -0.0006561279878951609
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_288",
+            "triangles": 607,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.00041198701364919543,
+                  -1.5332000255584717
+                ],
+                "max": [
+                  0.9980469942092896,
+                  -0.0022735600359737873
+                ]
+              }
+            },
+            "materials": [
+              1
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_290",
+            "triangles": 236,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.45166000723838806,
+                  -0.7402340173721313
+                ],
+                "max": [
+                  0.8125,
+                  -0.3024899959564209
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_292",
+            "triangles": 708,
+            "skinned": true,
+            "uvs": {
+              "uv": {
+                "min": [
+                  -57.8125,
+                  -1
+                ],
+                "max": [
+                  58.28129959106445,
+                  0
+                ]
+              }
+            },
+            "materials": [
+              2
+            ],
+            "groups": []
+          }
+        ],
+        "materials": [
+          {
+            "id": 0,
+            "name": "player_default_intro_alphakill_d1.bmp",
+            "type": "MeshBasicMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "name": ".bmp",
+            "type": "MeshBasicMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 256,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "name": "iv_drawable_material.bmp.001",
+            "type": "MeshBasicMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 128,
+                "height": 64,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          }
+        ]
+      },
+      "baseline": {
+        "triangles": 4090,
+        "atlas": false,
+        "textureBytes": null,
+        "paletteBytes": null,
+        "warnings": [
+          "Appearance error / protected topology prevent the requested budget: 4090 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+          "Texture atlas was not generated: .bmp: UVs span multiple tiles; per-triangle rebaking is required"
+        ],
+        "regions": [
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 291,
+            "after": 73
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 100,
+            "after": 26
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 776,
+            "after": 480
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 253,
+            "after": 159
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 222,
+            "after": 88
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 226,
+            "after": 86
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 6959,
+            "after": 1319
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 6798,
+            "after": 1260
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": ".bmp",
+            "before": 359,
+            "after": 209
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": ".bmp",
+            "before": 248,
+            "after": 92
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 170,
+            "after": 64
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 66,
+            "after": 44
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 708,
+            "after": 190
+          }
+        ]
+      },
+      "authentic": {
+        "triangles": 12862,
+        "atlas": false,
+        "textureBytes": null,
+        "paletteBytes": null,
+        "warnings": [
+          "Appearance error / protected topology prevent the requested budget: 12862 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
+          "Texture atlas was not generated: .bmp: UVs span multiple tiles; per-triangle rebaking is required"
+        ],
+        "integrity": {
+          "triangles": 12862,
+          "openEdges": 1978,
+          "byRegion": {
+            "rightLowerLeg": 948,
+            "leftLowerLeg": 1030
+          },
+          "classifications": {
+            "preserved-source-mesh-border": 374,
+            "measured-aperture-or-source-open": 1604
+          },
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 1979,
+          "sourceInconsistentWinding": 37,
+          "sourceNonmanifoldEdges": 188,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 5,
+          "nonmanifoldEdges": 135,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        },
+        "regions": [
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 291,
+            "after": 137,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 100,
+            "after": 96,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 776,
+            "after": 644,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 253,
+            "after": 127,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 222,
+            "after": 126,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 226,
+            "after": 118,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 6959,
+            "after": 6959,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 6798,
+            "after": 3860,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": ".bmp",
+            "before": 359,
+            "after": 151,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": ".bmp",
+            "before": 248,
+            "after": 90,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 170,
+            "after": 124,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 66,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 708,
+            "after": 382,
+            "method": "Continuous body topology with invariant regional borders"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d0762a8df6f72497",
+      "format": ".glb",
+      "status": "PASS",
+      "source": {
+        "stats": {
+          "meshes": 20,
+          "vertices": 111881,
+          "triangles": 81469,
+          "materials": 16,
+          "textures": 22,
+          "skinnedMeshes": 0,
+          "missingUVs": 0,
+          "invalidPositions": 0
+        },
+        "clips": 0,
+        "mappedRoles": [],
+        "meshes": [
+          {
+            "name": "Object_4",
+            "triangles": 23168,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0019698399119079113,
+                  0.0044519901275634766
+                ],
+                "max": [
+                  0.9975280165672302,
+                  0.995114803314209
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.0019698399119079113,
+                  0.0044519901275634766
+                ],
+                "max": [
+                  0.9975280165672302,
+                  0.995114803314209
+                ]
+              }
+            },
+            "materials": [
+              0
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_6",
+            "triangles": 1104,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.07322049885988235,
+                  0.07782500982284546
+                ],
+                "max": [
+                  0.9277870059013367,
+                  0.9267435073852539
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.07322049885988235,
+                  0.07782500982284546
+                ],
+                "max": [
+                  0.9277870059013367,
+                  0.9267435073852539
+                ]
+              }
+            },
+            "materials": [
+              1
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_8",
+            "triangles": 7652,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.006099999882280827,
+                  0.004999995231628418
+                ],
+                "max": [
+                  0.993399977684021,
+                  0.9983999729156494
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.006099999882280827,
+                  0.004999995231628418
+                ],
+                "max": [
+                  0.993399977684021,
+                  0.9983999729156494
+                ]
+              }
+            },
+            "materials": [
+              2
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_10",
+            "triangles": 672,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.017170000821352005,
+                  0.012440025806427002
+                ],
+                "max": [
+                  0.9826400279998779,
+                  0.3654400110244751
+                ]
+              }
+            },
+            "materials": [
+              3
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_12",
+            "triangles": 616,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.1268479973077774,
+                  0.0036820173263549805
+                ],
+                "max": [
+                  0.24842600524425507,
+                  0.12229102849960327
+                ]
+              }
+            },
+            "materials": [
+              4
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_14",
+            "triangles": 7898,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.007348999846726656,
+                  0.0013949871063232422
+                ],
+                "max": [
+                  0.5392580032348633,
+                  0.20898902416229248
+                ]
+              }
+            },
+            "materials": [
+              4
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_16",
+            "triangles": 584,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0019042700296267867,
+                  0.007754027843475342
+                ],
+                "max": [
+                  0.12403800338506699,
+                  0.11240899562835693
+                ]
+              }
+            },
+            "materials": [
+              4
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_18",
+            "triangles": 584,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.031000999733805656,
+                  0.03917098045349121
+                ],
+                "max": [
+                  0.9699779748916626,
+                  0.9592499732971191
+                ]
+              }
+            },
+            "materials": [
+              5
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_20",
+            "triangles": 1328,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.007443999871611595,
+                  0.008853018283843994
+                ],
+                "max": [
+                  0.9901760220527649,
+                  0.9937469959259033
+                ]
+              }
+            },
+            "materials": [
+              6
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_22",
+            "triangles": 458,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.010147999972105026,
+                  0.008889973163604736
+                ],
+                "max": [
+                  0.9951199889183044,
+                  0.9945549964904785
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.010147999972105026,
+                  0.008889973163604736
+                ],
+                "max": [
+                  0.9951199889183044,
+                  0.9945549964904785
+                ]
+              }
+            },
+            "materials": [
+              7
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_24",
+            "triangles": 6162,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.001970000099390745,
+                  0.002373993396759033
+                ],
+                "max": [
+                  0.9980300068855286,
+                  0.9963150024414062
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.001970000099390745,
+                  0.002373993396759033
+                ],
+                "max": [
+                  0.9980300068855286,
+                  0.9963150024414062
+                ]
+              }
+            },
+            "materials": [
+              8
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_26",
+            "triangles": 7094,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0036929999478161335,
+                  0.004252016544342041
+                ],
+                "max": [
+                  0.9949100017547607,
+                  0.9942690134048462
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.0036929999478161335,
+                  0.004252016544342041
+                ],
+                "max": [
+                  0.9949100017547607,
+                  0.9942690134048462
+                ]
+              }
+            },
+            "materials": [
+              9
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_28",
+            "triangles": 1198,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.005900000222027302,
+                  0.0051000118255615234
+                ],
+                "max": [
+                  0.9952999949455261,
+                  0.9908999800682068
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.005900000222027302,
+                  0.0051000118255615234
+                ],
+                "max": [
+                  0.9952999949455261,
+                  0.9908999800682068
+                ]
+              }
+            },
+            "materials": [
+              10
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_30",
+            "triangles": 156,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0,
+                  0
+                ],
+                "max": [
+                  1,
+                  1
+                ]
+              }
+            },
+            "materials": [
+              11
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_32",
+            "triangles": 240,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.009602789767086506,
+                  0.011431992053985596
+                ],
+                "max": [
+                  0.9848840236663818,
+                  0.9878469705581665
+                ]
+              }
+            },
+            "materials": [
+              6
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_34",
+            "triangles": 5106,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.003871999913826585,
+                  0.006505012512207031
+                ],
+                "max": [
+                  0.9976369738578796,
+                  0.9963449835777283
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.003871999913826585,
+                  0.006505012512207031
+                ],
+                "max": [
+                  0.9976369738578796,
+                  0.9963449835777283
+                ]
+              }
+            },
+            "materials": [
+              12
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_36",
+            "triangles": 6278,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.0056500001810491085,
+                  0.005186021327972412
+                ],
+                "max": [
+                  0.9937729835510254,
+                  0.9841920137405396
+                ]
+              }
+            },
+            "materials": [
+              13
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_38",
+            "triangles": 10629,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.005900000222027302,
+                  0.0026999711990356445
+                ],
+                "max": [
+                  0.9959999918937683,
+                  0.9973000288009644
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.005900000222027302,
+                  0.0026999711990356445
+                ],
+                "max": [
+                  0.9959999918937683,
+                  0.9973000288009644
+                ]
+              }
+            },
+            "materials": [
+              14
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_40",
+            "triangles": 84,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.00801900029182434,
+                  0.006956994533538818
+                ],
+                "max": [
+                  0.9930400252342224,
+                  0.9929630160331726
+                ]
+              }
+            },
+            "materials": [
+              6
+            ],
+            "groups": []
+          },
+          {
+            "name": "Object_42",
+            "triangles": 458,
+            "skinned": false,
+            "uvs": {
+              "uv": {
+                "min": [
+                  0.004879999905824661,
+                  0.008889973163604736
+                ],
+                "max": [
+                  0.9898520112037659,
+                  0.9945549964904785
+                ]
+              },
+              "uv1": {
+                "min": [
+                  0.004879999905824661,
+                  0.008889973163604736
+                ],
+                "max": [
+                  0.9898520112037659,
+                  0.9945549964904785
+                ]
+              }
+            },
+            "materials": [
+              15
+            ],
+            "groups": []
+          }
+        ],
+        "materials": [
+          {
+            "id": 0,
+            "name": "Material.001",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 4096,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 4096,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "name": "Material.004",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.0863636,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 512,
+                "height": 512,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 512,
+                "height": 512,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "name": "Material.002",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 3,
+            "name": "Material.005",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              0.00367647,
+              0.00242761,
+              0.00182071
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {}
+          },
+          {
+            "id": 4,
+            "name": "material_0",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.6,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {}
+          },
+          {
+            "id": 5,
+            "name": "Material.003",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": true,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 512,
+                "height": 256,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 6,
+            "name": "Material.013",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              0.8,
+              0.8,
+              0.8
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 1,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {}
+          },
+          {
+            "id": 7,
+            "name": "Material.011",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 8,
+            "name": "Material.010",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 9,
+            "name": "Material.009",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 1,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 10,
+            "name": "Material.014",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 11,
+            "name": "Material.016",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              0.03444909815222689,
+              0.03444909815222689,
+              0.03444909815222689
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 0,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 12,
+            "name": "Material.007",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 1,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 2048,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 13,
+            "name": "Material.015",
+            "type": "MeshPhysicalMaterial",
+            "colour": [
+              0.03444909815222689,
+              0.03444909815222689,
+              0.03444909815222689
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 14,
+            "name": "Material.006",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 1,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 2048,
+                "height": 2048,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          },
+          {
+            "id": 15,
+            "name": "Material.012",
+            "type": "MeshStandardMaterial",
+            "colour": [
+              1,
+              1,
+              1
+            ],
+            "emissive": [
+              0,
+              0,
+              0
+            ],
+            "metalness": 0,
+            "roughness": 0.5,
+            "opacity": 1,
+            "alphaTest": 0,
+            "transparent": false,
+            "side": 2,
+            "vertexColors": false,
+            "maps": {
+              "map": {
+                "channel": 0,
+                "colorSpace": "srgb",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              },
+              "normalMap": {
+                "channel": 0,
+                "colorSpace": "",
+                "width": 1024,
+                "height": 1024,
+                "offset": [
+                  0,
+                  0
+                ],
+                "repeat": [
+                  1,
+                  1
+                ],
+                "rotation": 0,
+                "flipY": false
+              }
+            }
+          }
+        ]
+      },
+      "baseline": {
+        "triangles": 75903,
+        "atlas": true,
+        "textureBytes": 32768,
+        "paletteBytes": 512,
+        "warnings": [
+          "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
+          "Object_4: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_6: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_8: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_22: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_24: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_26: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_28: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_34: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_38: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_42: unused reduced-output attributes omitted: uv1; source retained.",
+          "Appearance error / protected topology prevent the requested budget: 75903 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+        ],
+        "regions": [
+          {
+            "region": "spine",
+            "material": "Material.001",
+            "before": 14026,
+            "after": 12710
+          },
+          {
+            "region": "head",
+            "material": "Material.001",
+            "before": 568,
+            "after": 524
+          },
+          {
+            "region": "hips",
+            "material": "Material.001",
+            "before": 854,
+            "after": 778
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 2348
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 2338
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 1176
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 1154
+          },
+          {
+            "region": "head",
+            "material": "Material.004",
+            "before": 1104,
+            "after": 1012
+          },
+          {
+            "region": "spine",
+            "material": "Material.002",
+            "before": 144,
+            "after": 126
+          },
+          {
+            "region": "head",
+            "material": "Material.002",
+            "before": 7508,
+            "after": 6816
+          },
+          {
+            "region": "head",
+            "material": "Material.005",
+            "before": 672,
+            "after": 602
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 616,
+            "after": 566
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 7898,
+            "after": 7676
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 584,
+            "after": 504
+          },
+          {
+            "region": "head",
+            "material": "Material.003",
+            "before": 584,
+            "after": 552
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 1328,
+            "after": 1302
+          },
+          {
+            "region": "spine",
+            "material": "Material.011",
+            "before": 458,
+            "after": 430
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 2897
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 2867
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 70
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 68
+          },
+          {
+            "region": "spine",
+            "material": "Material.009",
+            "before": 2606,
+            "after": 2356
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 1178
+          },
+          {
+            "region": "hips",
+            "material": "Material.009",
+            "before": 764,
+            "after": 720
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 1158
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 500
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 494
+          },
+          {
+            "region": "head",
+            "material": "Material.014",
+            "before": 1198,
+            "after": 1148
+          },
+          {
+            "region": "head",
+            "material": "Material.016",
+            "before": 156,
+            "after": 134
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 240,
+            "after": 240
+          },
+          {
+            "region": "spine",
+            "material": "Material.007",
+            "before": 4058,
+            "after": 3616
+          },
+          {
+            "region": "head",
+            "material": "Material.007",
+            "before": 1048,
+            "after": 1024
+          },
+          {
+            "region": "head",
+            "material": "Material.015",
+            "before": 6278,
+            "after": 6176
+          },
+          {
+            "region": "head",
+            "material": "Material.006",
+            "before": 3375,
+            "after": 3237
+          },
+          {
+            "region": "spine",
+            "material": "Material.006",
+            "before": 7232,
+            "after": 6866
+          },
+          {
+            "region": "hips",
+            "material": "Material.006",
+            "before": 22,
+            "after": 20
+          },
+          {
+            "region": "spine",
+            "material": "Material.013",
+            "before": 84,
+            "after": 84
+          },
+          {
+            "region": "spine",
+            "material": "Material.012",
+            "before": 458,
+            "after": 436
+          }
+        ]
+      },
+      "authentic": {
+        "triangles": 13631,
+        "atlas": true,
+        "textureBytes": 8192,
+        "paletteBytes": 512,
+        "warnings": [
+          "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
+          "Object_4: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_6: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_8: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_22: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_24: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_26: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_28: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_34: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_38: unused reduced-output attributes omitted: uv1; source retained.",
+          "Object_42: unused reduced-output attributes omitted: uv1; source retained.",
+          "Appearance error / protected topology prevent the requested budget: 13631 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
+        ],
+        "integrity": {
+          "triangles": 13631,
+          "openEdges": 7516,
+          "byRegion": {
+            "head": 5733,
+            "leftLowerLeg": 167,
+            "rightLowerLeg": 167,
+            "spine": 1449
+          },
+          "classifications": {
+            "preserved-source-mesh-border": 5605,
+            "measured-aperture-or-source-open": 1911
+          },
+          "unexpectedByRegion": {},
+          "sourceOpenEdges": 7528,
+          "sourceInconsistentWinding": 10,
+          "sourceNonmanifoldEdges": 46,
+          "unexpectedEdges": 0,
+          "inconsistentWinding": 0,
+          "nonmanifoldEdges": 124,
+          "degenerateTriangles": 0,
+          "note": "Open edges require contextual review: source clothing borders, measured face apertures and alpha cards are not automatically defects. No hole is silently filled."
+        },
+        "regions": [
+          {
+            "region": "spine",
+            "material": "Material.001",
+            "before": 14026,
+            "after": 226,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.001",
+            "before": 568,
+            "after": 136,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "Material.001",
+            "before": 854,
+            "after": 168,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 298,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 314,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 164,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.004",
+            "before": 1104,
+            "after": 144,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.002",
+            "before": 144,
+            "after": 60,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.002",
+            "before": 7508,
+            "after": 466,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.005",
+            "before": 672,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 616,
+            "after": 178,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 7898,
+            "after": 956,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 584,
+            "after": 126,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.003",
+            "before": 584,
+            "after": 188,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 1328,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.011",
+            "before": 458,
+            "after": 64,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 575,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 613,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 68,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.009",
+            "before": 2606,
+            "after": 274,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "Material.009",
+            "before": 764,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.014",
+            "before": 1198,
+            "after": 264,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.016",
+            "before": 156,
+            "after": 92,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 240,
+            "after": 240,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.007",
+            "before": 4058,
+            "after": 368,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.007",
+            "before": 1048,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.015",
+            "before": 6278,
+            "after": 4210,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "head",
+            "material": "Material.006",
+            "before": 3375,
+            "after": 779,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.006",
+            "before": 7232,
+            "after": 1134,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "hips",
+            "material": "Material.006",
+            "before": 22,
+            "after": 22,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.013",
+            "before": 84,
+            "after": 84,
+            "method": "Continuous body topology with invariant regional borders"
+          },
+          {
+            "region": "spine",
+            "material": "Material.012",
+            "before": 458,
+            "after": 64,
+            "method": "Continuous body topology with invariant regional borders"
+          }
+        ]
+      }
+    }
+  ]
+}
