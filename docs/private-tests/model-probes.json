@@ -2521,18 +2521,18 @@
       },
       "authentic": {
         "conversionPreset": "authentic",
-        "triangles": 4148,
+        "triangles": 3692,
         "atlas": false,
         "textureBytes": null,
         "paletteBytes": null,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
-          "Appearance error / protected topology prevent the requested budget: 4148 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 3692 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
           "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
         ],
         "integrity": {
-          "triangles": 4148,
+          "triangles": 3692,
           "openEdges": 482,
           "byRegion": {
             "head": 145,
@@ -2670,9 +2670,8 @@
             "region": "rightHand",
             "material": "jc_hand_tm2",
             "before": 512,
-            "after": 512,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "rightLowerArm",
@@ -2685,9 +2684,8 @@
             "region": "leftHand",
             "material": "jc_hand_tm2",
             "before": 512,
-            "after": 512,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "leftLowerArm",
@@ -5282,7 +5280,7 @@
       },
       "authentic": {
         "conversionPreset": "authentic",
-        "triangles": 22787,
+        "triangles": 15503,
         "atlas": true,
         "textureBytes": 8192,
         "paletteBytes": 512,
@@ -5298,11 +5296,11 @@
           "Object_34: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_38: unused reduced-output attributes omitted: uv1; source retained.",
           "Object_42: unused reduced-output attributes omitted: uv1; source retained.",
-          "Appearance error / protected topology prevent the requested budget: 22787 > 900. See per-region budget diagnostics. Export will enforce limits.",
+          "Appearance error / protected topology prevent the requested budget: 15503 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "integrity": {
-          "triangles": 22787,
+          "triangles": 15503,
           "openEdges": 7516,
           "byRegion": {
             "head": 5733,
@@ -5330,9 +5328,8 @@
             "region": "leftHand",
             "material": "Material.001",
             "before": 3854,
-            "after": 3854,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 404,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "spine",
@@ -5401,9 +5398,8 @@
             "region": "rightHand",
             "material": "Material.001",
             "before": 3854,
-            "after": 3854,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 392,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "rightUpperLeg",
@@ -5486,9 +5482,8 @@
             "region": "rightHand",
             "material": "Material.011",
             "before": 398,
-            "after": 398,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "rightLowerArm",
@@ -5635,16 +5630,14 @@
             "material": "Material.013",
             "before": 84,
             "after": 84,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "leftHand",
             "material": "Material.012",
             "before": 398,
-            "after": 398,
-            "method": "reliable source hand retained",
-            "reason": "No reliable hand rig or UV surface"
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields"
           },
           {
             "region": "leftLowerArm",
