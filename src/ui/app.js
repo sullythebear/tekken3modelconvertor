@@ -1,3 +1,4 @@
+import {diagnoseMaterialVisibility} from '../core/material-visibility.js';
 import {installWorkspace} from './workspace.js';
 import {sceneIntegrity} from '../core/mesh-integrity.js';
 import {snapshotProjectMapping,restoreProjectMapping} from '../core/skeleton.js';
@@ -1233,6 +1234,7 @@ if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
     get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
+    diagnoseMaterialVisibility,
     sceneIntegrity,
     setReconstruction(stage) { artProfile.reconstruction=stage; },
     syntheticCharacter,
