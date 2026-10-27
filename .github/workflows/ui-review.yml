@@ -22,12 +22,26 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Use the installed Edge browser for source renderer integrations
+        shell: pwsh
+        run: |
+          $edge = @("${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $edge) { throw 'Source integration browser unavailable' }
+          "CHROMIUM_PATH=$edge" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - run: New-Item -ItemType Directory -Force artifacts/ui-redesign/checks
       - name: Full unchanged conversion suite and presentation preferences
         run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ui-redesign/checks/windows-unit.xml "tests/*.test.mjs"
       - run: npm run build
       - run: node scripts/desktop-test.mjs
-      - run: node scripts/skinning-test.mjs
+      - name: Source skinning CPU / GPU integration in installed Edge
+        shell: pwsh
+        run: |
+          node scripts/skinning-test.mjs 2>&1 | Tee-Object artifacts/ui-redesign/checks/windows-skinning.log
+          if ($LASTEXITCODE -ne 0) {
+            $tail = (Get-Content artifacts/ui-redesign/checks/windows-skinning.log -Tail 25) -join ' '
+            Write-Output "::error title=Windows source skinning integration failed::$tail"
+            exit 1
+          }
       - run: node scripts/source-mapping-test.mjs
       - run: node scripts/native-visual.mjs
       - run: node scripts/native-humanoid.mjs
@@ -90,3 +104,4 @@ jobs:
             public-ui-review/
             artifacts/ui-redesign/after/results.json
             artifacts/ui-redesign/checks/windows-unit.xml
+            artifacts/ui-redesign/checks/*.log
