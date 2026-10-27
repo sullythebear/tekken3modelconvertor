@@ -289,9 +289,9 @@ export async function convertCharacter(
     if(art&&stage==='combined'&&/^(left|right)Hand$/.test(p.role)){
       const hand=p.mesh.skeleton?.bones.find(b=>boneSemantic(b)===p.role),candidate=reconstructAnatomicalHand(g,p.material,{mesh:p.mesh,hand,simplifier:MeshoptSimplifier});
       if(candidate.geometry){p.protectedPoints=candidate.preservationPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(candidate.material);p.mesh.material=mats;p.material=candidate.material;const{geometry,material,...metadata}=candidate;reconstruction=metadata;}
-      else reconstruction={method:'source hand fallback',reason:candidate.reason};
+      else reconstruction={method:'reliable source hand retained',reason:candidate.reason,preserveSourceTopology:true};
     }
-    if (art && !reconstruction?.generatedVertices) {
+    if (art && !reconstruction?.generatedVertices && !reconstruction?.preserveSourceTopology) {
       const fallbackReason=reconstruction?.reason;
       const shells=art.occlusionCleanup&&/body/i.test(p.material?.name)?removeOccludedShells(g,new Uint32Array(g.index.array)):null;
       if(shells?.removed)g.setIndex(new THREE.BufferAttribute(shells.indices,1));

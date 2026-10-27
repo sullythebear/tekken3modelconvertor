@@ -2,7 +2,7 @@ name: Private multi-character inventory
 on:
   push:
     branches: [development/070-multi-character]
-    paths: ['scripts/private-character-*', '.github/workflows/private-character-inventory.yml']
+    paths: ['src/core/**', 'scripts/private-character-*', '.github/workflows/private-character-inventory.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +31,7 @@ jobs:
         run: node --use-env-proxy scripts/private-character-download.mjs
       - name: Bound extraction and inspect actual glTF metadata
         run: python scripts/private-character-inventory.py
+      - run: node --test "tests/*.test.mjs"
       - run: npm run build
       - name: Actual private model imports and conversion diagnostics
         run: node scripts/private-character-probe.mjs

@@ -1,3 +1,4 @@
+import {staticArmRegion} from './static-extremities.js';
 import {forEachInfluence, skinSets} from "./skinning.js";
 import * as THREE from "three";
 // Semantic names are distinct from Namco row numbers. Additional donor profiles can share them.
@@ -169,6 +170,8 @@ export function vertexRegion(mesh, index, box) {
     .applyMatrix4(mesh.matrixWorld);
   const h = (p.y - box.min.y) / Math.max(box.max.y - box.min.y, 1e-6),
     left = p.x > (box.min.x + box.max.x) / 2;
+  const extremity=!mesh.isSkinnedMesh&&!si&&!sw?staticArmRegion(p,box):null;
+  if(extremity)return extremity;
   if (h > 0.82) return "head";
   if (h > 0.5) return "spine";
   if (h > 0.43) return "hips";
