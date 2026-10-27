@@ -4,6 +4,7 @@
   "requestedTriangles": 1750,
   "triangles": 2474,
   "optimization": {
+    "binaryCutoutPreparation": true,
     "collarReduction": {
       "before": 7481,
       "after": 7441,

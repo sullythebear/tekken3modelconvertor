@@ -25,6 +25,7 @@ const receipts = [
   "windows-desktop.json",
   "windows-portable.json",
   "windows-nikki-project.json",
+  "windows-cutout-mode.json",
   "WINDOWS-STATUS.md",
 ];
 if (process.env.WINDOWS_RECEIPTS === "1") {
@@ -43,6 +44,7 @@ if (process.env.WINDOWS_RECEIPTS === "1") {
   assert.equal(project.privateTemporaryFilesRemoved, true);
   assert.equal(project.rawAssetReuse?.reusedFiles, 24);
   assert.equal(project.rawAssetReuse?.reusedBytes, 232047502);
+  const cutout=JSON.parse(await readFile(root+'/windows-cutout-mode.json','utf8'));assert.equal(cutout.status,'PASS');assert.equal(cutout.packaged,true);assert.equal(cutout.version,manifest.version);assert.ok(cutout.results.some(r=>!r.bake&&r.after.soft>0&&r.after.mode===false));assert.ok(cutout.results.some(r=>r.bake&&r.after.soft===0&&r.after.mode===true));
   for (const file of receipts) {
     const b = await readFile(path.join(root, file));
     manifest.files = manifest.files.filter((f) => f.path !== file);

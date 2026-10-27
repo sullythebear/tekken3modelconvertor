@@ -1,5 +1,5 @@
 {
-  "version": "0.7.0-dev.9",
+  "version": "0.7.0-dev.9.1",
   "baselineCommit": "b04f9bcefe7d44793e9107ef8fa7d75719e79033",
   "gameVerified": false,
   "artisticAcceptance": "PENDING USER REVIEW",
@@ -24375,6 +24375,7 @@
       "requestedTriangles": 1500,
       "triangles": 2475,
       "optimization": {
+        "binaryCutoutPreparation": true,
         "collarReduction": {
           "before": 7481,
           "after": 7441,
@@ -26804,6 +26805,7 @@
       "requestedTriangles": 1750,
       "triangles": 2474,
       "optimization": {
+        "binaryCutoutPreparation": true,
         "collarReduction": {
           "before": 7481,
           "after": 7441,
@@ -29247,6 +29249,7 @@
       "requestedTriangles": 2000,
       "triangles": 2513,
       "optimization": {
+        "binaryCutoutPreparation": true,
         "collarReduction": {
           "before": 7481,
           "after": 7441,
@@ -31690,6 +31693,7 @@
       "requestedTriangles": 2250,
       "triangles": 2624,
       "optimization": {
+        "binaryCutoutPreparation": true,
         "collarReduction": {
           "before": 7481,
           "after": 7441,
@@ -34133,6 +34137,7 @@
       "requestedTriangles": 2500,
       "triangles": 2794,
       "optimization": {
+        "binaryCutoutPreparation": true,
         "collarReduction": {
           "before": 7481,
           "after": 7441,
@@ -36684,7 +36689,7 @@
     "src/core/converter.js": "28bc984c3ae4745b7ce9053f8dca63a0b73a33b8fdef9648b085b2e4e86a9511",
     "src/core/crease-features.js": "862257ce2f485a0cf13518bde341fc6389a58541dfc2134fbbb6848aedae97b0",
     "src/core/curvature-topology.js": "3132deb315fce82567af0b129ac571b13b2ceae5db2dcfdbf1d0e0142fe74be6",
-    "src/core/cutout-visibility.js": "3bdccb2766c4783fb48c253fae87033af67a6dd6b3bd4a3b89f253df147e19ab",
+    "src/core/cutout-visibility.js": "8431473709a64a3dae12ab2b137ea38270703ec0b37a2fde76ca84877a54cf9e",
     "src/core/disc-image.mjs": "7687b6477074341373fcd2eb0aae1f27d5588140fd4d5d6ff31e9a756e5281b3",
     "src/core/donor-package.js": "4ad5424a255e4f213b31ffb4bed8588e6fab3789f55cdcfdf6e15bff78ef2b73",
     "src/core/donor.js": "00b5d5ee52cdc82e5f9cb1213a70272c97c991880ee9c02372a14178b25ced64",
@@ -36694,7 +36699,7 @@
     "src/core/fixture-native.js": "3bdfea0f9cf94190d7901236d6fd5f97eca9d0785950fd80b14018d9a32c95c5",
     "src/core/fixture.js": "2c060e326eb59458a009cda420fc63706e1bcfa4c3ed3bd39ddd370e4bddcde8",
     "src/core/game-backup.js": "faaf5aa9e1a59aa5ff9d66ec8bc752508a35c5e33626755198a1f3e5f0bf6bae",
-    "src/core/game-optimization.js": "ebfee3b8f3ff0741b8c0dbbf958b10ef5158393e40435be5fa26f6713f4edabc",
+    "src/core/game-optimization.js": "96489f78c5363f8b388725a6447611e45d207ce969bacfc8ebcf4d9c66ee84e5",
     "src/core/garment-segmentation.js": "710ea80c28932fac110b842d8c8e82826ed656031ceb727f38be4d14dbfadf0d",
     "src/core/hair-volume.js": "5252d937c1fb802082ceed03b5d92f9bae8e91c982d0534c309f8907a2bd4b3f",
     "src/core/hand-bake.js": "cf82c458a59092bdf4b367c677a9a4ccf4653d92464e56560d3b2464697c61e7",
@@ -36736,7 +36741,7 @@
     "src/core/uv-reconstruction.js": "ab996b97990116e3bb6fa7b75050cb29f8de7a77c7db8113a6d870c289c506f7",
     "src/core/winding.js": "b39c1672b0e3f338572557d84359fca3e2a8c052f14d48834eddb77cd059cbfc",
     "src/core/working-geometry.js": "2537b27501a350e10b310648a1075bca84f7fd0487e00df3a7af895605668221",
-    "src/ui/app.js": "e9e7185cd431ddc353a276f8d1a9023a71101a17fc3c609106ea71ea77cc3cd0",
+    "src/ui/app.js": "e6ab9eb8bc20d29e8334a834195c6a07324828bbacaf2cc9478340a2fe6b0092",
     "src/ui/index.html": "33d70de84763b04da0e94b8ea92af3680885d63f91e965a714d8ab342f857761",
     "src/ui/landmark-editor.js": "e11e888bae8b7a4d2db77c381bd48c389c32f473fc84de2994961db3851012fc",
     "src/ui/ps1-preview.js": "24b4cff4cfc66495ea28e9d492afb55e9fb9719b1196026ec3d9d88c857a98f8",
@@ -36750,8 +36755,8 @@
   "buildHashes": {
     "scripts/build.mjs": "91331cb87d968942d80cabedaf0b6f1673b9b1ee581a08c9fc92097e8a6b6ea2",
     "scripts/extended-loader-patches.mjs": "81a516e8369586a854ec66057db02db0fd9ffef81fb35991d5f588a0c2e78b63",
-    "package-lock.json": "c8f915c8e3f069e4f999499f907c14d6ad4c294ce6f044d93ae5aa2ed565728c",
-    "dist/app.js": "006952399393b220427aace57d798c1701c0be27559f794391504df104acdaff"
+    "package-lock.json": "ac1931c6ee4c58cd718352922e69635c4958c07147239742b3527f08dd84c927",
+    "dist/app.js": "aa204dee0220c387a3e3493c18da04bab2acc9cc2769afac3fd878bc5debf8c8"
   },
   "sourceAnimationClips": 0,
   "retainedReviewPNGCount": 443

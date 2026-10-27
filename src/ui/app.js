@@ -1269,7 +1269,7 @@ $('optimize-candidate').onclick=async()=>{
  if(!converted||busy||artDirty)return;
  setBusy(true);
  try{
-  const candidate=await optimizeGameCandidate(converted,{triangles:Number($('triangles').value)});
+  const candidate=await optimizeGameCandidate(converted,{triangles:Number($('triangles').value),binaryCutout:$('bake').checked});
   const baked=$('bake').checked?await bakeAtlas(candidate,{art:candidate.settings.art}):null;
   if(atlas)disposeScene(atlas.root);disposeScene(converted.root);converted=candidate;atlas=baked;
   resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();

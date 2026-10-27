@@ -160,3 +160,13 @@ test("Candidate optimization removes only proven cutout-invisible faces and keep
   assert.equal(result.quality.integrity.unexpectedEdges, 0);
   assert.equal(result.gameVerified, false);
 });
+
+test('Geometry-only preparation retains blended material when no binary cutoff is active',()=>{
+ const material=new THREE.MeshBasicMaterial({transparent:true,opacity:.08});const proof=cutoutOpacityBound(material,{binaryCutout:false});assert.equal(proof.invisible,false);assert.equal(proof.threshold,null);assert.equal(material.opacity,.08);assert.equal(cutoutOpacityBound(material,{binaryCutout:'false'}).invisible,false);assert.equal(cutoutOpacityBound(material).invisible,true,'Existing baked default remains a valid strict bound');
+});
+test('A material-owned alpha test remains a real visibility bound in geometry-only mode',()=>{
+ const material=new THREE.MeshBasicMaterial({transparent:true,opacity:.08,alphaTest:.1});assert.equal(cutoutOpacityBound(material,{binaryCutout:false}).invisible,true);material.opacity=.1;assert.equal(cutoutOpacityBound(material,{binaryCutout:false}).invisible,false);
+});
+test('Unbaked candidate mode preserves soft geometry and reports the actual rendering assumption',async()=>{
+ const{optimizeGameCandidate}=await import('../src/core/game-optimization.js'),{inspectScene}=await import('../src/core/importer.js');const root=new THREE.Group(),a=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial()),b=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial({transparent:true,opacity:.08}));b.position.x=2;root.add(a,b);const input={root,stats:inspectScene(root),settings:{triangles:900},warnings:[],quality:{}},result=await optimizeGameCandidate(input,{triangles:100,binaryCutout:false});assert.equal(result.stats.triangles,24);assert.equal(result.optimization.binaryCutoutPreparation,false);assert.equal(result.optimization.removedEmptyRenderNodes,0);assert.ok(result.report.every(r=>!r.cutoutVisibility.invisible));assert.equal(inspectScene(root).triangles,24);
+});

@@ -8,7 +8,7 @@ import {
 import { createHash } from "node:crypto";
 import path from "node:path";
 const root = "public-review",
-  version = "0.7.0-dev.9",
+  version = JSON.parse(await readFile("package.json","utf8")).version,
   hash = (b) => createHash("sha256").update(b).digest("hex");
 const unit = await readFile("artifacts/dev9/final-unit.xml", "utf8"),
   count = (n) =>
@@ -18,7 +18,7 @@ const unit = await readFile("artifacts/dev9/final-unit.xml", "utf8"),
     failed: count("fail"),
     skipped: count("skipped"),
   };
-if (tests.passed < 242 || tests.failed !== 0 || tests.skipped !== 0)
+if (tests.passed < 245 || tests.failed !== 0 || tests.skipped !== 0)
   throw Error("Full dev.9 unit suite not passed");
 const files = [];
 async function include(from, to) {
@@ -42,7 +42,7 @@ for (const name of [
   "portable-source",
   "reference",
   "visual",
-  "art-presets",
+  "art-presets", "cutout-mode",
 ])
   await include(`artifacts/dev9/final-${name}.log`, `dev9-${name}.txt`);
 for (const name of [
@@ -87,7 +87,7 @@ await writeFile(
 files.push("cloud-validation.json");
 await writeFile(
   root + "/index.html",
-  '<!doctype html><html lang="nl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Dev.9 visuele beoordeling</title><h1>Tekken 3 Conversion Studio 0.7.0-dev.9</h1><p><a href="dev9/index.html">Open het volledige HTML-vergelijkingsrapport</a></p><p><a href="REVIEW.md">Teststatus en resterende problemen</a> · <a href="WINDOWS-STATUS.md">Windows-metingen</a></p><p>Menselijke artistieke goedkeuring en echte gamevalidatie ontbreken nog. Geen originele bronassets, textures, projecten of gamebestanden opgenomen.</p></html>',
+  '<!doctype html><html lang="nl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Dev.9 visuele beoordeling</title><h1>Tekken 3 Conversion Studio 0.7.0-dev.9</h1><p><a href="dev9/index.html">Open het volledige HTML-vergelijkingsrapport</a></p><p><a href="REVIEW.md">Teststatus en resterende problemen</a> · <a href="WINDOWS-STATUS.md">Windows-metingen</a></p><p>Menselijke artistieke goedkeuring en echte gamevalidatie ontbreken nog. Geen originele bronassets, textures, projecten of gamebestanden opgenomen.</p></html>'.replaceAll('0.7.0-dev.9', version),
 );
 files.push("index.html");
 files.push("WINDOWS-STATUS.md");

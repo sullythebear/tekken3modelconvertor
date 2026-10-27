@@ -39,6 +39,12 @@ jobs:
           NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
         run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: Verify both bake modes in the actual packaged application
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_RUN_OUTPUT: artifacts/cutout-mode
+        run: node scripts/cutout-mode-test.mjs
       - name: Collect review without source models or game files
         env:
           NIKKI_OUTCOME: ${{ steps.nikki.outcome }}
@@ -48,6 +54,7 @@ jobs:
           Copy-Item artifacts/desktop/runtime.json public-review/windows-desktop.json
           Copy-Item artifacts/portable-smoke/windows.json public-review/windows-portable.json
           Copy-Item artifacts/project-roundtrip/results.json public-review/windows-nikki-project.json
+          Copy-Item artifacts/cutout-mode/results.json public-review/windows-cutout-mode.json
           $bad = Get-ChildItem public-review -Recurse -File | Where-Object { $_.Extension -notin '.png','.html','.json','.xml','.txt','.md' }
           if ($bad) { throw "Unexpected file in public review" }
           node scripts/windows-review-status.mjs

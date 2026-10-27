@@ -1,0 +1,1 @@
+UI bake-mode regression: blended geometry retained without an atlas; proven binary-cutout culling preserved with an atlas.

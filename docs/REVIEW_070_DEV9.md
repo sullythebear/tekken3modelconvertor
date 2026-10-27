@@ -47,7 +47,7 @@ Het beschermde gezichtsinterieur en zijn onbewerkte texture zijn hash-identiek a
 
 ## Tests en herhaalbaarheid
 
-- **242 unit-/integratietests PASS**, 0 fail, 0 skip: zie `cloud-unit.xml`. De Windows-suite wordt afzonderlijk uitgevoerd en opgenomen als `windows-unit.xml`.
+- **245 unit-/integratietests PASS**, 0 fail, 0 skip: zie `cloud-unit.xml`. De Windows-suite wordt afzonderlijk uitgevoerd en opgenomen als `windows-unit.xml`.
 - Nikki FBX + 23 TGA's; Cesium Man; twee authored kapsels. Alle vier volledige modelroutes, GLB-inhoud en TIM-data zijn opnieuw gecontroleerd.
 - Binary FBX 7400/7500/7700, twaalf influences, CPU/GPU **0 pixel mismatch**, source mapping, native synthetische fixtures, desktop backup/extract/import/export-IPC en source-Electron-smoke opnieuw geslaagd.
 - De volledige privé-Nikki-projectronde verifieert alle **24 bronassets byte-identiek**; project-ZIP **49.789.433 bytes**. Bij heropenen worden **232.047.502 ruwe bytes** pas na volledige vergelijking gedeeld. Dit is geen zelfstandig bewijs van een even grote RSS-besparing.
@@ -92,3 +92,9 @@ De cloudcontrole controleert alle 432 afbeeldingverwijzingen en 449 relatieve li
 Nikki bevat in de huidige input **0 bronanimatieclips en 0 animatietracks**. Onder de eigen arms-raised-FK-proef hebben ook oorspronkelijke schouder/armranden rekverhoudingen tot circa 6,45. De conversie behoudt zulke bronovergangen, maar langere low-poly-randen vergroten hun absolute verlenging. Het rapport toont beide afzonderlijk en trekt geen artistieke conclusie uit edge-aantallen bij verschillende tessellatie. Dit verklaart een deel van de blokkade, maar verklaart de zichtbare converterartefacten niet weg.
 
 Een betrouwbare aanvullende invoer is een echte armraise-, guard- of punch-clip op dezelfde bronrig, inclusief eventuele twist-/corrective-bones, of gevalideerde overeenkomstige jointtransformaties. Zonder die referentie wordt aangenomen correctiebone-aansturing niet als geverifieerde animatiecompatibiliteit gepresenteerd.
+
+## Noodzakelijke correctie 0.7.0-dev.9.1
+
+Na de afzonderlijk gepubliceerde dev.9 is een fout gereproduceerd bij **Bake atlas uit**: de kandidaatoptimalisatie behandelde zwak blended bronmateriaal ten onrechte als een binaire cutout en verwijderde zichtbaar materiaal. De bestaande UI geeft nu de werkelijke bakemodus door. Zonder actieve cutout blijven transparante bronmaterialen behouden; een expliciete materiaal-alphaTest blijft geldig. De standaard gebakken route en de artistieke reconstructie veranderen niet.
+
+Een eigen GLB met opacity 0,08 reproduceerde de fout vóór de correctie. De echte UI-test controleert nu beide checkboxstanden en de BLEND/opacity-inhoud van de GLB-export: zonder bakken 24 → 24 triangles en behoud van blending; met bakken 24 → 12 en alleen verwijdering van bewezen onzichtbare faces. Drie nieuwe regressietests brengen de volledige suite op **245 PASS**, nul fail/skip. De Windows-publicatie vereist dezelfde test opnieuw in de werkelijk verpakte applicatie, met een aparte `windows-cutout-mode.json`-receipt. Dev.9 en zijn tag/downloads blijven ongewijzigd.

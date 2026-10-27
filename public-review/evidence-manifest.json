@@ -1,9 +1,9 @@
 {
-  "version": "0.7.0-dev.9",
+  "version": "0.7.0-dev.9.1",
   "galleryPath": "dev9/index.html",
-  "generated": "2026-10-26T17:37:59.546Z",
+  "generated": "2026-10-27T10:43:15.625Z",
   "tests": {
-    "passed": 242,
+    "passed": 245,
     "failed": 0,
     "skipped": 0
   },
@@ -13,13 +13,13 @@
   "files": [
     {
       "path": "DEV9_WORKLOG.md",
-      "bytes": 37856,
-      "sha256": "c1715bfb1cf78996fe9b483ba36b786f77559093a5f9d120c0b1d2ff4ecc6ec2"
+      "bytes": 39757,
+      "sha256": "72a1855ba61fbf66433383e027fd420b4a9688156a56133e4fb9e370fb294da6"
     },
     {
       "path": "REVIEW.md",
-      "bytes": 11393,
-      "sha256": "0bc168344cd1380afd4eebbd1cd56befbe22e99b26b52c955779b89cac1c0075"
+      "bytes": 12494,
+      "sha256": "7bc0873e8ad53f10cd5084f66b7352aa3d6ce00d2c863257b70c28ac9f5e268f"
     },
     {
       "path": "WINDOWS-STATUS.md",
@@ -33,18 +33,23 @@
     },
     {
       "path": "cloud-unit.xml",
-      "bytes": 51023,
-      "sha256": "f4729e318846b3989f6edd8667503cce72c7264515091c7b2fcd481873ac3dec"
+      "bytes": 51657,
+      "sha256": "834e8ee910e5c07d6469e961e4929d450029908e87307a9a185dab9336f87e39"
     },
     {
       "path": "cloud-validation.json",
-      "bytes": 91116,
-      "sha256": "c7a1e3758a181c8767be8bcbb0b9bdb9c9f6279d6692f72560d98eda8bfebc62"
+      "bytes": 91118,
+      "sha256": "fb267355252b85ebf1a1868874e28dbb646d80bbdf7108b902d9ff47c99ff7c0"
     },
     {
       "path": "dev9-art-presets.txt",
       "bytes": 239,
       "sha256": "382671d582785557d519361b8a683c274c77c9843a7d23f3a49f7234b2917fe6"
+    },
+    {
+      "path": "dev9-cutout-mode.txt",
+      "bytes": 123,
+      "sha256": "71621758c34537963eda3b72a920d0e721402cd5897f0957326b98f4752c417e"
     },
     {
       "path": "dev9-desktop.txt",
@@ -198,8 +203,8 @@
     },
     {
       "path": "dev9/budget1500/nikki/measurements.json",
-      "bytes": 72223,
-      "sha256": "1ddc41a412b09b9e00281820068f3c61c11ec4d685b90a79816a7793b502d9b6"
+      "bytes": 72260,
+      "sha256": "d0a2ccd3d1de2cb28fbc05936052466351d1bfdcd10aa834ff4e8aea17c7b681"
     },
     {
       "path": "dev9/budget1500/nikki/right-hand-back-prepared.png",
@@ -268,8 +273,8 @@
     },
     {
       "path": "dev9/budget1750/nikki/measurements.json",
-      "bytes": 72502,
-      "sha256": "8fd2b2dc812a113b95f129ff5a6ceb5275649b6457fb85fe5b03c158c95cd633"
+      "bytes": 72539,
+      "sha256": "4589d4f0b60eeab60672c49d7638db2a62841e69cfec907396714ace0db104aa"
     },
     {
       "path": "dev9/budget1750/nikki/right-hand-back-prepared.png",
@@ -338,8 +343,8 @@
     },
     {
       "path": "dev9/budget2000/nikki/measurements.json",
-      "bytes": 72509,
-      "sha256": "58eb4adab1ee3857cc6d61ca5c98c5f96a662e28aa20451065fca90a713a6c40"
+      "bytes": 72546,
+      "sha256": "f429601910570a43e3cc65f765b25c6d0cb5c404297936d50aec68ac9100b4e7"
     },
     {
       "path": "dev9/budget2000/nikki/right-hand-back-prepared.png",
@@ -408,8 +413,8 @@
     },
     {
       "path": "dev9/budget2250/nikki/measurements.json",
-      "bytes": 72517,
-      "sha256": "b181ed4267d901a414e0c05dd51e2b7739f0f79e9d7e8a48a3211b21424c6f7c"
+      "bytes": 72554,
+      "sha256": "2136c2c26752c9cc7048be0feae58f21564944919c634873ef8b25017e1019fd"
     },
     {
       "path": "dev9/budget2250/nikki/right-hand-back-prepared.png",
@@ -478,8 +483,8 @@
     },
     {
       "path": "dev9/budget2500/nikki/measurements.json",
-      "bytes": 72575,
-      "sha256": "3c0d3544decfa5189f676331bf6d08db509fef82a26610fb23b96364b6ae5d62"
+      "bytes": 72612,
+      "sha256": "087b6c87bf9ef762c635ee7fca93a5624ea5474019e45ac4180a6cc297ed4487"
     },
     {
       "path": "dev9/budget2500/nikki/right-hand-back-prepared.png",
@@ -2318,8 +2323,8 @@
     },
     {
       "path": "dev9/gallery-browser.json",
-      "bytes": 491,
-      "sha256": "d9748b4aca07d85b6b1ea3e403ff6a6bc8103c2184477903b06843685db0dd11"
+      "bytes": 493,
+      "sha256": "bef3cc76163816e39408e4bdde54646ee972bdbb8b8b28cc4a72d4fb55790758"
     },
     {
       "path": "dev9/hand-bake-paired.json",
@@ -2328,8 +2333,8 @@
     },
     {
       "path": "dev9/index.html",
-      "bytes": 102090,
-      "sha256": "3eb85e36e1b89eeeec065f02294db54c53d81b48e7b8a21935eac3e8f6178aea"
+      "bytes": 102092,
+      "sha256": "6071be18c4cf6f139ee1e54b43e7d1a25fc4ebb450966ec1ec4ae1bec296e468"
     },
     {
       "path": "dev9/lookup-image-provenance.json",
@@ -2458,8 +2463,8 @@
     },
     {
       "path": "dev9/technical-summary.json",
-      "bytes": 1227520,
-      "sha256": "0b623692b916a4d7a0fd270b5213d440a984b4c3795fe209f5d9e8868044287e"
+      "bytes": 1227727,
+      "sha256": "01331073cd9d212996a2d4bac1ee911b27f10c73dcfba2259779d5b3b637f145"
     },
     {
       "path": "dev9/windows-source-comparison.json",
@@ -2468,8 +2473,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 549,
-      "sha256": "1f89daf20c0c9f1bcfad5c441d2cd4f7d656bfd7cbcf9a677d9fc00425fdea53"
+      "bytes": 551,
+      "sha256": "2df089d9662ab21392e2965ee4f04ff597088fef3e98d9ac3df7cbb530503140"
     }
   ]
 }

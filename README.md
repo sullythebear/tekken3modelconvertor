@@ -1,4 +1,4 @@
-0.7.0-dev.9: source-fitted fingers, repaired source skin transfer and byte-identical raw asset reuse and measured parser heap retention; see [review notes](docs/REVIEW_070_DEV9.md) and [resumable worklog](docs/DEV9_WORKLOG.md). Human artistic approval and actual Nina/Expanded gameplay remain pending. Windows and HTML review downloads are published only after their required checks pass.
+0.7.0-dev.9.1: bake-disabled transparency preserved; source-fitted fingers, repaired source skin transfer and byte-identical raw asset reuse and measured parser heap retention; see [review notes](docs/REVIEW_070_DEV9.md) and [resumable worklog](docs/DEV9_WORKLOG.md). Human artistic approval and actual Nina/Expanded gameplay remain pending. Windows and HTML review downloads are published only after their required checks pass.
 
 0.7.0-dev.8: source-projected hand sampling and tangent-space skin baking; see [review notes](docs/REVIEW_070_DEV8.md). Artistic acceptance and actual gameplay remain unverified.
 

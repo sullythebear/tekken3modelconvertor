@@ -210,3 +210,16 @@ Checkpointcontrole: cyclus-8-gallery is afgerond voor Nikki 7481 / Cesium 1122 /
 
 - Afgebakende proef gebruikte echte albedo-informatie in bestaande zachte normal-kostslots, zonder extra attributen of polygonbudget. Schouderregio's bleven sterk door hun bronranden bepaald: **7481 triangles en 24/24 gemeenschappelijke prepared-PNG's exact gelijk**. Geen aantoonbare beeldwinst; specifieke proef volledig teruggedraaid. Geen hogere willekeurige kostenfactoren geprobeerd. Meetuitkomst: `rejected-appearance-experiment.json`.
 - De huidige source-rigdiagnostiek meldt ook bij het oorspronkelijke Nikki-model grote edge-ratio's. Die kunnen van zeer korte randen of van onvolledig aangestuurde correctiebones komen; dit wordt niet zonder lokalisatie aan de oksels toegeschreven. Nieuwe aggregate-diagnostiek scheidt ratio's van absolute toename ten opzichte van de karakterhoogte en noteert echte bronclipaantallen. Alleen eigen botrotaties zijn geen echte bronanimaties.
+
+### Publicatie dev.9 gecontroleerd — 928e47f
+
+- Windows-run 40371152290 geslaagd: 242 tests, portable EXE gestart, verpakte Nikki-projectronde met 24 byte-identieke assets, offline Windows Edge file://-rapport met 432 beelden. Beide releasebestanden daadwerkelijk gedownload (HTTP 200), alle 498 manifestbestanden/hashwaarden en ZIP-CRC’s gecontroleerd; geen privé-assets. Tag v0.7.0-dev.9 blijft onveranderd.
+- Windows: save 4423 ms, reopen 5291 ms, eerste conversie 6155 ms; ZIP 49.789.433 B. Summed WS 3.318.036 KiB, private committed 3.115.396 KiB; harness 651.497.472 B afzonderlijk. Geen unieke-RAM-claim.
+- PR-aanmaak geweigerd door repositorybeleid: GitHub Actions is not permitted to create or approve pull requests (createPullRequest). Main ongewijzigd. Artistieke beoordeling nog niet ontvangen.
+
+### Cyclus 21 — noodzakelijke dev.9.1-correctie voor Bake atlas uit
+
+- Werkelijke UI-reproductie vóór wijziging faalde: een authored opacity-0,08 BLEND-materiaal verdween na kandidaatoptimalisatie wanneer de bestaande Bake atlas-checkbox uit stond. Standaard gebakken route niet getroffen.
+- Binary-cutoutbewijs is nu expliciet gekoppeld aan de echte bakemodus. Zonder bakken en zonder eigen materiaal-alphaTest blijft bronblending behouden. Onbekende modi worden conservatief behouden/geweigerd. GLB-export behoudt BLEND en opacity.
+- Drie nieuwe tests; **245 volledige tests PASS**, 0 fail/skip. Echte UI beide standen PASS, ongebakken 24 → 24, gebakken 24 → 12. Nieuwe Windows-workflowgate test dit eveneens in de werkelijk verpakte EXE; pas daarna mag een aparte v0.7.0-dev.9.1 verschijnen.
+- Eerstvolgende actie: volledige vier-model-/vijf-budgetgalerij controleren op ongewijzigde standaarduitvoer; veilige manifestpayload vernieuwen, patch committen en pushen, Windows-resultaten en beide nieuwe downloads verifiëren. Geen nieuwe artistieke claims of automatische merge.

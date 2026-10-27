@@ -3,15 +3,18 @@ import * as THREE from "three";
 // A conservative upper bound for the existing binary-cutout preparation and
 // material sampler. This says nothing about the original blended source view.
 // No texture pixels, material names or imported userData are trusted as proof.
-export function cutoutOpacityBound(material, { cutoff = 0.5 } = {}) {
+export function cutoutOpacityBound(material, { cutoff = 0.5, binaryCutout = true } = {}) {
   const opacity = material.opacity ?? 1,
-    threshold = material.alphaTest > 0 ? material.alphaTest : cutoff;
+    threshold = material.alphaTest > 0 ? material.alphaTest : binaryCutout ? cutoff : null;
   const retain = (reason) => ({
     invisible: false,
     maxAlpha: Number.isFinite(opacity) ? opacity : null,
     threshold,
     reason,
   });
+  if (typeof binaryCutout !== "boolean") return retain("Unknown rendering mode; source rendering retained");
+  if (!binaryCutout && !(material.alphaTest > 0))
+    return retain("No binary cutout is active for this material; source rendering retained");
   if (
     !Number.isFinite(opacity) ||
     opacity < 0 ||
