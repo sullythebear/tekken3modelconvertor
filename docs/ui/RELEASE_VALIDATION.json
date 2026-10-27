@@ -1,0 +1,112 @@
+{
+  "version": "0.7.0-dev.9-ui.1",
+  "sourceCommit": "d64351dd628586f31aec8b5c9b1280a3d209b4ac",
+  "run": "https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40586622864",
+  "workflowState": {
+    "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+    "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+  },
+  "exe": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9-ui.1/Tekken3ConversionStudio-0.7.0-dev.9-ui.1-x64.exe",
+    "http": 200,
+    "bytes": 102910032,
+    "sha256": "5f567e4ded61eaf79b70c20103e5314d235a40b0f2239fd18b5b6d4e222d9de2"
+  },
+  "report": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9-ui.1/UI-Review.zip",
+    "http": 200,
+    "bytes": 5015740,
+    "sha256": "80f04fc09c8f91a193203443ce5ec647dbfa075ba96cb663c44ff37c205e5c79"
+  },
+  "all35ManifestHashesAndZipCRCsValid": true,
+  "actualScreenshotDimensionsVerified": true,
+  "noPrivateAssetFormatsPublished": true,
+  "actualPortableHashMatchesDownload": true,
+  "windowsTests": {
+    "passed": 250,
+    "failed": 0,
+    "skipped": 0
+  },
+  "originalControls": 80,
+  "ui": {
+    "status": "PASS",
+    "version": "0.7.0-dev.9-ui.1",
+    "packaged": true,
+    "controlCount": 80,
+    "results": [
+      "Every original control exists exactly once",
+      "Beginner defaults expose the four-step workflow without technical panels",
+      "Import two models and switch the actual source model",
+      "Preset changes reach existing Art Director values",
+      "Original conversion and preparation export remain enabled",
+      "Actual preparation export decoded: GLB, TIM, report and screenshots",
+      "Modes preserve real settings; customized preset is signalled",
+      "Actual project save/reopen retains art settings and selected model",
+      "Search, no-results state, Escape focus return and Enter activation",
+      "Explicit multi-category mode",
+      "All four preview layouts keep working render canvases",
+      "Wireframe and skeleton overlays retain their real view handlers",
+      "320\u00d7240 preview stays exact across tabs and resize; export geometry unchanged",
+      "Reload restores presentation preferences without source/private asset persistence",
+      "Reduced-motion system preference respected"
+    ],
+    "errors": []
+  },
+  "offlineBrowser": {
+    "status": "PASS",
+    "version": "0.7.0-dev.9-ui.1",
+    "offlineFileTest": true,
+    "images": 15,
+    "errors": [],
+    "externalRequests": []
+  },
+  "project": {
+    "status": "PASS",
+    "packaged": true,
+    "exactAssetReadback": true,
+    "rawAssetReuse": {
+      "reusedFiles": 24,
+      "reusedBytes": 232047502
+    },
+    "privateTemporaryFilesRemoved": true,
+    "phases": [
+      {
+        "name": "import",
+        "status": "PASS",
+        "durationMs": 3938.4154
+      },
+      {
+        "name": "convert-before-save",
+        "status": "PASS",
+        "durationMs": 4546.102000000001
+      },
+      {
+        "name": "save",
+        "status": "PASS",
+        "durationMs": 3137.927599999999
+      },
+      {
+        "name": "verify-all-project-assets",
+        "status": "PASS",
+        "durationMs": 1093.870500000001
+      },
+      {
+        "name": "reopen",
+        "status": "PASS",
+        "durationMs": 3794.2754999999997
+      },
+      {
+        "name": "convert-after-reopen",
+        "status": "PASS",
+        "durationMs": 3755.202400000002
+      }
+    ],
+    "zipBytes": 49789433,
+    "peakAppWorkingSetKiB": 3258828,
+    "peakAppPrivateBytesKiB": 3084376,
+    "peakHarnessRssBytes": 659443712
+  },
+  "conversionCoreUnchanged": true,
+  "gameVerified": false,
+  "humanDesignApproval": "PENDING"
+}
