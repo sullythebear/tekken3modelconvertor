@@ -4,3 +4,5 @@ release/
 artifacts/
 .local/
 *.log
+
+__pycache__/

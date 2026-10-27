@@ -31,6 +31,9 @@ jobs:
         run: node --use-env-proxy scripts/private-character-download.mjs
       - name: Bound extraction and inspect actual glTF metadata
         run: python scripts/private-character-inventory.py
+      - run: npm run build
+      - name: Actual private model imports and conversion diagnostics
+        run: node scripts/private-character-probe.mjs
       - name: Publish technical metadata only to a separate diagnostics branch
         shell: pwsh
         run: |
@@ -46,7 +49,8 @@ jobs:
           Copy-Item "$env:PRIVATE_CHARACTER_DIR/safe-inventory.json" docs/private-tests/inventory.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/private-tests/inventory.json
+          Copy-Item "$env:PRIVATE_CHARACTER_DIR/safe-model-probes.json" docs/private-tests/model-probes.json
+          git add docs/private-tests/inventory.json docs/private-tests/model-probes.json
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m 'Record safe private character archive metadata; no source assets or screenshots'
