@@ -1,3 +1,4 @@
+import {requireBakeUV} from './bake-uv.js';
 import {dilateChartTexels} from './uv-raster.js';
 import {sourceSkinLighting,bilinearRGBA,sourceSkinCoverage} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
@@ -38,7 +39,7 @@ function pixels(texture, size, dataMap=false) {
   c.width=c.height=1;return result;
 }
 function coordinate(texture, u, v) {
-  texture.updateMatrix();
+  if(texture.matrixAutoUpdate)texture.updateMatrix();
   const t = new THREE.Vector2(u, v);
   texture.transformUv(t);
   return t;
@@ -49,15 +50,7 @@ export async function bakeAtlas(
 ) {
   size??=art&&!['v060','dev1'].includes(art.reconstruction)?512:256;
   const root = clone(converted.root);
-  root.traverse((m) => {
-    if (m.isMesh && !m.geometry.attributes.uv) {
-      const mats = Array.isArray(m.material) ? m.material : [m.material];
-      if (mats.some((mat) => mat.map))
-        throw Error(
-          `${m.name}: source material has a texture but no UV coordinates.`,
-        );
-    }
-  });
+  root.traverse(m=>{if(m.isMesh)for(const material of Array.isArray(m.material)?m.material:[m.material])requireBakeUV(m.geometry,material);});
   const materials = [...collectMaterials(root)];
   if (materials.length > 32)
     throw Error(
@@ -232,10 +225,10 @@ export async function bakeAtlas(
         ? g.groups
         : [{ start: 0, count: g.attributes.position.count, materialIndex: 0 }];
     for (const group of groups) {
-      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width,cellHeight=tile.height;
+      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
       for (let j = group.start; j < group.start + group.count; j++) {
-        const u = Math.max(0, Math.min(1, uv.getX(j) - origin[0])),
-          v = Math.max(0, Math.min(1, uv.getY(j) - origin[1]));
+        const u = Math.max(0, Math.min(1, sourceUV.getX(j) - origin[0])),
+          v = Math.max(0, Math.min(1, sourceUV.getY(j) - origin[1]));
         uv.setXY(
           j,
           (tile.x + gutter + u * (cell - 1 - 2 * gutter)) / size,

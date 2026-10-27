@@ -1,12 +1,13 @@
+import {requireBakeUV} from './bake-uv.js';
 // Translate a whole UV tile into atlas-local coordinates without wrapping triangles across seams.
 export function materialUVDomains(root, materials) {
   const ranges=new Map(materials.map(m=>[m,[Infinity,Infinity,-Infinity,-Infinity]]));
   root.traverse(mesh=>{
     if(!mesh.isMesh)return;
-    const g=mesh.geometry,uv=g.attributes.uv;if(!uv)return;
+    const g=mesh.geometry;
     const index=g.index,mats=Array.isArray(mesh.material)?mesh.material:[mesh.material];
-    for(const group of g.groups.length?g.groups:[{start:0,count:index?.count??uv.count,materialIndex:0}]) {
-      const r=ranges.get(mats[group.materialIndex]);if(!r)throw Error('Invalid atlas material group');
+    for(const group of g.groups.length?g.groups:[{start:0,count:index?.count??g.attributes.position.count,materialIndex:0}]) {
+      const material=mats[group.materialIndex],r=ranges.get(material);if(!r)throw Error('Invalid atlas material group');const uv=requireBakeUV(g,material);if(!uv)continue;
       for(let k=group.start;k<group.start+group.count;k++){
         const v=index?index.getX(k):k,u=uv.getX(v),y=uv.getY(v);
         if(!Number.isFinite(u)||!Number.isFinite(y))throw Error('Nonfinite source UV');

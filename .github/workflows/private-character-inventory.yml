@@ -1,0 +1,60 @@
+name: Private multi-character inventory
+on:
+  push:
+    branches: [development/070-multi-character]
+    paths: ['scripts/private-character-*', '.github/workflows/private-character-inventory.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: private-character-inventory
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      PRIVATE_CHARACTER_DIR: ${{ runner.temp }}/private-character-input
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Download private archive without logging the URL
+        env:
+          CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
+        run: node --use-env-proxy scripts/private-character-download.mjs
+      - name: Bound extraction and inspect actual glTF metadata
+        run: python scripts/private-character-inventory.py
+      - name: Publish technical metadata only to a separate diagnostics branch
+        shell: pwsh
+        run: |
+          $ref = 'automation/private-character-diagnostics'
+          git ls-remote --exit-code --heads origin $ref 1>$null 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            git fetch origin "${ref}:refs/remotes/origin/${ref}"
+            if ($LASTEXITCODE -ne 0) { throw 'Diagnostics fetch failed' }
+            git switch --create $ref --track "origin/$ref"
+          } else { git switch --create $ref }
+          if ($LASTEXITCODE -ne 0) { throw 'Diagnostics checkout failed' }
+          New-Item -ItemType Directory -Force docs/private-tests | Out-Null
+          Copy-Item "$env:PRIVATE_CHARACTER_DIR/safe-inventory.json" docs/private-tests/inventory.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/private-tests/inventory.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m 'Record safe private character archive metadata; no source assets or screenshots'
+            if ($LASTEXITCODE -ne 0) { throw 'Metadata commit failed' }
+            git push origin "HEAD:refs/heads/$ref"
+            if ($LASTEXITCODE -ne 0) { throw 'Metadata push failed' }
+          }
+      - name: Remove all private data
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path $env:PRIVATE_CHARACTER_DIR) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }

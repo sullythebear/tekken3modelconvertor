@@ -127,7 +127,7 @@ export function materialSampler(materials, { mode = "albedo", filter = "nearest"
     const im = maps.get(texture);
     if (!im) return [255, 255, 255, 255];
     const q = uv.clone();
-    texture.updateMatrix();
+    if(texture.matrixAutoUpdate)texture.updateMatrix();
     texture.transformUv(q);
     if (filter === "linear") return bilinearRGBA(im, q.x, q.y);
     const x = Math.max(0, Math.min(im.width - 1, Math.floor(q.x * im.width))),
