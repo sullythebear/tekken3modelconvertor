@@ -1,3 +1,4 @@
+import {installWorkspace} from './workspace.js';
 import {sceneIntegrity} from '../core/mesh-integrity.js';
 import {snapshotProjectMapping,restoreProjectMapping} from '../core/skeleton.js';
 import {optimizeGameCandidate} from '../core/game-optimization.js';
@@ -1276,3 +1277,5 @@ $('optimize-candidate').onclick=async()=>{
   status(`Candidate: ${candidate.stats.triangles}/${candidate.settings.triangles} triangles; artistic model ${candidate.optimization.artisticTriangles}. Donor capacity and game compatibility unverified.`,1);
  }catch(e){showError(e);}finally{setBusy(false);}
 };
+
+installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS});

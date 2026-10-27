@@ -2,7 +2,7 @@ import { chromium, _electron } from "playwright-core";
 import { createServer } from "node:http";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-export async function browserSession() {
+export async function browserSession({presentation="advanced"}={}) {
   if (process.env.T3CS_AUTOMATION === "1") {
     const app = await _electron.launch({
       executablePath: process.env.T3CS_PACKAGED_APP ? path.resolve(process.env.T3CS_PACKAGED_APP) : path.resolve("node_modules/electron/dist/" + (process.platform === "win32" ? "electron.exe" : "electron")),
@@ -15,6 +15,7 @@ export async function browserSession() {
     page.on("console", m => consoleLog.push({type: m.type(), text: m.text().slice(0, 4096)}));
     page.on("crash", () => errors.push("Electron renderer crashed"));
     await page.waitForFunction(() => Boolean(window.studioTest));
+    if(presentation==="advanced")await page.evaluate(()=>window.studioPresentation?.revealAllSettings());
     // Preserve real desktop IPC while directing automated exports into test downloads.
     await app.evaluate(({dialog, app}, folder) => {
       app.setPath("crashDumps", folder);
@@ -75,6 +76,7 @@ export async function browserSession() {
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(`http://127.0.0.1:${server.address().port}/?test=1`);
   await page.waitForFunction(() => Boolean(window.studioTest));
+  if(presentation==="advanced")await page.evaluate(()=>window.studioPresentation?.revealAllSettings());
   return {
     page,
     errors,
