@@ -19,6 +19,7 @@ try {
     const n = document.getElementById(id);
     return { id, category: n.closest("[data-category]")?.dataset.category ?? (n.closest(".workflow-rail") ? "workflow" : n.closest(".preview-bar") ? "preview" : "toolbar"), hiddenInput: n.tagName === "INPUT" && n.hidden };
   }), inventory.map((n) => n.id)), null, 2));
+  assert.equal(await page.locator("#settings-face").getAttribute("data-custom"),"0");assert.equal(await page.locator("#settings-hair").getAttribute("data-custom"),"0");
   assert.equal(await page.locator("#workspace-mode").inputValue(), "standard");
   assert.equal(await page.locator("#settings-panel").isVisible(), false);
   assert.equal(await page.locator("#import").isVisible(), true);
@@ -86,6 +87,7 @@ try {
   await page.locator("#art-face").fill("88");
   await page.locator("#art-face").dispatchEvent("input");
   assert.match(await page.locator("#preset-state").innerText(), /aangepast/);
+  assert.notEqual(await page.locator("#settings-face").getAttribute("data-custom"),"0");
   const stored = await page.locator("#art-face").inputValue();
   await page.selectOption("#workspace-mode", "standard");
   await page.selectOption("#workspace-mode", "advanced");

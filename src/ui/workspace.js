@@ -273,11 +273,14 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
       panel(false);
     }
   });
+  const controlValue=n=>n.type==='checkbox'?n.checked:n.value;
+  const initialValues=new WeakMap([...document.querySelectorAll('input,select')].map(n=>[n,controlValue(n)]));
+  const contextual=new Set(['art-region','art-mesh','face-landmark','animation','native-pose']);
   let queued = false;
   function update() {
     queued = false;
     const state = getState(), custom = getArt(), base = presets[custom.preset];
-    const changed = base && (["stylization", "face", "angular", "pixelation", "hair"].some((k) => custom[k] !== base[k]) || Object.keys(custom.regions ?? {}).length || Object.keys(custom.corrections ?? {}).length || Object.keys(custom.faceLandmarks ?? {}).length || Object.keys(custom.meshRoles ?? {}).length || custom.dither || custom.flat || custom.occlusionCleanup || custom.hairMethod && custom.hairMethod !== "auto" || custom.colorLevels > 0 || custom.filter && custom.filter !== "nearest");
+    const changed = base && (["stylization", "face", "angular", "pixelation", "hair"].some((k) => custom[k] !== base[k]) || Object.keys(custom.regions ?? {}).length || Object.keys(custom.corrections ?? {}).length || Object.keys(custom.faceLandmarks ?? {}).length || Object.keys(custom.meshRoles ?? {}).length || custom.dither || custom.flat || custom.occlusionCleanup || custom.hairMethod && custom.hairMethod !== "auto" || custom.colorLevels > 0 || custom.filter && custom.filter !== "nearest" || custom.reference);
     const message = $("art-preset").value === "baseline" ? "Baseline \xB7 vorige reductiemethode" : changed ? "Preset aangepast \xB7 eigen instellingen" : "Presetwaarden";
     if (badge.textContent !== message) badge.textContent = message;
     const native = state.nativeCandidate;
@@ -286,7 +289,15 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
     const value = words + (warnings ? " Aandachtspunten bij Diagnostiek." : "");
     if (compact.textContent !== value) compact.textContent = value;
     for (const [id, g] of groups) {
-      const count = [...g.body.querySelectorAll("input,select")].filter((n) => n.type !== "file" && n.type !== "hidden" && (n.type === "checkbox" ? n.checked !== n.defaultChecked : n.tagName === "SELECT" ? [...n.options].some((o) => o.defaultSelected) ? n.value !== [...n.options].find((o) => o.defaultSelected)?.value : n.selectedIndex > 0 : n.value !== n.defaultValue)).length;
+      let count = [...g.body.querySelectorAll('input,select')].filter(n=>{
+        if(n.type==='file'||n.type==='hidden'||contextual.has(n.id))return false;
+        const key=n.id.replace(/^art-/,'');
+        if(base&&['stylization','face','angular','pixelation','hair'].includes(key))return Number(n.value)!==base[key];
+        return initialValues.has(n)&&controlValue(n)!==initialValues.get(n);
+      }).length;
+      if(id==='local'&&(Object.keys(custom.regions??{}).length||Object.keys(custom.corrections??{}).length||Object.keys(custom.meshRoles??{}).length))count++;
+      if(id==='face'&&Object.keys(custom.faceLandmarks??{}).length)count++;
+      if(id==='advanced'&&custom.reference)count++;
       g.details.dataset.custom = String(count);
       g.details.querySelector("summary").setAttribute("aria-label", categoryTitles[CATEGORIES.indexOf(id)] + (count ? " \xB7 aangepaste instellingen" : ""));
     }
@@ -301,6 +312,7 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
   document.addEventListener("change", schedule);
   new MutationObserver(schedule).observe($("status"), { childList: true, characterData: true, subtree: true });
   new MutationObserver(schedule).observe($("messages"), { childList: true, subtree: true });
+  for(const container of [$('materials'),$('mapping-editor')])new MutationObserver(()=>{for(const n of container.querySelectorAll('input,select'))if(!initialValues.has(n))initialValues.set(n,controlValue(n));schedule();}).observe(container,{childList:true,subtree:true});
   apply();
   update();
   window.studioPresentation = { revealAllSettings() {

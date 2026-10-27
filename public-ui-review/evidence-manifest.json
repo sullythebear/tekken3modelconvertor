@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "after/1366x768-advanced.png",
-      "bytes": 304200,
-      "sha256": "e13b5fdd0671473e192a6eb6125ab9e38944d2fb316a670d0b47f3042c28960d"
+      "bytes": 304153,
+      "sha256": "7a708ae023dfe4288cdc6fdcc191db19a0aa051dcebca0c9912c07ee5e6bec05"
     },
     {
       "path": "after/1366x768-standard.png",
@@ -19,8 +19,8 @@
     },
     {
       "path": "after/1920x1080-advanced.png",
-      "bytes": 430933,
-      "sha256": "b047ba4e3118b7fa8e545349d6d727bd45a42c43be8b369df5c762c6c1f6cd26"
+      "bytes": 430768,
+      "sha256": "1d082493cc2e962f0d9f5c866f16c92c1f0bab66027e61bb1a0645ad2cdc620d"
     },
     {
       "path": "after/1920x1080-standard.png",
@@ -29,8 +29,8 @@
     },
     {
       "path": "after/2560x1440-advanced.png",
-      "bytes": 583289,
-      "sha256": "be1c5a5c9fd2ee29547fdd6faa9b77f746126c2cf10449f0f442a6e56550f607"
+      "bytes": 583020,
+      "sha256": "1af01da2e525f3071e127d2bb04e7096e35c860a368b820771b71e20492d6704"
     },
     {
       "path": "after/2560x1440-standard.png",
@@ -114,8 +114,8 @@
     },
     {
       "path": "WORKLOG.md",
-      "bytes": 5444,
-      "sha256": "fc48b9686b58535ef62a621aa85159e05f29ecdaa7ffce2abc09c7c1667d84af"
+      "bytes": 7115,
+      "sha256": "c75e03fb5867781f7e242edd4835224b3df34f6109107570d13b0dbc596b0376"
     }
   ]
 }
