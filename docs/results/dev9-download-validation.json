@@ -1,0 +1,92 @@
+{
+  "version": "0.7.0-dev.9",
+  "commit": "928e47f6812deca8275e7bb354d5acd2851508bf",
+  "sourceBranch": "development/070-dev9",
+  "run": "https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40371152290",
+  "exe": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9/Tekken3ConversionStudio-0.7.0-dev.9-x64.exe",
+    "http": 200,
+    "bytes": 102888618,
+    "sha256": "298c9804fd714e256476f059c7d2a118298c219e29041cc4f15e2e393555d7fd",
+    "matchesActualWindowsSmoke": true
+  },
+  "review": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9/Visual-Review.zip",
+    "http": 200,
+    "bytes": 23685101,
+    "sha256": "ef4a178a43233b31431a7785c3aed7968504d44e232ffcb1248f2f7637e73863",
+    "measuredFiles": 498,
+    "allHashesAndCRCsValid": true,
+    "privateFormatsOrAssetsFound": false,
+    "offlineBrowser": {
+      "version": "0.7.0-dev.9",
+      "status": "PASS",
+      "mode": "Actual browser file:// open; no local server",
+      "offlineFileTest": true,
+      "gallerySha256": "3eb85e36e1b89eeeec065f02294db54c53d81b48e7b8a21935eac3e8f6178aea",
+      "referencedImages": 432,
+      "relativeLinksChecked": 451,
+      "pngHeadersValid": true,
+      "firstVisibleImageDecoded": true,
+      "budgetNavigationPassed": true,
+      "pageErrors": [],
+      "onlineRequests": [],
+      "privateAssetsPublished": false
+    }
+  },
+  "windowsTests": {
+    "passed": 242,
+    "failed": 0,
+    "skipped": 0
+  },
+  "project": {
+    "status": "PASS",
+    "packaged": true,
+    "exactAssetReadback": true,
+    "rawAssetReuse": {
+      "reusedFiles": 24,
+      "reusedBytes": 232047502
+    },
+    "zipBytes": 49789433,
+    "phases": [
+      {
+        "name": "import",
+        "status": "PASS",
+        "durationMs": 5354.47
+      },
+      {
+        "name": "convert-before-save",
+        "status": "PASS",
+        "durationMs": 6155.1390999999985
+      },
+      {
+        "name": "save",
+        "status": "PASS",
+        "durationMs": 4423.494500000001
+      },
+      {
+        "name": "verify-all-project-assets",
+        "status": "PASS",
+        "durationMs": 1356.4822999999997
+      },
+      {
+        "name": "reopen",
+        "status": "PASS",
+        "durationMs": 5290.920300000002
+      },
+      {
+        "name": "convert-after-reopen",
+        "status": "PASS",
+        "durationMs": 4805.899600000001
+      }
+    ],
+    "peakAppWorkingSetKiB": 3318036,
+    "peakAppPrivateBytesKiB": 3115396,
+    "peakHarnessRssBytes": 651497472,
+    "privateTemporaryFilesRemoved": true
+  },
+  "artistApproved": false,
+  "gameplayVerified": false,
+  "mainUnchanged": true,
+  "prBlock": "GitHub Actions is not permitted to create or approve pull requests"
+}

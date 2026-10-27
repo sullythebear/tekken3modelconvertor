@@ -1,0 +1,125 @@
+{
+  "version": "0.7.0-dev.9.1",
+  "commit": "88d1e2ef14a120750805e114d71487bd631e7ef3",
+  "workflow": "https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40490694486",
+  "workflowConclusion": "SUCCESS",
+  "unitTests": {
+    "passed": 245,
+    "failed": 0,
+    "skipped": 0
+  },
+  "exe": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9.1/Tekken3ConversionStudio-0.7.0-dev.9.1-x64.exe",
+    "http": 200,
+    "bytes": 102888202,
+    "sha256": "803abf502865bbf1cdbd3313bfe065d8e7f4dd256902e20558fa8a68c11f61b8"
+  },
+  "review": {
+    "url": "https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.7.0-dev.9.1/Visual-Review.zip",
+    "http": 200,
+    "bytes": 23688188,
+    "sha256": "a528a6a6df6dd8f290a6ae0ae1663cb35b31f31a8b8221a2c9256fffaf9c8f39"
+  },
+  "all500ManifestHashesAndZipCRCsValid": true,
+  "exeMatchesActualPortableSmokeHash": true,
+  "privateFormatsOrAssetsFound": false,
+  "offlineBrowser": {
+    "version": "0.7.0-dev.9.1",
+    "status": "PASS",
+    "mode": "Actual browser file:// open; no local server",
+    "offlineFileTest": true,
+    "gallerySha256": "6071be18c4cf6f139ee1e54b43e7d1a25fc4ebb450966ec1ec4ae1bec296e468",
+    "referencedImages": 432,
+    "relativeLinksChecked": 451,
+    "pngHeadersValid": true,
+    "firstVisibleImageDecoded": true,
+    "budgetNavigationPassed": true,
+    "pageErrors": [],
+    "onlineRequests": [],
+    "privateAssetsPublished": false
+  },
+  "packagedBakeModes": {
+    "status": "PASS",
+    "version": "0.7.0-dev.9.1",
+    "packaged": true,
+    "scope": "Authored unlit GLB only; both real UI bake states, no Nikki or game data",
+    "results": [
+      {
+        "bake": false,
+        "before": {
+          "soft": 1,
+          "triangles": 24,
+          "atlas": false
+        },
+        "after": {
+          "soft": 1,
+          "triangles": 24,
+          "atlas": false,
+          "mode": false
+        }
+      },
+      {
+        "bake": true,
+        "before": {
+          "soft": 1,
+          "triangles": 24,
+          "atlas": true
+        },
+        "after": {
+          "soft": 0,
+          "triangles": 12,
+          "atlas": true,
+          "mode": true
+        }
+      }
+    ]
+  },
+  "project": {
+    "status": "PASS",
+    "packaged": true,
+    "exactAssetReadback": true,
+    "privateTemporaryFilesRemoved": true,
+    "zipBytes": 49789433,
+    "rawAssetReuse": {
+      "reusedFiles": 24,
+      "reusedBytes": 232047502
+    },
+    "phases": [
+      {
+        "name": "import",
+        "status": "PASS",
+        "durationMs": 7014.0543
+      },
+      {
+        "name": "convert-before-save",
+        "status": "PASS",
+        "durationMs": 7497.5255
+      },
+      {
+        "name": "save",
+        "status": "PASS",
+        "durationMs": 5178.7800000000025
+      },
+      {
+        "name": "verify-all-project-assets",
+        "status": "PASS",
+        "durationMs": 1517.656600000002
+      },
+      {
+        "name": "reopen",
+        "status": "PASS",
+        "durationMs": 6652.171999999999
+      },
+      {
+        "name": "convert-after-reopen",
+        "status": "PASS",
+        "durationMs": 5783.6348
+      }
+    ],
+    "peakAppWorkingSetKiB": 3083224,
+    "peakAppPrivateBytesKiB": 2884316,
+    "peakHarnessRssBytes": 545046528
+  },
+  "gameVerified": false,
+  "artisticAcceptance": "PENDING USER REVIEW"
+}
