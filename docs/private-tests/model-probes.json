@@ -1,6 +1,6 @@
 {
-  "sourceCommit": "0e68e279f07db8e828f4d98ec5a912985554c331",
-  "workflowRunId": "40598572724",
+  "sourceCommit": "3022f6fc9de20cd7e16099d2e009c9a759080da9",
+  "workflowRunId": "40678935518",
   "workflowRunAttempt": "1",
   "status": "PASS",
   "scope": "Numerical importer/conversion diagnostics only; no visual or gameplay acceptance",
@@ -2210,14 +2210,13 @@
       "baseline": {
         "conversionPreset": "baseline",
         "triangles": 2290,
-        "atlas": false,
-        "textureBytes": null,
-        "paletteBytes": null,
+        "atlas": true,
+        "textureBytes": 25344,
+        "paletteBytes": 704,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Appearance error / protected topology prevent the requested budget: 2290 > 900. See per-region budget diagnostics. Export will enforce limits.",
-          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
-          "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "regions": [
           {
@@ -2525,14 +2524,13 @@
       "authentic": {
         "conversionPreset": "authentic",
         "triangles": 3692,
-        "atlas": false,
-        "textureBytes": null,
-        "paletteBytes": null,
+        "atlas": true,
+        "textureBytes": 48640,
+        "paletteBytes": 2176,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Appearance error / protected topology prevent the requested budget: 3692 > 900. See per-region budget diagnostics. Export will enforce limits.",
-          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
-          "Texture atlas was not generated: jc_arm_tm2: UVs span multiple tiles; per-triangle rebaking is required"
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "integrity": {
           "triangles": 3692,
@@ -3124,7 +3122,773 @@
             }
           }
         ]
-      }
+      },
+      "renders": {
+        "status": "RENDERED",
+        "imageCount": 85,
+        "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
+        "metrics": [
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6024602254231771,
+            "changedPixels": 4545
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6364161173502604,
+            "changedPixels": 4732
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.45321909586588544,
+            "changedPixels": 3640
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6859130859375,
+            "changedPixels": 5388
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.455277760823568,
+            "changedPixels": 28440
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.000817616780599,
+            "changedPixels": 26055
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.5138893127441406,
+            "changedPixels": 30261
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8352762858072917,
+            "changedPixels": 16621
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.7596359252929688,
+            "changedPixels": 24767
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 14.057337443033854,
+            "changedPixels": 152345
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.2740376790364583,
+            "changedPixels": 1688
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.574072519938151,
+            "changedPixels": 2898
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.22107569376627603,
+            "changedPixels": 1466
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.37175623575846356,
+            "changedPixels": 2532
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0961825052897136,
+            "changedPixels": 5907
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5871162414550781,
+            "changedPixels": 8306
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.7115109761555989,
+            "changedPixels": 8214
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.7995096842447916,
+            "changedPixels": 5261
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4605000813802083,
+            "changedPixels": 7942
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.7937342325846353,
+            "changedPixels": 17648
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2550951639811199,
+            "changedPixels": 12248
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0630035400390625,
+            "changedPixels": 9797
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.8354314168294271,
+            "changedPixels": 7691
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2293141682942708,
+            "changedPixels": 11926
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 7.934912363688151,
+            "changedPixels": 95242
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2550951639811199,
+            "changedPixels": 12248
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0630035400390625,
+            "changedPixels": 9797
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.8354314168294271,
+            "changedPixels": 7691
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2293141682942708,
+            "changedPixels": 11926
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 7.934912363688151,
+            "changedPixels": 95242
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.11713282267252605,
+            "changedPixels": 566
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.1333948771158854,
+            "changedPixels": 564
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.10675557454427083,
+            "changedPixels": 506
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.1008466084798177,
+            "changedPixels": 469
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6246109008789062,
+            "changedPixels": 2185
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 6.4148915608723955,
+            "changedPixels": 38494
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 12.56354014078776,
+            "changedPixels": 38874
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.616662343343099,
+            "changedPixels": 22976
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 6.625731150309245,
+            "changedPixels": 35429
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 26.563636779785156,
+            "changedPixels": 169028
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          }
+        ]
+      },
+      "atlasDomains": [
+        {
+          "material": "3904cap_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "arm01_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_arm_tm2",
+          "span": [
+            3,
+            1
+          ],
+          "texelsPerUVTile": [
+            9,
+            27
+          ]
+        },
+        {
+          "material": "jc_belt_tm2",
+          "span": [
+            1,
+            2
+          ],
+          "texelsPerUVTile": [
+            27,
+            13.5
+          ]
+        },
+        {
+          "material": "jc_body_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            59,
+            59
+          ]
+        },
+        {
+          "material": "jc_body_tm2_torso_rebaked",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            59,
+            59
+          ]
+        },
+        {
+          "material": "jc_buckle_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_eye_tm2",
+          "span": [
+            2,
+            1
+          ],
+          "texelsPerUVTile": [
+            13.5,
+            27
+          ]
+        },
+        {
+          "material": "jc_face_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            123,
+            123
+          ]
+        },
+        {
+          "material": "jc_hand_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_head_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            123,
+            123
+          ]
+        },
+        {
+          "material": "jc_jeans_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_knee_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_leg_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_neck_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_pants_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_shoe1_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_shoe2_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_tooth_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "jc_wl_03_tm2",
+          "span": [
+            3,
+            1
+          ],
+          "texelsPerUVTile": [
+            9,
+            27
+          ]
+        },
+        {
+          "material": "logo_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "shirt01_tm2",
+          "span": [
+            2,
+            1
+          ],
+          "texelsPerUVTile": [
+            13.5,
+            27
+          ]
+        },
+        {
+          "material": "shirt02_tm2",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        }
+      ]
     },
     {
       "id": "ac97d32c3727e377",
@@ -3430,13 +4194,12 @@
       "baseline": {
         "conversionPreset": "baseline",
         "triangles": 4090,
-        "atlas": false,
-        "textureBytes": null,
-        "paletteBytes": null,
+        "atlas": true,
+        "textureBytes": 24576,
+        "paletteBytes": 96,
         "warnings": [
           "Appearance error / protected topology prevent the requested budget: 4090 > 900. See per-region budget diagnostics. Export will enforce limits.",
-          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
-          "Texture atlas was not generated: .bmp: UVs span multiple tiles; per-triangle rebaking is required"
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "regions": [
           {
@@ -3522,13 +4285,12 @@
       "authentic": {
         "conversionPreset": "authentic",
         "triangles": 12862,
-        "atlas": false,
-        "textureBytes": null,
-        "paletteBytes": null,
+        "atlas": true,
+        "textureBytes": 1536,
+        "paletteBytes": 96,
         "warnings": [
           "Appearance error / protected topology prevent the requested budget: 12862 > 900. See per-region budget diagnostics. Export will enforce limits.",
-          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility.",
-          "Texture atlas was not generated: .bmp: UVs span multiple tiles; per-triangle rebaking is required"
+          "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
         ],
         "integrity": {
           "triangles": 12862,
@@ -3740,7 +4502,553 @@
             }
           }
         ]
-      }
+      },
+      "renders": {
+        "status": "RENDERED",
+        "imageCount": 85,
+        "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
+        "metrics": [
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.2809918721516927,
+            "changedPixels": 2281
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.24765396118164062,
+            "changedPixels": 2099
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.08364105224609375,
+            "changedPixels": 788
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.19189834594726562,
+            "changedPixels": 1536
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.8003667195638022,
+            "changedPixels": 22254
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.4877459208170573,
+            "changedPixels": 3454
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.6387519836425781,
+            "changedPixels": 18177
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5631650288899739,
+            "changedPixels": 15024
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9787699381510416,
+            "changedPixels": 10218
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4870236714680989,
+            "changedPixels": 15818
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 14.266136169433594,
+            "changedPixels": 137716
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8090400695800781,
+            "changedPixels": 17404
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4968630472819011,
+            "changedPixels": 14836
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.2802937825520833,
+            "changedPixels": 2275
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.24795023600260416,
+            "changedPixels": 2102
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.08359909057617188,
+            "changedPixels": 789
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.19193903605143228,
+            "changedPixels": 1539
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.8007291158040366,
+            "changedPixels": 22253
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.4877459208170573,
+            "changedPixels": 3454
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.6369272867838542,
+            "changedPixels": 18168
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5633506774902344,
+            "changedPixels": 15024
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9787445068359375,
+            "changedPixels": 10218
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4866485595703125,
+            "changedPixels": 15815
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 14.265393575032553,
+            "changedPixels": 137715
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8090400695800781,
+            "changedPixels": 17404
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4968630472819011,
+            "changedPixels": 14836
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.593170166015625,
+            "changedPixels": 14638
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.7576026916503906,
+            "changedPixels": 16114
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6909472147623698,
+            "changedPixels": 6307
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1629257202148438,
+            "changedPixels": 10466
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 8.504927317301432,
+            "changedPixels": 69701
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8514849344889324,
+            "changedPixels": 12276
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.5308240254720052,
+            "changedPixels": 4131
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.593170166015625,
+            "changedPixels": 14638
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.7576026916503906,
+            "changedPixels": 16114
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6909472147623698,
+            "changedPixels": 6307
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1629257202148438,
+            "changedPixels": 10466
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 8.504927317301432,
+            "changedPixels": 69701
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8514849344889324,
+            "changedPixels": 12276
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.5308240254720052,
+            "changedPixels": 4131
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.35520299275716144,
+            "changedPixels": 1269
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.3809649149576823,
+            "changedPixels": 1461
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.14210891723632812,
+            "changedPixels": 828
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.23694737752278647,
+            "changedPixels": 972
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6464195251464844,
+            "changedPixels": 1793
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9792226155598959,
+            "changedPixels": 2458
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.5955810546875,
+            "changedPixels": 2099
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1774317423502605,
+            "changedPixels": 3733
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.5786921183268229,
+            "changedPixels": 2143
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6059468587239584,
+            "changedPixels": 2297
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 4.521990458170573,
+            "changedPixels": 10857
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9792226155598959,
+            "changedPixels": 2458
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0
+          }
+        ]
+      },
+      "atlasDomains": [
+        {
+          "material": "player_default_intro_alphakill_d1.bmp",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": ".bmp",
+          "span": [
+            1,
+            2
+          ],
+          "texelsPerUVTile": [
+            27,
+            13.5
+          ]
+        },
+        {
+          "material": "iv_drawable_material.bmp.001",
+          "span": [
+            117,
+            1
+          ],
+          "texelsPerUVTile": [
+            0.23076923076923078,
+            27
+          ]
+        }
+      ]
     },
     {
       "id": "d0762a8df6f72497",
@@ -6132,7 +7440,696 @@
             }
           }
         ]
-      }
+      },
+      "renders": {
+        "status": "RENDERED",
+        "imageCount": 85,
+        "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
+        "metrics": [
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0100949605305989,
+            "changedPixels": 8624
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.7086181640625,
+            "changedPixels": 5415
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.7875150044759115,
+            "changedPixels": 5786
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.100634256998698,
+            "changedPixels": 8342
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 11.82720947265625,
+            "changedPixels": 82672
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.8085619608561198,
+            "changedPixels": 7956
+          },
+          {
+            "stage": "prepared",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.6456693013509115,
+            "changedPixels": 6581
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.5516255696614585,
+            "changedPixels": 20005
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.107733408610026,
+            "changedPixels": 13070
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.9493204752604167,
+            "changedPixels": 10848
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.1612281799316406,
+            "changedPixels": 17848
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 24.812283833821613,
+            "changedPixels": 134738
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.928246815999349,
+            "changedPixels": 17578
+          },
+          {
+            "stage": "atlas",
+            "mode": "full",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.5795415242513022,
+            "changedPixels": 15745
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1452827453613281,
+            "changedPixels": 7418
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1854896545410156,
+            "changedPixels": 6627
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.799261728922526,
+            "changedPixels": 4375
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0608622233072917,
+            "changedPixels": 6770
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 7.470116933186849,
+            "changedPixels": 27031
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.3213081359863281,
+            "changedPixels": 1281
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.4867757161458333,
+            "changedPixels": 3567
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.2640508015950522,
+            "changedPixels": 16887
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.692682902018229,
+            "changedPixels": 12266
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.6050376892089844,
+            "changedPixels": 8089
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.836839040120443,
+            "changedPixels": 14443
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 17.904073079427082,
+            "changedPixels": 106645
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.1565361022949219,
+            "changedPixels": 13339
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.6806055704752605,
+            "changedPixels": 12407
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4444580078125,
+            "changedPixels": 14179
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.3621101379394531,
+            "changedPixels": 13907
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0376968383789062,
+            "changedPixels": 9593
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5108388264973958,
+            "changedPixels": 13944
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 12.170049031575521,
+            "changedPixels": 124107
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9577929178873698,
+            "changedPixels": 9918
+          },
+          {
+            "stage": "prepared",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9273974100748698,
+            "changedPixels": 9618
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.445343017578125,
+            "changedPixels": 14186
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.3630599975585938,
+            "changedPixels": 13912
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.0380325317382812,
+            "changedPixels": 9595
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5114949544270833,
+            "changedPixels": 13946
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 12.170049031575521,
+            "changedPixels": 124107
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9577929178873698,
+            "changedPixels": 9918
+          },
+          {
+            "stage": "atlas",
+            "mode": "normals",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.9273974100748698,
+            "changedPixels": 9618
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.5702972412109375,
+            "changedPixels": 2575
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.7244618733723959,
+            "changedPixels": 2856
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.7125460306803385,
+            "changedPixels": 2462
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.802398681640625,
+            "changedPixels": 3020
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.420360565185547,
+            "changedPixels": 7700
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.22215779622395834,
+            "changedPixels": 982
+          },
+          {
+            "stage": "prepared",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 0.22710291544596353,
+            "changedPixels": 1001
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "front",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 9.277337392171225,
+            "changedPixels": 26634
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "back",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 10.08023452758789,
+            "changedPixels": 28165
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "side",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 6.5588124593098955,
+            "changedPixels": 19714
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "quarter",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 9.292861938476562,
+            "changedPixels": 27340
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 47.61426289876302,
+            "changedPixels": 165460
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.6256663004557292,
+            "changedPixels": 5069
+          },
+          {
+            "stage": "atlas",
+            "mode": "material-id",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.3436724344889324,
+            "changedPixels": 5190
+          }
+        ]
+      },
+      "atlasDomains": [
+        {
+          "material": "Material.001",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.004",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.002",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.005",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "material_0",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.003",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.013",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.011",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.010",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.009",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.014",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.016",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.007",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.015",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.006",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        },
+        {
+          "material": "Material.012",
+          "span": [
+            1,
+            1
+          ],
+          "texelsPerUVTile": [
+            27,
+            27
+          ]
+        }
+      ]
     }
   ]
 }
