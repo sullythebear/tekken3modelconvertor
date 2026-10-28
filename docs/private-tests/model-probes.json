@@ -1,6 +1,6 @@
 {
-  "sourceCommit": "3022f6fc9de20cd7e16099d2e009c9a759080da9",
-  "workflowRunId": "40678935518",
+  "sourceCommit": "8435feb4f60a897554a62e9ff628475d8d113cf9",
+  "workflowRunId": "40679601660",
   "workflowRunAttempt": "1",
   "status": "PASS",
   "scope": "Numerical importer/conversion diagnostics only; no visual or gameplay acceptance",
@@ -3135,7 +3135,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6024602254231771,
-            "changedPixels": 4545
+            "changedPixels": 4545,
+            "sourceNearBlackPixels": 1068,
+            "candidateNearBlackPixels": 770,
+            "sourceNearWhitePixels": 1,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3144,7 +3148,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6364161173502604,
-            "changedPixels": 4732
+            "changedPixels": 4732,
+            "sourceNearBlackPixels": 1475,
+            "candidateNearBlackPixels": 1031,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3153,7 +3161,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.45321909586588544,
-            "changedPixels": 3640
+            "changedPixels": 3640,
+            "sourceNearBlackPixels": 1314,
+            "candidateNearBlackPixels": 915,
+            "sourceNearWhitePixels": 2,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3162,7 +3174,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6859130859375,
-            "changedPixels": 5388
+            "changedPixels": 5388,
+            "sourceNearBlackPixels": 1048,
+            "candidateNearBlackPixels": 678,
+            "sourceNearWhitePixels": 2,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3171,7 +3187,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 3.455277760823568,
-            "changedPixels": 28440
+            "changedPixels": 28440,
+            "sourceNearBlackPixels": 1888,
+            "candidateNearBlackPixels": 1042,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3180,7 +3200,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3189,7 +3213,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3198,7 +3226,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 3.000817616780599,
-            "changedPixels": 26055
+            "changedPixels": 26055,
+            "sourceNearBlackPixels": 1068,
+            "candidateNearBlackPixels": 26,
+            "sourceNearWhitePixels": 1,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3207,7 +3239,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 3.5138893127441406,
-            "changedPixels": 30261
+            "changedPixels": 30261,
+            "sourceNearBlackPixels": 1475,
+            "candidateNearBlackPixels": 38,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3216,7 +3252,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8352762858072917,
-            "changedPixels": 16621
+            "changedPixels": 16621,
+            "sourceNearBlackPixels": 1314,
+            "candidateNearBlackPixels": 20,
+            "sourceNearWhitePixels": 2,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3225,7 +3265,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 2.7596359252929688,
-            "changedPixels": 24767
+            "changedPixels": 24767,
+            "sourceNearBlackPixels": 1048,
+            "candidateNearBlackPixels": 38,
+            "sourceNearWhitePixels": 2,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3234,7 +3278,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 14.057337443033854,
-            "changedPixels": 152345
+            "changedPixels": 152345,
+            "sourceNearBlackPixels": 1888,
+            "candidateNearBlackPixels": 390,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3243,7 +3291,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3252,7 +3304,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3261,7 +3317,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2740376790364583,
-            "changedPixels": 1688
+            "changedPixels": 1688,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3270,7 +3330,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.574072519938151,
-            "changedPixels": 2898
+            "changedPixels": 2898,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3279,7 +3343,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.22107569376627603,
-            "changedPixels": 1466
+            "changedPixels": 1466,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3288,7 +3356,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.37175623575846356,
-            "changedPixels": 2532
+            "changedPixels": 2532,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3297,7 +3369,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0961825052897136,
-            "changedPixels": 5907
+            "changedPixels": 5907,
+            "sourceNearBlackPixels": 125,
+            "candidateNearBlackPixels": 101,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3306,7 +3382,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3315,7 +3395,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3324,7 +3408,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5871162414550781,
-            "changedPixels": 8306
+            "changedPixels": 8306,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 26,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3333,7 +3421,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7115109761555989,
-            "changedPixels": 8214
+            "changedPixels": 8214,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 38,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3342,7 +3434,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7995096842447916,
-            "changedPixels": 5261
+            "changedPixels": 5261,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 20,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3351,7 +3447,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.4605000813802083,
-            "changedPixels": 7942
+            "changedPixels": 7942,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 38,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3360,7 +3460,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 2.7937342325846353,
-            "changedPixels": 17648
+            "changedPixels": 17648,
+            "sourceNearBlackPixels": 125,
+            "candidateNearBlackPixels": 390,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3369,7 +3473,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3378,7 +3486,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3387,7 +3499,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2550951639811199,
-            "changedPixels": 12248
+            "changedPixels": 12248,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3396,7 +3512,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0630035400390625,
-            "changedPixels": 9797
+            "changedPixels": 9797,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3405,7 +3525,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8354314168294271,
-            "changedPixels": 7691
+            "changedPixels": 7691,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3414,7 +3538,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2293141682942708,
-            "changedPixels": 11926
+            "changedPixels": 11926,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3423,7 +3551,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 7.934912363688151,
-            "changedPixels": 95242
+            "changedPixels": 95242,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3432,7 +3564,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3441,7 +3577,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3450,7 +3590,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2550951639811199,
-            "changedPixels": 12248
+            "changedPixels": 12248,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3459,7 +3603,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0630035400390625,
-            "changedPixels": 9797
+            "changedPixels": 9797,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3468,7 +3616,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8354314168294271,
-            "changedPixels": 7691
+            "changedPixels": 7691,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3477,7 +3629,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2293141682942708,
-            "changedPixels": 11926
+            "changedPixels": 11926,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3486,7 +3642,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 7.934912363688151,
-            "changedPixels": 95242
+            "changedPixels": 95242,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3495,7 +3655,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3504,7 +3668,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3513,7 +3681,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.11713282267252605,
-            "changedPixels": 566
+            "changedPixels": 566,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3522,7 +3694,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.1333948771158854,
-            "changedPixels": 564
+            "changedPixels": 564,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3531,7 +3707,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.10675557454427083,
-            "changedPixels": 506
+            "changedPixels": 506,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3540,7 +3720,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.1008466084798177,
-            "changedPixels": 469
+            "changedPixels": 469,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3549,7 +3733,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6246109008789062,
-            "changedPixels": 2185
+            "changedPixels": 2185,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3558,7 +3746,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -3567,7 +3759,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3576,7 +3772,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 6.4148915608723955,
-            "changedPixels": 38494
+            "changedPixels": 38494,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3585,7 +3785,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 12.56354014078776,
-            "changedPixels": 38874
+            "changedPixels": 38874,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3594,7 +3798,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 5.616662343343099,
-            "changedPixels": 22976
+            "changedPixels": 22976,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3603,7 +3811,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 6.625731150309245,
-            "changedPixels": 35429
+            "changedPixels": 35429,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3612,7 +3824,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 26.563636779785156,
-            "changedPixels": 169028
+            "changedPixels": 169028,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3621,7 +3837,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -3630,7 +3850,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           }
         ]
       },
@@ -3641,6 +3865,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3652,6 +3879,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3663,6 +3893,9 @@
             3,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             9,
             27
@@ -3674,6 +3907,9 @@
             1,
             2
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             13.5
@@ -3685,6 +3921,9 @@
             1,
             1
           ],
+          "width": 64,
+          "height": 64,
+          "colours": 16,
           "texelsPerUVTile": [
             59,
             59
@@ -3696,6 +3935,9 @@
             1,
             1
           ],
+          "width": 64,
+          "height": 64,
+          "colours": 256,
           "texelsPerUVTile": [
             59,
             59
@@ -3707,6 +3949,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3718,6 +3963,9 @@
             2,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             13.5,
             27
@@ -3729,6 +3977,9 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
             123,
             123
@@ -3740,6 +3991,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3751,6 +4005,9 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
             123,
             123
@@ -3762,6 +4019,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3773,6 +4033,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3784,6 +4047,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3795,6 +4061,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3806,6 +4075,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3817,6 +4089,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3828,6 +4103,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3839,6 +4117,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3850,6 +4131,9 @@
             3,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             9,
             27
@@ -3861,6 +4145,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -3872,6 +4159,9 @@
             2,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             13.5,
             27
@@ -3883,6 +4173,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -4195,8 +4488,8 @@
         "conversionPreset": "baseline",
         "triangles": 4090,
         "atlas": true,
-        "textureBytes": 24576,
-        "paletteBytes": 96,
+        "textureBytes": 32768,
+        "paletteBytes": 576,
         "warnings": [
           "Appearance error / protected topology prevent the requested budget: 4090 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
@@ -4286,8 +4579,8 @@
         "conversionPreset": "authentic",
         "triangles": 12862,
         "atlas": true,
-        "textureBytes": 1536,
-        "paletteBytes": 96,
+        "textureBytes": 17408,
+        "paletteBytes": 576,
         "warnings": [
           "Appearance error / protected topology prevent the requested budget: 12862 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
@@ -4515,7 +4808,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2809918721516927,
-            "changedPixels": 2281
+            "changedPixels": 2281,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4524,7 +4821,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.24765396118164062,
-            "changedPixels": 2099
+            "changedPixels": 2099,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4533,7 +4834,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.08364105224609375,
-            "changedPixels": 788
+            "changedPixels": 788,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4542,7 +4847,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.19189834594726562,
-            "changedPixels": 1536
+            "changedPixels": 1536,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4551,7 +4860,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 2.8003667195638022,
-            "changedPixels": 22254
+            "changedPixels": 22254,
+            "sourceNearBlackPixels": 2,
+            "candidateNearBlackPixels": 4,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4560,7 +4873,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.4877459208170573,
-            "changedPixels": 3454
+            "changedPixels": 3454,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4569,7 +4886,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4577,8 +4898,12 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6387519836425781,
-            "changedPixels": 18177
+            "meanAbsoluteRGBByteError": 1.0852101643880208,
+            "changedPixels": 10134,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 17,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4586,8 +4911,12 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5631650288899739,
-            "changedPixels": 15024
+            "meanAbsoluteRGBByteError": 0.9998397827148438,
+            "changedPixels": 8733,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 36,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4595,8 +4924,12 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.9787699381510416,
-            "changedPixels": 10218
+            "meanAbsoluteRGBByteError": 0.6444040934244791,
+            "changedPixels": 6112,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4604,8 +4937,12 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4870236714680989,
-            "changedPixels": 15818
+            "meanAbsoluteRGBByteError": 1.0007642110188801,
+            "changedPixels": 9225,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4613,8 +4950,12 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 14.266136169433594,
-            "changedPixels": 137716
+            "meanAbsoluteRGBByteError": 7.805383046468099,
+            "changedPixels": 77855,
+            "sourceNearBlackPixels": 2,
+            "candidateNearBlackPixels": 9,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4622,8 +4963,12 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.8090400695800781,
-            "changedPixels": 17404
+            "meanAbsoluteRGBByteError": 1.0058949788411458,
+            "changedPixels": 9028,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4631,8 +4976,12 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4968630472819011,
-            "changedPixels": 14836
+            "meanAbsoluteRGBByteError": 0.6847572326660156,
+            "changedPixels": 6464,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4641,7 +4990,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2802937825520833,
-            "changedPixels": 2275
+            "changedPixels": 2275,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4650,7 +5003,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.24795023600260416,
-            "changedPixels": 2102
+            "changedPixels": 2102,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4659,7 +5016,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.08359909057617188,
-            "changedPixels": 789
+            "changedPixels": 789,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4668,7 +5029,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.19193903605143228,
-            "changedPixels": 1539
+            "changedPixels": 1539,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4677,7 +5042,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 2.8007291158040366,
-            "changedPixels": 22253
+            "changedPixels": 22253,
+            "sourceNearBlackPixels": 2,
+            "candidateNearBlackPixels": 4,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4686,7 +5055,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.4877459208170573,
-            "changedPixels": 3454
+            "changedPixels": 3454,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4695,7 +5068,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4703,8 +5080,12 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6369272867838542,
-            "changedPixels": 18168
+            "meanAbsoluteRGBByteError": 1.084668477376302,
+            "changedPixels": 10128,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 17,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4712,8 +5093,12 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5633506774902344,
-            "changedPixels": 15024
+            "meanAbsoluteRGBByteError": 1.0000292460123699,
+            "changedPixels": 8735,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 36,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4721,8 +5106,12 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.9787445068359375,
-            "changedPixels": 10218
+            "meanAbsoluteRGBByteError": 0.6444587707519531,
+            "changedPixels": 6112,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4730,8 +5119,12 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4866485595703125,
-            "changedPixels": 15815
+            "meanAbsoluteRGBByteError": 1.0009969075520833,
+            "changedPixels": 9225,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4739,8 +5132,12 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 14.265393575032553,
-            "changedPixels": 137715
+            "meanAbsoluteRGBByteError": 7.8058420817057295,
+            "changedPixels": 77854,
+            "sourceNearBlackPixels": 2,
+            "candidateNearBlackPixels": 9,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4748,8 +5145,12 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.8090400695800781,
-            "changedPixels": 17404
+            "meanAbsoluteRGBByteError": 1.0058949788411458,
+            "changedPixels": 9028,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4757,8 +5158,12 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4968630472819011,
-            "changedPixels": 14836
+            "meanAbsoluteRGBByteError": 0.6847572326660156,
+            "changedPixels": 6464,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4767,7 +5172,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.593170166015625,
-            "changedPixels": 14638
+            "changedPixels": 14638,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4776,7 +5185,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7576026916503906,
-            "changedPixels": 16114
+            "changedPixels": 16114,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4785,7 +5198,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6909472147623698,
-            "changedPixels": 6307
+            "changedPixels": 6307,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4794,7 +5211,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1629257202148438,
-            "changedPixels": 10466
+            "changedPixels": 10466,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4803,7 +5224,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 8.504927317301432,
-            "changedPixels": 69701
+            "changedPixels": 69701,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4812,7 +5237,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8514849344889324,
-            "changedPixels": 12276
+            "changedPixels": 12276,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4821,7 +5250,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5308240254720052,
-            "changedPixels": 4131
+            "changedPixels": 4131,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4830,7 +5263,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.593170166015625,
-            "changedPixels": 14638
+            "changedPixels": 14638,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4839,7 +5276,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7576026916503906,
-            "changedPixels": 16114
+            "changedPixels": 16114,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4848,7 +5289,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6909472147623698,
-            "changedPixels": 6307
+            "changedPixels": 6307,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4857,7 +5302,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1629257202148438,
-            "changedPixels": 10466
+            "changedPixels": 10466,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4866,7 +5315,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 8.504927317301432,
-            "changedPixels": 69701
+            "changedPixels": 69701,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4875,7 +5328,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8514849344889324,
-            "changedPixels": 12276
+            "changedPixels": 12276,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4884,7 +5341,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5308240254720052,
-            "changedPixels": 4131
+            "changedPixels": 4131,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4893,7 +5354,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.35520299275716144,
-            "changedPixels": 1269
+            "changedPixels": 1269,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4902,7 +5367,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.3809649149576823,
-            "changedPixels": 1461
+            "changedPixels": 1461,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4911,7 +5380,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.14210891723632812,
-            "changedPixels": 828
+            "changedPixels": 828,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4920,7 +5393,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.23694737752278647,
-            "changedPixels": 972
+            "changedPixels": 972,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4929,7 +5406,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6464195251464844,
-            "changedPixels": 1793
+            "changedPixels": 1793,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4938,7 +5419,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9792226155598959,
-            "changedPixels": 2458
+            "changedPixels": 2458,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -4947,7 +5432,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4956,7 +5445,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5955810546875,
-            "changedPixels": 2099
+            "changedPixels": 2099,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4965,7 +5458,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1774317423502605,
-            "changedPixels": 3733
+            "changedPixels": 3733,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4974,7 +5471,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5786921183268229,
-            "changedPixels": 2143
+            "changedPixels": 2143,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4983,7 +5484,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6059468587239584,
-            "changedPixels": 2297
+            "changedPixels": 2297,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -4992,7 +5497,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 4.521990458170573,
-            "changedPixels": 10857
+            "changedPixels": 10857,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -5001,7 +5510,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9792226155598959,
-            "changedPixels": 2458
+            "changedPixels": 2458,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -5010,7 +5523,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
-            "changedPixels": 0
+            "changedPixels": 0,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           }
         ]
       },
@@ -5021,9 +5538,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -5032,6 +5552,9 @@
             1,
             2
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             13.5
@@ -5043,6 +5566,9 @@
             117,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             0.23076923076923078,
             27
@@ -6598,8 +7124,8 @@
         "conversionPreset": "baseline",
         "triangles": 75931,
         "atlas": true,
-        "textureBytes": 32768,
-        "paletteBytes": 512,
+        "textureBytes": 59392,
+        "paletteBytes": 6752,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Object_4: unused reduced-output attributes omitted: uv1; source retained.",
@@ -6898,8 +7424,8 @@
         "conversionPreset": "authentic",
         "triangles": 15503,
         "atlas": true,
-        "textureBytes": 8192,
-        "paletteBytes": 512,
+        "textureBytes": 189952,
+        "paletteBytes": 6752,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Object_4: unused reduced-output attributes omitted: uv1; source retained.",
@@ -7453,7 +7979,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0100949605305989,
-            "changedPixels": 8624
+            "changedPixels": 8624,
+            "sourceNearBlackPixels": 10368,
+            "candidateNearBlackPixels": 10247,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 2
           },
           {
             "stage": "prepared",
@@ -7462,7 +7992,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7086181640625,
-            "changedPixels": 5415
+            "changedPixels": 5415,
+            "sourceNearBlackPixels": 17715,
+            "candidateNearBlackPixels": 17247,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 2
           },
           {
             "stage": "prepared",
@@ -7471,7 +8005,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7875150044759115,
-            "changedPixels": 5786
+            "changedPixels": 5786,
+            "sourceNearBlackPixels": 9484,
+            "candidateNearBlackPixels": 9035,
+            "sourceNearWhitePixels": 4,
+            "candidateNearWhitePixels": 24
           },
           {
             "stage": "prepared",
@@ -7480,7 +8018,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.100634256998698,
-            "changedPixels": 8342
+            "changedPixels": 8342,
+            "sourceNearBlackPixels": 12507,
+            "candidateNearBlackPixels": 12196,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 2
           },
           {
             "stage": "prepared",
@@ -7489,7 +8031,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 11.82720947265625,
-            "changedPixels": 82672
+            "changedPixels": 82672,
+            "sourceNearBlackPixels": 24636,
+            "candidateNearBlackPixels": 23110,
+            "sourceNearWhitePixels": 606,
+            "candidateNearWhitePixels": 495
           },
           {
             "stage": "prepared",
@@ -7498,7 +8044,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8085619608561198,
-            "changedPixels": 7956
+            "changedPixels": 7956,
+            "sourceNearBlackPixels": 1929,
+            "candidateNearBlackPixels": 2119,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7507,7 +8057,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6456693013509115,
-            "changedPixels": 6581
+            "changedPixels": 6581,
+            "sourceNearBlackPixels": 2900,
+            "candidateNearBlackPixels": 3048,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7515,8 +8069,12 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.5516255696614585,
-            "changedPixels": 20005
+            "meanAbsoluteRGBByteError": 2.9392369588216147,
+            "changedPixels": 18409,
+            "sourceNearBlackPixels": 10368,
+            "candidateNearBlackPixels": 16795,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7524,8 +8082,12 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.107733408610026,
-            "changedPixels": 13070
+            "meanAbsoluteRGBByteError": 2.9949124654134116,
+            "changedPixels": 12525,
+            "sourceNearBlackPixels": 17715,
+            "candidateNearBlackPixels": 21185,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7533,8 +8095,12 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.9493204752604167,
-            "changedPixels": 10848
+            "meanAbsoluteRGBByteError": 1.7962125142415364,
+            "changedPixels": 10462,
+            "sourceNearBlackPixels": 9484,
+            "candidateNearBlackPixels": 13238,
+            "sourceNearWhitePixels": 4,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7542,8 +8108,12 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.1612281799316406,
-            "changedPixels": 17848
+            "meanAbsoluteRGBByteError": 2.6420682271321616,
+            "changedPixels": 16579,
+            "sourceNearBlackPixels": 12507,
+            "candidateNearBlackPixels": 18189,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7551,8 +8121,12 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 24.812283833821613,
-            "changedPixels": 134738
+            "meanAbsoluteRGBByteError": 20.757413228352863,
+            "changedPixels": 130383,
+            "sourceNearBlackPixels": 24636,
+            "candidateNearBlackPixels": 47921,
+            "sourceNearWhitePixels": 606,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7560,8 +8134,12 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.928246815999349,
-            "changedPixels": 17578
+            "meanAbsoluteRGBByteError": 3.0595499674479165,
+            "changedPixels": 17469,
+            "sourceNearBlackPixels": 1929,
+            "candidateNearBlackPixels": 3849,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7569,8 +8147,12 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.5795415242513022,
-            "changedPixels": 15745
+            "meanAbsoluteRGBByteError": 2.604619344075521,
+            "changedPixels": 16024,
+            "sourceNearBlackPixels": 2900,
+            "candidateNearBlackPixels": 3825,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7579,7 +8161,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1452827453613281,
-            "changedPixels": 7418
+            "changedPixels": 7418,
+            "sourceNearBlackPixels": 10463,
+            "candidateNearBlackPixels": 10313,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7588,7 +8174,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1854896545410156,
-            "changedPixels": 6627
+            "changedPixels": 6627,
+            "sourceNearBlackPixels": 16256,
+            "candidateNearBlackPixels": 15512,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7597,7 +8187,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.799261728922526,
-            "changedPixels": 4375
+            "changedPixels": 4375,
+            "sourceNearBlackPixels": 9959,
+            "candidateNearBlackPixels": 9590,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7606,7 +8200,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0608622233072917,
-            "changedPixels": 6770
+            "changedPixels": 6770,
+            "sourceNearBlackPixels": 12271,
+            "candidateNearBlackPixels": 11925,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7615,7 +8213,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 7.470116933186849,
-            "changedPixels": 27031
+            "changedPixels": 27031,
+            "sourceNearBlackPixels": 41594,
+            "candidateNearBlackPixels": 40202,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7624,7 +8226,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.3213081359863281,
-            "changedPixels": 1281
+            "changedPixels": 1281,
+            "sourceNearBlackPixels": 3365,
+            "candidateNearBlackPixels": 3352,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7633,7 +8239,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.4867757161458333,
-            "changedPixels": 3567
+            "changedPixels": 3567,
+            "sourceNearBlackPixels": 3358,
+            "candidateNearBlackPixels": 3320,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7641,8 +8251,12 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.2640508015950522,
-            "changedPixels": 16887
+            "meanAbsoluteRGBByteError": 2.376476287841797,
+            "changedPixels": 14349,
+            "sourceNearBlackPixels": 10463,
+            "candidateNearBlackPixels": 16796,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7650,8 +8264,12 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.692682902018229,
-            "changedPixels": 12266
+            "meanAbsoluteRGBByteError": 2.2341232299804688,
+            "changedPixels": 11217,
+            "sourceNearBlackPixels": 16256,
+            "candidateNearBlackPixels": 21202,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7659,8 +8277,12 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6050376892089844,
-            "changedPixels": 8089
+            "meanAbsoluteRGBByteError": 1.3423385620117188,
+            "changedPixels": 7297,
+            "sourceNearBlackPixels": 9959,
+            "candidateNearBlackPixels": 13238,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7668,8 +8290,12 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.836839040120443,
-            "changedPixels": 14443
+            "meanAbsoluteRGBByteError": 2.1110877990722656,
+            "changedPixels": 12434,
+            "sourceNearBlackPixels": 12271,
+            "candidateNearBlackPixels": 18189,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7677,8 +8303,12 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 17.904073079427082,
-            "changedPixels": 106645
+            "meanAbsoluteRGBByteError": 11.986460367838541,
+            "changedPixels": 94161,
+            "sourceNearBlackPixels": 41594,
+            "candidateNearBlackPixels": 47921,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7686,8 +8316,12 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.1565361022949219,
-            "changedPixels": 13339
+            "meanAbsoluteRGBByteError": 0.9113591512044271,
+            "changedPixels": 10687,
+            "sourceNearBlackPixels": 3365,
+            "candidateNearBlackPixels": 3849,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7695,8 +8329,12 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6806055704752605,
-            "changedPixels": 12407
+            "meanAbsoluteRGBByteError": 1.3566360473632812,
+            "changedPixels": 11513,
+            "sourceNearBlackPixels": 3358,
+            "candidateNearBlackPixels": 3825,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7705,7 +8343,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.4444580078125,
-            "changedPixels": 14179
+            "changedPixels": 14179,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7714,7 +8356,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3621101379394531,
-            "changedPixels": 13907
+            "changedPixels": 13907,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7723,7 +8369,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0376968383789062,
-            "changedPixels": 9593
+            "changedPixels": 9593,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7732,7 +8382,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5108388264973958,
-            "changedPixels": 13944
+            "changedPixels": 13944,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7741,7 +8395,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 12.170049031575521,
-            "changedPixels": 124107
+            "changedPixels": 124107,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7750,7 +8408,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9577929178873698,
-            "changedPixels": 9918
+            "changedPixels": 9918,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7759,7 +8421,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9273974100748698,
-            "changedPixels": 9618
+            "changedPixels": 9618,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7768,7 +8434,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.445343017578125,
-            "changedPixels": 14186
+            "changedPixels": 14186,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7777,7 +8447,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3630599975585938,
-            "changedPixels": 13912
+            "changedPixels": 13912,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7786,7 +8460,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0380325317382812,
-            "changedPixels": 9595
+            "changedPixels": 9595,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7795,7 +8473,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5114949544270833,
-            "changedPixels": 13946
+            "changedPixels": 13946,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7804,7 +8486,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 12.170049031575521,
-            "changedPixels": 124107
+            "changedPixels": 124107,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7813,7 +8499,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9577929178873698,
-            "changedPixels": 9918
+            "changedPixels": 9918,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7822,7 +8512,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9273974100748698,
-            "changedPixels": 9618
+            "changedPixels": 9618,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7831,7 +8525,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5702972412109375,
-            "changedPixels": 2575
+            "changedPixels": 2575,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7840,7 +8538,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7244618733723959,
-            "changedPixels": 2856
+            "changedPixels": 2856,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7849,7 +8551,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7125460306803385,
-            "changedPixels": 2462
+            "changedPixels": 2462,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7858,7 +8564,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.802398681640625,
-            "changedPixels": 3020
+            "changedPixels": 3020,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7867,7 +8577,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 2.420360565185547,
-            "changedPixels": 7700
+            "changedPixels": 7700,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7876,7 +8590,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.22215779622395834,
-            "changedPixels": 982
+            "changedPixels": 982,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "prepared",
@@ -7885,7 +8603,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 0.22710291544596353,
-            "changedPixels": 1001
+            "changedPixels": 1001,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7894,7 +8616,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 9.277337392171225,
-            "changedPixels": 26634
+            "changedPixels": 26634,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7903,7 +8629,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 10.08023452758789,
-            "changedPixels": 28165
+            "changedPixels": 28165,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7912,7 +8642,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 6.5588124593098955,
-            "changedPixels": 19714
+            "changedPixels": 19714,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7921,7 +8655,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 9.292861938476562,
-            "changedPixels": 27340
+            "changedPixels": 27340,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7930,7 +8668,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 47.61426289876302,
-            "changedPixels": 165460
+            "changedPixels": 165460,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7939,7 +8681,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.6256663004557292,
-            "changedPixels": 5069
+            "changedPixels": 5069,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           },
           {
             "stage": "atlas",
@@ -7948,7 +8694,11 @@
             "width": 512,
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3436724344889324,
-            "changedPixels": 5190
+            "changedPixels": 5190,
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
           }
         ]
       },
@@ -7959,9 +8709,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -7970,9 +8723,12 @@
             1,
             1
           ],
+          "width": 64,
+          "height": 64,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            59,
+            59
           ]
         },
         {
@@ -7981,9 +8737,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -7992,6 +8751,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -8003,6 +8765,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -8014,9 +8779,12 @@
             1,
             1
           ],
+          "width": 64,
+          "height": 64,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            59,
+            59
           ]
         },
         {
@@ -8025,6 +8793,9 @@
             1,
             1
           ],
+          "width": 32,
+          "height": 32,
+          "colours": 16,
           "texelsPerUVTile": [
             27,
             27
@@ -8036,9 +8807,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8047,9 +8821,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8058,9 +8835,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8069,9 +8849,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8080,9 +8863,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8091,9 +8877,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8102,9 +8891,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8113,9 +8905,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         },
         {
@@ -8124,9 +8919,12 @@
             1,
             1
           ],
+          "width": 128,
+          "height": 128,
+          "colours": 256,
           "texelsPerUVTile": [
-            27,
-            27
+            123,
+            123
           ]
         }
       ]
