@@ -24,7 +24,13 @@ jobs:
       - run: npm ci
       - name: Initialize private temporary input directory
         shell: pwsh
-        run: '"PRIVATE_CHARACTER_DIR=$env:RUNNER_TEMP/private-character-input" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append' 
+        run: |
+          $privateRoot = "$env:RUNNER_TEMP/private-character-input"
+          New-Item -ItemType Directory -Force "$privateRoot/authored-runtime", "$privateRoot/authored-profile" | Out-Null
+          "PRIVATE_CHARACTER_DIR=$privateRoot" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "T3CS_AUTOMATION=1" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "T3CS_RUN_OUTPUT=$privateRoot/authored-runtime" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "T3CS_TEST_PROFILE=$privateRoot/authored-profile" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Download private archive without logging the URL
         env:
           CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
