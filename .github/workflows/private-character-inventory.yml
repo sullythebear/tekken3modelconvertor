@@ -33,6 +33,10 @@ jobs:
         run: python scripts/private-character-inventory.py
       - run: node --test "tests/*.test.mjs"
       - run: npm run build
+      - name: Authored repeat-UV pixel and posed-rig regression
+        run: node scripts/repeat-uv-test.mjs
+      - name: Authored private-render matrix regression
+        run: node scripts/private-character-render-test.mjs
       - name: Actual private model imports and conversion diagnostics
         run: node scripts/private-character-probe.mjs
       - name: Publish technical metadata only to a separate diagnostics branch

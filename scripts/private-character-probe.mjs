@@ -1,4 +1,5 @@
 // Read real private models; publish only aggregate diagnostics, never pictures.
+import {renderPrivateCharacter} from './private-character-render.mjs';
 import {probeProvenance, requireProbeConversion} from './private-probe-contract.mjs';
 import{readFile,writeFile,mkdir}from'node:fs/promises';import path from'node:path';import{browserSession}from'./browser.mjs';
 const dir=process.env.PRIVATE_CHARACTER_DIR,inventory=JSON.parse(await readFile(path.join(dir,'private-inventory.json'),'utf8')),results=[];process.env.T3CS_AUTOMATION='1';process.env.T3CS_RUN_OUTPUT=path.join(dir,'runtime');process.env.T3CS_TEST_PROFILE=path.join(dir,'profile');await mkdir(process.env.T3CS_RUN_OUTPUT,{recursive:true});await mkdir(process.env.T3CS_TEST_PROFILE,{recursive:true});
@@ -10,6 +11,8 @@ for(const f of inventory.files.filter(f=>['.glb','.gltf','.fbx','.obj'].includes
  for(const mode of ['baseline','authentic']){await page.selectOption('#art-preset',mode);await page.click('#convert');await page.waitForFunction(()=>!document.querySelector('#convert').disabled,null,{timeout:300000});r[mode]=await page.evaluate(()=>{const t=window.studioTest,c=t.converted;if(!c)return{failed:true};return{conversionPreset:c.settings.art?.preset??'baseline',triangles:c.stats.triangles,atlas:!!t.atlas,textureBytes:t.atlas?.textureBytes??null,paletteBytes:t.atlas?.paletteBytes??null,warnings:c.warnings.map(s=>s.replace(/https?:\/\/\S+/g,'[URL]')),integrity:c.quality?.integrity,regions:c.report.map(x=>({region:x.region,material:x.material,before:x.before,after:x.after,method:x.reconstruction?.method,reason:x.reconstruction?.reason}))};});}
  for(const mode of ['baseline','authentic'])requireProbeConversion(r[mode],mode);
  r.visibility=await page.evaluate(()=>window.studioTest.diagnoseMaterialVisibility(window.studioTest.source.root,window.studioTest.converted.root,{resolution:48}));
+ r.renders=await renderPrivateCharacter(page,dir,r.id);
+ r.atlasDomains=await page.evaluate(()=>window.studioTest.atlas?.tiles.map(t=>({material:t.material,span:t.sourceUVSpan,texelsPerUVTile:t.texelsPerUVTile}))??null);
  r.status='PASS';
  }catch(e){r.failureType=e.name;r.failureStage=r.source?'conversion':'import';await writeFile(path.join(dir,'probe-failure-'+r.id+'.txt'),String(e.stack));}
  results.push(r);console.log('Private model probe:',r.id,r.status);

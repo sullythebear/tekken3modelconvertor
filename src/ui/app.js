@@ -1232,6 +1232,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 // Read-only diagnostic/test hooks; no filesystem or IPC bypass.
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
+    get referenceBounds(){return reference?.clone();},
     get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
     diagnoseMaterialVisibility,
