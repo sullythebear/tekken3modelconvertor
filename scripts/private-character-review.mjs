@@ -2,6 +2,7 @@
 // Never publish this draft. No originals enter the image-only allowlisted bundle.
 import {readFile,writeFile,readdir} from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {zipSync} from 'fflate';import {pathToFileURL} from 'node:url';
 export function permittedReviewFile(name){return name==='index.html'||name==='atlas.png'||/^(source|prepared|atlas)-(full|diffuse|normals|material-id)-(front|back|side|quarter|face|left-hand|right-hand)\.png$/.test(name);}
+export function publicReviewSummary({bytes,sha256,imageCount,anonymousPageStatus,anonymousAssetStatus}){return{status:'DRAFT_RESTRICTED',bytes,sha256,imageCount,access:'Open the authenticated repository Releases view with write access; never publish the draft',anonymousPageStatus,anonymousAssetStatus};}
 export function requireDraft(release){if(release?.draft!==true||!Number.isSafeInteger(release.id)||!/^https:\/\/github\.com\//.test(release.html_url??''))throw Error('Private review requires a verified unpublished draft');}
 export async function publishPrivateReview(env=process.env){
  const {GITHUB_TOKEN:token,GITHUB_REPOSITORY:repo,GITHUB_SHA:sha,GITHUB_RUN_ID:run,GITHUB_RUN_ATTEMPT:attempt,PRIVATE_CHARACTER_DIR:dir}=env;
@@ -22,7 +23,7 @@ export async function publishPrivateReview(env=process.env){
   const name='Private-Character-Review.zip';await request(draft.upload_url.replace(/\{.*$/,'')+'?name='+name,{method:'POST',headers:{'Content-Type':'application/zip'},body:archive});
   const verified=await(await request(base+'/releases/'+draft.id)).json();requireDraft(verified);const asset=verified.assets?.find(a=>a.name===name&&a.size===archive.length);if(!asset)throw Error('Private review upload verification failed');
   const anonymousAsset=await fetch(asset.browser_download_url);if(![401,403,404].includes(anonymousAsset.status))throw Error('Private review asset anonymous access was not denied');
-  report.privateReview={status:'DRAFT_RESTRICTED',url:verified.html_url,asset:name,bytes:archive.length,sha256:digest,imageCount,access:'Repository collaborators with write access only; extract locally; never publish this draft',anonymousPageStatus:anonymous.status,anonymousAssetStatus:anonymousAsset.status};
+  report.privateReview=publicReviewSummary({bytes:archive.length,sha256:digest,imageCount,anonymousPageStatus:anonymous.status,anonymousAssetStatus:anonymousAsset.status});
   await writeFile(reportPath,JSON.stringify(report,null,2));console.log('Restricted draft review verified; no images published publicly.');
  }catch(e){if(draft?.id)await fetch(base+'/releases/'+draft.id,{method:'DELETE',headers});throw e;}
 }

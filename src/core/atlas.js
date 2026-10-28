@@ -217,7 +217,7 @@ export async function bakeAtlas(
   root.traverse((mesh) => {
     if (!mesh.isMesh) return;
     const input = mesh.geometry,
-      g = input.toNonIndexed(),
+      g = input.index ? input.toNonIndexed() : input.clone(),
       uv =
         g.attributes.uv ??
         new THREE.Float32BufferAttribute(
