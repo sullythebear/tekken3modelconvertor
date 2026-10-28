@@ -165,8 +165,11 @@ export function vertexRegion(mesh, index, box) {
     });
     if (chosen) return chosen;
   }
-  const p = new THREE.Vector3()
-    .fromBufferAttribute(mesh.geometry.getAttribute("position"), index)
+  // Box3 uses the visible skinned pose. Compare in that same space when
+  // names provide no anatomy, not the unposed bind-local vertex positions.
+  const p = (mesh.isSkinnedMesh
+    ? mesh.getVertexPosition(index, new THREE.Vector3())
+    : new THREE.Vector3().fromBufferAttribute(mesh.geometry.getAttribute("position"), index))
     .applyMatrix4(mesh.matrixWorld);
   const h = (p.y - box.min.y) / Math.max(box.max.y - box.min.y, 1e-6),
     left = p.x > (box.min.x + box.max.x) / 2;
