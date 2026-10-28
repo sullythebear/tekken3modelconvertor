@@ -1,6 +1,6 @@
 import {requireBakeUV} from './bake-uv.js';
-// Translate a whole UV tile into atlas-local coordinates without wrapping triangles across seams.
-export function materialUVDomains(root, materials) {
+// Continuous source-UV rectangle; no vertex wrapping or topology changes.
+export function materialUVFrames(root, materials) {
   const ranges=new Map(materials.map(m=>[m,[Infinity,Infinity,-Infinity,-Infinity]]));
   root.traverse(mesh=>{
     if(!mesh.isMesh)return;
@@ -16,10 +16,18 @@ export function materialUVDomains(root, materials) {
     }
   });
   return new Map([...ranges].map(([m,r])=>{
-    if(r[0]===Infinity)return [m,[0,0]];
+    if(r[0]===Infinity)return [m,{origin:[0,0],span:[1,1]}];
     const origin=[Math.floor(r[0]+1e-5),Math.floor(r[1]+1e-5)];
-    if(r[2]>origin[0]+1.00001||r[3]>origin[1]+1.00001)
-      throw Error(`${m.name}: UVs span multiple tiles; per-triangle rebaking is required`);
-    return [m,origin];
+    const span=[Math.max(1,Math.ceil(r[2]-origin[0]-1e-5)),Math.max(1,Math.ceil(r[3]-origin[1]-1e-5))];
+    if([...origin,...span].some(v=>!Number.isSafeInteger(v)))throw Error('Source UV domain exceeds safe numerical range');
+    return [m,{origin,span}];
   }));
+}
+
+// Legacy one-tile contract retained for callers that explicitly require it.
+export function materialUVDomains(root,materials){
+ return new Map([...materialUVFrames(root,materials)].map(([m,f])=>{
+  if(f.span.some(s=>s>1))throw Error(`${m.name}: UVs span multiple tiles; use continuous-domain rebaking`);
+  return [m,f.origin];
+ }));
 }

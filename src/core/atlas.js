@@ -3,7 +3,7 @@ import {dilateChartTexels} from './uv-raster.js';
 import {sourceSkinLighting,bilinearRGBA,sourceSkinCoverage} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
 import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
-import {materialUVDomains} from "./uv-domain.js";
+import {materialUVFrames} from "./uv-domain.js";
 import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
 import {configureSkinning} from "./skinning.js";
 import * as THREE from "three";
@@ -20,6 +20,7 @@ function pixels(texture, size, dataMap=false) {
   const im=texture?.image;if(!im)return null;
   if(dataMap&&im.data)return resampleDataMap(im,size);
   const c=canvas(size,size),ctx=c.getContext('2d',{willReadFrequently:true});
+  ctx.imageSmoothingEnabled=texture.magFilter!==THREE.NearestFilter;
   let scratch=null;
   if (im.data) {
     const src = canvas(im.width, im.height),
@@ -56,7 +57,7 @@ export async function bakeAtlas(
     throw Error(
       `Found ${materials.length} materials. Preparation staging supports 32 separate CLUT rows. Native donor capacity is validated separately.`,
     );
-  const domains = materialUVDomains(root, materials);
+  const domains = materialUVFrames(root, materials);
   const grid = Math.ceil(Math.sqrt(materials.length)),
     defaultCell = Math.floor(size / grid / 4) * 4,
     gutter = 2,
@@ -73,7 +74,7 @@ export async function bakeAtlas(
     const cell=layout[i].width??layout[i].side,cellHeight=layout[i].height??layout[i].side;
     const sampleSize=samplingSize(materials[i]);
     const m = materials[i],
-      origin = domains.get(m),
+      {origin,span} = domains.get(m),
       tile = canvas(cell, cellHeight),
       tc = tile.getContext("2d"),
       image = tc.createImageData(cell, cellHeight),
@@ -86,7 +87,8 @@ export async function bakeAtlas(
       warnings.push(
         `${m.name}: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.`,
       );
-    const coverage=art&&origin[0]===0&&origin[1]===0?sourceSkinCoverage(m,cell,cellHeight,gutter):null;
+    if(span.some(s=>s>1))warnings.push(`${m.name}: continuous ${span[0]} x ${span[1]} UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.`);
+    const coverage=art&&span[0]===1&&span[1]===1&&origin[0]===0&&origin[1]===0?sourceSkinCoverage(m,cell,cellHeight,gutter):null;
     let coverageStats=null;
     for (let y = 0; y < cellHeight; y++)
       for (let x = 0; x < cell; x++) {
@@ -103,11 +105,11 @@ export async function bakeAtlas(
             if(art&&/lash|hair|faceacc|strand/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
               const footprint=.25/(cell-1-2*gutter),coordinates=[];
               for(const dx of [-footprint,footprint])for(const dy of [-footprint,footprint]){
-                const q=coordinate(tex,Math.max(0,Math.min(1,u+dx))+origin[0],Math.max(0,Math.min(1,v+dy))+origin[1]);coordinates.push([q.x,q.y]);
+                const q=coordinate(tex,Math.max(0,Math.min(1,u+dx))*span[0]+origin[0],Math.max(0,Math.min(1,v+dy))*span[1]+origin[1]);coordinates.push([q.x,q.y]);
               }
               return filteredRGBA(img,coordinates,{alphaWeighted:tex===m.map});
             }
-            const uv = coordinate(tex, u + origin[0], v + origin[1]),
+            const uv = coordinate(tex, u*span[0] + origin[0], v*span[1] + origin[1]),
               sx = Math.max(
                 0,
                 Math.min(img.width - 1, Math.floor(uv.x * img.width)),
@@ -175,6 +177,8 @@ export async function bakeAtlas(
       sourceCoverage:coverageStats,
       sourceSkinBake:m.userData?.t3csSkinBake??null,
       sourceUVOrigin: origin,
+      sourceUVSpan: span,
+      texelsPerUVTile: [(cell-1-2*gutter)/span[0],(cellHeight-1-2*gutter)/span[1]],
       clut: art ? ((480+i)<<6)|48 : 64 + i,
       x: ox,
       y: oy,
@@ -225,10 +229,10 @@ export async function bakeAtlas(
         ? g.groups
         : [{ start: 0, count: g.attributes.position.count, materialIndex: 0 }];
     for (const group of groups) {
-      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], origin = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
+      const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], {origin,span} = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
       for (let j = group.start; j < group.start + group.count; j++) {
-        const u = Math.max(0, Math.min(1, sourceUV.getX(j) - origin[0])),
-          v = Math.max(0, Math.min(1, sourceUV.getY(j) - origin[1]));
+        const u = Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])),
+          v = Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1]));
         uv.setXY(
           j,
           (tile.x + gutter + u * (cell - 1 - 2 * gutter)) / size,

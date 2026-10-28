@@ -1235,6 +1235,7 @@ if (new URLSearchParams(location.search).has("test"))
     get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
     diagnoseMaterialVisibility,
+    bakeAtlas,
     sceneIntegrity,
     setReconstruction(stage) { artProfile.reconstruction=stage; },
     syntheticCharacter,
