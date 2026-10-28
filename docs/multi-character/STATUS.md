@@ -65,3 +65,22 @@ Finite atlas capacity remains a limitation: one Marston material covers 117x1 UV
 A verified **unpublished draft** contains 255 generated diagnostic PNGs and local HTML, no original models/projects. Both its page and asset returned HTTP404 anonymously; authenticated API confirmed draft=true before/after upload. Sign into GitHub with repository write access, open the repository's Releases view, select the PRIVATE character diagnostics draft, download/extract its ZIP and open index.html locally. **Never publish the draft.** This is not an application release.
 
 Restricted release/download locators are excluded from new public metadata. An automatic approval check rejected the attempted public locator publication; the proposed status command did not execute. Earlier diagnostic metadata already contained a restricted-page locator, so the current tip is being sanitized without rewriting preserved history. Images remained protected by draft access control. The developer cloud cannot authenticate to inspect those private images; automated comparisons do not count as artistic approval.
+
+## Latest anatomy checkpoint — source 5965b6c
+
+Windows run **40681469697 passed**, including full Node suite, actual repeat-UV pixel/posed-rig fixtures, private render matrix, all three model probes, restricted draft verification and private-input cleanup. Public review metadata now contains no restricted release/download locator. Local suite: **283 PASS**, zero failures/skips/cancellations. Final browser UI workflow passes with all 80 controls. No published application release or new EXE.
+
+A further confirmed generic bug affected unmapped rigs: spatial anatomy compared bind-local raw positions to visible posed bounds. The fallback now uses the visible skinned vertex position in the same coordinate space. Recognized bone semantics remain primary. Marston previously classified every primitive as lower legs; corrected output has head, torso, hips and leg regions. It remains unmapped for animation/donor purposes.
+
+| Model | Source triangles | Current artistic triangles | Atlas generated |
+|---|---:|---:|---|
+| Cena | 6186 | 3692 | Yes |
+| Marston | 17176 | 6459 | Yes |
+| Rhea | 81469 | 15503 | Yes |
+| Nikki, separate private input | — | 7481 | Yes |
+
+Marston region output: head 2889, torso 2225, hips 322, right upper/lower leg 168/289, left upper/lower leg 263/303. The lower total is **not artistic improvement by itself**: source-to-preparation face RGB error increased from 2.80 to 3.88, so visual review is required before accepting this tradeoff. His specific black right-eye cause remains unverified. Cena fingers/sleeves and remaining Rhea material/alpha errors remain visually unapproved.
+
+Final Nikki regression again has 132 PNGs with 131 byte-identical model images and only the known UI-hover difference. Cesium Man (1122 triangles) and synthetic short-hair/crest models (3496/2976) passed their actual conversion/render diagnostic route. These tests do not establish gameplay or automatic artistic quality.
+
+For private review, sign into the repository's Releases UI with write access and open the latest PRIVATE character diagnostics draft. Download/extract locally and open index.html; never publish the draft. Folder IDs map to Cena `97cd06d570f34e56`, Marston `ac97d32c3727e377`, Rhea `d0762a8df6f72497`. The developer cloud cannot inspect authenticated draft image bytes; owner visual assessment is still required. Original assets are absent from the review bundle. No HTTPS mirror is requested.
