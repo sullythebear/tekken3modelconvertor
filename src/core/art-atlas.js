@@ -1,3 +1,11 @@
+// Generic materials must not lose detail solely because they lack anatomical names.
+// Existing semantic surface policies remain unchanged; only the previous fallback grows.
+export function sourceDetailFallback(material){
+ if(!material?.map||/head|face|body|hair|iris|lash|eye|teeth|sclera|envelope/i.test(material.name??'')||material.userData?.t3csSkinSurface||material.userData?.t3csLegSurface)return 0;
+ const image=material.map.image,dimension=Math.max(image?.width??0,image?.height??0);
+ if(!Number.isFinite(dimension)||dimension<512)return 0;
+ return Math.min(128,2**Math.ceil(Math.log2(dimension/8)));
+}
 function legacyAtlasLayout(materials,size,art) {
  const cells=materials.map((m,i)=>({i,side:/head|face/i.test(m.name)&&!/eye|lash|faceacc|hair|strand/i.test(m.name)?(art.face>80?size/2:size/4):/body_(torso|arms|legs)/i.test(m.name)?size/4:/body/i.test(m.name)?size/2:/hair|faceacc/i.test(m.name)?(art.hair>85?size/2:size/4):/iris|lash/i.test(m.name)&&art.face>80?size/4:/eyeshell/i.test(m.name)?size/16:size/8}));
  const occupied=[],out=[];
@@ -16,7 +24,7 @@ export function artAtlasLayout(materials,size,art) {
  const cells=materials.map((m,i)=>{
   const name=m.name,face=/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name),hair=/hair|faceacc/i.test(name),torso=/body_torso/i.test(name),eye=/iris|lash/i.test(name);
   const side=m.userData?.t3csSkinSurface?base/4:face?(art.face>80?base/2:base/4):hair?(art.hair>85?base/2:base/4):torso?(art.pixelation<75?(/_rebaked$/i.test(name)?base:base/2):base/4):/envelope/i.test(name)?base/2:/body/i.test(name)?base/4:eye?(/lash/i.test(name)&&art.face>80?base/2:base/4):/eyeshell/i.test(name)?16:base/8;
-  return {i,side:Math.max(16,side),wide:!!(m.userData?.t3csSkinSurface&&m.userData.t3csSkinPart==='hand'),priority:face?6:hair?5:torso?4:eye?3.5:/envelope/i.test(name)?3:1};
+  return {i,side:Math.max(16,side,sourceDetailFallback(m)),wide:!!(m.userData?.t3csSkinSurface&&m.userData.t3csSkinPart==='hand'),priority:face?6:hair?5:torso?4:eye?3.5:/envelope/i.test(name)?3:1};
  });
  const occupied=[],out=[];let used=0;
  const ordered=cells.sort((a,b)=>b.side*b.side*(b.wide?2:1)-a.side*a.side*(a.wide?2:1)||b.priority-a.priority||a.i-b.i);
@@ -40,7 +48,7 @@ export function pixelateRGBA(bytes,strength,dither=false,width=4,colorLevels=0) 
  }
  return out;
 }
-export function artTextureColors(name,art,material=null){if(material?.userData?.t3csSkinSurface||material?.userData?.t3csLegSurface||material?.userData?.t3csSurfaceDiffuse)return 256;return art?.face>80&&/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name)?256:16;}
+export function artTextureColors(name,art,material=null){if((!['v060','dev1'].includes(art?.reconstruction)&&sourceDetailFallback(material))||material?.userData?.t3csSkinSurface||material?.userData?.t3csLegSurface||material?.userData?.t3csSurfaceDiffuse)return 256;return art?.face>80&&/head|face/i.test(name)&&!/eye|lash|faceacc|hair|strand/i.test(name)?256:16;}
 export function stagingTIMLayout(tiles){
  let x=0,y=0,height=0;
  return tiles.map(t=>{

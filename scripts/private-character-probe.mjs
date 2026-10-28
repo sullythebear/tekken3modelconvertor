@@ -12,7 +12,7 @@ for(const f of inventory.files.filter(f=>['.glb','.gltf','.fbx','.obj'].includes
  for(const mode of ['baseline','authentic'])requireProbeConversion(r[mode],mode);
  r.visibility=await page.evaluate(()=>window.studioTest.diagnoseMaterialVisibility(window.studioTest.source.root,window.studioTest.converted.root,{resolution:48}));
  r.renders=await renderPrivateCharacter(page,dir,r.id);
- r.atlasDomains=await page.evaluate(()=>window.studioTest.atlas?.tiles.map(t=>({material:t.material,span:t.sourceUVSpan,texelsPerUVTile:t.texelsPerUVTile}))??null);
+ r.atlasDomains=await page.evaluate(()=>window.studioTest.atlas?.tiles.map(t=>({material:t.material,span:t.sourceUVSpan,width:t.width,height:t.height,colours:t.palette.length,texelsPerUVTile:t.texelsPerUVTile}))??null);
  r.status='PASS';
  }catch(e){r.failureType=e.name;r.failureStage=r.source?'conversion':'import';await writeFile(path.join(dir,'probe-failure-'+r.id+'.txt'),String(e.stack));}
  results.push(r);console.log('Private model probe:',r.id,r.status);
