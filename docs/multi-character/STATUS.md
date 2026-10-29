@@ -1,88 +1,88 @@
-# Multi-character checkpoint — 2026-10-27
+# Multi-character status — 2026-10-29
 
-This is a source/test checkpoint, **not a visually accepted conversion release**. The existing UI, 80 controls and main branch are preserved. No commercial assets or screenshots are published here.
+Development branch: `development/070-multi-character`. Main and earlier releases are unchanged. This is a tested development candidate, **not artistic approval or verified Tekken gameplay**.
 
-## Actual archive inventory
+## Inputs and reproducibility
 
-The private Windows runner downloaded and extracted a 42,802,902-byte ZIP, SHA256 `c94a59875a805c769e56a57eeaf0d4b8e54140a9a368326dce8dc8587fbc53b6`. It contains exactly three embedded-resource GLBs, 46,733,140 expanded bytes. No Nikki, FBX, loose textures or animation clips are present. Resource metadata reports no missing external assets.
+The private Windows download works using `CHARACTER_TEST_DOWNLOAD_URL`; Nikki uses the separate unchanged `NIKKI_DOWNLOAD_URL`. No mirror is needed. The archive contains exactly three GLBs and no Nikki or animation clips. All resources are embedded; no missing external resource is reported.
 
-| File | Bytes | Source triangles | Skeleton |
-|---|---:|---:|---|
-| John Cena.glb | 460,116 | 6,186 | None |
-| John Marston.glb | 2,235,952 | 17,176 | 274 joints; anatomical mapping unresolved |
-| Rhea Ripley.glb | 44,037,072 | 81,469 | None |
+| Input | Bytes | Source triangles | Artistic triangles | Rig |
+|---|---:|---:|---:|---|
+| John Cena.glb | 460,116 | 6,186 | 3,692 | None |
+| John Marston.glb | 2,235,952 | 17,176 | 6,459 | 274 joints, anatomical mapping unresolved |
+| Rhea Ripley.glb | 44,037,072 | 81,469 | 15,503 | None |
+| Nikki, separate private input | — | — | 7,481 | Existing FBX pipeline |
 
-Safe full hashes and material/UV metadata: [private test metadata branch](https://github.com/sullythebear/tekken3modelconvertor/tree/automation/private-character-diagnostics/docs/private-tests). Despite the branch naming, these files are **public sanitized metadata**, not a private place to put images or originals.
+Archive: 42,802,902 bytes; SHA256 `c94a59875a805c769e56a57eeaf0d4b8e54140a9a368326dce8dc8587fbc53b6`. Expanded files: 46,733,140 bytes. Full safe input hashes, UV/material metadata, per-primitive bake checks, source commit and run provenance are on the [sanitized diagnostics branch](https://github.com/sullythebear/tekken3modelconvertor/tree/automation/private-character-diagnostics/docs/private-tests). That branch is public metadata, never a private image store.
 
-## Kept fixes and rejected experiment
+The starting branch contained the repeat/mirror/clamp/texture-transform atlas repair and visible-coordinate anatomy fix (`5965b6c` is an ancestor, not the starting head). A checkpoint was made before experiments. No architecture, UI redesign, new presets, character-name exceptions or game research was added.
 
-- Material atlas UV selection now respects the actual common texture UV channel; missing or mixed channels explicitly fail rather than silently use UV0. An authored two-colour GLB checks the actual resulting atlas texel. Manual texture matrices are preserved.
-- Guarded unskinned, upright extended-arm classification prevents source hands from being treated as torso. Bone-based semantics remain primary when present. Ambiguous poses use the earlier fallback.
-- Cena source hands previously fell from 1,040 combined triangles to 48. The current bounded source-anatomical route retains 284 per hand, 568 combined. This is structural preservation, not visual or animated-hand approval.
-- Rejected unconditional source-hand retention: it increased Rhea to 22,787 artist triangles. No character-name threshold was substituted.
-- Added opaque ray/material provenance, alpha summaries and original glTF material metadata. These are bounded numerical diagnostics, not rendered/PBR/alpha quality scores.
+## Retained repairs
 
-| Model | Baseline triangles | Current artistic triangles | Atlas |
-|---|---:|---:|---|
-| Cena | 2,290 | 3,692 | Blocked by multi-tile UVs |
-| Marston | 4,090 | 12,862 | Blocked by multi-tile UVs |
-| Rhea | 75,931 | 15,503 | Generated; visual acceptance pending |
+1. **PBR/unlit albedo factors are multiplied in linear colour space.** Encoded texture bytes were previously multiplied by an encoded material factor. An authored actual-render fixture has source RGB [7,7,112] and RGB555 atlas [8,8,115]. Normal maps are sampled as raw vectors. Legacy Phong/FBX preparation is deliberately preserved; a broad initial transfer change failed Nikki comparison and was corrected.
+2. **Actual alpha variation controls footprint sampling.** Unnamed PBR/unlit cutout materials receive alpha-weighted sampling when source alpha varies; opaque/uniform-alpha and legacy calibrated materials retain their existing path. This improves sampling, but does not reproduce true semi-transparent layer compositing in a binary PS1 cutout.
+3. **Moderate-resolution unclassified PBR textures retain more source detail.** The generic resolution fallback now includes 256px maps, without changing semantic face/skin/hair/eye or legacy Phong policy. No character names decide this route.
+4. **Atlas output preserves source PBR/unlit culling.** A single forced DoubleSide material previously exposed backfaces. Mixed sides now use shared atlas textures and explicit per-side groups; positions, UVs, weights and triangle counts are unchanged. Rhea Material.016 is FrontSide while her other materials are DoubleSide. Authored back-view raster verifies FrontSide stays invisible and explicit DoubleSide stays visible. Visibility rays also account for sidedness and mirrored transforms. Legacy Phong preparation is preserved.
+5. **Source-correspondence diagnostics identify actual primitive/material faults.** Per-primitive source-to-atlas and prepared-to-atlas checks report colour error, new black/white samples and alpha mismatch, alongside UV spans and tile allocation. Hand geometry audits compare source and candidate surfaces in a common coordinate frame. Relative darkening components localize facial differences without pretending they are detected eyes.
+6. **Diagnostic renders now retain source alpha and depth settings.** The old material-ID override dropped base-map/vertex alpha, and diffuse controls did not retain depthWrite. Authored layered raster verifies transparent regions reveal the underlying material. Normal views remain explicitly geometry-only. Shader/context errors now fail probes rather than merely checking that PNG files exist.
 
-Rhea's active maps use UV0, so UV1 support is not established as her repair. Source metadata really contains untextured white, dark and metallic-grey materials. Opaque-map alpha samples are fully opaque. Neither fact establishes the cause of the unwanted visible blocks. The four-view coarse opaque-ray comparison finds 36 material changes in 760 reference samples; none expose the white material in these samples. Exact private raster inspection is still required.
+The existing continuous UV-domain atlas evaluates original sampler wrapping and texture transforms per texel, without modulo/clamping UV vertices or changing skinning. Repeat-UV fixtures remain passing. Finite atlas resolution can still undersample very large repeat domains (one Marston material spans 117 x 1 tiles).
 
-Marston's black-eye cause is **not fixed or verified**. No cosmetic colour copy was applied. Cena sleeves and Rhea final appearance remain unverified.
+## Per-character evidence and unresolved issues
 
-## Verified checks
+### Rhea — material and transparency
 
-- Full local Node suite: **268 passed**, zero failures/skips/cancellations.
-- Offline renderer build: passed.
-- Browser UI regression: passed all 15 workflow groups; every original control exists exactly once, 80 total. Includes real preparation export, project reopen, keyboard/search, preference restoration, preview modes, reduced motion and desktop resolutions.
-- Existing private Nikki input: artistic output 7,481 triangles, same 3D views as immutable UI baseline. 131/132 full PNGs byte-identical; the remaining full-UI screenshot differs only in a right-panel hover, with the 3D-pane ROI identical. No new Nikki image is publicly uploaded.
-- Actual Windows source-Electron probes imported/converted all three supplied GLBs; see [workflow](https://github.com/sullythebear/tekken3modelconvertor/actions/workflows/private-character-inventory.yml). New reports carry source commit/run provenance and reject stale preset results.
+Active textures use UV0 despite UV1 being present; UV1 support is not her demonstrated repair. White untextured, dark and metallic-grey materials really exist in the source and must not be indiscriminately recoloured. Linear albedo multiplication and source culling are confirmed generic corrections.
 
-**Not rerun for this checkpoint:** newly packaged portable Windows EXE, full private Nikki Windows project roundtrip, comparable Windows memory/timing measurements, actual commercial-model visual review and real gameplay. Existing UI-release binary is not presented as a new multi-character build.
+On the same Material.003 primitive/sample sets, alpha mismatches fell from **585 to 506 / 2,336** without reconstruction and **195 to 176 / 752** after reconstruction. Its RGB is black with variable BLEND alpha. Remaining mismatch is substantial: binary cutout cannot preserve the original semi-transparent compositing. There is **no claim that the visible material chaos is fully solved**.
 
-## Remaining input and next steps
+The source diffuse/material-ID reference was corrected this session. Earlier Rhea whole-render means cannot be directly compared across that reference correction; per-primitive UV sample metrics are independent of scene compositing. Darkening overlays still flag local defects for review.
 
-The cloud proxy rejects Google Drive before downloading bytes. Windows private download works, but public metadata cannot replace access to the actual source for private visual review. A temporary private HTTPS mirror outside Drive was requested. Do not copy its URL into the repository.
+### Marston — right eye not yet established
 
-Next engineering issue is repeat-UV atlas baking: triangles must be clipped/rebaked with reliable surface correspondence, wrapping, material and skinning constraints. Modulo/clamping vertices would corrupt patterns and is not an acceptable workaround. Preserve source appearance until this is validated. Commercial images must stay private; no new public screenshot report or release is claimed.
+No eye recolour/copy, filename alpha override or guessed anatomical side was applied. Sampled base alpha is opaque. Source-atlas, reconstructed-with-source-materials and final-atlas renders now separate the stages, with screen-half darkening component boxes and private overlays. These are **not verified eye landmarks**. The actual unilateral eye cause and artistic impact of the earlier 12,862 -> 6,459 reconstruction remain unresolved without authorized image review.
 
-[OpenKumite findings](OPENKUMITE.md): a distinct target appears technically possible with substantial constraints, but no new exporter, Rust rewrite or compatibility claim was added.
+A shared-head cropped-chart experiment improved an average error but increased newly black facial pixels (left half 4 -> 13). Its production routing and experimental module were removed. It is not counted as progress; see preserved commits/worklog.
 
-## 2026-10-28 continuation — verified atlas repair
+### Cena — source hands preserved; sleeve review pending
 
-The one-tile atlas assumption is replaced by a continuous source-UV rectangle per material. Chart mapping is affine; atlas texels evaluate original wrap modes and texture matrices. No modulo folding, vertex clamping workaround, new triangle generation or skinweight interpolation is needed. Single-tile output remains unchanged. Six authored actual-pixel fixtures cover repeat, mirror, clamp, transformed/manual matrices and nonindexed input; measured RGB and posed-vertex error are zero on checked samples. Nonindexed geometry is cloned before UV writes, avoiding shared-source mutation. Sampler-specific nearest/linear readbacks have separate cache entries.
+Both source hands contain 512 classified triangles each; current candidate retains 284 each. Bidirectional surface audit reports source-to-candidate p95 at most **0.4241%** of source hand diagonal, maximum bidirectional distance at most **1.0261%**, and no opposing nearest-normal samples. This supports shape preservation, not human approval of fingers or animated hands; the source has no rig.
 
-Actual Windows runs 40678935518, 40679601660 and 40680204381 generated atlases for all three supplied models, with unchanged artist geometry: **Cena 3692; Marston 12862; Rhea 15503 triangles**. Each produced 85 private diagnostic PNGs: source/preparation/atlas, full/diffuse/normals/material-ID, full-body and closeups. Atlas material-ID views show the consolidated material and are not original-material correspondence scores. Cena/Rhea hand crops now use actual anatomical region bounds; Marston remains provisional because mapping is unresolved.
+Improved moderate-map allocation reduced unexpected black samples on the cap material from **34 to 6** without reconstruction and **13 to 3** after reconstruction. Mean sampled colour error fell **14.76 -> 9.28** and **14.23 -> 7.89**, respectively. Logo alpha still has **5 mismatches / 92 samples**. Sleeve edges and finger appearance are not declared fixed. An earlier unconditional hand-retention experiment increased Rhea to 22,787 triangles and remains rejected.
 
-A generic source-resolution fallback avoids assigning every unclassified high-resolution mapped material only a small 32-pixel/16-colour tile. Existing semantic face/skin/hair/eye policies remain unchanged. At equal geometry, diffuse face mean absolute RGB error source-to-atlas decreased from **14.27 to 7.81** for Marston and **17.90 to 11.99** for Rhea. Cena remained 2.79. This supports detail retention, not proof that the eye/material problems are fully repaired. Nikki remains 7481 triangles with the same 131 byte-identical model images; only the known whole-UI hover screenshot differs. All 80 UI controls and existing browser workflows remain intact.
+## Executed validation
 
-Finite atlas capacity remains a limitation: one Marston material covers 117x1 UV tiles and is undersampled. Spans/texels per repeat are reported; atlas generation is not equivalent to fidelity or export acceptance. Cena fingers/sleeves, Marston's specific right-eye cause and remaining Rhea alpha/material appearance still require private visual review. No new packaged Windows EXE, full private Windows Nikki-project roundtrip, comparable performance numbers or gameplay validation is claimed.
+- Latest local full Node suite: **311 passed, zero failures/skips/cancellations**. Packaged candidate source had **310 passed**; the extra test is later renderer-error detection, not a conversion change.
+- Actual GPU/browser fixtures passed for repeat/mirror/clamp/transformed UVs and posed-rig correspondence, linear albedo, mixed material sidedness, material-ID alpha, render matrix, plus existing native/skinning/mapping fixtures in Windows.
+- Latest private Windows run [40951204650](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40951204650), source `3316c93acdee1e1fe5c497daa32a626223fe1aad`, passed imports, atlas generation and rendering for all three models. It generated **351 private PNGs**, HTML and primitive diagnostics. Artistic status is explicitly NOT_REVIEWED.
+- All **80 UI controls** and 15 browser workflow groups pass; packaged UI tests passed too. Existing beginner/advanced modes and project compatibility remain.
+- Nikki final local comparison: **131/132 PNGs byte-identical** to the immutable UI baseline. The remaining whole-UI simulation image differs outside the checked 3D-pane ROI; that ROI is pixel-identical. Artistic output remains 7,481 triangles.
+- Actual conversion/render route passed Cesium Man (1,122 triangles), synthetic short hair (3,496), and crest hair (2,976).
 
-### Restricted visual review
+### Actually packaged Windows candidate
 
-A verified **unpublished draft** contains 255 generated diagnostic PNGs and local HTML, no original models/projects. Both its page and asset returned HTTP404 anonymously; authenticated API confirmed draft=true before/after upload. Sign into GitHub with repository write access, open the repository's Releases view, select the PRIVATE character diagnostics draft, download/extract its ZIP and open index.html locally. **Never publish the draft.** This is not an application release.
+Version **0.7.0-dev.9-multi.2**, app source [5ed2818757a739cac19ebfa9f9346523527afd09](https://github.com/sullythebear/tekken3modelconvertor/commit/5ed2818757a739cac19ebfa9f9346523527afd09).
 
-Restricted release/download locators are excluded from new public metadata. An automatic approval check rejected the attempted public locator publication; the proposed status command did not execute. Earlier diagnostic metadata already contained a restricted-page locator, so the current tip is being sanitized without rewriting preserved history. Images remained protected by draft access control. The developer cloud cannot authenticate to inspect those private images; automated comparisons do not count as artistic approval.
+[Windows run 40949456669](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40949456669) passed packaging/distribution verification, actual self-extracting portable EXE smoke, packaged UI, both cutout modes, skinning/native fixtures, and all three commercial conversions/renders. Full private Nikki save/reopen in the packaged app passed with **24/24 byte-identical original assets**, raw-asset reuse and private temporary-file cleanup. The portable stub itself and packaged companion app are tested separately; no false claim that the entire project roundtrip runs inside the self-extracting stub process.
 
-## Latest anatomy checkpoint — source 5965b6c
+[Download code-only Windows candidate ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/40949456669/artifacts/12931016635) (98.2 MB; GitHub login required). Artifact digest: `e15d1370b5d54bffe3825eb768b1384701bb182ba372a2c87582dd9b1212db37`. The allowlisted bundle contains only EXE, Windows-Validation.json, Unit-Results.xml, SHA256SUMS.txt and README.txt. It contains no commercial screenshots, sources, textures or projects. Runner verifies the EXE hash against the actual tested portable executable before upload. Artifact presence and login redirect were checked; the cloud session could not download authenticated artifact bytes.
 
-Windows run **40681469697 passed**, including full Node suite, actual repeat-UV pixel/posed-rig fixtures, private render matrix, all three model probes, restricted draft verification and private-input cleanup. Public review metadata now contains no restricted release/download locator. Local suite: **283 PASS**, zero failures/skips/cancellations. Final browser UI workflow passes with all 80 controls. No published application release or new EXE.
+Windows timing, working-set/private-bytes measurements and phase details are in **Windows-Validation.json** inside the ZIP. This cloud cannot read that authenticated artifact, so no unobserved performance numbers or speedup are claimed. Later commits change diagnostic scripts/docs only; they do not change the packaged conversion code. This is an Actions development build, not a published prerelease.
 
-A further confirmed generic bug affected unmapped rigs: spatial anatomy compared bind-local raw positions to visible posed bounds. The fallback now uses the visible skinned vertex position in the same coordinate space. Recognized bone semantics remain primary. Marston previously classified every primitive as lower legs; corrected output has head, torso, hips and leg regions. It remains unmapped for animation/donor purposes.
+## Safe private image review
 
-| Model | Source triangles | Current artistic triangles | Atlas generated |
-|---|---:|---:|---|
-| Cena | 6186 | 3692 | Yes |
-| Marston | 17176 | 6459 | Yes |
-| Rhea | 81469 | 15503 | Yes |
-| Nikki, separate private input | — | 7481 | Yes |
+The latest **unpublished draft** is authenticated and confirmed draft=true; anonymous page and asset checks return **404**. Its bundle contains 351 generated PNGs, HTML and diagnosis JSON, no originals/projects. Restricted locators are deliberately absent from public metadata and this document. Never publish the draft.
 
-Marston region output: head 2889, torso 2225, hips 322, right upper/lower leg 168/289, left upper/lower leg 263/303. The lower total is **not artistic improvement by itself**: source-to-preparation face RGB error increased from 2.80 to 3.88, so visual review is required before accepting this tradeoff. His specific black right-eye cause remains unverified. Cena fingers/sleeves and remaining Rhea material/alpha errors remain visually unapproved.
+Sign into the repository with write access, open **Releases**, select the latest **PRIVATE character diagnostics** draft, download/extract its ZIP, then open **index.html** locally. Model folder IDs: Cena `97cd06d570f34e56`, Marston `ac97d32c3727e377`, Rhea `d0762a8df6f72497`. Each local model page labels source, source-atlas, prepared and atlas stages, with identical cameras and lighting, normal/material/alpha views, hand crops and face-darkening overlays. This is the safe owner-review route, not a public HTML URL.
 
-Final Nikki regression again has 132 PNGs with 131 byte-identical model images and only the known UI-hover difference. Cesium Man (1122 triangles) and synthetic short-hair/crest models (3496/2976) passed their actual conversion/render diagnostic route. These tests do not establish gameplay or automatic artistic quality.
+The developer cloud's authenticated release read returns Forbidden and no authorized image connector is available. Therefore actual commercial screenshot bytes were **not visually inspected by the assistant**. Automated raster/primitive analysis is not substituted for that limitation. Drafts stay protected; no public mirror is requested.
 
-For private review, sign into the repository's Releases UI with write access and open the latest PRIVATE character diagnostics draft. Download/extract locally and open index.html; never publish the draft. Folder IDs map to Cena `97cd06d570f34e56`, Marston `ac97d32c3727e377`, Rhea `d0762a8df6f72497`. The developer cloud cannot inspect authenticated draft image bytes; owner visual assessment is still required. Original assets are absent from the review bundle. No HTTPS mirror is requested.
+## Next concrete work
 
-Pixel-check clarification: the latest remaining full-UI Nikki screenshot differs outside the verified 3D-pane ROI; that pane is byte-identical. The precise UI-difference cause was not fully inspected, so earlier hover-only wording is narrower than the evidence. All 131 other PNGs are byte-identical.
+1. Owner reviews private face, hand and clothing crops and identifies exact faulty surfaces; correlate with primitive IDs and bounded colour/alpha checks.
+2. Resolve Rhea true BLEND-to-PS1 appearance, not merely alpha sampling; preserve legitimate white/black source materials.
+3. Localize Marston's actual eye surface/material before changing eye handling. Avoid repeating the rejected cropped-head experiment.
+4. Inspect Cena sleeve/logo cutout and fingers before any further source-hand simplification.
+5. Re-run relevant private Windows/Nikki and packaged gates after any app-code change. Do not optimize triangles to disguise material defects.
+
+No authentic donor/runtime capacity, Nina install, Tekken animation or real gameplay has been verified. Native fixtures remain synthetic. [OpenKumite findings](OPENKUMITE.md) are unchanged; no extra exporter or Rust rewrite was added.

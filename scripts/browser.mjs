@@ -2,6 +2,7 @@ import { chromium, _electron } from "playwright-core";
 import { createServer } from "node:http";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+export function isRendererFailure(type,text){return type==='error'&&/Shader Error|VALIDATE_STATUS|THREE\.WebGLProgram|Error creating WebGL context|GL_INVALID_OPERATION/.test(text);}
 export function applicationEnvironment(env){
  const appEnv={...env};for(const name of ['NIKKI_DOWNLOAD_URL','CHARACTER_TEST_DOWNLOAD_URL','GITHUB_TOKEN','GH_TOKEN'])delete appEnv[name];return appEnv;
 }
@@ -15,7 +16,7 @@ export async function browserSession({presentation="advanced"}={}) {
     });
     const page = await app.firstWindow(), errors = [], consoleLog = [];
     page.on("pageerror", e => errors.push(e.message));
-    page.on("console", m => consoleLog.push({type: m.type(), text: m.text().slice(0, 4096)}));
+    page.on("console", m => {consoleLog.push({type: m.type(), text: m.text().slice(0,4096)});if(isRendererFailure(m.type(),m.text()))errors.push("WebGL shader/context validation failed");});
     page.on("crash", () => errors.push("Electron renderer crashed"));
     await page.waitForFunction(() => Boolean(window.studioTest));
     if(presentation==="advanced")await page.evaluate(()=>window.studioPresentation?.revealAllSettings());
@@ -78,6 +79,7 @@ export async function browserSession({presentation="advanced"}={}) {
   });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
+  page.on("console",m=>{if(isRendererFailure(m.type(),m.text()))errors.push("WebGL shader/context validation failed");});
   await page.goto(`http://127.0.0.1:${server.address().port}/?test=1`);
   await page.waitForFunction(() => Boolean(window.studioTest));
   if(presentation==="advanced")await page.evaluate(()=>window.studioPresentation?.revealAllSettings());
