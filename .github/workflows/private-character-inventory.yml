@@ -47,6 +47,8 @@ jobs:
         run: node scripts/atlas-sides-test.mjs
       - name: Authored private-render matrix regression
         run: node scripts/private-character-render-test.mjs
+      - name: Authored material-ID alpha preservation regression
+        run: node scripts/private-material-diagnostic-test.mjs
       - name: Actual private model imports and conversion diagnostics
         run: node scripts/private-character-probe.mjs
       - name: Restricted draft review (never publish commercial renders)
