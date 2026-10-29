@@ -1,6 +1,6 @@
 {
-  "sourceCommit": "67c634650069413d78b4bc5be8e63ec895768169",
-  "workflowRunId": "40942521418",
+  "sourceCommit": "5ed2818757a739cac19ebfa9f9346523527afd09",
+  "workflowRunId": "40949456799",
   "workflowRunAttempt": "1",
   "status": "PASS",
   "artisticAcceptance": "NOT_REVIEWED",
@@ -2918,7 +2918,7 @@
       "visibility": {
         "available": true,
         "resolution": 48,
-        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "scope": "Source sidedness respected; opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
         "cameras": [
           {
             "angle": 0,
@@ -3179,7 +3179,7 @@
       },
       "renders": {
         "status": "RENDERED",
-        "imageCount": 114,
+        "imageCount": 117,
         "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
         "metrics": [
           {
@@ -3190,6 +3190,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.6929499308268228,
             "changedPixels": 25831,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3215,6 +3216,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.3791491190592446,
             "changedPixels": 30045,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3240,6 +3242,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7251485188802083,
             "changedPixels": 16348,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3265,6 +3268,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.460798899332682,
             "changedPixels": 24229,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3290,6 +3294,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 13.944558461507162,
             "changedPixels": 152533,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3335,6 +3340,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.42913818359375,
             "changedPixels": 31389,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3360,6 +3366,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.355191548665364,
             "changedPixels": 32512,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3385,6 +3392,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6024602254231771,
             "changedPixels": 4545,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3410,6 +3418,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6364161173502604,
             "changedPixels": 4732,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3435,6 +3444,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.45321909586588544,
             "changedPixels": 3640,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3460,6 +3470,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6859130859375,
             "changedPixels": 5388,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3485,6 +3496,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.455277760823568,
             "changedPixels": 28440,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3530,6 +3542,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6849873860677084,
             "changedPixels": 5000,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3555,6 +3568,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7559280395507812,
             "changedPixels": 5293,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3580,6 +3594,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.799718221028646,
             "changedPixels": 25899,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3605,6 +3620,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.4464632670084634,
             "changedPixels": 30220,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3630,6 +3646,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7678667704264324,
             "changedPixels": 16387,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3655,6 +3672,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.5657386779785156,
             "changedPixels": 24296,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3680,6 +3698,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 14.075759887695312,
             "changedPixels": 152920,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3725,6 +3744,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.487105051676433,
             "changedPixels": 31633,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3750,6 +3770,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.407440185546875,
             "changedPixels": 32724,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3775,6 +3796,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1937917073567708,
             "changedPixels": 6696,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3800,6 +3822,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2854550679524739,
             "changedPixels": 6265,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3825,6 +3848,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6121444702148438,
             "changedPixels": 4016,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3850,6 +3874,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0665435791015625,
             "changedPixels": 6366,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3875,6 +3900,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.2472521464029946,
             "changedPixels": 12178,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 422,
+                  "maximumDarkening": 183.7152,
+                  "largestDarkeningComponent": {
+                    "pixels": 187,
+                    "bounds": [
+                      129,
+                      28,
+                      142,
+                      54
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 401,
+                  "maximumDarkening": 182.99999999999997,
+                  "largestDarkeningComponent": {
+                    "pixels": 139,
+                    "bounds": [
+                      371,
+                      35,
+                      380,
+                      65
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -3920,6 +3978,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2646166483561199,
             "changedPixels": 13106,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3945,6 +4004,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2758585611979167,
             "changedPixels": 13041,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3970,6 +4030,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2740376790364583,
             "changedPixels": 1688,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -3995,6 +4056,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.574072519938151,
             "changedPixels": 2898,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4020,6 +4082,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.22107569376627603,
             "changedPixels": 1466,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4045,6 +4108,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.37175623575846356,
             "changedPixels": 2532,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4070,6 +4134,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0961825052897136,
             "changedPixels": 5907,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 150,
+                  "maximumDarkening": 87.2092,
+                  "largestDarkeningComponent": {
+                    "pixels": 24,
+                    "bounds": [
+                      146,
+                      190,
+                      148,
+                      211
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 462,
+                  "maximumDarkening": 110.69380000000001,
+                  "largestDarkeningComponent": {
+                    "pixels": 148,
+                    "bounds": [
+                      366,
+                      19,
+                      380,
+                      63
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -4115,6 +4212,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2044804890950521,
             "changedPixels": 860,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4140,6 +4238,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.21039835611979166,
             "changedPixels": 874,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4165,6 +4264,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3322296142578125,
             "changedPixels": 7144,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4190,6 +4290,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3946444193522136,
             "changedPixels": 6602,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4215,6 +4316,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6680259704589844,
             "changedPixels": 4276,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4240,6 +4342,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2080574035644531,
             "changedPixels": 6836,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4265,6 +4368,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.659022013346354,
             "changedPixels": 16378,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 610,
+                  "maximumDarkening": 183.7152,
+                  "largestDarkeningComponent": {
+                    "pixels": 223,
+                    "bounds": [
+                      126,
+                      29,
+                      144,
+                      53
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 840,
+                  "maximumDarkening": 182.99999999999997,
+                  "largestDarkeningComponent": {
+                    "pixels": 265,
+                    "bounds": [
+                      365,
+                      19,
+                      380,
+                      82
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -4310,6 +4446,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.395306905110677,
             "changedPixels": 13683,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4335,6 +4472,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.4119110107421875,
             "changedPixels": 13645,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4360,6 +4498,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4385,6 +4524,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4410,6 +4550,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4435,6 +4576,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4460,6 +4602,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4505,6 +4648,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4530,6 +4674,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4555,6 +4700,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2550951639811199,
             "changedPixels": 12248,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4580,6 +4726,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0630035400390625,
             "changedPixels": 9797,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4605,6 +4752,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8354314168294271,
             "changedPixels": 7691,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4630,6 +4778,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2293141682942708,
             "changedPixels": 11926,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4655,6 +4804,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.934912363688151,
             "changedPixels": 95242,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4700,6 +4850,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.129503885904948,
             "changedPixels": 9588,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4725,6 +4876,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1808865865071614,
             "changedPixels": 10636,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4750,6 +4902,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2550951639811199,
             "changedPixels": 12248,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4775,6 +4928,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0630035400390625,
             "changedPixels": 9797,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4800,6 +4954,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8354314168294271,
             "changedPixels": 7691,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4825,6 +4980,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2293141682942708,
             "changedPixels": 11926,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4850,6 +5006,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.934912363688151,
             "changedPixels": 95242,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4895,6 +5052,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.129503885904948,
             "changedPixels": 9588,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4920,6 +5078,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1808865865071614,
             "changedPixels": 10636,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4945,6 +5104,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.352532704671224,
             "changedPixels": 38314,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4970,6 +5130,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 12.498676300048828,
             "changedPixels": 38694,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -4995,6 +5156,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.542059580485026,
             "changedPixels": 22747,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5020,6 +5182,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.5580291748046875,
             "changedPixels": 35239,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5045,6 +5208,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 26.208292643229168,
             "changedPixels": 168111,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5090,6 +5254,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.8469416300455728,
             "changedPixels": 37662,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5115,6 +5280,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.846825917561849,
             "changedPixels": 37699,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5140,6 +5306,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.11713282267252605,
             "changedPixels": 566,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5165,6 +5332,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.1333948771158854,
             "changedPixels": 564,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5190,6 +5358,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.10675557454427083,
             "changedPixels": 506,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5215,6 +5384,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.1008466084798177,
             "changedPixels": 469,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5240,6 +5410,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6246109008789062,
             "changedPixels": 2185,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5285,6 +5456,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.17196273803710938,
             "changedPixels": 628,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5310,6 +5482,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.17823410034179688,
             "changedPixels": 641,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5335,6 +5508,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.4148915608723955,
             "changedPixels": 38494,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5360,6 +5534,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 12.56354014078776,
             "changedPixels": 38874,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5385,6 +5560,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.616662343343099,
             "changedPixels": 22976,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5410,6 +5586,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.625731150309245,
             "changedPixels": 35429,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5435,6 +5612,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 26.563636779785156,
             "changedPixels": 169028,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5480,6 +5658,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.984124501546224,
             "changedPixels": 37947,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5505,6 +5684,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.989149729410807,
             "changedPixels": 37973,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -5541,6 +5721,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5584,6 +5765,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5627,6 +5809,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5670,6 +5853,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5713,6 +5897,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5756,6 +5941,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5799,6 +5985,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5842,6 +6029,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5885,6 +6073,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5928,6 +6117,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -5971,6 +6161,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6014,6 +6205,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6057,6 +6249,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6100,6 +6293,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6143,6 +6337,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6186,6 +6381,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6229,6 +6425,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6272,6 +6469,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6315,6 +6513,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6358,6 +6557,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "mask",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6401,6 +6601,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -6444,6 +6645,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8095,6 +8297,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8138,6 +8341,7 @@
                 "region": "rightUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8181,6 +8385,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8224,6 +8429,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8267,6 +8473,7 @@
                 "region": "leftUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8310,6 +8517,7 @@
                 "region": "leftUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8353,6 +8561,7 @@
                 "region": "leftLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8396,6 +8605,7 @@
                 "region": "rightUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8439,6 +8649,7 @@
                 "region": "rightLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8482,6 +8693,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8525,6 +8737,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8568,6 +8781,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8611,6 +8825,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8654,6 +8869,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8697,6 +8913,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8740,6 +8957,7 @@
                 "region": "rightHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8783,6 +9001,7 @@
                 "region": "rightLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8826,6 +9045,7 @@
                 "region": "leftHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8869,6 +9089,7 @@
                 "region": "leftLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8912,6 +9133,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8955,6 +9177,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -8998,6 +9221,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9041,6 +9265,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9084,6 +9309,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9127,6 +9353,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9170,6 +9397,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9213,6 +9441,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9256,6 +9485,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9299,6 +9529,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9342,6 +9573,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9385,6 +9617,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9428,6 +9661,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9471,6 +9705,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9514,6 +9749,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9557,6 +9793,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9600,6 +9837,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9643,6 +9881,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9686,6 +9925,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9729,6 +9969,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9772,6 +10013,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9815,6 +10057,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9858,6 +10101,7 @@
                 "region": "rightLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9901,6 +10145,7 @@
                 "region": "leftLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9944,6 +10189,7 @@
                 "region": "rightUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "mask",
                 "sourceOpacity": 1,
                 "texture": {
@@ -9987,6 +10233,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -10030,6 +10277,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -10073,6 +10321,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -10116,6 +10365,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -10159,6 +10409,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -10202,6 +10453,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -12323,6 +12575,9 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
+      "atlasSides": [
+        2
+      ],
       "atlasWarnings": [
         "jc_arm_tm2: continuous 3 x 1 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
         "jc_belt_tm2: continuous 1 x 2 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
@@ -13260,7 +13515,7 @@
       "visibility": {
         "available": true,
         "resolution": 48,
-        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "scope": "Source sidedness respected; opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
         "cameras": [
           {
             "angle": 0,
@@ -13365,7 +13620,7 @@
       },
       "renders": {
         "status": "RENDERED",
-        "imageCount": 114,
+        "imageCount": 117,
         "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
         "metrics": [
           {
@@ -13376,6 +13631,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9381612141927084,
             "changedPixels": 8413,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13401,6 +13657,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8868942260742188,
             "changedPixels": 7430,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13426,6 +13683,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6084721883138021,
             "changedPixels": 5647,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13451,6 +13709,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9038441975911459,
             "changedPixels": 8216,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13476,6 +13735,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.6087493896484375,
             "changedPixels": 65831,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13521,6 +13781,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6955820719401041,
             "changedPixels": 6646,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13546,6 +13807,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6847572326660156,
             "changedPixels": 6464,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13571,6 +13833,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9231173197428385,
             "changedPixels": 7400,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13596,6 +13859,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8241081237792969,
             "changedPixels": 6660,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13621,6 +13885,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5189234415690104,
             "changedPixels": 4539,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13646,6 +13911,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7940012613932291,
             "changedPixels": 6770,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13671,6 +13937,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.8804613749186196,
             "changedPixels": 36224,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13716,6 +13983,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.6655286153157551,
             "changedPixels": 10449,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13741,6 +14009,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.9787406921386719,
             "changedPixels": 14122,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13766,6 +14035,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5217755635579426,
             "changedPixels": 12956,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13791,6 +14061,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3899218241373699,
             "changedPixels": 11425,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13816,6 +14087,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8939552307128906,
             "changedPixels": 8092,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13841,6 +14113,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3848317464192708,
             "changedPixels": 12149,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13866,6 +14139,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.631292978922526,
             "changedPixels": 76523,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13911,6 +14185,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.065729777018229,
             "changedPixels": 15005,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13936,6 +14211,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.3453890482584634,
             "changedPixels": 18424,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13961,6 +14237,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9381701151529948,
             "changedPixels": 8413,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -13986,6 +14263,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8869247436523438,
             "changedPixels": 7431,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14011,6 +14289,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6086463928222656,
             "changedPixels": 5648,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14036,6 +14315,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.9040018717447916,
             "changedPixels": 8217,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14061,6 +14341,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.6087493896484375,
             "changedPixels": 65831,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 2982,
+                  "maximumDarkening": 114.3318,
+                  "largestDarkeningComponent": {
+                    "pixels": 395,
+                    "bounds": [
+                      106,
+                      452,
+                      147,
+                      493
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1422,
+                  "maximumDarkening": 134.4558,
+                  "largestDarkeningComponent": {
+                    "pixels": 233,
+                    "bounds": [
+                      490,
+                      434,
+                      512,
+                      453
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -14106,6 +14419,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6955820719401041,
             "changedPixels": 6646,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14131,6 +14445,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.6847572326660156,
             "changedPixels": 6464,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14156,6 +14471,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.923126220703125,
             "changedPixels": 7400,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14181,6 +14497,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8244984944661459,
             "changedPixels": 6664,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14206,6 +14523,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5189437866210938,
             "changedPixels": 4539,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14231,6 +14549,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7938563028971354,
             "changedPixels": 6767,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14256,6 +14575,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.8804613749186196,
             "changedPixels": 36224,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 2976,
+                  "maximumDarkening": 101.4482,
+                  "largestDarkeningComponent": {
+                    "pixels": 672,
+                    "bounds": [
+                      145,
+                      299,
+                      166,
+                      404
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1385,
+                  "maximumDarkening": 82.84639999999999,
+                  "largestDarkeningComponent": {
+                    "pixels": 830,
+                    "bounds": [
+                      427,
+                      27,
+                      512,
+                      123
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -14301,6 +14653,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.6655286153157551,
             "changedPixels": 10449,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14326,6 +14679,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.9787406921386719,
             "changedPixels": 14122,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14351,6 +14705,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.521771748860677,
             "changedPixels": 12956,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14376,6 +14731,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3901952107747395,
             "changedPixels": 11427,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14401,6 +14757,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.893988291422526,
             "changedPixels": 8092,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14426,6 +14783,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3847185770670574,
             "changedPixels": 12148,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14451,6 +14809,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.631292978922526,
             "changedPixels": 76523,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 4735,
+                  "maximumDarkening": 118.9074,
+                  "largestDarkeningComponent": {
+                    "pixels": 662,
+                    "bounds": [
+                      145,
+                      299,
+                      166,
+                      403
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 2764,
+                  "maximumDarkening": 134.4558,
+                  "largestDarkeningComponent": {
+                    "pixels": 834,
+                    "bounds": [
+                      427,
+                      27,
+                      512,
+                      123
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -14496,6 +14887,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.065729777018229,
             "changedPixels": 15005,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14521,6 +14913,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.3453890482584634,
             "changedPixels": 18424,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14546,6 +14939,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14571,6 +14965,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14596,6 +14991,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14621,6 +15017,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14646,6 +15043,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14691,6 +15089,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14716,6 +15115,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14741,6 +15141,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.0440292358398438,
             "changedPixels": 19866,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14766,6 +15167,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.3311233520507812,
             "changedPixels": 21629,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14791,6 +15193,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8005409240722656,
             "changedPixels": 12665,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14816,6 +15219,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.748682657877604,
             "changedPixels": 17792,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14841,6 +15245,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 11.914329528808594,
             "changedPixels": 108125,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14886,6 +15291,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.184556325276692,
             "changedPixels": 18441,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14911,6 +15317,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 8.984965006510416,
             "changedPixels": 22086,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14936,6 +15343,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.0440292358398438,
             "changedPixels": 19866,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14961,6 +15369,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.3311233520507812,
             "changedPixels": 21629,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -14986,6 +15395,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8005409240722656,
             "changedPixels": 12665,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15011,6 +15421,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.748682657877604,
             "changedPixels": 17792,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15036,6 +15447,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 11.914329528808594,
             "changedPixels": 108125,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15081,6 +15493,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 6.184556325276692,
             "changedPixels": 18441,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15106,6 +15519,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 8.984965006510416,
             "changedPixels": 22086,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15131,6 +15545,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.2551536560058594,
             "changedPixels": 951,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15156,6 +15571,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8643163045247396,
             "changedPixels": 2645,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15181,6 +15597,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5001780192057291,
             "changedPixels": 1806,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15206,6 +15623,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.38512547810872394,
             "changedPixels": 1455,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15231,6 +15649,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.898303985595703,
             "changedPixels": 9141,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15276,6 +15695,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15301,6 +15721,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15326,6 +15747,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0718154907226562,
             "changedPixels": 3116,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15351,6 +15773,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2406578063964844,
             "changedPixels": 3705,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15376,6 +15799,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.4177996317545573,
             "changedPixels": 1618,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15401,6 +15825,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.8371607462565104,
             "changedPixels": 2514,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15426,6 +15851,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.001739501953125,
             "changedPixels": 2573,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15471,6 +15897,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.382087707519531,
             "changedPixels": 9871,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15496,6 +15923,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.713464101155599,
             "changedPixels": 12789,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15521,6 +15949,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3079643249511719,
             "changedPixels": 3942,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15546,6 +15975,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.9489720662434895,
             "changedPixels": 5690,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15571,6 +16001,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.87811279296875,
             "changedPixels": 3148,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15596,6 +16027,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.2025820414225261,
             "changedPixels": 3821,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15621,6 +16053,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.840583801269531,
             "changedPixels": 11494,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15666,6 +16099,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.382087707519531,
             "changedPixels": 9871,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15691,6 +16125,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.713464101155599,
             "changedPixels": 12789,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -15727,6 +16162,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15770,6 +16206,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15813,6 +16250,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15856,6 +16294,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15899,6 +16338,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15942,6 +16382,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -15985,6 +16426,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17036,6 +17478,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17079,6 +17522,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17122,6 +17566,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17165,6 +17610,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17208,6 +17654,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17251,6 +17698,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17294,6 +17742,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17337,6 +17786,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17380,6 +17830,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17423,6 +17874,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17466,6 +17918,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17509,6 +17962,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17552,6 +18006,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17595,6 +18050,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17638,6 +18094,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17681,6 +18138,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17724,6 +18182,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17767,6 +18226,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -17810,6 +18270,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshBasicMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -20051,6 +20512,9 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
+      "atlasSides": [
+        2
+      ],
       "atlasWarnings": [
         "iv_drawable_material.bmp.001: continuous 117 x 1 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
         "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
@@ -22319,7 +22783,7 @@
       "visibility": {
         "available": true,
         "resolution": 48,
-        "scope": "Opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
+        "scope": "Source sidedness respected; opaque geometry ray provenance and source-albedo samples, excluding alpha surfaces; not rendered/PBR/artistic acceptance",
         "cameras": [
           {
             "angle": 0,
@@ -22620,7 +23084,7 @@
       },
       "renders": {
         "status": "RENDERED",
-        "imageCount": 114,
+        "imageCount": 117,
         "scope": "Private raster images generated and deleted on runner; pixel differences are diagnostics, not visual approval",
         "metrics": [
           {
@@ -22629,13 +23093,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.8046366373697915,
-            "changedPixels": 17833,
+            "meanAbsoluteRGBByteError": 2.8045221964518228,
+            "changedPixels": 17831,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.804636637369813,
+                "meanAbsoluteRGBByteError": 2.8045221964518436,
                 "maxRGBByteError": 221,
                 "sourceNearBlackPixels": 10368,
                 "candidateNearBlackPixels": 17187,
@@ -22654,13 +23119,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.8781089782714844,
-            "changedPixels": 11685,
+            "meanAbsoluteRGBByteError": 2.877941131591797,
+            "changedPixels": 11683,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.878108978271068,
+                "meanAbsoluteRGBByteError": 2.8779411315913803,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 17715,
                 "candidateNearBlackPixels": 21966,
@@ -22679,13 +23145,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6002578735351562,
-            "changedPixels": 9792,
+            "meanAbsoluteRGBByteError": 1.6002566019694011,
+            "changedPixels": 9790,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.6002578735352222,
+                "meanAbsoluteRGBByteError": 1.600256601969467,
                 "maxRGBByteError": 219.33333333333334,
                 "sourceNearBlackPixels": 9484,
                 "candidateNearBlackPixels": 13568,
@@ -22704,13 +23171,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.422491709391276,
+            "meanAbsoluteRGBByteError": 2.422379811604818,
             "changedPixels": 15736,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.4224917093914304,
+                "meanAbsoluteRGBByteError": 2.422379811604972,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 12507,
                 "candidateNearBlackPixels": 18552,
@@ -22729,13 +23197,14 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 18.716228485107422,
+            "meanAbsoluteRGBByteError": 18.71621576944987,
             "changedPixels": 126282,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 18.716228485104097,
+                "meanAbsoluteRGBByteError": 18.716215769446542,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 24636,
                 "candidateNearBlackPixels": 50323,
@@ -22745,7 +23214,7 @@
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 18.390894571942194,
+                "meanAbsoluteRGBByteError": 18.39086914062709,
                 "maxRGBByteError": 230,
                 "sourceNearBlackPixels": 14420,
                 "candidateNearBlackPixels": 27774,
@@ -22776,6 +23245,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.3138885498046875,
             "changedPixels": 33456,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22801,6 +23271,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.128359476725261,
             "changedPixels": 36176,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22826,6 +23297,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0100949605305989,
             "changedPixels": 8624,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22851,6 +23323,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7086181640625,
             "changedPixels": 5415,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22876,6 +23349,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7875150044759115,
             "changedPixels": 5786,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22901,6 +23375,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.100634256998698,
             "changedPixels": 8342,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22926,6 +23401,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 11.82720947265625,
             "changedPixels": 82672,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22971,6 +23447,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.4155845642089844,
             "changedPixels": 13903,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -22996,6 +23473,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5623410542805989,
             "changedPixels": 16384,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23019,13 +23497,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.941572825113932,
+            "meanAbsoluteRGBByteError": 2.9414393107096353,
             "changedPixels": 18425,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.9415728251139197,
+                "meanAbsoluteRGBByteError": 2.9414393107096237,
                 "maxRGBByteError": 221,
                 "sourceNearBlackPixels": 10368,
                 "candidateNearBlackPixels": 16795,
@@ -23044,13 +23523,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.9935506184895835,
-            "changedPixels": 12517,
+            "meanAbsoluteRGBByteError": 2.9933878580729165,
+            "changedPixels": 12515,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.993550618489177,
+                "meanAbsoluteRGBByteError": 2.9933878580725106,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 17715,
                 "candidateNearBlackPixels": 21185,
@@ -23069,13 +23549,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.8000475565592449,
-            "changedPixels": 10522,
+            "meanAbsoluteRGBByteError": 1.7999025980631511,
+            "changedPixels": 10520,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.8000475565593104,
+                "meanAbsoluteRGBByteError": 1.7999025980632166,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 9484,
                 "candidateNearBlackPixels": 13239,
@@ -23094,13 +23575,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.645165761311849,
+            "meanAbsoluteRGBByteError": 2.6451263427734375,
             "changedPixels": 16608,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.645165761311958,
+                "meanAbsoluteRGBByteError": 2.6451263427735463,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 12507,
                 "candidateNearBlackPixels": 18189,
@@ -23119,13 +23601,14 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 20.761437733968098,
+            "meanAbsoluteRGBByteError": 20.76144536336263,
             "changedPixels": 130412,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 20.76143773396445,
+                "meanAbsoluteRGBByteError": 20.76144536335898,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 24636,
                 "candidateNearBlackPixels": 47883,
@@ -23135,7 +23618,7 @@
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 20.192721048992535,
+                "meanAbsoluteRGBByteError": 20.192736307781598,
                 "maxRGBByteError": 240.66666666666666,
                 "sourceNearBlackPixels": 14420,
                 "candidateNearBlackPixels": 26447,
@@ -23166,6 +23649,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 4.481366475423177,
             "changedPixels": 33823,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23191,6 +23675,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 5.237108866373698,
             "changedPixels": 36505,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23214,13 +23699,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.940442403157552,
-            "changedPixels": 12927,
+            "meanAbsoluteRGBByteError": 1.9403279622395833,
+            "changedPixels": 12925,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.9404424031575183,
+                "meanAbsoluteRGBByteError": 1.9403279622395495,
                 "maxRGBByteError": 209,
                 "sourceNearBlackPixels": 10463,
                 "candidateNearBlackPixels": 17188,
@@ -23239,13 +23725,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.8085212707519531,
-            "changedPixels": 10063,
+            "meanAbsoluteRGBByteError": 1.8083076477050781,
+            "changedPixels": 10060,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.8085212707518128,
+                "meanAbsoluteRGBByteError": 1.8083076477049378,
                 "maxRGBByteError": 210.33333333333334,
                 "sourceNearBlackPixels": 16256,
                 "candidateNearBlackPixels": 21966,
@@ -23264,13 +23751,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.9111035664876302,
+            "meanAbsoluteRGBByteError": 0.9110488891601562,
             "changedPixels": 6109,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.9111035664876463,
+                "meanAbsoluteRGBByteError": 0.9110488891601722,
                 "maxRGBByteError": 197.66666666666666,
                 "sourceNearBlackPixels": 9959,
                 "candidateNearBlackPixels": 13569,
@@ -23289,13 +23777,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.642351786295573,
+            "meanAbsoluteRGBByteError": 1.642255147298177,
             "changedPixels": 10878,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.6423517862955261,
+                "meanAbsoluteRGBByteError": 1.6422551472981302,
                 "maxRGBByteError": 209,
                 "sourceNearBlackPixels": 12271,
                 "candidateNearBlackPixels": 18553,
@@ -23316,6 +23805,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.393970489501953,
             "changedPixels": 83546,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 1614,
+                  "maximumDarkening": 179.28480000000002,
+                  "largestDarkeningComponent": {
+                    "pixels": 155,
+                    "bounds": [
+                      187,
+                      46,
+                      223,
+                      58
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 3204,
+                  "maximumDarkening": 187,
+                  "largestDarkeningComponent": {
+                    "pixels": 557,
+                    "bounds": [
+                      479,
+                      405,
+                      506,
+                      479
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -23361,6 +23883,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.4749679565429688,
             "changedPixels": 21582,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23386,6 +23909,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.559064229329427,
             "changedPixels": 20005,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23411,6 +23935,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1452827453613281,
             "changedPixels": 7418,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23436,6 +23961,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.1854896545410156,
             "changedPixels": 6627,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23461,6 +23987,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.799261728922526,
             "changedPixels": 4375,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23486,6 +24013,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0608622233072917,
             "changedPixels": 6770,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23511,6 +24039,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 7.470116933186849,
             "changedPixels": 27031,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 3616,
+                  "maximumDarkening": 207.9066,
+                  "largestDarkeningComponent": {
+                    "pixels": 431,
+                    "bounds": [
+                      124,
+                      69,
+                      137,
+                      173
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 4043,
+                  "maximumDarkening": 207.9066,
+                  "largestDarkeningComponent": {
+                    "pixels": 638,
+                    "bounds": [
+                      489,
+                      431,
+                      511,
+                      512
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -23556,6 +24117,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0302314758300781,
             "changedPixels": 7803,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23581,6 +24143,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5985081990559896,
             "changedPixels": 2077,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23604,13 +24167,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.378021240234375,
-            "changedPixels": 14386,
+            "meanAbsoluteRGBByteError": 2.377882639567057,
+            "changedPixels": 14382,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.3780212402343985,
+                "meanAbsoluteRGBByteError": 2.3778826395670807,
                 "maxRGBByteError": 220,
                 "sourceNearBlackPixels": 10463,
                 "candidateNearBlackPixels": 16796,
@@ -23629,13 +24193,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.240614573160807,
-            "changedPixels": 11347,
+            "meanAbsoluteRGBByteError": 2.2404162089029946,
+            "changedPixels": 11344,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.240614573160976,
+                "meanAbsoluteRGBByteError": 2.2404162089031634,
                 "maxRGBByteError": 210.33333333333334,
                 "sourceNearBlackPixels": 16256,
                 "candidateNearBlackPixels": 21202,
@@ -23654,13 +24219,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.346783955891927,
+            "meanAbsoluteRGBByteError": 1.3466161092122395,
             "changedPixels": 7419,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.346783955891889,
+                "meanAbsoluteRGBByteError": 1.3466161092122015,
                 "maxRGBByteError": 203.66666666666666,
                 "sourceNearBlackPixels": 9959,
                 "candidateNearBlackPixels": 13239,
@@ -23679,13 +24245,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.1135037740071616,
-            "changedPixels": 12473,
+            "meanAbsoluteRGBByteError": 2.1133651733398438,
+            "changedPixels": 12472,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.113503774007206,
+                "meanAbsoluteRGBByteError": 2.113365173339889,
                 "maxRGBByteError": 219.33333333333334,
                 "sourceNearBlackPixels": 12271,
                 "candidateNearBlackPixels": 18189,
@@ -23706,6 +24273,39 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 11.978697458902994,
             "changedPixels": 94072,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 4443,
+                  "maximumDarkening": 231,
+                  "largestDarkeningComponent": {
+                    "pixels": 438,
+                    "bounds": [
+                      124,
+                      69,
+                      137,
+                      173
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 5896,
+                  "maximumDarkening": 207.9066,
+                  "largestDarkeningComponent": {
+                    "pixels": 731,
+                    "bounds": [
+                      479,
+                      405,
+                      511,
+                      512
+                    ]
+                  }
+                }
+              ]
+            },
             "regions": [
               {
                 "name": "whole-frame",
@@ -23751,6 +24351,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.8025029500325522,
             "changedPixels": 22806,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23776,6 +24377,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8758138020833333,
             "changedPixels": 21119,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23799,14 +24401,15 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.00084686279296875,
-            "changedPixels": 7,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.00084686279296875,
-                "maxRGBByteError": 31.666666666666668,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -23824,14 +24427,15 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.0010045369466145833,
-            "changedPixels": 6,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.0010045369466145833,
-                "maxRGBByteError": 68.66666666666667,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -23849,14 +24453,15 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.0005289713541666666,
-            "changedPixels": 4,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.0005289713541666667,
-                "maxRGBByteError": 33,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -23874,14 +24479,15 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.0013376871744791667,
-            "changedPixels": 10,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.0013376871744791663,
-                "maxRGBByteError": 86,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -23901,6 +24507,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23946,6 +24553,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23971,6 +24579,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0,
             "changedPixels": 0,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -23996,6 +24605,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.4444580078125,
             "changedPixels": 14179,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24021,6 +24631,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.3621101379394531,
             "changedPixels": 13907,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24046,6 +24657,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.0376968383789062,
             "changedPixels": 9593,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24071,6 +24683,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.5108388264973958,
             "changedPixels": 13944,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24096,6 +24709,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 12.170049031575521,
             "changedPixels": 124107,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24141,6 +24755,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8526395161946614,
             "changedPixels": 18037,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24166,6 +24781,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7784372965494792,
             "changedPixels": 19813,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24189,13 +24805,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.445343017578125,
-            "changedPixels": 14186,
+            "meanAbsoluteRGBByteError": 1.4444580078125,
+            "changedPixels": 14179,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.4453430175781323,
+                "meanAbsoluteRGBByteError": 1.4444580078125075,
                 "maxRGBByteError": 164.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24214,13 +24831,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3630599975585938,
-            "changedPixels": 13912,
+            "meanAbsoluteRGBByteError": 1.3621101379394531,
+            "changedPixels": 13907,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3630599975586069,
+                "meanAbsoluteRGBByteError": 1.362110137939467,
                 "maxRGBByteError": 168.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24239,13 +24857,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.0380325317382812,
-            "changedPixels": 9595,
+            "meanAbsoluteRGBByteError": 1.0376968383789062,
+            "changedPixels": 9593,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.0380325317382775,
+                "meanAbsoluteRGBByteError": 1.037696838378903,
                 "maxRGBByteError": 174,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24264,13 +24883,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5114949544270833,
-            "changedPixels": 13946,
+            "meanAbsoluteRGBByteError": 1.5108388264973958,
+            "changedPixels": 13944,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.5114949544270857,
+                "meanAbsoluteRGBByteError": 1.5108388264973989,
                 "maxRGBByteError": 167,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24291,6 +24911,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 12.170049031575521,
             "changedPixels": 124107,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24336,6 +24957,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.8526395161946614,
             "changedPixels": 18037,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24361,6 +24983,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 1.7784372965494792,
             "changedPixels": 19813,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24384,13 +25007,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.131786346435547,
-            "changedPixels": 26258,
+            "meanAbsoluteRGBByteError": 9.131380716959635,
+            "changedPixels": 26256,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.1317863464369,
+                "meanAbsoluteRGBByteError": 9.131380716960988,
                 "maxRGBByteError": 128.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24409,13 +25033,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.939259847005209,
-            "changedPixels": 27797,
+            "meanAbsoluteRGBByteError": 9.938056945800781,
+            "changedPixels": 27792,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.939259847005621,
+                "meanAbsoluteRGBByteError": 9.938056945801195,
                 "maxRGBByteError": 128.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24434,13 +25059,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 6.453763326009114,
-            "changedPixels": 19518,
+            "meanAbsoluteRGBByteError": 6.453625996907552,
+            "changedPixels": 19516,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 6.453763326010032,
+                "meanAbsoluteRGBByteError": 6.453625996908469,
                 "maxRGBByteError": 128.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24459,13 +25085,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.099226633707682,
-            "changedPixels": 26872,
+            "meanAbsoluteRGBByteError": 9.09872055053711,
+            "changedPixels": 26867,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.099226633709126,
+                "meanAbsoluteRGBByteError": 9.098720550538554,
                 "maxRGBByteError": 128.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24486,6 +25113,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 47.199440002441406,
             "changedPixels": 165378,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24531,6 +25159,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.622350056966146,
             "changedPixels": 10001,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24556,6 +25185,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.383342742919922,
             "changedPixels": 9973,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24581,6 +25211,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.5702972412109375,
             "changedPixels": 2575,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24606,6 +25237,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7244618733723959,
             "changedPixels": 2856,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24631,6 +25263,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.7125460306803385,
             "changedPixels": 2462,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24656,6 +25289,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.802398681640625,
             "changedPixels": 3020,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24681,6 +25315,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 2.420360565185547,
             "changedPixels": 7700,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24726,6 +25361,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.51080322265625,
             "changedPixels": 1884,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24751,6 +25387,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 0.39244715372721356,
             "changedPixels": 1524,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24774,13 +25411,14 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.277337392171225,
-            "changedPixels": 26634,
+            "meanAbsoluteRGBByteError": 9.276931762695312,
+            "changedPixels": 26632,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.27733739217261,
+                "meanAbsoluteRGBByteError": 9.276931762696698,
                 "maxRGBByteError": 155.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24799,13 +25437,14 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 10.08023452758789,
-            "changedPixels": 28165,
+            "meanAbsoluteRGBByteError": 10.079031626383463,
+            "changedPixels": 28160,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 10.080234527588322,
+                "meanAbsoluteRGBByteError": 10.079031626383896,
                 "maxRGBByteError": 143,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24824,13 +25463,14 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 6.5588124593098955,
-            "changedPixels": 19714,
+            "meanAbsoluteRGBByteError": 6.558675130208333,
+            "changedPixels": 19712,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 6.558812459310826,
+                "meanAbsoluteRGBByteError": 6.558675130209264,
                 "maxRGBByteError": 155.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24849,13 +25489,14 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.292861938476562,
+            "meanAbsoluteRGBByteError": 9.293464660644531,
             "changedPixels": 27340,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.292861938477952,
+                "meanAbsoluteRGBByteError": 9.29346466064592,
                 "maxRGBByteError": 155.66666666666666,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -24876,6 +25517,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 47.61426289876302,
             "changedPixels": 165460,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24921,6 +25563,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.1080856323242188,
             "changedPixels": 11684,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24946,6 +25589,7 @@
             "height": 512,
             "meanAbsoluteRGBByteError": 3.7558008829752603,
             "changedPixels": 11351,
+            "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
@@ -24982,6 +25626,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25025,6 +25670,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25068,6 +25714,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25111,6 +25758,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25149,6 +25797,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25187,6 +25836,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25225,6 +25875,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25263,6 +25914,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "blend",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25306,6 +25958,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25344,6 +25997,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25387,6 +26041,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25430,6 +26085,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25473,6 +26129,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25516,6 +26173,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 0,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25559,6 +26217,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25597,6 +26256,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25640,6 +26300,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshPhysicalMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25683,6 +26344,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -25726,6 +26388,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -25764,6 +26427,7 @@
                 "region": "unclassified",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27575,6 +28239,7 @@
                 "region": "leftHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27618,6 +28283,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27661,6 +28327,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27704,6 +28371,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27747,6 +28415,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27790,6 +28459,7 @@
                 "region": "leftUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27833,6 +28503,7 @@
                 "region": "leftLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27876,6 +28547,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27919,6 +28591,7 @@
                 "region": "rightUpperArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -27962,6 +28635,7 @@
                 "region": "rightLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28005,6 +28679,7 @@
                 "region": "rightHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28048,6 +28723,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28091,6 +28767,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28134,6 +28811,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28177,6 +28855,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28220,6 +28899,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28263,6 +28943,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -28301,6 +28982,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -28339,6 +29021,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -28377,6 +29060,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -28415,6 +29099,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "blend",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28458,6 +29143,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -28496,6 +29182,7 @@
                 "region": "rightHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28539,6 +29226,7 @@
                 "region": "rightLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28582,6 +29270,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28625,6 +29314,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28668,6 +29358,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28711,6 +29402,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28754,6 +29446,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28797,6 +29490,7 @@
                 "region": "rightUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28840,6 +29534,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28883,6 +29578,7 @@
                 "region": "leftUpperLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28926,6 +29622,7 @@
                 "region": "leftLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -28969,6 +29666,7 @@
                 "region": "rightLowerLeg",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29012,6 +29710,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29055,6 +29754,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 0,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29098,6 +29798,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -29136,6 +29837,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29179,6 +29881,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29222,6 +29925,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshPhysicalMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29265,6 +29969,7 @@
                 "region": "head",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29308,6 +30013,7 @@
                 "region": "spine",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29351,6 +30057,7 @@
                 "region": "hips",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29394,6 +30101,7 @@
                 "region": "leftHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": null,
@@ -29432,6 +30140,7 @@
                 "region": "leftHand",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -29475,6 +30184,7 @@
                 "region": "leftLowerArm",
                 "uvSet": "uv",
                 "shader": "MeshStandardMaterial",
+                "sourceSide": 2,
                 "alphaMode": "opaque",
                 "sourceOpacity": 1,
                 "texture": {
@@ -33576,6 +34286,10 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
+      "atlasSides": [
+        2,
+        0
+      ],
       "atlasWarnings": [
         "Material.003: source BLEND becomes a binary PS1 cutout. Semi-transparent overlays are not faithfully composited; inspect alpha mismatch diagnostics.",
         "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
@@ -33812,9 +34526,9 @@
   ],
   "privateReview": {
     "status": "DRAFT_RESTRICTED",
-    "bytes": 24481965,
-    "sha256": "f19c0ca0f18ff55da11736a27417053e70cee4f72316201873b7b2d111ce7d84",
-    "imageCount": 342,
+    "bytes": 25778739,
+    "sha256": "4b21b874f762cfc7334cce0dddd42de28768532f4b7999fad4a1f7699a04f194",
+    "imageCount": 351,
     "access": "Open the authenticated repository Releases view with write access; never publish the draft",
     "anonymousPageStatus": 404,
     "anonymousAssetStatus": 404
