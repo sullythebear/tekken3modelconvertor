@@ -1,10 +1,9 @@
-import {routeSharedHeadCharts} from './atlas-head-charts.js';
 import {sourceAlbedoRGB} from './albedo-color.js';
 import {requireBakeUV} from './bake-uv.js';
 import {dilateChartTexels} from './uv-raster.js';
 import {sourceSkinLighting,bilinearRGBA,sourceSkinCoverage} from './skin-surface.js';
 import {readbackCache} from './readback-cache.js';
-import {filteredRGBA,cutoutThreshold,resampleDataMap} from './texture-filter.js';
+import {filteredRGBA,cutoutThreshold,resampleDataMap,alphaFootprintNeeded} from './texture-filter.js';
 import {materialUVFrames} from "./uv-domain.js";
 import {artAtlasLayout,pixelateRGBA,artTextureColors,stagingTIMLayout} from './art-atlas.js';
 import {configureSkinning} from "./skinning.js";
@@ -54,15 +53,7 @@ export async function bakeAtlas(
   size??=art&&!['v060','dev1'].includes(art.reconstruction)?512:256;
   const root = clone(converted.root);
   root.traverse(m=>{if(m.isMesh)for(const material of Array.isArray(m.material)?m.material:[m.material])requireBakeUV(m.geometry,material);});
-  const originals=[...collectMaterials(root)];
-  const headRoute=art&&!['v060','dev1'].includes(art.reconstruction)?routeSharedHeadCharts(root):null;
-  let materials = [...collectMaterials(root)],headRouting={applied:false,charts:[],reason:headRoute?.reason??'Legacy atlas policy'};
-  if(headRoute?.charts.length){
-    let preserve=true;
-    try{const before=artAtlasLayout(originals,size,art),after=artAtlasLayout(materials,size,art);preserve=originals.every((m,i)=>{const a=before[i],b=after[materials.indexOf(m)];return b&&(b.width??b.side)>=(a.width??a.side)&&(b.height??b.side)>=(a.height??a.side);});}catch{preserve=false;}
-    if(!preserve){headRoute.restore();materials=[...collectMaterials(root)];headRouting.reason='Head crop skipped to preserve existing material resolutions';}
-    else headRouting={applied:true,charts:headRoute.charts,reason:headRoute.reason};
-  }
+  const materials = [...collectMaterials(root)];
   if (materials.length > 32)
     throw Error(
       `Found ${materials.length} materials. Preparation staging supports 32 separate CLUT rows. Native donor capacity is validated separately.`,
@@ -91,6 +82,7 @@ export async function bakeAtlas(
       base = cachedPixels(m.map, sampleSize),
       alpha = cachedPixels(m.alphaMap, sampleSize,true),
       normal = cachedPixels(m.normalMap, sampleSize,true);
+    const filterAlpha=art&&alphaFootprintNeeded(m,base,alpha);
     if(m.transparent&&!(m.alphaTest>0))warnings.push(`${m.name}: source BLEND becomes a binary PS1 cutout. Semi-transparent overlays are not faithfully composited; inspect alpha mismatch diagnostics.`);
     if (m.metalnessMap || m.roughnessMap || m.specularMap)
       warnings.push(
@@ -111,7 +103,7 @@ export async function bakeAtlas(
             Math.max(0, Math.min(1, (y - gutter) / (cellHeight - 1 - 2 * gutter)))),
           sample = (img, tex) => {
             if (!img) return [255, 255, 255, 255];
-            if(art&&/lash|hair|faceacc|strand/i.test(m.name)&&(m.alphaMap||m.transparent||m.alphaTest>0)){
+            if(filterAlpha){
               const footprint=.25/(cell-1-2*gutter),coordinates=[];
               for(const dx of [-footprint,footprint])for(const dy of [-footprint,footprint]){
                 const q=coordinate(tex,Math.max(0,Math.min(1,u+dx))*span[0]+origin[0],Math.max(0,Math.min(1,v+dy))*span[1]+origin[1]);coordinates.push([q.x,q.y]);
@@ -188,9 +180,7 @@ export async function bakeAtlas(
       sourceSkinBake:m.userData?.t3csSkinBake??null,
       sourceUVOrigin: origin,
       sourceUVSpan: span,
-      region:m.userData?.t3csAtlasRegion??null,
-      cropped:!!m.userData?.t3csAtlasCrop,
-      texelsPerUVTile: [span[0]?(cell-1-2*gutter)/span[0]:null,span[1]?(cellHeight-1-2*gutter)/span[1]:null],
+      texelsPerUVTile: [(cell-1-2*gutter)/span[0],(cellHeight-1-2*gutter)/span[1]],
       clut: art ? ((480+i)<<6)|48 : 64 + i,
       x: ox,
       y: oy,
@@ -243,8 +233,8 @@ export async function bakeAtlas(
     for (const group of groups) {
       const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], {origin,span} = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
       for (let j = group.start; j < group.start + group.count; j++) {
-        const u = (span[0]?Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])):.5),
-          v = (span[1]?Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1])):.5);
+        const u = Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])),
+          v = Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1]));
         uv.setXY(
           j,
           (tile.x + gutter + u * (cell - 1 - 2 * gutter)) / size,
@@ -258,7 +248,6 @@ export async function bakeAtlas(
     mesh.geometry = g;
     mesh.material = newMaterial;
   });
-  headRoute?.dispose();
   warnings.push(
     "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
   );
@@ -270,7 +259,6 @@ export async function bakeAtlas(
     rgba,
     tiles,
     readbackStats:{...cache.stats},
-    headRouting,
     warnings,
     textureBytes: tiles.reduce((n,t)=>n+t.width*t.height*(t.palette.length===256?1:.5),0),
     paletteBytes: tiles.reduce((n,t)=>n+t.palette.byteLength,0),

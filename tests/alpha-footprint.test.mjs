@@ -1,0 +1,5 @@
+import test from'node:test';import assert from'node:assert/strict';import{alphaFootprintNeeded}from'../src/core/texture-filter.js';
+const image={data:new Uint8Array([0,0,0,0,0,0,0,255])};
+test('Unnamed PBR/unlit transparent variation gets the same area sampling as named hair',()=>{assert.equal(alphaFootprintNeeded({name:'Material.003',transparent:true},image,null),true);assert.equal(alphaFootprintNeeded({name:'logo',alphaTest:.5},image,null),true);});
+test('Opaque unused alpha and uniform opaque maps do not change sampling',()=>{assert.equal(alphaFootprintNeeded({name:'unknown'},image,null),false);assert.equal(alphaFootprintNeeded({name:'unknown',transparent:true},{data:new Uint8Array([0,0,0,255,0,0,0,255])},null),false);});
+test('Calibrated Phong policies remain unchanged',()=>{assert.equal(alphaFootprintNeeded({name:'Iris',transparent:true,isMeshPhongMaterial:true},image,null),false);assert.equal(alphaFootprintNeeded({name:'Eyelashes',transparent:true,isMeshPhongMaterial:true},image,null),true);});

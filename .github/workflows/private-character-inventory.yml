@@ -43,8 +43,6 @@ jobs:
         run: node scripts/repeat-uv-test.mjs
       - name: Authored linear-colour versus actual source renderer regression
         run: node scripts/albedo-render-test.mjs
-      - name: Authored shared head/body feature-retention regression
-        run: node scripts/head-chart-render-test.mjs
       - name: Authored private-render matrix regression
         run: node scripts/private-character-render-test.mjs
       - name: Actual private model imports and conversion diagnostics

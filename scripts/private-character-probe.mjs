@@ -11,8 +11,8 @@ for(const f of inventory.files.filter(f=>['.glb','.gltf','.fbx','.obj'].includes
  for(const mode of ['baseline','authentic']){await page.selectOption('#art-preset',mode);await page.click('#convert');await page.waitForFunction(()=>!document.querySelector('#convert').disabled,null,{timeout:300000});r[mode]=await page.evaluate(()=>{const t=window.studioTest,c=t.converted;if(!c)return{failed:true};return{conversionPreset:c.settings.art?.preset??'baseline',triangles:c.stats.triangles,atlas:!!t.atlas,textureBytes:t.atlas?.textureBytes??null,paletteBytes:t.atlas?.paletteBytes??null,warnings:c.warnings.map(s=>s.replace(/https?:\/\/\S+/g,'[URL]')),integrity:c.quality?.integrity,regions:c.report.map(x=>({region:x.region,material:x.material,before:x.before,after:x.after,method:x.reconstruction?.method,reason:x.reconstruction?.reason}))};});}
  for(const mode of ['baseline','authentic'])requireProbeConversion(r[mode],mode);
  r.visibility=await page.evaluate(()=>window.studioTest.diagnoseMaterialVisibility(window.studioTest.source.root,window.studioTest.converted.root,{resolution:48}));
+ r.handGeometry=await page.evaluate(()=>window.studioTest.auditHandGeometry(window.studioTest.source.root,window.studioTest.converted.root));
  r.renders=await renderPrivateCharacter(page,dir,r.id);
- r.atlasHeadRouting=await page.evaluate(()=>window.studioTest.atlas?.headRouting??null);
  r.atlasWarnings=await page.evaluate(()=>window.studioTest.atlas?.warnings??[]);
  r.atlasDomains=await page.evaluate(()=>window.studioTest.atlas?.tiles.map(t=>({material:t.material,span:t.sourceUVSpan,width:t.width,height:t.height,colours:t.palette.length,texelsPerUVTile:t.texelsPerUVTile}))??null);
  r.appearanceStatus='HUMAN_REVIEW_REQUIRED';

@@ -31,3 +31,13 @@ export function resampleDataMap(image,size){
  }
  return {width:size,height:size,data:out};
 }
+
+// Existing Phong/hair handling stays stable. PBR/unlit masked textures use
+// actual alpha variation, not an English material-name requirement.
+export function alphaFootprintNeeded(material,base,alpha){
+ if(!(material.alphaMap||material.transparent||material.alphaTest>0))return false;
+ if(/lash|hair|faceacc|strand/i.test(material.name??''))return true;
+ if(material.isMeshPhongMaterial)return false;
+ const varying=(image,channel)=>{if(!image?.data?.length)return false;const first=image.data[channel];for(let i=channel+4;i<image.data.length;i+=4)if(image.data[i]!==first)return true;return false;};
+ return varying(base,3)||varying(alpha,1);
+}

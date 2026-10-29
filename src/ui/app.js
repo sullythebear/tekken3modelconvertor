@@ -1,3 +1,4 @@
+import {auditHandGeometry} from '../core/hand-geometry-audit.js';
 import {compareRasterRegions} from '../core/raster-regions.js';
 import {diagnoseBakeCorrespondence} from '../core/bake-correspondence.js';
 import {diagnoseMaterialVisibility} from '../core/material-visibility.js';
@@ -1239,6 +1240,7 @@ if (new URLSearchParams(location.search).has("test"))
     configureSkinning,
     diagnoseMaterialVisibility,
     diagnoseBakeCorrespondence,
+    auditHandGeometry,
     compareRasterRegions,
     bakeAtlas,
     sceneIntegrity,

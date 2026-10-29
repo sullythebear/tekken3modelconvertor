@@ -135,11 +135,14 @@ export async function convertCharacter(
     materialCopies.set(mat, c);
     return c;
   };
+  let sourceMeshIndex=0;
   root.traverse((m) => {
-    if (m.isMesh)
+    if (m.isMesh){
+      m.userData.studioSourceMeshIndex=sourceMeshIndex++;
       m.material = Array.isArray(m.material)
         ? m.material.map(copyMaterial)
         : copyMaterial(m.material);
+    }
   });
   configureSkinning(root);
   const box = new THREE.Box3().setFromObject(root),
@@ -404,7 +407,7 @@ export async function convertCharacter(
       const start = indices.length;
       for (const i of p.geometry.index.array) indices.push(i + offset);
       combined.addGroup(start, indices.length - start, p.materialIndex);
-      metadata.push({ start, count: indices.length - start, role: p.role, ...(p.faceContours?{faceContours:p.faceContours}:{}),...(p.protectedPoints?{protectedPoints:p.protectedPoints}:{}) });
+      metadata.push({ start, count: indices.length - start, role: p.role, sourceMaterialIndex:p.sourceMaterialIndex, ...(p.faceContours?{faceContours:p.faceContours}:{}),...(p.protectedPoints?{protectedPoints:p.protectedPoints}:{}) });
       offset += p.geometry.attributes.position.count;
       p.geometry.dispose();
     }
