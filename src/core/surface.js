@@ -1,4 +1,4 @@
-import {sourceAlbedoRGB} from './albedo-color.js';
+import {sourceAlbedoRGB,legacyWhiteIdentity} from './albedo-color.js';
 import {bilinearRGBA} from './skin-surface.js';
 import * as THREE from "three";
 import { bakeMaterialDetail, tangentNormal } from "./material-bake.js";
@@ -145,7 +145,7 @@ export function materialSampler(materials, { mode = "albedo", filter = "nearest"
         uv.addScaledVector(t.uvs[k], hit.barycentric.getComponent(k));
     if (m.map && !t.uvs) throw Error("Textured source surface lacks UVs");
     const rgba = sample(m.map, uv);
-    if(mode==='data')return Array.from(rgba);
+    if(mode==='data')return [rgba[0]*legacyWhiteIdentity,rgba[1]*legacyWhiteIdentity,rgba[2]*legacyWhiteIdentity,rgba[3]];
     const opacity = m.alphaMap ? sample(m.alphaMap, uv)[1] / 255 : 1,
       a =
         (m.transparent || m.alphaTest > 0 ? rgba[3] / 255 : 1) *

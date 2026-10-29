@@ -17,6 +17,11 @@ export function materialUVFrames(root, materials) {
   });
   return new Map([...ranges].map(([m,r])=>{
     if(r[0]===Infinity)return [m,{origin:[0,0],span:[1,1]}];
+    if(m.userData?.t3csAtlasCrop){
+      const origin=[r[0],r[1]],span=[r[2]-r[0],r[3]-r[1]];
+      if([...origin,...span].some(v=>!Number.isFinite(v)||Math.abs(v)>Number.MAX_SAFE_INTEGER))throw Error('Source cropped UV domain exceeds safe numerical range');
+      return [m,{origin,span}];
+    }
     const origin=[Math.floor(r[0]+1e-5),Math.floor(r[1]+1e-5)];
     const span=[Math.max(1,Math.ceil(r[2]-origin[0]-1e-5)),Math.max(1,Math.ceil(r[3]-origin[1]-1e-5))];
     if([...origin,...span].some(v=>!Number.isSafeInteger(v)))throw Error('Source UV domain exceeds safe numerical range');

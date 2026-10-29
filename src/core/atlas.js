@@ -1,3 +1,4 @@
+import {routeSharedHeadCharts} from './atlas-head-charts.js';
 import {sourceAlbedoRGB} from './albedo-color.js';
 import {requireBakeUV} from './bake-uv.js';
 import {dilateChartTexels} from './uv-raster.js';
@@ -53,7 +54,15 @@ export async function bakeAtlas(
   size??=art&&!['v060','dev1'].includes(art.reconstruction)?512:256;
   const root = clone(converted.root);
   root.traverse(m=>{if(m.isMesh)for(const material of Array.isArray(m.material)?m.material:[m.material])requireBakeUV(m.geometry,material);});
-  const materials = [...collectMaterials(root)];
+  const originals=[...collectMaterials(root)];
+  const headRoute=art&&!['v060','dev1'].includes(art.reconstruction)?routeSharedHeadCharts(root):null;
+  let materials = [...collectMaterials(root)],headRouting={applied:false,charts:[],reason:headRoute?.reason??'Legacy atlas policy'};
+  if(headRoute?.charts.length){
+    let preserve=true;
+    try{const before=artAtlasLayout(originals,size,art),after=artAtlasLayout(materials,size,art);preserve=originals.every((m,i)=>{const a=before[i],b=after[materials.indexOf(m)];return b&&(b.width??b.side)>=(a.width??a.side)&&(b.height??b.side)>=(a.height??a.side);});}catch{preserve=false;}
+    if(!preserve){headRoute.restore();materials=[...collectMaterials(root)];headRouting.reason='Head crop skipped to preserve existing material resolutions';}
+    else headRouting={applied:true,charts:headRoute.charts,reason:headRoute.reason};
+  }
   if (materials.length > 32)
     throw Error(
       `Found ${materials.length} materials. Preparation staging supports 32 separate CLUT rows. Native donor capacity is validated separately.`,
@@ -82,6 +91,7 @@ export async function bakeAtlas(
       base = cachedPixels(m.map, sampleSize),
       alpha = cachedPixels(m.alphaMap, sampleSize,true),
       normal = cachedPixels(m.normalMap, sampleSize,true);
+    if(m.transparent&&!(m.alphaTest>0))warnings.push(`${m.name}: source BLEND becomes a binary PS1 cutout. Semi-transparent overlays are not faithfully composited; inspect alpha mismatch diagnostics.`);
     if (m.metalnessMap || m.roughnessMap || m.specularMap)
       warnings.push(
         `${m.name}: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.`,
@@ -178,7 +188,9 @@ export async function bakeAtlas(
       sourceSkinBake:m.userData?.t3csSkinBake??null,
       sourceUVOrigin: origin,
       sourceUVSpan: span,
-      texelsPerUVTile: [(cell-1-2*gutter)/span[0],(cellHeight-1-2*gutter)/span[1]],
+      region:m.userData?.t3csAtlasRegion??null,
+      cropped:!!m.userData?.t3csAtlasCrop,
+      texelsPerUVTile: [span[0]?(cell-1-2*gutter)/span[0]:null,span[1]?(cellHeight-1-2*gutter)/span[1]:null],
       clut: art ? ((480+i)<<6)|48 : 64 + i,
       x: ox,
       y: oy,
@@ -231,8 +243,8 @@ export async function bakeAtlas(
     for (const group of groups) {
       const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], {origin,span} = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
       for (let j = group.start; j < group.start + group.count; j++) {
-        const u = Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])),
-          v = Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1]));
+        const u = (span[0]?Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])):.5),
+          v = (span[1]?Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1])):.5);
         uv.setXY(
           j,
           (tile.x + gutter + u * (cell - 1 - 2 * gutter)) / size,
@@ -246,6 +258,7 @@ export async function bakeAtlas(
     mesh.geometry = g;
     mesh.material = newMaterial;
   });
+  headRoute?.dispose();
   warnings.push(
     "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
   );
@@ -257,6 +270,7 @@ export async function bakeAtlas(
     rgba,
     tiles,
     readbackStats:{...cache.stats},
+    headRouting,
     warnings,
     textureBytes: tiles.reduce((n,t)=>n+t.width*t.height*(t.palette.length===256?1:.5),0),
     paletteBytes: tiles.reduce((n,t)=>n+t.palette.byteLength,0),
