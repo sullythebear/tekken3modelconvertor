@@ -1,0 +1,81 @@
+name: Packaged multi-character Windows candidate
+on:
+  push:
+    branches: [development/070-multi-character]
+    paths: ['package*.json', '.github/workflows/multi-character-windows.yml', 'scripts/package-multi-validation.mjs']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: multi-character-packaged
+  cancel-in-progress: false
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Initialize isolated runtime and safe output
+        shell: pwsh
+        run: |
+          $root = "$env:RUNNER_TEMP/multi-packaged-private"
+          New-Item -ItemType Directory -Force "$root/runtime", "$root/profile", artifacts/multi-windows | Out-Null
+          "PRIVATE_CHARACTER_DIR=$root" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          $edge = @("${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $edge) { throw 'Source integration browser unavailable' }
+          "CHROMIUM_PATH=$edge" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/multi-windows/unit.xml "tests/*.test.mjs"
+      - run: npm run build
+      - run: node scripts/skinning-test.mjs
+      - run: node scripts/source-mapping-test.mjs
+      - run: node scripts/native-visual.mjs
+      - run: node scripts/native-humanoid.mjs
+      - run: npm run dist:win:portable -- --publish never
+      - run: node scripts/verify-distribution.mjs
+      - name: Execute actual self-extracting portable EXE
+        run: node scripts/portable-smoke.mjs
+      - name: Full private Nikki project in packaged app
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: All UI workflows in actual packaged app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ env.PRIVATE_CHARACTER_DIR }}/profile
+          T3CS_RUN_OUTPUT: ${{ env.PRIVATE_CHARACTER_DIR }}/runtime
+        run: node scripts/ui-redesign-test.mjs
+      - name: Both cutout modes in packaged app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_RUN_OUTPUT: artifacts/cutout-mode
+        run: node scripts/cutout-mode-test.mjs
+      - name: Private commercial input download
+        env:
+          CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
+        run: node --use-env-proxy scripts/private-character-download.mjs
+      - run: python scripts/private-character-inventory.py
+      - name: Actual packaged commercial model conversions and private renders
+        env:
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node scripts/private-character-probe.mjs
+      - name: Build allowlisted code-only candidate evidence
+        run: node scripts/package-multi-validation.mjs
+      - name: Remove all private commercial input, renders and profiles
+        if: always()
+        shell: pwsh
+        run: |
+          if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Windows-multi-character-candidate-${{ github.sha }}
+          path: artifacts/multi-windows/candidate/
+          if-no-files-found: error
+          retention-days: 30
