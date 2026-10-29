@@ -1,6 +1,6 @@
 {
-  "sourceCommit": "f3d0e1a1e3774521b2ef078139c1a8bdc513769a",
-  "workflowRunId": "40939334962",
+  "sourceCommit": "80110333085a3d6134c3264ac5b81535dc3abd2c",
+  "workflowRunId": "40941737667",
   "workflowRunAttempt": "1",
   "status": "PASS",
   "artisticAcceptance": "NOT_REVIEWED",
@@ -2526,8 +2526,8 @@
         "conversionPreset": "authentic",
         "triangles": 3692,
         "atlas": true,
-        "textureBytes": 97792,
-        "paletteBytes": 3712,
+        "textureBytes": 48640,
+        "paletteBytes": 2176,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Appearance error / protected topology prevent the requested budget: 3692 > 900. See per-region budget diagnostics. Export will enforce limits.",
@@ -3124,6 +3124,59 @@
           }
         ]
       },
+      "handGeometry": {
+        "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+        "hands": [
+          {
+            "meshIndex": 8,
+            "candidateMeshIndex": 8,
+            "mesh": "Object_10",
+            "region": "rightHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 512,
+            "candidateTriangles": 284,
+            "sourceToCandidate": {
+              "samples": 512,
+              "mean": 0.0011249964860546708,
+              "p95": 0.004240986943985959,
+              "max": 0.009289144411376689,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 380,
+              "mean": 0.00032643962997518057,
+              "p95": 0.0019502807248769492,
+              "max": 0.010260750453052699,
+              "opposedNearestNormals": 0
+            }
+          },
+          {
+            "meshIndex": 8,
+            "candidateMeshIndex": 8,
+            "mesh": "Object_10",
+            "region": "leftHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 512,
+            "candidateTriangles": 284,
+            "sourceToCandidate": {
+              "samples": 512,
+              "mean": 0.0010356509038161198,
+              "p95": 0.004109923002975028,
+              "max": 0.007763175702912774,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 380,
+              "mean": 0.00027129735986468237,
+              "p95": 0.0017450986375508175,
+              "max": 0.006503226278492584,
+              "opposedNearestNormals": 0
+            }
+          }
+        ]
+      },
       "renders": {
         "status": "RENDERED",
         "imageCount": 114,
@@ -3135,13 +3188,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.9149678548177085,
+            "meanAbsoluteRGBByteError": 2.9150517781575522,
             "changedPixels": 25992,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.9149678548177382,
+                "meanAbsoluteRGBByteError": 2.915051778157582,
                 "maxRGBByteError": 226.33333333333334,
                 "sourceNearBlackPixels": 1068,
                 "candidateNearBlackPixels": 25,
@@ -3210,13 +3263,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.654956817626953,
+            "meanAbsoluteRGBByteError": 2.6549580891927085,
             "changedPixels": 24678,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.654956817626772,
+                "meanAbsoluteRGBByteError": 2.654958089192527,
                 "maxRGBByteError": 220.33333333333334,
                 "sourceNearBlackPixels": 1048,
                 "candidateNearBlackPixels": 31,
@@ -3525,13 +3578,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.0015157063802085,
-            "changedPixels": 26053,
+            "meanAbsoluteRGBByteError": 3.0008761088053384,
+            "changedPixels": 26055,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 3.0015157063803755,
+                "meanAbsoluteRGBByteError": 3.0008761088055054,
                 "maxRGBByteError": 226.33333333333334,
                 "sourceNearBlackPixels": 1068,
                 "candidateNearBlackPixels": 26,
@@ -3550,13 +3603,13 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.502063751220703,
-            "changedPixels": 30092,
+            "meanAbsoluteRGBByteError": 3.5138893127441406,
+            "changedPixels": 30261,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 3.5020637512206982,
+                "meanAbsoluteRGBByteError": 3.5138893127441277,
                 "maxRGBByteError": 161.33333333333334,
                 "sourceNearBlackPixels": 1475,
                 "candidateNearBlackPixels": 38,
@@ -3575,13 +3628,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.8347969055175781,
-            "changedPixels": 16619,
+            "meanAbsoluteRGBByteError": 1.8352762858072917,
+            "changedPixels": 16621,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.8347969055175986,
+                "meanAbsoluteRGBByteError": 1.8352762858073115,
                 "maxRGBByteError": 219.66666666666666,
                 "sourceNearBlackPixels": 1314,
                 "candidateNearBlackPixels": 20,
@@ -3600,13 +3653,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.7600669860839844,
-            "changedPixels": 24768,
+            "meanAbsoluteRGBByteError": 2.759637196858724,
+            "changedPixels": 24767,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.760066986083815,
+                "meanAbsoluteRGBByteError": 2.7596371968585545,
                 "maxRGBByteError": 220.33333333333334,
                 "sourceNearBlackPixels": 1048,
                 "candidateNearBlackPixels": 38,
@@ -3625,13 +3678,13 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 14.05807622273763,
-            "changedPixels": 152865,
+            "meanAbsoluteRGBByteError": 14.057337443033854,
+            "changedPixels": 152345,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 14.058076222750103,
+                "meanAbsoluteRGBByteError": 14.057337443046071,
                 "maxRGBByteError": 185.66666666666666,
                 "sourceNearBlackPixels": 1888,
                 "candidateNearBlackPixels": 390,
@@ -3641,7 +3694,7 @@
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 16.03691609700044,
+                "meanAbsoluteRGBByteError": 16.101445515946033,
                 "maxRGBByteError": 161,
                 "sourceNearBlackPixels": 1057,
                 "candidateNearBlackPixels": 274,
@@ -3651,7 +3704,7 @@
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 12.07923634846414,
+                "meanAbsoluteRGBByteError": 12.013229370111162,
                 "maxRGBByteError": 185.66666666666666,
                 "sourceNearBlackPixels": 831,
                 "candidateNearBlackPixels": 116,
@@ -3695,13 +3748,13 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 4.407437642415364,
+            "meanAbsoluteRGBByteError": 4.407450358072917,
             "changedPixels": 32724,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 4.407437642415378,
+                "meanAbsoluteRGBByteError": 4.407450358072929,
                 "maxRGBByteError": 118.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -3720,13 +3773,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4722620646158855,
+            "meanAbsoluteRGBByteError": 1.4723459879557292,
             "changedPixels": 7924,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.4722620646158966,
+                "meanAbsoluteRGBByteError": 1.4723459879557403,
                 "maxRGBByteError": 191.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 25,
@@ -3795,13 +3848,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3245595296223958,
+            "meanAbsoluteRGBByteError": 1.3245455423990886,
             "changedPixels": 7487,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3245595296224275,
+                "meanAbsoluteRGBByteError": 1.3245455423991201,
                 "maxRGBByteError": 195,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 31,
@@ -4110,13 +4163,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.585461934407552,
-            "changedPixels": 8288,
+            "meanAbsoluteRGBByteError": 1.5871747334798176,
+            "changedPixels": 8306,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.5854619344075473,
+                "meanAbsoluteRGBByteError": 1.587174733479813,
                 "maxRGBByteError": 191.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 26,
@@ -4135,13 +4188,13 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.7007662455240886,
-            "changedPixels": 8025,
+            "meanAbsoluteRGBByteError": 1.7115109761555989,
+            "changedPixels": 8214,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.7007662455241699,
+                "meanAbsoluteRGBByteError": 1.71151097615568,
                 "maxRGBByteError": 158.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 38,
@@ -4160,13 +4213,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.7995770772298177,
-            "changedPixels": 5259,
+            "meanAbsoluteRGBByteError": 0.7995096842447916,
+            "changedPixels": 5261,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.7995770772298122,
+                "meanAbsoluteRGBByteError": 0.799509684244786,
                 "maxRGBByteError": 193.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 20,
@@ -4185,13 +4238,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4598172505696614,
-            "changedPixels": 7935,
+            "meanAbsoluteRGBByteError": 1.4604860941569011,
+            "changedPixels": 7942,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.459817250569691,
+                "meanAbsoluteRGBByteError": 1.4604860941569304,
                 "maxRGBByteError": 195,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 38,
@@ -4210,13 +4263,13 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.713514963785807,
-            "changedPixels": 16211,
+            "meanAbsoluteRGBByteError": 2.7937342325846353,
+            "changedPixels": 17648,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.7135149637857627,
+                "meanAbsoluteRGBByteError": 2.7937342325846504,
                 "maxRGBByteError": 183.33333333333334,
                 "sourceNearBlackPixels": 125,
                 "candidateNearBlackPixels": 390,
@@ -4226,7 +4279,7 @@
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 2.848192850748738,
+                "meanAbsoluteRGBByteError": 2.953015645345087,
                 "maxRGBByteError": 183.33333333333334,
                 "sourceNearBlackPixels": 69,
                 "candidateNearBlackPixels": 274,
@@ -4236,7 +4289,7 @@
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 2.578837076823008,
+                "meanAbsoluteRGBByteError": 2.634452819824248,
                 "maxRGBByteError": 183,
                 "sourceNearBlackPixels": 56,
                 "candidateNearBlackPixels": 116,
@@ -4280,13 +4333,13 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.4119338989257812,
-            "changedPixels": 13646,
+            "meanAbsoluteRGBByteError": 1.4119008382161458,
+            "changedPixels": 13645,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.4119338989257761,
+                "meanAbsoluteRGBByteError": 1.4119008382161409,
                 "maxRGBByteError": 127.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -6333,8 +6386,8 @@
                 "normalShading": false,
                 "triangles": 23,
                 "samples": 92,
-                "meanAbsoluteRGBByteError": 2.1014492753623184,
-                "maxRGBByteError": 90.33333333333331,
+                "meanAbsoluteRGBByteError": 1.7355072463768115,
+                "maxRGBByteError": 57.333333333333314,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 5
@@ -7739,8 +7792,8 @@
                   13
                 ],
                 "atlasRGB": [
-                  214,
-                  197,
+                  173,
+                  156,
                   8
                 ],
                 "sourceOpaque": false,
@@ -7759,13 +7812,13 @@
                   10
                 ],
                 "atlasRGB": [
-                  115,
-                  99,
+                  165,
+                  148,
                   8
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 90.33333333333331
+                "meanRGBByteError": 57.333333333333314
               },
               {
                 "meshIndex": 19,
@@ -7779,8 +7832,8 @@
                   0
                 ],
                 "atlasRGB": [
+                  181,
                   165,
-                  148,
                   8
                 ],
                 "sourceOpaque": false,
@@ -7839,13 +7892,33 @@
                   0
                 ],
                 "atlasRGB": [
-                  132,
-                  107,
-                  16
+                  173,
+                  148,
+                  8
                 ],
                 "sourceOpaque": false,
                 "atlasOpaque": true,
                 "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 19,
+                "primitive": 0,
+                "sourceMaterialIndex": 19,
+                "triangle": 15,
+                "sample": 3,
+                "sourceRGB": [
+                  99,
+                  87,
+                  17
+                ],
+                "atlasRGB": [
+                  181,
+                  165,
+                  8
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 56.33333333333334
               },
               {
                 "meshIndex": 20,
@@ -8192,8 +8265,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 256,
-                  "y": 128,
+                  "x": 384,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8235,8 +8308,8 @@
                 },
                 "atlasTile": {
                   "index": 1,
-                  "x": 288,
-                  "y": 128,
+                  "x": 416,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8278,8 +8351,8 @@
                 },
                 "atlasTile": {
                   "index": 1,
-                  "x": 288,
-                  "y": 128,
+                  "x": 416,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8320,20 +8393,20 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 2,
-                  "x": 0,
+                  "index": 1,
+                  "x": 416,
                   "y": 0,
-                  "width": 128,
-                  "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "width": 32,
+                  "height": 32,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.7714999914169312,
-                    -0.5956000089645386
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.22850000858306885,
-                    0.217600017786026
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
@@ -8364,8 +8437,8 @@
                 },
                 "atlasTile": {
                   "index": 1,
-                  "x": 288,
-                  "y": 128,
+                  "x": 416,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8406,9 +8479,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
-                  "x": 320,
-                  "y": 128,
+                  "index": 2,
+                  "x": 448,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8449,9 +8522,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
-                  "x": 320,
-                  "y": 128,
+                  "index": 2,
+                  "x": 448,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8492,9 +8565,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
-                  "x": 320,
-                  "y": 128,
+                  "index": 2,
+                  "x": 448,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8535,9 +8608,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
-                  "x": 320,
-                  "y": 128,
+                  "index": 2,
+                  "x": 448,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8578,9 +8651,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 4,
-                  "x": 352,
-                  "y": 128,
+                  "index": 3,
+                  "x": 480,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8621,9 +8694,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 5,
-                  "x": 128,
-                  "y": 128,
+                  "index": 4,
+                  "x": 256,
+                  "y": 0,
                   "width": 64,
                   "height": 64,
                   "region": null,
@@ -8664,9 +8737,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 6,
-                  "x": 192,
-                  "y": 128,
+                  "index": 5,
+                  "x": 320,
+                  "y": 0,
                   "width": 64,
                   "height": 64,
                   "region": null,
@@ -8707,9 +8780,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 7,
+                  "index": 6,
                   "x": 384,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8750,9 +8823,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 8,
+                  "index": 7,
                   "x": 416,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8793,8 +8866,8 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 9,
-                  "x": 128,
+                  "index": 8,
+                  "x": 0,
                   "y": 0,
                   "width": 128,
                   "height": 128,
@@ -8836,9 +8909,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 9,
                   "x": 448,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8879,9 +8952,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 9,
                   "x": 448,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8922,9 +8995,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 9,
                   "x": 448,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -8965,9 +9038,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 9,
                   "x": 448,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9008,8 +9081,8 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
-                  "x": 256,
+                  "index": 10,
+                  "x": 128,
                   "y": 0,
                   "width": 128,
                   "height": 128,
@@ -9051,9 +9124,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9094,9 +9167,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9137,9 +9210,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9180,9 +9253,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9223,9 +9296,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9266,9 +9339,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 11,
                   "x": 480,
-                  "y": 128,
+                  "y": 32,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9309,9 +9382,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 13,
+                  "index": 12,
                   "x": 256,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9352,9 +9425,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 13,
+                  "index": 12,
                   "x": 256,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9395,9 +9468,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 13,
+                  "index": 12,
                   "x": 256,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9438,9 +9511,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 13,
+                  "index": 12,
                   "x": 256,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9481,9 +9554,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 14,
+                  "index": 13,
                   "x": 288,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9524,9 +9597,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 14,
+                  "index": 13,
                   "x": 288,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9567,9 +9640,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 14,
+                  "index": 13,
                   "x": 288,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9610,9 +9683,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 14,
+                  "index": 13,
                   "x": 288,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9653,9 +9726,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 15,
+                  "index": 14,
                   "x": 320,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9696,9 +9769,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 16,
+                  "index": 15,
                   "x": 352,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9739,9 +9812,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 17,
+                  "index": 16,
                   "x": 384,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9782,9 +9855,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 17,
+                  "index": 16,
                   "x": 384,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9825,9 +9898,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 18,
+                  "index": 17,
                   "x": 416,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9868,9 +9941,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 18,
+                  "index": 17,
                   "x": 416,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9911,9 +9984,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 19,
+                  "index": 18,
                   "x": 448,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9954,9 +10027,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 20,
+                  "index": 19,
                   "x": 480,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -9997,9 +10070,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 20,
+                  "index": 19,
                   "x": 480,
-                  "y": 160,
+                  "y": 64,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -10040,9 +10113,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 21,
-                  "x": 128,
-                  "y": 192,
+                  "index": 20,
+                  "x": 256,
+                  "y": 96,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -10059,8 +10132,8 @@
                 "normalShading": false,
                 "triangles": 23,
                 "samples": 92,
-                "meanAbsoluteRGBByteError": 2.1014492753623184,
-                "maxRGBByteError": 90.33333333333331,
+                "meanAbsoluteRGBByteError": 1.7355072463768115,
+                "maxRGBByteError": 57.333333333333314,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 5
@@ -10083,9 +10156,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 22,
-                  "x": 160,
-                  "y": 192,
+                  "index": 21,
+                  "x": 288,
+                  "y": 96,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -10126,27 +10199,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 23,
-                  "x": 384,
-                  "y": 0,
-                  "width": 128,
-                  "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "index": 21,
+                  "x": 288,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
                     0,
-                    -0.09229999780654907
+                    -1
                   ],
                   "sourceUVSpan": [
-                    1,
-                    0.08659999771043658
+                    2,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 43,
                 "samples": 172,
-                "meanAbsoluteRGBByteError": 2.040697674418605,
-                "maxRGBByteError": 12.666666666666663,
+                "meanAbsoluteRGBByteError": 7.133720930232557,
+                "maxRGBByteError": 18.33333333333333,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -10169,9 +10242,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 22,
-                  "x": 160,
-                  "y": 192,
+                  "index": 21,
+                  "x": 288,
+                  "y": 96,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -10212,9 +10285,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 24,
-                  "x": 192,
-                  "y": 192,
+                  "index": 22,
+                  "x": 320,
+                  "y": 96,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -10255,26 +10328,26 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 25,
-                  "x": 0,
-                  "y": 128,
-                  "width": 128,
-                  "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "index": 22,
+                  "x": 320,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.0005000000237487257,
-                    -0.20679999887943268
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.9989999766112305,
-                    0.20379999885335565
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 61,
                 "samples": 244,
-                "meanAbsoluteRGBByteError": 2.545081967213114,
+                "meanAbsoluteRGBByteError": 3.2062841530054644,
                 "maxRGBByteError": 15.999999999999993,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
@@ -10298,9 +10371,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 24,
-                  "x": 192,
-                  "y": 192,
+                  "index": 22,
+                  "x": 320,
+                  "y": 96,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -12077,8 +12150,8 @@
                   13
                 ],
                 "atlasRGB": [
-                  214,
-                  197,
+                  173,
+                  156,
                   8
                 ],
                 "sourceOpaque": false,
@@ -12097,13 +12170,13 @@
                   10
                 ],
                 "atlasRGB": [
-                  115,
-                  99,
+                  165,
+                  148,
                   8
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 90.33333333333331
+                "meanRGBByteError": 57.333333333333314
               },
               {
                 "meshIndex": 19,
@@ -12117,8 +12190,8 @@
                   0
                 ],
                 "atlasRGB": [
+                  181,
                   165,
-                  148,
                   8
                 ],
                 "sourceOpaque": false,
@@ -12177,13 +12250,33 @@
                   0
                 ],
                 "atlasRGB": [
-                  132,
-                  107,
-                  16
+                  173,
+                  148,
+                  8
                 ],
                 "sourceOpaque": false,
                 "atlasOpaque": true,
                 "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 19,
+                "primitive": 0,
+                "sourceMaterialIndex": 20,
+                "triangle": 15,
+                "sample": 3,
+                "sourceRGB": [
+                  99,
+                  87,
+                  17
+                ],
+                "atlasRGB": [
+                  181,
+                  165,
+                  8
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 56.33333333333334
               },
               {
                 "meshIndex": 20,
@@ -12510,33 +12603,6 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
-      "atlasHeadRouting": {
-        "applied": true,
-        "charts": [
-          {
-            "meshIndex": 1,
-            "mesh": "Object_3",
-            "sourceMaterial": "arm01_tm2",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 20,
-            "mesh": "Object_22",
-            "sourceMaterial": "shirt01_tm2",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 21,
-            "mesh": "Object_23",
-            "sourceMaterial": "shirt02_tm2",
-            "region": "head",
-            "primitives": 1
-          }
-        ],
-        "reason": "Head/body source material shared; isolate head UV coverage"
-      },
       "atlasWarnings": [
         "jc_arm_tm2: continuous 3 x 1 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
         "jc_belt_tm2: continuous 1 x 2 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
@@ -12573,20 +12639,6 @@
           "texelsPerUVTile": [
             27,
             27
-          ]
-        },
-        {
-          "material": "arm01_tm2 [head chart]",
-          "span": [
-            0.22850000858306885,
-            0.217600017786026
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            538.2931964104702,
-            565.2573067385977
           ]
         },
         {
@@ -12870,20 +12922,6 @@
           ]
         },
         {
-          "material": "shirt01_tm2 [head chart]",
-          "span": [
-            1,
-            0.08659999771043658
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            123,
-            1420.323363186148
-          ]
-        },
-        {
           "material": "shirt02_tm2",
           "span": [
             1,
@@ -12895,20 +12933,6 @@
           "texelsPerUVTile": [
             27,
             27
-          ]
-        },
-        {
-          "material": "shirt02_tm2 [head chart]",
-          "span": [
-            0.9989999766112305,
-            0.20379999885335565
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            123.12312600570412,
-            603.532878763678
           ]
         }
       ],
@@ -13346,8 +13370,8 @@
         "conversionPreset": "authentic",
         "triangles": 6459,
         "atlas": true,
-        "textureBytes": 99328,
-        "paletteBytes": 3136,
+        "textureBytes": 17408,
+        "paletteBytes": 576,
         "warnings": [
           "Appearance error / protected topology prevent the requested budget: 6459 > 900. See per-region budget diagnostics. Export will enforce limits.",
           "This preparation pass preserves source skinning. It does not establish donor bind-pose or in-game animation compatibility."
@@ -13614,6 +13638,10 @@
             }
           }
         ]
+      },
+      "handGeometry": {
+        "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+        "hands": []
       },
       "renders": {
         "status": "RENDERED",
@@ -14016,13 +14044,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5143686930338542,
-            "changedPixels": 12876,
+            "meanAbsoluteRGBByteError": 1.5244394938151042,
+            "changedPixels": 13019,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.514368693033848,
+                "meanAbsoluteRGBByteError": 1.524439493815098,
                 "maxRGBByteError": 149.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 60,
@@ -14041,22 +14069,22 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3886642456054688,
-            "changedPixels": 11392,
+            "meanAbsoluteRGBByteError": 1.3997573852539062,
+            "changedPixels": 11584,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3886642456054443,
+                "meanAbsoluteRGBByteError": 1.399757385253881,
                 "maxRGBByteError": 142.66666666666666,
                 "sourceNearBlackPixels": 0,
-                "candidateNearBlackPixels": 73,
+                "candidateNearBlackPixels": 72,
                 "newBlackPixels": 8,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 0,
-            "candidateNearBlackPixels": 73,
+            "candidateNearBlackPixels": 72,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -14066,13 +14094,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.8930002848307291,
-            "changedPixels": 8081,
+            "meanAbsoluteRGBByteError": 0.8977343241373698,
+            "changedPixels": 8152,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.8930002848307353,
+                "meanAbsoluteRGBByteError": 0.8977343241373761,
                 "maxRGBByteError": 98.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 12,
@@ -14091,13 +14119,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.378173828125,
-            "changedPixels": 12042,
+            "meanAbsoluteRGBByteError": 1.3881301879882812,
+            "changedPixels": 12213,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3781738281250004,
+                "meanAbsoluteRGBByteError": 1.3881301879882812,
                 "maxRGBByteError": 135,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 41,
@@ -14116,42 +14144,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 7.402872721354167,
-            "changedPixels": 75251,
+            "meanAbsoluteRGBByteError": 7.66653569539388,
+            "changedPixels": 77688,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 7.402872721354404,
-                "maxRGBByteError": 110,
+                "meanAbsoluteRGBByteError": 7.666535695394157,
+                "maxRGBByteError": 121.66666666666667,
                 "sourceNearBlackPixels": 2,
-                "candidateNearBlackPixels": 25,
-                "newBlackPixels": 18,
+                "candidateNearBlackPixels": 9,
+                "newBlackPixels": 9,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 7.7705739339188575,
-                "maxRGBByteError": 110,
+                "meanAbsoluteRGBByteError": 7.780537923176764,
+                "maxRGBByteError": 112.66666666666667,
                 "sourceNearBlackPixels": 0,
-                "candidateNearBlackPixels": 13,
-                "newBlackPixels": 13,
+                "candidateNearBlackPixels": 4,
+                "newBlackPixels": 4,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 7.035171508789302,
-                "maxRGBByteError": 107.66666666666667,
+                "meanAbsoluteRGBByteError": 7.552533467610814,
+                "maxRGBByteError": 121.66666666666667,
                 "sourceNearBlackPixels": 2,
-                "candidateNearBlackPixels": 12,
+                "candidateNearBlackPixels": 5,
                 "newBlackPixels": 5,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 2,
-            "candidateNearBlackPixels": 25,
+            "candidateNearBlackPixels": 9,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -14186,13 +14214,13 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.3454411824544272,
+            "meanAbsoluteRGBByteError": 2.3453890482584634,
             "changedPixels": 18424,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.3454411824544814,
+                "meanAbsoluteRGBByteError": 2.345389048258518,
                 "maxRGBByteError": 78.33333333333333,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -14601,13 +14629,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5143547058105469,
-            "changedPixels": 12876,
+            "meanAbsoluteRGBByteError": 1.5244356791178386,
+            "changedPixels": 13019,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.5143547058105409,
+                "meanAbsoluteRGBByteError": 1.5244356791178324,
                 "maxRGBByteError": 149.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 60,
@@ -14626,22 +14654,22 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3889376322428386,
-            "changedPixels": 11394,
+            "meanAbsoluteRGBByteError": 1.4000307718912761,
+            "changedPixels": 11586,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.388937632242814,
+                "meanAbsoluteRGBByteError": 1.400030771891251,
                 "maxRGBByteError": 142.66666666666666,
                 "sourceNearBlackPixels": 0,
-                "candidateNearBlackPixels": 73,
+                "candidateNearBlackPixels": 72,
                 "newBlackPixels": 8,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 0,
-            "candidateNearBlackPixels": 73,
+            "candidateNearBlackPixels": 72,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -14651,13 +14679,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.8930333455403646,
-            "changedPixels": 8081,
+            "meanAbsoluteRGBByteError": 0.8977673848470052,
+            "changedPixels": 8152,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.8930333455403708,
+                "meanAbsoluteRGBByteError": 0.8977673848470117,
                 "maxRGBByteError": 98.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 12,
@@ -14676,13 +14704,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.378064473470052,
-            "changedPixels": 12041,
+            "meanAbsoluteRGBByteError": 1.3880170186360676,
+            "changedPixels": 12212,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3780644734700527,
+                "meanAbsoluteRGBByteError": 1.3880170186360679,
                 "maxRGBByteError": 135,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 41,
@@ -14701,42 +14729,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 7.402872721354167,
-            "changedPixels": 75251,
+            "meanAbsoluteRGBByteError": 7.66653569539388,
+            "changedPixels": 77688,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 7.402872721354404,
-                "maxRGBByteError": 110,
+                "meanAbsoluteRGBByteError": 7.666535695394157,
+                "maxRGBByteError": 121.66666666666667,
                 "sourceNearBlackPixels": 2,
-                "candidateNearBlackPixels": 25,
-                "newBlackPixels": 18,
+                "candidateNearBlackPixels": 9,
+                "newBlackPixels": 9,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 7.7705739339188575,
-                "maxRGBByteError": 110,
+                "meanAbsoluteRGBByteError": 7.780537923176764,
+                "maxRGBByteError": 112.66666666666667,
                 "sourceNearBlackPixels": 0,
-                "candidateNearBlackPixels": 13,
-                "newBlackPixels": 13,
+                "candidateNearBlackPixels": 4,
+                "newBlackPixels": 4,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 7.035171508789302,
-                "maxRGBByteError": 107.66666666666667,
+                "meanAbsoluteRGBByteError": 7.552533467610814,
+                "maxRGBByteError": 121.66666666666667,
                 "sourceNearBlackPixels": 2,
-                "candidateNearBlackPixels": 12,
+                "candidateNearBlackPixels": 5,
                 "newBlackPixels": 5,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 2,
-            "candidateNearBlackPixels": 25,
+            "candidateNearBlackPixels": 9,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -14771,13 +14799,13 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.3454411824544272,
+            "meanAbsoluteRGBByteError": 2.3453890482584634,
             "changedPixels": 18424,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.3454411824544814,
+                "meanAbsoluteRGBByteError": 2.345389048258518,
                 "maxRGBByteError": 78.33333333333333,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -17417,27 +17445,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 1,
+                  "index": 0,
                   "x": 0,
                   "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.01757810078561306,
-                    -0.7021480202674866
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.6845699194818735,
-                    0.32177701592445374
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 119,
                 "samples": 476,
-                "meanAbsoluteRGBByteError": 15.474089635854332,
-                "maxRGBByteError": 91.33333333333331,
+                "meanAbsoluteRGBByteError": 16.71918767507002,
+                "maxRGBByteError": 93.33333333333333,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -17461,8 +17489,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17504,8 +17532,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17546,27 +17574,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 2,
-                  "x": 128,
+                  "index": 0,
+                  "x": 0,
                   "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.5043950080871582,
-                    -0.9980469942092896
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.32275301218032837,
-                    0.24755901098251343
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 198,
                 "samples": 792,
-                "meanAbsoluteRGBByteError": 4.3716329966329965,
-                "maxRGBByteError": 65.33333333333331,
+                "meanAbsoluteRGBByteError": 6.91961279461279,
+                "maxRGBByteError": 113.3333333333333,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -17589,27 +17617,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
-                  "x": 256,
+                  "index": 0,
+                  "x": 0,
                   "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.0003356930101290345,
-                    -0.9995120167732239
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.9972233179723844,
-                    0.9986117477528751
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 2524,
                 "samples": 3368,
-                "meanAbsoluteRGBByteError": 9.513855898653997,
-                "maxRGBByteError": 78.99999999999999,
+                "meanAbsoluteRGBByteError": 9.132026920031677,
+                "maxRGBByteError": 104.99999999999996,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -17633,8 +17661,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17676,8 +17704,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17719,8 +17747,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17762,8 +17790,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17805,8 +17833,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17848,8 +17876,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -17890,9 +17918,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 4,
-                  "x": 256,
-                  "y": 128,
+                  "index": 1,
+                  "x": 128,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -17933,9 +17961,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 4,
-                  "x": 256,
-                  "y": 128,
+                  "index": 1,
+                  "x": 128,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -17976,27 +18004,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 5,
-                  "x": 384,
+                  "index": 1,
+                  "x": 128,
                   "y": 0,
-                  "width": 128,
-                  "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "width": 32,
+                  "height": 32,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.0054626502096652985,
-                    -0.6381840109825134
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.7030333243310452,
-                    0.6359104509465396
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 14,
                 "samples": 56,
-                "meanAbsoluteRGBByteError": 2.666666666666667,
-                "maxRGBByteError": 10.666666666666671,
+                "meanAbsoluteRGBByteError": 11.339285714285717,
+                "maxRGBByteError": 41,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -18020,8 +18048,8 @@
                 },
                 "atlasTile": {
                   "index": 0,
-                  "x": 128,
-                  "y": 128,
+                  "x": 0,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -18062,27 +18090,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 6,
+                  "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.5336909890174866,
-                    -0.7402340173721313
+                    0,
+                    -1
                   ],
                   "sourceUVSpan": [
-                    0.2788090109825134,
-                    0.41650402545928955
+                    1,
+                    1
                   ]
                 },
                 "normalShading": false,
                 "triangles": 34,
                 "samples": 136,
-                "meanAbsoluteRGBByteError": 7.100490196078429,
-                "maxRGBByteError": 29.333333333333343,
+                "meanAbsoluteRGBByteError": 11.259803921568636,
+                "maxRGBByteError": 62,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -18105,9 +18133,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 7,
-                  "x": 288,
-                  "y": 128,
+                  "index": 2,
+                  "x": 160,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -18148,9 +18176,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 7,
-                  "x": 288,
-                  "y": 128,
+                  "index": 2,
+                  "x": 160,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -18191,9 +18219,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 7,
-                  "x": 288,
-                  "y": 128,
+                  "index": 2,
+                  "x": 160,
+                  "y": 0,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -18222,7 +18250,87 @@
                 "meshIndex": 0,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 26,
+                "triangle": 23,
+                "sample": 1,
+                "sourceRGB": [
+                  41,
+                  32,
+                  24
+                ],
+                "atlasRGB": [
+                  99,
+                  90,
+                  74
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 55.333333333333336
+              },
+              {
+                "meshIndex": 0,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 23,
+                "sample": 2,
+                "sourceRGB": [
+                  41,
+                  32,
+                  33
+                ],
+                "atlasRGB": [
+                  99,
+                  90,
+                  74
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 52.333333333333336
+              },
+              {
+                "meshIndex": 0,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 24,
+                "sample": 1,
+                "sourceRGB": [
+                  41,
+                  32,
+                  24
+                ],
+                "atlasRGB": [
+                  99,
+                  82,
+                  74
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 52.666666666666664
+              },
+              {
+                "meshIndex": 0,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 24,
+                "sample": 2,
+                "sourceRGB": [
+                  41,
+                  32,
+                  24
+                ],
+                "atlasRGB": [
+                  107,
+                  82,
+                  74
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 55.333333333333336
+              },
+              {
+                "meshIndex": 0,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 42,
                 "sample": 0,
                 "sourceRGB": [
                   16,
@@ -18242,32 +18350,32 @@
                 "meshIndex": 0,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 27,
-                "sample": 3,
+                "triangle": 52,
+                "sample": 0,
                 "sourceRGB": [
                   24,
-                  20,
-                  16
+                  17,
+                  13
                 ],
                 "atlasRGB": [
                   82,
-                  66,
-                  58
+                  74,
+                  49
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 48.666666666666664
+                "meanRGBByteError": 50.333333333333336
               },
               {
                 "meshIndex": 0,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 36,
+                "triangle": 52,
                 "sample": 1,
                 "sourceRGB": [
-                  132,
-                  121,
-                  99
+                  0,
+                  0,
+                  0
                 ],
                 "atlasRGB": [
                   74,
@@ -18276,53 +18384,13 @@
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 56.99999999999998
+                "meanRGBByteError": 60.333333333333336
               },
               {
                 "meshIndex": 0,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 36,
-                "sample": 3,
-                "sourceRGB": [
-                  123,
-                  113,
-                  82
-                ],
-                "atlasRGB": [
-                  66,
-                  49,
-                  49
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 51.333333333333314
-              },
-              {
-                "meshIndex": 0,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 40,
-                "sample": 0,
-                "sourceRGB": [
-                  33,
-                  24,
-                  24
-                ],
-                "atlasRGB": [
-                  107,
-                  74,
-                  66
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 55.333333333333336
-              },
-              {
-                "meshIndex": 0,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 67,
+                "triangle": 66,
                 "sample": 0,
                 "sourceRGB": [
                   33,
@@ -18330,53 +18398,13 @@
                   24
                 ],
                 "atlasRGB": [
-                  90,
-                  74,
-                  66
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 48.333333333333336
-              },
-              {
-                "meshIndex": 0,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 68,
-                "sample": 0,
-                "sourceRGB": [
-                  33,
-                  24,
-                  24
-                ],
-                "atlasRGB": [
                   99,
-                  74,
-                  66
+                  90,
+                  82
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 52.666666666666664
-              },
-              {
-                "meshIndex": 0,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 81,
-                "sample": 0,
-                "sourceRGB": [
-                  8,
-                  8,
-                  8
-                ],
-                "atlasRGB": [
-                  74,
-                  66,
-                  58
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 58
+                "meanRGBByteError": 62
               },
               {
                 "meshIndex": 0,
@@ -18682,26 +18710,6 @@
                 "meshIndex": 2,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 168,
-                "sample": 2,
-                "sourceRGB": [
-                  90,
-                  81,
-                  74
-                ],
-                "atlasRGB": [
-                  33,
-                  33,
-                  33
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 48.66666666666665
-              },
-              {
-                "meshIndex": 2,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
                 "triangle": 171,
                 "sample": 3,
                 "sourceRGB": [
@@ -18710,33 +18718,13 @@
                   107
                 ],
                 "atlasRGB": [
-                  58,
-                  49,
-                  49
+                  25,
+                  25,
+                  25
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 62.333333333333314
-              },
-              {
-                "meshIndex": 2,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 177,
-                "sample": 1,
-                "sourceRGB": [
-                  82,
-                  73,
-                  66
-                ],
-                "atlasRGB": [
-                  16,
-                  16,
-                  16
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 57.66666666666665
+                "meanRGBByteError": 89.33333333333331
               },
               {
                 "meshIndex": 2,
@@ -18750,13 +18738,133 @@
                   107
                 ],
                 "atlasRGB": [
-                  49,
-                  49,
-                  49
+                  25,
+                  25,
+                  25
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 65.33333333333331
+                "meanRGBByteError": 89.33333333333331
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 188,
+                "sample": 0,
+                "sourceRGB": [
+                  24,
+                  26,
+                  24
+                ],
+                "atlasRGB": [
+                  82,
+                  74,
+                  66
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 49.333333333333336
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 188,
+                "sample": 3,
+                "sourceRGB": [
+                  24,
+                  24,
+                  24
+                ],
+                "atlasRGB": [
+                  82,
+                  74,
+                  66
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 50
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 191,
+                "sample": 0,
+                "sourceRGB": [
+                  16,
+                  12,
+                  16
+                ],
+                "atlasRGB": [
+                  74,
+                  66,
+                  66
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 54
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 194,
+                "sample": 3,
+                "sourceRGB": [
+                  156,
+                  154,
+                  156
+                ],
+                "atlasRGB": [
+                  107,
+                  99,
+                  99
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 53.666666666666636
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 195,
+                "sample": 3,
+                "sourceRGB": [
+                  165,
+                  158,
+                  156
+                ],
+                "atlasRGB": [
+                  49,
+                  49,
+                  41
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 113.3333333333333
+              },
+              {
+                "meshIndex": 2,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 196,
+                "sample": 1,
+                "sourceRGB": [
+                  35,
+                  26,
+                  24
+                ],
+                "atlasRGB": [
+                  132,
+                  132,
+                  123
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 100.66666666666667
               },
               {
                 "meshIndex": 3,
@@ -18803,46 +18911,6 @@
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
                 "triangle": 24,
-                "sample": 0,
-                "sourceRGB": [
-                  32,
-                  30,
-                  29
-                ],
-                "atlasRGB": [
-                  90,
-                  90,
-                  90
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 59.666666666666664
-              },
-              {
-                "meshIndex": 3,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 24,
-                "sample": 1,
-                "sourceRGB": [
-                  29,
-                  28,
-                  27
-                ],
-                "atlasRGB": [
-                  90,
-                  90,
-                  90
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 62
-              },
-              {
-                "meshIndex": 3,
-                "primitive": 0,
-                "sourceMaterialIndex": 0,
-                "triangle": 24,
                 "sample": 2,
                 "sourceRGB": [
                   35,
@@ -18902,7 +18970,47 @@
                 "meshIndex": 3,
                 "primitive": 0,
                 "sourceMaterialIndex": 0,
-                "triangle": 117,
+                "triangle": 120,
+                "sample": 1,
+                "sourceRGB": [
+                  132,
+                  134,
+                  132
+                ],
+                "atlasRGB": [
+                  33,
+                  25,
+                  25
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 104.99999999999996
+              },
+              {
+                "meshIndex": 3,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 120,
+                "sample": 3,
+                "sourceRGB": [
+                  132,
+                  134,
+                  132
+                ],
+                "atlasRGB": [
+                  33,
+                  25,
+                  25
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 104.99999999999996
+              },
+              {
+                "meshIndex": 3,
+                "primitive": 0,
+                "sourceMaterialIndex": 0,
+                "triangle": 1029,
                 "sample": 0,
                 "sourceRGB": [
                   132,
@@ -18910,13 +19018,13 @@
                   132
                 ],
                 "atlasRGB": [
-                  82,
-                  74,
-                  74
+                  33,
+                  25,
+                  25
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 55.99999999999997
+                "meanRGBByteError": 104.99999999999996
               },
               {
                 "meshIndex": 3,
@@ -19679,6 +19787,166 @@
                 "meanRGBByteError": 56.666666666666664
               },
               {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 8,
+                "sample": 1,
+                "sourceRGB": [
+                  46,
+                  36,
+                  32
+                ],
+                "atlasRGB": [
+                  115,
+                  90,
+                  90
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 60.333333333333336
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 8,
+                "sample": 2,
+                "sourceRGB": [
+                  49,
+                  38,
+                  35
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  82
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 58
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 10,
+                "sample": 1,
+                "sourceRGB": [
+                  54,
+                  44,
+                  35
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  82
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 54.33333333333334
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 10,
+                "sample": 2,
+                "sourceRGB": [
+                  52,
+                  41,
+                  38
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  82
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 55.00000000000001
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 12,
+                "sample": 2,
+                "sourceRGB": [
+                  49,
+                  36,
+                  33
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  90
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 62
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 12,
+                "sample": 3,
+                "sourceRGB": [
+                  60,
+                  48,
+                  43
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  90
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 51.00000000000001
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 14,
+                "sample": 2,
+                "sourceRGB": [
+                  54,
+                  43,
+                  35
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  82
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 54.66666666666668
+              },
+              {
+                "meshIndex": 5,
+                "primitive": 1,
+                "sourceMaterialIndex": 0,
+                "triangle": 14,
+                "sample": 3,
+                "sourceRGB": [
+                  60,
+                  48,
+                  44
+                ],
+                "atlasRGB": [
+                  115,
+                  99,
+                  82
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 48.00000000000001
+              },
+              {
                 "meshIndex": 6,
                 "primitive": 0,
                 "sourceMaterialIndex": 2,
@@ -20163,47 +20431,6 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
-      "atlasHeadRouting": {
-        "applied": true,
-        "charts": [
-          {
-            "meshIndex": 0,
-            "mesh": "Object_280",
-            "sourceMaterial": "player_default_intro_alphakill_d1.bmp",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 2,
-            "mesh": "Object_284",
-            "sourceMaterial": "player_default_intro_alphakill_d1.bmp",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 3,
-            "mesh": "Object_286",
-            "sourceMaterial": "player_default_intro_alphakill_d1.bmp",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 4,
-            "mesh": "Object_288",
-            "sourceMaterial": ".bmp",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 5,
-            "mesh": "Object_290",
-            "sourceMaterial": "player_default_intro_alphakill_d1.bmp",
-            "region": "head",
-            "primitives": 1
-          }
-        ],
-        "reason": "Head/body source material shared; isolate head UV coverage"
-      },
       "atlasWarnings": [
         "iv_drawable_material.bmp.001: continuous 117 x 1 UV tiles rebaked without geometry changes; finite atlas resolution may lose repeat detail.",
         "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
@@ -20225,48 +20452,6 @@
           ]
         },
         {
-          "material": "player_default_intro_alphakill_d1.bmp [head chart]",
-          "span": [
-            0.6845699194818735,
-            0.32177701592445374
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            179.67485350962295,
-            382.25228625054353
-          ]
-        },
-        {
-          "material": "player_default_intro_alphakill_d1.bmp [head chart]",
-          "span": [
-            0.32275301218032837,
-            0.24755901098251343
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            381.09636582191683,
-            496.85123361834815
-          ]
-        },
-        {
-          "material": "player_default_intro_alphakill_d1.bmp [head chart]",
-          "span": [
-            0.9972233179723844,
-            0.9986117477528751
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            123.34248285538604,
-            123.17099240698961
-          ]
-        },
-        {
           "material": ".bmp",
           "span": [
             1,
@@ -20278,34 +20463,6 @@
           "texelsPerUVTile": [
             27,
             27
-          ]
-        },
-        {
-          "material": ".bmp [head chart]",
-          "span": [
-            0.7030333243310452,
-            0.6359104509465396
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            174.95614467072065,
-            193.42346051541853
-          ]
-        },
-        {
-          "material": "player_default_intro_alphakill_d1.bmp [head chart]",
-          "span": [
-            0.2788090109825134,
-            0.41650402545928955
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            441.1622119620603,
-            295.3152730381532
           ]
         },
         {
@@ -22173,8 +22330,8 @@
         "conversionPreset": "authentic",
         "triangles": 15503,
         "atlas": true,
-        "textureBytes": 255488,
-        "paletteBytes": 8800,
+        "textureBytes": 189952,
+        "paletteBytes": 6752,
         "warnings": [
           "No source skeleton. Spatial regions are provisional; animation export needs rigging.",
           "Object_4: unused reduced-output attributes omitted: uv1; source retained.",
@@ -22716,6 +22873,131 @@
           }
         ]
       },
+      "handGeometry": {
+        "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+        "hands": [
+          {
+            "meshIndex": 0,
+            "candidateMeshIndex": 0,
+            "mesh": "Object_4",
+            "region": "leftHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 3854,
+            "candidateTriangles": 404,
+            "sourceToCandidate": {
+              "samples": 500,
+              "mean": 0.0026144386396313047,
+              "p95": 0.006848860938065546,
+              "max": 0.012840914148087475,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 404,
+              "mean": 0.0005413702396995689,
+              "p95": 0.003740049150343566,
+              "max": 0.008627615662436552,
+              "opposedNearestNormals": 0
+            }
+          },
+          {
+            "meshIndex": 0,
+            "candidateMeshIndex": 0,
+            "mesh": "Object_4",
+            "region": "rightHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 3854,
+            "candidateTriangles": 392,
+            "sourceToCandidate": {
+              "samples": 500,
+              "mean": 0.0024433602479839132,
+              "p95": 0.006308865903111614,
+              "max": 0.009773740513566772,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 392,
+              "mean": 0.000630329326874016,
+              "p95": 0.004164568003220637,
+              "max": 0.008002387633075122,
+              "opposedNearestNormals": 0
+            }
+          },
+          {
+            "meshIndex": 9,
+            "candidateMeshIndex": 9,
+            "mesh": "Object_22",
+            "region": "rightHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 398,
+            "candidateTriangles": 212,
+            "sourceToCandidate": {
+              "samples": 400,
+              "mean": 0.0006949138047774267,
+              "p95": 0.003090271588324312,
+              "max": 0.00865523121265108,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 424,
+              "mean": 0.00018025055950319507,
+              "p95": 0.0012721971375334001,
+              "max": 0.00499411120946237,
+              "opposedNearestNormals": 0
+            }
+          },
+          {
+            "meshIndex": 18,
+            "candidateMeshIndex": 18,
+            "mesh": "Object_40",
+            "region": "leftHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 84,
+            "candidateTriangles": 84,
+            "sourceToCandidate": {
+              "samples": 336,
+              "mean": 0.00235228847770074,
+              "p95": 0.004888444348690903,
+              "max": 0.004978388315971333,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 336,
+              "mean": 0.0003396024149583606,
+              "p95": 0.003014685975713366,
+              "max": 0.003271857663360197,
+              "opposedNearestNormals": 0
+            }
+          },
+          {
+            "meshIndex": 19,
+            "candidateMeshIndex": 19,
+            "mesh": "Object_42",
+            "region": "leftHand",
+            "sourceMaterialIndex": 0,
+            "available": true,
+            "sourceTriangles": 398,
+            "candidateTriangles": 212,
+            "sourceToCandidate": {
+              "samples": 400,
+              "mean": 0.000710669947990689,
+              "p95": 0.002837941014195189,
+              "max": 0.008657477452638585,
+              "opposedNearestNormals": 0
+            },
+            "candidateToSource": {
+              "samples": 424,
+              "mean": 0.00016407864684107296,
+              "p95": 0.0009012077374560607,
+              "max": 0.004993827004948321,
+              "opposedNearestNormals": 0
+            }
+          }
+        ]
+      },
       "renders": {
         "status": "RENDERED",
         "imageCount": 114,
@@ -22727,22 +23009,22 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.8045781453450522,
-            "changedPixels": 17835,
+            "meanAbsoluteRGBByteError": 2.8046366373697915,
+            "changedPixels": 17833,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.8045781453450735,
+                "meanAbsoluteRGBByteError": 2.804636637369813,
                 "maxRGBByteError": 221,
                 "sourceNearBlackPixels": 10368,
-                "candidateNearBlackPixels": 17183,
+                "candidateNearBlackPixels": 17187,
                 "newBlackPixels": 465,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 10368,
-            "candidateNearBlackPixels": 17183,
+            "candidateNearBlackPixels": 17187,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -22777,13 +23059,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6002769470214844,
-            "changedPixels": 9794,
+            "meanAbsoluteRGBByteError": 1.6002578735351562,
+            "changedPixels": 9792,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.6002769470215503,
+                "meanAbsoluteRGBByteError": 1.6002578735352222,
                 "maxRGBByteError": 219.33333333333334,
                 "sourceNearBlackPixels": 9484,
                 "candidateNearBlackPixels": 13568,
@@ -22802,22 +23084,22 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.4221585591634116,
-            "changedPixels": 15737,
+            "meanAbsoluteRGBByteError": 2.422491709391276,
+            "changedPixels": 15736,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.4221585591635657,
+                "meanAbsoluteRGBByteError": 2.4224917093914304,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 12507,
-                "candidateNearBlackPixels": 18551,
+                "candidateNearBlackPixels": 18552,
                 "newBlackPixels": 574,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 12507,
-            "candidateNearBlackPixels": 18551,
+            "candidateNearBlackPixels": 18552,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -22827,42 +23109,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 18.72061030069987,
-            "changedPixels": 126312,
+            "meanAbsoluteRGBByteError": 18.716228485107422,
+            "changedPixels": 126282,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 18.720610300696524,
+                "meanAbsoluteRGBByteError": 18.716228485104097,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 24636,
-                "candidateNearBlackPixels": 50358,
-                "newBlackPixels": 1408,
+                "candidateNearBlackPixels": 50323,
+                "newBlackPixels": 1400,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 18.393671671551566,
+                "meanAbsoluteRGBByteError": 18.390894571942194,
                 "maxRGBByteError": 230,
                 "sourceNearBlackPixels": 14420,
-                "candidateNearBlackPixels": 27791,
-                "newBlackPixels": 237,
+                "candidateNearBlackPixels": 27774,
+                "newBlackPixels": 230,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 19.04754892985153,
+                "meanAbsoluteRGBByteError": 19.041562398276007,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 10216,
-                "candidateNearBlackPixels": 22567,
-                "newBlackPixels": 1171,
+                "candidateNearBlackPixels": 22549,
+                "newBlackPixels": 1170,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 24636,
-            "candidateNearBlackPixels": 50358,
+            "candidateNearBlackPixels": 50323,
             "sourceNearWhitePixels": 606,
             "candidateNearWhitePixels": 0
           },
@@ -22922,13 +23204,13 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.0100186665852864,
-            "changedPixels": 8623,
+            "meanAbsoluteRGBByteError": 1.0100949605305989,
+            "changedPixels": 8624,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.0100186665853101,
+                "meanAbsoluteRGBByteError": 1.0100949605306226,
                 "maxRGBByteError": 170,
                 "sourceNearBlackPixels": 10368,
                 "candidateNearBlackPixels": 10247,
@@ -22972,13 +23254,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.7874768575032552,
-            "changedPixels": 5785,
+            "meanAbsoluteRGBByteError": 0.7875150044759115,
+            "changedPixels": 5786,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.7874768575032631,
+                "meanAbsoluteRGBByteError": 0.7875150044759194,
                 "maxRGBByteError": 193,
                 "sourceNearBlackPixels": 9484,
                 "candidateNearBlackPixels": 9035,
@@ -22997,13 +23279,13 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.1005859375,
+            "meanAbsoluteRGBByteError": 1.100634256998698,
             "changedPixels": 8342,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.100585937500014,
+                "meanAbsoluteRGBByteError": 1.100634256998712,
                 "maxRGBByteError": 160.33333333333334,
                 "sourceNearBlackPixels": 12507,
                 "candidateNearBlackPixels": 12196,
@@ -23117,22 +23399,22 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.9414456685384116,
-            "changedPixels": 18407,
+            "meanAbsoluteRGBByteError": 2.941572825113932,
+            "changedPixels": 18425,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.9414456685383996,
+                "meanAbsoluteRGBByteError": 2.9415728251139197,
                 "maxRGBByteError": 221,
                 "sourceNearBlackPixels": 10368,
-                "candidateNearBlackPixels": 16798,
-                "newBlackPixels": 594,
+                "candidateNearBlackPixels": 16795,
+                "newBlackPixels": 593,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 10368,
-            "candidateNearBlackPixels": 16798,
+            "candidateNearBlackPixels": 16795,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23142,22 +23424,22 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.981969197591146,
-            "changedPixels": 12493,
+            "meanAbsoluteRGBByteError": 2.9935506184895835,
+            "changedPixels": 12517,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.9819691975907423,
+                "meanAbsoluteRGBByteError": 2.993550618489177,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 17715,
-                "candidateNearBlackPixels": 21205,
-                "newBlackPixels": 167,
+                "candidateNearBlackPixels": 21185,
+                "newBlackPixels": 166,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 17715,
-            "candidateNearBlackPixels": 21205,
+            "candidateNearBlackPixels": 21185,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23167,22 +23449,22 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.7976900736490886,
-            "changedPixels": 10519,
+            "meanAbsoluteRGBByteError": 1.8000475565592449,
+            "changedPixels": 10522,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.7976900736491535,
+                "meanAbsoluteRGBByteError": 1.8000475565593104,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 9484,
-                "candidateNearBlackPixels": 13241,
-                "newBlackPixels": 600,
+                "candidateNearBlackPixels": 13239,
+                "newBlackPixels": 599,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 9484,
-            "candidateNearBlackPixels": 13241,
+            "candidateNearBlackPixels": 13239,
             "sourceNearWhitePixels": 4,
             "candidateNearWhitePixels": 0
           },
@@ -23192,22 +23474,22 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.6451695760091147,
-            "changedPixels": 16601,
+            "meanAbsoluteRGBByteError": 2.645165761311849,
+            "changedPixels": 16608,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.645169576009223,
+                "meanAbsoluteRGBByteError": 2.645165761311958,
                 "maxRGBByteError": 222,
                 "sourceNearBlackPixels": 12507,
-                "candidateNearBlackPixels": 18195,
-                "newBlackPixels": 697,
+                "candidateNearBlackPixels": 18189,
+                "newBlackPixels": 694,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 12507,
-            "candidateNearBlackPixels": 18195,
+            "candidateNearBlackPixels": 18189,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23217,42 +23499,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 20.799657185872395,
-            "changedPixels": 130092,
+            "meanAbsoluteRGBByteError": 20.761437733968098,
+            "changedPixels": 130412,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 20.799657185868693,
+                "meanAbsoluteRGBByteError": 20.76143773396445,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 24636,
-                "candidateNearBlackPixels": 48264,
-                "newBlackPixels": 2686,
+                "candidateNearBlackPixels": 47883,
+                "newBlackPixels": 2565,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 20.25963846842584,
+                "meanAbsoluteRGBByteError": 20.192721048992535,
                 "maxRGBByteError": 240.66666666666666,
                 "sourceNearBlackPixels": 14420,
-                "candidateNearBlackPixels": 26657,
-                "newBlackPixels": 922,
+                "candidateNearBlackPixels": 26447,
+                "newBlackPixels": 836,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 21.339675903322018,
+                "meanAbsoluteRGBByteError": 21.330154418946854,
                 "maxRGBByteError": 247,
                 "sourceNearBlackPixels": 10216,
-                "candidateNearBlackPixels": 21607,
-                "newBlackPixels": 1764,
+                "candidateNearBlackPixels": 21436,
+                "newBlackPixels": 1729,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 24636,
-            "candidateNearBlackPixels": 48264,
+            "candidateNearBlackPixels": 47883,
             "sourceNearWhitePixels": 606,
             "candidateNearWhitePixels": 0
           },
@@ -23262,13 +23544,13 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 4.481344858805339,
+            "meanAbsoluteRGBByteError": 4.481366475423177,
             "changedPixels": 33823,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 4.4813448588052225,
+                "meanAbsoluteRGBByteError": 4.481366475423061,
                 "maxRGBByteError": 226,
                 "sourceNearBlackPixels": 3330,
                 "candidateNearBlackPixels": 9108,
@@ -23312,22 +23594,22 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.940294901529948,
-            "changedPixels": 12925,
+            "meanAbsoluteRGBByteError": 1.940442403157552,
+            "changedPixels": 12927,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.9402949015299142,
+                "meanAbsoluteRGBByteError": 1.9404424031575183,
                 "maxRGBByteError": 209,
                 "sourceNearBlackPixels": 10463,
-                "candidateNearBlackPixels": 17184,
+                "candidateNearBlackPixels": 17188,
                 "newBlackPixels": 1505,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 10463,
-            "candidateNearBlackPixels": 17184,
+            "candidateNearBlackPixels": 17188,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23362,13 +23644,13 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.9111735026041666,
-            "changedPixels": 6110,
+            "meanAbsoluteRGBByteError": 0.9111035664876302,
+            "changedPixels": 6109,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.9111735026041827,
+                "meanAbsoluteRGBByteError": 0.9111035664876463,
                 "maxRGBByteError": 197.66666666666666,
                 "sourceNearBlackPixels": 9959,
                 "candidateNearBlackPixels": 13569,
@@ -23387,22 +23669,22 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.6419932047526042,
-            "changedPixels": 10876,
+            "meanAbsoluteRGBByteError": 1.642351786295573,
+            "changedPixels": 10878,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.6419932047525572,
+                "meanAbsoluteRGBByteError": 1.6423517862955261,
                 "maxRGBByteError": 209,
                 "sourceNearBlackPixels": 12271,
-                "candidateNearBlackPixels": 18552,
+                "candidateNearBlackPixels": 18553,
                 "newBlackPixels": 1198,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 12271,
-            "candidateNearBlackPixels": 18552,
+            "candidateNearBlackPixels": 18553,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23412,42 +23694,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 7.4027964274088545,
-            "changedPixels": 83595,
+            "meanAbsoluteRGBByteError": 7.393970489501953,
+            "changedPixels": 83546,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 7.402796427404279,
+                "meanAbsoluteRGBByteError": 7.393970489497424,
                 "maxRGBByteError": 187,
                 "sourceNearBlackPixels": 41594,
-                "candidateNearBlackPixels": 50359,
-                "newBlackPixels": 1592,
+                "candidateNearBlackPixels": 50323,
+                "newBlackPixels": 1575,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 6.0816599528021085,
+                "meanAbsoluteRGBByteError": 6.072598775230475,
                 "maxRGBByteError": 180.33333333333334,
                 "sourceNearBlackPixels": 23716,
-                "candidateNearBlackPixels": 27792,
-                "newBlackPixels": 268,
+                "candidateNearBlackPixels": 27774,
+                "newBlackPixels": 257,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 8.723932902018841,
+                "meanAbsoluteRGBByteError": 8.715342203776661,
                 "maxRGBByteError": 187,
                 "sourceNearBlackPixels": 17878,
-                "candidateNearBlackPixels": 22567,
-                "newBlackPixels": 1324,
+                "candidateNearBlackPixels": 22549,
+                "newBlackPixels": 1318,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 41594,
-            "candidateNearBlackPixels": 50359,
+            "candidateNearBlackPixels": 50323,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23702,22 +23984,22 @@
             "view": "front",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.378570556640625,
-            "changedPixels": 14385,
+            "meanAbsoluteRGBByteError": 2.378021240234375,
+            "changedPixels": 14386,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.378570556640648,
+                "meanAbsoluteRGBByteError": 2.3780212402343985,
                 "maxRGBByteError": 220,
                 "sourceNearBlackPixels": 10463,
-                "candidateNearBlackPixels": 16799,
-                "newBlackPixels": 1806,
+                "candidateNearBlackPixels": 16796,
+                "newBlackPixels": 1803,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 10463,
-            "candidateNearBlackPixels": 16799,
+            "candidateNearBlackPixels": 16796,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23727,22 +24009,22 @@
             "view": "back",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.233605702718099,
-            "changedPixels": 11312,
+            "meanAbsoluteRGBByteError": 2.240614573160807,
+            "changedPixels": 11347,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.2336057027182683,
+                "meanAbsoluteRGBByteError": 2.240614573160976,
                 "maxRGBByteError": 210.33333333333334,
                 "sourceNearBlackPixels": 16256,
-                "candidateNearBlackPixels": 21222,
-                "newBlackPixels": 2128,
+                "candidateNearBlackPixels": 21202,
+                "newBlackPixels": 2127,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 16256,
-            "candidateNearBlackPixels": 21222,
+            "candidateNearBlackPixels": 21202,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23752,22 +24034,22 @@
             "view": "side",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3452542622884114,
-            "changedPixels": 7408,
+            "meanAbsoluteRGBByteError": 1.346783955891927,
+            "changedPixels": 7419,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3452542622883734,
+                "meanAbsoluteRGBByteError": 1.346783955891889,
                 "maxRGBByteError": 203.66666666666666,
                 "sourceNearBlackPixels": 9959,
-                "candidateNearBlackPixels": 13241,
-                "newBlackPixels": 886,
+                "candidateNearBlackPixels": 13239,
+                "newBlackPixels": 887,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 9959,
-            "candidateNearBlackPixels": 13241,
+            "candidateNearBlackPixels": 13239,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23777,22 +24059,22 @@
             "view": "quarter",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.111443837483724,
-            "changedPixels": 12449,
+            "meanAbsoluteRGBByteError": 2.1135037740071616,
+            "changedPixels": 12473,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.1114438374837703,
+                "meanAbsoluteRGBByteError": 2.113503774007206,
                 "maxRGBByteError": 219.33333333333334,
                 "sourceNearBlackPixels": 12271,
-                "candidateNearBlackPixels": 18195,
-                "newBlackPixels": 1428,
+                "candidateNearBlackPixels": 18189,
+                "newBlackPixels": 1427,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 12271,
-            "candidateNearBlackPixels": 18195,
+            "candidateNearBlackPixels": 18189,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23802,42 +24084,42 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 12.069849650065104,
-            "changedPixels": 94282,
+            "meanAbsoluteRGBByteError": 11.978697458902994,
+            "changedPixels": 94072,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 12.069849650068258,
-                "maxRGBByteError": 228.33333333333334,
+                "meanAbsoluteRGBByteError": 11.978697458905778,
+                "maxRGBByteError": 231,
                 "sourceNearBlackPixels": 41594,
-                "candidateNearBlackPixels": 48264,
-                "newBlackPixels": 3342,
+                "candidateNearBlackPixels": 47883,
+                "newBlackPixels": 3228,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 11.013832092281971,
-                "maxRGBByteError": 228.33333333333334,
+                "meanAbsoluteRGBByteError": 10.911163330075134,
+                "maxRGBByteError": 231,
                 "sourceNearBlackPixels": 23716,
-                "candidateNearBlackPixels": 26657,
-                "newBlackPixels": 1234,
+                "candidateNearBlackPixels": 26447,
+                "newBlackPixels": 1131,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 13.125867207845097,
+                "meanAbsoluteRGBByteError": 13.046231587727796,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 17878,
-                "candidateNearBlackPixels": 21607,
-                "newBlackPixels": 2108,
+                "candidateNearBlackPixels": 21436,
+                "newBlackPixels": 2097,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 41594,
-            "candidateNearBlackPixels": 48264,
+            "candidateNearBlackPixels": 47883,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -23847,13 +24129,13 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.802483876546224,
-            "changedPixels": 22805,
+            "meanAbsoluteRGBByteError": 2.8025029500325522,
+            "changedPixels": 22806,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.80248387654625,
+                "meanAbsoluteRGBByteError": 2.802502950032578,
                 "maxRGBByteError": 195.66666666666666,
                 "sourceNearBlackPixels": 7857,
                 "candidateNearBlackPixels": 9108,
@@ -25393,7 +25675,7 @@
                 "maxRGBByteError": 0,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
-                "alphaMismatch": 585
+                "alphaMismatch": 506
               },
               {
                 "meshIndex": 8,
@@ -26382,28 +26664,8 @@
                 "meshIndex": 7,
                 "primitive": 0,
                 "sourceMaterialIndex": 5,
-                "triangle": 0,
-                "sample": 3,
-                "sourceRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "atlasRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "sourceOpaque": false,
-                "atlasOpaque": true,
-                "meanRGBByteError": 0
-              },
-              {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
                 "triangle": 2,
-                "sample": 0,
+                "sample": 2,
                 "sourceRGB": [
                   0,
                   0,
@@ -26436,26 +26698,6 @@
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": false,
-                "meanRGBByteError": 0
-              },
-              {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 3,
-                "sample": 1,
-                "sourceRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "atlasRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "sourceOpaque": false,
-                "atlasOpaque": true,
                 "meanRGBByteError": 0
               },
               {
@@ -26523,6 +26765,46 @@
                 "primitive": 0,
                 "sourceMaterialIndex": 5,
                 "triangle": 5,
+                "sample": 1,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": false,
+                "atlasOpaque": true,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 5,
+                "sample": 3,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": false,
+                "atlasOpaque": true,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 7,
                 "sample": 1,
                 "sourceRGB": [
                   0,
@@ -27684,7 +27966,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27727,7 +28009,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27768,27 +28050,27 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 1,
+                  "index": 0,
                   "x": 0,
                   "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.44079500436782837,
-                    0.0044519901275634766
+                    0,
+                    0
                   ],
                   "sourceUVSpan": [
-                    0.5567169785499573,
-                    0.5995980501174927
+                    1,
+                    1
                   ]
                 },
                 "normalShading": true,
                 "triangles": 136,
                 "samples": 544,
-                "meanAbsoluteRGBByteError": 8.454044117647054,
-                "maxRGBByteError": 21.33333333333331,
+                "meanAbsoluteRGBByteError": 8.503676470588225,
+                "maxRGBByteError": 21.666666666666643,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
@@ -27813,7 +28095,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27856,7 +28138,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27899,7 +28181,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27942,7 +28224,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -27985,7 +28267,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28028,7 +28310,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28071,7 +28353,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28114,7 +28396,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28157,7 +28439,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28200,7 +28482,7 @@
                 "atlasTile": {
                   "index": 0,
                   "x": 0,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28241,9 +28523,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 2,
+                  "index": 1,
                   "x": 384,
-                  "y": 384,
+                  "y": 256,
                   "width": 64,
                   "height": 64,
                   "region": null,
@@ -28284,9 +28566,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 3,
+                  "index": 2,
                   "x": 128,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28327,28 +28609,28 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 4,
+                  "index": 2,
                   "x": 128,
                   "y": 0,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.006099999882280827,
-                    0.004999995231628418
+                    0,
+                    0
                   ],
                   "sourceUVSpan": [
-                    0.9872999778017402,
-                    0.9506999850273132
+                    1,
+                    1
                   ]
                 },
                 "normalShading": true,
                 "triangles": 464,
                 "samples": 1856,
-                "meanAbsoluteRGBByteError": 10.547054597701147,
+                "meanAbsoluteRGBByteError": 10.586027298850576,
                 "maxRGBByteError": 132.66666666666666,
-                "unexpectedBlack": 24,
+                "unexpectedBlack": 19,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
               },
@@ -28365,9 +28647,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 5,
+                  "index": 3,
                   "x": 384,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -28403,9 +28685,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 6,
+                  "index": 4,
                   "x": 416,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -28441,9 +28723,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 6,
+                  "index": 4,
                   "x": 416,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -28479,9 +28761,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 6,
+                  "index": 4,
                   "x": 416,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -28522,9 +28804,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 7,
+                  "index": 5,
                   "x": 448,
-                  "y": 384,
+                  "y": 256,
                   "width": 64,
                   "height": 64,
                   "region": null,
@@ -28545,7 +28827,7 @@
                 "maxRGBByteError": 0,
                 "unexpectedBlack": 0,
                 "unexpectedWhite": 0,
-                "alphaMismatch": 195
+                "alphaMismatch": 176
               },
               {
                 "meshIndex": 8,
@@ -28560,9 +28842,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 8,
+                  "index": 6,
                   "x": 448,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -28603,9 +28885,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 9,
+                  "index": 7,
                   "x": 256,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28646,9 +28928,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 9,
+                  "index": 7,
                   "x": 256,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28689,9 +28971,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 8,
                   "x": 384,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28732,9 +29014,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 8,
                   "x": 384,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28775,9 +29057,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 8,
                   "x": 384,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28818,9 +29100,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 10,
+                  "index": 8,
                   "x": 384,
-                  "y": 128,
+                  "y": 0,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28861,9 +29143,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28904,9 +29186,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28947,9 +29229,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -28990,9 +29272,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29033,9 +29315,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29076,9 +29358,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 11,
+                  "index": 9,
                   "x": 0,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29119,9 +29401,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 12,
+                  "index": 10,
                   "x": 128,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29162,9 +29444,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 13,
+                  "index": 11,
                   "x": 256,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29200,9 +29482,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 8,
+                  "index": 6,
                   "x": 448,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -29243,9 +29525,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 14,
+                  "index": 12,
                   "x": 384,
-                  "y": 256,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29286,28 +29568,28 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 15,
-                  "x": 256,
-                  "y": 0,
+                  "index": 12,
+                  "x": 384,
+                  "y": 128,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.007284000050276518,
-                    0.009124994277954102
+                    0,
+                    0
                   ],
                   "sourceUVSpan": [
-                    0.9814129923470318,
-                    0.4237290024757385
+                    1,
+                    1
                   ]
                 },
                 "normalShading": true,
                 "triangles": 150,
                 "samples": 600,
-                "meanAbsoluteRGBByteError": 9.898333333333335,
-                "maxRGBByteError": 221.66666666666663,
-                "unexpectedBlack": 2,
+                "meanAbsoluteRGBByteError": 9.943333333333342,
+                "maxRGBByteError": 226.99999999999997,
+                "unexpectedBlack": 3,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
               },
@@ -29329,9 +29611,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 16,
+                  "index": 13,
                   "x": 0,
-                  "y": 384,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29372,28 +29654,28 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 18,
-                  "x": 384,
-                  "y": 0,
+                  "index": 14,
+                  "x": 128,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
-                  "region": "head",
-                  "cropped": true,
+                  "region": null,
+                  "cropped": false,
                   "sourceUVOrigin": [
-                    0.008100000210106373,
-                    0.006200015544891357
+                    0,
+                    0
                   ],
                   "sourceUVSpan": [
-                    0.9069999782368541,
-                    0.5485000014305115
+                    1,
+                    1
                   ]
                 },
                 "normalShading": true,
                 "triangles": 775,
                 "samples": 3100,
-                "meanAbsoluteRGBByteError": 12.618494623655929,
+                "meanAbsoluteRGBByteError": 12.593010752688173,
                 "maxRGBByteError": 181,
-                "unexpectedBlack": 18,
+                "unexpectedBlack": 14,
                 "unexpectedWhite": 0,
                 "alphaMismatch": 0
               },
@@ -29415,9 +29697,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 17,
+                  "index": 14,
                   "x": 128,
-                  "y": 384,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29458,9 +29740,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 17,
+                  "index": 14,
                   "x": 128,
-                  "y": 384,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29496,9 +29778,9 @@
                 "sourceOpacity": 1,
                 "texture": null,
                 "atlasTile": {
-                  "index": 8,
+                  "index": 6,
                   "x": 448,
-                  "y": 448,
+                  "y": 320,
                   "width": 32,
                   "height": 32,
                   "region": null,
@@ -29539,9 +29821,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 19,
+                  "index": 15,
                   "x": 256,
-                  "y": 384,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -29582,9 +29864,9 @@
                   "colorSpace": "srgb"
                 },
                 "atlasTile": {
-                  "index": 19,
+                  "index": 15,
                   "x": 256,
-                  "y": 384,
+                  "y": 256,
                   "width": 128,
                   "height": 128,
                   "region": null,
@@ -31133,46 +31415,6 @@
                 "meshIndex": 2,
                 "primitive": 1,
                 "sourceMaterialIndex": 2,
-                "triangle": 74,
-                "sample": 3,
-                "sourceRGB": [
-                  11,
-                  5,
-                  5
-                ],
-                "atlasRGB": [
-                  156,
-                  115,
-                  90
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 113.33333333333333
-              },
-              {
-                "meshIndex": 2,
-                "primitive": 1,
-                "sourceMaterialIndex": 2,
-                "triangle": 125,
-                "sample": 3,
-                "sourceRGB": [
-                  5,
-                  0,
-                  0
-                ],
-                "atlasRGB": [
-                  90,
-                  41,
-                  49
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 58.333333333333336
-              },
-              {
-                "meshIndex": 2,
-                "primitive": 1,
-                "sourceMaterialIndex": 2,
                 "triangle": 128,
                 "sample": 1,
                 "sourceRGB": [
@@ -31181,33 +31423,13 @@
                   99
                 ],
                 "atlasRGB": [
-                  16,
-                  8,
-                  8
+                  49,
+                  33,
+                  25
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 118.99999999999999
-              },
-              {
-                "meshIndex": 2,
-                "primitive": 1,
-                "sourceMaterialIndex": 2,
-                "triangle": 131,
-                "sample": 3,
-                "sourceRGB": [
-                  159,
-                  108,
-                  77
-                ],
-                "atlasRGB": [
-                  99,
-                  58,
-                  33
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 51.333333333333314
+                "meanRGBByteError": 93.99999999999999
               },
               {
                 "meshIndex": 2,
@@ -31221,13 +31443,13 @@
                   96
                 ],
                 "atlasRGB": [
-                  8,
-                  8,
-                  8
+                  41,
+                  25,
+                  25
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 125.66666666666664
+                "meanRGBByteError": 103.33333333333331
               },
               {
                 "meshIndex": 2,
@@ -31253,148 +31475,108 @@
                 "meshIndex": 2,
                 "primitive": 1,
                 "sourceMaterialIndex": 2,
-                "triangle": 146,
-                "sample": 1,
+                "triangle": 173,
+                "sample": 0,
                 "sourceRGB": [
-                  156,
-                  109,
-                  90
+                  41,
+                  32,
+                  33
                 ],
                 "atlasRGB": [
-                  8,
-                  0,
-                  0
+                  123,
+                  74,
+                  66
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 115.66666666666664
+                "meanRGBByteError": 52.333333333333336
               },
               {
                 "meshIndex": 2,
                 "primitive": 1,
                 "sourceMaterialIndex": 2,
-                "triangle": 149,
-                "sample": 0,
+                "triangle": 173,
+                "sample": 1,
                 "sourceRGB": [
-                  104,
-                  49,
-                  49
+                  41,
+                  32,
+                  33
                 ],
                 "atlasRGB": [
-                  8,
-                  0,
-                  0
+                  123,
+                  74,
+                  66
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 64.66666666666666
+                "meanRGBByteError": 52.333333333333336
               },
               {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 1,
-                "sample": 1,
-                "sourceRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "atlasRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": false,
-                "meanRGBByteError": 0
-              },
-              {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 1,
+                "meshIndex": 2,
+                "primitive": 1,
+                "sourceMaterialIndex": 2,
+                "triangle": 173,
                 "sample": 3,
                 "sourceRGB": [
-                  0,
-                  0,
-                  0
+                  41,
+                  35,
+                  36
                 ],
                 "atlasRGB": [
-                  0,
-                  0,
-                  0
+                  123,
+                  74,
+                  66
                 ],
                 "sourceOpaque": true,
-                "atlasOpaque": false,
-                "meanRGBByteError": 0
+                "atlasOpaque": true,
+                "meanRGBByteError": 50.333333333333336
               },
               {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 2,
-                "sample": 2,
-                "sourceRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "atlasRGB": [
-                  0,
-                  0,
-                  0
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": false,
-                "meanRGBByteError": 0
-              },
-              {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 2,
+                "meshIndex": 2,
+                "primitive": 1,
+                "sourceMaterialIndex": 2,
+                "triangle": 175,
                 "sample": 3,
                 "sourceRGB": [
-                  0,
-                  0,
-                  0
+                  43,
+                  35,
+                  36
                 ],
                 "atlasRGB": [
-                  0,
-                  0,
-                  0
+                  123,
+                  74,
+                  66
                 ],
                 "sourceOpaque": true,
-                "atlasOpaque": false,
-                "meanRGBByteError": 0
+                "atlasOpaque": true,
+                "meanRGBByteError": 49.666666666666664
               },
               {
-                "meshIndex": 7,
-                "primitive": 0,
-                "sourceMaterialIndex": 5,
-                "triangle": 3,
+                "meshIndex": 2,
+                "primitive": 1,
+                "sourceMaterialIndex": 2,
+                "triangle": 177,
                 "sample": 0,
                 "sourceRGB": [
-                  0,
-                  0,
-                  0
+                  30,
+                  23,
+                  24
                 ],
                 "atlasRGB": [
-                  0,
-                  0,
-                  0
+                  115,
+                  58,
+                  58
                 ],
                 "sourceOpaque": true,
-                "atlasOpaque": false,
-                "meanRGBByteError": 0
+                "atlasOpaque": true,
+                "meanRGBByteError": 51.333333333333336
               },
               {
                 "meshIndex": 7,
                 "primitive": 0,
                 "sourceMaterialIndex": 5,
-                "triangle": 3,
-                "sample": 1,
+                "triangle": 0,
+                "sample": 0,
                 "sourceRGB": [
                   0,
                   0,
@@ -31413,8 +31595,88 @@
                 "meshIndex": 7,
                 "primitive": 0,
                 "sourceMaterialIndex": 5,
-                "triangle": 3,
+                "triangle": 1,
+                "sample": 0,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": false,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 1,
+                "sample": 1,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": false,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 1,
+                "sample": 3,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": false,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 2,
                 "sample": 2,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": false,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 2,
+                "sample": 3,
                 "sourceRGB": [
                   0,
                   0,
@@ -31447,6 +31709,26 @@
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": false,
+                "meanRGBByteError": 0
+              },
+              {
+                "meshIndex": 7,
+                "primitive": 0,
+                "sourceMaterialIndex": 5,
+                "triangle": 7,
+                "sample": 0,
+                "sourceRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "atlasRGB": [
+                  0,
+                  0,
+                  0
+                ],
+                "sourceOpaque": false,
+                "atlasOpaque": true,
                 "meanRGBByteError": 0
               },
               {
@@ -32914,11 +33196,11 @@
                 "primitive": 1,
                 "sourceMaterialIndex": 12,
                 "triangle": 96,
-                "sample": 0,
+                "sample": 2,
                 "sourceRGB": [
-                  222,
-                  223,
-                  222
+                  231,
+                  231,
+                  231
                 ],
                 "atlasRGB": [
                   8,
@@ -32927,7 +33209,7 @@
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 214.3333333333333
+                "meanRGBByteError": 222.99999999999997
               },
               {
                 "meshIndex": 15,
@@ -32941,73 +33223,33 @@
                   235
                 ],
                 "atlasRGB": [
-                  115,
-                  115,
-                  115
+                  8,
+                  8,
+                  8
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 119.99999999999996
+                "meanRGBByteError": 226.99999999999997
               },
               {
                 "meshIndex": 15,
                 "primitive": 1,
                 "sourceMaterialIndex": 12,
-                "triangle": 100,
-                "sample": 1,
-                "sourceRGB": [
-                  156,
-                  162,
-                  165
-                ],
-                "atlasRGB": [
-                  49,
-                  49,
-                  58
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 108.99999999999996
-              },
-              {
-                "meshIndex": 15,
-                "primitive": 1,
-                "sourceMaterialIndex": 12,
-                "triangle": 100,
+                "triangle": 113,
                 "sample": 2,
                 "sourceRGB": [
-                  165,
-                  166,
-                  173
+                  8,
+                  8,
+                  8
                 ],
                 "atlasRGB": [
-                  49,
-                  49,
-                  58
+                  222,
+                  222,
+                  222
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 115.99999999999996
-              },
-              {
-                "meshIndex": 15,
-                "primitive": 1,
-                "sourceMaterialIndex": 12,
-                "triangle": 103,
-                "sample": 0,
-                "sourceRGB": [
-                  239,
-                  235,
-                  239
-                ],
-                "atlasRGB": [
-                  90,
-                  90,
-                  90
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 147.66666666666663
+                "meanRGBByteError": 214
               },
               {
                 "meshIndex": 15,
@@ -33041,13 +33283,13 @@
                   16
                 ],
                 "atlasRGB": [
-                  214,
+                  222,
                   222,
                   222
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 203.33333333333334
+                "meanRGBByteError": 206
               },
               {
                 "meshIndex": 15,
@@ -33113,67 +33355,7 @@
                 "meshIndex": 17,
                 "primitive": 0,
                 "sourceMaterialIndex": 14,
-                "triangle": 51,
-                "sample": 0,
-                "sourceRGB": [
-                  57,
-                  59,
-                  60
-                ],
-                "atlasRGB": [
-                  8,
-                  8,
-                  8
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 50.66666666666666
-              },
-              {
-                "meshIndex": 17,
-                "primitive": 0,
-                "sourceMaterialIndex": 14,
-                "triangle": 51,
-                "sample": 1,
-                "sourceRGB": [
-                  8,
-                  8,
-                  11
-                ],
-                "atlasRGB": [
-                  99,
-                  107,
-                  107
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 95.33333333333333
-              },
-              {
-                "meshIndex": 17,
-                "primitive": 0,
-                "sourceMaterialIndex": 14,
-                "triangle": 62,
-                "sample": 1,
-                "sourceRGB": [
-                  8,
-                  8,
-                  11
-                ],
-                "atlasRGB": [
-                  148,
-                  156,
-                  156
-                ],
-                "sourceOpaque": true,
-                "atlasOpaque": true,
-                "meanRGBByteError": 144.33333333333334
-              },
-              {
-                "meshIndex": 17,
-                "primitive": 0,
-                "sourceMaterialIndex": 14,
-                "triangle": 64,
+                "triangle": 44,
                 "sample": 2,
                 "sourceRGB": [
                   8,
@@ -33181,19 +33363,19 @@
                   11
                 ],
                 "atlasRGB": [
-                  90,
-                  99,
-                  99
+                  148,
+                  148,
+                  148
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 86.66666666666667
+                "meanRGBByteError": 138.66666666666666
               },
               {
                 "meshIndex": 17,
                 "primitive": 0,
                 "sourceMaterialIndex": 14,
-                "triangle": 69,
+                "triangle": 51,
                 "sample": 1,
                 "sourceRGB": [
                   8,
@@ -33213,7 +33395,27 @@
                 "meshIndex": 17,
                 "primitive": 0,
                 "sourceMaterialIndex": 14,
-                "triangle": 72,
+                "triangle": 52,
+                "sample": 0,
+                "sourceRGB": [
+                  159,
+                  167,
+                  168
+                ],
+                "atlasRGB": [
+                  8,
+                  8,
+                  8
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 156.66666666666663
+              },
+              {
+                "meshIndex": 17,
+                "primitive": 0,
+                "sourceMaterialIndex": 14,
+                "triangle": 52,
                 "sample": 3,
                 "sourceRGB": [
                   8,
@@ -33221,13 +33423,53 @@
                   11
                 ],
                 "atlasRGB": [
-                  156,
-                  156,
-                  165
+                  107,
+                  107,
+                  107
                 ],
                 "sourceOpaque": true,
                 "atlasOpaque": true,
-                "meanRGBByteError": 149.66666666666666
+                "meanRGBByteError": 97.66666666666667
+              },
+              {
+                "meshIndex": 17,
+                "primitive": 0,
+                "sourceMaterialIndex": 14,
+                "triangle": 62,
+                "sample": 1,
+                "sourceRGB": [
+                  8,
+                  8,
+                  11
+                ],
+                "atlasRGB": [
+                  99,
+                  99,
+                  107
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 92.66666666666667
+              },
+              {
+                "meshIndex": 17,
+                "primitive": 0,
+                "sourceMaterialIndex": 14,
+                "triangle": 64,
+                "sample": 0,
+                "sourceRGB": [
+                  8,
+                  9,
+                  11
+                ],
+                "atlasRGB": [
+                  90,
+                  99,
+                  99
+                ],
+                "sourceOpaque": true,
+                "atlasOpaque": true,
+                "meanRGBByteError": 86.66666666666667
               },
               {
                 "meshIndex": 17,
@@ -33714,40 +33956,6 @@
         },
         "sourceAtlasStatus": "GENERATED"
       },
-      "atlasHeadRouting": {
-        "applied": true,
-        "charts": [
-          {
-            "meshIndex": 0,
-            "mesh": "Object_4",
-            "sourceMaterial": "Material.001",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 2,
-            "mesh": "Object_8",
-            "sourceMaterial": "Material.002",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 15,
-            "mesh": "Object_34",
-            "sourceMaterial": "Material.007",
-            "region": "head",
-            "primitives": 1
-          },
-          {
-            "meshIndex": 17,
-            "mesh": "Object_38",
-            "sourceMaterial": "Material.006",
-            "region": "head",
-            "primitives": 1
-          }
-        ],
-        "reason": "Head/body source material shared; isolate head UV coverage"
-      },
       "atlasWarnings": [
         "Material.003: source BLEND becomes a binary PS1 cutout. Semi-transparent overlays are not faithfully composited; inspect alpha mismatch diagnostics.",
         "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
@@ -33766,20 +33974,6 @@
           "texelsPerUVTile": [
             123,
             123
-          ]
-        },
-        {
-          "material": "Material.001 [head chart]",
-          "span": [
-            0.5567169785499573,
-            0.5995980501174927
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            220.93811530657769,
-            205.13742493975397
           ]
         },
         {
@@ -33808,20 +34002,6 @@
           "texelsPerUVTile": [
             123,
             123
-          ]
-        },
-        {
-          "material": "Material.002 [head chart]",
-          "span": [
-            0.9872999778017402,
-            0.9506999850273132
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            124.58219666312972,
-            129.3783548302741
           ]
         },
         {
@@ -33965,20 +34145,6 @@
           ]
         },
         {
-          "material": "Material.007 [head chart]",
-          "span": [
-            0.9814129923470318,
-            0.4237290024757385
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            125.32950038275698,
-            290.2798705808263
-          ]
-        },
-        {
           "material": "Material.015",
           "span": [
             1,
@@ -34007,20 +34173,6 @@
           ]
         },
         {
-          "material": "Material.006 [head chart]",
-          "span": [
-            0.9069999782368541,
-            0.5485000014305115
-          ],
-          "width": 128,
-          "height": 128,
-          "colours": 256,
-          "texelsPerUVTile": [
-            135.61191064095016,
-            224.24794836683816
-          ]
-        },
-        {
           "material": "Material.012",
           "span": [
             1,
@@ -34040,8 +34192,8 @@
   ],
   "privateReview": {
     "status": "DRAFT_RESTRICTED",
-    "bytes": 24535001,
-    "sha256": "55062ef21a77deb197b251a45128847579b8b37fb3e8d6398e63ba7ca8be96ae",
+    "bytes": 24304549,
+    "sha256": "061c4b626e5fb0bc456b7185e688a4a1c873d0b4eaa51b4637249eb163793066",
     "imageCount": 342,
     "access": "Open the authenticated repository Releases view with write access; never publish the draft",
     "anonymousPageStatus": 404,
