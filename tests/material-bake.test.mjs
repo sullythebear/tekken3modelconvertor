@@ -98,3 +98,8 @@ test('Linear source-surface sampling retains measured texel blends and texture t
  const smooth=materialSampler([material],{filter:'linear'})(hit);assert.ok(Math.abs(smooth[0]-100)<1e-8);assert.ok(Math.abs(smooth[1]-60)<1e-8);assert.equal(smooth[3],255);
  assert.ok(materialSampler([material])(hit)[0]>199);texture.offset.x=-.25;assert.ok(materialSampler([material],{filter:'linear'})(hit)[0]<1e-8);assert.throws(()=>materialSampler([material],{filter:'unknown'}),/filter/);
 });
+
+test('Normal/vector readback stays raw and independent of albedo colour encoding or material factors',()=>{
+ const map=new THREE.DataTexture(new Uint8Array([128,128,255,255]),1,1);map.flipY=false;const material=new THREE.MeshBasicMaterial({map,color:0x333333}),triangle=triangleRecord([new THREE.Vector3(),new THREE.Vector3(1,0,0),new THREE.Vector3(0,1,0)],{material,uvs:[new THREE.Vector2(.5,.5),new THREE.Vector2(.5,.5),new THREE.Vector2(.5,.5)]}),hit={triangle,barycentric:new THREE.Vector3(1,0,0)};
+ assert.deepEqual(materialSampler([material],{mode:'data',filter:'linear'})(hit),[128,128,255,255]);assert.throws(()=>materialSampler([material],{mode:'unknown'}),/mode/);
+});

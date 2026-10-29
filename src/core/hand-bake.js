@@ -21,7 +21,7 @@ export function bakeHandSurface({
       ? new THREE.MeshBasicMaterial({ map: material.normalMap })
       : null,
     normalSample = normalMaterial
-      ? materialSampler([normalMaterial], { filter: "linear" })
+      ? materialSampler([normalMaterial], { filter: "linear", mode: "data" })
       : null,
     sample = materialSampler([material], { filter: "linear" });
   const lightingUV = (old) => {

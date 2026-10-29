@@ -110,6 +110,7 @@ function imagePixels(image) {
   return ctx.getImageData(0, 0, c.width, c.height);
 }
 export function materialSampler(materials, { mode = "albedo", filter = "nearest" } = {}) {
+  if (!["albedo","static-detail","data"].includes(mode)) throw Error("Unsupported surface sampling mode");
   if (!["nearest", "linear"].includes(filter)) throw Error("Unsupported surface sampling filter");
   const maps = new Map();
   for (const m of materials)
@@ -143,8 +144,9 @@ export function materialSampler(materials, { mode = "albedo", filter = "nearest"
       for (let k = 0; k < 3; k++)
         uv.addScaledVector(t.uvs[k], hit.barycentric.getComponent(k));
     if (m.map && !t.uvs) throw Error("Textured source surface lacks UVs");
-    const rgba = sample(m.map, uv),
-      opacity = m.alphaMap ? sample(m.alphaMap, uv)[1] / 255 : 1,
+    const rgba = sample(m.map, uv);
+    if(mode==='data')return Array.from(rgba);
+    const opacity = m.alphaMap ? sample(m.alphaMap, uv)[1] / 255 : 1,
       a =
         (m.transparent || m.alphaTest > 0 ? rgba[3] / 255 : 1) *
         opacity *
