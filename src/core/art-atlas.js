@@ -3,8 +3,8 @@
 export function sourceDetailFallback(material){
  if(!material?.map||/head|face|body|hair|iris|lash|eye|teeth|sclera|envelope/i.test(material.name??'')||material.userData?.t3csSkinSurface||material.userData?.t3csLegSurface)return 0;
  const image=material.map.image,dimension=Math.max(image?.width??0,image?.height??0);
- if(!Number.isFinite(dimension)||dimension<512)return 0;
- return Math.min(128,2**Math.ceil(Math.log2(dimension/8)));
+ if(!Number.isFinite(dimension)||dimension<(material.isMeshPhongMaterial?512:256))return 0;
+ return Math.max(64,Math.min(128,2**Math.ceil(Math.log2(dimension/8))));
 }
 function legacyAtlasLayout(materials,size,art) {
  const cells=materials.map((m,i)=>({i,side:/head|face/i.test(m.name)&&!/eye|lash|faceacc|hair|strand/i.test(m.name)?(art.face>80?size/2:size/4):/body_(torso|arms|legs)/i.test(m.name)?size/4:/body/i.test(m.name)?size/2:/hair|faceacc/i.test(m.name)?(art.hair>85?size/2:size/4):/iris|lash/i.test(m.name)&&art.face>80?size/4:/eyeshell/i.test(m.name)?size/16:size/8}));
