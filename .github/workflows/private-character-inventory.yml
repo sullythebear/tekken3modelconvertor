@@ -41,6 +41,8 @@ jobs:
       - run: npm run build
       - name: Authored repeat-UV pixel and posed-rig regression
         run: node scripts/repeat-uv-test.mjs
+      - name: Authored linear-colour versus actual source renderer regression
+        run: node scripts/albedo-render-test.mjs
       - name: Authored private-render matrix regression
         run: node scripts/private-character-render-test.mjs
       - name: Actual private model imports and conversion diagnostics

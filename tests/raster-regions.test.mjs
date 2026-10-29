@@ -1,0 +1,6 @@
+import test from'node:test';import assert from'node:assert/strict';import{compareRasterRegions}from'../src/core/raster-regions.js';
+const frame=(w,h,c)=>new Uint8Array(Array.from({length:w*h},()=>[c,c,c,255]).flat());
+test('A small unilateral black defect is visible separately even at low whole-frame mean',()=>{const a=frame(100,100,120),b=a.slice();for(let y=40;y<45;y++)for(let x=75;x<80;x++)b.set([0,0,0,255],(y*100+x)*4);const r=compareRasterRegions(a,b,100,100,{face:true});assert.ok(r[0].meanAbsoluteRGBByteError<1);assert.equal(r[1].newBlackPixels,0);assert.equal(r[2].newBlackPixels,25);assert.equal(r[2].maxRGBByteError,120);});
+test('Already black source regions are counted but not called new black defects',()=>{const a=frame(4,4,0),r=compareRasterRegions(a,a,4,4,{face:true});assert.equal(r[0].newBlackPixels,0);assert.equal(r[0].sourceNearBlackPixels,16);});
+test('White conversion changes remain distinct from black source material',()=>{const a=frame(4,4,20),b=frame(4,4,255);assert.equal(compareRasterRegions(a,b,4,4)[0].newWhitePixels,16);});
+test('Malformed image dimensions are rejected without a quality score',()=>{assert.throws(()=>compareRasterRegions(new Uint8Array(4),new Uint8Array(4),2,2),/Invalid/);});

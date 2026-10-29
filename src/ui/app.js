@@ -1,3 +1,5 @@
+import {compareRasterRegions} from '../core/raster-regions.js';
+import {diagnoseBakeCorrespondence} from '../core/bake-correspondence.js';
 import {diagnoseMaterialVisibility} from '../core/material-visibility.js';
 import {installWorkspace} from './workspace.js';
 import {sceneIntegrity} from '../core/mesh-integrity.js';
@@ -1236,6 +1238,8 @@ if (new URLSearchParams(location.search).has("test"))
     get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
     diagnoseMaterialVisibility,
+    diagnoseBakeCorrespondence,
+    compareRasterRegions,
     bakeAtlas,
     sceneIntegrity,
     setReconstruction(stage) { artProfile.reconstruction=stage; },

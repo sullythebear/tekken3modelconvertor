@@ -1,3 +1,4 @@
+import {sourceAlbedoRGB} from './albedo-color.js';
 import {requireBakeUV} from './bake-uv.js';
 import {dilateChartTexels} from './uv-raster.js';
 import {sourceSkinLighting,bilinearRGBA,sourceSkinCoverage} from './skin-surface.js';
@@ -80,9 +81,7 @@ export async function bakeAtlas(
       image = tc.createImageData(cell, cellHeight),
       base = cachedPixels(m.map, sampleSize),
       alpha = cachedPixels(m.alphaMap, sampleSize,true),
-      normal = cachedPixels(m.normalMap, sampleSize,true),
-      color =
-        m.color?.clone().convertLinearToSRGB() ?? new THREE.Color(1, 1, 1);
+      normal = cachedPixels(m.normalMap, sampleSize,true);
     if (m.metalnessMap || m.roughnessMap || m.specularMap)
       warnings.push(
         `${m.name}: metallic/roughness/specular maps retained in source; PS1 bake uses diffuse + alpha + approximate normal shading.`,
@@ -141,11 +140,12 @@ export async function bakeAtlas(
         }
         shade=m.userData?.t3csSkinSurface?sourceSkinLighting(m,u,v,mappedNormal,shade):shade*sourceSkinLighting(m,u,v);
         const p = (y * cell + x) * 4;
+        const albedo=sourceAlbedoRGB(c,m);
         image.data.set(
           [
-            c[0] * color.r * shade,
-            c[1] * color.g * shade,
-            c[2] * color.b * shade,
+            albedo[0] * shade,
+            albedo[1] * shade,
+            albedo[2] * shade,
             (m.transparent || m.alphaTest > 0 ? c[3] / 255 : 1) *
               (alpha ? a[1] / 255 : 1) *
               (m.opacity ?? 1) >=
