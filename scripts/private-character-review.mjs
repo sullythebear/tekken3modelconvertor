@@ -1,7 +1,7 @@
 // GitHub draft releases are restricted to repository collaborators with write access.
 // Never publish this draft. No originals enter the image-only allowlisted bundle.
 import {readFile,writeFile,readdir} from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {zipSync} from 'fflate';import {pathToFileURL} from 'node:url';
-export function permittedReviewFile(name){return name==='index.html'||name==='diagnosis.json'||name==='atlas.png'||name==='source-atlas-texture.png'||/^(source|source-atlas|prepared|atlas)-(full|diffuse|normals|material-id)-(front|back|side|quarter|face|left-hand|right-hand)\.png$/.test(name);}
+export function permittedReviewFile(name){return name==='index.html'||name==='diagnosis.json'||name==='atlas.png'||name==='source-atlas-texture.png'||/^(source-atlas|prepared|atlas)-darkening-face\.png$/.test(name)||/^(source|source-atlas|prepared|atlas)-(full|diffuse|normals|material-id)-(front|back|side|quarter|face|left-hand|right-hand)\.png$/.test(name);}
 export function publicReviewSummary({bytes,sha256,imageCount,anonymousPageStatus,anonymousAssetStatus}){return{status:'DRAFT_RESTRICTED',bytes,sha256,imageCount,access:'Open the authenticated repository Releases view with write access; never publish the draft',anonymousPageStatus,anonymousAssetStatus};}
 export function requireDraft(release){if(release?.draft!==true||!Number.isSafeInteger(release.id)||!/^https:\/\/github\.com\//.test(release.html_url??''))throw Error('Private review requires a verified unpublished draft');}
 export async function publishPrivateReview(env=process.env){

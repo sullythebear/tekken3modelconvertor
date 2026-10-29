@@ -211,11 +211,9 @@ export async function bakeAtlas(
   texture.magFilter = THREE.NearestFilter;
   texture.minFilter = THREE.NearestFilter;
   if(art?.filter==='linear'){texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;}
-  const newMaterial = new THREE.MeshBasicMaterial({
-    map: texture,
-    alphaTest: alphaCutoff,
-    side: THREE.DoubleSide,
-  });
+  const atlasMaterials=new Map();
+  const sourceSide=m=>m.isMeshPhongMaterial?THREE.DoubleSide:(m.side??THREE.FrontSide);
+  const atlasMaterial=m=>{const side=sourceSide(m);if(![THREE.FrontSide,THREE.BackSide,THREE.DoubleSide].includes(side))throw Error('Unsupported source material sidedness');if(!atlasMaterials.has(side))atlasMaterials.set(side,new THREE.MeshBasicMaterial({map:texture,alphaTest:alphaCutoff,side}));return atlasMaterials.get(side);};
   root.traverse((mesh) => {
     if (!mesh.isMesh) return;
     const input = mesh.geometry,
@@ -230,8 +228,10 @@ export async function bakeAtlas(
       groups = g.groups.length
         ? g.groups
         : [{ start: 0, count: g.attributes.position.count, materialIndex: 0 }];
+    const renderMaterials=[],renderGroups=[];
     for (const group of groups) {
       const material = mats[group.materialIndex], tile = tiles[materials.indexOf(material)], {origin,span} = domains.get(material), cell=tile.width,cellHeight=tile.height, sourceUV=requireBakeUV(g,material)??uv;
+      const targetMaterial=atlasMaterial(material);let targetIndex=renderMaterials.indexOf(targetMaterial);if(targetIndex<0){targetIndex=renderMaterials.length;renderMaterials.push(targetMaterial);}renderGroups.push({...group,materialIndex:targetIndex});
       for (let j = group.start; j < group.start + group.count; j++) {
         const u = Math.max(0, Math.min(1, (sourceUV.getX(j) - origin[0])/span[0])),
           v = Math.max(0, Math.min(1, (sourceUV.getY(j) - origin[1])/span[1]));
@@ -246,7 +246,8 @@ export async function bakeAtlas(
     if(art?.flat)g.computeVertexNormals();
     g.clearGroups();
     mesh.geometry = g;
-    mesh.material = newMaterial;
+    if(renderMaterials.length>1)for(const group of renderGroups)g.addGroup(group.start,group.count,group.materialIndex);
+    mesh.material = renderMaterials.length===1?renderMaterials[0]:renderMaterials;
   });
   warnings.push(
     "Atlas stage resamples material maps. Anatomical stages report their source-surface albedo baking separately; normal lighting remains an approximation.",
@@ -259,6 +260,8 @@ export async function bakeAtlas(
     rgba,
     tiles,
     readbackStats:{...cache.stats},
+    sidePolicy:'PBR/unlit source sidedness retained; legacy Phong double-sided preparation unchanged',
+    renderSides:[...atlasMaterials.keys()],
     warnings,
     textureBytes: tiles.reduce((n,t)=>n+t.width*t.height*(t.palette.length===256?1:.5),0),
     paletteBytes: tiles.reduce((n,t)=>n+t.palette.byteLength,0),

@@ -13,6 +13,7 @@ for(const f of inventory.files.filter(f=>['.glb','.gltf','.fbx','.obj'].includes
  r.visibility=await page.evaluate(()=>window.studioTest.diagnoseMaterialVisibility(window.studioTest.source.root,window.studioTest.converted.root,{resolution:48}));
  r.handGeometry=await page.evaluate(()=>window.studioTest.auditHandGeometry(window.studioTest.source.root,window.studioTest.converted.root));
  r.renders=await renderPrivateCharacter(page,dir,r.id);
+ r.atlasSides=await page.evaluate(()=>window.studioTest.atlas?.renderSides??null);
  r.atlasWarnings=await page.evaluate(()=>window.studioTest.atlas?.warnings??[]);
  r.atlasDomains=await page.evaluate(()=>window.studioTest.atlas?.tiles.map(t=>({material:t.material,span:t.sourceUVSpan,width:t.width,height:t.height,colours:t.palette.length,texelsPerUVTile:t.texelsPerUVTile}))??null);
  r.appearanceStatus='HUMAN_REVIEW_REQUIRED';
