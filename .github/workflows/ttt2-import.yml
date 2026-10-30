@@ -22,6 +22,9 @@ jobs:
       - run: npm ci
       - run: New-Item -ItemType Directory -Force artifacts/ttt2 | Out-Null
       - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ttt2/unit.xml "tests/*.test.mjs"
+      - name: Summarize synthetic unit results
+        if: always()
+        run: node scripts/summarize-synthetic-tests.mjs
       - run: npm run build
       - run: npm run dist:win:portable -- --publish never
       - run: node scripts/verify-distribution.mjs
