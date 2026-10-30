@@ -1152,3 +1152,37 @@ body[data-studio-ui] .workflow-rail h2::before{content:"";display:inline-block;w
 .ttt2-archive-dialog th,.ttt2-archive-dialog td{padding:10px;border-bottom:1px solid #456174;text-align:left;overflow-wrap:anywhere;}
 .ttt2-archive-dialog p{overflow-wrap:anywhere;}
 .ttt2-archive-dialog input:not([type=checkbox]){background:#19283c;color:#e5efff;border:1px solid #59778c;border-radius:8px;padding:9px 12px;font:inherit;}
+
+/* Native select popups do not inherit the closed control's gradient on Windows.
+   Give the popup rows their own opaque colours; retain native keyboard semantics. */
+select {
+  color-scheme: dark;
+  background-color: #1a283d;
+  color: #edf5ff;
+}
+select option, select optgroup {
+  background-color: #1a283d;
+  color: #edf5ff;
+}
+select option:is(:checked, :hover, :active, :focus) {
+  background-color: #365772;
+  color: #ffffff;
+}
+select:disabled, select option:disabled, select optgroup:disabled {
+  background-color: #202c3d;
+  color: #acb9ca;
+  opacity: 1;
+}
+#ttt2-primitive-values {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 360px;
+  overflow-y: auto;
+  background: #101823;
+  color: #edf5ff;
+  padding: 10px;
+  user-select: text;
+}
+@media (forced-colors: active) {
+  select, select option, select optgroup { forced-color-adjust: auto; }
+}

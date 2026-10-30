@@ -1,4 +1,6 @@
-const { app, BrowserWindow, dialog, ipcMain } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain, nativeTheme } = require("electron");
+// Studio is a dark-only UI; native Windows controls must use the same scheme.
+nativeTheme.themeSource = "dark";
 const path = require("node:path");
 const fs = require("node:fs/promises");
 // Private-input automation keeps Chromium runtime data with the temporary
