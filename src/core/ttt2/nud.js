@@ -20,7 +20,7 @@ export function readNUD(input){const r=new Reader(input,'NUD');r.magic('NDP3');r
     for(let c=0;c<nuv;c++)for(let k=0;k<2;k++){const at=u+cs+(c*2+k)*uvBytes;uv[c].push(uvBytes===4?r.f32(at):r.half(at));}
    }
    const materials=[];for(let k=0;k<4;k++){const at=r.u32(q+16+k*4);if(at)materials.push(material(at));}
-   const rawIndices=Array.from({length:ni},(_,k)=>r.u16(io+k*2)),indices=stripsToTriangles(rawIndices,n);mesh.polys.push({positions,normals,uv,colours,joints,weights,indices,materials,vtype:vt,uvtype:ut,pflag,strip:{indexCount:ni,restarts:rawIndices.filter(x=>x===65535).length,triangles:indices.length/3}});
+   const rawIndices=Array.from({length:ni},(_,k)=>r.u16(io+k*2)),indices=stripsToTriangles(rawIndices,n);mesh.polys.push({positions,normals,uv,colours,joints,weights,indices,materials,vtype:vt,uvtype:ut,pflag,layout:{positionStride:bt?base+ws:stride,vertexStride:stride,weighted:!!bt,indexOffset:io,vertexOffset:vo,vertexAddOffset:bt?ao:null,primitiveFlag:pflag},strip:{indexCount:ni,restarts:rawIndices.filter(x=>x===65535).length,triangles:indices.length/3}});
   }meshes.push(mesh);
  }return {meshes,boneRange:{first:r.i16(12),last:r.u16(14)},version:r.u16(8)};
 }

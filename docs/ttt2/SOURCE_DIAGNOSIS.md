@@ -63,3 +63,27 @@ Version0.7.0-dev.9-ttt2.3, app source [bef32e933593ba691bfe0de029b3f06dbfba1b41]
 [Download WindowsEXE and authored test evidence ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41117852208/artifacts/13005594931),99.3MB, GitHub login required, retention14days. Artifact SHA2568e4c69fbec32ba63b71b52fd464d5326e6931371bf7c9603f4ba3a0a9617bbea. Presence/digest checked on run; cloud cannot re-download authenticatedZIP bytes. No original report/image/asset included. Source diagnostic JSON is never in upload allowlist.
 
 No originalJin SOURCE visual acceptance yet. Next action is owner-local fresh import in this build and typed mode outcomes/newhexwarnings only. Do not supply original assets or upload the local report. Main unchanged; subsequent documentation-only checkpoint does not change tested code.
+
+## Geometry-first follow-up (owner's local Jin findings)
+
+Owner reports holes persist with solid geometry, no cutouts, no vertex colours; separation persists without skinning; diffuse-only face remains wrong. All12 reported native blends are ONE/ONE (1/1), not the previously tested straight-alpha pair. Ten culls are0x405; face primitive5/6 cull0. SOURCE already uses double-sided materials. These observations do not prove missing NUD triangles, but rule out treating the earlier alpha fix as a demonstrated Jin repair. ONE/ONE remains explicitly uninterpreted; changing it cannot be claimed to repair raw geometry. No bones, mesh positions, UVs or surfaces changed here.
+
+Upstream code comparison at6510de48b137c526debcfddebd6a4813fc65f631: descriptor offsets relative to48; separate index/vertex/vertex-add clumps; weighted vs unweighted layouts; strips with parity through degenerate connectors and restartFFFF agree. Independent upstream NumPy read of24 authored layouts (6position/normal layouts x4weight layouts, two full-float UV sets) agrees on positions and expanded triangles. This tests authored data, NOT Jin, unknown layout variants or completeness of an extracted asset set. Mesh sphere/centre are retained as bounds, not assumed transforms. No proven binary-parser repair is claimed.
+
+New local numeric fields per primitive:
+- `id.layout`: absolute clump offsets, actual vertex and position strides, weighted flag and primitive flag.
+- `adapterParity`: decoded counts vs SOURCE counts, changed position components after mm-to-metres Float32 conversion, changed indices. Nonzero identifies an adapter discrepancy; zero only proves consistency with OUR decoder.
+- `geometryAudit`: used/unused vertices, indexed components and largest8 component bounds in metres; indexed and exact-position boundary/nonmanifold/same-direction edge counts. Exact-position topology does not weld or change anything. Per-primitive boundaries may be completed by another primitive or be legitimate openings.
+- visibility, frustumCulled and drawRange. Null drawRange count means unrestricted, not zero.
+
+Additional preview control `no-frustum` disables only frustum rejection on cloned meshes. If it restores a whole missing part, investigate culling bounds rather than fabricating triangles. It does not disable camera near/far clipping or depth testing. Diffuse diagnostic now preserves blend/depth parameters so an isolation view does not itself change occlusion policy; synthetic regression covers this.
+
+### Owner-local next measurements — do NOT upload the report
+
+Use a fresh import, save the diagnostic JSON only to an unsynced local directory, inspect locally. Type only these small measurements if requesting follow-up:
+1. Does `no-frustum` restore any whole part? Does raw wireframe show triangles crossing the chest gaps?
+2. For torso/chest and upper-leg primitives only: meshLabel; vtype/uvtype; layout.primitiveFlag and strides; decodedVertices/decodedTriangles, countMatches, changedPositionComponents/changedIndices.
+3. For those same primitives: rawBoundsMetres; used/unused vertices; indexComponents; indexed/exact-position boundary and sameDirection counts. For two visibly separated parts, only their component bounds. Bounds establish coordinate gaps, not their intended correction.
+4. For incorrect face primitives: first material's flags; first texture ID and missingPreviewTextureIds; UV min/max; map dimensions/flipY/wrap metadata and sampled meanRGBA. Also locally check whether additional material variants/texture IDs exist. Auxiliary layers alone do not prove which shader slot is diffuse.
+
+No JSON, assets, vertex/index dumps, images or screenshots should leave the owner's PC. These numbers cannot alone prove whether an extra archive record is required: a primitive inventory/layout match plus local wireframe identifies absent vs misplaced decoded surfaces; complete character dependencies still require local archive metadata evidence. Keep additional asset groups separate; do not concatenate records or pick BON files by guessed names.
