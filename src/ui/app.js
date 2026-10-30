@@ -165,6 +165,7 @@ function setBusy(value) {
   $("add-textures").disabled = value || !source;
   $("convert").disabled = value || !source;
   $("model-select").disabled = value || !source;
+  $("source-glb").disabled = value || !source;
   $("export").disabled = value || !converted || artDirty;
   $("probe").disabled = value || !source;
   $("cancel").hidden = !value;
@@ -408,6 +409,10 @@ async function load(records, selected) {
   status("Importing model and loading textures…", 0.1);
   let next;
   try {
+    if ($("import-source").value === "ttt2") {
+      selected ??= records.find(f=>/\.nud$/i.test(f.name))?.name;
+      if (!selected || !/\.nud$/i.test(selected)) throw Error("TTT2: select an extracted NUD model with its matching NUT and BON files.");
+    }
     next = await importCharacter(records, selected);
     if (next.stats.meshes === 0) throw Error("No renderable mesh in source.");
     if (source) source.dispose();
@@ -429,7 +434,7 @@ async function load(records, selected) {
     resultView.sync(sourceView);
     $("project-name").textContent =
       selected ??
-      records.find((f) => /\.(fbx|obj|glb|gltf)$/i.test(f.name))?.name ??
+      records.find((f) => /\.(fbx|obj|glb|gltf|nud)$/i.test(f.name))?.name ??
       "Character";
     $("asset-list").replaceChildren();
     for (const f of source.files) {
@@ -443,7 +448,7 @@ async function load(records, selected) {
     }
     $("model-select").replaceChildren();
     for (const f of records.filter((f) =>
-      /\.(fbx|obj|glb|gltf)$/i.test(f.name),
+      /\.(fbx|obj|glb|gltf|nud)$/i.test(f.name),
     )) {
       const o = new Option(f.name, f.name);
       $("model-select").add(o);
@@ -533,6 +538,7 @@ async function runConvert() {
     setBusy(false);
   }
 }
+$("source-glb").onclick=async()=>{if(!source||busy)return;setBusy(true);try{await save("source-character.glb",await exportGLB(source.root));status("Source GLB saved; no game compatibility implied.",1);}catch(e){showError(e);}finally{setBusy(false);}};
 async function exportGLB(root) {
   return new Uint8Array(
     await new GLTFExporter().parseAsync(root, {
@@ -641,7 +647,7 @@ async function loadDonor(records) {
 }
 
 async function appendTextures(records) {
-  const incoming = records.filter((f) => /\.(tga|png|jpe?g)$/i.test(f.name));
+  const incoming = records.filter((f) => /\.(tga|png|jpe?g|nut)$/i.test(f.name));
   if (!incoming.length) throw Error("No supported textures selected.");
   const names = new Set(incoming.map((f) => f.name.toLowerCase()));
   await load(
@@ -661,7 +667,7 @@ function invalidateMaterialChange(text) {
 }
 function materialControls() {
   $("materials").replaceChildren();
-  const images = files.filter((f) => /\.(tga|png|jpe?g)$/i.test(f.name));
+  const images = files.filter((f) => /\.(tga|png|jpe?g|nut)$/i.test(f.name));
   for (const material of collectMaterials(source.root)) {
     const title = document.createElement("p");
     title.className = "hint";

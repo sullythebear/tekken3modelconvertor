@@ -32,18 +32,20 @@
             multiple
             id="texture-files"
             type="file"
-            accept=".tga,.png,.jpg,.jpeg"
+            accept=".tga,.png,.jpg,.jpeg,.nut"
           /><input
             hidden
             multiple
             id="files"
             type="file"
-            accept=".fbx,.obj,.mtl,.glb,.gltf,.bin,.tga,.png,.jpg,.jpeg"
+            accept=".fbx,.obj,.mtl,.glb,.gltf,.bin,.tga,.png,.jpg,.jpeg,.nud,.nut,.bon"
           />
           <p class="hint">
             FBX · OBJ · glTF / GLB<br />TGA · PNG · JPEG · MTL / BIN
           </p>
           <div id="drop">Drop a model and its textures here</div>
+          <label for="import-source">Import Source</label><select id="import-source"><option value="auto">Auto · FBX / OBJ / glTF / TTT2</option><option value="ttt2">Tekken Tag Tournament 2</option></select>
+          <button id="source-glb" disabled>Export source GLB</button>
           <label for="model-select">Source model</label
           ><select id="model-select" disabled>
             <option>Import files first</option>

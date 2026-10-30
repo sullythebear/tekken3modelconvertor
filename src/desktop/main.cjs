@@ -71,6 +71,9 @@ app.whenReady().then(() => {
       {
         name: "Character and textures",
         extensions: [
+          "nud",
+          "nut",
+          "bon",
           "fbx",
           "obj",
           "mtl",

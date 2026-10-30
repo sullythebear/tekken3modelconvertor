@@ -1,3 +1,4 @@
+import {importTTT2} from './ttt2/import.js';
 import {textureRole, resolveFallbackMaterials} from "./material-resolution.js";
 export {textureRole} from "./material-resolution.js";
 import {configureSkinning} from "./skinning.js";
@@ -38,8 +39,8 @@ export async function importCharacter(files, modelName) {
   if (!files.length) throw Error("Select a model and its local dependencies.");
   const model =
     files.find((f) => f.name === modelName) ??
-    files.find((f) => ["fbx", "obj", "glb", "gltf"].includes(ext(f.name)));
-  if (!model) throw Error("No supported model selected (FBX, OBJ, GLB, glTF).");
+    files.find((f) => ["fbx", "obj", "glb", "gltf", "nud"].includes(ext(f.name)));
+  if (!model) throw Error("No supported model selected (FBX, OBJ, GLB, glTF, TTT2 NUD).");
   const urls = new Map(),
     byName = new Map(),
     missing = new Set(),
@@ -96,7 +97,9 @@ export async function importCharacter(files, modelName) {
       model.data instanceof ArrayBuffer
         ? model.data
         : model.data.byteOffset===0&&model.data.byteLength===model.data.buffer.byteLength?model.data.buffer:model.data.buffer.slice(model.data.byteOffset,model.data.byteOffset+model.data.byteLength);
-    if (ext(model.name) === "fbx") {
+    if (ext(model.name) === "nud") {
+      const ttt2=importTTT2(files,model); root=ttt2.root; animations=ttt2.animations; warnings.push(...ttt2.warnings);
+    } else if (ext(model.name) === "fbx") {
       root = new FBXLoader(manager).parse(data, "");
       animations = root.animations ?? [];
     } else if (ext(model.name) === "obj") {
@@ -191,9 +194,9 @@ export async function importCharacter(files, modelName) {
       files: files.map((f) => ({
         name: f.name,
         bytes: f.data.byteLength,
-        role: ["fbx", "obj", "glb", "gltf"].includes(ext(f.name))
+        role: ["fbx", "obj", "glb", "gltf", "nud"].includes(ext(f.name))
           ? "model"
-          : ["mtl", "bin"].includes(ext(f.name))
+          : ["mtl", "bin", "nut", "bon"].includes(ext(f.name))
             ? "dependency"
             : textureRole(f.name),
       })),

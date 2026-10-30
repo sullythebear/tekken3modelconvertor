@@ -1,0 +1,57 @@
+name: TTT2 local-file importer Windows candidate
+on:
+  push:
+    branches: [development/070-ttt2-import]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: New-Item -ItemType Directory -Force artifacts/ttt2 | Out-Null
+      - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ttt2/unit.xml "tests/*.test.mjs"
+      - run: npm run build
+      - run: npm run dist:win:portable -- --publish never
+      - run: node scripts/verify-distribution.mjs
+      - run: node scripts/portable-smoke.mjs
+      - name: Authored local NUD NUT BON in packaged app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/ttt2-profile
+        run: node scripts/ttt2-test.mjs
+      - name: Original UI controls and workflows in packaged app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/ui-profile
+        run: node scripts/ui-redesign-test.mjs
+      - name: Existing private Nikki roundtrip (no public images or assets)
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: Upload code and authored-only evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: TTT2-import-Windows-${{ github.sha }}
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            release/Tekken3ConversionStudio-*-x64.exe
+            artifacts/ttt2/unit.xml
+            artifacts/ttt2/results.json
+            artifacts/ttt2/authored-source.png
+            artifacts/ttt2/authored-converted.png
+            artifacts/ttt2/authored-dense-converted.png
+            artifacts/distribution/verification.json
+            artifacts/portable-smoke/windows.json
+            artifacts/ui-redesign/after/results.json

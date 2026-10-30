@@ -74,9 +74,9 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
     return s;
   }
   const model = section("01", "Model");
-  for (const id of ["import", "add-textures", "files", "texture-files", "model-select"]) field(id, model);
+  for (const id of ["import-source", "import", "add-textures", "files", "texture-files", "model-select", "source-glb"]) field(id, model);
   const assets = el("details", "asset-disclosure");
-  assets.append(el("summary", null, "Bestanden en importhulp"), el("p", "hint", "FBX \xB7 OBJ \xB7 GLB / glTF\nTGA \xB7 PNG \xB7 JPEG"), $("drop"), $("asset-list"));
+  assets.append(el("summary", null, "Bestanden en importhulp"), el("p", "hint", "FBX \xB7 OBJ \xB7 GLB / glTF \xB7 TTT2 NUD + NUT + BON\nTGA \xB7 PNG \xB7 JPEG"), $("drop"), $("asset-list"));
   model.append(assets);
   const style = section("02", "Stijl");
   field("art-preset", style);
