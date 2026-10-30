@@ -192,7 +192,7 @@ app.whenReady().then(() => {
     trusted(event);
     if (
       typeof name !== "string" ||
-      !/^[-a-zA-Z0-9_. ]+\.(zip|png|json|t3prep|bns)$/.test(name) ||
+      !/^[-a-zA-Z0-9_. ]+\.(zip|png|json|t3prep|bns|glb)$/.test(name) ||
       !(data instanceof Uint8Array) ||
       data.length > 512 * 1024 * 1024
     )

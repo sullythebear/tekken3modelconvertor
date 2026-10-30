@@ -136,7 +136,8 @@ export async function importCharacter(files, modelName) {
       }
     }
     const loaded = new Map();
-    await resolveFallbackMaterials(root, imageFiles, async (file, role) => {
+    // TTT2 bindings are GIDX-based; unrelated image names must not replace missing NUT IDs.
+    if (ext(model.name) !== "nud") await resolveFallbackMaterials(root, imageFiles, async (file, role) => {
       const id = file.name + ":" + (role === "diffuse" || role === "specular" ? "srgb" : "data");
       if (!loaded.has(id)) {
         const loader = ext(file.name) === "tga" ? new TGALoader(manager) : new THREE.TextureLoader(manager);

@@ -1,0 +1,13 @@
+# TTT2 workstream checkpoints — 2026-10-30
+
+Branch development/070-ttt2-import from50dd53e; main remains ca7e894. Research/code analysis completed before changes. Source reference6510de4 is MIT; no assets downloaded. Initial importer checkpoint ad96350 preserves history and includes reproducible source/fixture/UI/Windows workflow.
+
+Local full suite338 PASS, zero failures/skips/cancellations. Real Chromium and real Linux Electron integration PASS: authored NUD/NUT/BON -> two-bone/texture preview -> sourceGLB via actual export button -> GLTFLoader -> UV/position/inverse-bind/posed-vertex checks;960->674 dense fixture reduction at request300; atlas valid. GLB project reopens even after choosingTTT2 source mode. Authored NUD/NUT/BON accepted by upstream Python readers/writers with byte-identical roundtrips (Python/numpy used only as development cross-check, not desktop dependency).
+
+Original UI regression: all80 original controls present,15 workflow groups PASS including project/export/keyboard/preferences/resolutions. Private local Nikki authentic remains7481triangles;132PNGs compared against pre-TTT2 private baseline,131byte-identical; simulation fullUI differs but3D ROI is pixel-identical. No private image publication.
+
+Windows first run41090898895: build/distribution and actual portableEXE smoke PASS, packaged TTT2 test FAILED; later gates skipped and no artifact uploaded. Actual defect: desktop IPC save allowlist omitted.glb, while browser export worked. Fixed by adding.glb to existing bounded basename/size whitelist, preserving source/game overwrite protection. Reproduced in real Electron before correction; now real Electron test passes. Do not present first Windows run as success.
+
+Additional controls: GIDX-based material path skips filename fallback; unrelated TGA cannot replace missing NUT. BON cyclic/invalid parents, unknown weighted joints/zero weights, clump/mip/float/index/version failures reject. BON local rotations and valid non-parent-first hierarchy tested. Source names decode Latin1 directly (not CP1252 substitution), bounded length. No general converter/material/skeleton algorithm changed.
+
+Next action: run updated Windows packaged gates and private Nikki project roundtrip; record exact result/build artifact only once successful. Real Jin, exact shader layer/blending/culling, rigid singleBind, bone-scale/helper behaviour, archives/effects and animation import remain unverified/deferred as listed in README. New synthetic fixtures are not artistic/Jin/gameplay acceptance. No public original-model or private-image artifact allowed; Windows upload uses explicit authored-only file list.

@@ -49,6 +49,7 @@ jobs:
             release/Tekken3ConversionStudio-*-x64.exe
             artifacts/ttt2/unit.xml
             artifacts/ttt2/results.json
+            artifacts/ttt2/index.html
             artifacts/ttt2/authored-source.png
             artifacts/ttt2/authored-converted.png
             artifacts/ttt2/authored-dense-converted.png
