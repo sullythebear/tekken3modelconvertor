@@ -5,7 +5,8 @@ on:
     paths: ['src/**', 'scripts/**', 'tests/**', 'package*.json', '.github/workflows/ttt2-import.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  # Required only for bounded, synthetic-only failure documentation on this branch.
+  contents: write
 jobs:
   windows:
     runs-on: windows-latest
@@ -24,6 +25,8 @@ jobs:
       - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ttt2/unit.xml "tests/*.test.mjs"
       - name: Summarize synthetic unit results
         if: always()
+        env:
+          T3CS_PUBLISH_SYNTHETIC_FAILURE: '1'
         run: node scripts/summarize-synthetic-tests.mjs
       - run: npm run build
       - run: npm run dist:win:portable -- --publish never
