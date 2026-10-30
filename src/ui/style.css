@@ -1138,3 +1138,17 @@ body[data-studio-ui] .workflow-rail .result-step > .hint {
   margin: 5px 0 0;
 }
 body[data-studio-ui] .workflow-rail h2::before{content:"";display:inline-block;width:4px;height:4px;background:#9ee7f2;box-shadow:5px 0 #aa9eea66;margin-right:11px;vertical-align:middle}
+
+/* Local archive browser is separate from the compact beginner workflow. */
+.ttt2-archive-dialog{width:min(1200px,calc(100vw - 48px));max-height:calc(100vh - 64px);box-sizing:border-box;overflow:auto;background:#101b2b;color:#e5efff;border:1px solid #59778c;border-radius:18px;padding:24px;box-shadow:0 24px 90px #0009;}
+.ttt2-archive-dialog::backdrop{background:#050a14bb;}
+.ttt2-archive-dialog header{display:flex;align-items:center;gap:16px;}
+.ttt2-archive-dialog h2{flex:1;margin:0 0 12px;}
+.ttt2-archive-dialog button{width:auto;margin:6px 8px 6px 0;padding:10px 16px;}
+.ttt2-archive-dialog label{display:block;margin:12px 0;}
+.ttt2-archive-dialog input:not([type=checkbox]){width:100%;box-sizing:border-box;}
+.ttt2-archive-dialog progress{display:block;width:100%;margin:12px 0;}
+.ttt2-archive-dialog table{width:100%;min-width:760px;border-collapse:collapse;}
+.ttt2-archive-dialog th,.ttt2-archive-dialog td{padding:10px;border-bottom:1px solid #456174;text-align:left;overflow-wrap:anywhere;}
+.ttt2-archive-dialog p{overflow-wrap:anywhere;}
+.ttt2-archive-dialog input:not([type=checkbox]){background:#19283c;color:#e5efff;border:1px solid #59778c;border-radius:8px;padding:9px 12px;font:inherit;}

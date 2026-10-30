@@ -4,7 +4,7 @@ Version 0.7.0-dev.9-ttt2.2, branch development/070-ttt2-import. This extends the
 
 ## On your Windows 11 PC
 
-1. Start the portable studio EXE. Expand **TTT2 Archive Browser · lokaal/offline** below the left workflow. All original import/conversion/settings controls remain available.
+1. Start the portable studio EXE. Click **TTT2 Archive Browser · lokaal** below the left workflow to open its spacious dialog. Escape closes the dialog; the explicit Annuleren button cancels ongoing work. All original import/conversion/settings controls remain available.
 2. **Archiefmap kiezen (alleen lezen)**: select your local `D:\TTT2\TTT2 Ultimate\game\content\hdd`. Do not select a network or synced drive. The app indexes matching dataNNN.ofs/bin pairs; it does not load a whole BIN into memory or upload anything.
 3. Search **Jin Kazama** or **jin**. These use the source project's `code.nud/.nut/.bon` CRC convention, not invented character IDs. They are explicitly **name hypotheses**: OFS stores hashes, not original filenames. Matching key AND correct magic are necessary, but character identity still needs local review.
 4. Select candidates using checkboxes, then **Types scannen**. With a selection only those entries are decoded; without a selection the catalog is scanned. **Annuleren** stops between entries and leaves originals unchanged. Worker processing and progress keep the desktop UI responsive.
@@ -42,7 +42,7 @@ New game/archive/model/texture/image/ZIP extensions and extraction folders are i
 
 ## Tests / status
 
-Current local full regression suite: **353 PASS**, including15 new archive/guard cases above the338 importer baseline. Real Electron authored-only browser test verifies folder dialog, search/scan, protected output rejection, decompress/extract, manifest and direct textured/rigged import. Original synthetic input OFS/BIN SHA256 values remain unchanged. Existing TTT2 sourceGLB and project tests also pass in Electron. Automated screenshots are generated ONLY by the authored fixture test driver, never by normal archive scanning.
+Current local full regression suite: **354 PASS**, including16 new archive/guard cases above the338 importer baseline. Real Electron authored-only browser test verifies folder dialog, search/scan, protected output rejection, decompress/extract, manifest and direct textured/rigged import. Original synthetic input OFS/BIN SHA256 values remain unchanged. Existing TTT2 sourceGLB and project tests also pass in Electron. Automated screenshots are generated ONLY by the authored fixture test driver, never by normal archive scanning.
 
 `npm test`, `npm run test:ttt2-archive` reproduce development tests. The Windows workflow builds the actual portable EXE, verifies it, tests both importer and archive browser in the packaged app, and runs the original UI workflow suite. Hosted Windows is not your physical Windows11 installation. Final source-pinned build/results will be recorded below after completion.
 
