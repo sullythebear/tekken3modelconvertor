@@ -2,6 +2,7 @@ name: TTT2 local-file importer Windows candidate
 on:
   push:
     branches: [development/070-ttt2-import]
+    paths: ['src/**', 'scripts/**', 'tests/**', 'package*.json', '.github/workflows/ttt2-import.yml']
   workflow_dispatch:
 permissions:
   contents: read
