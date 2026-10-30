@@ -286,7 +286,7 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
     const native = state.nativeCandidate;
     const words = !state.source ? "Importeer een model om te beginnen." : state.busy ? "Bezig \xB7 " + $("status").textContent : state.artDirty ? "Instellingen gewijzigd \xB7 opnieuw converteren." : state.converted ? `${state.converted.optimization ? "Geoptimaliseerde kandidaat" : "PS1-voorbereiding"} gereed \xB7 ${$("export").disabled ? "export nog niet beschikbaar" : "voorbereiding exporteerbaar"}. ${native ? "Native kandidaat aanwezig; zie validatie. " : ""}Gameplay niet geverifieerd.` : "Model geladen \xB7 controleer textures en kies een stijl.";
     const warnings = $("messages").querySelectorAll(".warning,.error").length;
-    const value = words + (warnings ? " Aandachtspunten bij Diagnostiek." : "");
+    const value = (state.source?.root.userData.ttt2?.assemblyStatus ? "TTT2-onderdelen geladen · outfitvolledigheid niet geverifieerd. " : "") + words + (warnings ? " Aandachtspunten bij Diagnostiek." : "");
     if (compact.textContent !== value) compact.textContent = value;
     for (const [id, g] of groups) {
       let count = [...g.body.querySelectorAll('input,select')].filter(n=>{

@@ -28,3 +28,6 @@ private-assets/
 *.zip
 *.7z
 *.rar
+
+# Original binary item databases remain local; tests generate bytes in memory.
+*.bxml

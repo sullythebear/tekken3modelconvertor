@@ -47,6 +47,12 @@ jobs:
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
           T3CS_TEST_PROFILE: ${{ runner.temp }}/archive-profile
         run: node scripts/ttt2-archive-test.mjs
+      - name: Authored TTT2 character selection and outfit evidence in packaged app
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/character-profile
+        run: node scripts/ttt2-character-test.mjs
       - name: Authored TTT2 SOURCE coverage and local diagnostics in packaged app
         env:
           T3CS_AUTOMATION: '1'
@@ -64,6 +70,7 @@ jobs:
             artifacts/ttt2/unit.xml
             artifacts/ttt2/results.json
             artifacts/ttt2/index.html
+            artifacts/ttt2-character/results.json
             artifacts/ttt2-source/results.json
             artifacts/ttt2-source/authored-source-geometry.png
             artifacts/ttt2-archive/results.json

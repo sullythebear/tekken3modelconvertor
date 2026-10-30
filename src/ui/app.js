@@ -1,3 +1,4 @@
+import {installTTT2Characters} from './ttt2-characters.js';
 import {installTTT2SourceDiagnosis} from './ttt2-source-diagnosis.js';
 let ttt2SourceDiagnosis;
 import {installArchiveBrowser} from './archive-browser.js';
@@ -1304,6 +1305,7 @@ $('optimize-candidate').onclick=async()=>{
 
 installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
 
-installArchiveBrowser({load});
+const ttt2Archive=installArchiveBrowser({load});
+installTTT2Characters(ttt2Archive);
 
 ttt2SourceDiagnosis=installTTT2SourceDiagnosis({getSource:()=>source,getFiles:()=>files,view:sourceView,getReference:()=>reference,save});
