@@ -46,3 +46,5 @@ Outputs under artifacts/ttt2: results.json, sourceGLB, authored-only screenshots
 - .github/workflows/ttt2-import.yml: Windows gates; docs/ttt2: analysis, usage, upstream MIT notice.
 
 [Architecture/reference research and plan](ANALYSIS.md). [MIT reference notice](THIRD_PARTY_TTT2.txt). Source MIT does not license Namco game assets.
+
+[Verified Windows build, full test results and authored visual report](VALIDATION.md).
