@@ -1,3 +1,5 @@
+import {installTTT2SourceDiagnosis} from './ttt2-source-diagnosis.js';
+let ttt2SourceDiagnosis;
 import {installArchiveBrowser} from './archive-browser.js';
 import {auditHandGeometry} from '../core/hand-geometry-audit.js';
 import {compareRasterRegions} from '../core/raster-regions.js';
@@ -429,6 +431,7 @@ async function load(records, selected) {
     files = records;
     reference = new THREE.Box3().setFromObject(source.root);
     sourceView.setModel(source.root, reference);
+    ttt2SourceDiagnosis?.update();
     resultView.clearModel();if(simulationView.root)for(const m of collectMaterials(simulationView.root))m.dispose();simulationView.clearModel();
     $("empty-original").hidden = true;
     $("empty-result").hidden = false;
@@ -476,6 +479,7 @@ async function load(records, selected) {
   }
 }
 async function runConvert() {
+  ttt2SourceDiagnosis?.restore();
   clearTimeout(artTimer);
   stopPlayback();
   if (nativeMode) returnSourcePose();
@@ -565,6 +569,7 @@ async function save(name, data) {
   return true;
 }
 async function packagePreparation() {
+  ttt2SourceDiagnosis?.restore();
   stopPlayback();
   if (!converted || busy) return;
   setBusy(true);
@@ -800,6 +805,7 @@ function returnSourcePose() {
   stopPlayback();
   if (source && reference) {
     sourceView.setModel(source.root, reference);
+    ttt2SourceDiagnosis?.update();
     if (converted) {
       resultView.setModel(atlas?.root ?? converted.root, reference);
       $("empty-result").hidden = true;
@@ -1299,3 +1305,5 @@ $('optimize-candidate').onclick=async()=>{
 installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
 
 installArchiveBrowser({load});
+
+ttt2SourceDiagnosis=installTTT2SourceDiagnosis({getSource:()=>source,getFiles:()=>files,view:sourceView,getReference:()=>reference,save});

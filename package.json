@@ -1,6 +1,6 @@
 {
   "name": "tekken3-conversion-studio",
-  "version": "0.7.0-dev.9-ttt2.2",
+  "version": "0.7.0-dev.9-ttt2.3",
   "private": true,
   "description": "Offline character preparation studio with PS1 asset codecs and explicit game validation gates",
   "author": "Tekken 3 Conversion Studio contributors",
@@ -32,7 +32,8 @@
     "calibrate:style": "node scripts/calibrate-style.mjs",
     "test:review": "npm run build && node scripts/reconstruction-review.mjs",
     "test:ttt2": "npm run build && node scripts/ttt2-test.mjs",
-    "test:ttt2-archive": "npm run build && node scripts/ttt2-archive-test.mjs"
+    "test:ttt2-archive": "npm run build && node scripts/ttt2-archive-test.mjs",
+    "test:ttt2-source": "npm run build && node scripts/ttt2-source-test.mjs"
   },
   "dependencies": {
     "delaunator": "5.0.1",
