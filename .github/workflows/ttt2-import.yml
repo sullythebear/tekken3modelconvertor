@@ -12,10 +12,13 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
+      - run: node scripts/guard-game-assets.mjs
       - run: npm ci
       - run: New-Item -ItemType Directory -Force artifacts/ttt2 | Out-Null
       - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/ttt2/unit.xml "tests/*.test.mjs"
@@ -35,11 +38,12 @@ jobs:
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
           T3CS_TEST_PROFILE: ${{ runner.temp }}/ui-profile
         run: node scripts/ui-redesign-test.mjs
-      - name: Existing private Nikki roundtrip (no public images or assets)
+      - name: Authored offline archive browser and extraction in packaged app
         env:
-          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_AUTOMATION: '1'
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
-        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/archive-profile
+        run: node scripts/ttt2-archive-test.mjs
       - name: Upload code and authored-only evidence
         uses: actions/upload-artifact@v4
         with:
@@ -51,6 +55,8 @@ jobs:
             artifacts/ttt2/unit.xml
             artifacts/ttt2/results.json
             artifacts/ttt2/index.html
+            artifacts/ttt2-archive/results.json
+            artifacts/ttt2-archive/authored-browser.png
             artifacts/ttt2/authored-source.png
             artifacts/ttt2/authored-converted.png
             artifacts/ttt2/authored-dense-converted.png

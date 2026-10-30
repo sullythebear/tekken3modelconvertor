@@ -48,3 +48,7 @@ Outputs under artifacts/ttt2: results.json, sourceGLB, authored-only screenshots
 [Architecture/reference research and plan](ANALYSIS.md). [MIT reference notice](THIRD_PARTY_TTT2.txt). Source MIT does not license Namco game assets.
 
 [Verified Windows build, full test results and authored visual report](VALIDATION.md).
+
+## Local archive browser (ttt2.2)
+
+The newer offline desktop archive browser now supports OFS/BIN discovery, keyed decoding and separate-folder extraction. See [local archive instructions, privacy safeguards and Jin workflow](ARCHIVES.md). Earlier importer-only archive deferrals above describe ttt2.1; no original game validation is implied by the new synthetic tests.

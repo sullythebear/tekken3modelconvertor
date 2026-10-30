@@ -1,3 +1,4 @@
+import {installArchiveBrowser} from './archive-browser.js';
 import {auditHandGeometry} from '../core/hand-geometry-audit.js';
 import {compareRasterRegions} from '../core/raster-regions.js';
 import {diagnoseBakeCorrespondence} from '../core/bake-correspondence.js';
@@ -413,6 +414,7 @@ async function load(records, selected) {
       selected ??= records.find(f=>/\.nud$/i.test(f.name))?.name;
       if (!selected || !/\.nud$/i.test(selected)) throw Error("TTT2: select an extracted NUD model with its matching NUT and BON files.");
     }
+    if (/\.nud$/i.test(selected??records.find(f=>/\.(fbx|obj|glb|gltf|nud)$/i.test(f.name))?.name??'')) await window.studio?.localGamePrivacy?.();
     next = await importCharacter(records, selected);
     if (next.stats.meshes === 0) throw Error("No renderable mesh in source.");
     if (source) source.dispose();
@@ -1295,3 +1297,5 @@ $('optimize-candidate').onclick=async()=>{
 };
 
 installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
+
+installArchiveBrowser({load});

@@ -9,6 +9,8 @@ if(process.env.T3CS_AUTOMATION==='1'&&process.env.T3CS_TEST_PROFILE){
 }
 const ROOT = path.resolve(__dirname, "../../dist");
 let main;
+let localGamePrivacy=false;
+const protectedArchiveRoots=new Set();
 const inputPaths = new Set();
 const pathKey = (p) =>
   process.platform === "win32"
@@ -65,6 +67,14 @@ app.whenReady().then(() => {
   main.webContents.session.setPermissionRequestHandler((_, __, cb) =>
     cb(false),
   );
+  // Offline archive worker. Renderer receives opaque entry IDs, never filesystem authority.
+  const {Worker}=require('node:worker_threads');let archiveWorker,archiveRequest=0;const archivePending=new Map();
+  function archiveCall(method,args){if(!archiveWorker){archiveWorker=new Worker(path.join(__dirname,'archive-worker.mjs'));archiveWorker.on('message',m=>{if(m.progress){if(!main.isDestroyed())main.webContents.send('studio:archive-progress',m.progress);return;}const p=archivePending.get(m.id);if(p){archivePending.delete(m.id);m.error?p.reject(Error(m.error)):p.resolve(m.result);}});const fail=()=>{for(const p of archivePending.values())p.reject(Error('Archive worker stopped; reopen local folder'));archivePending.clear();archiveWorker=null;};archiveWorker.on('error',fail);archiveWorker.on('exit',fail);}return new Promise((resolve,reject)=>{const id=++archiveRequest;archivePending.set(id,{resolve,reject});archiveWorker.postMessage({id,method,args});});}
+  main.on('closed',()=>archiveWorker?.terminate());
+  ipcMain.handle('studio:local-game-privacy',event=>{trusted(event);localGamePrivacy=true;return true;});
+  ipcMain.handle('studio:archive-open',async event=>{trusted(event);const r=await dialog.showOpenDialog(main,{title:'Select local TTT2 content/hdd (offline, read only)',properties:['openDirectory']});if(r.canceled)return null;localGamePrivacy=true;const opened=await archiveCall('open',r.filePaths[0]);protectedArchiveRoots.add(opened.protectedRoot);return opened;});
+  for(const method of ['browse','scan','cancel','importFiles'])ipcMain.handle('studio:archive-'+method,(event,args)=>{trusted(event);return archiveCall(method,args);});
+  ipcMain.handle('studio:archive-extract',async(event,ids)=>{trusted(event);const r=await dialog.showOpenDialog(main,{title:'Choose separate NON-SYNCED local output folder',properties:['openDirectory']});if(r.canceled)return null;return archiveCall('extract',{ids,folder:r.filePaths[0]});});
   ipcMain.handle("studio:open", (event) => {
     trusted(event);
     return choose([
@@ -199,6 +209,7 @@ app.whenReady().then(() => {
       throw Error("Invalid export");
     const result = await dialog.showSaveDialog(main, { defaultPath: name });
     if (result.canceled) return false;
+    if(localGamePrivacy){const checked=await archiveCall('validateDestination',path.dirname(result.filePath));for(const root of protectedArchiveRoots){const rel=path.relative(root,checked.folder);if(!rel||(!rel.startsWith('..'+path.sep)&&rel!=='..'&&!path.isAbsolute(rel)))throw Error('Output must remain outside all opened TTT2 installations');}}
     const actualOutput = await fs.realpath(result.filePath).catch(() => null);
     if (
       inputPaths.has(pathKey(result.filePath)) ||

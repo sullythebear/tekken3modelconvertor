@@ -6,3 +6,25 @@ artifacts/
 *.log
 
 __pycache__/
+
+# Local game inputs and extracted assets must never enter Git.
+*.ofs
+*.bin
+*.nud
+*.nut
+*.bon
+*.fbx
+*.glb
+*.gltf
+*.tga
+*.dds
+*.png
+*.jpg
+*.jpeg
+TTT2-extract-*/
+local-game-data/
+private-assets/
+
+*.zip
+*.7z
+*.rar
