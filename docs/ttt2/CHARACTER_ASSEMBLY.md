@@ -55,3 +55,19 @@ The original character registry's part-pack keys; correct default-instance selec
 Existing read-only source handles, stat/hash checks, protected-installation and local/non-network/non-synced destination rules retained. No game assets or character portraits shipped. Display catalogue contains one text-only Jin tile; no invented character database. Standard mode hides technical browser and evidence; advanced mode preserves them. Existing native dark dropdown styles/keyboard handling retained.
 
 Only authored generated archives/BXML/NUD/NUT/BON are used in tests and CI. Synthetic success proves guards/readers/UI behavior, not original Jin identity or visual correctness. Public artifacts contain code, synthetic results and existing authored-only evidence; never local character evidence or item databases. BXML magic and local evidence schema are added to the commit guard.
+
+## Implementation map and validated Windows candidate
+
+- `src/core/ttt2/bxml.js`: bounded BXML/default-item declaration reader.
+- `src/core/ttt2/character-set.js`: single display entry and non-promoting evidence policy.
+- `src/core/ttt2/archive-local.mjs`, `archive-codec.mjs`: known folder discovery, BXML magic, candidate inspection in memory; existing extraction protections retained.
+- `src/desktop/{main.cjs,preload.cjs,archive-worker.mjs}`: trusted local worker operation; no network/file upload API.
+- `src/ui/ttt2-characters.js`, `archive-browser.js`, `app.js`, `workspace.js`, `style.css`: guided tile/status workflow, shared folder session, advanced technical access and unverified SOURCE notice. No geometry/render algorithm changes.
+- `tests/ttt2-character-set.test.mjs`, authored fixture generators and `scripts/ttt2-character-test.mjs`: declaration/ambiguity/safety/Windows UI coverage; staged asset guard extended for BXML and local character evidence.
+- Synthetic-only CI: packaged character test added. A bounded failure-documentation route needs contents:write, writes only one fixed docs path on this branch, checks the exact source head, and never force pushes. No source/game/private downloads.
+
+380/380 unit tests pass locally and on Windows. Packaged portable smoke, original80 UI workflow inventory, authored archive/importer, guided character evidence and SOURCE/dropdown tests PASS in [Windows run41140574305](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41140574305). Tested source [888e132624b828c57335360e7cbc56a1b5ffaf7a](https://github.com/sullythebear/tekken3modelconvertor/commit/888e132624b828c57335360e7cbc56a1b5ffaf7a). Version0.7.0-dev.9-ttt2.6.
+
+[Download portable Windows EXE + authored-only evidence ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41140574305/artifacts/13017694192),99.4MB, GitHub login required,14day retention. Artifact SHA2563c90e7c61fc5c65dc1ebb4fb16c56c6b8855b6cf74ebbd9dffff94c753296502. Presence/digest verified on GitHub; authenticated ZIP bytes not downloaded here. No Jin/game/private report or image included. An initial Windows unit failure was traced to the test comparing short vs canonical temp paths; expected path corrected using realpath, preserving application security. Summary script syntax was separately corrected and regression-tested. Failure history retained.
+
+In advanced mode the compact local measurement line gives candidate/default-item/reference/conditional totals directly. Reference counts count declarations, including possibly inactive/sentinel entries; they are NOT a count of missing files. These four totals are sufficient for the next diagnostic question; do not upload the database, full evidence or archive content. A complete original Jin SOURCE, correct face shaders, successful PS1 budget and actual Tekken3 gameplay are still unverified.

@@ -37,3 +37,7 @@ Authored test inputs only. No original assets or private reports.
 }
 		&lt;/failure&gt;
 	</pre>
+
+## Follow-up
+
+Resolved in888e132 by comparing the expected path with `fs.realpath(dir)`, matching the existing canonical-path security rule. No original-file protection changed. All380 tests and packaged Windows workflows then passed in run41140574305. This file is historical synthetic-only failure evidence, not the current build status.
