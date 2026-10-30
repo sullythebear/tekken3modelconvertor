@@ -37,7 +37,7 @@ The pre-existing `overridden` label is based on filename archive ordering. Guide
 
 ## Local Windows usage (Dutch)
 
-1. Start de nieuwe portable EXE. Kies **TTT2-personage kiezen**.
+1. Start de nieuwe portable EXE in **Standaardmodus**. Kies **Tekken Tag Tournament 2** bij Import Source en klik **Model importeren**; de personageselectie opent. De knop **TTT2-personage kiezen** opent dezelfde route.
 2. Klik **Gamemap selecteren**. Kies je eigen TTT2-installatiemap, `game`, of rechtstreeks `content/hdd`. De app herkent alleen de bekende layouts. Bij meerdere installaties moet je expliciet de juiste hdd-map kiezen.
 3. Kies **Jin Kazama**, **Standaardoutfit**, **Modelonderdelen controleren**.
 4. Bekijk de acht statussen. `Mogelijke Jin-bestanden gevonden` betekent geen bewezen standaardoutfit. **Personage importeren** blijft geblokkeerd zolang de onderdelen niet betrouwbaar samengesteld kunnen worden.
@@ -56,7 +56,7 @@ Existing read-only source handles, stat/hash checks, protected-installation and 
 
 Only authored generated archives/BXML/NUD/NUT/BON are used in tests and CI. Synthetic success proves guards/readers/UI behavior, not original Jin identity or visual correctness. Public artifacts contain code, synthetic results and existing authored-only evidence; never local character evidence or item databases. BXML magic and local evidence schema are added to the commit guard.
 
-## Implementation map and validated Windows candidate
+## Implementation map and first validation (.6)
 
 - `src/core/ttt2/bxml.js`: bounded BXML/default-item declaration reader.
 - `src/core/ttt2/character-set.js`: single display entry and non-promoting evidence policy.
@@ -71,3 +71,12 @@ Only authored generated archives/BXML/NUD/NUT/BON are used in tests and CI. Synt
 [Download portable Windows EXE + authored-only evidence ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41140574305/artifacts/13017694192),99.4MB, GitHub login required,14day retention. Artifact SHA2563c90e7c61fc5c65dc1ebb4fb16c56c6b8855b6cf74ebbd9dffff94c753296502. Presence/digest verified on GitHub; authenticated ZIP bytes not downloaded here. No Jin/game/private report or image included. An initial Windows unit failure was traced to the test comparing short vs canonical temp paths; expected path corrected using realpath, preserving application security. Summary script syntax was separately corrected and regression-tested. Failure history retained.
 
 In advanced mode the compact local measurement line gives candidate/default-item/reference/conditional totals directly. Reference counts count declarations, including possibly inactive/sentinel entries; they are NOT a count of missing files. These four totals are sufficient for the next diagnostic question; do not upload the database, full evidence or archive content. A complete original Jin SOURCE, correct face shaders, successful PS1 budget and actual Tekken3 gameplay are still unverified.
+
+
+## Current Windows patch: .6.1
+
+**0.7.0-dev.9-ttt2.6.1** makes the normal Standard-mode TTT2 import button open character selection directly. Advanced TTT2 and Standard Auto keep their original native file import; focus returns to the launch control. No geometry, textures or skeleton changes.
+
+[Final tested source fc8a6be764316a3756b85b864ba113effe7fe65d](https://github.com/sullythebear/tekken3modelconvertor/commit/fc8a6be764316a3756b85b864ba113effe7fe65d), [Windows run41141436858 SUCCESS](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41141436858). All380 unit tests, portable smoke and packaged importer/original UI/archive/character-routing/SOURCE/dropdown tests pass.
+
+[Download latest portable Windows EXE + authored-only evidence ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41141436858/artifacts/13018929421),99.4MB; GitHub login required,14day retention. SHA2562f3d9ad053d8a5d98d1923e020c742c82f754742ea2cc2e81cfd6d5274ee7d24. Artifact existence/digest and login redirect checked; authenticated bytes not re-downloaded here. Earlier artifacts/history retained. This is an outfit-evidence development build; complete Jin assembly, SOURCE appearance, face shading and game compatibility are NOT verified.
