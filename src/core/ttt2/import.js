@@ -1,4 +1,4 @@
-import * as THREE from 'three';import {readNUD} from './nud.js';import {readNUT} from './nut.js';import {readBON} from './bone.js';import {ttt2Role} from './roles.js';
+import * as THREE from 'three';import {readNUD} from './nud.js';import {readNUT} from './nut.js';import {readBON} from './bone.js';import {ttt2Role} from './roles.js';import {configureTTT2Blend}from'./material-preview.js';
 const wrap=(v)=>({1:THREE.RepeatWrapping,2:THREE.MirroredRepeatWrapping,3:THREE.ClampToEdgeWrapping})[v];
 // No game files are read implicitly: all dependencies are supplied local records.
 export function importTTT2(files,model){
@@ -20,12 +20,13 @@ export function importTTT2(files,model){
   if(p.materials.length>1)warnings.push(`${material.name}: ${p.materials.length} shader layers preserved as metadata; only first layer previewed.`);
   const slot=m?.textures[0];if(slot){const t=textures.get(slot.id);if(!t)warnings.push(`${material.name}: missing NUT texture ID ${slot.id}; untextured preview.`);else {const texture=new THREE.DataTexture(t.rgba,t.width,t.height,THREE.RGBAFormat);texture.name=`TTT2_GIDX_${t.id}`;texture.colorSpace=THREE.SRGBColorSpace;texture.flipY=false;texture.wrapS=wrap(slot.wrapS)??THREE.ClampToEdgeWrapping;texture.wrapT=wrap(slot.wrapT)??THREE.ClampToEdgeWrapping;texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;texture.needsUpdate=true;material.map=texture;if(!wrap(slot.wrapS)||!wrap(slot.wrapT))warnings.push(`${material.name}: unknown sampler wrap; clamped preview.`);}}
   if(m?.alphaTest&&m.alphaFunc!==7){material.alphaTest=Math.max(1/255,Math.min(1,m.ref/255));warnings.push(`${material.name}: alpha-test comparator ${m.alphaFunc} approximated as >= reference.`);}
-  if(m&&(m.src||m.dst))warnings.push(`${material.name}: native blend/cull flags preserved; preview blend/cull semantics require original-asset validation.`);
+  const blend=configureTTT2Blend(material,m);material.userData.ttt2.blendInterpretation=blend;
+  if(m&&(m.src||m.dst))warnings.push(`${material.name}: native src=0x${m.src.toString(16)}, dst=0x${m.dst.toString(16)}, cull=0x${m.cull.toString(16)}; ${blend} diffuse preview; complete shader/cull semantics unverified.`);
   let skinned=!!p.joints.length;
   if(skinned&&!skeleton)throw Error('TTT2: weighted NUD requires a matching BON skeleton; add it to the selected local files');
   if(skinned){anyWeights=true;const count=p.positions.length/3,weights=p.weights.slice(),indices=p.joints.slice();for(let v=0;v<count;v++){let sum=0;for(let k=0;k<4;k++){const at=v*4+k;if(weights[at]>0&&indices[at]>=bones.length)throw Error('TTT2: weighted bone index exceeds BON hierarchy');if(!weights[at])indices[at]=0;sum+=weights[at];}if(sum<=0)throw Error('TTT2: vertex has no positive skin influences');for(let k=0;k<4;k++)weights[v*4+k]/=sum;}g.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(indices,4));g.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));}
   else if(mesh.singleBind>=0)warnings.push(`${material.name}: unweighted singleBind ${mesh.singleBind} retained in metadata; rigid local-space animation unverified.`);
-  const node=skinned?new THREE.SkinnedMesh(g,material):new THREE.Mesh(g,material);node.name=`${mesh.name}_${pi}`;node.userData.ttt2={singleBind:mesh.singleBind,boneFlag:mesh.boneFlag,sourceMesh:mi,sourcePrimitive:pi,vtype:p.vtype,uvtype:p.uvtype,strip:p.strip};root.add(node);if(skinned){root.updateMatrixWorld(true);node.bind(skeleton,new THREE.Matrix4());}
+  const node=skinned?new THREE.SkinnedMesh(g,material):new THREE.Mesh(g,material);node.name=`${mesh.name}_${pi}`;node.userData.ttt2={singleBind:mesh.singleBind,boneFlag:mesh.boneFlag,sourceCenterMm:mesh.center,sourceSphereMm:mesh.sphere,sortBias:mesh.sortBias,sourceMesh:mi,sourcePrimitive:pi,vtype:p.vtype,uvtype:p.uvtype,strip:p.strip};root.add(node);if(skinned){root.updateMatrixWorld(true);node.bind(skeleton,new THREE.Matrix4());}
  }
  if(bon&&!anyWeights)warnings.push('BON hierarchy present but NUD has no explicit skin weights; no guessed rigid skinning applied.');
  if(!nuts.length)warnings.push('No NUT supplied: textures are missing, not successfully converted.');

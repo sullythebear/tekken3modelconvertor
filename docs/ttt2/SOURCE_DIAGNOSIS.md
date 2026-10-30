@@ -37,10 +37,20 @@ Please report only the following typed observations, not files:
 
 - Do torso holes remain in geometry mode, no-cutouts mode and no-vertex-colour mode? Does upper/lower separation remain in raw-no-skin mode?
 - Does the face become correct in diffuse-only or no-vertex-colour mode?
-- From findings: alwaysAlphaMaterials, rigidSingleBindNotApplied and missingTextureIds count. From an affected material, the alpha function/reference and vertex/UV type numbers if identifiable locally.
+- From findings: alwaysAlphaMaterials (active first material), rigidSingleBindNotApplied and missingPreviewTextureIds count. missingTextureIds includes ALL declared auxiliary/variant maps and alone is not evidence that the visible diffuse is missing. From an affected material, the alpha function/reference and vertex/UV type numbers if identifiable locally.
 
 These observations determine the next justified repair. If IDs are missing, use the existing local GIDX archive search. If no IDs are missing, do not assume more files are required solely because rendering is wrong. If raw geometry is genuinely absent, inspect local archive candidates without guessing names or moving originals to cloud.
 
 ## Validation boundary
 
-All new tests use owned synthetic NUD/NUT/BON; no original Jin data or image was read in this environment. Full baseline355 tests retained plus5 new SOURCE regressions (target360). Actual Electron test covers GPU coverage, all preview modes, local report save and restoration before conversion; original80 UI controls/workflows remain. Windows results will be recorded after source-pinned checks. No original-Jin, real Windows11/gameplay or artist approval claim.
+All new tests use owned synthetic NUD/NUT/BON; no original Jin data or image was read in this environment. Full baseline355 tests retained plus9 new SOURCE regressions (364 total). Actual Electron test covers GPU coverage, all preview modes, local report save and restoration before conversion; original80 UI controls/workflows remain. Windows results will be recorded after source-pinned checks. No original-Jin, real Windows11/gameplay or artist approval claim.
+
+## Owner warning evidence and blend follow-up
+
+Owner supplied text-only warnings: BON scale arrays are present;12 arm/face primitives report native blend/cull fields. No alpha-test-comparator, unweighted-singleBind or missing-first-NUT warning was supplied. Therefore the ALWAYS bug is NOT established as the cause of this Jin failure. Nina donor/Expanded/animation warnings concern later export and do not explain fresh SOURCE.
+
+Additional generic repair: explicit standard GL SRC_ALPHA0x302 / ONE_MINUS_SRC_ALPHA0x303 was previously ignored and rendered opaque. Now this exact pair receives straight-alpha diffuse blending with depthWrite=false (preview policy, not proof of the game's depth-write flag). Sentinel0/0 and ONE/ZERO remain opaque; other pairs remain uninterpreted with numeric warnings. No character-specific exception, recolour or geometry surgery. Authored actual GPU test: a transparent black overlay previously produced0/0/0 and hid the blue surface; corrected output128/176/255 reveals that same underlying geometry. Jin's actual factor values and full pixel-shader alpha provenance remain UNKNOWN; this is not original-Jin visual approval.
+
+New warnings expose src/dst/cull hex values. Local report retains zoff/sort/bounds metadata without guessing depth offsets or moving meshes by their bounding centres. Its ALWAYS count uses the active first material, not unused variants. missingPreviewTextureIds is separate from all declared/auxiliary/variant missing IDs; unused maps do not alone prove missing visible diffuse. Mesh labels permit local lookup of the reported arm/face primitive.
+
+Next owner-local evidence: fresh import in the new build; are holes/separation/face colours changed? If not, report only geometry/no-cutout/no-vertex-colour/raw-no-skin effects and the new hex blend warnings. Keep reports, images and assets on the local PC.
