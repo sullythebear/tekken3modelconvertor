@@ -4,6 +4,9 @@ const messages={
  'declarations-truncated':'De onderdeelbeschrijving is afgekapt; er ontbreekt context.',
  'unsupported-index-value':'Een onderdeelverwijzing heeft een nog onbekende betekenis.',
  'unsupported-index-values':'Een onderdeelverwijzing heeft een nog onbekende betekenis.',
+ 'partial-key-patterns':'Een pack-kandidaat is deels gevonden; andere referenties blijven onzeker.',
+ 'partial-search-budget':'De begrensde deelscan is niet volledig; dit bewijst geen ontbrekende bestanden.',
+ 'too-many-partial-candidates':'Meerdere gedeeltelijke koppelingen blijven mogelijk.',
  'no-indices':'Er zijn nog geen bruikbare onderdeelverwijzingen.',
  'too-many-candidates':'Er zijn te veel mogelijke archiefkoppelingen; er wordt niets gekozen.',
  'no-complete-key-pattern':'Niet alle onderdeelverwijzingen hebben een passende archiefkandidaat.',
@@ -30,5 +33,5 @@ const messages={
 export function assemblyStatus(graph){
  if(!graph)return{status:'blocked',canImport:false,title:'Outfit nog niet betrouwbaar samengesteld',firstBlocker:'Voer de lokale onderdelencontrole uit.',items:[],counts:{identified:0,candidateReferences:0,declaredReferences:0,unknownConditions:0}};
  const selection=graph.nodes.filter(n=>n.kind==='selection'),items=graph.nodes.filter(n=>n.kind==='item');
- return{status:'blocked',canImport:false,title:'Outfit nog niet betrouwbaar samengesteld',firstBlocker:messages[graph.firstBlocker?.code]??'De samenstellingsregels zijn nog niet volledig bevestigd.',blockers:[...new Set(graph.blockers.map(b=>messages[b.code]??'Een technische afhankelijkheid is nog niet bevestigd.'))],items:items.map((n,i)=>({ordinal:i+1,identity:'Nog niet bevestigd',selection:selection.find(s=>s.id===n.id+'/selection')?.conditionState==='unknown'?'Modelvoorwaarde onbekend':'Actieve modelsectie niet bevestigd'})),counts:{identified:0,candidateReferences:graph.referenceCoverage.withFormatCandidate,declaredReferences:graph.referenceCoverage.declared,unknownConditions:selection.filter(s=>s.conditionState==='unknown').length},note:'Leesbare kandidaten zijn geen complete outfit. Er is nog niets samengesteld of als speelbaar gevalideerd.'};
+ return{status:'blocked',canImport:false,title:'Outfit nog niet betrouwbaar samengesteld',firstBlocker:messages[graph.firstBlocker?.code]??'De samenstellingsregels zijn nog niet volledig bevestigd.',blockers:[...new Set(graph.blockers.map(b=>messages[b.code]??'Een technische afhankelijkheid is nog niet bevestigd.'))],items:items.map((n,i)=>({ordinal:i+1,identity:'Nog niet bevestigd',selection:selection.find(s=>s.id===n.id+'/selection')?.conditionState==='unknown'?'Modelvoorwaarde onbekend':'Actieve modelsectie niet bevestigd'})),counts:{identified:0,candidateReferences:graph.referenceCoverage.withFormatCandidate,readableReferences:graph.readability?.readable??0,notExaminedReferences:graph.readability?.notExamined??0,unreadableReferences:graph.readability?.unreadable??0,wrongFormatReferences:graph.readability?.wrongFormat??0,declaredReferences:graph.referenceCoverage.declared,unknownConditions:selection.filter(s=>s.conditionState==='unknown').length},note:'Leesbare kandidaten zijn geen complete outfit. Er is nog niets samengesteld of als speelbaar gevalideerd.'};
 }

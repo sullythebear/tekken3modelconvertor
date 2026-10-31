@@ -75,7 +75,7 @@ app.whenReady().then(() => {
   main.on('closed',()=>archiveWorker?.terminate());
   ipcMain.handle('studio:local-game-privacy',event=>{trusted(event);localGamePrivacy=true;return true;});
   ipcMain.handle('studio:archive-open',async event=>{trusted(event);const r=await dialog.showOpenDialog(main,{title:'Select local TTT2 content/hdd (offline, read only)',properties:['openDirectory']});if(r.canceled)return null;localGamePrivacy=true;const opened=await archiveCall('open',r.filePaths[0]);protectedArchiveRoots.add(opened.protectedRoot);return opened;});
-  for(const method of ['browse','scan','cancel','importFiles','inspectCharacter'])ipcMain.handle('studio:archive-'+method,(event,args)=>{trusted(event);return archiveCall(method,args);});
+  for(const method of ['browse','scan','cancel','importFiles','inspectCharacter','experimentCatalog','prepareExperiment'])ipcMain.handle('studio:archive-'+method,(event,args)=>{trusted(event);return archiveCall(method,args);});
   ipcMain.handle('studio:archive-extract',async(event,ids)=>{trusted(event);const r=await dialog.showOpenDialog(main,{title:'Choose separate NON-SYNCED local output folder',properties:['openDirectory']});if(r.canceled)return null;return archiveCall('extract',{ids,folder:r.filePaths[0]});});
   ipcMain.handle("studio:open", (event) => {
     trusted(event);

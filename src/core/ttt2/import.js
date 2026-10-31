@@ -1,11 +1,14 @@
+import {validateExperimentalNud} from './experiment-spec.js';
 import * as THREE from 'three';import {readNUD} from './nud.js';import {readNUT} from './nut.js';import {readBON} from './bone.js';import {ttt2Role} from './roles.js';import {configureTTT2Blend}from'./material-preview.js';
 const wrap=(v)=>({1:THREE.RepeatWrapping,2:THREE.MirroredRepeatWrapping,3:THREE.ClampToEdgeWrapping})[v];
 // No game files are read implicitly: all dependencies are supplied local records.
-export function importTTT2(files,model){
- const data=readNUD(model.data),warnings=['TTT2 files readable does not establish character identity or complete outfit. Original item database, part packs, variant conditions and skeleton identity remain unverified.','TTT2 preview uses provisional diffuse material interpretation, not the game shaders. No Jin/gameplay validation.'],textures=new Map(),nuts=files.filter(f=>/\.nut$/i.test(f.name)),bons=files.filter(f=>/\.bon$/i.test(f.name));
+export function importTTT2(files,model,options={}){
+ if(options.skinning&&!['raw','bon'].includes(options.skinning))throw Error('Invalid TTT2 skinning mode');
+ const data=readNUD(model.data),warnings=['TTT2 files readable does not establish character identity or complete outfit. Original item database, part packs, variant conditions and skeleton identity remain unverified.','TTT2 preview uses provisional diffuse material interpretation, not the game shaders. No Jin/gameplay validation.'],textures=new Map(),nuts=files.filter(f=>/\.nut$/i.test(f.name)),bons=options.skinning==='raw'?[]:files.filter(f=>/\.bon$/i.test(f.name));
+ if(options.skinning==='raw')validateExperimentalNud(data);
  if(bons.length>1)throw Error('TTT2: select exactly one matching BON skeleton, not multiple costumes/skeletons');
  let decodedPixels=0;
- for(const file of nuts)for(const tex of readNUT(file.data).textures){if(textures.has(tex.id))throw Error(`TTT2: ambiguous duplicate NUT texture ID ${tex.id}`);decodedPixels+=tex.width*tex.height;if(decodedPixels>33554432)throw Error('TTT2: combined decoded texture memory limit exceeded');textures.set(tex.id,tex);}
+ for(const file of nuts){let decoded=options.textureCache?.get(file.data);if(!decoded){decoded=readNUT(file.data);if(options.textureCache){const pixels=decoded.textures.reduce((n,t)=>n+t.width*t.height,0);options.textureCache.pixels=(options.textureCache.pixels??0)+pixels;if(options.textureCache.pixels>33554432)throw Error('Experimental decoded texture budget exceeded');options.textureCache.set(file.data,decoded);}}for(const tex of decoded.textures){if(textures.has(tex.id))throw Error(`TTT2: ambiguous duplicate NUT texture ID ${tex.id}`);decodedPixels+=tex.width*tex.height;if(decodedPixels>33554432)throw Error('TTT2: combined decoded texture memory limit exceeded');textures.set(tex.id,tex);}}
  const bon=bons.length?readBON(bons[0].data):null,root=new THREE.Group();root.name=model.name;root.userData.ttt2={units:'metres',sourceUnits:'millimetres',axis:'Y-up, +Z forward (upstream)',assemblyStatus:{identity:'unverified',outfit:'unverified',parts:'unresolved',sourceVisualReview:'not-reviewed',gameplay:'not-tested'},materialFidelity:'provisional-diffuse',animationImport:'unsupported',boneMetadataScale:bon?.scale,sourceBoneRange:data.boneRange,sourceVersion:data.version};
  const bones=bon?.bones.map((b,i)=>{const n=new THREE.Bone();n.name=b.name||`bone_${i}`;n.position.fromArray(b.translation).multiplyScalar(.001);n.quaternion.setFromEuler(new THREE.Euler(...b.rotation,'ZYX'));n.userData.ttt2SourceScale=b.scale;const role=ttt2Role(b.name);if(role)n.userData.t3csRole=role;return n;})??[];
  for(let i=0;i<bones.length;i++){const p=bon.bones[i].parent;if(p<0)root.add(bones[i]);else bones[p].add(bones[i]);}
@@ -22,13 +25,14 @@ export function importTTT2(files,model){
   if(m?.alphaTest&&m.alphaFunc!==7){material.alphaTest=Math.max(1/255,Math.min(1,m.ref/255));warnings.push(`${material.name}: alpha-test comparator ${m.alphaFunc} approximated as >= reference.`);}
   const blend=configureTTT2Blend(material,m);material.userData.ttt2.blendInterpretation=blend;
   if(m&&(m.src||m.dst))warnings.push(`${material.name}: native src=0x${m.src.toString(16)}, dst=0x${m.dst.toString(16)}, cull=0x${m.cull.toString(16)}; ${blend} diffuse preview; complete shader/cull semantics unverified.`);
-  let skinned=!!p.joints.length;
+  let skinned=!!p.joints.length&&options.skinning!=='raw';
   if(skinned&&!skeleton)throw Error('TTT2: weighted NUD requires a matching BON skeleton; add it to the selected local files');
   if(skinned){anyWeights=true;const count=p.positions.length/3,weights=p.weights.slice(),indices=p.joints.slice();for(let v=0;v<count;v++){let sum=0;for(let k=0;k<4;k++){const at=v*4+k;if(weights[at]>0&&indices[at]>=bones.length)throw Error('TTT2: weighted bone index exceeds BON hierarchy');if(!weights[at])indices[at]=0;sum+=weights[at];}if(sum<=0)throw Error('TTT2: vertex has no positive skin influences');for(let k=0;k<4;k++)weights[v*4+k]/=sum;}g.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(indices,4));g.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));}
-  else if(mesh.singleBind>=0)warnings.push(`${material.name}: unweighted singleBind ${mesh.singleBind} retained in metadata; rigid local-space animation unverified.`);
+  else if(!p.joints.length&&mesh.singleBind>=0)warnings.push(`${material.name}: unweighted singleBind ${mesh.singleBind} retained in metadata; rigid local-space animation unverified.`);
   const node=skinned?new THREE.SkinnedMesh(g,material):new THREE.Mesh(g,material);node.name=`${mesh.name}_${pi}`;node.userData.ttt2={singleBind:mesh.singleBind,boneFlag:mesh.boneFlag,sourceCenterMm:mesh.center,sourceSphereMm:mesh.sphere,sortBias:mesh.sortBias,sourceMesh:mi,sourcePrimitive:pi,vtype:p.vtype,uvtype:p.uvtype,strip:p.strip,layout:p.layout};root.add(node);if(skinned){root.updateMatrixWorld(true);node.bind(skeleton,new THREE.Matrix4());}
  }
  if(bon&&!anyWeights)warnings.push('BON hierarchy present but NUD has no explicit skin weights; no guessed rigid skinning applied.');
+ if(options.skinning==='raw')warnings.push('Explicit experimental raw geometry: source weights retained in original bytes, not applied; no BON chosen.');
  if(!nuts.length)warnings.push('No NUT supplied: textures are missing, not successfully converted.');
  return {root,animations:[],warnings};
  }catch(e){root.traverse(n=>{n.geometry?.dispose();if(n.material){n.material.map?.dispose();n.material.dispose();}});throw e;}

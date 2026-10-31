@@ -5,6 +5,8 @@ contextBridge.exposeInMainWorld(
     localGamePrivacy:()=>ipcRenderer.invoke('studio:local-game-privacy'),
     archiveOpen:()=>ipcRenderer.invoke('studio:archive-open'),
     archiveInspectCharacter:character=>ipcRenderer.invoke('studio:archive-inspectCharacter',{character}),
+    archiveExperimentCatalog:args=>ipcRenderer.invoke('studio:archive-experimentCatalog',args),
+    archivePrepareExperiment:args=>ipcRenderer.invoke('studio:archive-prepareExperiment',args),
     archiveBrowse:args=>ipcRenderer.invoke('studio:archive-browse',args),
     archiveScan:args=>ipcRenderer.invoke('studio:archive-scan',args),
     archiveCancel:()=>ipcRenderer.invoke('studio:archive-cancel'),

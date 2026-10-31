@@ -1,3 +1,4 @@
+import {assembleExperiment} from '../core/ttt2/experimental-assembly.js';
 import {installTTT2Characters} from './ttt2-characters.js';
 import {installTTT2SourceDiagnosis} from './ttt2-source-diagnosis.js';
 let ttt2SourceDiagnosis;
@@ -55,6 +56,12 @@ const $ = (id) => document.getElementById(id),
   resultView = new View($("result"));
 const simulationView=new View($("simulation"));
 let artProfile={preset:'authentic',...ART_PRESETS.authentic,regions:{},corrections:{}};
+let ttt2Experiment=null,experimentSavedControls=new Map(),experimentPreviousCount='— triangles',experimentPreviousView=null;
+const experimentProtectedIds=['convert','source-glb','export','project-save','native-build','native-export','expanded-export','bns-export','probe','play-animation','screenshots','mapping-apply','mapping-reset','mapping-save','mapping-load','ttt2-source-mode','ttt2-source-report','ttt2-inspect-primitives','ttt2-primitive-isolate','optimize-candidate','add-textures','model-select'];
+function experimentBlocked(){if(!ttt2Experiment)return false;status('Experimentele SOURCE: herstel eerst de normale bron. Conversie/project/export zijn geblokkeerd.');return true;}
+function protectExperimentControls(){if(!ttt2Experiment)return;for(const n of [...experimentProtectedIds.map($),...document.querySelectorAll('input[id^="art-"],select[id^="art-"],button[id^="art-"]')].filter(Boolean)){if(!experimentSavedControls.has(n))experimentSavedControls.set(n,n.disabled);n.disabled=true;}}
+function stopTTT2Experiment(){if(!ttt2Experiment)return;const old=ttt2Experiment,oldLabel=experimentPreviousView?.label??'SOURCE',oldResultLabel=experimentPreviousView?.resultLabel??'PS1 PREPARATION';ttt2Experiment=null;old.dispose();for(const[n,disabled]of experimentSavedControls)n.disabled=disabled;experimentSavedControls.clear();$('ttt2-experiment-active').hidden=true;$('ttt2-experiment-active-parts').replaceChildren();if(experimentPreviousView?.root){sourceView.setModel(experimentPreviousView.root,new THREE.Box3().setFromObject(experimentPreviousView.root));sourceView.holder.position.copy(experimentPreviousView.position);sourceView.holder.scale.copy(experimentPreviousView.scale);sourceView.camera.position.copy(experimentPreviousView.camera);sourceView.controls.target.copy(experimentPreviousView.target);sourceView.controls.update();sourceView.holder.updateMatrixWorld(true);sourceView.render();$('empty-original').hidden=true;}else{sourceView.clearModel();$('empty-original').hidden=false;}experimentPreviousView=null;if(converted)resultView.setModel(atlas?.root??converted.root,reference);else resultView.clearModel();$('source-label').textContent=oldLabel;$('result-label').textContent=oldResultLabel;$('source-count').textContent=experimentPreviousCount;setBusy(busy);sourceView.resize();status('Normale bron hersteld; experimentele onderdelen niet geëxporteerd.');}
+async function showTTT2Experiment(bundle){if(busy)throw Error('Wait for the current conversion/import');const next=assembleExperiment(bundle);if($('ttt2-source-mode')?.value!=='original')ttt2SourceDiagnosis?.restore();stopPlayback();stopTTT2Experiment();experimentPreviousView={resultLabel:$('result-label').textContent,label:$('source-label').textContent,root:sourceView.root,position:sourceView.holder.position.clone(),scale:sourceView.holder.scale.clone(),camera:sourceView.camera.position.clone(),target:sourceView.controls.target.clone()};experimentPreviousCount=$('source-count').textContent;ttt2Experiment=next;$('source-count').textContent=next.triangles+' experimental triangles';sourceView.setModel(next.root,new THREE.Box3().setFromObject(next.root));resultView.clearModel();simulationView.clearModel();$('empty-original').hidden=true;$('source-label').textContent='SOURCE · EXPERIMENTEEL · GEEN COMPLETE OUTFIT';$('result-label').textContent='PS1 PREPARATION · EXPERIMENT NIET GECONVERTEERD';$('ttt2-experiment-active').hidden=false;$('ttt2-experiment-warnings').textContent=`${next.warnings.filter(w=>w.includes('missing NUT texture ID')).length} materialen zonder gekoppelde texture; ${next.warnings.filter(w=>w.includes('No NUT supplied')).length} modellen zonder NUT. ${bundle.context?.modelReferencesNotSelected?.length??'?'} modelreferenties uit de laatste controle niet geselecteerd/onopgelost. Dit zijn geen bewezen ontbrekende gamebestanden.`;const host=$('ttt2-experiment-active-parts');host.replaceChildren();for(const[id,p]of next.parts){const label=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=true;check.dataset.part=id;check.onchange=()=>{next.setVisible(id,check.checked);sourceView.render();};label.append(check,document.createTextNode(id+' · '+p.spec.skinning+' · variant onbekend'));host.append(label);}protectExperimentControls();sourceView.resize();status(`Experimenteel: ${next.parts.size} gekozen onderdelen, ${next.triangles} triangles. Broncoördinaten/expliciete keuzes; geen volledige outfit of gamevalidatie.`);}
 let artTimer,artDirty=false;
 $('art-camera').onchange=()=>{if($('art-camera').value==='face'&&source?.skeleton.mapping.head){const target=source.skeleton.mapping.head.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.075,.06));sourceView.controls.target.copy(target);sourceView.camera.position.copy(target).add(new THREE.Vector3(0,.025,.62));sourceView.controls.update();}else sourceView.reset(Number($('art-camera').value)||0);resultView.sync(sourceView);simulationView.sync(sourceView);};
 $('art-mesh-apply').onclick=()=>{if(!$('art-mesh').value)return;artProfile.meshRoles??={};artProfile.meshRoles[$('art-mesh').value]=$('art-region').value;artChanged();};
@@ -92,7 +99,7 @@ $('art-resolution').onchange=()=>simulationView.setResolution($('art-resolution'
 $('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
 $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
-$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});await save('character-project.zip',bytes);status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
+$('project-save').onclick=async()=>{if(experimentBlocked())return;if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});await save('character-project.zip',bytes);status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
 $('project-open').onclick=()=>$('project-file').click();
 $('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));const reuse=reuseExactProjectAssets(p.records,files);p.records=reuse.records;projectAssetReuse={reusedFiles:reuse.reusedFiles,reusedBytes:reuse.reusedBytes};$("import-source").value="auto";await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
 let projectAssetReuse = null;
@@ -196,6 +203,7 @@ function setBusy(value) {
     $("probe").disabled = true;
   } else if (source)
     $("play-animation").disabled = source.animations.length === 0;
+  protectExperimentControls();
 }
 function showError(e) {
   status(e.message);
@@ -407,6 +415,7 @@ function report() {
   };
 }
 async function load(records, selected) {
+  stopTTT2Experiment();
   stopPlayback();
   if (busy) return;
   setBusy(true);
@@ -480,6 +489,7 @@ async function load(records, selected) {
   }
 }
 async function runConvert() {
+  if(experimentBlocked())return;
   ttt2SourceDiagnosis?.restore();
   clearTimeout(artTimer);
   stopPlayback();
@@ -545,8 +555,9 @@ async function runConvert() {
     setBusy(false);
   }
 }
-$("source-glb").onclick=async()=>{if(!source||busy)return;setBusy(true);try{await save("source-character.glb",await exportGLB(source.root));status("Source GLB saved; no game compatibility implied.",1);}catch(e){showError(e);}finally{setBusy(false);}};
+$("source-glb").onclick=async()=>{if(experimentBlocked())return;if(!source||busy)return;setBusy(true);try{await save("source-character.glb",await exportGLB(source.root));status("Source GLB saved; no game compatibility implied.",1);}catch(e){showError(e);}finally{setBusy(false);}};
 async function exportGLB(root) {
+  if(ttt2Experiment||root?.userData.ttt2Experiment)throw Error('Experimental assembly export is disabled');
   return new Uint8Array(
     await new GLTFExporter().parseAsync(root, {
       binary: true,
@@ -560,6 +571,7 @@ function dataURLBytes(url) {
   return Uint8Array.from(atob(url.split(",")[1]), (c) => c.charCodeAt(0));
 }
 async function save(name, data) {
+  if(ttt2Experiment)throw Error('Experimental preview cannot be exported or saved as a normal project');
   if (window.studio) return window.studio.save(name, data);
   const url = URL.createObjectURL(new Blob([data])),
     a = document.createElement("a");
@@ -570,6 +582,7 @@ async function save(name, data) {
   return true;
 }
 async function packagePreparation() {
+  if(experimentBlocked())return;
   ttt2SourceDiagnosis?.restore();
   stopPlayback();
   if (!converted || busy) return;
@@ -832,6 +845,7 @@ async function loadBindProfile(json) {
   return json;
 }
 async function runNative() {
+  if(experimentBlocked())return;
   if (busy || !source || !donor || !nativeBind) return;
   stopPlayback();
   returnSourcePose();
@@ -1250,6 +1264,7 @@ window.addEventListener("error", (e) => status(`Renderer error: ${e.message}`));
 // Read-only diagnostic/test hooks; no filesystem or IPC bypass.
 if (new URLSearchParams(location.search).has("test"))
   window.studioTest = {
+    get experimentalTTT2(){return ttt2Experiment;},
     get referenceBounds(){return reference?.clone();},
     get projectAssetReuse(){return projectAssetReuse;},
     configureSkinning,
@@ -1303,9 +1318,10 @@ $('optimize-candidate').onclick=async()=>{
  }catch(e){showError(e);}finally{setBusy(false);}
 };
 
-installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
+installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty,experimentalTTT2:!!ttt2Experiment}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
 
-const ttt2Archive=installArchiveBrowser({load});
-installTTT2Characters(ttt2Archive);
+const ttt2Archive=installArchiveBrowser({load,onOpen:stopTTT2Experiment});
+const experimentPanel=document.createElement('section');experimentPanel.id='ttt2-experiment-active';experimentPanel.hidden=true;experimentPanel.innerHTML='<p>Experimentele onderdelen · geen complete outfit, plaatsing of skeletonidentiteit bewezen. Conversie en export geblokkeerd.</p><p id="ttt2-experiment-warnings"></p><div id="ttt2-experiment-active-parts"></div><button id="ttt2-experiment-restore">Normale SOURCE herstellen</button>';document.querySelector('#source-label').closest('article').append(experimentPanel);$('ttt2-experiment-restore').onclick=stopTTT2Experiment;
+installTTT2Characters(ttt2Archive,{showExperiment:showTTT2Experiment,getExperimentSummary:()=>ttt2Experiment?'Experiment: '+ttt2Experiment.triangles+' triangles; '+[...ttt2Experiment.parts].map(([id,p])=>id+' mode='+p.spec.skinning+' BON='+(p.spec.bonId??'geen')+' NUT='+p.spec.textureIds.slice(0,4).join(',')+' zichtbaar='+p.root.visible+' variant='+p.spec.variantChoice+' plaatsing='+p.state.placement+' rendering='+p.state.rendering).join('; ')+'; geen complete outfit/export.':'Geen actieve experimentele scène.'});
 
 ttt2SourceDiagnosis=installTTT2SourceDiagnosis({getSource:()=>source,getFiles:()=>files,view:sourceView,getReference:()=>reference,save});
