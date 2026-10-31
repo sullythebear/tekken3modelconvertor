@@ -48,3 +48,11 @@ Upload GEEN originele assets, BXML, archiefinhoud, screenshots of volledig JSON-
 Authored tests cover exact CRC inversion (including independent upstream vector), uint32 extremes, multiple independent indices, ambiguous roots, bounded results, invalid/sentinel syntax, preserved item/section/group/condition context, actual synthetic OFS/BIN member discovery and parsing, duplicate-record refusal, shared base textures, GIDX correspondence and no automatic assembly.32 additional generated seed/index pairs agree with independent Python zlib. No original assets involved.
 
 Electron tests cover local item/pack display, short-text selection, Standard/Advanced routing, hidden technical data, original archive/import/dropdown workflows and all80 baseline controls. Windows packaged validation is recorded below after the source-pinned run completes. No original Jin SOURCE, garment placement or gameplay validation is claimed.
+
+## Windows validation / download
+
+Version **0.7.0-dev.9-ttt2.7**, tested source [5f72be51ac8ed57c579295b1c6e890b8ca2e8872](https://github.com/sullythebear/tekken3modelconvertor/commit/5f72be51ac8ed57c579295b1c6e890b8ca2e8872). [Windows run41196816155 SUCCESS](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41196816155):388unit tests, packaged portable smoke/importer/original UI/archive/character evidence/SOURCE/dropdown checks all pass. Original Jin outfit assembly/visuals are NOT tested.
+
+[Download Windows portable EXE + authored-only evidence ZIP](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/41196816155/artifacts/13040612785),99.4MB; GitHub login required,14day retention. Artifact SHA256edddf1f960b2509fc3baac9000eac662487248986e05a83021e1af22b54e0adb. Presence, digest and login redirect checked; authenticated ZIP bytes not re-downloaded here. No originals, private reports or commercial images included. Main remains unchanged.
+
+Additional authored algebra check: one actual pack with same-length member indices4and5 produces two matching CRC-root hypotheses. The resolver retains ambiguity; even multiple matching keys must not be promoted to original registry evidence. This is a reason to preserve the explicit import gate, not choose the first match.
