@@ -1,5 +1,5 @@
 // Whitelisted, bounded text for voluntary owner-local follow-up. No paths, pixels or buffers.
-export function compactOutfitDiagnosis(outfit){
+export function compactOutfitDiagnosis(outfit,graph=null){
  if(!outfit)return 'Geen unieke leesbare itemdatabase. Geen assembly uitgevoerd.';
  const clean=(s,n=120)=>String(s??'?').replace(/[\r\n\t]/g,' ').slice(0,n),lines=['Lokale TTT2 outfit-declaraties — geen bewezen assembly'];
  for(const item of outfit.items.slice(0,8)){
@@ -10,6 +10,7 @@ export function compactOutfitDiagnosis(outfit){
  }
  if(outfit.items.length>8)lines.push('Meer items dan de compacte limiet; niet volledig weergegeven.');
  for(const p of outfit.packs)lines.push(`${p.field}: ${p.state}; onafhankelijke indices=${p.independentIndices??0}; sleutelpatronen=${p.candidateCount}; formaatpassende kandidaten=${p.rootChecks.filter(c=>c.formatCompatible).length}; voorlopige pack-sleutels=${p.rootChecks.filter(c=>c.formatCompatible).map(c=>'0x'+c.key.toString(16).padStart(8,'0')).join(',')||'geen'}; onbekende waarden=${p.unsupportedValues}`);
+ if(graph){lines.push('Eerste blokkade: '+clean(graph.firstBlocker?.code??'onbekend'));lines.push('Offsetcontext: '+(outfit.offsetDeclarations?.length??0)+' declaratieboom/bomen; skeleton- en zichtbaarheidsbindingen niet bevestigd.');}
  lines.push('Geen meshes samengevoegd. Originele registratie, voorwaarden en SOURCE nog niet geverifieerd.');
  const text=lines.join('\n');return text.length<=6000?text:'Compacte diagnose overschrijdt de limiet. Geef alleen de vijf itemlabels, referentievelden en voorwaarden-tags uit de lokale weergave door; upload geen volledig rapport.';
 }
