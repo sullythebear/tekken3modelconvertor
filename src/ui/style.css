@@ -1204,3 +1204,6 @@ body[data-studio-ui] .ttt2-character-tile { min-height: 100px; font-size: 20px; 
 #experiment-choices strong, #experiment-choices select { display: block; width: 100%; margin-block: 6px; }
 #ttt2-reference-table { max-height: 28vh; overflow: auto; }
 #ttt2-reference-table td { padding: 5px; border-bottom: 1px solid #33465c; overflow-wrap: anywhere; }
+#ttt2-graph-table { max-height: 25vh; overflow: auto; }
+#ttt2-graph-context { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 25vh; overflow-y: auto; }
+#ttt2-graph-table button { text-align: left; overflow-wrap: anywhere; }
