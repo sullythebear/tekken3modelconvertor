@@ -1194,3 +1194,5 @@ body[data-studio-ui] .ttt2-character-tile { min-height: 100px; font-size: 20px; 
 #ttt2-character-stages { line-height: 1.8; color: #c9d6e8; }
 #ttt2-character-stages [data-state=unresolved], #ttt2-character-stages [data-state=candidate] { color: #f4d2a3; }
 #ttt2-character-evidence { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 30vh; overflow-y: auto; }
+#ttt2-outfit-items pre, #ttt2-outfit-diagnosis { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 32vh; overflow-y: auto; background: #101823; padding: 10px; color: #edf5ff; }
+#ttt2-outfit-brief { box-sizing: border-box; width: 100%; background: #101823; color: #edf5ff; border: 1px solid #49617e; border-radius: 8px; padding: 10px; resize: vertical; }

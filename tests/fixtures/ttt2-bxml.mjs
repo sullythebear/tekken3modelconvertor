@@ -1,6 +1,9 @@
 // Authored item database; generated in memory, no game XML or assets.
 export function bxmlFixture({conditional=false,reference=true}={}){
  const el=(tag,attrs={},children=[])=>({tag,attrs,children}),roots=[el('InstanceInfo',{},[el('Instance',{label:'authored-upper'},[el('Data',{EquipType:'デフォルトコスチューム'}),el('Model',{section:'A'},reference?[el('Part',{mi:'7',ti:'8',bi:'9'})]:[]),...(conditional?[el('Model',{section:'B'},[el('Part',{mi:'10'})]),el('ModelBConditions',{},[el('Condition',{value:'authored'})])]:[])]),el('Instance',{label:'authored-alternate'},[el('Data',{EquipType:'authored-other'}),el('Model',{section:'A'},[el('Part',{mi:'99'})])])]),el('OffsetInfo')];
+ return writeBxmlFixture(roots);
+}
+export function writeBxmlFixture(roots){
  const nodes=[],NONE=0xffffffff;
  function walk(n,depth){const i=nodes.length;nodes.push({...n,depth,next:NONE,child:NONE});let prev;for(const c of n.children){const j=walk(c,depth+1);if(prev===undefined)nodes[i].child=j;else nodes[prev].next=j;prev=j;}return i;}
  let prev;for(const root of roots){const i=walk(root,0);if(prev!==undefined)nodes[prev].next=i;prev=i;}
