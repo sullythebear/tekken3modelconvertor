@@ -130,11 +130,10 @@ jobs:
       - name: Build beta1 beta2 private comparison
         if: steps.private.outputs.characters == 'true'
         run: node scripts/beta2-compare.mjs
-      - name: Prepare safe product report
+      - name: Prepare synthetic public report and restricted model diagnostics
+        env:
+          T3CS_PRIVATE_DIAGNOSTICS: '1'
         run: node scripts/product-report.mjs
-      - name: Save numeric-only diagnostic checkpoint
-        if: steps.private.outputs.characters == 'true' && steps.private.outputs.nikki == 'true'
-        run: node scripts/beta2-publish-metrics.mjs
       - name: Publish access-checked UNPUBLISHED private review
         if: steps.private.outputs.characters == 'true'
         env:
@@ -158,6 +157,5 @@ jobs:
             artifacts/product/report.html
             artifacts/product/studio-*.png
             artifacts/product/private-summary.json
-            artifacts/product/beta2-quality.json
             artifacts/distribution/verification.json
             artifacts/portable-smoke/windows.json

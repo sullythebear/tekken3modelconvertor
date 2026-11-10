@@ -15,6 +15,7 @@ export async function publishPrivateReview(env=process.env){
  }
  if(!imageCount)throw Error('Private review contains no rendered images');
  files['index.html']=new TextEncoder().encode('<!doctype html><meta charset="utf-8"><title>Private character review</title><h1>Private diagnostic review</h1><p>Do not publish this draft. Contains commercial character renders, no source models. Numerical differences are not artistic approval.</p>'+report.results.map(r=>`<p><a href="${r.id}/index.html">${r.id}</a></p>`).join(''));
+ for(const name of ['quality.json','project-summary.json']){try{files[name]=new Uint8Array(await readFile(path.join(dir,name)));}catch(e){if(e.code!=='ENOENT')throw e;}}
  const archive=zipSync(files,{level:1}),digest=createHash('sha256').update(archive).digest('hex'),base=`https://api.github.com/repos/${repo}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
  const request=async(url,options={})=>{const r=await fetch(url,{...options,headers:{...headers,...options.headers}});if(!r.ok)throw Error(`Private review API failed (${r.status})`);return r;};let draft;
  try{
