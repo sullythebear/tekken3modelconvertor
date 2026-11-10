@@ -1309,19 +1309,20 @@ installProductStart({example:async()=>{try{await load([{name:"studio-voorbeeld.g
 
 async function rebuildRefined(base,state,target){
  if(!base)throw Error('Artistieke basis ontbreekt.');
- setBusy(true);let candidate=null,baked=null;
+ const keepDirty=artDirty;clearTimeout(artTimer);const editController=new AbortController();controller=editController;setBusy(true);let candidate=null,baked=null;const checkpoint=async()=>{await new Promise(r=>setTimeout(r,0));if(editController.signal.aborted)throw Error('Verfijning geannuleerd; bestaand resultaat behouden.');};
  try{
-  status('Detailkeuzes verwerken…',.15);await new Promise(r=>setTimeout(r,0));
+  status('Detailkeuzes verwerken…',.15);await checkpoint();
   applyDetailProtection(base.root,state);
-  candidate=target==null?base:await optimizeGameCandidate(base,{triangles:target,binaryCutout:$('bake').checked});
-  if($('bake').checked)baked=await bakeAtlas(candidate,{art:candidate.settings.art});
+  status(target==null?'Artistieke basis behouden…':'Kandidaat optimaliseren met detailkeuzes…',.35);
+  candidate=target==null?base:await optimizeGameCandidate(base,{triangles:target,binaryCutout:$('bake').checked});await checkpoint();
+  status('Textures voorbereiden…',.7);if($('bake').checked)baked=await bakeAtlas(candidate,{art:candidate.settings.art});await checkpoint();
   candidate.root.userData.t3csRefinement={version:1,enabledCommands:state.commands.slice(0,state.cursor).filter(c=>c.enabled).length,experimentalTarget:target};
-  const previous=converted,oldAtlas=atlas;converted=candidate;atlas=baked;artDirty=false;
+  const previous=converted,oldAtlas=atlas;converted=candidate;atlas=baked;artDirty=keepDirty;
   if(previous&&previous!==base&&previous!==candidate)disposeScene(previous.root);if(oldAtlas)disposeScene(oldAtlas.root);
   resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();$('empty-result').hidden=true;
-  status(`Detailkeuzes verwerkt · ${converted.stats.triangles} driehoeken. SOURCE ongewijzigd; gameplay niet geverifieerd.`,1);
+  status(keepDirty?'Lokale keuzes gereset; instellingen gewijzigd. Converteer opnieuw.':`Detailkeuzes verwerkt · ${converted.stats.triangles} driehoeken. SOURCE ongewijzigd; gameplay niet geverifieerd.`,1);
  }catch(e){if(candidate&&candidate!==base&&candidate!==converted)disposeScene(candidate.root);if(baked&&baked!==atlas)disposeScene(baked.root);if(refinementEditor?.base===base)applyDetailProtection(base.root,refinementEditor.state);throw e;}
- finally{setBusy(false);}
+ finally{if(controller===editController)controller=null;setBusy(false);}
 }
-refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{stopPlayback();if(nativeMode)returnSourcePose();}});
+refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{clearTimeout(artTimer);stopPlayback();if(nativeMode)returnSourcePose();}});
 if(window.studioTest)Object.assign(window.studioTest,{getRefinement:()=>refinementEditor});
