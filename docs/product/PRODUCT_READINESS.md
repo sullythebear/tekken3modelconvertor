@@ -47,3 +47,11 @@ Geen onbewezen RAM-/snelheidswinst claimen. CRC32 vergt een extra lineaire passa
 `npm test`, `npm run test:product`, bestaande UI-workflows en native fixtures; Actions `product-beta.yml` test werkelijk verpakte app en self-extracting portable EXE. Producttest: voorbeeld/import → conversie → resoluties → modusswitch → projectsave → app afsluiten → nieuwe app → cold reopen → conversie → directe GLB-save → onafhankelijke container/referentiecontrole → herimport. Privéregressies alleen via bestaande secrets en tijdelijke mappen; artifacts expliciet toegestaan: eigen screenshots, productgetallen/JUnit, EXE. Geen bronarchief/project-ZIP/texture/commerciële afbeelding.
 
 Publiceer geen stabiele release. Actions levert commitgebonden kandidaat. Beta-aanvaarding blijft afhankelijk van de echte Windows-run; ontbrekende tests of kritieke regressies betekenen ontwikkelbuild met blocker, geen succesvolle beta.
+
+## Lokale productvalidatie (werkstation, geen Windows-claim)
+
+315/315 Node-tests geslaagd; alle311 reguliere baseline-tests behouden. Werkelijke Electron-productronde geslaagd met eigen rigged fixture:4784 brontriangles →3496 voorbereide triangles bij experimenteel doel900. Dit toont de workflow, niet een gehaald polygonbudget. Project49062bytes, GLB640444bytes; cold-reopen en herimport geslaagd. Original80 UI-workflows inclusief echte project-/voorbereidingsexport slagen. Screenshots op1366/1920/2560px gemaakt;1366px visueel bekeken, geen horizontale overflow. Oorspronkelijke synthetische vorm bevat afzonderlijke componenten; geen compleet commercieel model getoond of beoordeeld.
+
+Onafhankelijke GLB-validator controleert container/BIN-lengtes, bufferViews/accessors, volledige indexrange, materiaal-/afbeeldingreferenties en skin-joints/bindaccessors. Beschadigde indexfixture wordt geweigerd. Het hulpvenster is lokaal en geïsoleerd; aanvankelijk verhinderde de algemene navigatieblokkade ook de handleiding, nu uitsluitend deze exacte document-URL toegestaan.
+
+Logging: uitsluitend lokale startup/responsiviteit/renderer-exitmetadata in gebruikersprofiel `logs/runtime.jsonl`, rotatie rond1MiB. Geen automatische externe crash-upload. Opslag annuleren na bevestiging is niet als onmiddellijk interruptibele UI-bewerking geïmplementeerd; de native dialoog kan worden geannuleerd en de atomaire schrijver heeft geteste abortcontrole vóór commit.

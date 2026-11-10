@@ -72,7 +72,7 @@ app.whenReady().then(() => {
   main.on('unresponsive',()=>localLog({event:'unresponsive'}));
   main.on('responsive',()=>localLog({event:'responsive'}));
   main.webContents.setWindowOpenHandler(({url}) => url===helpURL?{action:'allow',overrideBrowserWindowOptions:{width:960,height:800,backgroundColor:'#101925',webPreferences:{preload:undefined,nodeIntegration:false,contextIsolation:true,sandbox:true}}}:{action:'deny'});
-  main.webContents.on('did-create-window',child=>{child.webContents.setWindowOpenHandler(()=>({action:'deny'}));child.webContents.on('will-navigate',e=>e.preventDefault());});
+  main.webContents.on('did-create-window',child=>{child.webContents.setWindowOpenHandler(()=>({action:'deny'}));child.webContents.on('will-navigate',(e,url)=>{if(url!==helpURL)e.preventDefault();});});
   main.webContents.on("will-navigate", (e) => e.preventDefault());
   main.webContents.session.setPermissionRequestHandler((_, __, cb) =>
     cb(false),

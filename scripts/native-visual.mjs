@@ -1,6 +1,7 @@
+import path from 'node:path';
 import {readT3CM} from "../src/core/exporter.js";
 import assert from "node:assert/strict";
-import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile, rm } from "node:fs/promises";
 import { unzipSync } from "fflate";
 import {
   decodeDonor,
@@ -9,7 +10,12 @@ import {
 } from "../src/core/donor.js";
 import { browserSession } from "./browser.mjs";
 await mkdir("artifacts/native", { recursive: true });
+process.env.T3CS_RUN_OUTPUT??='artifacts/native';
 const session = await browserSession();
+async function exportFixture(button,name,destination){
+ if(!session.desktop){const pending=session.page.waitForEvent('download');await session.page.click(button);await(await pending).saveAs(destination);return;}
+ const file=path.resolve(process.env.T3CS_RUN_OUTPUT,name);await rm(file,{force:true});await session.page.click(button);const deadline=Date.now()+15000;while(true){try{const bytes=await readFile(file);await writeFile(destination,bytes);return;}catch(e){if(e.code!=='ENOENT'||Date.now()>deadline)throw e;await new Promise(r=>setTimeout(r,50));}}
+}
 try {
   const { page, errors } = session;
   await page.selectOption('#art-preset','baseline'); // Isolate the unchanged native codec route.
@@ -52,10 +58,7 @@ try {
     ];
   });
   assert.deepEqual(cameras[0], cameras[1]);
-  const promise = page.waitForEvent("download");
-  await page.click("#native-export");
-  const download = await promise;
-  await download.saveAs("artifacts/native/synthetic-native-candidate.zip");
+  await exportFixture('#native-export','native-donor-candidate.zip','artifacts/native/synthetic-native-candidate.zip');
   const zip = unzipSync(
       new Uint8Array(
         await readFile("artifacts/native/synthetic-native-candidate.zip"),
@@ -70,10 +73,7 @@ try {
     Object.keys(zip).some((k) => k.endsWith(".glb")),
     false,
   );
-  const expandedDownloadPromise = page.waitForEvent("download");
-  await page.click("#expanded-export");
-  const expandedDownload = await expandedDownloadPromise;
-  await expandedDownload.saveAs("artifacts/native/expanded-container-candidate.zip");
+  await exportFixture('#expanded-export','expanded-container-candidate.zip','artifacts/native/expanded-container-candidate.zip');
   const expandedZIP = unzipSync(new Uint8Array(await readFile("artifacts/native/expanded-container-candidate.zip")));
   const container = readT3CM(expandedZIP["model.bin"]);
   assert.deepEqual(container.model, zip["candidate.3dm"]);
@@ -103,7 +103,7 @@ try {
           "T3CM/T3TX UI export decodes to identical native model and complete relocations",
         ],
         report,
-        windows: "NOT TESTED",
+        windows: process.platform==='win32'?'EXECUTED':'NOT TESTED',
         game: "NOT TESTED",
       },
       null,
