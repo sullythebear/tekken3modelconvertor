@@ -87,7 +87,7 @@ function installWorkspace({ getState, getArt, presets, resizeViews = () => {} })
   badge.setAttribute("aria-live", "polite");
   style.append(badge);
   const result = section("03", "Resultaat");
-  for (const id of ["convert", "cancel", "export"]) field(id, result);
+  for (const id of ["convert", "cancel", "export-glb", "export"]) field(id, result);
   result.append(el("p", "hint", "PS1-voorbereiding is geen bewijs van speelbaarheid. Native validatie vind je bij Instellingen."));
   const inputStack = el("div", "workflow-inputs");
   left.prepend(inputStack);

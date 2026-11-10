@@ -1,3 +1,4 @@
+import {installProductStart} from './product-start.js';
 import {auditHandGeometry} from '../core/hand-geometry-audit.js';
 import {compareRasterRegions} from '../core/raster-regions.js';
 import {diagnoseBakeCorrespondence} from '../core/bake-correspondence.js';
@@ -88,7 +89,7 @@ $('art-resolution').onchange=()=>simulationView.setResolution($('art-resolution'
 $('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
 $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
-$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});await save('character-project.zip',bytes);status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
+$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});const saved=await save('character-project.zip',bytes);if(!saved){status('Opslaan geannuleerd; bestaand project ongewijzigd.');return;}status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
 $('project-open').onclick=()=>$('project-file').click();
 $('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));const reuse=reuseExactProjectAssets(p.records,files);p.records=reuse.records;projectAssetReuse={reusedFiles:reuse.reusedFiles,reusedBytes:reuse.reusedBytes};await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
 let projectAssetReuse = null;
@@ -166,6 +167,7 @@ function setBusy(value) {
   $("convert").disabled = value || !source;
   $("model-select").disabled = value || !source;
   $("export").disabled = value || !converted || artDirty;
+  $("export-glb").disabled=value||!converted||artDirty||nativeMode;
   $("probe").disabled = value || !source;
   $("cancel").hidden = !value;
   for (const id of ["mapping-apply", "mapping-reset", "mapping-save", "mapping-load"])
@@ -193,8 +195,8 @@ function setBusy(value) {
     $("play-animation").disabled = source.animations.length === 0;
 }
 function showError(e) {
-  status(e.message);
-  message(e.message, "error");
+  status("Bewerking mislukt: "+(e.message??"Onbekende fout"));
+  message(e.message??"Onbekende fout", "error");
   console.error(e);
 }
 function message(text, type = "warning") {
@@ -533,6 +535,7 @@ async function runConvert() {
     setBusy(false);
   }
 }
+$('export-glb').onclick=async()=>{if(!converted||busy||artDirty||nativeMode)return;setBusy(true);try{status('GLB schrijven en opnieuw inlezen…');const bytes=await exportGLB(atlas?.root??converted.root);const check=await importCharacter([{name:'validated-export.glb',data:bytes}]);try{if(!check.stats.triangles)throw Error('De export bevat geen driehoeken.');}finally{disposeScene(check.root);}if(await save('converted-character.glb',bytes))status('GLB opgeslagen en opnieuw ingelezen. Gamecompatibiliteit niet geverifieerd.',1);else status('Export geannuleerd.');}catch(e){showError(e);}finally{setBusy(false);}};
 async function exportGLB(root) {
   return new Uint8Array(
     await new GLTFExporter().parseAsync(root, {
@@ -1289,3 +1292,5 @@ $('optimize-candidate').onclick=async()=>{
 };
 
 installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
+
+installProductStart({example:async()=>{try{await load([{name:"studio-voorbeeld.glb",data:await syntheticCharacter()}]);}catch(e){showError(e);}}});

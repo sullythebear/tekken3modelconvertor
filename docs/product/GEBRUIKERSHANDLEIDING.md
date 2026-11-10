@@ -1,0 +1,56 @@
+# Tekken 3 Conversion Studio — gebruikershandleiding
+
+## Wat doet de app?
+
+Een lokale Windows-tool die moderne 3D-personages voorbereidt in een klassieke PS1-stijl. Vergelijk bron en resultaat, pas details aan en exporteer herbruikbare geometrie/textures. De software levert geen automatisch bewezen speelbaar Tekken 3-personage. Native game-export is experimenteel.
+
+## Windows starten
+
+Pak het Actions-downloadarchief uit en start `Tekken3ConversionStudio-0.8.0-beta.1-x64.exe`. Windows11 x64 is het doelplatform; geen Blender, Python of ontwikkelomgeving nodig. De portable launcher gebruikt tijdelijk uitgepakte bestanden. De app is niet digitaal ondertekend: Windows kan een uitgeverswaarschuwing tonen. Download uitsluitend de eigen projectbuild. Installer is niet inbegrepen.
+
+Hardware: Windows11 x64, werkende WebGL2/GPU-driver. Praktisch advies (geen gemeten minimum): 8GB RAM voor kleine modellen, 16GB of meer voor grote projecten. Projecten mogen maximaal512MiB bevatten; zware bronmodellen kunnen meer werkgeheugen vragen. Scherm minimaal1100×740, getest op1366×768/1920×1080/2560×1440.
+
+## Eerste conversie
+
+1. Kies **Model importeren**, selecteer het model en alle lokale bijbestanden. Of gebruik **Voorbeeld bekijken** met het meegeleverde, zelfgemaakte model.
+2. Bekijk de bronpreview en importanalyse. Controleer ontbrekende textures en de schaal/oriëntatie. Bij glTF horen externe BIN en afbeeldingen erbij; bij OBJ eventuele MTL en afbeeldingen.
+3. Kies een stijl, bijvoorbeeld **Tekken 3 Authentic**. Dit is een artistiek profiel, geen bewezen runtimecertificaat. Kies een detailniveau; de werkelijk haalbare geometrie kan meer driehoeken bevatten.
+4. Klik **Converteer naar PS1**. Vergelijk bronmodel en PS1-resultaat. Controleer gezicht, handen, haar, kleding en gewrichten. Stop een lange bewerking via Annuleren waar de pipeline controlepunten aanbiedt.
+5. Pas instellingen aan en converteer opnieuw. Het resultaat moet na wijzigingen eerst worden vernieuwd voordat export beschikbaar is.
+6. Kies **Model exporteren · GLB**. De app leest de export opnieuw in vóór de opslaan-dialoog. Of exporteer een **voorbereidingspakket** met GLB, atlas, TIM en diagnostiek. Dat pakket is geen speelbare mod.
+
+## Formaten
+
+Import: FBX, OBJ+MTL, GLB, glTF+BIN. Textures: TGA, PNG, JPEG. Niet iedere FBX-/glTF-extensie, proceduraal materiaal of game-shader wordt ondersteund. Neem uitsluitend bestanden waarvan je het gebruik mag testen.
+
+Export: directe geconverteerde GLB; `.t3prep`-voorbereidingspakket met GLB/PNG/TIM/rapport; project-ZIP; instellingen/skeletonmapping JSON en vergelijkingsbeelden. Geen algemene FBX- of OBJ-export. GLB behoudt de door de pipeline ondersteunde mesh/material/skin-data; originele complexe shaders worden niet identiek overgenomen.
+
+## Standaard en geavanceerd
+
+Standaardmodus houdt import, stijl, detailniveau, vergelijking en export centraal. Rechts open je instellingen; Geavanceerde modus geeft toegang tot anatomie, haar, lokale correcties, materialen, skeletonmapping, diagnostiek en experimentele native export. Zoeken helpt instellingen vinden. Wisselen van modus reset geen conversie-instellingen. Paneelvoorkeuren worden per Windows-gebruikersprofiel bewaard.
+
+Vertex snapping, affine simulatie en schermresolutie betreffen previeweffecten; reconstructie, atlas, kleurkwantisatie en toegepaste flat normals kunnen de export veranderen. Lees de labels en controleer altijd de echte export.
+
+## Projecten
+
+**Project opslaan** bewaart bronassets, materiaalcorrecties, mapping en profielinstellingen in een ZIP. **Project openen** herstelt die en vraagt een nieuwe conversie voor het resultaat. Sla onder een andere naam op via de gewone opslaan-dialoog. Bestaande schema1-projecten blijven leesbaar; nieuwe krijgen een CRC32-assetcontrole. Die detecteert toevallige schade, niet kwaadaardige vervalsing.
+
+Annuleer je de opslaan-dialoog, dan blijft het bestaande project ongewijzigd. Bij een schrijffout wordt het bestaande doel niet eerst leeggeschreven. Bewaar daarnaast eigen backups. Tijdens onverwachte stroomuitval kan geen absolute garantie worden gegeven. Importeer bronbestanden opnieuw als ze in het project ontbreken of beschadigd zijn.
+
+## Problemen oplossen
+
+- **Texture ontbreekt:** voeg de juiste lokale afbeelding toe en controleer de materiaaltoewijzing in Geavanceerde modus. Een normal map is geen diffusekleur.
+- **Geen skeleton:** statische conversie kan werken; animatie of automatische mapping is dan beperkt.
+- **Zwarte/witte vlakken:** vergelijk eerst de bron, materiaalbinding, UV's en transparantie. Niet ieder donker materiaal is een conversiefout.
+- **Doelbudget niet gehaald:** de pipeline beschermt contouren/UV's/anatomie. Gebruik werkelijke aantallen, niet alleen het ingestelde doel.
+- **Project beschadigd:** behoud je originele ZIP en gebruik een backup; de app weigert ongeldige of onvolledige data.
+- **Opslaan lukt niet:** kies een schrijfbare lokale map, voldoende vrije ruimte en een korte bestandsnaam. Vermijd netwerklocaties bij problemen.
+- **Zware conversie:** sluit andere grote modellen/processen, test minder detail. Sommige bakingstappen blijven tijdelijk synchroon.
+
+## Native Tekken3-export
+
+Donorbestanden, bindcalibratie, skeletonmapping, runtime en animaties moeten afzonderlijk worden gevalideerd. Synthetische fixtures of een correcte GLB zijn geen gameplaybewijs. Geen uniforme bewezen limiet van900 driehoeken wordt beloofd. Native/Expanded/BNS-acties blijven experimenteel.
+
+## Privacy
+
+Normale import/conversie werkt lokaal. De app uploadt je modellen niet automatisch. Deel geen persoonlijke assets/projecten of commerciële beelden zonder toestemming. Ontwikkeltests via bestaande repositorysecrets zijn afzonderlijke afgeschermde regressies; bronbestanden en renders horen niet in publieke artifacts.

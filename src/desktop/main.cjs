@@ -1,5 +1,7 @@
 const { app, BrowserWindow, dialog, ipcMain } = require("electron");
 const path = require("node:path");
+const {atomicWrite}=require("./atomic-write.cjs");
+require("electron").nativeTheme.themeSource="dark";
 const fs = require("node:fs/promises");
 // Private-input automation keeps Chromium runtime data with the temporary
 // assets. Production launches retain the normal per-user application profile.
@@ -46,6 +48,7 @@ function trusted(event) {
 }
 app.whenReady().then(() => {
   main = new BrowserWindow({
+    icon:path.resolve(__dirname,"../../assets/studio.ico"),
     width: 1560,
     height: 1000,
     minWidth: 1100,
@@ -60,7 +63,16 @@ app.whenReady().then(() => {
       webSecurity: true,
     },
   });
-  main.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
+  const helpURL=require('node:url').pathToFileURL(path.join(ROOT,'docs/product/GEBRUIKERSHANDLEIDING.html')).href;
+  const logFile=path.join(app.getPath('userData'),'logs','runtime.jsonl');
+  let logQueue=Promise.resolve();
+  const localLog=entry=>{logQueue=logQueue.then(async()=>{await fs.mkdir(path.dirname(logFile),{recursive:true});const stat=await fs.stat(logFile).catch(()=>null);if(stat?.size>1024**2)await fs.rename(logFile,logFile+'.previous').catch(()=>{});await fs.appendFile(logFile,JSON.stringify({time:new Date().toISOString(),version:app.getVersion(),...entry})+'\n');}).catch(()=>{});};
+  localLog({event:'start',platform:process.platform});
+  main.webContents.on('render-process-gone',(_event,details)=>localLog({event:'renderer-exit',reason:details.reason,code:details.exitCode}));
+  main.on('unresponsive',()=>localLog({event:'unresponsive'}));
+  main.on('responsive',()=>localLog({event:'responsive'}));
+  main.webContents.setWindowOpenHandler(({url}) => url===helpURL?{action:'allow',overrideBrowserWindowOptions:{width:960,height:800,backgroundColor:'#101925',webPreferences:{preload:undefined,nodeIntegration:false,contextIsolation:true,sandbox:true}}}:{action:'deny'});
+  main.webContents.on('did-create-window',child=>{child.webContents.setWindowOpenHandler(()=>({action:'deny'}));child.webContents.on('will-navigate',e=>e.preventDefault());});
   main.webContents.on("will-navigate", (e) => e.preventDefault());
   main.webContents.session.setPermissionRequestHandler((_, __, cb) =>
     cb(false),
@@ -189,7 +201,7 @@ app.whenReady().then(() => {
     trusted(event);
     if (
       typeof name !== "string" ||
-      !/^[-a-zA-Z0-9_. ]+\.(zip|png|json|t3prep|bns)$/.test(name) ||
+      !/^[-a-zA-Z0-9_. ]+\.(zip|png|json|t3prep|bns|glb)$/.test(name) ||
       !(data instanceof Uint8Array) ||
       data.length > 512 * 1024 * 1024
     )
@@ -204,14 +216,7 @@ app.whenReady().then(() => {
       throw Error(
         "Export must be a new file; an imported source/game file cannot be overwritten.",
       );
-    const target = result.filePath,
-      temp = target + ".t3cs-tmp-" + require("node:crypto").randomUUID();
-    try {
-      await fs.writeFile(temp, data, { flag: "wx" });
-      await fs.rename(temp, target);
-    } finally {
-      await fs.unlink(temp).catch(() => {});
-    }
+    await atomicWrite(result.filePath,data);
     return true;
   });
   if(process.env.T3CS_AUTOMATION==='1'&&process.env.T3CS_SMOKE_OUTPUT){

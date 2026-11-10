@@ -1,3 +1,5 @@
+import {productIcon} from './product-icon.mjs';
+await productIcon();
 import {patchFBX, patchGLTF} from "./extended-loader-patches.mjs";
 import { build } from "esbuild";
 import { mkdir, copyFile, cp, readFile, writeFile } from "node:fs/promises";

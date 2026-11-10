@@ -6,3 +6,13 @@ artifacts/
 *.log
 
 __pycache__/
+
+# Private inputs and generated distribution branding
+assets/studio.ico
+*.fbx
+*.glb
+*.gltf
+*.tga
+*.dds
+*.zip
+private-inputs/

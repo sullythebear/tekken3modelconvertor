@@ -1,0 +1,2 @@
+#!/bin/sh
+exec node scripts/guard-game-assets.mjs --staged

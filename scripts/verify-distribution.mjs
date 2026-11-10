@@ -10,7 +10,7 @@ const asar = 'release/win-unpacked/resources/app.asar';
 // slash-delimited multi-level directory would be treated as one header key.
 const extract = file => extractFile(asar, path.normalize(file));
 const hashes = {};
-for (const file of ['dist/app.js', 'dist/index.html', 'dist/style.css', 'src/desktop/main.cjs', 'src/desktop/preload.cjs', 'src/core/backup.mjs', 'src/core/disc-image.mjs']) {
+for (const file of ['dist/app.js', 'dist/index.html', 'dist/style.css', 'src/desktop/main.cjs', 'src/desktop/preload.cjs', 'src/desktop/atomic-write.cjs', 'src/core/backup.mjs', 'src/core/disc-image.mjs']) {
   const packaged = extract(file), current = await readFile(file);
   assert.ok(packaged.equals(current), `Packaged ${file} differs from workspace`);
   hashes[file] = createHash('sha256').update(packaged).digest('hex');

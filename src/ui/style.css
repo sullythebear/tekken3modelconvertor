@@ -1138,3 +1138,29 @@ body[data-studio-ui] .workflow-rail .result-step > .hint {
   margin: 5px 0 0;
 }
 body[data-studio-ui] .workflow-rail h2::before{content:"";display:inline-block;width:4px;height:4px;background:#9ee7f2;box-shadow:5px 0 #aa9eea66;margin-right:11px;vertical-align:middle}
+
+/* Native select popups do not inherit the closed control's gradient on Windows.
+   Give the popup rows their own opaque colours; retain native keyboard semantics. */
+select {
+  color-scheme: dark;
+  background-color: #1a283d;
+  color: #edf5ff;
+}
+select option, select optgroup {
+  background-color: #1a283d;
+  color: #edf5ff;
+}
+select option:is(:checked, :hover, :active, :focus) {
+  background-color: #365772;
+  color: #ffffff;
+}
+select:disabled, select option:disabled, select optgroup:disabled {
+  background-color: #202c3d;
+  color: #acb9ca;
+  opacity: 1;
+}
+@media (forced-colors: active) {
+  select, select option, select optgroup { forced-color-adjust: auto; }
+}
+
+.product-start{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 18px;border:1px solid #607a9477;border-radius:16px;background:linear-gradient(120deg,#183042dd,#231f39dd);margin:8px 0}.product-start[hidden]{display:none}.product-start p{margin:5px 0;color:#c3d0df}.product-start button{width:auto}.product-start a{color:#a4e9f5}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a4e9f5;outline-offset:3px}
