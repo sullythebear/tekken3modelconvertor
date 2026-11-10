@@ -7,5 +7,5 @@ export function installProductStart({example}){
  document.querySelector('#start-import').onclick=()=>document.querySelector('#import').click();
  document.querySelector('#start-project').onclick=()=>document.querySelector('#project-open').click();
  document.querySelector('#start-example').onclick=example;
- new MutationObserver(()=>{if(document.querySelector('#project-name').textContent!=='Untitled character')host.hidden=true;}).observe(document.querySelector('#project-name'),{childList:true,subtree:true});
+ new MutationObserver(()=>{if(document.querySelector('#project-name').textContent!=='Naamloos personage')host.hidden=true;}).observe(document.querySelector('#project-name'),{childList:true,subtree:true});
 }

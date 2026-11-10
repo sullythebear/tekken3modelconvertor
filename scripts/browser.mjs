@@ -1,6 +1,6 @@
 import { chromium, _electron } from "playwright-core";
 import { createServer } from "node:http";
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 export function isRendererFailure(type,text){return type==='error'&&/Shader Error|VALIDATE_STATUS|THREE\.WebGLProgram|Error creating WebGL context|GL_INVALID_OPERATION/.test(text);}
 export function applicationEnvironment(env){
@@ -8,6 +8,7 @@ export function applicationEnvironment(env){
 }
 export async function browserSession({presentation="advanced"}={}) {
   if (process.env.T3CS_AUTOMATION === "1") {
+    await mkdir(path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki"),{recursive:true});
     const app = await _electron.launch({
       executablePath: process.env.T3CS_PACKAGED_APP ? path.resolve(process.env.T3CS_PACKAGED_APP) : path.resolve("node_modules/electron/dist/" + (process.platform === "win32" ? "electron.exe" : "electron")),
       args: process.env.T3CS_PACKAGED_APP ? [] : process.platform === "win32" ? ["."] : ["--no-sandbox", "--ozone-platform=headless", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "."],
@@ -27,8 +28,7 @@ export async function browserSession({presentation="advanced"}={}) {
       function pathJoin(a,b) {return a + "/" + b.replace(/^.*[\\/]/, "");}
     }, path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki"));
     return {page, app, errors, desktop: true, async close() {
-      await writeFile(path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki", "electron-console.json"), JSON.stringify({errors, console: consoleLog.slice(-4000)},null,2));
-      await app.close();
+      try{await writeFile(path.resolve(process.env.T3CS_RUN_OUTPUT ?? "artifacts/nikki", "electron-console.json"), JSON.stringify({errors, console: consoleLog.slice(-4000)},null,2));}finally{await app.close();}
     }};
   }
   const root = path.resolve("dist"),
