@@ -1,3 +1,6 @@
+import {installRefinementEditor} from './refinement-editor.js';
+import {applyDetailProtection} from '../core/refinement.js';
+import {writeRefinementSnapshot,readRefinementSnapshot} from '../core/refinement-project.js';
 import {installProductStart} from './product-start.js';
 import {auditHandGeometry} from '../core/hand-geometry-audit.js';
 import {compareRasterRegions} from '../core/raster-regions.js';
@@ -52,7 +55,8 @@ const $ = (id) => document.getElementById(id),
   resultView = new View($("result"));
 const simulationView=new View($("simulation"));
 let artProfile={preset:'authentic',...ART_PRESETS.authentic,regions:{},corrections:{}};
-let artTimer,artDirty=false;
+let artTimer,artDirty=false,refinementEditor=null;
+function resetRefinement(){const old=refinementEditor?.reset();if(old&&old!==converted)disposeScene(old.root);}
 $('art-camera').onchange=()=>{if($('art-camera').value==='face'&&source?.skeleton.mapping.head){const target=source.skeleton.mapping.head.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.075,.06));sourceView.controls.target.copy(target);sourceView.camera.position.copy(target).add(new THREE.Vector3(0,.025,.62));sourceView.controls.update();}else sourceView.reset(Number($('art-camera').value)||0);resultView.sync(sourceView);simulationView.sync(sourceView);};
 $('art-mesh-apply').onclick=()=>{if(!$('art-mesh').value)return;artProfile.meshRoles??={};artProfile.meshRoles[$('art-mesh').value]=$('art-region').value;artChanged();};
 $('reference-measure').onclick=()=>$('reference-files').click();
@@ -89,9 +93,9 @@ $('art-resolution').onchange=()=>simulationView.setResolution($('art-resolution'
 $('art-save').onclick=()=>save('art-profile.json',strToU8(JSON.stringify({schema:'t3cs-art/1',settings:artSettings(artProfile)},null,2)));
 $('art-open').onclick=()=>$('art-profile-file').click();
 $('art-profile-file').onchange=async e=>{try{const p=JSON.parse(await e.target.files[0].text());if(p.schema!=='t3cs-art/1')throw Error('Invalid art profile');artProfile=artSettings(p.settings);$('art-preset').value=artProfile.preset;refreshArt();artChanged();}catch(e){showError(e);}};
-$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const bytes=writeStudioProject(files,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot()});const saved=await save('character-project.zip',bytes);if(!saved){status('Opslaan geannuleerd; bestaand project ongewijzigd.');return;}status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
+$('project-save').onclick=async()=>{if(!source||busy)return;setBusy(true);status('Saving project…');try{await new Promise(resolve=>setTimeout(resolve,0));const refinement=refinementEditor?.snapshot();let records=files;if(refinement){let i=0;while(files.some(f=>f.name===`__t3cs_preparation_${i}.json`))i++;refinement.file=`__t3cs_preparation_${i}.json`;records=[...files,{name:refinement.file,data:writeRefinementSnapshot(refinementEditor.base)}];}const bytes=writeStudioProject(records,{art:artProfile,preset:$('art-preset').value,mapping:snapshotProjectMapping(source.root),selected:$('model-select').value,materials:materialSnapshot(),...(refinement?{refinement}:{})});const saved=await save('character-project.zip',bytes);if(!saved){status('Opslaan geannuleerd; bestaand project ongewijzigd.');return;}status(`Project saved (${(bytes.length/1024**2).toFixed(1)} MiB).`,1);}catch(e){showError(e);}finally{setBusy(false);}};
 $('project-open').onclick=()=>$('project-file').click();
-$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));const reuse=reuseExactProjectAssets(p.records,files);p.records=reuse.records;projectAssetReuse={reusedFiles:reuse.reusedFiles,reusedBytes:reuse.reusedBytes};await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
+$('project-file').onchange=async e=>{try{if(e.target.files[0].size>512*1024**2)throw Error('Project exceeds 512 MiB');const p=readStudioProject(new Uint8Array(await e.target.files[0].arrayBuffer()));const prepared=await readRefinementSnapshot(p);const reuse=reuseExactProjectAssets(p.records.filter(r=>r.name!==p.refinement?.file),files);p.records=reuse.records;projectAssetReuse={reusedFiles:reuse.reusedFiles,reusedBytes:reuse.reusedBytes};await load(p.records,p.selected);artProfile=artSettings(p.art);$('art-preset').value=p.preset;refreshArt();source.skeleton=restoreProjectMapping(source.root,p.mapping);await restoreMaterials(p.materials);$('art-flat').checked=!!artProfile.flat;$('art-dither').checked=!!artProfile.dither;$('art-region').onchange();if(prepared){refinementEditor.restore(prepared,p.refinement);await rebuildRefined(prepared,p.refinement.state,p.refinement.target);status('Project restored; lokale detailkeuzes en voorbereiding hersteld.',1);}else status('Project restored; convert to rebuild outputs.',1);}catch(e){showError(e);}};
 let projectAssetReuse = null;
 let source = null,
   converted = null,
@@ -158,6 +162,7 @@ function status(text, fraction = 0) {
 }
 function setBusy(value) {
   busy = value;
+  refinementEditor?.refresh();
   $('head').disabled=value||$('art-preset').value!=='baseline';
   for(const node of document.querySelectorAll('input[id^="art-"], select[id^="art-"], button[id^="art-"], #project-save, #project-open, #reference-measure'))node.disabled=value;
   $("import").disabled = value;
@@ -294,7 +299,8 @@ function changeMapping(update) {
   const next = update();
   returnSourcePose();
   clearNativeCandidate();
-  if (converted) disposeScene(converted.root);
+  resetRefinement();
+    if (converted) disposeScene(converted.root);
   if (atlas) disposeScene(atlas.root);
   converted = atlas = null;
   source.skeleton = next;
@@ -413,6 +419,7 @@ async function load(records, selected) {
     next = await importCharacter(records, selected);
     if (next.stats.meshes === 0) throw Error("No renderable mesh in source.");
     if (source) source.dispose();
+    resetRefinement();
     if (converted) disposeScene(converted.root);
     if (atlas) disposeScene(atlas.root);
     clearNativeCandidate();
@@ -475,6 +482,7 @@ async function runConvert() {
   stopPlayback();
   if (nativeMode) returnSourcePose();
   if (!source || busy) return;
+  if(refinementEditor?.hasCommands){status('Reset eerst de lokale detailkeuzes voordat je opnieuw automatisch converteert. Je kunt ze bewaren in een project.');return;}
   setBusy(true);
   controller = new AbortController();
   let next = null,
@@ -508,6 +516,7 @@ async function runConvert() {
       }
     }
     if (controller.signal.aborted) throw Error("Conversion cancelled");
+    resetRefinement();
     if (converted) disposeScene(converted.root);
     if (atlas) disposeScene(atlas.root);
     converted = next;
@@ -654,7 +663,8 @@ async function appendTextures(records) {
 }
 function invalidateMaterialChange(text) {
   returnSourcePose(); clearNativeCandidate();
-  if (converted) disposeScene(converted.root);
+  resetRefinement();
+    if (converted) disposeScene(converted.root);
   if (atlas) disposeScene(atlas.root);
   converted = atlas = null;
   resultView.clearModel(); $("empty-result").hidden = false;
@@ -1281,6 +1291,8 @@ $('hair-method').onchange=()=>{artProfile.hairMethod=$('hair-method').value;artC
 
 $('optimize-candidate').onclick=async()=>{
  if(!converted||busy||artDirty)return;
+ if(refinementEditor?.hasCommands){await refinementEditor.optimize(Number($('triangles').value));return;}
+ resetRefinement();
  setBusy(true);
  try{
   const candidate=await optimizeGameCandidate(converted,{triangles:Number($('triangles').value),binaryCutout:$('bake').checked});
@@ -1294,3 +1306,22 @@ $('optimize-candidate').onclick=async()=>{
 installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}),getArt:()=>artProfile,presets:ART_PRESETS,resizeViews:()=>{sourceView.resize();resultView.resize();simulationView.resize();}});
 
 installProductStart({example:async()=>{try{await load([{name:"studio-voorbeeld.glb",data:await syntheticCharacter()}]);}catch(e){showError(e);}}});
+
+async function rebuildRefined(base,state,target){
+ if(!base)throw Error('Artistieke basis ontbreekt.');
+ setBusy(true);let candidate=null,baked=null;
+ try{
+  status('Detailkeuzes verwerken…',.15);await new Promise(r=>setTimeout(r,0));
+  applyDetailProtection(base.root,state);
+  candidate=target==null?base:await optimizeGameCandidate(base,{triangles:target,binaryCutout:$('bake').checked});
+  if($('bake').checked)baked=await bakeAtlas(candidate,{art:candidate.settings.art});
+  candidate.root.userData.t3csRefinement={version:1,enabledCommands:state.commands.slice(0,state.cursor).filter(c=>c.enabled).length,experimentalTarget:target};
+  const previous=converted,oldAtlas=atlas;converted=candidate;atlas=baked;artDirty=false;
+  if(previous&&previous!==base&&previous!==candidate)disposeScene(previous.root);if(oldAtlas)disposeScene(oldAtlas.root);
+  resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();$('empty-result').hidden=true;
+  status(`Detailkeuzes verwerkt · ${converted.stats.triangles} driehoeken. SOURCE ongewijzigd; gameplay niet geverifieerd.`,1);
+ }catch(e){if(candidate&&candidate!==base&&candidate!==converted)disposeScene(candidate.root);if(baked&&baked!==atlas)disposeScene(baked.root);if(refinementEditor?.base===base)applyDetailProtection(base.root,refinementEditor.state);throw e;}
+ finally{setBusy(false);}
+}
+refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{stopPlayback();if(nativeMode)returnSourcePose();}});
+if(window.studioTest)Object.assign(window.studioTest,{getRefinement:()=>refinementEditor});

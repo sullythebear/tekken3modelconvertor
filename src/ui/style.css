@@ -1164,3 +1164,15 @@ select:disabled, select option:disabled, select optgroup:disabled {
 }
 
 .product-start{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 18px;border:1px solid #607a9477;border-radius:16px;background:linear-gradient(120deg,#183042dd,#231f39dd);margin:8px 0}.product-start[hidden]{display:none}.product-start p{margin:5px 0;color:#c3d0df}.product-start button{width:auto}.product-start a{color:#a4e9f5}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a4e9f5;outline-offset:3px}
+
+/* Optional refinement inspector; no original control is removed. */
+body.refinement-active #settings-panel > :not(#refinement-panel){display:none!important}
+#refinement-panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+#refinement-panel[hidden]{display:none}
+#refine-selection-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#refinement-panel p{font-size:12px;line-height:1.5;color:#c6dce8}
+#refinement-panel h2{color:#b3eff1}
+#refine-history{display:flex;flex-direction:column;gap:8px;max-height:150px;overflow:auto}
+#refinement-panel button:focus-visible,#refine-mode:focus-visible{outline:2px solid #96ecfa;outline-offset:3px}
+#refine-mode[aria-pressed=true]{border-color:#90e7e4;background:#23404d}
+@media(prefers-reduced-motion:reduce){#refinement-panel *{transition:none!important}}

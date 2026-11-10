@@ -29,7 +29,7 @@ export class SurfaceIndex {
     };
     this.root = build(triangles.map((_, i) => i));
   }
-  nearest(point, maxDistance = Infinity) {
+  nearest(point, maxDistance = Infinity, {acceptTriangle=null}={}) {
     let best = maxDistance * maxDistance,
       result = null;
     const stack = [this.root],
@@ -41,6 +41,7 @@ export class SurfaceIndex {
       if (node.ids) {
         for (const i of node.ids) {
           const t = this.triangles[i];
+          if(acceptTriangle&&!acceptTriangle(t))continue;
           t.triangle.closestPointToPoint(point, q);
           const d = q.distanceToSquared(point);
           if (d <= best) {
