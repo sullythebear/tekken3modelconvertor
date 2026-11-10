@@ -11,3 +11,7 @@ Commercial model measurements, detailed comparisons and images belong exclusivel
 To review: sign in to repository Releases with write access, choose the latest PRIVATE character diagnostics concept, download Private-Character-Review.zip, extract and open index.html. Never publish that draft. No original models, textures or projects are included.
 
 Still pending: actual human inspection of lipstick contour, hand/wrist appearance, protected geometry cost and deformation with unavailable real clips. Numeric improvements are not artistic acceptance or gameplay validation. No original asset uploads or fresh local extraction requested.
+
+Nederlandstalige beoordeling: zie [REVIEW_NL.md](REVIEW_NL.md). De definitieve checkpoint blijft een ontwikkelkandidaat totdat de privébeelden daadwerkelijk zijn beoordeeld.
+
+Verified application source: [5d86e3d](https://github.com/sullythebear/tekken3modelconvertor/commit/5d86e3dd48f8b436e1e0fc68c9ac9eaff6f89839). [Windows validation](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/42884622654) passed. [Windows EXE and synthetic report artifact](https://github.com/sullythebear/tekken3modelconvertor/actions/runs/42884622654/artifacts/13795318964) requires GitHub sign-in; retention 30 days. Verified artifact digest: 19eaeb5b62dfb224e9f5f78d9652f984bb284951c5219e453b7c56f2bdd1087f. Local regressions: 322 passed. No commercial images in this public artifact.
