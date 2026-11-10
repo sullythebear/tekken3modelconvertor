@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { uvRasterLookup } from "./uv-raster.js";
-// Transient, source-derived normal fields. Not project data, not GLB extras.
+// Source-derived normal fields. Normally transient; optional local refinement
+// snapshots retain bounded channels. Never included in GLB extras.
 // Fields use original smooth normals, before regional reduction/flat shading.
 const fields = new WeakMap();
 export function sourceDiffuse(normal) {
@@ -344,4 +345,12 @@ export function sourceSkinCoverage(material, width, height, gutter = 2) {
     }
   }
   return { valid, seeds, sourceTriangles: triangles.length };
+}
+
+// Optional local refinement-project snapshots only. Never stored in GLB extras.
+export function snapshotSourceSkinField(material){return fields.get(material)??null;}
+export function restoreSourceSkinField(material,field){
+ const n=field?.size**2;if(!Number.isInteger(field?.size)||field.size<4||field.size>1024)throw Error('Invalid source skin field size');
+ for(const [key,length,type]of [['light',n,Float32Array],['valid',n,Uint8Array],['normal',n*3,Float32Array],['tangent',n*3,Float32Array],['sign',n,Float32Array],['confidence',n,Uint8Array]])if(!(field[key] instanceof type)||field[key].length!==length||field[key].some(v=>!Number.isFinite(v)))throw Error('Invalid source skin field channel');
+ if(!(field.coverageUV instanceof Float32Array)||field.coverageUV.length%6||field.coverageUV.length>3_000_000||field.coverageUV.some(v=>!Number.isFinite(v)))throw Error('Invalid source skin UV coverage');fields.set(material,field);
 }
