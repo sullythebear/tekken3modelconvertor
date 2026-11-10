@@ -1,0 +1,5843 @@
+{
+  "run": "42868912282",
+  "comparison": {
+    "baseline": "974a6e6ca07810b8411ff91b61c208e0d09c902d",
+    "candidate": "ed0324dd65c0d03fa30f3c744f7176882c8995d6",
+    "models": [
+      {
+        "id": "97cd06d570f34e56",
+        "before": 3692,
+        "after": 3888,
+        "handBefore": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": [
+            {
+              "meshIndex": 8,
+              "candidateMeshIndex": 8,
+              "mesh": "Object_10",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 512,
+              "candidateTriangles": 284,
+              "sourceToCandidate": {
+                "samples": 512,
+                "mean": 0.0011249964860546708,
+                "p95": 0.004240986943985959,
+                "max": 0.009289144411376689,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 380,
+                "mean": 0.00032643962997518057,
+                "p95": 0.0019502807248769492,
+                "max": 0.010260750453052699,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 8,
+              "candidateMeshIndex": 8,
+              "mesh": "Object_10",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 512,
+              "candidateTriangles": 284,
+              "sourceToCandidate": {
+                "samples": 512,
+                "mean": 0.0010356509038161198,
+                "p95": 0.004109923002975028,
+                "max": 0.007763175702912774,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 380,
+                "mean": 0.00027129735986468237,
+                "p95": 0.0017450986375508175,
+                "max": 0.006503226278492584,
+                "opposedNearestNormals": 0
+              }
+            }
+          ]
+        },
+        "handAfter": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": [
+            {
+              "meshIndex": 8,
+              "candidateMeshIndex": 8,
+              "mesh": "Object_10",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 512,
+              "candidateTriangles": 284,
+              "sourceToCandidate": {
+                "samples": 512,
+                "mean": 0.0011249964860546708,
+                "p95": 0.004240986943985959,
+                "max": 0.009289144411376689,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 380,
+                "mean": 0.00032643962997518057,
+                "p95": 0.0019502807248769492,
+                "max": 0.010260750453052699,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 8,
+              "candidateMeshIndex": 8,
+              "mesh": "Object_10",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 512,
+              "candidateTriangles": 284,
+              "sourceToCandidate": {
+                "samples": 512,
+                "mean": 0.0010356509038161198,
+                "p95": 0.004109923002975028,
+                "max": 0.007763175702912774,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 380,
+                "mean": 0.00027129735986468237,
+                "p95": 0.0017450986375508175,
+                "max": 0.006503226278492584,
+                "opposedNearestNormals": 0
+              }
+            }
+          ]
+        },
+        "anatomyBefore": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 1585,
+              "center": [
+                0,
+                18.468649864196777,
+                -0.19615000486373502
+              ],
+              "extent": [
+                6.358200073242187,
+                3.566099166870117,
+                3.2075001001358037
+              ],
+              "boundingBoxVolumeProxy": 72.7267674091002,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 33,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.5763999894261358
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 803,
+                  "widthY": 3.5510997772216797,
+                  "widthZ": 3.2075001001358037
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 751,
+                  "widthY": 3.54739952087402,
+                  "widthZ": 3.1910001039505014
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 33,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.5763999894261358
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 153,
+              "center": [
+                -4.375249981880188,
+                15.753249645233154,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696036,
+                1.8396997451782227,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.566372988009084,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 14,
+                  "widthY": 1.3427991867065447,
+                  "widthZ": 1.0047000050544739
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 32,
+                  "widthY": 1.699000358581543,
+                  "widthZ": 1.6742999553680415
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 33,
+                  "widthY": 1.762899398803711,
+                  "widthZ": 1.6810000538825984
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 49,
+                  "widthY": 1.8269996643066406,
+                  "widthZ": 1.812600016593933
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 134,
+              "center": [
+                4.375249981880188,
+                15.749249935150146,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.831700325012207,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.537820950299927,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 43,
+                  "widthY": 1.819000244140625,
+                  "widthZ": 1.812600016593933
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 28,
+                  "widthY": 1.754800796508789,
+                  "widthZ": 1.6810000538825984
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 28,
+                  "widthY": 1.6908998489379883,
+                  "widthZ": 1.6742999553680415
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.3347997665405291,
+                  "widthZ": 1.0047000050544739
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 75,
+              "center": [
+                6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 12,
+                  "widthY": 1.0811996459960955,
+                  "widthZ": 1.2094999849796295
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 20,
+                  "widthY": 0.9347009658813441,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.9371000006794928
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 78,
+              "center": [
+                -6.633499860763549,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.9371000006794928
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 24,
+                  "widthY": 0.9347009658813441,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.0811996459960955,
+                  "widthZ": 1.2094999849796295
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 373,
+              "center": [
+                -8.78350019454956,
+                15.765849590301512,
+                -0.3625500053167309
+              ],
+              "extent": [
+                1.978600502014161,
+                0.878499031066891,
+                1.718899995088577
+              ],
+              "boundingBoxVolumeProxy": 2.9877896060638904,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 98,
+                  "widthY": 0.29189968109131037,
+                  "widthZ": 1.253300003707409
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 57,
+                  "widthY": 0.6479005813598597,
+                  "widthZ": 1.6003000140190122
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 121,
+                  "widthY": 0.8489007949829066,
+                  "widthZ": 1.601499944925308
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 35,
+                  "widthY": 0.7955999374389613,
+                  "widthZ": 1.4358000457286835
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 373,
+              "center": [
+                8.783549785614014,
+                15.765899658203123,
+                -0.3624999970197643
+              ],
+              "extent": [
+                1.9786996841430664,
+                0.8783988952636683,
+                1.7190000116825102
+              ],
+              "boundingBoxVolumeProxy": 2.9877726332575394,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 35,
+                  "widthY": 0.7955999374389613,
+                  "widthZ": 1.4359000325202942
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 121,
+                  "widthY": 0.848800659179684,
+                  "widthZ": 1.601599961519241
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 57,
+                  "widthY": 0.6479005813598597,
+                  "widthZ": 1.6003000140190122
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 98,
+                  "widthY": 0.29189968109131037,
+                  "widthZ": 1.253300003707409
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "head": {
+              "samples": 817,
+              "center": [
+                0,
+                18.46679973602295,
+                -0.20290005207061368
+              ],
+              "extent": [
+                6.3582000732421875,
+                3.562398910522461,
+                3.1940000057220463
+              ],
+              "boundingBoxVolumeProxy": 72.34552150368985,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 29,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.576399989426136
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 381,
+                  "widthY": 3.536701202392578,
+                  "widthZ": 3.1940000057220463
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 365,
+                  "widthY": 3.5473995208740234,
+                  "widthZ": 3.1390000581741337
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 29,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.576399989426136
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 165,
+              "center": [
+                -4.375249981880188,
+                15.753249645233154,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.8396997451782227,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.566372988009086,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 11,
+                  "widthY": 1.1882991790771484,
+                  "widthZ": 0.9977000355720521
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 30,
+                  "widthY": 1.699000358581543,
+                  "widthZ": 1.674299955368042
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 32,
+                  "widthY": 1.762899398803711,
+                  "widthZ": 1.6810000538825989
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 48,
+                  "widthY": 1.8269996643066406,
+                  "widthZ": 1.812600016593933
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 149,
+              "center": [
+                4.375249981880188,
+                15.746949672698975,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.8270998001098633,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.521400465093801,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 44,
+                  "widthY": 1.8143997192382812,
+                  "widthZ": 1.812600016593933
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 27,
+                  "widthY": 1.754800796508789,
+                  "widthZ": 1.6810000538825989
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 27,
+                  "widthY": 1.5700998306274414,
+                  "widthZ": 1.674299955368042
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 9,
+                  "widthY": 1.1802997589111328,
+                  "widthZ": 0.9977000355720521
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 94,
+              "center": [
+                6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 12,
+                  "widthY": 1.0811996459960938,
+                  "widthZ": 1.2094999849796295
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 20,
+                  "widthY": 0.9347009658813477,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.937100000679493
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 97,
+              "center": [
+                -6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.937100000679493
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 24,
+                  "widthY": 0.9347009658813477,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.0811996459960938,
+                  "widthZ": 1.2094999849796295
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 222,
+              "center": [
+                -8.78350019454956,
+                15.765849590301514,
+                -0.3625500053167308
+              ],
+              "extent": [
+                1.9786005020141602,
+                0.8784990310668945,
+                1.7188999950885773
+              ],
+              "boundingBoxVolumeProxy": 2.9877896060639015,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 39,
+                  "widthY": 0.2918996810913086,
+                  "widthZ": 1.2498242538422346
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 27,
+                  "widthY": 0.5977563858032227,
+                  "widthZ": 1.5561028718948364
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 82,
+                  "widthY": 0.837000846862793,
+                  "widthZ": 1.6014999449253082
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 30,
+                  "widthY": 0.794133186340332,
+                  "widthZ": 1.3978216052055359
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 222,
+              "center": [
+                8.783549785614014,
+                15.765899658203125,
+                -0.36249999701976426
+              ],
+              "extent": [
+                1.9786996841430664,
+                0.8783988952636719,
+                1.7190000116825104
+              ],
+              "boundingBoxVolumeProxy": 2.987772633257552,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.7940835952758789,
+                  "widthZ": 1.3976156115531921
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 82,
+                  "widthY": 0.8369007110595703,
+                  "widthZ": 1.6015999615192413
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 27,
+                  "widthY": 0.5977420806884766,
+                  "widthZ": 1.5559867024421692
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 39,
+                  "widthY": 0.2918996810913086,
+                  "widthZ": 1.253300003707409
+                }
+              ]
+            }
+          }
+        },
+        "anatomyAfter": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 1585,
+              "center": [
+                0,
+                18.468649864196777,
+                -0.19615000486373502
+              ],
+              "extent": [
+                6.358200073242187,
+                3.566099166870117,
+                3.2075001001358037
+              ],
+              "boundingBoxVolumeProxy": 72.7267674091002,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 33,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.5763999894261358
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 803,
+                  "widthY": 3.5510997772216797,
+                  "widthZ": 3.2075001001358037
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 751,
+                  "widthY": 3.54739952087402,
+                  "widthZ": 3.1910001039505014
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 33,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.5763999894261358
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 153,
+              "center": [
+                -4.375249981880188,
+                15.753249645233154,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696036,
+                1.8396997451782227,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.566372988009084,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 14,
+                  "widthY": 1.3427991867065447,
+                  "widthZ": 1.0047000050544739
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 32,
+                  "widthY": 1.699000358581543,
+                  "widthZ": 1.6742999553680415
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 33,
+                  "widthY": 1.762899398803711,
+                  "widthZ": 1.6810000538825984
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 49,
+                  "widthY": 1.8269996643066406,
+                  "widthZ": 1.812600016593933
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 134,
+              "center": [
+                4.375249981880188,
+                15.749249935150146,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.831700325012207,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.537820950299927,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 43,
+                  "widthY": 1.819000244140625,
+                  "widthZ": 1.812600016593933
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 28,
+                  "widthY": 1.754800796508789,
+                  "widthZ": 1.6810000538825984
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 28,
+                  "widthY": 1.6908998489379883,
+                  "widthZ": 1.6742999553680415
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.3347997665405291,
+                  "widthZ": 1.0047000050544739
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 75,
+              "center": [
+                6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 12,
+                  "widthY": 1.0811996459960955,
+                  "widthZ": 1.2094999849796295
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 20,
+                  "widthY": 0.9347009658813441,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.9371000006794928
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 78,
+              "center": [
+                -6.633499860763549,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.9371000006794928
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 24,
+                  "widthY": 0.9347009658813441,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.0811996459960955,
+                  "widthZ": 1.2094999849796295
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 373,
+              "center": [
+                -8.78350019454956,
+                15.765849590301512,
+                -0.3625500053167309
+              ],
+              "extent": [
+                1.978600502014161,
+                0.878499031066891,
+                1.718899995088577
+              ],
+              "boundingBoxVolumeProxy": 2.9877896060638904,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 98,
+                  "widthY": 0.29189968109131037,
+                  "widthZ": 1.253300003707409
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 57,
+                  "widthY": 0.6479005813598597,
+                  "widthZ": 1.6003000140190122
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 121,
+                  "widthY": 0.8489007949829066,
+                  "widthZ": 1.601499944925308
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 35,
+                  "widthY": 0.7955999374389613,
+                  "widthZ": 1.4358000457286835
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 373,
+              "center": [
+                8.783549785614014,
+                15.765899658203123,
+                -0.3624999970197643
+              ],
+              "extent": [
+                1.9786996841430664,
+                0.8783988952636683,
+                1.7190000116825102
+              ],
+              "boundingBoxVolumeProxy": 2.9877726332575394,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 35,
+                  "widthY": 0.7955999374389613,
+                  "widthZ": 1.4359000325202942
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 121,
+                  "widthY": 0.848800659179684,
+                  "widthZ": 1.601599961519241
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 57,
+                  "widthY": 0.6479005813598597,
+                  "widthZ": 1.6003000140190122
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 98,
+                  "widthY": 0.29189968109131037,
+                  "widthZ": 1.253300003707409
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "head": {
+              "samples": 938,
+              "center": [
+                0,
+                18.461450576782227,
+                -0.19615000486373502
+              ],
+              "extent": [
+                6.3582000732421875,
+                3.5517005920410156,
+                3.2075001001358037
+              ],
+              "boundingBoxVolumeProxy": 72.43312391978087,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.576399989426136
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 444,
+                  "widthY": 3.536701202392578,
+                  "widthZ": 3.2075001001358037
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 421,
+                  "widthY": 3.5241012573242188,
+                  "widthZ": 3.191000103950501
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 30,
+                  "widthY": 0.38719940185546875,
+                  "widthZ": 1.576399989426136
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 165,
+              "center": [
+                -4.375249981880188,
+                15.753249645233154,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.8396997451782227,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.566372988009086,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 11,
+                  "widthY": 1.1882991790771484,
+                  "widthZ": 0.9977000355720521
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 30,
+                  "widthY": 1.699000358581543,
+                  "widthZ": 1.674299955368042
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 32,
+                  "widthY": 1.762899398803711,
+                  "widthZ": 1.6810000538825989
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 48,
+                  "widthY": 1.8269996643066406,
+                  "widthZ": 1.812600016593933
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 149,
+              "center": [
+                4.375249981880188,
+                15.746949672698975,
+                -0.6252999752759898
+              ],
+              "extent": [
+                1.8384997844696045,
+                1.8270998001098633,
+                1.9413999617099762
+              ],
+              "boundingBoxVolumeProxy": 6.521400465093801,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 44,
+                  "widthY": 1.8143997192382812,
+                  "widthZ": 1.812600016593933
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 27,
+                  "widthY": 1.754800796508789,
+                  "widthZ": 1.6810000538825989
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 27,
+                  "widthY": 1.5700998306274414,
+                  "widthZ": 1.674299955368042
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 9,
+                  "widthY": 1.1802997589111328,
+                  "widthZ": 0.9977000355720521
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 94,
+              "center": [
+                6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 12,
+                  "widthY": 1.0811996459960938,
+                  "widthZ": 1.2094999849796295
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 20,
+                  "widthY": 0.9347009658813477,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.937100000679493
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 97,
+              "center": [
+                -6.63349986076355,
+                15.877649784088135,
+                -0.5668500140309298
+              ],
+              "extent": [
+                1.9148001670837402,
+                1.2858991622924805,
+                1.3523000329732895
+              ],
+              "boundingBoxVolumeProxy": 3.3296871396231666,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 10,
+                  "widthY": 0.819300651550293,
+                  "widthZ": 0.937100000679493
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 24,
+                  "widthY": 0.9347009658813477,
+                  "widthZ": 1.03410005569458
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 12,
+                  "widthY": 1.0811996459960938,
+                  "widthZ": 1.2094999849796295
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 222,
+              "center": [
+                -8.78350019454956,
+                15.765849590301514,
+                -0.3625500053167308
+              ],
+              "extent": [
+                1.9786005020141602,
+                0.8784990310668945,
+                1.7188999950885773
+              ],
+              "boundingBoxVolumeProxy": 2.9877896060639015,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 39,
+                  "widthY": 0.2918996810913086,
+                  "widthZ": 1.2498242538422346
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 27,
+                  "widthY": 0.5977563858032227,
+                  "widthZ": 1.5561028718948364
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 82,
+                  "widthY": 0.837000846862793,
+                  "widthZ": 1.6014999449253082
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 30,
+                  "widthY": 0.794133186340332,
+                  "widthZ": 1.3978216052055359
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 222,
+              "center": [
+                8.783549785614014,
+                15.765899658203125,
+                -0.36249999701976426
+              ],
+              "extent": [
+                1.9786996841430664,
+                0.8783988952636719,
+                1.7190000116825104
+              ],
+              "boundingBoxVolumeProxy": 2.987772633257552,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.7940835952758789,
+                  "widthZ": 1.3976156115531921
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 82,
+                  "widthY": 0.8369007110595703,
+                  "widthZ": 1.6015999615192413
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 27,
+                  "widthY": 0.5977420806884766,
+                  "widthZ": 1.5559867024421692
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 39,
+                  "widthY": 0.2918996810913086,
+                  "widthZ": 1.253300003707409
+                }
+              ]
+            }
+          }
+        },
+        "regionalBefore": [
+          {
+            "region": "head",
+            "material": "3904cap_tm2",
+            "before": 550,
+            "after": 192,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "arm01_tm2",
+            "before": 109,
+            "after": 99,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "arm01_tm2",
+            "before": 92,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "arm01_tm2",
+            "before": 21,
+            "after": 21,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "arm01_tm2",
+            "before": 108,
+            "after": 100,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_belt_tm2",
+            "before": 82,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_body_tm2",
+            "before": 92,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_body_tm2_torso_rebaked",
+            "before": 26,
+            "after": 26,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_buckle_tm2",
+            "before": 4,
+            "after": 4,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_eye_tm2",
+            "before": 80,
+            "after": 38,
+            "method": "feature-constrained surface clustering"
+          },
+          {
+            "region": "head",
+            "material": "jc_face_tm2",
+            "before": 1248,
+            "after": 348,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "rightHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_head_tm2",
+            "before": 78,
+            "after": 78,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "jc_jeans_tm2",
+            "before": 112,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 154,
+            "after": 94,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 142,
+            "after": 90,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "jc_jeans_tm2",
+            "before": 78,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_neck_tm2",
+            "before": 82,
+            "after": 74,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_pants_tm2",
+            "before": 36,
+            "after": 36,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_tooth_tm2",
+            "before": 79,
+            "after": 75,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "logo_tm2",
+            "before": 23,
+            "after": 23,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "shirt01_tm2",
+            "before": 200,
+            "after": 76,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "shirt01_tm2",
+            "before": 43,
+            "after": 43,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "shirt01_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "shirt02_tm2",
+            "before": 214,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "shirt02_tm2",
+            "before": 171,
+            "after": 61,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "shirt02_tm2",
+            "before": 16,
+            "after": 16,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          }
+        ],
+        "regionalAfter": [
+          {
+            "region": "head",
+            "material": "3904cap_tm2_head",
+            "before": 550,
+            "after": 380,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 153,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "arm01_tm2",
+            "before": 109,
+            "after": 99,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "arm01_tm2",
+            "before": 92,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "arm01_tm2_head",
+            "before": 21,
+            "after": 21,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "arm01_tm2",
+            "before": 108,
+            "after": 100,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "jc_arm_tm2",
+            "before": 107,
+            "after": 101,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_arm_tm2",
+            "before": 55,
+            "after": 55,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_belt_tm2",
+            "before": 82,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_body_tm2_head",
+            "before": 92,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "jc_body_tm2_torso_rebaked",
+            "before": 26,
+            "after": 26,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "jc_buckle_tm2",
+            "before": 4,
+            "after": 4,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_eye_tm2",
+            "before": 80,
+            "after": 38,
+            "method": "feature-constrained surface clustering"
+          },
+          {
+            "region": "head",
+            "material": "jc_face_tm2",
+            "before": 1248,
+            "after": 348,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "rightHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftHand",
+            "material": "jc_hand_tm2",
+            "before": 512,
+            "after": 284,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_hand_tm2",
+            "before": 8,
+            "after": 8,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_head_tm2",
+            "before": 78,
+            "after": 78,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "jc_jeans_tm2",
+            "before": 112,
+            "after": 70,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 154,
+            "after": 94,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_jeans_tm2",
+            "before": 142,
+            "after": 90,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "jc_jeans_tm2",
+            "before": 78,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_jeans_tm2",
+            "before": 47,
+            "after": 47,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_knee_tm2",
+            "before": 48,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_knee_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "jc_leg_tm2",
+            "before": 20,
+            "after": 20,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_leg_tm2",
+            "before": 74,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_neck_tm2_head",
+            "before": 82,
+            "after": 74,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "jc_pants_tm2",
+            "before": 36,
+            "after": 36,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe1_tm2",
+            "before": 141,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "jc_shoe2_tm2",
+            "before": 58,
+            "after": 54,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "jc_tooth_tm2_head",
+            "before": 79,
+            "after": 79,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 59,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "jc_wl_03_tm2",
+            "before": 52,
+            "after": 52,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "logo_tm2",
+            "before": 23,
+            "after": 23,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "shirt01_tm2",
+            "before": 200,
+            "after": 76,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "shirt01_tm2_head",
+            "before": 43,
+            "after": 43,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "hips",
+            "material": "shirt01_tm2",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "shirt02_tm2",
+            "before": 214,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "shirt02_tm2_head",
+            "before": 171,
+            "after": 65,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "hips",
+            "material": "shirt02_tm2",
+            "before": 16,
+            "after": 16,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          }
+        ],
+        "artisticAcceptance": "NOT_REVIEWED"
+      },
+      {
+        "id": "ac97d32c3727e377",
+        "before": 6459,
+        "after": 8464,
+        "handBefore": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": []
+        },
+        "handAfter": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": [
+            {
+              "meshIndex": 3,
+              "candidateMeshIndex": 3,
+              "mesh": "Object_286",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 818,
+              "candidateTriangles": 818,
+              "sourceToCandidate": {
+                "samples": 468,
+                "mean": 0.00017279216365074195,
+                "p95": 0.0014723026544301832,
+                "max": 0.004299581280351744,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 468,
+                "mean": 0.000030087285349114538,
+                "p95": 0.000048855281059653774,
+                "max": 0.001842295597301811,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 3,
+              "candidateMeshIndex": 3,
+              "mesh": "Object_286",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 820,
+              "candidateTriangles": 820,
+              "sourceToCandidate": {
+                "samples": 472,
+                "mean": 0.0000685148014937156,
+                "p95": 0.0004308201151116625,
+                "max": 0.0026248294796313142,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 472,
+                "mean": 0.000012369388369849289,
+                "p95": 9.969168130690032e-8,
+                "max": 0.0009168411859065537,
+                "opposedNearestNormals": 0
+              }
+            }
+          ]
+        },
+        "anatomyBefore": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 5845,
+              "center": [
+                0.004920457093582381,
+                0.6394589619561317,
+                0.0016970943967470203
+              ],
+              "extent": [
+                0.15380549234415036,
+                0.1264360689621299,
+                0.14818742977205762
+              ],
+              "boundingBoxVolumeProxy": 0.0028817360164957134,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 727,
+                  "widthY": 0.1216750377290311,
+                  "widthZ": 0.12225558788214322
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 2764,
+                  "widthY": 0.12529204139422478,
+                  "widthZ": 0.13958488328648036
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 2163,
+                  "widthY": 0.1264360689621299,
+                  "widthZ": 0.13787118317966907
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 136,
+                  "widthY": 0.09691900231366624,
+                  "widthZ": 0.1342859290166384
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 161,
+              "center": [
+                0.11321528650981222,
+                0.459626975090125,
+                -0.012759000416864914
+              ],
+              "extent": [
+                0.05007339723988363,
+                0.2138059699622089,
+                0.06893570089999224
+              ],
+              "boundingBoxVolumeProxy": 0.0007380250117630596,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 41,
+                  "widthY": 0.2094259646936405,
+                  "widthZ": 0.059033252617053514
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 10,
+                  "widthY": 0.061698028858026666,
+                  "widthZ": 0.05160645111173859
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 10,
+                  "widthY": 0.06912398420798083,
+                  "widthZ": 0.04570304468818524
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 14,
+                  "widthY": 0.058652041362510954,
+                  "widthZ": 0.05046375621574074
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 94,
+              "center": [
+                -0.1135912437947002,
+                0.46607697573702034,
+                -0.015805750779993785
+              ],
+              "extent": [
+                0.04932149968914784,
+                0.20509397011428349,
+                0.06093739592790702
+              ],
+              "boundingBoxVolumeProxy": 0.0006164147990454025,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 13,
+                  "widthY": 0.05541502463329551,
+                  "widthZ": 0.04646474340586714
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 10,
+                  "widthY": 0.07122199269157631,
+                  "widthZ": 0.04989263177857496
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 5,
+                  "widthY": 0.05389398628068276,
+                  "widthZ": 0.05084464318306123
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 27,
+                  "widthY": 0.19957095829002786,
+                  "widthZ": 0.05522447275614375
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 190,
+              "center": [
+                0.1680539749654958,
+                0.46598145523459733,
+                -0.01885264473567459
+              ],
+              "extent": [
+                0.05655796988793074,
+                0.08607701256917699,
+                0.04951156276195776
+              ],
+              "boundingBoxVolumeProxy": 0.0002410391751731564,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 40,
+                  "widthY": 0.05903401526800195,
+                  "widthZ": 0.04741687257720368
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 46,
+                  "widthY": 0.0544640036946587,
+                  "widthZ": 0.04836898502731659
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 39,
+                  "widthY": 0.055032979751258704,
+                  "widthZ": 0.044941546110275024
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 32,
+                  "widthY": 0.04741600804170332,
+                  "widthZ": 0.03618168122581917
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 169,
+              "center": [
+                -0.16795901044070805,
+                0.4672200274131122,
+                -0.019423909816812843
+              ],
+              "extent": [
+                0.05674805250883308,
+                0.08588592992688276,
+                0.049511656518907085
+              ],
+              "boundingBoxVolumeProxy": 0.0002413128456650341,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.03846497894538964,
+                  "widthZ": 0.03618163510704634
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 33,
+                  "widthY": 0.055032953135655704,
+                  "widthZ": 0.04627425038057236
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 41,
+                  "widthY": 0.058651985975870125,
+                  "widthZ": 0.047988328021609926
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 37,
+                  "widthY": 0.05846099268136751,
+                  "widthZ": 0.04456048716889239
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 614,
+              "center": [
+                0.2244209427961955,
+                0.4060904330764057,
+                -0.01618670319498578
+              ],
+              "extent": [
+                0.055034011120935894,
+                0.09121497351638813,
+                0.04227541236174169
+              ],
+              "boundingBoxVolumeProxy": 0.0002122194360484349,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 42,
+                  "widthY": 0.04551294830853497,
+                  "widthZ": 0.032753870180862725
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 81,
+                  "widthY": 0.06112700509102498,
+                  "widthZ": 0.03694332860814787
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 81,
+                  "widthY": 0.047797035927997,
+                  "widthZ": 0.04075190783751853
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 318,
+                  "widthY": 0.0497030649252993,
+                  "widthZ": 0.038847691299353344
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 526,
+              "center": [
+                -0.224611558941693,
+                0.40609059410976717,
+                -0.016186622768941228
+              ],
+              "extent": [
+                0.05541507339308838,
+                0.09121486270851564,
+                0.042275357100854546
+              ],
+              "boundingBoxVolumeProxy": 0.00021368833064999677,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 254,
+                  "widthY": 0.04970295800354918,
+                  "widthZ": 0.03656249177762208
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 75,
+                  "widthY": 0.04779701327823688,
+                  "widthZ": 0.04056146333552445
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 69,
+                  "widthY": 0.06246099059481103,
+                  "widthZ": 0.03656255880819791
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 43,
+                  "widthY": 0.04551291480076547,
+                  "widthZ": 0.03351559852765458
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "head": {
+              "samples": 2722,
+              "center": [
+                0.004920457096422165,
+                0.6394589619561317,
+                0.0012210940805923928
+              ],
+              "extent": [
+                0.15380549233847088,
+                0.1264360689621299,
+                0.14723542913974835
+              ],
+              "boundingBoxVolumeProxy": 0.00286322287722513,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 454,
+                  "widthY": 0.12167503772903143,
+                  "widthZ": 0.11197288540489286
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 1099,
+                  "widthY": 0.12529204139422456,
+                  "widthZ": 0.1365377841182972
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 1020,
+                  "widthY": 0.1264360689621299,
+                  "widthZ": 0.1306347849600804
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 105,
+                  "widthY": 0.09330099333470299,
+                  "widthZ": 0.11657603063847304
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 51,
+              "center": [
+                0.11245379020993938,
+                0.45743697245584125,
+                -0.012759000367207103
+              ],
+              "extent": [
+                0.048550404640137906,
+                0.209425964693641,
+                0.06893570091418011
+              ],
+              "boundingBoxVolumeProxy": 0.0007009185828334288,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 28,
+                  "widthY": 0.209425964693641,
+                  "widthZ": 0.059015954818764246
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 15,
+              "center": [
+                -0.09711928787575327,
+                0.4609349742829082,
+                -0.01580575074452392
+              ],
+              "extent": [
+                0.012949395441856582,
+                0.1948099672060592,
+                0.06093739591371907
+              ],
+              "boundingBoxVolumeProxy": 0.00015372501985153958,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 3,
+                  "widthY": 0.003997013035720309,
+                  "widthZ": 0.036943356571842646
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 4,
+                  "widthY": 0.18167095676524564,
+                  "widthZ": 0.04037107127635722
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 3,
+                  "widthY": 0,
+                  "widthZ": 0
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 5,
+              "center": [
+                0.17452847993365184,
+                0.46198243840592507,
+                -0.0189479141756995
+              ],
+              "extent": [
+                0.0020949931508042197,
+                0.002285001601728065,
+                0.03751462550386998
+              ],
+              "boundingBoxVolumeProxy": 1.7958486464900698e-7,
+              "cuts": []
+            },
+            "rightLowerArm": {
+              "samples": 7,
+              "center": [
+                -0.16919699230212787,
+                0.4602684865705077,
+                -0.021518696730167656
+              ],
+              "extent": [
+                0.02570800145607105,
+                0.014473024057334916,
+                0.03237306765483248
+              ],
+              "boundingBoxVolumeProxy": 0.000012045128977055521,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 3,
+                  "widthY": 0,
+                  "widthZ": 0
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 346,
+              "center": [
+                0.23175244618652782,
+                0.3954279420985646,
+                -0.016186703184344824
+              ],
+              "extent": [
+                0.040371004340271355,
+                0.06988999156070597,
+                0.04227541232627185
+              ],
+              "boundingBoxVolumeProxy": 0.00011928130831840122,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 29,
+                  "widthY": 0.031990047105483366,
+                  "widthZ": 0.02247071372701248
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 46,
+                  "widthY": 0.030469048001042554,
+                  "widthZ": 0.023042005412557402
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 49,
+                  "widthY": 0.03313712418664827,
+                  "widthZ": 0.03960941254026694
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 169,
+                  "widthY": 0.030660075949595245,
+                  "widthZ": 0.03561034124868488
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 369,
+              "center": [
+                -0.23222909403760406,
+                0.3974265970999045,
+                -0.01618662279022314
+              ],
+              "extent": [
+                0.04018000320126636,
+                0.07388686868879035,
+                0.042275357143418374
+              ],
+              "boundingBoxVolumeProxy": 0.0001255060073577193,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 186,
+                  "widthY": 0.04322894749915851,
+                  "widthZ": 0.036181597955411815
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 66,
+                  "widthY": 0.0361830486022941,
+                  "widthZ": 0.03941891767193642
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 45,
+                  "widthY": 0.03027803521877709,
+                  "widthZ": 0.039609367681893715
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 25,
+                  "widthY": 0.03199003663722899,
+                  "widthZ": 0.022470683113842937
+                }
+              ]
+            }
+          }
+        },
+        "anatomyAfter": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 5845,
+              "center": [
+                0.004920457093582381,
+                0.6394589619561317,
+                0.0016970943967470203
+              ],
+              "extent": [
+                0.15380549234415036,
+                0.1264360689621299,
+                0.14818742977205762
+              ],
+              "boundingBoxVolumeProxy": 0.0028817360164957134,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 727,
+                  "widthY": 0.1216750377290311,
+                  "widthZ": 0.12225558788214322
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 2764,
+                  "widthY": 0.12529204139422478,
+                  "widthZ": 0.13958488328648036
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 2163,
+                  "widthY": 0.1264360689621299,
+                  "widthZ": 0.13787118317966907
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 136,
+                  "widthY": 0.09691900231366624,
+                  "widthZ": 0.1342859290166384
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 161,
+              "center": [
+                0.11321528650981222,
+                0.459626975090125,
+                -0.012759000416864914
+              ],
+              "extent": [
+                0.05007339723988363,
+                0.2138059699622089,
+                0.06893570089999224
+              ],
+              "boundingBoxVolumeProxy": 0.0007380250117630596,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 41,
+                  "widthY": 0.2094259646936405,
+                  "widthZ": 0.059033252617053514
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 10,
+                  "widthY": 0.061698028858026666,
+                  "widthZ": 0.05160645111173859
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 10,
+                  "widthY": 0.06912398420798083,
+                  "widthZ": 0.04570304468818524
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 14,
+                  "widthY": 0.058652041362510954,
+                  "widthZ": 0.05046375621574074
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 94,
+              "center": [
+                -0.1135912437947002,
+                0.46607697573702034,
+                -0.015805750779993785
+              ],
+              "extent": [
+                0.04932149968914784,
+                0.20509397011428349,
+                0.06093739592790702
+              ],
+              "boundingBoxVolumeProxy": 0.0006164147990454025,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 13,
+                  "widthY": 0.05541502463329551,
+                  "widthZ": 0.04646474340586714
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 10,
+                  "widthY": 0.07122199269157631,
+                  "widthZ": 0.04989263177857496
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 5,
+                  "widthY": 0.05389398628068276,
+                  "widthZ": 0.05084464318306123
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 27,
+                  "widthY": 0.19957095829002786,
+                  "widthZ": 0.05522447275614375
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 190,
+              "center": [
+                0.1680539749654958,
+                0.46598145523459733,
+                -0.01885264473567459
+              ],
+              "extent": [
+                0.05655796988793074,
+                0.08607701256917699,
+                0.04951156276195776
+              ],
+              "boundingBoxVolumeProxy": 0.0002410391751731564,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 40,
+                  "widthY": 0.05903401526800195,
+                  "widthZ": 0.04741687257720368
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 46,
+                  "widthY": 0.0544640036946587,
+                  "widthZ": 0.04836898502731659
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 39,
+                  "widthY": 0.055032979751258704,
+                  "widthZ": 0.044941546110275024
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 32,
+                  "widthY": 0.04741600804170332,
+                  "widthZ": 0.03618168122581917
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 169,
+              "center": [
+                -0.16795901044070805,
+                0.4672200274131122,
+                -0.019423909816812843
+              ],
+              "extent": [
+                0.05674805250883308,
+                0.08588592992688276,
+                0.049511656518907085
+              ],
+              "boundingBoxVolumeProxy": 0.0002413128456650341,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.03846497894538964,
+                  "widthZ": 0.03618163510704634
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 33,
+                  "widthY": 0.055032953135655704,
+                  "widthZ": 0.04627425038057236
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 41,
+                  "widthY": 0.058651985975870125,
+                  "widthZ": 0.047988328021609926
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 37,
+                  "widthY": 0.05846099268136751,
+                  "widthZ": 0.04456048716889239
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 614,
+              "center": [
+                0.2244209427961955,
+                0.4060904330764057,
+                -0.01618670319498578
+              ],
+              "extent": [
+                0.055034011120935894,
+                0.09121497351638813,
+                0.04227541236174169
+              ],
+              "boundingBoxVolumeProxy": 0.0002122194360484349,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 42,
+                  "widthY": 0.04551294830853497,
+                  "widthZ": 0.032753870180862725
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 81,
+                  "widthY": 0.06112700509102498,
+                  "widthZ": 0.03694332860814787
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 81,
+                  "widthY": 0.047797035927997,
+                  "widthZ": 0.04075190783751853
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 318,
+                  "widthY": 0.0497030649252993,
+                  "widthZ": 0.038847691299353344
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 526,
+              "center": [
+                -0.224611558941693,
+                0.40609059410976717,
+                -0.016186622768941228
+              ],
+              "extent": [
+                0.05541507339308838,
+                0.09121486270851564,
+                0.042275357100854546
+              ],
+              "boundingBoxVolumeProxy": 0.00021368833064999677,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 254,
+                  "widthY": 0.04970295800354918,
+                  "widthZ": 0.03656249177762208
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 75,
+                  "widthY": 0.04779701327823688,
+                  "widthZ": 0.04056146333552445
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 69,
+                  "widthY": 0.06246099059481103,
+                  "widthZ": 0.03656255880819791
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 43,
+                  "widthY": 0.04551291480076547,
+                  "widthZ": 0.03351559852765458
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "head": {
+              "samples": 3099,
+              "center": [
+                0.004920457096422165,
+                0.6394589619561317,
+                0.0012210940805923928
+              ],
+              "extent": [
+                0.15380549233847088,
+                0.1264360689621299,
+                0.14723542913974835
+              ],
+              "boundingBoxVolumeProxy": 0.00286322287722513,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 538,
+                  "widthY": 0.12167503772903143,
+                  "widthZ": 0.11197288540489286
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 1279,
+                  "widthY": 0.12529204139422456,
+                  "widthZ": 0.1365377841182972
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 1125,
+                  "widthY": 0.1264360689621299,
+                  "widthZ": 0.1306347849600804
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 106,
+                  "widthY": 0.09330099333470299,
+                  "widthZ": 0.11657603063847304
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 223,
+              "center": [
+                0.11321528651265199,
+                0.4596269750901252,
+                -0.012759000367207103
+              ],
+              "extent": [
+                0.05007339724556312,
+                0.21380596996220885,
+                0.06893570091418011
+              ],
+              "boundingBoxVolumeProxy": 0.0007380250119986638,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 52,
+                  "widthY": 0.209425964693641,
+                  "widthZ": 0.059033252645429385
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 11,
+                  "widthY": 0.06169802885802539,
+                  "widthZ": 0.05160645104434585
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 10,
+                  "widthY": 0.06912398420798216,
+                  "widthZ": 0.045703044716561114
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 18,
+                  "widthY": 0.058652041362509955,
+                  "widthZ": 0.05046375613061309
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 126,
+              "center": [
+                -0.11359124379683005,
+                0.4660769757370201,
+                -0.01580575074452392
+              ],
+              "extent": [
+                0.04932149968772798,
+                0.20509397011428293,
+                0.06093739591371907
+              ],
+              "boundingBoxVolumeProxy": 0.0006164147988841367,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 18,
+                  "widthY": 0.05541502463329323,
+                  "widthZ": 0.04646474341296111
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 10,
+                  "widthY": 0.0712219926915757,
+                  "widthZ": 0.049892631721823205
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 7,
+                  "widthY": 0.05389398628068309,
+                  "widthZ": 0.05084464318306123
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 33,
+                  "widthY": 0.1995709582900284,
+                  "widthZ": 0.05522447277033168
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 216,
+              "center": [
+                0.1680539749669157,
+                0.465981455234597,
+                -0.018852644728580607
+              ],
+              "extent": [
+                0.05655796989644998,
+                0.08607701256917738,
+                0.049511562776145684
+              ],
+              "boundingBoxVolumeProxy": 0.0002410391752785365,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 42,
+                  "widthY": 0.05903401526800306,
+                  "widthZ": 0.0474168726197675
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 46,
+                  "widthY": 0.05446400369465865,
+                  "widthZ": 0.04836898502731657
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 39,
+                  "widthY": 0.05503297975125976,
+                  "widthZ": 0.044941546110275
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 32,
+                  "widthY": 0.04741600804170232,
+                  "widthZ": 0.036181681225819176
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 193,
+              "center": [
+                -0.1679590104407081,
+                0.4672200274131114,
+                -0.01942390983100078
+              ],
+              "extent": [
+                0.05674805252019208,
+                0.0858859299268821,
+                0.04951165660403473
+              ],
+              "boundingBoxVolumeProxy": 0.00024131284612823487,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 30,
+                  "widthY": 0.038464978945390194,
+                  "widthZ": 0.036181635107046334
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 33,
+                  "widthY": 0.055032953135656926,
+                  "widthZ": 0.04627425038057236
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 41,
+                  "widthY": 0.058651985975870236,
+                  "widthZ": 0.0479883280251569
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 42,
+                  "widthY": 0.05846099268136734,
+                  "widthZ": 0.044560487193721285
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 625,
+              "center": [
+                0.2244209427990353,
+                0.40609043307640613,
+                -0.016186703184344824
+              ],
+              "extent": [
+                0.05503401111525641,
+                0.09121497351638908,
+                0.04227541232627185
+              ],
+              "boundingBoxVolumeProxy": 0.00021221943584848017,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 44,
+                  "widthY": 0.04551294830853608,
+                  "widthZ": 0.03275387018086273
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 81,
+                  "widthY": 0.06112700509102398,
+                  "widthZ": 0.03694332859395993
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 81,
+                  "widthY": 0.04769108863617294,
+                  "widthZ": 0.040751907826877556
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 318,
+                  "widthY": 0.04970306492529902,
+                  "widthZ": 0.03884769121422568
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 536,
+              "center": [
+                -0.22461155893885326,
+                0.40609059410976667,
+                -0.01618662279022314
+              ],
+              "extent": [
+                0.05541507339876797,
+                0.09121486270851464,
+                0.042275357143418374
+              ],
+              "boundingBoxVolumeProxy": 0.0002136883308870422,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 254,
+                  "widthY": 0.049702958003549014,
+                  "widthZ": 0.036562491763434145
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 75,
+                  "widthY": 0.04818449481656922,
+                  "widthZ": 0.04056146333552445
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 69,
+                  "widthY": 0.06246099059481097,
+                  "widthZ": 0.036562558808197906
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 45,
+                  "widthY": 0.04551291480076686,
+                  "widthZ": 0.03351559852765458
+                }
+              ]
+            }
+          }
+        },
+        "regionalBefore": [
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 219,
+            "after": 119,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 172,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 1029,
+            "after": 281,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 448,
+            "after": 198,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 7620,
+            "after": 2524,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 4340,
+            "after": 1571,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 563,
+            "after": 289,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 563,
+            "after": 303,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 332,
+            "after": 168,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 184,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 155,
+            "after": 91,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": ".bmp",
+            "before": 561,
+            "after": 81,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": ".bmp",
+            "before": 32,
+            "after": 32,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": ".bmp",
+            "before": 14,
+            "after": 14,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 202,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 306,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 230,
+            "after": 140,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 172,
+            "after": 172,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          }
+        ],
+        "regionalAfter": [
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp_head",
+            "before": 219,
+            "after": 219,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 164,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Both eye centres and nose required"
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 172,
+            "after": 72,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 1029,
+            "after": 281,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp_head",
+            "before": 448,
+            "after": 206,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 4,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Both eye centres and nose required"
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp_head",
+            "before": 7620,
+            "after": 3006,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 204,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Both eye centres and nose required"
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 1843,
+            "after": 457,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 563,
+            "after": 289,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 563,
+            "after": 303,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 332,
+            "after": 168,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 187,
+            "after": 151,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 150,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 116,
+            "after": 116,
+            "method": "Continuous body topology with invariant regional borders",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 304,
+            "after": 304,
+            "method": "Continuous body topology with invariant regional borders",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 286,
+            "after": 286,
+            "method": "Continuous body topology with invariant regional borders",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 155,
+            "after": 91,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftHand",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 818,
+            "after": 818,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "rightHand",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 820,
+            "after": 820,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          },
+          {
+            "region": "spine",
+            "material": ".bmp",
+            "before": 561,
+            "after": 81,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": ".bmp",
+            "before": 32,
+            "after": 32,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": ".bmp_head",
+            "before": 14,
+            "after": 14,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Both eye centres and nose required"
+          },
+          {
+            "region": "spine",
+            "material": "player_default_intro_alphakill_d1.bmp",
+            "before": 202,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "player_default_intro_alphakill_d1.bmp_head",
+            "before": 34,
+            "after": 34,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 2,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Both eye centres and nose required"
+          },
+          {
+            "region": "spine",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 256,
+            "after": 154,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 230,
+            "after": 140,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 172,
+            "after": 172,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "iv_drawable_material.bmp.001",
+            "before": 50,
+            "after": 50,
+            "method": "Continuous body topology with invariant regional borders",
+            "sourcePreserved": true,
+            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+          }
+        ],
+        "artisticAcceptance": "NOT_REVIEWED"
+      },
+      {
+        "id": "d0762a8df6f72497",
+        "before": 15503,
+        "after": 19787,
+        "handBefore": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": [
+            {
+              "meshIndex": 0,
+              "candidateMeshIndex": 0,
+              "mesh": "Object_4",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 3854,
+              "candidateTriangles": 404,
+              "sourceToCandidate": {
+                "samples": 500,
+                "mean": 0.0026144386396313047,
+                "p95": 0.006848860938065546,
+                "max": 0.012840914148087475,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 404,
+                "mean": 0.0005413702396995689,
+                "p95": 0.003740049150343566,
+                "max": 0.008627615662436552,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 0,
+              "candidateMeshIndex": 0,
+              "mesh": "Object_4",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 3854,
+              "candidateTriangles": 392,
+              "sourceToCandidate": {
+                "samples": 500,
+                "mean": 0.0024433602479839132,
+                "p95": 0.006308865903111614,
+                "max": 0.009773740513566772,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 392,
+                "mean": 0.000630329326874016,
+                "p95": 0.004164568003220637,
+                "max": 0.008002387633075122,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 9,
+              "candidateMeshIndex": 9,
+              "mesh": "Object_22",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 398,
+              "candidateTriangles": 212,
+              "sourceToCandidate": {
+                "samples": 400,
+                "mean": 0.0006949138047774267,
+                "p95": 0.003090271588324312,
+                "max": 0.00865523121265108,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 424,
+                "mean": 0.00018025055950319507,
+                "p95": 0.0012721971375334001,
+                "max": 0.00499411120946237,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 18,
+              "candidateMeshIndex": 18,
+              "mesh": "Object_40",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 84,
+              "candidateTriangles": 84,
+              "sourceToCandidate": {
+                "samples": 336,
+                "mean": 0.00235228847770074,
+                "p95": 0.004888444348690903,
+                "max": 0.004978388315971333,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 336,
+                "mean": 0.0003396024149583606,
+                "p95": 0.003014685975713366,
+                "max": 0.003271857663360197,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 19,
+              "candidateMeshIndex": 19,
+              "mesh": "Object_42",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 398,
+              "candidateTriangles": 212,
+              "sourceToCandidate": {
+                "samples": 400,
+                "mean": 0.000710669947990689,
+                "p95": 0.002837941014195189,
+                "max": 0.008657477452638585,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 424,
+                "mean": 0.00016407864684107296,
+                "p95": 0.0009012077374560607,
+                "max": 0.004993827004948321,
+                "opposedNearestNormals": 0
+              }
+            }
+          ]
+        },
+        "handAfter": {
+          "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
+          "hands": [
+            {
+              "meshIndex": 0,
+              "candidateMeshIndex": 0,
+              "mesh": "Object_4",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 3854,
+              "candidateTriangles": 404,
+              "sourceToCandidate": {
+                "samples": 500,
+                "mean": 0.0026144386396313047,
+                "p95": 0.006848860938065546,
+                "max": 0.012840914148087475,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 404,
+                "mean": 0.0005413702396995689,
+                "p95": 0.003740049150343566,
+                "max": 0.008627615662436552,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 0,
+              "candidateMeshIndex": 0,
+              "mesh": "Object_4",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 3854,
+              "candidateTriangles": 392,
+              "sourceToCandidate": {
+                "samples": 500,
+                "mean": 0.0024433602479839132,
+                "p95": 0.006308865903111614,
+                "max": 0.009773740513566772,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 392,
+                "mean": 0.000630329326874016,
+                "p95": 0.004164568003220637,
+                "max": 0.008002387633075122,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 9,
+              "candidateMeshIndex": 9,
+              "mesh": "Object_22",
+              "region": "rightHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 398,
+              "candidateTriangles": 212,
+              "sourceToCandidate": {
+                "samples": 400,
+                "mean": 0.0006949138047774267,
+                "p95": 0.003090271588324312,
+                "max": 0.00865523121265108,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 424,
+                "mean": 0.00018025055950319507,
+                "p95": 0.0012721971375334001,
+                "max": 0.00499411120946237,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 18,
+              "candidateMeshIndex": 18,
+              "mesh": "Object_40",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 84,
+              "candidateTriangles": 84,
+              "sourceToCandidate": {
+                "samples": 336,
+                "mean": 0.00235228847770074,
+                "p95": 0.004888444348690903,
+                "max": 0.004978388315971333,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 336,
+                "mean": 0.0003396024149583606,
+                "p95": 0.003014685975713366,
+                "max": 0.003271857663360197,
+                "opposedNearestNormals": 0
+              }
+            },
+            {
+              "meshIndex": 19,
+              "candidateMeshIndex": 19,
+              "mesh": "Object_42",
+              "region": "leftHand",
+              "sourceMaterialIndex": 0,
+              "available": true,
+              "sourceTriangles": 398,
+              "candidateTriangles": 212,
+              "sourceToCandidate": {
+                "samples": 400,
+                "mean": 0.000710669947990689,
+                "p95": 0.002837941014195189,
+                "max": 0.008657477452638585,
+                "opposedNearestNormals": 0
+              },
+              "candidateToSource": {
+                "samples": 424,
+                "mean": 0.00016407864684107296,
+                "p95": 0.0009012077374560607,
+                "max": 0.004993827004948321,
+                "opposedNearestNormals": 0
+              }
+            }
+          ]
+        },
+        "anatomyBefore": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 48205,
+              "center": [
+                -0.0004912843001534523,
+                1.6117609063549028,
+                0.011389236993380458
+              ],
+              "extent": [
+                0.4678498324361726,
+                0.3186993144099688,
+                0.27831257764779593
+              ],
+              "boundingBoxVolumeProxy": 0.04149735739126092,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 1929,
+                  "widthY": 0.08792326664388384,
+                  "widthZ": 0.21500463140426973
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 22111,
+                  "widthY": 0.31855422765238495,
+                  "widthZ": 0.2556773145948341
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 21659,
+                  "widthY": 0.31418530439350456,
+                  "widthZ": 0.25586857946603914
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 1973,
+                  "widthY": 0.08853058404383773,
+                  "widthZ": 0.22296168572160013
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 738,
+              "center": [
+                0.48656885951106693,
+                1.3293548576366447,
+                0.02800071337507829
+              ],
+              "extent": [
+                0.16735429002051216,
+                0.1219868434709499,
+                0.13130600950833582
+              ],
+              "boundingBoxVolumeProxy": 0.0026806150178177103,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 191,
+                  "widthY": 0.10610627491132596,
+                  "widthZ": 0.101362234439506
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 116,
+                  "widthY": 0.10271616860518407,
+                  "widthZ": 0.09656379723902833
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 96,
+                  "widthY": 0.09244640509314217,
+                  "widthZ": 0.09083855667543972
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 78,
+                  "widthY": 0.0793484871301191,
+                  "widthZ": 0.07852094304738699
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 562,
+              "center": [
+                0.32944948763082493,
+                1.3645605258848263,
+                -0.006141849032048036
+              ],
+              "extent": [
+                0.1458185017469305,
+                0.1427439314766159,
+                0.12014473264866868
+              ],
+              "boundingBoxVolumeProxy": 0.002500777314129079,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 83,
+                  "widthY": 0.1081002842383898,
+                  "widthZ": 0.11801082749573769
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 87,
+                  "widthY": 0.10288836404197355,
+                  "widthZ": 0.1140080486152897
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 109,
+                  "widthY": 0.10161024514127326,
+                  "widthZ": 0.10432624780526112
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 149,
+                  "widthY": 0.10145616826048354,
+                  "widthZ": 0.09293800491204252
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 5807,
+              "center": [
+                0.6528069047146802,
+                1.2576248775303611,
+                0.09904786012702232
+              ],
+              "extent": [
+                0.1591520819588368,
+                0.1400517353504256,
+                0.1281613486933253
+              ],
+              "boundingBoxVolumeProxy": 0.0028566556194359574,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 330,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 772,
+                  "widthY": 0.09597233141448669,
+                  "widthZ": 0.10128880933709183
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 772,
+                  "widthY": 0.09718696621439427,
+                  "widthZ": 0.09649428154355633
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 1746,
+                  "widthY": 0.09114117751323669,
+                  "widthZ": 0.09264232062423619
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 732,
+              "center": [
+                -0.4865661624741051,
+                1.329681199109018,
+                0.02795729713103838
+              ],
+              "extent": [
+                0.1673814678545113,
+                0.12263952641569631,
+                0.13139284199641565
+              ],
+              "boundingBoxVolumeProxy": 0.0026971775943057143,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 70,
+                  "widthY": 0.0793484871301191,
+                  "widthZ": 0.07846757715737596
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 102,
+                  "widthY": 0.09234668388035061,
+                  "widthZ": 0.09078124031782767
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 104,
+                  "widthY": 0.10267080306039134,
+                  "widthZ": 0.09633066562338402
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 192,
+                  "widthY": 0.10639631011690631,
+                  "widthZ": 0.10121494121177933
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 549,
+              "center": [
+                -0.32997431200601574,
+                1.363332267590522,
+                -0.006121048566697904
+              ],
+              "extent": [
+                0.14476705497190778,
+                0.1402874148880071,
+                0.12017709277003522
+              ],
+              "boundingBoxVolumeProxy": 0.0024406760846961643,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 147,
+                  "widthY": 0.10210885120523017,
+                  "widthZ": 0.09300535303694346
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 101,
+                  "widthY": 0.1012206270324898,
+                  "widthZ": 0.104218928209491
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 89,
+                  "widthY": 0.10490063023462426,
+                  "widthZ": 0.10973244110641647
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 81,
+                  "widthY": 0.1061333835905316,
+                  "widthZ": 0.1180547883337795
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 5744,
+              "center": [
+                -0.652824124258359,
+                1.2576203133139643,
+                0.0990474019765128
+              ],
+              "extent": [
+                0.15911944089612007,
+                0.14006086378321903,
+                0.12816043239230623
+              ],
+              "boundingBoxVolumeProxy": 0.0028562354725710126,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 1694,
+                  "widthY": 0.09114117751323669,
+                  "widthZ": 0.09263842634490516
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 806,
+                  "widthY": 0.09718696621439427,
+                  "widthZ": 0.09649654204088168
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 778,
+                  "widthY": 0.09597233141448669,
+                  "widthZ": 0.10128699402375219
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 343,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "leftHand": {
+              "samples": 814,
+              "center": [
+                0.6527561450959638,
+                1.2578186492628447,
+                0.09904786012702232
+              ],
+              "extent": [
+                0.15905056272140428,
+                0.13966419188545842,
+                0.1281613486933253
+              ],
+              "boundingBoxVolumeProxy": 0.002846933690216788,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 151,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 160,
+                  "widthY": 0.09664977177544642,
+                  "widthZ": 0.10026664097293292
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 87,
+                  "widthY": 0.09562794054090773,
+                  "widthZ": 0.09617352432078974
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 172,
+                  "widthY": 0.07871295457425731,
+                  "widthZ": 0.08970323323950424
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 264,
+              "center": [
+                0.4865688595110669,
+                1.3293548576366447,
+                0.028000713375078295
+              ],
+              "extent": [
+                0.16735429002051205,
+                0.12198684347094968,
+                0.13130600950833582
+              ],
+              "boundingBoxVolumeProxy": 0.0026806150178177034,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 24,
+                  "widthY": 0.10071289253573923,
+                  "widthZ": 0.10136223443950598
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 21,
+                  "widthY": 0.09264584751872462,
+                  "widthZ": 0.07717679968776281
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 35,
+                  "widthY": 0.08259350667867693,
+                  "widthZ": 0.08774042082856326
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 8,
+                  "widthY": 0.06193600157621404,
+                  "widthZ": 0.06783786402367298
+                }
+              ]
+            },
+            "head": {
+              "samples": 12063,
+              "center": [
+                -0.0004912843001534384,
+                1.6117609063549025,
+                0.01103981078637127
+              ],
+              "extent": [
+                0.4678498324361726,
+                0.3186993144099688,
+                0.27718588181267023
+              ],
+              "boundingBoxVolumeProxy": 0.04132936318799273,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 458,
+                  "widthY": 0.08792326664388384,
+                  "widthZ": 0.18915699850981582
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 5979,
+                  "widthY": 0.3185542276523847,
+                  "widthZ": 0.2537837871832948
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 5027,
+                  "widthY": 0.31418530439350434,
+                  "widthZ": 0.24747597961243167
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 511,
+                  "widthY": 0.08853058404383773,
+                  "widthZ": 0.19751741545121604
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 192,
+              "center": [
+                0.32944948763082493,
+                1.3640710482536633,
+                -0.006141849032048036
+              ],
+              "extent": [
+                0.14581850174693045,
+                0.14176497621429007,
+                0.12014473264866865
+              ],
+              "boundingBoxVolumeProxy": 0.0024836266788183722,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 39,
+                  "widthY": 0.10810028423838958,
+                  "widthZ": 0.11801082749573766
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 30,
+                  "widthY": 0.09754961395356077,
+                  "widthZ": 0.09975831433825988
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 22,
+                  "widthY": 0.09692403968801955,
+                  "widthZ": 0.10275459273753995
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 20,
+                  "widthY": 0.09615365528406983,
+                  "widthZ": 0.07891523666856413
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 174,
+              "center": [
+                -0.3299743120060157,
+                1.362915333338151,
+                -0.0063591204279308255
+              ],
+              "extent": [
+                0.14476705497190778,
+                0.13945354638326535,
+                0.11970094904756934
+              ],
+              "boundingBoxVolumeProxy": 0.00241655618170797,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 18,
+                  "widthY": 0.09610842804886488,
+                  "widthZ": 0.07924109405738021
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 19,
+                  "widthY": 0.09836536390230322,
+                  "widthZ": 0.10263249994892476
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 34,
+                  "widthY": 0.10130222968928138,
+                  "widthZ": 0.10290986686069914
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 26,
+                  "widthY": 0.1061333835905316,
+                  "widthZ": 0.09875589831210618
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 254,
+              "center": [
+                -0.4865661624741051,
+                1.329681199109018,
+                0.027957297131038377
+              ],
+              "extent": [
+                0.16738146785451136,
+                0.12263952641569631,
+                0.13139284199641565
+              ],
+              "boundingBoxVolumeProxy": 0.002697177594305715,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 7,
+                  "widthY": 0.03205117232482735,
+                  "widthZ": 0.06778424798780591
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 25,
+                  "widthY": 0.08579329899203003,
+                  "widthZ": 0.08770900078017618
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 17,
+                  "widthY": 0.09253699787313963,
+                  "widthZ": 0.0725262953968553
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 20,
+                  "widthY": 0.10079463350211881,
+                  "widthZ": 0.09856518451816498
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 670,
+              "center": [
+                -0.6526600545098518,
+                1.2578225219313026,
+                0.0990474019765128
+              ],
+              "extent": [
+                0.15879130139910558,
+                0.1396564465485426,
+                0.12816043239230623
+              ],
+              "boundingBoxVolumeProxy": 0.002842115084170017,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 75,
+                  "widthY": 0.07702668408001045,
+                  "widthZ": 0.09020829663234053
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 82,
+                  "widthY": 0.09515035753429402,
+                  "widthZ": 0.09425151377851648
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 159,
+                  "widthY": 0.09720190364987502,
+                  "widthZ": 0.09532198676620852
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 145,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                }
+              ]
+            }
+          }
+        },
+        "anatomyAfter": {
+          "status": "MEASURED",
+          "scope": "Posed common object space; spatial bands, not landmark recognition or watertight volume",
+          "source": {
+            "head": {
+              "samples": 48205,
+              "center": [
+                -0.0004912843001534523,
+                1.6117609063549028,
+                0.011389236993380458
+              ],
+              "extent": [
+                0.4678498324361726,
+                0.3186993144099688,
+                0.27831257764779593
+              ],
+              "boundingBoxVolumeProxy": 0.04149735739126092,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 1929,
+                  "widthY": 0.08792326664388384,
+                  "widthZ": 0.21500463140426973
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 22111,
+                  "widthY": 0.31855422765238495,
+                  "widthZ": 0.2556773145948341
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 21659,
+                  "widthY": 0.31418530439350456,
+                  "widthZ": 0.25586857946603914
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 1973,
+                  "widthY": 0.08853058404383773,
+                  "widthZ": 0.22296168572160013
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 738,
+              "center": [
+                0.48656885951106693,
+                1.3293548576366447,
+                0.02800071337507829
+              ],
+              "extent": [
+                0.16735429002051216,
+                0.1219868434709499,
+                0.13130600950833582
+              ],
+              "boundingBoxVolumeProxy": 0.0026806150178177103,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 191,
+                  "widthY": 0.10610627491132596,
+                  "widthZ": 0.101362234439506
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 116,
+                  "widthY": 0.10271616860518407,
+                  "widthZ": 0.09656379723902833
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 96,
+                  "widthY": 0.09244640509314217,
+                  "widthZ": 0.09083855667543972
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 78,
+                  "widthY": 0.0793484871301191,
+                  "widthZ": 0.07852094304738699
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 562,
+              "center": [
+                0.32944948763082493,
+                1.3645605258848263,
+                -0.006141849032048036
+              ],
+              "extent": [
+                0.1458185017469305,
+                0.1427439314766159,
+                0.12014473264866868
+              ],
+              "boundingBoxVolumeProxy": 0.002500777314129079,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 83,
+                  "widthY": 0.1081002842383898,
+                  "widthZ": 0.11801082749573769
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 87,
+                  "widthY": 0.10288836404197355,
+                  "widthZ": 0.1140080486152897
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 109,
+                  "widthY": 0.10161024514127326,
+                  "widthZ": 0.10432624780526112
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 149,
+                  "widthY": 0.10145616826048354,
+                  "widthZ": 0.09293800491204252
+                }
+              ]
+            },
+            "leftHand": {
+              "samples": 5807,
+              "center": [
+                0.6528069047146802,
+                1.2576248775303611,
+                0.09904786012702232
+              ],
+              "extent": [
+                0.1591520819588368,
+                0.1400517353504256,
+                0.1281613486933253
+              ],
+              "boundingBoxVolumeProxy": 0.0028566556194359574,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 330,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 772,
+                  "widthY": 0.09597233141448669,
+                  "widthZ": 0.10128880933709183
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 772,
+                  "widthY": 0.09718696621439427,
+                  "widthZ": 0.09649428154355633
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 1746,
+                  "widthY": 0.09114117751323669,
+                  "widthZ": 0.09264232062423619
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 732,
+              "center": [
+                -0.4865661624741051,
+                1.329681199109018,
+                0.02795729713103838
+              ],
+              "extent": [
+                0.1673814678545113,
+                0.12263952641569631,
+                0.13139284199641565
+              ],
+              "boundingBoxVolumeProxy": 0.0026971775943057143,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 70,
+                  "widthY": 0.0793484871301191,
+                  "widthZ": 0.07846757715737596
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 102,
+                  "widthY": 0.09234668388035061,
+                  "widthZ": 0.09078124031782767
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 104,
+                  "widthY": 0.10267080306039134,
+                  "widthZ": 0.09633066562338402
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 192,
+                  "widthY": 0.10639631011690631,
+                  "widthZ": 0.10121494121177933
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 549,
+              "center": [
+                -0.32997431200601574,
+                1.363332267590522,
+                -0.006121048566697904
+              ],
+              "extent": [
+                0.14476705497190778,
+                0.1402874148880071,
+                0.12017709277003522
+              ],
+              "boundingBoxVolumeProxy": 0.0024406760846961643,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 147,
+                  "widthY": 0.10210885120523017,
+                  "widthZ": 0.09300535303694346
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 101,
+                  "widthY": 0.1012206270324898,
+                  "widthZ": 0.104218928209491
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 89,
+                  "widthY": 0.10490063023462426,
+                  "widthZ": 0.10973244110641647
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 81,
+                  "widthY": 0.1061333835905316,
+                  "widthZ": 0.1180547883337795
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 5744,
+              "center": [
+                -0.652824124258359,
+                1.2576203133139643,
+                0.0990474019765128
+              ],
+              "extent": [
+                0.15911944089612007,
+                0.14006086378321903,
+                0.12816043239230623
+              ],
+              "boundingBoxVolumeProxy": 0.0028562354725710126,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 1694,
+                  "widthY": 0.09114117751323669,
+                  "widthZ": 0.09263842634490516
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 806,
+                  "widthY": 0.09718696621439427,
+                  "widthZ": 0.09649654204088168
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 778,
+                  "widthY": 0.09597233141448669,
+                  "widthZ": 0.10128699402375219
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 343,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                }
+              ]
+            }
+          },
+          "candidate": {
+            "leftHand": {
+              "samples": 814,
+              "center": [
+                0.6527561450959638,
+                1.2578186492628447,
+                0.09904786012702232
+              ],
+              "extent": [
+                0.15905056272140428,
+                0.13966419188545842,
+                0.1281613486933253
+              ],
+              "boundingBoxVolumeProxy": 0.002846933690216788,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 151,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 160,
+                  "widthY": 0.09664977177544642,
+                  "widthZ": 0.10026664097293292
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 87,
+                  "widthY": 0.09562794054090773,
+                  "widthZ": 0.09617352432078974
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 172,
+                  "widthY": 0.07871295457425731,
+                  "widthZ": 0.08970323323950424
+                }
+              ]
+            },
+            "leftLowerArm": {
+              "samples": 264,
+              "center": [
+                0.4865688595110669,
+                1.3293548576366447,
+                0.028000713375078295
+              ],
+              "extent": [
+                0.16735429002051205,
+                0.12198684347094968,
+                0.13130600950833582
+              ],
+              "boundingBoxVolumeProxy": 0.0026806150178177034,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 24,
+                  "widthY": 0.10071289253573923,
+                  "widthZ": 0.10136223443950598
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 21,
+                  "widthY": 0.09264584751872462,
+                  "widthZ": 0.07717679968776281
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 35,
+                  "widthY": 0.08259350667867693,
+                  "widthZ": 0.08774042082856326
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 8,
+                  "widthY": 0.06193600157621404,
+                  "widthZ": 0.06783786402367298
+                }
+              ]
+            },
+            "head": {
+              "samples": 18427,
+              "center": [
+                -0.0004912843001534384,
+                1.6117609063549025,
+                0.01103981078637127
+              ],
+              "extent": [
+                0.4678498324361726,
+                0.3186993144099688,
+                0.27718588181267023
+              ],
+              "boundingBoxVolumeProxy": 0.04132936318799273,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 480,
+                  "widthY": 0.08792326664388384,
+                  "widthZ": 0.18915699850981582
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 9093,
+                  "widthY": 0.3185542276523847,
+                  "widthZ": 0.25476454047026204
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 8187,
+                  "widthY": 0.31418530439350434,
+                  "widthZ": 0.24747597961243167
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 579,
+                  "widthY": 0.08853058404383773,
+                  "widthZ": 0.19751741545121604
+                }
+              ]
+            },
+            "leftUpperArm": {
+              "samples": 192,
+              "center": [
+                0.32944948763082493,
+                1.3640710482536633,
+                -0.006141849032048036
+              ],
+              "extent": [
+                0.14581850174693045,
+                0.14176497621429007,
+                0.12014473264866865
+              ],
+              "boundingBoxVolumeProxy": 0.0024836266788183722,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 39,
+                  "widthY": 0.10810028423838958,
+                  "widthZ": 0.11801082749573766
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 30,
+                  "widthY": 0.09754961395356077,
+                  "widthZ": 0.09975831433825988
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 22,
+                  "widthY": 0.09692403968801955,
+                  "widthZ": 0.10275459273753995
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 20,
+                  "widthY": 0.09615365528406983,
+                  "widthZ": 0.07891523666856413
+                }
+              ]
+            },
+            "rightUpperArm": {
+              "samples": 174,
+              "center": [
+                -0.3299743120060157,
+                1.362915333338151,
+                -0.0063591204279308255
+              ],
+              "extent": [
+                0.14476705497190778,
+                0.13945354638326535,
+                0.11970094904756934
+              ],
+              "boundingBoxVolumeProxy": 0.00241655618170797,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 18,
+                  "widthY": 0.09610842804886488,
+                  "widthZ": 0.07924109405738021
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 19,
+                  "widthY": 0.09836536390230322,
+                  "widthZ": 0.10263249994892476
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 34,
+                  "widthY": 0.10130222968928138,
+                  "widthZ": 0.10290986686069914
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 26,
+                  "widthY": 0.1061333835905316,
+                  "widthZ": 0.09875589831210618
+                }
+              ]
+            },
+            "rightLowerArm": {
+              "samples": 254,
+              "center": [
+                -0.4865661624741051,
+                1.329681199109018,
+                0.027957297131038377
+              ],
+              "extent": [
+                0.16738146785451136,
+                0.12263952641569631,
+                0.13139284199641565
+              ],
+              "boundingBoxVolumeProxy": 0.002697177594305715,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 7,
+                  "widthY": 0.03205117232482735,
+                  "widthZ": 0.06778424798780591
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 25,
+                  "widthY": 0.08579329899203003,
+                  "widthZ": 0.08770900078017618
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 17,
+                  "widthY": 0.09253699787313963,
+                  "widthZ": 0.0725262953968553
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 20,
+                  "widthY": 0.10079463350211881,
+                  "widthZ": 0.09856518451816498
+                }
+              ]
+            },
+            "rightHand": {
+              "samples": 670,
+              "center": [
+                -0.6526600545098518,
+                1.2578225219313026,
+                0.0990474019765128
+              ],
+              "extent": [
+                0.15879130139910558,
+                0.1396564465485426,
+                0.12816043239230623
+              ],
+              "boundingBoxVolumeProxy": 0.002842115084170017,
+              "cuts": [
+                {
+                  "fraction": 0.2,
+                  "samples": 75,
+                  "widthY": 0.07702668408001045,
+                  "widthZ": 0.09020829663234053
+                },
+                {
+                  "fraction": 0.4,
+                  "samples": 82,
+                  "widthY": 0.09515035753429402,
+                  "widthZ": 0.09425151377851648
+                },
+                {
+                  "fraction": 0.6,
+                  "samples": 159,
+                  "widthY": 0.09720190364987502,
+                  "widthZ": 0.09532198676620852
+                },
+                {
+                  "fraction": 0.8,
+                  "samples": 145,
+                  "widthY": 0.0571954404549615,
+                  "widthZ": 0.07658245529492547
+                }
+              ]
+            }
+          }
+        },
+        "regionalBefore": [
+          {
+            "region": "leftHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 404,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "spine",
+            "material": "Material.001",
+            "before": 4402,
+            "after": 320,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.001",
+            "before": 568,
+            "after": 136,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "Material.001",
+            "before": 854,
+            "after": 168,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 298,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 314,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 142,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 392,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 164,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.004",
+            "before": 1104,
+            "after": 144,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.002",
+            "before": 144,
+            "after": 60,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.002",
+            "before": 7508,
+            "after": 464,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.005",
+            "before": 672,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 616,
+            "after": 178,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 7898,
+            "after": 956,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 584,
+            "after": 126,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.003",
+            "before": 584,
+            "after": 188,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 1328,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.011",
+            "before": 398,
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.011",
+            "before": 60,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 575,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 613,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 68,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.009",
+            "before": 2606,
+            "after": 274,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "Material.009",
+            "before": 764,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.014",
+            "before": 1198,
+            "after": 264,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.016",
+            "before": 156,
+            "after": 92,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 240,
+            "after": 240,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.007",
+            "before": 4058,
+            "after": 368,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.007",
+            "before": 1048,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.015",
+            "before": 6278,
+            "after": 4210,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.006",
+            "before": 3375,
+            "after": 775,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.006",
+            "before": 7232,
+            "after": 1134,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "Material.006",
+            "before": 22,
+            "after": 22,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftHand",
+            "material": "Material.013",
+            "before": 84,
+            "after": 84,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftHand",
+            "material": "Material.012",
+            "before": 398,
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.012",
+            "before": 60,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          }
+        ],
+        "regionalAfter": [
+          {
+            "region": "leftHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 404,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "spine",
+            "material": "Material.001",
+            "before": 4402,
+            "after": 320,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.001_head",
+            "before": 568,
+            "after": 142,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 0,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "hips",
+            "material": "Material.001",
+            "before": 854,
+            "after": 168,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 298,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.001",
+            "before": 2548,
+            "after": 314,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperArm",
+            "material": "Material.001",
+            "before": 436,
+            "after": 150,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.001",
+            "before": 522,
+            "after": 142,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.001",
+            "before": 3854,
+            "after": 392,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 164,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.001",
+            "before": 1312,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.004_head",
+            "before": 1104,
+            "after": 340,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 76,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "Material.002",
+            "before": 144,
+            "after": 60,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.002_head",
+            "before": 7508,
+            "after": 1856,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 743,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "head",
+            "material": "Material.005",
+            "before": 672,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 616,
+            "after": 178,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 7898,
+            "after": 956,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "material_0",
+            "before": 584,
+            "after": 126,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.003",
+            "before": 584,
+            "after": 188,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 1328,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightHand",
+            "material": "Material.011",
+            "before": 398,
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "rightLowerArm",
+            "material": "Material.011",
+            "before": 60,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 575,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.010",
+            "before": 3011,
+            "after": 613,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 68,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.010",
+            "before": 70,
+            "after": 66,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.009",
+            "before": 2606,
+            "after": 274,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "Material.009",
+            "before": 764,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftUpperLeg",
+            "material": "Material.009",
+            "before": 1312,
+            "after": 170,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 146,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "rightLowerLeg",
+            "material": "Material.009",
+            "before": 550,
+            "after": 148,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.014_head",
+            "before": 1198,
+            "after": 532,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 199,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "head",
+            "material": "Material.016_head",
+            "before": 156,
+            "after": 156,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 155,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "head",
+            "material": "Material.013",
+            "before": 240,
+            "after": 240,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "spine",
+            "material": "Material.007",
+            "before": 4058,
+            "after": 368,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "head",
+            "material": "Material.007_head",
+            "before": 1048,
+            "after": 204,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 30,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "head",
+            "material": "Material.015_head",
+            "before": 6278,
+            "after": 6278,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 6226,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "head",
+            "material": "Material.006_head",
+            "before": 3375,
+            "after": 1011,
+            "method": "Continuous body topology with invariant regional borders",
+            "faceDetail": {
+              "triangles": 160,
+              "status": "measured",
+              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
+            },
+            "fallback": "Facial semantic anchors unavailable"
+          },
+          {
+            "region": "spine",
+            "material": "Material.006",
+            "before": 7232,
+            "after": 1134,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "hips",
+            "material": "Material.006",
+            "before": 22,
+            "after": 22,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          },
+          {
+            "region": "leftHand",
+            "material": "Material.013",
+            "before": 84,
+            "after": 84,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftHand",
+            "material": "Material.012",
+            "before": 398,
+            "after": 212,
+            "method": "Source-anatomical hand topology with weighted joint fields",
+            "fallback": "No reliable hand rig or UV surface"
+          },
+          {
+            "region": "leftLowerArm",
+            "material": "Material.012",
+            "before": 60,
+            "after": 48,
+            "method": "Continuous body topology with invariant regional borders",
+            "fallback": null
+          }
+        ],
+        "artisticAcceptance": "NOT_REVIEWED"
+      }
+    ],
+    "publicImages": false
+  },
+  "regressions": {
+    "nikki": {
+      "status": "PASS",
+      "packaged": true,
+      "sourceFiles": 24,
+      "exactAssetReadback": true,
+      "privateTemporaryFilesRemoved": true,
+      "zipBytes": 49789666,
+      "phases": [
+        {
+          "name": "import",
+          "status": "PASS",
+          "durationMs": 4954.0785
+        },
+        {
+          "name": "convert-before-save",
+          "status": "PASS",
+          "durationMs": 5379.1664
+        },
+        {
+          "name": "save",
+          "status": "PASS",
+          "durationMs": 5662.265299999999
+        },
+        {
+          "name": "verify-all-project-assets",
+          "status": "PASS",
+          "durationMs": 1852.3597999999984
+        },
+        {
+          "name": "reopen",
+          "status": "PASS",
+          "durationMs": 5674.667099999999
+        },
+        {
+          "name": "convert-after-reopen",
+          "status": "PASS",
+          "durationMs": 4894.494600000002
+        }
+      ],
+      "workingSetKiB": 3137340,
+      "privateCommittedKiB": 2947244,
+      "memoryScope": {
+        "workingSet": "Sum of process working sets; shared pages may be counted more than once",
+        "privateBytes": "Sum of process private committed bytes where reported by Electron; not unique resident RAM",
+        "harness": "Separate Node RSS; not part of app totals"
+      },
+      "source": {
+        "meshes": 6,
+        "vertices": 132336,
+        "triangles": 44112,
+        "materials": 8,
+        "textures": 17,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      },
+      "converted": {
+        "meshes": 6,
+        "vertices": 7902,
+        "triangles": 7481,
+        "materials": 16,
+        "textures": 25,
+        "skinnedMeshes": 6,
+        "missingUVs": 0,
+        "invalidPositions": 0
+      }
+    },
+    "commercial": {
+      "status": "PASS",
+      "artisticAcceptance": "NOT_REVIEWED",
+      "models": [
+        {
+          "id": "97cd06d570f34e56",
+          "status": "PASS",
+          "sourceTriangles": 6186,
+          "baselineTriangles": 2290,
+          "authenticTriangles": 3888
+        },
+        {
+          "id": "ac97d32c3727e377",
+          "status": "PASS",
+          "sourceTriangles": 17176,
+          "baselineTriangles": 4374,
+          "authenticTriangles": 8464
+        },
+        {
+          "id": "d0762a8df6f72497",
+          "status": "PASS",
+          "sourceTriangles": 81469,
+          "baselineTriangles": 75931,
+          "authenticTriangles": 19787
+        }
+      ]
+    }
+  }
+}
