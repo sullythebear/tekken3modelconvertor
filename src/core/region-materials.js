@@ -4,7 +4,7 @@ import {artRegion} from './art-director.js';
 export function planRegionMaterials(parts,{unmappedHead=true}={}) {
  const buckets=new Map();
  for(const p of parts){
-  const genericFace=unmappedHead&&!!p.material?.map&&!p.material.transparent&&p.role==='head'&&!/head|face|hair|eye|lash|teeth|strand/i.test(p.material?.name??'');
+  const genericFace=unmappedHead&&Math.max(p.material?.map?.image?.width??0,p.material?.map?.image?.height??0)>=1024&&!!p.material?.map&&!p.material.transparent&&p.role==='head'&&!/head|face|hair|eye|lash|teeth|strand/i.test(p.material?.name??'');
   if((!genericFace&&!/body/i.test(p.material?.name))||p.material.rotation)continue;
   const region=artRegion(p.role,p.material.name);if(!genericFace&&!['torso','arms','legs'].includes(region))continue;
   let meshBuckets=buckets.get(p.mesh);if(!meshBuckets)buckets.set(p.mesh,meshBuckets=new Map());
