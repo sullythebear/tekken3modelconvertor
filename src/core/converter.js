@@ -307,12 +307,11 @@ export async function convertCharacter(
       const reprojectedBody=continuous&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name??'')&&canRebakeTorso(g);
       const deformationFields=continuous&&/^(spine|hips|(left|right)(Shoulder|UpperArm))$/.test(p.role)?armDisplacementFields(p.mesh,g):null;
       const sourceLimb=/^(left|right)(Shoulder|UpperArm|LowerArm|UpperLeg|LowerLeg|Foot)$/.test(p.role);
-      reconstruction = continuous?(sourceLimb?reduceSourceLimb:reduceBodySurface)(g,p.role,MeshoptSimplifier,{
+      const uncertainArm=p.mesh.isSkinnedMesh&&/^(left|right)(UpperArm|LowerArm|Hand|Shoulder)$/.test(p.role)&&!p.mesh.skeleton?.bones.some(b=>boneSemantic(b)===p.role);
+      reconstruction = uncertainArm?{indices:new Uint32Array(g.index.array),method:'Preserved unresolved source arm/wrist topology',sourcePreserved:true,fallbackReason:'Anatomical bone mapping unresolved; no retopology or vertex redistribution applied'}:continuous?(sourceLimb?reduceSourceLimb:reduceBodySurface)(g,p.role,MeshoptSimplifier,{
         target:budgets[i],featureMask:protectedMask,reprojectUV:reprojectedBody,deformationFields,
       }):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
       if(faceDetail){const{mask,...detail}=faceDetail;reconstruction.faceDetail=detail;}
-      const uncertainArm=p.mesh.isSkinnedMesh&&/^(left|right)(UpperArm|LowerArm|Hand|Shoulder)$/.test(p.role)&&!p.mesh.skeleton?.bones.some(b=>boneSemantic(b)===p.role);
-      if(uncertainArm){reconstruction.indices=new Uint32Array(g.index.array);reconstruction.fallbackReason='Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained';reconstruction.sourcePreserved=true;}
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
       reconstruction.occludedShellTriangles=shells?.removed??0;if(creases)reconstruction.creaseProtection=creases.report;
