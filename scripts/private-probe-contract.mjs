@@ -15,3 +15,5 @@ export function requireProbeConversion(result, expectedPreset) {
   }
   return result;
 }
+
+export function privateModelId(sha256){if(!/^[a-f0-9]{64}$/.test(sha256??''))throw Error('Invalid private source fingerprint');return sha256.slice(0,16);}

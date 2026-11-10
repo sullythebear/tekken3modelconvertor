@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {probeProvenance, requireProbeConversion} from '../scripts/private-probe-contract.mjs';
+import {probeProvenance, requireProbeConversion, privateModelId} from '../scripts/private-probe-contract.mjs';
 
 test('Private diagnostic provenance includes only allowlisted source/run identifiers', () => {
   const sha = 'a'.repeat(40);
@@ -23,3 +23,5 @@ test('Valid preparation with unavailable atlas stays a numerical pass, not expor
   const value={conversionPreset:'authentic',triangles:100,atlas:false};
   assert.equal(requireProbeConversion(value,'authentic'),value);
 });
+
+test('Private review model IDs derive exactly16hex characters from validated full SHA256',()=>{const sha='6238a03b185cf208b82838d6f5076424095f4d7379b7ca2e1111cc65002b4b13';assert.equal(privateModelId(sha),'6238a03b185cf208');assert.equal(privateModelId(sha).length,16);for(const bad of [null,'secret','a'.repeat(40),'a'.repeat(65)])assert.throws(()=>privateModelId(bad),/fingerprint/);});

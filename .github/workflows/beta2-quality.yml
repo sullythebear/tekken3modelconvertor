@@ -127,19 +127,19 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force "$env:T3CS_RUN_OUTPUT" | Out-Null
           node scripts/private-character-probe.mjs
-      - name: Build beta1 beta2 private comparison and restricted draft
+      - name: Build beta1 beta2 private comparison
         if: steps.private.outputs.characters == 'true'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          node scripts/beta2-compare.mjs
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          node scripts/private-character-review.mjs
+        run: node scripts/beta2-compare.mjs
       - name: Prepare safe product report
         run: node scripts/product-report.mjs
       - name: Save numeric-only diagnostic checkpoint
         if: steps.private.outputs.characters == 'true' && steps.private.outputs.nikki == 'true'
         run: node scripts/beta2-publish-metrics.mjs
+      - name: Publish access-checked UNPUBLISHED private review
+        if: steps.private.outputs.characters == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/private-character-review.mjs
       - name: Package strictly allowlisted public evidence
         run: node scripts/package-product.mjs
       - name: Remove private data
