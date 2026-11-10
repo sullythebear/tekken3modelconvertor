@@ -11,3 +11,5 @@ The full Windows run42877088654 onfeed9f2 completed successfully, including actu
 Automatic approval review rejected publishing an extended model-derived report on a public GitHub branch. That rejected action did not execute. Safer correction: stop public model-metric publication, remove its current-branch file while preserving history, restrict detailed metrics to the existing private draft, keep public reports synthetic-only. Existing previous numeric commits remain in history; no history rewrite.
 
 Next action: validate the restricted-report route, preserve code-only Windows artifact and document its access requirements. Owner can review the single consolidated private HTML without uploading assets. No TTT2 work or native-gameplay claims.
+
+Routing safeguard: generic UV-detail materials use a neutral suffix and explicit metadata rather than inventing a head/face semantic name. This prevents presentation naming from activating a different anatomical reconstruction stage. Existing mapped face strategy is preserved; atlas priority remains metadata-driven. Added synthetic regression. No commercial measurements or images in this public log.

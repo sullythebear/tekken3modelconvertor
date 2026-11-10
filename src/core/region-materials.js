@@ -18,7 +18,7 @@ export function planRegionMaterials(parts,{unmappedHead=true}={}) {
    let minU=Infinity,minV=Infinity,maxU=-Infinity,maxV=-Infinity;
    for(const p of group)for(const i of p.indices){minU=Math.min(minU,uv.getX(i));maxU=Math.max(maxU,uv.getX(i));minV=Math.min(minV,uv.getY(i));maxV=Math.max(maxV,uv.getY(i));}
    const spanU=maxU-minU,spanV=maxV-minV;if(spanU<1e-6||spanV<1e-6)continue;
-   const m=group[0].material.clone();m.userData.t3csSourceMaterialName=group[0].material.name;if(group.every(p=>p.role==='head'))m.userData.t3csFaceDetail=true;m.name+='_'+artRegion(group[0].role,m.name)+(/^left/i.test(group[0].role)?'_left':/^right/i.test(group[0].role)?'_right':'');
+   const m=group[0].material.clone();m.userData.t3csSourceMaterialName=group[0].material.name;if(group.every(p=>p.role==='head'))m.userData.t3csFaceDetail=true;m.name+=m.userData.t3csFaceDetail?'_uv-detail':'_'+artRegion(group[0].role,m.name)+(/^left/i.test(group[0].role)?'_left':/^right/i.test(group[0].role)?'_right':'');
    if(group.every(p=>/^(left|right)(Shoulder|UpperArm|LowerArm|Hand)$/.test(p.role))){m.userData.t3csSkinSurface=true;m.userData.t3csSkinPart=group.every(p=>/Hand$/.test(p.role))?'hand':'arm';if(m.userData.t3csSkinPart==='hand')m.name+='_hand';}
    let supported=true;
    for(const [key,value]of Object.entries(m))if(value?.isTexture){
