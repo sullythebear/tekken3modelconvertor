@@ -1,3 +1,4 @@
+import {renderPrivateCharacter} from './private-character-render.mjs';
 import {mkdir,mkdtemp,readdir,readFile,writeFile,rm,stat} from 'node:fs/promises';
 import os from 'node:os';import path from 'node:path';import assert from 'node:assert/strict';import {performance} from 'node:perf_hooks';import {createHash} from 'node:crypto';
 import {unzipSync} from 'fflate';import {downloadDriveZIP} from './drive-download.mjs';import {readStudioProject} from '../src/core/studio-project.js';import {browserSession} from './browser.mjs';
@@ -33,6 +34,8 @@ try{
  assert.deepEqual(await page.evaluate(()=>window.studioTest.source.stats),originalStats);
  await phase('convert-after-reopen',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
  assert.deepEqual(await page.evaluate(()=>window.studioTest.report().conversion.stats),before);assert.equal(session.errors.length,0,session.errors.join('\n'));report.status='PASS';report.exactAssetReadback=true;report.sourceStats=originalStats;report.convertedStats=before;
+ if(process.env.NIKKI_REVIEW_ROOT){const id='6238a03b185cf208b',renders=await renderPrivateCharacter(page,process.env.NIKKI_REVIEW_ROOT,id);await writeFile(path.join(process.env.NIKKI_REVIEW_ROOT,'probe.json'),JSON.stringify({id,status:'PASS',source:{stats:originalStats},authentic:{triangles:before.triangles},renders},null,2));}
+
 }catch(e){report.error=safeError(e);if(session)report.uiStatus=safeError(await session.page.locator('#status').innerText().catch(()=>''));process.exitCode=1;}
 finally{
  clearInterval(timer);if(session)await session.close().catch(()=>{});try{await rm(privateDir,{recursive:true,force:true,maxRetries:5,retryDelay:250});report.privateTemporaryFilesRemoved=true;}catch(error){report.privateTemporaryFilesRemoved=false;report.cleanupError=safeError(error);report.status='FAIL';process.exitCode=1;}

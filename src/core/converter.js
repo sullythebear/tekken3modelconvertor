@@ -351,6 +351,7 @@ export async function convertCharacter(
       }
     }
     if(art?.corrections[artRegion(p.role,p.material?.name)]?.remove)indices=new Uint32Array();
+    p.sourcePreserved=!!reconstruction?.sourcePreserved;
     let reduced = subsetGeometry(g, indices);
     if(art && reduced.attributes.position.count)reconstruction.shaping=shapeRegion(reduced,art,p.role,p.material?.name,p.artPivot,stage==='combined'&&/^(hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|UpperLeg|LowerLeg|Foot))$/.test(p.role));
     if(art?.flat){const flat=reduced.toNonIndexed();reduced.dispose();reduced=flat;reduced.computeVertexNormals();}
@@ -412,7 +413,7 @@ export async function convertCharacter(
       const start = indices.length;
       for (const i of p.geometry.index.array) indices.push(i + offset);
       combined.addGroup(start, indices.length - start, p.materialIndex);
-      metadata.push({ start, count: indices.length - start, role: p.role, sourceMaterialIndex:p.sourceMaterialIndex, ...(p.faceContours?{faceContours:p.faceContours}:{}),...(p.protectedPoints?{protectedPoints:p.protectedPoints}:{}) });
+      metadata.push({ start, count: indices.length - start, role: p.role, sourceMaterialIndex:p.sourceMaterialIndex, ...(p.sourcePreserved?{sourcePreserved:true}:{}), ...(p.faceContours?{faceContours:p.faceContours}:{}),...(p.protectedPoints?{protectedPoints:p.protectedPoints}:{}) });
       offset += p.geometry.attributes.position.count;
       p.geometry.dispose();
     }

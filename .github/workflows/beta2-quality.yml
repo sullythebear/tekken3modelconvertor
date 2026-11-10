@@ -77,6 +77,7 @@ jobs:
         if: steps.private.outputs.nikki == 'true'
         env:
           NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          NIKKI_REVIEW_ROOT: ${{ runner.temp }}/product-private/current-nikki
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
         run: node --use-env-proxy scripts/project-roundtrip-test.mjs
       - name: Private commercial regression inputs
@@ -91,6 +92,8 @@ jobs:
         if: steps.private.outputs.characters == 'true'
         env:
           T3CS_AUTOMATION: '1'
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          NIKKI_REVIEW_ROOT: ${{ runner.temp }}/product-private/baseline-nikki
         shell: pwsh
         run: |
           $baseline = "$env:RUNNER_TEMP/beta1-source"
@@ -98,6 +101,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Baseline checkout failed' }
           New-Item -ItemType Junction -Path "$baseline/node_modules" -Target (Join-Path $PWD 'node_modules') | Out-Null
           $probe=Join-Path $PWD "scripts/private-character-probe.mjs"
+          $nikkiProbe=Join-Path $PWD "scripts/project-roundtrip-test.mjs"
           $savedSha=$env:GITHUB_SHA
           $env:GITHUB_SHA='974a6e6ca07810b8411ff91b61c208e0d09c902d'
           Push-Location $baseline
@@ -106,6 +110,10 @@ jobs:
             if ($LASTEXITCODE -ne 0) { throw 'Baseline build failed' }
             node $probe
             if ($LASTEXITCODE -ne 0) { throw 'Baseline probe failed' }
+            if ($env:NIKKI_DOWNLOAD_URL) {
+              node --use-env-proxy $nikkiProbe
+              if ($LASTEXITCODE -ne 0) { throw 'Baseline Nikki regression failed' }
+            }
           } finally { Pop-Location; $env:GITHUB_SHA=$savedSha }
           Move-Item "$env:PRIVATE_CHARACTER_DIR/renders" "$env:PRIVATE_CHARACTER_DIR/beta1-renders"
           Move-Item "$env:PRIVATE_CHARACTER_DIR/safe-model-probes.json" "$env:PRIVATE_CHARACTER_DIR/beta1-probes.json"
