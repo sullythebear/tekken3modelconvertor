@@ -35,7 +35,7 @@ try{
  await phase('convert-after-reopen',async()=>{await page.click('#convert');await page.waitForFunction(()=>window.studioTest.converted&&!document.querySelector('#convert').disabled,null,{timeout:300000});});
  assert.deepEqual(await page.evaluate(()=>window.studioTest.report().conversion.stats),before);assert.equal(session.errors.length,0,session.errors.join('\n'));report.status='PASS';report.exactAssetReadback=true;report.sourceStats=originalStats;report.convertedStats=before;
  clearInterval(timer);timer=null; // Keep project memory measurements comparable; exclude optional private rendering.
- if(process.env.NIKKI_REVIEW_ROOT){const id='6238a03b185cf208b',renders=await renderPrivateCharacter(page,process.env.NIKKI_REVIEW_ROOT,id);await writeFile(path.join(process.env.NIKKI_REVIEW_ROOT,'probe.json'),JSON.stringify({id,status:'PASS',source:{stats:originalStats},authentic:{triangles:before.triangles},renders},null,2));}
+ if(process.env.NIKKI_REVIEW_ROOT){const id='6238a03b185cf208b',renders=await renderPrivateCharacter(page,process.env.NIKKI_REVIEW_ROOT,id);assert.equal(session.errors.length,0,'Private Nikki render shader/context validation failed');await writeFile(path.join(process.env.NIKKI_REVIEW_ROOT,'probe.json'),JSON.stringify({id,status:'PASS',source:{stats:originalStats},authentic:{triangles:before.triangles},renders},null,2));}
 
 }catch(e){report.status='FAIL';report.error=safeError(e);if(session)report.uiStatus=safeError(await session.page.locator('#status').innerText().catch(()=>''));process.exitCode=1;}
 finally{
