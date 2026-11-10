@@ -5,10 +5,11 @@ on:
     paths: ['src/**', 'scripts/**', 'tests/**', 'package*.json', '.github/workflows/product-beta.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  # Only used after every gate succeeds to create the beta prerelease.
+  contents: write
 concurrency:
   group: product-beta-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   windows:
     runs-on: windows-latest
@@ -96,6 +97,8 @@ jobs:
           node scripts/private-character-probe.mjs
       - name: Prepare safe product report
         run: node scripts/product-report.mjs
+      - name: Package strictly allowlisted public evidence
+        run: node scripts/package-product.mjs
       - name: Remove private data
         if: always()
         run: |
@@ -114,3 +117,13 @@ jobs:
             artifacts/product/private-summary.json
             artifacts/distribution/verification.json
             artifacts/portable-smoke/windows.json
+      - name: Publish tested beta prerelease without replacing existing releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $tag = 'v0.8.0-beta.1'
+          gh release view $tag --json tagName *> $null
+          if ($LASTEXITCODE -eq 0) { throw 'Existing release retained; refusing overwrite.' }
+          gh release create $tag "release/Tekken3ConversionStudio-0.8.0-beta.1-x64.exe" "artifacts/product/ConversionStudio-0.8.0-beta.1-report.zip" "artifacts/product/SHA256SUMS.txt" --target $env:GITHUB_SHA --prerelease --title "0.8.0-beta.1 — Windows testkandidaat" --notes-file docs/product/RELEASE_NOTES.md
+          if ($LASTEXITCODE -ne 0) { throw 'Prerelease publication failed; use the successful Actions artifact.' }
