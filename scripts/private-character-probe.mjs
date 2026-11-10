@@ -22,7 +22,7 @@ for(const f of inventory.files.filter(f=>['.glb','.gltf','.fbx','.obj'].includes
  r.appearanceStatus='HUMAN_REVIEW_REQUIRED';
  r.status='PASS';
  }catch(e){r.failureType=e.name;r.failureStage=r.source?'conversion':'import';await writeFile(path.join(dir,'probe-failure-'+r.id+'.txt'),String(e.stack));}
- results.push(r);console.log('Private model probe:',r.id,r.status);
+ results.push(r);console.log('Private model probe:',...(process.env.T3CS_PRIVATE_DIAGNOSTICS==='1'?[r.status]:[r.id,r.status]));
 }
 await writeFile(path.join(dir,'safe-model-probes.json'),JSON.stringify({...probeProvenance(),status:results.every(x=>x.status==='PASS')?'PASS':'PARTIAL',artisticAcceptance:'NOT_REVIEWED',scope:'Numerical importer/conversion diagnostics only; no visual or gameplay acceptance',originalAssetsPublished:false,commercialScreenshotsPublished:false,results},null,2));
 }finally{await session.close();}

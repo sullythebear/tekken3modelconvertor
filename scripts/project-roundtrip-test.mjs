@@ -1,3 +1,4 @@
+import {publicRegressionStatus} from './product-report-policy.mjs';
 import {privateModelId} from './private-probe-contract.mjs';
 import {renderPrivateCharacter} from './private-character-render.mjs';
 import {mkdir,mkdtemp,readdir,readFile,writeFile,rm,stat} from 'node:fs/promises';
@@ -42,5 +43,5 @@ try{
 finally{
  clearInterval(timer);if(session)await session.close().catch(()=>{});try{await rm(privateDir,{recursive:true,force:true,maxRetries:5,retryDelay:250});report.privateTemporaryFilesRemoved=true;}catch(error){report.privateTemporaryFilesRemoved=false;report.cleanupError=safeError(error);report.status='FAIL';process.exitCode=1;}
  report.peakAppWorkingSetKiB=Math.max(0,...samples.map(s=>s.processes.reduce((n,p)=>n+(p.workingSetKiB??0),0)));report.peakAppPrivateBytesKiB=process.platform==='win32'?Math.max(0,...samples.map(s=>s.processes.reduce((n,p)=>n+(p.privateBytesKiB??0),0))):null;report.memoryScope={workingSet:'Sum of process working sets; shared pages may be counted more than once',privateBytes:'Sum of process private committed bytes where reported by Electron; not unique resident RAM',harness:'Separate Node RSS; not part of app totals'};report.peakHarnessRssBytes=Math.max(0,...samples.map(s=>s.nodeRssBytes));report.phaseMemory=phases.map(({name})=>{const entries=samples.filter(s=>s.phase===name),peak=key=>entries.length?Math.max(...entries.map(s=>s.processes.reduce((n,p)=>n+(p[key]??0),0))):null;return {phase:name,samples:entries.length,appWorkingSetKiB:peak('workingSetKiB'),appPrivateCommittedKiB:process.platform==='win32'?peak('privateBytesKiB'):null,harnessRssBytes:entries.length?Math.max(...entries.map(s=>s.nodeRssBytes)):null};});
- await writeFile(output+'/results.json',JSON.stringify(report,null,2));console.log(JSON.stringify({...report,samples:`${samples.length} samples in private-data-free results.json`},null,2));
+ await writeFile(output+'/results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(process.env.T3CS_PRIVATE_DIAGNOSTICS==='1'?publicRegressionStatus(report):{...report,samples:`${samples.length} samples in private-data-free results.json`},null,2));
 }
