@@ -149,21 +149,23 @@ export function analyzeSkeleton(root) {
   };
 }
 export function vertexRegion(mesh, index, box) {
+  let inheritedBodyRole=null;
   const si = mesh.geometry.getAttribute("skinIndex"),
     sw = mesh.geometry.getAttribute("skinWeight");
   if (si && sw && mesh.skeleton) {
     let best = -1,
-      chosen = null;
+      chosen = null, inherited = false;
     forEachInfluence(mesh, index, (boneIndex, w) => {
       const b = mesh.skeleton.bones[boneIndex];
       if (w > best && b) {
         let p = b;
         while (p && !boneSemantic(p)) p = p.parent;
-        chosen = p ? boneSemantic(p) : null;
+        chosen = p ? boneSemantic(p) : null;inherited=p!==b;
         best = w;
       }
     });
-    if (chosen) return chosen;
+    if(chosen&&!(inherited&&['spine','hips'].includes(chosen)))return chosen;
+    inheritedBodyRole=chosen;
   }
   // Box3 uses the visible skinned pose. Compare in that same space when
   // names provide no anatomy, not the unposed bind-local vertex positions.
@@ -175,6 +177,7 @@ export function vertexRegion(mesh, index, box) {
     left = p.x > (box.min.x + box.max.x) / 2;
   const extremity=staticArmRegion(p,box);
   if(extremity)return extremity;
+  if(inheritedBodyRole)return inheritedBodyRole;
   if (h > 0.82) return "head";
   if (h > 0.5) return "spine";
   if (h > 0.43) return "hips";

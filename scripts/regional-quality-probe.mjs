@@ -1,0 +1,10 @@
+// Same diagnostic function is executed on beta1 and beta2. No names or colour guesses.
+export async function regionalQualityProbe(page){return page.evaluate(()=>{
+ const t=window.studioTest,T=t.THREE,source=t.source.root,output=t.converted.root;
+ function points(root){root.updateWorldMatrix(true,true);const inv=root.parent?.matrixWorld.clone().invert()??new T.Matrix4(),rows=[];root.traverse(m=>{if(!m.isMesh)return;const g=m.geometry;for(let v=0;v<g.attributes.position.count;v++)rows.push(m.getVertexPosition(v,new T.Vector3()).applyMatrix4(m.matrixWorld).applyMatrix4(inv));});return rows;}
+ const original=points(source),candidate=points(output),box=new T.Box3().setFromPoints(original),size=box.getSize(new T.Vector3()),mid=box.getCenter(new T.Vector3());
+ if(size.x/size.y<.55||size.x/size.y>1.6)return{status:'UNSUPPORTED_POSE',reason:'Spatial arm comparison requires upright laterally extended source; no inferred anatomy'};
+ function role(p){const y=(p.y-box.min.y)/size.y,lateral=Math.abs(p.x-mid.x)/(size.x/2),side=p.x>mid.x?'left':'right';if(y>.82)return'head';if(y>.5&&y<.82&&lateral>.35)return side+(lateral>=.78?'Hand':lateral>=.55?'LowerArm':'UpperArm');return null;}
+ function measure(rows){const groups={};for(const p of rows){const r=role(p);if(r)(groups[r]??=[]).push(p);}return Object.fromEntries(Object.entries(groups).map(([r,ps])=>{const b=new T.Box3().setFromPoints(ps),s=b.getSize(new T.Vector3()),center=b.getCenter(new T.Vector3()),cuts=[];for(const q of [.2,.4,.6,.8]){const x=b.min.x+s.x*q,band=ps.filter(p=>Math.abs(p.x-x)<=s.x*.1);if(band.length>2){const a=new T.Box3().setFromPoints(band).getSize(new T.Vector3());cuts.push({fraction:q,samples:band.length,widthY:a.y,widthZ:a.z});}}return[r,{samples:ps.length,center:center.toArray(),extent:s.toArray(),boundingBoxVolumeProxy:s.x*s.y*s.z,cuts}];}));}
+ return{status:'MEASURED',scope:'Posed common object space; spatial bands, not landmark recognition or watertight volume',source:measure(original),candidate:measure(candidate)};
+ });}

@@ -5,7 +5,7 @@ on:
     paths: ['src/**', 'scripts/**', 'tests/**', 'package*.json', '.github/workflows/beta2-quality.yml']
   workflow_dispatch:
 permissions:
-  # Only used after every gate succeeds to create the beta prerelease.
+  # Only used for access-checked UNPUBLISHED private review drafts.
   contents: write
 concurrency:
   group: beta2-quality-${{ github.ref }}
@@ -97,13 +97,14 @@ jobs:
           git worktree add --detach $baseline 974a6e6ca07810b8411ff91b61c208e0d09c902d
           if ($LASTEXITCODE -ne 0) { throw 'Baseline checkout failed' }
           New-Item -ItemType Junction -Path "$baseline/node_modules" -Target (Join-Path $PWD 'node_modules') | Out-Null
+          $probe=Join-Path $PWD "scripts/private-character-probe.mjs"
           $savedSha=$env:GITHUB_SHA
           $env:GITHUB_SHA='974a6e6ca07810b8411ff91b61c208e0d09c902d'
           Push-Location $baseline
           try {
             npm run build
             if ($LASTEXITCODE -ne 0) { throw 'Baseline build failed' }
-            node scripts/private-character-probe.mjs
+            node $probe
             if ($LASTEXITCODE -ne 0) { throw 'Baseline probe failed' }
           } finally { Pop-Location; $env:GITHUB_SHA=$savedSha }
           Move-Item "$env:PRIVATE_CHARACTER_DIR/renders" "$env:PRIVATE_CHARACTER_DIR/beta1-renders"
