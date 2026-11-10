@@ -69,7 +69,7 @@ export async function bakeAtlas(
     warnings = [];
   const layout=art?artAtlasLayout(materials,size,art):materials.map((m,i)=>({side:defaultCell,x:(i%grid)*defaultCell,y:Math.floor(i/grid)*defaultCell}));
   const timLayout=art?stagingTIMLayout(materials.map((m,i)=>({width:layout[i].width??layout[i].side,height:layout[i].height??layout[i].side,colors:artTextureColors(m.name,art,m)}))):null;
-  const samplingSize=m=>art&&m.userData?.t3csSkinSurface?1024:art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
+  const samplingSize=m=>art&&(m.userData?.t3csSkinSurface||m.userData?.t3csFaceDetail)?1024:art&&/hair|faceacc|strand/i.test(m.name)?Math.max(16,Math.round(512*(1-art.pixelation/120))):512;
   const requests=materials.flatMap(m=>[{texture:m.map,size:samplingSize(m)},{texture:m.alphaMap,size:samplingSize(m),data:true},{texture:m.normalMap,size:samplingSize(m),data:true}]),cache=readbackCache(requests,pixels),cachedPixels=cache.read;
   for (let i = 0; i < materials.length; i++) {
     const cell=layout[i].width??layout[i].side,cellHeight=layout[i].height??layout[i].side;

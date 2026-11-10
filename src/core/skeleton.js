@@ -173,7 +173,7 @@ export function vertexRegion(mesh, index, box) {
     .applyMatrix4(mesh.matrixWorld);
   const h = (p.y - box.min.y) / Math.max(box.max.y - box.min.y, 1e-6),
     left = p.x > (box.min.x + box.max.x) / 2;
-  const extremity=!mesh.isSkinnedMesh&&!si&&!sw?staticArmRegion(p,box):null;
+  const extremity=staticArmRegion(p,box);
   if(extremity)return extremity;
   if (h > 0.82) return "head";
   if (h > 0.5) return "spine";

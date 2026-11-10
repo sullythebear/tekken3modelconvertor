@@ -1,0 +1,151 @@
+name: Beta2 private visual quality checkpoint
+on:
+  push:
+    branches: [development/080-beta2-visual-quality]
+    paths: ['src/**', 'scripts/**', 'tests/**', 'package*.json', '.github/workflows/beta2-quality.yml']
+  workflow_dispatch:
+permissions:
+  # Only used after every gate succeeds to create the beta prerelease.
+  contents: write
+concurrency:
+  group: beta2-quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: New-Item -ItemType Directory -Force artifacts/product | Out-Null
+      - run: node --test --test-reporter=junit --test-reporter-destination=artifacts/product/unit.xml "tests/*.test.mjs"
+      - run: npm run build
+      - run: npm run dist:win:portable -- --publish never
+      - run: node scripts/verify-distribution.mjs
+      - run: node scripts/portable-smoke.mjs
+      - name: Full synthetic product workflow with cold reopen and GLB readback
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/product-profile
+        run: node scripts/product-test.mjs
+      - name: Real file dialogs OBJ MTL TGA and source overwrite protection
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/product-desktop-profile
+        run: node scripts/desktop-test.mjs
+      - name: Imported secondary UV and repeat texture baking
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: |
+          node scripts/material-uv-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/repeat-uv-test.mjs
+      - name: Original UI workflows
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/product-ui-profile
+        run: node scripts/ui-redesign-test.mjs
+      - name: Native synthetic fixtures (not gameplay validation)
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: |
+          node scripts/native-visual.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/native-humanoid.mjs
+      - name: Detect private regression availability without logging secrets
+        id: private
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
+        shell: pwsh
+        run: |
+          "nikki=$([bool]$env:NIKKI_DOWNLOAD_URL)".ToLower() >> $env:GITHUB_OUTPUT
+          "characters=$([bool]$env:CHARACTER_TEST_DOWNLOAD_URL)".ToLower() >> $env:GITHUB_OUTPUT
+          "PRIVATE_CHARACTER_DIR=$env:RUNNER_TEMP/product-private" >> $env:GITHUB_ENV
+      - name: Private Nikki project integrity and resource measurements
+        if: steps.private.outputs.nikki == 'true'
+        env:
+          NIKKI_DOWNLOAD_URL: ${{ secrets.NIKKI_DOWNLOAD_URL }}
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+        run: node --use-env-proxy scripts/project-roundtrip-test.mjs
+      - name: Private commercial regression inputs
+        if: steps.private.outputs.characters == 'true'
+        env:
+          CHARACTER_TEST_DOWNLOAD_URL: ${{ secrets.CHARACTER_TEST_DOWNLOAD_URL }}
+        run: |
+          node --use-env-proxy scripts/private-character-download.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/private-character-inventory.py
+      - name: Exact beta1 baseline source conversions with same private input
+        if: steps.private.outputs.characters == 'true'
+        env:
+          T3CS_AUTOMATION: '1'
+        shell: pwsh
+        run: |
+          $baseline = "$env:RUNNER_TEMP/beta1-source"
+          git worktree add --detach $baseline 974a6e6ca07810b8411ff91b61c208e0d09c902d
+          if ($LASTEXITCODE -ne 0) { throw 'Baseline checkout failed' }
+          New-Item -ItemType Junction -Path "$baseline/node_modules" -Target (Join-Path $PWD 'node_modules') | Out-Null
+          $savedSha=$env:GITHUB_SHA
+          $env:GITHUB_SHA='974a6e6ca07810b8411ff91b61c208e0d09c902d'
+          Push-Location $baseline
+          try {
+            npm run build
+            if ($LASTEXITCODE -ne 0) { throw 'Baseline build failed' }
+            node scripts/private-character-probe.mjs
+            if ($LASTEXITCODE -ne 0) { throw 'Baseline probe failed' }
+          } finally { Pop-Location; $env:GITHUB_SHA=$savedSha }
+          Move-Item "$env:PRIVATE_CHARACTER_DIR/renders" "$env:PRIVATE_CHARACTER_DIR/beta1-renders"
+          Move-Item "$env:PRIVATE_CHARACTER_DIR/safe-model-probes.json" "$env:PRIVATE_CHARACTER_DIR/beta1-probes.json"
+      - name: Private commercial conversions (no public images)
+        if: steps.private.outputs.characters == 'true'
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/product-private/profile
+          T3CS_RUN_OUTPUT: ${{ runner.temp }}/product-private/runtime
+        run: |
+          New-Item -ItemType Directory -Force "$env:T3CS_RUN_OUTPUT" | Out-Null
+          node scripts/private-character-probe.mjs
+      - name: Build beta1 beta2 private comparison and restricted draft
+        if: steps.private.outputs.characters == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/beta2-compare.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/private-character-review.mjs
+      - name: Prepare safe product report
+        run: node scripts/product-report.mjs
+      - name: Package strictly allowlisted public evidence
+        run: node scripts/package-product.mjs
+      - name: Remove private data
+        if: always()
+        run: |
+          if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ConversionStudio-beta-candidate-${{ github.sha }}
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            release/Tekken3ConversionStudio-*-x64.exe
+            artifacts/product/results.json
+            artifacts/product/unit.xml
+            artifacts/product/report.html
+            artifacts/product/studio-*.png
+            artifacts/product/private-summary.json
+            artifacts/product/beta2-quality.json
+            artifacts/distribution/verification.json
+            artifacts/portable-smoke/windows.json

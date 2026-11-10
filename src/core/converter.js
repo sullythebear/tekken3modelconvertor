@@ -1,3 +1,4 @@
+import {faceContrastMask} from './face-detail.js';
 import {reduceSourceLimb} from './source-chart-reduction.js';
 import {armDisplacementFields} from './joint-fields.js';
 import {reconstructAnatomicalHand} from './hand-reconstruction.js';
@@ -217,7 +218,7 @@ export async function convertCharacter(
     }
   });
   if(art){
-    planRegionMaterials(parts);if((art.reconstruction??'combined')==='combined')prepareSkinFields(parts);calibrateRegionBudgets(parts,art.reference);
+    planRegionMaterials(parts,{unmappedHead:!anatomicalBones.some(b=>boneSemantic(b)==='head')});if((art.reconstruction??'combined')==='combined')prepareSkinFields(parts);calibrateRegionBudgets(parts,art.reference);
     const boxes=new Map();
     for(const p of parts){const r=artRegion(p.role,p.material?.name);if(!boxes.has(r))boxes.set(r,new THREE.Box3());for(const i of p.indices)boxes.get(r).expandByPoint(new THREE.Vector3().fromBufferAttribute(p.g.attributes.position,i).applyMatrix4(p.mesh.matrixWorld));}
     for(const p of parts)p.artPivot=boxes.get(artRegion(p.role,p.material?.name)).getCenter(new THREE.Vector3()).applyMatrix4(p.mesh.matrixWorld.clone().invert());
@@ -289,7 +290,7 @@ export async function convertCharacter(
       if(candidate.geometry){if(candidate.contourPoints)p.faceContours=candidate.contourPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);if(candidate.material){const materials=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];if(parts.some(other=>other!==p&&other.mesh===p.mesh&&other.materialIndex===p.materialIndex)){p.materialIndex=materials.length;materials.push(candidate.material);}else materials[p.materialIndex]=candidate.material;p.mesh.material=materials;p.material=candidate.material;}supplements=candidate.supplements??[];const {geometry,material,supplements:extra,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'source topology fallback',reason:candidate.reason};
     }
-    if(art&&stage==='combined'&&/^(left|right)Hand$/.test(p.role)){
+    if(art&&stage==='combined'&&/^(left|right)Hand$/.test(p.role)&&(!p.mesh.isSkinnedMesh||p.mesh.skeleton?.bones.some(b=>boneSemantic(b)===p.role))){
       const hand=p.mesh.skeleton?.bones.find(b=>boneSemantic(b)===p.role),candidate=reconstructAnatomicalHand(g,p.material,{mesh:p.mesh,hand,simplifier:MeshoptSimplifier});
       if(candidate.geometry){p.protectedPoints=candidate.preservationPoints;g.dispose();g=candidate.geometry;indices=new Uint32Array(g.index.array);const mats=Array.isArray(p.mesh.material)?p.mesh.material:[p.mesh.material];p.materialIndex=mats.length;mats.push(candidate.material);p.mesh.material=mats;p.material=candidate.material;const{geometry,material,...metadata}=candidate;reconstruction=metadata;}
       else reconstruction={method:'source hand fallback',reason:candidate.reason};
@@ -301,6 +302,7 @@ export async function convertCharacter(
       const protectedMask=geometricBoundaryMask(g);
       const creases=p.role==='hips'&&['combined','boots'].includes(stage)?creaseFeatures(g):null;if(creases){for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=creases.mask[v];p.protectedPoints=creases.points;}
       if(locks&&art.face>=50)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=locks.mask[v];
+      const faceDetail=p.role==='head'&&p.material?.userData?.t3csFaceDetail?faceContrastMask(g,p.material):null;if(faceDetail)for(let v=0;v<protectedMask.length;v++)protectedMask[v]|=faceDetail.mask[v];
       const continuous=/^(head|hips|spine|(?:left|right)(?:Shoulder|UpperArm|LowerArm|Hand|UpperLeg|LowerLeg|Foot))$/.test(p.role)&&stage==='combined'&&!(p.role==='head'&&/eye|iris|sclera|lash|teeth/i.test(p.material?.name??''));
       const reprojectedBody=continuous&&/^(spine|hips)$/.test(p.role)&&/body/i.test(p.material?.name??'')&&canRebakeTorso(g);
       const deformationFields=continuous&&/^(spine|hips|(left|right)(Shoulder|UpperArm))$/.test(p.role)?armDisplacementFields(p.mesh,g):null;
@@ -308,6 +310,9 @@ export async function convertCharacter(
       reconstruction = continuous?(sourceLimb?reduceSourceLimb:reduceBodySurface)(g,p.role,MeshoptSimplifier,{
         target:budgets[i],featureMask:protectedMask,reprojectUV:reprojectedBody,deformationFields,
       }):reconstructClusters(g,budgets[i],{featureMask:protectedMask,art,role:p.role,material:p.material?.name});
+      if(faceDetail){const{mask,...detail}=faceDetail;reconstruction.faceDetail=detail;}
+      const uncertainArm=p.mesh.isSkinnedMesh&&/^(left|right)(UpperArm|LowerArm|Hand|Shoulder)$/.test(p.role)&&!p.mesh.skeleton?.bones.some(b=>boneSemantic(b)===p.role);
+      if(uncertainArm){reconstruction.indices=new Uint32Array(g.index.array);reconstruction.fallbackReason='Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained';reconstruction.sourcePreserved=true;}
       indices = art.corrections[artRegion(p.role,p.material?.name)]?.remove ? new Uint32Array() : reconstruction.indices;
       const {indices:unused,...metadata}=reconstruction;reconstruction=metadata;
       reconstruction.occludedShellTriangles=shells?.removed??0;if(creases)reconstruction.creaseProtection=creases.report;

@@ -1,0 +1,11 @@
+// Comparison is private. Only source-attributed numeric diagnostics leave this folder.
+import {readFile,writeFile,readdir,copyFile} from 'node:fs/promises';import path from 'node:path';
+const dir=process.env.PRIVATE_CHARACTER_DIR;if(!dir)throw Error('Private input required');
+const before=JSON.parse(await readFile(path.join(dir,'beta1-probes.json'))),after=JSON.parse(await readFile(path.join(dir,'safe-model-probes.json')));if(before.sourceCommit!=='974a6e6ca07810b8411ff91b61c208e0d09c902d'||after.sourceCommit!==process.env.GITHUB_SHA||before.status!=='PASS'||after.status!=='PASS')throw Error('Compared source identities or successful conversions unavailable');
+const safe=[];
+for(const r of after.results){const b=before.results.find(x=>x.id===r.id);if(!b)throw Error('Input identities differ');const dest=path.join(dir,'renders',r.id),src=path.join(dir,'beta1-renders',r.id);for(const f of await readdir(src))if(f.endsWith('.png'))await copyFile(path.join(src,f),path.join(dest,'beta1-'+f));
+ const names=(await readdir(dest)).filter(f=>f.endsWith('.png')&&!f.startsWith('beta1-'));let html='<!doctype html><meta charset="utf-8"><title>Private beta1 beta2 comparison</title><style>body{background:#101925;color:#fff;font:16px system-ui}section{display:flex;gap:8px}img{max-width:45vw}h2{font-size:16px}</style><h1>PRIVATE — niet publiceren</h1><p>Exacte beta1-bron974a6e6 versus huidige packaged beta2. Zelfde bronbestanden en rendererdiagnostiek. Bronversie beta1 is niet packaged; geen artistieke goedkeuring.</p>';
+ for(const n of names){html+='<h2>'+n+'</h2><section><figure><figcaption>beta1</figcaption><img src="beta1-'+n+'"></figure><figure><figcaption>beta2</figcaption><img src="'+n+'"></figure></section>';}
+ await writeFile(path.join(dest,'index.html'),html);safe.push({id:r.id,before:b.authentic?.triangles,after:r.authentic?.triangles,handBefore:b.handGeometry,handAfter:r.handGeometry,regionalBefore:b.authentic?.regions,regionalAfter:r.authentic?.regions,artisticAcceptance:'NOT_REVIEWED'});
+}
+await writeFile('artifacts/product/beta2-quality.json',JSON.stringify({baseline:before.sourceCommit,candidate:after.sourceCommit,models:safe,publicImages:false},null,2));
