@@ -13,6 +13,9 @@ try{
  if(await page.locator('.project-disclosure').count())await page.locator('.project-disclosure').evaluate(n=>n.open=true);
  await phase('save-project',async()=>{await page.click('#project-save');await page.waitForFunction(()=>document.querySelector('#status').textContent.startsWith('Project saved'));});
  const project=path.resolve(process.env.T3CS_RUN_OUTPUT,'character-project.zip'),bytes=await readFile(project),stored=readStudioProject(bytes);assert.ok(stored.assetCRC.length);results.projectBytes=bytes.length;
+ if(session.app){await session.app.evaluate(({dialog})=>{dialog.showSaveDialog=async()=>({canceled:true});});await page.click('#project-save');await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Opslaan geannuleerd'));assert.deepEqual(await readFile(project),bytes);results.cancelledSavePreservesProject=true;}
+ const damaged=path.resolve(process.env.T3CS_RUN_OUTPUT,'authored-damaged-project.zip');await writeFile(damaged,new Uint8Array([1,2,3]));await page.setInputFiles('#project-file',damaged);await page.waitForFunction(()=>document.querySelector('#status').textContent.startsWith('Bewerking mislukt'));assert.deepEqual(await page.evaluate(()=>window.studioTest.source.stats),original);results.corruptProjectPreservesSource=true;
+
  // Close app and open a new process: no in-memory source reuse can hide a broken project.
  await session.close();session=await browserSession({presentation:'standard'});({page}=session);
  await phase('cold-project-reopen',async()=>{await page.setInputFiles('#project-file',project);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Project restored'),null,{timeout:120000});});assert.deepEqual(await page.evaluate(()=>window.studioTest.source.stats),original);

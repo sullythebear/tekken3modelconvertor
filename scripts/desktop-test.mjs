@@ -1,3 +1,4 @@
+import {applicationEnvironment} from './browser.mjs';
 import {discFixture} from "./disc-fixture.mjs";
 import { _electron as electron } from "playwright-core";
 import assert from "node:assert/strict";
@@ -9,11 +10,11 @@ import { unzipSync } from "fflate";
 await mkdir("artifacts/desktop", { recursive: true });
 await writeFixtures();
 const app = await electron.launch({
-  executablePath: path.resolve(
+  executablePath: process.env.T3CS_PACKAGED_APP?path.resolve(process.env.T3CS_PACKAGED_APP):path.resolve(
     "node_modules/electron/dist/" +
       (process.platform === "win32" ? "electron.exe" : "electron"),
   ),
-  args:
+  args:process.env.T3CS_PACKAGED_APP?[]:
     process.platform === "win32"
       ? ["."]
       : [
@@ -26,9 +27,9 @@ const app = await electron.launch({
         ],
   env:
     process.platform === "win32"
-      ? process.env
+      ? applicationEnvironment(process.env)
       : {
-          ...process.env,
+          ...applicationEnvironment(process.env),
           XDG_CONFIG_HOME: "/workspace/.t3cs-config",
           XDG_CACHE_HOME: "/workspace/.t3cs-cache",
         },
@@ -39,6 +40,7 @@ try {
   await page.waitForFunction(
     () => typeof window.studio?.version === "function",
   );
+  const packaged=await app.evaluate(({app})=>app.isPackaged);if(process.env.T3CS_PACKAGED_APP)assert.equal(packaged,true);
   const report = await page.evaluate(async () => ({
     runtime: await window.studio.version(),
     node: typeof window.require,
