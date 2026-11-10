@@ -4,7 +4,7 @@ import {requireBakeUV} from './bake-uv.js';
 export function faceContrastMask(g,material){
  const map=material?.map,image=map?.image,mask=new Uint8Array(g.attributes.position.count),uv=requireBakeUV(g,material);
  if(!map||!image||!uv||image.width*image.height>16*1024*1024)return {mask,triangles:0,status:'unavailable'};
- let data=image.data;if(!data){if(typeof document==='undefined')return{mask,triangles:0,status:'unavailable'};const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(image,0,0);data=x.getImageData(0,0,c.width,c.height).data;}
+ let data=image.data;if(!data){if(typeof document==='undefined')return{mask,triangles:0,status:'unavailable'};const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(image,0,0);data=x.getImageData(0,0,c.width,c.height).data;c.width=c.height=1;}
  if(data.length!==image.width*image.height*4||data.BYTES_PER_ELEMENT!==1)return{mask,triangles:0,status:'unsupported pixel layout'};
  if(map.matrixAutoUpdate)map.updateMatrix();
  const read=(u,v)=>{const q=new THREE.Vector2(u,v);map.transformUv(q);const x=Math.min(image.width-1,Math.max(0,Math.floor(q.x*image.width))),y=Math.min(image.height-1,Math.max(0,Math.floor(q.y*image.height))),i=(y*image.width+x)*4;return [data[i],data[i+1],data[i+2],data[i+3]];};let triangles=0;

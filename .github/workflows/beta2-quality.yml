@@ -129,6 +129,9 @@ jobs:
           node scripts/private-character-review.mjs
       - name: Prepare safe product report
         run: node scripts/product-report.mjs
+      - name: Save numeric-only diagnostic checkpoint
+        if: steps.private.outputs.characters == 'true' && steps.private.outputs.nikki == 'true'
+        run: node scripts/beta2-publish-metrics.mjs
       - name: Package strictly allowlisted public evidence
         run: node scripts/package-product.mjs
       - name: Remove private data
