@@ -1,6 +1,6 @@
 # Tekken 3 Conversion Studio
 
-**0.8.0-beta.1 — Windows-productkandidaat**
+**0.8.0-beta.1 — geteste Windows-beta, geen stabiele 1.0**
 
 Converteer moderne 3D-personages naar herkenbare PlayStation1-stijl: **importeren → converteren → vergelijken → aanpassen → opslaan → exporteren**. Lokale verwerking, overzichtelijke standaardmodus en een doorzoekbaar geavanceerd paneel.
 
@@ -11,6 +11,8 @@ Converteer moderne 3D-personages naar herkenbare PlayStation1-stijl: **importere
 - Niet ondertekende portable x64-app, geen installer. TTT2 is geen onderdeel van deze beta.
 
 [Gebruikershandleiding](docs/product/GEBRUIKERSHANDLEIDING.md) · [Productaudit en beperkingen](docs/product/PRODUCT_READINESS.md) · [Release notes](docs/product/RELEASE_NOTES.md)
+
+[Download portable EXE](https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.8.0-beta.1/Tekken3ConversionStudio-0.8.0-beta.1-x64.exe) · [HTML-rapport en screenshots](https://github.com/sullythebear/tekken3modelconvertor/releases/download/v0.8.0-beta.1/ConversionStudio-0.8.0-beta.1-report.zip) · [Eén lokale betatest](docs/product/LOKALE_BETATEST_NL.md)
 
 [Windows Actions-builds](https://github.com/sullythebear/tekken3modelconvertor/actions/workflows/product-beta.yml): open de geslaagde run en download het commitgebonden artifact. Beschikbaarheid en testresultaten worden per kandidaat vastgelegd; geen stabiele releaseclaim.
 
