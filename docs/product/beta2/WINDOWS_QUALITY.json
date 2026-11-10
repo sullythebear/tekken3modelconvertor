@@ -1,13 +1,13 @@
 {
-  "run": "42871317518",
+  "run": "42877088654",
   "comparison": {
     "baseline": "974a6e6ca07810b8411ff91b61c208e0d09c902d",
-    "candidate": "3d450d3b98a820f78e9048cd714c5f05bffc5b1f",
+    "candidate": "feed9f2c3edb9611a1696c5889484977ccee243a",
     "models": [
       {
         "id": "97cd06d570f34e56",
         "before": 3692,
-        "after": 3888,
+        "after": 3692,
         "handBefore": {
           "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
           "hands": [
@@ -933,40 +933,40 @@
           },
           "candidate": {
             "head": {
-              "samples": 938,
+              "samples": 817,
               "center": [
                 0,
-                18.461450576782227,
-                -0.19615000486373502
+                18.46679973602295,
+                -0.20290005207061368
               ],
               "extent": [
                 6.3582000732421875,
-                3.5517005920410156,
-                3.2075001001358037
+                3.562398910522461,
+                3.1940000057220463
               ],
-              "boundingBoxVolumeProxy": 72.43312391978087,
+              "boundingBoxVolumeProxy": 72.34552150368985,
               "cuts": [
                 {
                   "fraction": 0.2,
-                  "samples": 30,
+                  "samples": 29,
                   "widthY": 0.38719940185546875,
                   "widthZ": 1.576399989426136
                 },
                 {
                   "fraction": 0.4,
-                  "samples": 444,
+                  "samples": 381,
                   "widthY": 3.536701202392578,
-                  "widthZ": 3.2075001001358037
+                  "widthZ": 3.1940000057220463
                 },
                 {
                   "fraction": 0.6,
-                  "samples": 421,
-                  "widthY": 3.5241012573242188,
-                  "widthZ": 3.191000103950501
+                  "samples": 365,
+                  "widthY": 3.5473995208740234,
+                  "widthZ": 3.1390000581741337
                 },
                 {
                   "fraction": 0.8,
-                  "samples": 30,
+                  "samples": 29,
                   "widthY": 0.38719940185546875,
                   "widthZ": 1.576399989426136
                 }
@@ -2043,15 +2043,15 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.9776496887207031,
-            "changedPixels": 4771,
+            "meanAbsoluteRGBByteError": 1.0961825052897136,
+            "changedPixels": 5907,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
               "halves": [
                 {
                   "side": "image-left",
-                  "darkenedPixels": 72,
-                  "maximumDarkening": 86.0152,
+                  "darkenedPixels": 150,
+                  "maximumDarkening": 87.2092,
                   "largestDarkeningComponent": {
                     "pixels": 24,
                     "bounds": [
@@ -2064,15 +2064,15 @@
                 },
                 {
                   "side": "image-right",
-                  "darkenedPixels": 285,
+                  "darkenedPixels": 462,
                   "maximumDarkening": 110.69380000000001,
                   "largestDarkeningComponent": {
-                    "pixels": 110,
+                    "pixels": 148,
                     "bounds": [
-                      361,
-                      190,
                       366,
-                      227
+                      19,
+                      380,
+                      63
                     ]
                   }
                 }
@@ -2082,36 +2082,36 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.9776496887207516,
+                "meanAbsoluteRGBByteError": 1.0961825052897916,
                 "maxRGBByteError": 110,
                 "sourceNearBlackPixels": 125,
-                "candidateNearBlackPixels": 116,
+                "candidateNearBlackPixels": 101,
                 "newBlackPixels": 0,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 0.9250920613606466,
+                "meanAbsoluteRGBByteError": 1.0380630493163614,
                 "maxRGBByteError": 85.66666666666667,
                 "sourceNearBlackPixels": 69,
-                "candidateNearBlackPixels": 68,
+                "candidateNearBlackPixels": 54,
                 "newBlackPixels": 0,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 1.0302073160807126,
+                "meanAbsoluteRGBByteError": 1.1543019612629875,
                 "maxRGBByteError": 110,
                 "sourceNearBlackPixels": 56,
-                "candidateNearBlackPixels": 48,
+                "candidateNearBlackPixels": 47,
                 "newBlackPixels": 0,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 125,
-            "candidateNearBlackPixels": 116,
+            "candidateNearBlackPixels": 101,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -2121,14 +2121,14 @@
             "view": "mouth-detail",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.5768038431803386,
+            "meanAbsoluteRGBByteError": 1.5764223734537761,
             "changedPixels": 6885,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.5768038431800584,
+                "meanAbsoluteRGBByteError": 1.576422373453496,
                 "maxRGBByteError": 139.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2147,14 +2147,14 @@
             "view": "left-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.03713226318359375,
+            "meanAbsoluteRGBByteError": 0.03749847412109375,
             "changedPixels": 41,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.037132263183593604,
+                "meanAbsoluteRGBByteError": 0.03749847412109366,
                 "maxRGBByteError": 47,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2173,14 +2173,14 @@
             "view": "right-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.033810933430989586,
+            "meanAbsoluteRGBByteError": 0.034244537353515625,
             "changedPixels": 44,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.03381093343098949,
+                "meanAbsoluteRGBByteError": 0.034244537353515535,
                 "maxRGBByteError": 48,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2251,36 +2251,36 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.4135119120279946,
-            "changedPixels": 13213,
+            "meanAbsoluteRGBByteError": 2.659022013346354,
+            "changedPixels": 16378,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
               "halves": [
                 {
                   "side": "image-left",
-                  "darkenedPixels": 439,
+                  "darkenedPixels": 610,
                   "maximumDarkening": 183.7152,
                   "largestDarkeningComponent": {
-                    "pixels": 106,
+                    "pixels": 223,
                     "bounds": [
-                      129,
+                      126,
                       29,
-                      147,
-                      44
+                      144,
+                      53
                     ]
                   }
                 },
                 {
                   "side": "image-right",
-                  "darkenedPixels": 754,
+                  "darkenedPixels": 840,
                   "maximumDarkening": 182.99999999999997,
                   "largestDarkeningComponent": {
-                    "pixels": 142,
+                    "pixels": 265,
                     "bounds": [
-                      370,
-                      35,
-                      381,
-                      65
+                      365,
+                      19,
+                      380,
+                      82
                     ]
                   }
                 }
@@ -2290,36 +2290,36 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.413511912027853,
+                "meanAbsoluteRGBByteError": 2.659022013346221,
                 "maxRGBByteError": 183.33333333333334,
                 "sourceNearBlackPixels": 125,
-                "candidateNearBlackPixels": 253,
-                "newBlackPixels": 65,
+                "candidateNearBlackPixels": 215,
+                "newBlackPixels": 48,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 2.460362752278719,
+                "meanAbsoluteRGBByteError": 2.7110570271810057,
                 "maxRGBByteError": 183.33333333333334,
                 "sourceNearBlackPixels": 69,
-                "candidateNearBlackPixels": 84,
-                "newBlackPixels": 14,
+                "candidateNearBlackPixels": 122,
+                "newBlackPixels": 39,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 2.3666610717774033,
+                "meanAbsoluteRGBByteError": 2.6069869995118298,
                 "maxRGBByteError": 183,
                 "sourceNearBlackPixels": 56,
-                "candidateNearBlackPixels": 169,
-                "newBlackPixels": 51,
+                "candidateNearBlackPixels": 93,
+                "newBlackPixels": 9,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 125,
-            "candidateNearBlackPixels": 253,
+            "candidateNearBlackPixels": 215,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -2329,14 +2329,14 @@
             "view": "mouth-detail",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 4.00930913289388,
-            "changedPixels": 21296,
+            "meanAbsoluteRGBByteError": 4.467779795328776,
+            "changedPixels": 29279,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 4.009309132893376,
+                "meanAbsoluteRGBByteError": 4.4677797953304585,
                 "maxRGBByteError": 139.33333333333334,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2355,14 +2355,14 @@
             "view": "left-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3543612162272136,
+            "meanAbsoluteRGBByteError": 1.3546969095865886,
             "changedPixels": 11755,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3543612162272511,
+                "meanAbsoluteRGBByteError": 1.3546969095866257,
                 "maxRGBByteError": 75.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2381,14 +2381,14 @@
             "view": "right-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3644180297851562,
-            "changedPixels": 11777,
+            "meanAbsoluteRGBByteError": 1.3648516337076824,
+            "changedPixels": 11779,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3644180297851818,
+                "meanAbsoluteRGBByteError": 1.3648516337077077,
                 "maxRGBByteError": 106.66666666666667,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2407,14 +2407,14 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.272430419921875,
+            "meanAbsoluteRGBByteError": 1.2724278767903645,
             "changedPixels": 12453,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.2724304199218912,
+                "meanAbsoluteRGBByteError": 1.2724278767903807,
                 "maxRGBByteError": 133,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -2858,16 +2858,11 @@
         "regionalAfter": [
           {
             "region": "head",
-            "material": "3904cap_tm2_head",
+            "material": "3904cap_tm2",
             "before": 550,
-            "after": 380,
+            "after": 192,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 153,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "rightUpperArm",
@@ -2887,16 +2882,11 @@
           },
           {
             "region": "head",
-            "material": "arm01_tm2_head",
+            "material": "arm01_tm2",
             "before": 21,
             "after": 21,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "leftUpperArm",
@@ -2948,16 +2938,11 @@
           },
           {
             "region": "head",
-            "material": "jc_body_tm2_head",
+            "material": "jc_body_tm2",
             "before": 92,
             "after": 70,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "spine",
@@ -3144,16 +3129,11 @@
           },
           {
             "region": "head",
-            "material": "jc_neck_tm2_head",
+            "material": "jc_neck_tm2",
             "before": 82,
             "after": 74,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "spine",
@@ -3197,16 +3177,11 @@
           },
           {
             "region": "head",
-            "material": "jc_tooth_tm2_head",
+            "material": "jc_tooth_tm2",
             "before": 79,
-            "after": 79,
+            "after": 75,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 59,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "rightLowerArm",
@@ -3242,16 +3217,11 @@
           },
           {
             "region": "head",
-            "material": "shirt01_tm2_head",
+            "material": "shirt01_tm2",
             "before": 43,
             "after": 43,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "hips",
@@ -3271,16 +3241,11 @@
           },
           {
             "region": "head",
-            "material": "shirt02_tm2_head",
+            "material": "shirt02_tm2",
             "before": 171,
-            "after": 65,
+            "after": 61,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "hips",
@@ -3291,6 +3256,11 @@
             "fallback": null
           }
         ],
+        "renderEquivalence": {
+          "compared": 144,
+          "byteIdentical": 144,
+          "differentViews": []
+        },
         "artisticAcceptance": "NOT_REVIEWED"
       },
       {
@@ -3315,16 +3285,16 @@
               "candidateTriangles": 818,
               "sourceToCandidate": {
                 "samples": 468,
-                "mean": 0.00017279216365074195,
-                "p95": 0.0014723026544301832,
-                "max": 0.004299581280351744,
+                "mean": 1.139166423694486e-10,
+                "p95": 4.4309177477181997e-10,
+                "max": 4.873905948586042e-10,
                 "opposedNearestNormals": 0
               },
               "candidateToSource": {
                 "samples": 468,
-                "mean": 0.000030087285349114538,
-                "p95": 0.000048855281059653774,
-                "max": 0.001842295597301811,
+                "mean": 9.871914217684073e-11,
+                "p95": 3.8581324985984075e-10,
+                "max": 5.134103199229927e-10,
                 "opposedNearestNormals": 0
               }
             },
@@ -3339,16 +3309,16 @@
               "candidateTriangles": 820,
               "sourceToCandidate": {
                 "samples": 472,
-                "mean": 0.0000685148014937156,
-                "p95": 0.0004308201151116625,
-                "max": 0.0026248294796313142,
+                "mean": 1.0776720943818235e-10,
+                "p95": 4.2409871540432167e-10,
+                "max": 5.157108906631215e-10,
                 "opposedNearestNormals": 0
               },
               "candidateToSource": {
                 "samples": 472,
-                "mean": 0.000012369388369849289,
-                "p95": 9.969168130690032e-8,
-                "max": 0.0009168411859065537,
+                "mean": 1.1271247541676416e-10,
+                "p95": 4.1726832657353884e-10,
+                "max": 5.232035640068959e-10,
                 "opposedNearestNormals": 0
               }
             }
@@ -4370,7 +4340,7 @@
                 {
                   "fraction": 0.6,
                   "samples": 81,
-                  "widthY": 0.04769108863617294,
+                  "widthY": 0.047797035927997056,
                   "widthZ": 0.040751907826877556
                 },
                 {
@@ -4404,7 +4374,7 @@
                 {
                   "fraction": 0.4,
                   "samples": 75,
-                  "widthY": 0.04818449481656922,
+                  "widthY": 0.0477970132782381,
                   "widthZ": 0.04056146333552445
                 },
                 {
@@ -5264,7 +5234,7 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.4247258504231772,
+            "meanAbsoluteRGBByteError": 3.4247233072916665,
             "changedPixels": 31332,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
@@ -5303,7 +5273,7 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 3.4247258504232456,
+                "meanAbsoluteRGBByteError": 3.4247233072917354,
                 "maxRGBByteError": 92.33333333333333,
                 "sourceNearBlackPixels": 2,
                 "candidateNearBlackPixels": 4,
@@ -5323,7 +5293,7 @@
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 2.9484430948893157,
+                "meanAbsoluteRGBByteError": 2.9484380086262942,
                 "maxRGBByteError": 81.33333333333333,
                 "sourceNearBlackPixels": 2,
                 "candidateNearBlackPixels": 2,
@@ -5368,14 +5338,14 @@
             "view": "left-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.342529296875,
-            "changedPixels": 22321,
+            "meanAbsoluteRGBByteError": 2.3397560119628906,
+            "changedPixels": 22319,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.342529296875063,
+                "meanAbsoluteRGBByteError": 2.3397560119629603,
                 "maxRGBByteError": 150.66666666666666,
                 "sourceNearBlackPixels": 1,
                 "candidateNearBlackPixels": 3,
@@ -5394,14 +5364,14 @@
             "view": "right-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.7034886678059895,
-            "changedPixels": 17791,
+            "meanAbsoluteRGBByteError": 1.7024091084798176,
+            "changedPixels": 17786,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.7034886678059817,
+                "meanAbsoluteRGBByteError": 1.7024091084798092,
                 "maxRGBByteError": 92.33333333333333,
                 "sourceNearBlackPixels": 41,
                 "candidateNearBlackPixels": 52,
@@ -5420,15 +5390,15 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.019268035888671875,
-            "changedPixels": 108,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.01926803588867188,
-                "maxRGBByteError": 35,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -5446,15 +5416,15 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 0.004853566487630208,
-            "changedPixels": 23,
+            "meanAbsoluteRGBByteError": 0,
+            "changedPixels": 0,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 0.004853566487630204,
-                "maxRGBByteError": 23.666666666666668,
+                "meanAbsoluteRGBByteError": 0,
+                "maxRGBByteError": 0,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -5472,8 +5442,8 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 7.435777028401692,
-            "changedPixels": 77116,
+            "meanAbsoluteRGBByteError": 7.5396779378255205,
+            "changedPixels": 78112,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
               "halves": [
@@ -5493,8 +5463,8 @@
                 },
                 {
                   "side": "image-right",
-                  "darkenedPixels": 2997,
-                  "maximumDarkening": 109.33179999999999,
+                  "darkenedPixels": 3093,
+                  "maximumDarkening": 134.4558,
                   "largestDarkeningComponent": {
                     "pixels": 835,
                     "bounds": [
@@ -5511,8 +5481,8 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 7.435777028401821,
-                "maxRGBByteError": 110,
+                "meanAbsoluteRGBByteError": 7.539677937825656,
+                "maxRGBByteError": 124.33333333333333,
                 "sourceNearBlackPixels": 2,
                 "candidateNearBlackPixels": 29,
                 "newBlackPixels": 29,
@@ -5531,8 +5501,8 @@
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 7.107902526855436,
-                "maxRGBByteError": 107.66666666666667,
+                "meanAbsoluteRGBByteError": 7.31570434570308,
+                "maxRGBByteError": 124.33333333333333,
                 "sourceNearBlackPixels": 2,
                 "candidateNearBlackPixels": 5,
                 "newBlackPixels": 5,
@@ -5550,15 +5520,15 @@
             "view": "mouth-detail",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 9.34967295328776,
-            "changedPixels": 110746,
+            "meanAbsoluteRGBByteError": 9.380200703938803,
+            "changedPixels": 111108,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 9.349672953288172,
-                "maxRGBByteError": 78.66666666666667,
+                "meanAbsoluteRGBByteError": 9.380200703939204,
+                "maxRGBByteError": 121.33333333333333,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
                 "newBlackPixels": 0,
@@ -5576,14 +5546,14 @@
             "view": "left-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.8977686564127603,
-            "changedPixels": 35476,
+            "meanAbsoluteRGBByteError": 3.9056015014648438,
+            "changedPixels": 35598,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 3.8977686564128677,
+                "meanAbsoluteRGBByteError": 3.9056015014649534,
                 "maxRGBByteError": 135.33333333333334,
                 "sourceNearBlackPixels": 1,
                 "candidateNearBlackPixels": 159,
@@ -5602,14 +5572,14 @@
             "view": "right-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 3.205488840738932,
-            "changedPixels": 32543,
+            "meanAbsoluteRGBByteError": 3.205977121988932,
+            "changedPixels": 32545,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 3.205488840738921,
+                "meanAbsoluteRGBByteError": 3.2059771219889215,
                 "maxRGBByteError": 93.33333333333333,
                 "sourceNearBlackPixels": 41,
                 "candidateNearBlackPixels": 447,
@@ -5628,14 +5598,14 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3420295715332031,
-            "changedPixels": 12798,
+            "meanAbsoluteRGBByteError": 1.3434257507324219,
+            "changedPixels": 12827,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3420295715332198,
+                "meanAbsoluteRGBByteError": 1.343425750732437,
                 "maxRGBByteError": 59,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -5654,14 +5624,14 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.3457043965657551,
-            "changedPixels": 12755,
+            "meanAbsoluteRGBByteError": 1.3462575276692708,
+            "changedPixels": 12745,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.3457043965657636,
+                "meanAbsoluteRGBByteError": 1.3462575276692785,
                 "maxRGBByteError": 59,
                 "sourceNearBlackPixels": 0,
                 "candidateNearBlackPixels": 0,
@@ -5930,36 +5900,36 @@
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 150,
             "after": 150,
-            "method": "Continuous body topology with invariant regional borders",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "rightUpperArm",
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 116,
             "after": 116,
-            "method": "Continuous body topology with invariant regional borders",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "leftLowerArm",
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 304,
             "after": 304,
-            "method": "Continuous body topology with invariant regional borders",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "rightLowerArm",
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 286,
             "after": 286,
-            "method": "Continuous body topology with invariant regional borders",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "leftUpperLeg",
@@ -5974,18 +5944,18 @@
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 818,
             "after": 818,
-            "method": "Source-anatomical hand topology with weighted joint fields",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "rightHand",
             "material": "player_default_intro_alphakill_d1.bmp",
             "before": 820,
             "after": 820,
-            "method": "Source-anatomical hand topology with weighted joint fields",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           },
           {
             "region": "spine",
@@ -6005,16 +5975,11 @@
           },
           {
             "region": "head",
-            "material": ".bmp_head",
+            "material": ".bmp",
             "before": 14,
             "after": 14,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 0,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Both eye centres and nose required"
+            "fallback": null
           },
           {
             "region": "spine",
@@ -6066,17 +6031,95 @@
             "material": "iv_drawable_material.bmp.001",
             "before": 50,
             "after": 50,
-            "method": "Continuous body topology with invariant regional borders",
+            "method": "Preserved unresolved source arm/wrist topology",
             "sourcePreserved": true,
-            "fallback": "Unresolved anatomical bone mapping: original arm/wrist surface and skin attributes retained"
+            "fallback": "Anatomical bone mapping unresolved; no retopology or vertex redistribution applied"
           }
         ],
+        "renderEquivalence": {
+          "compared": 144,
+          "byteIdentical": 72,
+          "differentViews": [
+            "atlas-diffuse-back.png",
+            "atlas-diffuse-face-quarter.png",
+            "atlas-diffuse-face-side.png",
+            "atlas-diffuse-face.png",
+            "atlas-diffuse-front.png",
+            "atlas-diffuse-left-arm.png",
+            "atlas-diffuse-left-hand.png",
+            "atlas-diffuse-mouth-detail.png",
+            "atlas-diffuse-quarter.png",
+            "atlas-diffuse-right-arm.png",
+            "atlas-diffuse-right-hand.png",
+            "atlas-diffuse-side.png",
+            "atlas-full-back.png",
+            "atlas-full-face-quarter.png",
+            "atlas-full-face-side.png",
+            "atlas-full-face.png",
+            "atlas-full-front.png",
+            "atlas-full-left-arm.png",
+            "atlas-full-left-hand.png",
+            "atlas-full-mouth-detail.png",
+            "atlas-full-quarter.png",
+            "atlas-full-right-arm.png",
+            "atlas-full-right-hand.png",
+            "atlas-full-side.png",
+            "atlas-normals-back.png",
+            "atlas-normals-face-quarter.png",
+            "atlas-normals-face-side.png",
+            "atlas-normals-face.png",
+            "atlas-normals-front.png",
+            "atlas-normals-left-arm.png",
+            "atlas-normals-left-hand.png",
+            "atlas-normals-mouth-detail.png",
+            "atlas-normals-quarter.png",
+            "atlas-normals-right-arm.png",
+            "atlas-normals-right-hand.png",
+            "atlas-normals-side.png",
+            "prepared-diffuse-back.png",
+            "prepared-diffuse-face-quarter.png",
+            "prepared-diffuse-face-side.png",
+            "prepared-diffuse-face.png",
+            "prepared-diffuse-front.png",
+            "prepared-diffuse-left-arm.png",
+            "prepared-diffuse-left-hand.png",
+            "prepared-diffuse-mouth-detail.png",
+            "prepared-diffuse-quarter.png",
+            "prepared-diffuse-right-arm.png",
+            "prepared-diffuse-right-hand.png",
+            "prepared-diffuse-side.png",
+            "prepared-full-back.png",
+            "prepared-full-face-quarter.png",
+            "prepared-full-face-side.png",
+            "prepared-full-face.png",
+            "prepared-full-front.png",
+            "prepared-full-left-arm.png",
+            "prepared-full-left-hand.png",
+            "prepared-full-mouth-detail.png",
+            "prepared-full-quarter.png",
+            "prepared-full-right-arm.png",
+            "prepared-full-right-hand.png",
+            "prepared-full-side.png",
+            "prepared-normals-back.png",
+            "prepared-normals-face-quarter.png",
+            "prepared-normals-face-side.png",
+            "prepared-normals-face.png",
+            "prepared-normals-front.png",
+            "prepared-normals-left-arm.png",
+            "prepared-normals-left-hand.png",
+            "prepared-normals-mouth-detail.png",
+            "prepared-normals-quarter.png",
+            "prepared-normals-right-arm.png",
+            "prepared-normals-right-hand.png",
+            "prepared-normals-side.png"
+          ]
+        },
         "artisticAcceptance": "NOT_REVIEWED"
       },
       {
         "id": "d0762a8df6f72497",
         "before": 15503,
-        "after": 19787,
+        "after": 19591,
         "handBefore": {
           "scope": "Rest-pose hand surface distances normalized by source hand extent; nearest-normal flags are not proof of winding error; no animation or artistic acceptance",
           "hands": [
@@ -7262,7 +7305,7 @@
               ]
             },
             "head": {
-              "samples": 18427,
+              "samples": 18201,
               "center": [
                 -0.0004912843001534384,
                 1.6117609063549025,
@@ -7283,13 +7326,13 @@
                 },
                 {
                   "fraction": 0.4,
-                  "samples": 9093,
+                  "samples": 8976,
                   "widthY": 0.3185542276523847,
                   "widthZ": 0.25476454047026204
                 },
                 {
                   "fraction": 0.6,
-                  "samples": 8187,
+                  "samples": 8078,
                   "widthY": 0.31418530439350434,
                   "widthZ": 0.24747597961243167
                 },
@@ -8304,14 +8347,14 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 5.899562835693359,
-            "changedPixels": 17648,
+            "meanAbsoluteRGBByteError": 5.906057993570964,
+            "changedPixels": 17697,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
               "halves": [
                 {
                   "side": "image-left",
-                  "darkenedPixels": 2382,
+                  "darkenedPixels": 2391,
                   "maximumDarkening": 207.9066,
                   "largestDarkeningComponent": {
                     "pixels": 336,
@@ -8325,7 +8368,7 @@
                 },
                 {
                   "side": "image-right",
-                  "darkenedPixels": 2729,
+                  "darkenedPixels": 2743,
                   "maximumDarkening": 207.9066,
                   "largestDarkeningComponent": {
                     "pixels": 638,
@@ -8343,36 +8386,36 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 5.899562835692246,
+                "meanAbsoluteRGBByteError": 5.906057993569853,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 41637,
-                "candidateNearBlackPixels": 39591,
+                "candidateNearBlackPixels": 39592,
                 "newBlackPixels": 1165,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 5.93705749511807,
+                "meanAbsoluteRGBByteError": 5.943021138509998,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 23755,
-                "candidateNearBlackPixels": 22456,
+                "candidateNearBlackPixels": 22458,
                 "newBlackPixels": 574,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 5.862068176269758,
+                "meanAbsoluteRGBByteError": 5.869094848633039,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 17882,
-                "candidateNearBlackPixels": 17135,
+                "candidateNearBlackPixels": 17134,
                 "newBlackPixels": 591,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 41637,
-            "candidateNearBlackPixels": 39591,
+            "candidateNearBlackPixels": 39592,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -8382,14 +8425,14 @@
             "view": "mouth-detail",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 7.338600158691406,
-            "changedPixels": 24280,
+            "meanAbsoluteRGBByteError": 7.338734944661458,
+            "changedPixels": 24281,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 7.338600158690633,
+                "meanAbsoluteRGBByteError": 7.338734944660684,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 35532,
                 "candidateNearBlackPixels": 31973,
@@ -8512,14 +8555,14 @@
             "view": "face",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 11.582515716552734,
-            "changedPixels": 90980,
+            "meanAbsoluteRGBByteError": 11.595806121826172,
+            "changedPixels": 91109,
             "faceDarkening": {
               "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
               "halves": [
                 {
                   "side": "image-left",
-                  "darkenedPixels": 3951,
+                  "darkenedPixels": 3985,
                   "maximumDarkening": 207.9066,
                   "largestDarkeningComponent": {
                     "pixels": 400,
@@ -8533,7 +8576,7 @@
                 },
                 {
                   "side": "image-right",
-                  "darkenedPixels": 5454,
+                  "darkenedPixels": 5477,
                   "maximumDarkening": 207.9066,
                   "largestDarkeningComponent": {
                     "pixels": 866,
@@ -8551,36 +8594,36 @@
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 11.582515716554317,
+                "meanAbsoluteRGBByteError": 11.595806121827849,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 41637,
-                "candidateNearBlackPixels": 47310,
-                "newBlackPixels": 2634,
+                "candidateNearBlackPixels": 47348,
+                "newBlackPixels": 2647,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-left face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 10.5167439778623,
+                "meanAbsoluteRGBByteError": 10.531483968096634,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 23755,
-                "candidateNearBlackPixels": 26142,
-                "newBlackPixels": 913,
+                "candidateNearBlackPixels": 26162,
+                "newBlackPixels": 919,
                 "newWhitePixels": 0
               },
               {
                 "name": "image-right face half; anatomical side unverified",
                 "pixels": 131072,
-                "meanAbsoluteRGBByteError": 12.648287455241473,
+                "meanAbsoluteRGBByteError": 12.660128275553957,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 17882,
-                "candidateNearBlackPixels": 21168,
-                "newBlackPixels": 1721,
+                "candidateNearBlackPixels": 21186,
+                "newBlackPixels": 1728,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 41637,
-            "candidateNearBlackPixels": 47310,
+            "candidateNearBlackPixels": 47348,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -8590,14 +8633,14 @@
             "view": "mouth-detail",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 14.891228993733725,
-            "changedPixels": 123006,
+            "meanAbsoluteRGBByteError": 14.891651153564453,
+            "changedPixels": 123013,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 14.891228993746182,
+                "meanAbsoluteRGBByteError": 14.89165115357692,
                 "maxRGBByteError": 206,
                 "sourceNearBlackPixels": 35532,
                 "candidateNearBlackPixels": 38400,
@@ -8616,23 +8659,23 @@
             "view": "left-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 4.148129781087239,
-            "changedPixels": 37852,
+            "meanAbsoluteRGBByteError": 4.089925130208333,
+            "changedPixels": 37802,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 4.1481297810873095,
-                "maxRGBByteError": 200.66666666666666,
+                "meanAbsoluteRGBByteError": 4.089925130208409,
+                "maxRGBByteError": 194.66666666666666,
                 "sourceNearBlackPixels": 3944,
-                "candidateNearBlackPixels": 4369,
-                "newBlackPixels": 228,
+                "candidateNearBlackPixels": 4378,
+                "newBlackPixels": 169,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 3944,
-            "candidateNearBlackPixels": 4369,
+            "candidateNearBlackPixels": 4378,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -8642,14 +8685,14 @@
             "view": "right-arm",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.5891876220703125,
-            "changedPixels": 33368,
+            "meanAbsoluteRGBByteError": 2.589186350504557,
+            "changedPixels": 33367,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.5891876220703356,
+                "meanAbsoluteRGBByteError": 2.5891863505045807,
                 "maxRGBByteError": 192,
                 "sourceNearBlackPixels": 3923,
                 "candidateNearBlackPixels": 4326,
@@ -8668,23 +8711,23 @@
             "view": "left-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 2.8930931091308594,
-            "changedPixels": 22177,
+            "meanAbsoluteRGBByteError": 2.7696660359700522,
+            "changedPixels": 22092,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 2.893093109130899,
-                "maxRGBByteError": 199,
+                "meanAbsoluteRGBByteError": 2.769666035970052,
+                "maxRGBByteError": 198.66666666666666,
                 "sourceNearBlackPixels": 8987,
-                "candidateNearBlackPixels": 10280,
-                "newBlackPixels": 537,
+                "candidateNearBlackPixels": 10295,
+                "newBlackPixels": 403,
                 "newWhitePixels": 0
               }
             ],
             "sourceNearBlackPixels": 8987,
-            "candidateNearBlackPixels": 10280,
+            "candidateNearBlackPixels": 10295,
             "sourceNearWhitePixels": 0,
             "candidateNearWhitePixels": 0
           },
@@ -8694,14 +8737,14 @@
             "view": "right-hand",
             "width": 512,
             "height": 512,
-            "meanAbsoluteRGBByteError": 1.9315986633300781,
-            "changedPixels": 21055,
+            "meanAbsoluteRGBByteError": 1.9315999348958333,
+            "changedPixels": 21056,
             "faceDarkening": null,
             "regions": [
               {
                 "name": "whole-frame",
                 "pixels": 262144,
-                "meanAbsoluteRGBByteError": 1.9315986633300835,
+                "meanAbsoluteRGBByteError": 1.9315999348958386,
                 "maxRGBByteError": 195,
                 "sourceNearBlackPixels": 9030,
                 "candidateNearBlackPixels": 10317,
@@ -9197,16 +9240,11 @@
           },
           {
             "region": "head",
-            "material": "Material.004_head",
+            "material": "Material.004",
             "before": 1104,
-            "after": 340,
+            "after": 144,
             "method": "Continuous body topology with invariant regional borders",
-            "faceDetail": {
-              "triangles": 76,
-              "status": "measured",
-              "criterion": "opaque source RGB contrast >=64/255 on 15 barycentric samples; generic high-contrast constraint"
-            },
-            "fallback": "Facial semantic anchors unavailable"
+            "fallback": null
           },
           {
             "region": "spine",
@@ -9495,6 +9533,1337 @@
             "fallback": null
           }
         ],
+        "renderEquivalence": {
+          "compared": 144,
+          "byteIdentical": 82,
+          "differentViews": [
+            "atlas-diffuse-back.png",
+            "atlas-diffuse-face-quarter.png",
+            "atlas-diffuse-face-side.png",
+            "atlas-diffuse-face.png",
+            "atlas-diffuse-front.png",
+            "atlas-diffuse-left-arm.png",
+            "atlas-diffuse-left-hand.png",
+            "atlas-diffuse-mouth-detail.png",
+            "atlas-diffuse-quarter.png",
+            "atlas-diffuse-right-arm.png",
+            "atlas-diffuse-right-hand.png",
+            "atlas-diffuse-side.png",
+            "atlas-full-back.png",
+            "atlas-full-face-quarter.png",
+            "atlas-full-face-side.png",
+            "atlas-full-face.png",
+            "atlas-full-front.png",
+            "atlas-full-left-arm.png",
+            "atlas-full-left-hand.png",
+            "atlas-full-mouth-detail.png",
+            "atlas-full-quarter.png",
+            "atlas-full-right-arm.png",
+            "atlas-full-right-hand.png",
+            "atlas-full-side.png",
+            "atlas-normals-back.png",
+            "atlas-normals-face-quarter.png",
+            "atlas-normals-face-side.png",
+            "atlas-normals-face.png",
+            "atlas-normals-front.png",
+            "atlas-normals-left-arm.png",
+            "atlas-normals-mouth-detail.png",
+            "atlas-normals-quarter.png",
+            "atlas-normals-right-arm.png",
+            "atlas-normals-side.png",
+            "prepared-diffuse-back.png",
+            "prepared-diffuse-face-quarter.png",
+            "prepared-diffuse-face-side.png",
+            "prepared-diffuse-face.png",
+            "prepared-diffuse-front.png",
+            "prepared-diffuse-left-arm.png",
+            "prepared-diffuse-mouth-detail.png",
+            "prepared-diffuse-quarter.png",
+            "prepared-diffuse-side.png",
+            "prepared-full-back.png",
+            "prepared-full-face-quarter.png",
+            "prepared-full-face-side.png",
+            "prepared-full-face.png",
+            "prepared-full-front.png",
+            "prepared-full-left-arm.png",
+            "prepared-full-mouth-detail.png",
+            "prepared-full-quarter.png",
+            "prepared-full-side.png",
+            "prepared-normals-back.png",
+            "prepared-normals-face-quarter.png",
+            "prepared-normals-face-side.png",
+            "prepared-normals-face.png",
+            "prepared-normals-front.png",
+            "prepared-normals-left-arm.png",
+            "prepared-normals-mouth-detail.png",
+            "prepared-normals-quarter.png",
+            "prepared-normals-right-arm.png",
+            "prepared-normals-side.png"
+          ]
+        },
+        "artisticAcceptance": "NOT_REVIEWED"
+      },
+      {
+        "id": "6238a03b185cf208",
+        "before": 7481,
+        "after": 7481,
+        "closeupsBefore": [
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.052895863850911,
+            "changedPixels": 52035,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 429,
+                  "maximumDarkening": 83.6216,
+                  "largestDarkeningComponent": {
+                    "pixels": 285,
+                    "bounds": [
+                      181,
+                      58,
+                      210,
+                      74
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 485,
+                  "maximumDarkening": 92.8462,
+                  "largestDarkeningComponent": {
+                    "pixels": 334,
+                    "bounds": [
+                      299,
+                      56,
+                      334,
+                      73
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.0528958638488275,
+                "maxRGBByteError": 116.66666666666667,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 42,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 4.888648986817041,
+                "maxRGBByteError": 114,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 18,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 5.217142740886901,
+                "maxRGBByteError": 116.66666666666667,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 24,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 42,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 7.030810038248698,
+            "changedPixels": 96244,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 7.0308100382482595,
+                "maxRGBByteError": 146.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.027751922607422,
+            "changedPixels": 13751,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.0277519226073055,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.119439442952474,
+            "changedPixels": 13255,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.1194394429521943,
+                "maxRGBByteError": 97.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.1183191935221353,
+            "changedPixels": 11291,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.118319193522145,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2791035970052083,
+            "changedPixels": 11263,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.279103597005184,
+                "maxRGBByteError": 35.666666666666664,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.642126719156901,
+            "changedPixels": 32707,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 1360,
+                  "maximumDarkening": 145.0414,
+                  "largestDarkeningComponent": {
+                    "pixels": 406,
+                    "bounds": [
+                      121,
+                      457,
+                      137,
+                      512
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1379,
+                  "maximumDarkening": 120.06,
+                  "largestDarkeningComponent": {
+                    "pixels": 423,
+                    "bounds": [
+                      360,
+                      366,
+                      389,
+                      419
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.6421267191570585,
+                "maxRGBByteError": 139.33333333333334,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 333,
+                "newBlackPixels": 31,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 3.4749933878580457,
+                "maxRGBByteError": 139.33333333333334,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 139,
+                "newBlackPixels": 14,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 3.8092600504556002,
+                "maxRGBByteError": 128.33333333333334,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 194,
+                "newBlackPixels": 17,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 333,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.787097930908203,
+            "changedPixels": 14035,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.787097930908035,
+                "maxRGBByteError": 143.33333333333334,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5971717834472656,
+            "changedPixels": 15214,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.5971717834472947,
+                "maxRGBByteError": 107.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4157384236653645,
+            "changedPixels": 13180,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.415738423665445,
+                "maxRGBByteError": 106.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.879865010579427,
+            "changedPixels": 22064,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.8798650105794499,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8356412251790364,
+            "changedPixels": 21107,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.835641225179049,
+                "maxRGBByteError": 172.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.853237152099609,
+            "changedPixels": 48319,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 1639,
+                  "maximumDarkening": 149.8878,
+                  "largestDarkeningComponent": {
+                    "pixels": 406,
+                    "bounds": [
+                      121,
+                      457,
+                      137,
+                      512
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1732,
+                  "maximumDarkening": 100.95739999999999,
+                  "largestDarkeningComponent": {
+                    "pixels": 423,
+                    "bounds": [
+                      360,
+                      366,
+                      389,
+                      419
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.853237152100196,
+                "maxRGBByteError": 143.66666666666666,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 42,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 5.571319580077699,
+                "maxRGBByteError": 143.66666666666666,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 19,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 6.135154724120967,
+                "maxRGBByteError": 136.66666666666666,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 23,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 42,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.398785909016927,
+            "changedPixels": 21744,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.39878590901741,
+                "maxRGBByteError": 142,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 4.791604359944661,
+            "changedPixels": 52005,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 4.791604359945022,
+                "maxRGBByteError": 108.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 4.698600769042969,
+            "changedPixels": 47276,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 4.698600769043037,
+                "maxRGBByteError": 108.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.3882853190104165,
+            "changedPixels": 35980,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.3882853190102287,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.6654650370279946,
+            "changedPixels": 35959,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.6654650370280772,
+                "maxRGBByteError": 172.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          }
+        ],
+        "closeupsAfter": [
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.052895863850911,
+            "changedPixels": 52035,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 429,
+                  "maximumDarkening": 83.6216,
+                  "largestDarkeningComponent": {
+                    "pixels": 285,
+                    "bounds": [
+                      181,
+                      58,
+                      210,
+                      74
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 485,
+                  "maximumDarkening": 92.8462,
+                  "largestDarkeningComponent": {
+                    "pixels": 334,
+                    "bounds": [
+                      299,
+                      56,
+                      334,
+                      73
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.0528958638488275,
+                "maxRGBByteError": 116.66666666666667,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 42,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 4.888648986817041,
+                "maxRGBByteError": 114,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 18,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 5.217142740886901,
+                "maxRGBByteError": 116.66666666666667,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 24,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 42,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 7.030810038248698,
+            "changedPixels": 96244,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 7.0308100382482595,
+                "maxRGBByteError": 146.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.027751922607422,
+            "changedPixels": 13751,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.0277519226073055,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.119439442952474,
+            "changedPixels": 13255,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.1194394429521943,
+                "maxRGBByteError": 97.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 2.1183191935221353,
+            "changedPixels": 11291,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 2.118319193522145,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "source-atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.2791035970052083,
+            "changedPixels": 11263,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.279103597005184,
+                "maxRGBByteError": 35.666666666666664,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.642126719156901,
+            "changedPixels": 32707,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 1360,
+                  "maximumDarkening": 145.0414,
+                  "largestDarkeningComponent": {
+                    "pixels": 406,
+                    "bounds": [
+                      121,
+                      457,
+                      137,
+                      512
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1379,
+                  "maximumDarkening": 120.06,
+                  "largestDarkeningComponent": {
+                    "pixels": 423,
+                    "bounds": [
+                      360,
+                      366,
+                      389,
+                      419
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.6421267191570585,
+                "maxRGBByteError": 139.33333333333334,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 333,
+                "newBlackPixels": 31,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 3.4749933878580457,
+                "maxRGBByteError": 139.33333333333334,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 139,
+                "newBlackPixels": 14,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 3.8092600504556002,
+                "maxRGBByteError": 128.33333333333334,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 194,
+                "newBlackPixels": 17,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 333,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.787097930908203,
+            "changedPixels": 14035,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.787097930908035,
+                "maxRGBByteError": 143.33333333333334,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.5971717834472656,
+            "changedPixels": 15214,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.5971717834472947,
+                "maxRGBByteError": 107.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.4157384236653645,
+            "changedPixels": 13180,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.415738423665445,
+                "maxRGBByteError": 106.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.879865010579427,
+            "changedPixels": 22064,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.8798650105794499,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "prepared",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 1.8356412251790364,
+            "changedPixels": 21107,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 1.835641225179049,
+                "maxRGBByteError": 172.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "face",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.853237152099609,
+            "changedPixels": 48319,
+            "faceDarkening": {
+              "scope": "Darkening components in screen halves; no verified eye localization or anatomical side; numerical flags require image review",
+              "halves": [
+                {
+                  "side": "image-left",
+                  "darkenedPixels": 1639,
+                  "maximumDarkening": 149.8878,
+                  "largestDarkeningComponent": {
+                    "pixels": 406,
+                    "bounds": [
+                      121,
+                      457,
+                      137,
+                      512
+                    ]
+                  }
+                },
+                {
+                  "side": "image-right",
+                  "darkenedPixels": 1732,
+                  "maximumDarkening": 100.95739999999999,
+                  "largestDarkeningComponent": {
+                    "pixels": 423,
+                    "bounds": [
+                      360,
+                      366,
+                      389,
+                      419
+                    ]
+                  }
+                }
+              ]
+            },
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.853237152100196,
+                "maxRGBByteError": 143.66666666666666,
+                "sourceNearBlackPixels": 273,
+                "candidateNearBlackPixels": 42,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-left face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 5.571319580077699,
+                "maxRGBByteError": 143.66666666666666,
+                "sourceNearBlackPixels": 103,
+                "candidateNearBlackPixels": 19,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              },
+              {
+                "name": "image-right face half; anatomical side unverified",
+                "pixels": 131072,
+                "meanAbsoluteRGBByteError": 6.135154724120967,
+                "maxRGBByteError": 136.66666666666666,
+                "sourceNearBlackPixels": 170,
+                "candidateNearBlackPixels": 23,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 273,
+            "candidateNearBlackPixels": 42,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "mouth-detail",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 5.398785909016927,
+            "changedPixels": 21744,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 5.39878590901741,
+                "maxRGBByteError": 142,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 4.791604359944661,
+            "changedPixels": 52005,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 4.791604359945022,
+                "maxRGBByteError": 108.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-arm",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 4.698600769042969,
+            "changedPixels": 47276,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 4.698600769043037,
+                "maxRGBByteError": 108.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "left-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.3882853190104165,
+            "changedPixels": 35980,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.3882853190102287,
+                "maxRGBByteError": 99.33333333333333,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          },
+          {
+            "stage": "atlas",
+            "mode": "diffuse",
+            "view": "right-hand",
+            "width": 512,
+            "height": 512,
+            "meanAbsoluteRGBByteError": 3.6654650370279946,
+            "changedPixels": 35959,
+            "faceDarkening": null,
+            "regions": [
+              {
+                "name": "whole-frame",
+                "pixels": 262144,
+                "meanAbsoluteRGBByteError": 3.6654650370280772,
+                "maxRGBByteError": 172.66666666666666,
+                "sourceNearBlackPixels": 0,
+                "candidateNearBlackPixels": 0,
+                "newBlackPixels": 0,
+                "newWhitePixels": 0
+              }
+            ],
+            "sourceNearBlackPixels": 0,
+            "candidateNearBlackPixels": 0,
+            "sourceNearWhitePixels": 0,
+            "candidateNearWhitePixels": 0
+          }
+        ],
+        "renderEquivalence": {
+          "compared": 144,
+          "byteIdentical": 144,
+          "differentViews": []
+        },
         "artisticAcceptance": "NOT_REVIEWED"
       }
     ],
@@ -9512,36 +10881,36 @@
         {
           "name": "import",
           "status": "PASS",
-          "durationMs": 6971.419400000001
+          "durationMs": 6796.0345
         },
         {
           "name": "convert-before-save",
           "status": "PASS",
-          "durationMs": 6763.6306
+          "durationMs": 6704.706400000001
         },
         {
           "name": "save",
           "status": "PASS",
-          "durationMs": 6145.066899999998
+          "durationMs": 6233.534
         },
         {
           "name": "verify-all-project-assets",
           "status": "PASS",
-          "durationMs": 2103.9465999999993
+          "durationMs": 2179.1730000000025
         },
         {
           "name": "reopen",
           "status": "PASS",
-          "durationMs": 7323.481899999999
+          "durationMs": 7343.860199999999
         },
         {
           "name": "convert-after-reopen",
           "status": "PASS",
-          "durationMs": 6073.510199999997
+          "durationMs": 6049.6817999999985
         }
       ],
-      "workingSetKiB": 3216208,
-      "privateCommittedKiB": 3019128,
+      "workingSetKiB": 3207144,
+      "privateCommittedKiB": 3009572,
       "memoryScope": {
         "workingSet": "Sum of process working sets; shared pages may be counted more than once",
         "privateBytes": "Sum of process private committed bytes where reported by Electron; not unique resident RAM",
@@ -9577,7 +10946,7 @@
           "status": "PASS",
           "sourceTriangles": 6186,
           "baselineTriangles": 2290,
-          "authenticTriangles": 3888
+          "authenticTriangles": 3692
         },
         {
           "id": "ac97d32c3727e377",
@@ -9591,7 +10960,13 @@
           "status": "PASS",
           "sourceTriangles": 81469,
           "baselineTriangles": 75931,
-          "authenticTriangles": 19787
+          "authenticTriangles": 19591
+        },
+        {
+          "id": "6238a03b185cf208",
+          "status": "PASS",
+          "sourceTriangles": 44112,
+          "authenticTriangles": 7481
         }
       ]
     }
