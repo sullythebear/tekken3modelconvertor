@@ -1176,3 +1176,11 @@ body.refinement-active #settings-panel > :not(#refinement-panel){display:none!im
 #refinement-panel button:focus-visible,#refine-mode:focus-visible{outline:2px solid #96ecfa;outline-offset:3px}
 #refine-mode[aria-pressed=true]{border-color:#90e7e4;background:#23404d}
 @media(prefers-reduced-motion:reduce){#refinement-panel *{transition:none!important}}
+
+/* Easy refinement is a presentation mode; Advanced keeps every existing control. */
+#refinement-panel[data-edit-mode="easy"] > [data-advanced-control="true"] {display:none!important}
+#refinement-panel[data-edit-mode="advanced"] > #easy-refinement {display:none}
+#easy-tools,#easy-bottom {display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#easy-tools button[aria-pressed="true"],#easy-eraser[aria-pressed="true"] {border-color:#91fff2;background:#28515e;color:#f2fffe}
+#easy-refinement h2{font-size:17px;margin-top:0}#easy-message{font-size:13px;line-height:1.5;min-height:3em}
+#easy-context{display:grid;grid-template-columns:1fr 1fr;gap:5px;align-items:center}#easy-context label,#easy-context input{grid-column:span 2}#easy-bottom{margin-top:12px}
