@@ -40,7 +40,7 @@ Schilder belangrijke vormdetails en kies Details beschermen. Bevestig de bescher
 
 ## Voor / Na en geschiedenis
 
-Houd Voor / Na ingedrukt, ook met spatie/Enter bij toetsenbordfocus. Camera en belichting blijven gelijk. Bij een voorstel zie je de toestand vóór dat voorstel. Na een correctie zie je de laatst bewaarde eerdere toestand; na een koude projectstart zonder die tijdelijke vergelijkingskopie is de oorspronkelijke artistieke PS1-basis de referentie vóór de opgeslagen lokale correcties.
+Houd Voor / Na ingedrukt, ook met spatie/Enter bij toetsenbordfocus. Camera en belichting blijven gelijk. Het verfmasker wordt bij vergelijken tijdelijk verborgen zodat het kleurverschil niet door de selectiekleur wordt beïnvloed; zodra je weer over het model beweegt, komt het masker terug. Bij een voorstel zie je de toestand vóór dat voorstel. Na een correctie zie je de laatst bewaarde eerdere toestand; na een koude projectstart zonder die tijdelijke vergelijkingskopie is de oorspronkelijke artistieke PS1-basis de referentie vóór de opgeslagen lokale correcties.
 
 Verf-undo werkt voor de recente maskerstreken in deze sessie. Na een toegepaste correctie gebruik je undo/redo voor de correctiegeschiedenis. Die correcties blijven in het project behouden. De huidige verfselectie wordt ook opgeslagen; de tijdelijke verf-undo-buffer wordt niet als onbeperkte geschiedenis meegeschreven.
 
