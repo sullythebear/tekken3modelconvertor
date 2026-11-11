@@ -15,3 +15,7 @@ Integration checkpoint: real before/after previews with explicit apply/cancel, r
 Local validation:352 Node tests passed; Phase A real Electron route PASS; Phase B complete route PASS; original product route PASS; Node core benchmarks128/8192triangles completed. Own defect fixture: mean distance0.01534→0.001135; albedo error65.01→2.48 RGB bytes;288triangles retained. Original source unchanged, cancellation and preview rollback verified, repaired PNG pixels independently decoded from GLB equal, cold project replay and optimization preserve repairs. These are synthetic observations, not commercial approval.
 
 Next: final packaged Windows workflow refinement-quality.yml (Phase B), original/private regressions, safe artifacts, verify download, document final run/source. No regular beta2 release until separately accepted.
+
+Final pose safety checkpoint: source/result node transforms and relevant bone poses must agree in root space before projection. A visible-pose difference cannot be mistaken for bind-space mesh damage. Differently scaled preview holders remain supported and tested. Local regressions354passed; real Electron Phase A, Phase B and original product workflows all PASS, including guide isolation, concurrent-import refusal, preview/apply/cancel, keyboard undo/redo, optimization, cold replay and independently decoded GLB texture pixels.
+
+Next: verify the packaged Windows run for this exact checkpoint and the safe artifact. No further feature additions before that gate.

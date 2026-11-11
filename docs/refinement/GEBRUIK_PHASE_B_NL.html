@@ -28,7 +28,7 @@ De bestaande atlas wordt niet herschikt voor de lokale patch. Bij een herbereken
 - Een latere vormcorrectie kan afhankelijk zijn van een eerdere. Schakel eerst de afhankelijke correcties uit; de editor overschrijft die relatie niet stilzwijgend.
 - Gewijzigde globale conversie-instellingen: bewaar je correcties of reset ze voordat je opnieuw automatisch converteert.
 
-Vormherstel is lokale projectie van bestaande topologie, geen retopologie of reconstructie van ontbrekende vingers/gaten. Niet-inverteerbare skinning, actieve morphs, instanced/batched meshes, ontbrekende/HDR-textures , samengestelde vertex-alfamaskers en blendtransparantie worden niet speculatief gerepareerd. De regio is maximaal 12.000 driehoeken. Cutouts en materiaal-UV-kanalen worden wel ondersteund; verschillende kleur-/masker-UV-kanalen nog niet.
+Vormherstel is lokale projectie van bestaande topologie, geen retopologie of reconstructie van ontbrekende vingers/gaten. Verschillende SOURCE-/resultaatposes worden geweigerd: heropen het bronmodel in de oorspronkelijke bindpose en converteer opnieuw. Niet-inverteerbare skinning, actieve morphs, instanced/batched meshes, ontbrekende/HDR-textures , samengestelde vertex-alfamaskers en blendtransparantie worden niet speculatief gerepareerd. De regio is maximaal 12.000 driehoeken. Cutouts en materiaal-UV-kanalen worden wel ondersteund; verschillende kleur-/masker-UV-kanalen nog niet.
 
 Zware bewerkingen hebben voortgang en annulering op controlepunten; CPU-werk tussen die punten kan de renderer tijdelijk bezighouden. Voorstellen gebruiken een transactionele kopie. Commerciële kwaliteit en echte animatie-/gameplaycompatibiliteit vereisen afzonderlijke beoordeling. Geen originele assets of commerciële screenshots uploaden.
 </pre></html>
