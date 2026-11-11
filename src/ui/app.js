@@ -472,7 +472,7 @@ async function load(records, selected) {
     for (const [i, clip] of source.animations.entries())
       $("animation").add(new Option(clip.name || `Clip ${i + 1}`, String(i)));
     $("animation").disabled = source.animations.length === 0;
-    $("play-animation").disabled = value || source.animations.length === 0;
+    $("play-animation").disabled = source.animations.length === 0;
     materialControls();
     technical();
     status(

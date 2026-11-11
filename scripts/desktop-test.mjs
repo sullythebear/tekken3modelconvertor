@@ -35,8 +35,8 @@ const app = await electron.launch({
         },
   timeout: 30000,
 });
-try {
-  const page = await app.firstWindow();
+let page;try {
+  page = await app.firstWindow();
   await page.waitForFunction(
     () => typeof window.studio?.version === "function",
   );
@@ -67,6 +67,7 @@ try {
   await app.evaluate(({ dialog }, target) => {
     dialog.showSaveDialog = async () => ({ canceled: false, filePath: target });
   }, path.resolve("artifacts/desktop/desktop-export.t3prep"));
+  console.log("Owned desktop fixture before import",await page.evaluate(()=>({readyState:document.readyState,handler:typeof document.querySelector("#import").onclick,status:document.querySelector("#status").textContent})));
   await page.click("#import");
   await page.waitForFunction(() =>
     document.querySelector("#status").textContent.startsWith("Imported"),
@@ -189,6 +190,6 @@ try {
     ),
   );
   console.log(report);
-} finally {
+} catch(e){try{console.error("Owned desktop fixture failure",await page.evaluate(()=>({status:document.querySelector("#status").textContent,source:document.querySelector("#source-count").textContent,handler:typeof document.querySelector("#import").onclick})));}catch{}throw e;} finally {
   await app.close();
 }
