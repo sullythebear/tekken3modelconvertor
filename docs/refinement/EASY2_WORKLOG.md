@@ -32,3 +32,5 @@ SOURCE texture tool is now labelled Retoucheerpenseel, with explicit 'Vanuit ori
 
 ## Error feedback checkpoint
 Added shared presentation-only error classification: empty mask, missing/unsupported original texture, uncertain correspondence, no improvement, insufficient resolution, unsafe geometry, changed pose, cancellation, unsupported region, and unexpected technical failure. Full original details remain Advanced-only. Twelve targeted tests; full suite now 409/409 passed. Final Windows run must use this checkpoint, not earlier cancelled candidate runs.
+
+Direct original-retouch acceptance also passed in Electron: tool chosen before painting, no proposal on tool selection, explicit Preview/Apply, exact cold reopen and GLB texture pixels. The combined route continues to cover automatic assessment. These are owned synthetic fixtures only.
