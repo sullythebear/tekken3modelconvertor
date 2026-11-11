@@ -1,6 +1,6 @@
 import {paintedVertexWeights,validatePaintMask} from './paint-mask.js';
 import * as T from 'three';
-import {anchorSelection,positionSkinKey} from './repair-identity.js';
+import {anchorSelection,positionSkinKey,sameRepairPose} from './repair-identity.js';
 import {resolveSelection,triangleIds,triangleCount,primitiveAt,changeSelection} from './refinement.js';
 import {boundaryField,bindPointFromRoot,geometryAudit} from './shape-repair.js';
 import {rejectNewCrossings} from './repair-quality.js';
@@ -27,7 +27,7 @@ export function manualField(root,mesh,triangles,falloff='normal'){
 }
 export async function proposeManualShape(baseRoot,resultRoot,selection,{tool='thickness',amount=0,axis='auto',falloff='normal',checkpoint=async()=>{},validate=true,mask=null}={}){
  if(!['thickness','scale','move','normal','smooth'].includes(tool)||!Number.isFinite(amount)||Math.abs(amount)>30||amount===0||!['auto','x','y','z'].includes(axis)||!['sharp','normal','soft'].includes(falloff))throw Error('Ongeldige vorminstelling. Gebruik een sterkte tussen −30 en 30.');
- if(mask){validatePaintMask(mask);selection=changeSelection(resultRoot,changeSelection(resultRoot,selection,'grow'),'grow');}const anchor=anchorSelection(baseRoot,resultRoot,selection),{mesh,triangles}=resolveSelection(resultRoot,selection);if(triangles.length>12000)throw Error('Selecteer maximaal 12.000 driehoeken.');if(mesh.isInstancedMesh||mesh.isBatchedMesh)throw Error('Deze mesh ondersteunt nog geen veilige lokale vormbewerking.');
+ if(!sameRepairPose(baseRoot,resultRoot))throw Error('De houding is veranderd sinds de conversie. Converteer opnieuw voor lokale vormbewerking.');if(mask){validatePaintMask(mask);selection=changeSelection(resultRoot,changeSelection(resultRoot,selection,'grow'),'grow');}const anchor=anchorSelection(baseRoot,resultRoot,selection),{mesh,triangles}=resolveSelection(resultRoot,selection);if(triangles.length>12000)throw Error('Selecteer maximaal 12.000 driehoeken.');if(mesh.isInstancedMesh||mesh.isBatchedMesh)throw Error('Deze mesh ondersteunt nog geen veilige lokale vormbewerking.');
  validatePaintMask(mask);if(mask&&(mask.meshId!==mesh.userData.t3csRefinementId||mask.baseSignature!==mesh.userData.t3csRepairSignature))throw Error('Het verfmasker hoort bij een ander oppervlak.');const painted=mask?paintedVertexWeights(mesh,mask):null;
  const g=mesh.geometry,field=manualField(resultRoot,mesh,triangles,falloff),keys=[...field.groups].filter(([,n])=>n.inside).map(([k])=>k),center=new T.Vector3();for(const k of keys)center.add(field.points.get(k));center.divideScalar(keys.length);const box=new T.Box3().setFromPoints(keys.map(k=>field.points.get(k))),size=box.getSize(new T.Vector3()),scale=size.length();if(scale<1e-10)throw Error('Selectie is te klein.');
  let direction=new T.Vector3();if(axis!=='auto')direction[axis]=1;else if(tool==='move')throw Error('Kies X, Y of Z voor verplaatsen.');else {direction.set(1,.71,.43).normalize();for(let i=0;i<24;i++){const next=new T.Vector3();for(const k of keys){const d=field.points.get(k).clone().sub(center);next.addScaledVector(d,d.dot(direction));}if(next.lengthSq()<1e-20)break;direction.copy(next.normalize());}}
