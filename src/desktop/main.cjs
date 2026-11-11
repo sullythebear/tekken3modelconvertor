@@ -64,6 +64,7 @@ app.whenReady().then(() => {
     },
   });
   const helpURL=require('node:url').pathToFileURL(path.join(ROOT,'docs/product/GEBRUIKERSHANDLEIDING.html')).href;
+  const helpURLs=new Set([helpURL,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_PHASE_B_NL.html')).href]);
   const logFile=path.join(app.getPath('userData'),'logs','runtime.jsonl');
   let logQueue=Promise.resolve();
   const localLog=entry=>{logQueue=logQueue.then(async()=>{await fs.mkdir(path.dirname(logFile),{recursive:true});const stat=await fs.stat(logFile).catch(()=>null);if(stat?.size>1024**2)await fs.rename(logFile,logFile+'.previous').catch(()=>{});await fs.appendFile(logFile,JSON.stringify({time:new Date().toISOString(),version:app.getVersion(),...entry})+'\n');}).catch(()=>{});};
@@ -71,8 +72,8 @@ app.whenReady().then(() => {
   main.webContents.on('render-process-gone',(_event,details)=>localLog({event:'renderer-exit',reason:details.reason,code:details.exitCode}));
   main.on('unresponsive',()=>localLog({event:'unresponsive'}));
   main.on('responsive',()=>localLog({event:'responsive'}));
-  main.webContents.setWindowOpenHandler(({url}) => url===helpURL?{action:'allow',overrideBrowserWindowOptions:{width:960,height:800,backgroundColor:'#101925',webPreferences:{preload:undefined,nodeIntegration:false,contextIsolation:true,sandbox:true}}}:{action:'deny'});
-  main.webContents.on('did-create-window',child=>{child.webContents.setWindowOpenHandler(()=>({action:'deny'}));child.webContents.on('will-navigate',(e,url)=>{if(url!==helpURL)e.preventDefault();});});
+  main.webContents.setWindowOpenHandler(({url}) => helpURLs.has(url)?{action:'allow',overrideBrowserWindowOptions:{width:960,height:800,backgroundColor:'#101925',webPreferences:{preload:undefined,nodeIntegration:false,contextIsolation:true,sandbox:true}}}:{action:'deny'});
+  main.webContents.on('did-create-window',child=>{child.webContents.setWindowOpenHandler(()=>({action:'deny'}));child.webContents.on('will-navigate',(e,url)=>{if(!helpURLs.has(url))e.preventDefault();});});
   main.webContents.on("will-navigate", (e) => e.preventDefault());
   main.webContents.session.setPermissionRequestHandler((_, __, cb) =>
     cb(false),

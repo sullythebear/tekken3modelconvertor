@@ -1,0 +1,33 @@
+# Lokale reparaties — fase B
+
+Ontwikkelkandidaat 0.8.0-beta.2-refinement.2. Behoud een eigen projectkopie. Deze editor maakt geen gegarandeerd speelbaar Tekken 3-model.
+
+## Een gebied herstellen
+
+1. Importeer en converteer zoals gebruikelijk. Klik **Model verfijnen** en klik op het beschadigde oppervlak. Vergroot/verklein de selectie of kies een verbonden oppervlak/materiaalgebied.
+2. Kies **Herstel vorm vanuit SOURCE** of **Texture herstellen vanuit SOURCE**. De applicatie controleert de oorspronkelijke mesh/materialen en zeven samples per geselecteerde driehoek. Een willekeurige of onzekere bronlaag wordt niet automatisch gekozen.
+3. Bekijk het voorstel met **Voor** en **Na**. Het hoofdmodel is nog niet gewijzigd; opslaan/exporteren blijft geblokkeerd zolang het voorstel open is.
+4. Kies **Correctie toepassen** of **Annuleren**. Vormherstel behoudt de polygonen, selectiegrens, UV's en gewrichtsgewichten. Textuurherstel verandert de vorm niet.
+5. Combineer bijvoorbeeld vormherstel, textureherstel en detailbescherming. Gebruik undo/redo (ook Ctrl+Z en Ctrl+Shift+Z in verfijnmodus), schakel correcties afzonderlijk uit of reset alle lokale correcties. Normaal tekstinvoer-undo blijft intact.
+6. Bewaar het project. Na volledig afsluiten/heropenen worden de correcties uit de artistieke basis en lokale SOURCE-bestanden opnieuw opgebouwd. Oude fase-A- en gewone projecten blijven leesbaar.
+7. Exporteer GLB of een voorbereidingspakket. De gerepareerde geometrie en texturepixels worden echt meegenomen; het is geen selectie-overlay. Het pakket bevat lokale PNG-patches naast de basisatlas/TIMs. Die patches zijn geen geverifieerde native texture-indeling.
+
+## Texturedetail
+
+**Normaal**, **Meer detail** en **Maximaal** begrenzen de afzonderlijke lokale texture tot respectievelijk 256, 512 en 1024 pixels per zijde. Waar bron-UV's aantoonbaar affine zijn, bewaart een crop het oorspronkelijke pixelraster zonder contouren opnieuw uit te smeren. Anders worden afzonderlijke driehoekcharts vanuit het oorspronkelijke oppervlak gebakken. Padding, RGB555, nearest-filtering en uitgeschakelde mipmaps voorkomen lekkage tussen lokale charts. Meer detail verzint geen nieuwe broninformatie.
+
+De bestaande atlas wordt niet herschikt voor de lokale patch. Bij een herberekening van de basis worden de patches daarna opnieuw als afzonderlijke materialen toegevoegd. Andere atlaspixels worden door de patchbewerking niet overschreven. De kleurcontrole vergelijkt diffuse/albedokleuren en binaire cutouts, niet de volledige moderne PBR-shader.
+
+## Wanneer herstel terecht stopt
+
+- SOURCE-koppeling niet beschikbaar, gedeeltelijk of ambigu: selecteer een duidelijker/kleiner gebied. Parallelle binnenlagen worden niet willekeurig gekozen.
+- Geen veilige binnenvertices: vergroot de selectie. De selectiegrens blijft staan om naden te voorkomen.
+- Onbekende vereenvoudigde driehoeken: kies **Artistiek model bekijken**. Exacte lokale herkomst is vereist; nieuwe topologie wordt niet gegokt.
+- Onvoldoende lokale atlasruimte: kies meer detail of een kleiner gebied.
+- Nieuwe onveilige driehoeken, segmentdoorsnijdingen of kleur-/alpha-achteruitgang: voorstel geblokkeerd, bestaand resultaat blijft intact.
+- Een latere vormcorrectie kan afhankelijk zijn van een eerdere. Schakel eerst de afhankelijke correcties uit; de editor overschrijft die relatie niet stilzwijgend.
+- Gewijzigde globale conversie-instellingen: bewaar je correcties of reset ze voordat je opnieuw automatisch converteert.
+
+Vormherstel is lokale projectie van bestaande topologie, geen retopologie of reconstructie van ontbrekende vingers/gaten. Niet-inverteerbare skinning, actieve morphs, instanced/batched meshes, ontbrekende/HDR-textures , samengestelde vertex-alfamaskers en blendtransparantie worden niet speculatief gerepareerd. De regio is maximaal 12.000 driehoeken. Cutouts en materiaal-UV-kanalen worden wel ondersteund; verschillende kleur-/masker-UV-kanalen nog niet.
+
+Zware bewerkingen hebben voortgang en annulering op controlepunten; CPU-werk tussen die punten kan de renderer tijdelijk bezighouden. Voorstellen gebruiken een transactionele kopie. Commerciële kwaliteit en echte animatie-/gameplaycompatibiliteit vereisen afzonderlijke beoordeling. Geen originele assets of commerciële screenshots uploaden.

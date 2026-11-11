@@ -1,4 +1,4 @@
-name: Interactive refinement Phase A validation
+name: Interactive refinement Phase B validation
 on:
   push:
     branches: [development/080-interactive-refinement]
@@ -43,6 +43,15 @@ jobs:
           T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
           T3CS_TEST_PROFILE: ${{ runner.temp }}/refinement-profile
         run: node scripts/refinement-test.mjs
+      - name: Local source shape and texture repair full user workflow
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/local-repair-profile
+        run: |
+          node scripts/local-repair-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/local-repair-benchmark.mjs
       - name: Real file dialogs OBJ MTL TGA and source overwrite protection
         env:
           T3CS_AUTOMATION: '1'
@@ -155,11 +164,23 @@ jobs:
           if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
       - uses: actions/upload-artifact@v4
         with:
-          name: ConversionStudio-refinement-phase-A-${{ github.sha }}
+          name: ConversionStudio-refinement-phase-B-${{ github.sha }}
           retention-days: 30
           if-no-files-found: error
           path: |
             release/Tekken3ConversionStudio-*-x64.exe
+            artifacts/local-repairs/index.html
+            artifacts/local-repairs/results.json
+            artifacts/local-repairs/benchmark.json
+            artifacts/local-repairs/damaged.png
+            artifacts/local-repairs/shape-before.png
+            artifacts/local-repairs/shape-proposal.png
+            artifacts/local-repairs/shape-applied.png
+            artifacts/local-repairs/shape-profile-before.png
+            artifacts/local-repairs/shape-profile-after.png
+            artifacts/local-repairs/texture-before.png
+            artifacts/local-repairs/texture-proposal.png
+            artifacts/local-repairs/editor-*.png
             artifacts/refinement/index.html
             artifacts/refinement/results.json
             artifacts/refinement/editor-*.png

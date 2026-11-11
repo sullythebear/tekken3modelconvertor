@@ -1,3 +1,8 @@
+import {ensureRepairIdentity} from '../core/repair-identity.js';
+import {repairGeometryModel,repairTextureLayers} from '../core/local-repairs.js';
+import {proposeShapeRepair} from '../core/shape-repair.js';
+import {proposeTextureRepair} from '../core/texture-repair.js';
+import {addRepairCommand} from '../core/refinement.js';
 import {installRefinementEditor} from './refinement-editor.js';
 import {applyDetailProtection} from '../core/refinement.js';
 import {writeRefinementSnapshot,readRefinementSnapshot} from '../core/refinement-project.js';
@@ -163,6 +168,7 @@ function status(text, fraction = 0) {
 function setBusy(value) {
   busy = value;
   refinementEditor?.refresh();
+  value=value||!!refinementEditor?.hasPreview;
   $('head').disabled=value||$('art-preset').value!=='baseline';
   for(const node of document.querySelectorAll('input[id^="art-"], select[id^="art-"], button[id^="art-"], #project-save, #project-open, #reference-measure'))node.disabled=value;
   $("import").disabled = value;
@@ -192,12 +198,14 @@ function setBusy(value) {
   $("game-backup").disabled = value || !gameData;
   $("game-restore").disabled = value;
   for (const input of $("materials").querySelectorAll("input, select")) input.disabled = value;
+  if(refinementEditor?.hasPreview)$('cancel').hidden=true;
+  if(refinementEditor?.hasRepairs)$('native-build').disabled=true;
   if (nativeMode) {
     $("export").disabled = true;
     $("play-animation").disabled = true;
     $("probe").disabled = true;
   } else if (source)
-    $("play-animation").disabled = source.animations.length === 0;
+    $("play-animation").disabled = value || source.animations.length === 0;
 }
 function showError(e) {
   status("Bewerking mislukt: "+(e.message??"Onbekende fout"));
@@ -410,6 +418,7 @@ function report() {
   };
 }
 async function load(records, selected) {
+  if(busy||refinementEditor?.hasPreview)throw Error('Rond de lopende bewerking of het reparatievoorstel eerst af voordat je een ander model opent.');
   stopPlayback();
   if (busy) return;
   setBusy(true);
@@ -463,7 +472,7 @@ async function load(records, selected) {
     for (const [i, clip] of source.animations.entries())
       $("animation").add(new Option(clip.name || `Clip ${i + 1}`, String(i)));
     $("animation").disabled = source.animations.length === 0;
-    $("play-animation").disabled = source.animations.length === 0;
+    $("play-animation").disabled = value || source.animations.length === 0;
     materialControls();
     technical();
     status(
@@ -587,6 +596,8 @@ async function packagePreparation() {
         output[`textures/${String(i).padStart(2, "0")}.tim`] =
           atlas.tiles[i].tim;
     }
+    const patches=[...collectMaterials(atlas?.root??converted.root)].filter(m=>m.userData.t3csLocalRepair?.kind==='texture');
+    if(patches.length){output['repairs/README.txt']=strToU8('Local SOURCE repair patches are embedded in converted.glb and supplied as PNGs. Base atlas/TIM files do not include these separate patches. Native layout/gameplay unverified.');for(let i=0;i<patches.length;i++){const image=patches[i].map.image;if(image?.toDataURL)output[`repairs/patch-${i}.png`]=dataURLBytes(image.toDataURL());}}
     output["screenshots/source.png"] = dataURLBytes(sourceView.shot());
     output["screenshots/prepared.png"] = dataURLBytes(resultView.shot());
     if (await save("character-preparation.t3prep", zipSync(output)))
@@ -1175,6 +1186,7 @@ $("wireframe").onchange = () => {
     source?.root,
     converted?.root,
     atlas?.root,
+    resultView.root,
     nativeCandidate?.preview,
     nativeCandidate?.sourcePreview,
     nativeCandidate?.posedPreview,
@@ -1307,22 +1319,36 @@ installWorkspace({getState:()=>({source,converted,nativeCandidate,busy,artDirty}
 
 installProductStart({example:async()=>{try{await load([{name:"studio-voorbeeld.glb",data:await syntheticCharacter()}]);}catch(e){showError(e);}}});
 
-async function rebuildRefined(base,state,target){
+async function buildRefinedDraft(base,state,target,checkpoint){
  if(!base)throw Error('Artistieke basis ontbreekt.');
- const keepDirty=artDirty;clearTimeout(artTimer);const editController=new AbortController();controller=editController;setBusy(true);let candidate=null,baked=null;const checkpoint=async()=>{await new Promise(r=>setTimeout(r,0));if(editController.signal.aborted)throw Error('Verfijning geannuleerd; bestaand resultaat behouden.');};
+ const sourceAtStart=source,previousAtStart=converted;let candidate=null,baked=null,working=null;
  try{
-  status('Detailkeuzes verwerken…',.15);await checkpoint();
-  applyDetailProtection(base.root,state);
+  status('Lokale correcties verwerken…',.15);await checkpoint();ensureRepairIdentity(base.root);
+  const repairs=state.commands.slice(0,state.cursor).some(c=>c.enabled&&c.type!=='protect');
+  if(repairs)working=repairGeometryModel(base,sourceAtStart.root,state);else {applyDetailProtection(base.root,state);working=base;}
   status(target==null?'Artistieke basis behouden…':'Kandidaat optimaliseren met detailkeuzes…',.35);
-  candidate=target==null?base:await optimizeGameCandidate(base,{triangles:target,binaryCutout:$('bake').checked});await checkpoint();
-  status('Textures voorbereiden…',.7);if($('bake').checked)baked=await bakeAtlas(candidate,{art:candidate.settings.art});await checkpoint();
-  candidate.root.userData.t3csRefinement={version:1,enabledCommands:state.commands.slice(0,state.cursor).filter(c=>c.enabled).length,experimentalTarget:target};
-  const previous=converted,oldAtlas=atlas;converted=candidate;atlas=baked;artDirty=keepDirty;
-  if(previous&&previous!==base&&previous!==candidate)disposeScene(previous.root);if(oldAtlas)disposeScene(oldAtlas.root);
-  resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();$('empty-result').hidden=true;
-  status(keepDirty?'Lokale keuzes gereset; instellingen gewijzigd. Converteer opnieuw.':`Detailkeuzes verwerkt · ${converted.stats.triangles} driehoeken. SOURCE ongewijzigd; gameplay niet geverifieerd.`,1);
- }catch(e){if(candidate&&candidate!==base&&candidate!==converted)disposeScene(candidate.root);if(baked&&baked!==atlas)disposeScene(baked.root);if(refinementEditor?.base===base)applyDetailProtection(base.root,refinementEditor.state);throw e;}
- finally{if(controller===editController)controller=null;setBusy(false);}
+  candidate=target==null?working:await optimizeGameCandidate(working,{triangles:target,binaryCutout:$('bake').checked});await checkpoint();
+  status('Basisatlas voorbereiden; lokale patches blijven afzonderlijk…',.6);if($('bake').checked){try{baked=await bakeAtlas(candidate,{art:candidate.settings.art});}catch(e){if(atlas)throw e;candidate.warnings=[...candidate.warnings,'Basisatlas niet beschikbaar; originele materiaalbinding behouden: '+e.message];}}await checkpoint();
+  if(repairs){status('Lokale SOURCE-textures bakken…',.8);await repairTextureLayers(candidate,baked,sourceAtStart.root,state,{checkpoint});}
+  await checkpoint();if(source!==sourceAtStart||converted!==previousAtStart)throw Error('Model gewijzigd; lokaal voorstel geannuleerd.');candidate.root.userData.t3csRefinement={version:2,enabledCommands:state.commands.slice(0,state.cursor).filter(c=>c.enabled).length,experimentalTarget:target,localRepairs:candidate.localRepairs??[]};
+  if(working!==base&&working!==candidate)disposeScene(working.root);
+  return {candidate,baked,base,state,target,previous:previousAtStart,source:sourceAtStart,keepDirty:artDirty};
+ }catch(e){if(candidate&&candidate!==base)disposeScene(candidate.root);if(working&&working!==base&&working!==candidate)disposeScene(working.root);if(baked)disposeScene(baked.root);throw e;}
 }
-refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{clearTimeout(artTimer);stopPlayback();if(nativeMode)returnSourcePose();}});
+function publishRefinedDraft(draft){
+ if(draft.previous!==converted||draft.source!==source)throw Error('Het model is gewijzigd terwijl het voorstel open stond. Maak een nieuw voorstel.');
+ clearNativeCandidate();const {candidate,baked,base}=draft,previous=converted,oldAtlas=atlas;converted=candidate;atlas=baked;artDirty=draft.keepDirty;
+ if(previous&&previous!==base&&previous!==candidate)disposeScene(previous.root);if(oldAtlas&&oldAtlas!==baked)disposeScene(oldAtlas.root);
+ resultView.setModel(atlas?.root??converted.root,reference);resultView.sync(sourceView);rebuildSimulation();technical();$('empty-result').hidden=true;
+ status(draft.keepDirty?'Lokale keuzes gereset; instellingen gewijzigd. Converteer opnieuw.':`Lokale correcties verwerkt · ${converted.stats.triangles} driehoeken. SOURCE ongewijzigd; gameplay niet geverifieerd.`,1);
+}
+async function editTransaction(fn){
+ clearTimeout(artTimer);const editController=new AbortController();controller=editController;setBusy(true);const checkpoint=async()=>{await new Promise(r=>setTimeout(r,0));if(editController.signal.aborted)throw Error('Verfijning geannuleerd; bestaand resultaat behouden.');};
+ try{return await fn(checkpoint);}finally{if(controller===editController)controller=null;setBusy(false);}
+}
+async function rebuildRefined(base,state,target){return editTransaction(async checkpoint=>{let draft;try{draft=await buildRefinedDraft(base,state,target,checkpoint);publishRefinedDraft(draft);}catch(e){if(draft)discardRefinedDraft(draft);if(refinementEditor?.base===base)applyDetailProtection(base.root,refinementEditor.state);throw e;}});}
+function displayRefinedDraft(draft,after){for(const m of collectMaterials(draft.baked?.root??draft.candidate.root))m.wireframe=$('wireframe').checked;resultView.setModel(after?(draft.baked?.root??draft.candidate.root):(atlas?.root??converted.root),reference);resultView.sync(sourceView);}
+function discardRefinedDraft(draft){if(!draft)return;if(converted&&draft.previous===converted)displayRefinedDraft(draft,false);if(draft.candidate!==draft.base&&draft.candidate!==converted)disposeScene(draft.candidate.root);if(draft.baked&&draft.baked!==atlas)disposeScene(draft.baked.root);}
+async function createRepairDraft(base,state,target,request){const sourceAtStart=source,previousAtStart=converted;return editTransaction(async checkpoint=>{if(artDirty||nativeMode)throw Error('Converteer eerst de gewijzigde instellingen.');status(request.type==='shape'?'Volledige SOURCE-koppeling en vormherstel controleren…':'Volledige SOURCE-koppeling en textureherstel controleren…',.1);const command=request.type==='shape'?await proposeShapeRepair(base.root,converted.root,source.root,request.selection,{checkpoint}):await proposeTextureRepair(base.root,converted.root,source.root,request.selection,{quality:request.quality,checkpoint});if(sourceAtStart!==source||previousAtStart!==converted)throw Error('Model gewijzigd; lokaal voorstel geannuleerd.');const next=addRepairCommand(state,command);next.selectionAnchor=command.anchor;const draft=await buildRefinedDraft(base,next,target,checkpoint);return {...draft,command};});}
+refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{clearTimeout(artTimer);stopPlayback();if(nativeMode)returnSourcePose();},createRepairDraft,displayDraft:displayRefinedDraft,discardDraft:discardRefinedDraft,acceptDraft:publishRefinedDraft,refreshGates:()=>setBusy(busy)});
 if(window.studioTest)Object.assign(window.studioTest,{getRefinement:()=>refinementEditor});
