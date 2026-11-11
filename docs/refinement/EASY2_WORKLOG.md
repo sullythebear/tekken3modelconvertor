@@ -27,3 +27,5 @@ Next: finish explicit confirmation tests, then checkpoint. Original commercial a
 - Added regression for unchanged SOURCE texture proposal.
 
 Windows validation must run for this exact checkpoint. Later phases remain unimplemented: deterministic environment texture healing, texture Clone Stamp, universal protection against subsequent repairs, combined-repair single-history grouping. This is an explicitly scoped development checkpoint, not completed Easy Refinement 2.0 or a stable release.
+
+SOURCE texture tool is now labelled Retoucheerpenseel, with explicit 'Vanuit origineel' instructions. No environment option exists yet. No-op gate considers both mean and maximum regional improvement (floating-point epsilon only); a small important feature must not be rejected merely because its average effect is small.

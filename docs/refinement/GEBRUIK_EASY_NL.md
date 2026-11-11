@@ -6,7 +6,7 @@ Ontwikkelversie 0.8.0-beta.2-refinement.5. De automatische converter blijft het 
 
 1. Importeer je model en kies Converteer naar PS1.
 2. Open Model verfijnen. Eenvoudig bewerken is standaard actief.
-3. Schilder met links op het model. De zachte groenblauwe verf toont je masker. Houd Alt ingedrukt en sleep om het model te draaien; rechts slepen en zoomen blijven beschikbaar.
+3. Kies Automatisch herstellen, Retoucheerpenseel (vanuit origineel), Vorm aanpassen of Details beschermen. Schilder met links op het model. De zachte groenblauwe verf toont je masker. Houd Alt ingedrukt en sleep om het model te draaien; rechts slepen en zoomen blijven beschikbaar.
 4. Gum verwijdert verf. Pas Penseelgrootte en Zachte rand aan of kies Masker wissen. Ongedaan maken/Opnieuw herstellen je recente verfstreken.
 5. Kies eerst het gereedschap, schilder en kies Voorbeeld bekijken. Vorm aanpassen toont tijdens schilderen alvast een tijdelijk voorbeeld. Bekijk Voor / Na en bevestig met Toepassen, of kies Annuleren. Opslaan en exporteren gebruiken echte correcties; SOURCE blijft intact.
 
@@ -22,7 +22,7 @@ Schilder het probleemgebied en kies Herstellen of Voorbeeld bekijken. De app ond
 
 Een verschil met SOURCE kan bij de gekozen PS1-stijl horen. De analyse stelt geen artistieke fout met zekerheid vast en bevestigt niets automatisch. Houd Voor / Na ingedrukt om de eerdere PS1-toestand te zien; laat los om terug te keren. SOURCE blijft daarnaast een afzonderlijke previewreferentie.
 
-Texture herstellen gebruikt de oorspronkelijke kleuren. Waar mogelijk blijft het bestaande pixelraster buiten de verf precies behouden in een aparte lokale texture. Als dat niet veilig lukt, wordt het voorstel geweigerd. Ontbrekende lichaamsdelen worden niet bijgetekend.
+Het Retoucheerpenseel gebruikt de oorspronkelijke kleuren (vanuit origineel). Waar mogelijk blijft het bestaande pixelraster buiten de verf precies behouden in een aparte lokale texture. Als dat niet veilig lukt, wordt het voorstel geweigerd. Ontbrekende lichaamsdelen worden niet bijgetekend.
 
 ## Vormpenseel
 
