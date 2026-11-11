@@ -34,3 +34,8 @@ SOURCE texture tool is now labelled Retoucheerpenseel, with explicit 'Vanuit ori
 Added shared presentation-only error classification: empty mask, missing/unsupported original texture, uncertain correspondence, no improvement, insufficient resolution, unsafe geometry, changed pose, cancellation, unsupported region, and unexpected technical failure. Full original details remain Advanced-only. Twelve targeted tests; full suite now 409/409 passed. Final Windows run must use this checkpoint, not earlier cancelled candidate runs.
 
 Direct original-retouch acceptance also passed in Electron: tool chosen before painting, no proposal on tool selection, explicit Preview/Apply, exact cold reopen and GLB texture pixels. The combined route continues to cover automatic assessment. These are owned synthetic fixtures only.
+
+## Final validated checkpoint
+Code/test checkpoint: 393aed40c00d16fab47fbb5d3a228222f4dd80f1. Windows run 43075980216 completed SUCCESS; all packaged workflows, private Nikki integrity and private commercial comparison passed. Artifact 13881767616 contains only allowlisted software/synthetic evidence; login required. Exact metadata/digest and remaining limitations are in EASY2_VALIDATION.md. Main remains unchanged.
+
+Next implementation action: design a deterministic material-/UV-island-bounded donor patch sampler with isolated texture replay, then test environment healing before exposing its UI. Clone Stamp requires explicit persistent donor anchors and validated surface transport. Neither is implemented in this checkpoint. Do not treat the completed Windows workflow as artistic approval or complete Easy Refinement 2.0.
