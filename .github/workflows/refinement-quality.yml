@@ -1,4 +1,4 @@
-name: Interactive refinement Phase B validation
+name: Interactive refinement Phase C1 validation
 on:
   push:
     branches: [development/080-interactive-refinement]
@@ -52,6 +52,15 @@ jobs:
           node scripts/local-repair-test.mjs
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/local-repair-benchmark.mjs
+      - name: Manual brush and geometry full cold-project GLB workflow
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/manual-refinement-profile
+        run: |
+          node scripts/manual-refinement-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/manual-refinement-benchmark.mjs
       - name: Real file dialogs OBJ MTL TGA and source overwrite protection
         env:
           T3CS_AUTOMATION: '1'
@@ -164,11 +173,20 @@ jobs:
           if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
       - uses: actions/upload-artifact@v4
         with:
-          name: ConversionStudio-refinement-phase-B-${{ github.sha }}
+          name: ConversionStudio-refinement-phase-C1-${{ github.sha }}
           retention-days: 30
           if-no-files-found: error
           path: |
             release/Tekken3ConversionStudio-*-x64.exe
+            artifacts/manual-refinement/index.html
+            artifacts/manual-refinement/results.json
+            artifacts/manual-refinement/benchmark.json
+            artifacts/manual-refinement/brush-selection.png
+            artifacts/manual-refinement/before.png
+            artifacts/manual-refinement/after.png
+            artifacts/manual-refinement/wireframe-before.png
+            artifacts/manual-refinement/wireframe-after.png
+            artifacts/manual-refinement/editor-*.png
             artifacts/local-repairs/index.html
             artifacts/local-repairs/results.json
             artifacts/local-repairs/benchmark.json

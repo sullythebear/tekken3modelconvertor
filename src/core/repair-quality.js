@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {SurfaceIndex,triangleRecord} from './surface.js';
 import {refinementMeshes,triangleCount} from './refinement.js';
-function overlaps(a,b){const eps=1e-8;for(const [x,y]of [[a,b],[b,a]])for(let i=0;i<3;i++){const p=x[i],q=x[(i+1)%3],d=q.clone().sub(p),length=d.length();if(length<eps)continue;const hit=new T.Ray(p,d.divideScalar(length)).intersectTriangle(...y,false,new T.Vector3());if(hit&&hit.distanceTo(p)>eps&&hit.distanceTo(p)<length-eps)return true;}return false;}
+function overlaps(a,b){const eps=1e-8;for(const [x,y]of [[a,b],[b,a]])for(let i=0;i<3;i++){const p=x[i],q=x[(i+1)%3],d=q.clone().sub(p),length=d.length();if(length<eps)continue;const normal=new T.Triangle(...y).getNormal(new T.Vector3()),da=normal.dot(p.clone().sub(y[0])),db=normal.dot(q.clone().sub(y[0]));if(Math.abs(da)<=eps||Math.abs(db)<=eps||da*db>=0)continue;const hit=new T.Ray(p,d.divideScalar(length)).intersectTriangle(...y,false,new T.Vector3());if(hit&&hit.distanceTo(p)>eps&&hit.distanceTo(p)<length-eps)return true;}return false;}
 // Compare NEW segment/triangle crossings to the original, not pre-existing contacts.
 export async function rejectNewCrossings(root,mesh,afterGeometry,selected,correspondence,checkpoint){
  const meshes=refinementMeshes(root),mi=meshes.indexOf(mesh),records=[],beforePoints=new Map();let budget=0;

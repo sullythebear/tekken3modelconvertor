@@ -13,7 +13,7 @@ export function bindPointFromRoot(root,mesh,vertex,point){
  if(Math.abs(matrix.determinant())<1e-10)throw Error('Niet-inverteerbare skinningtransformatie; vormherstel geblokkeerd.');
  const p=point.clone().applyMatrix4(matrix.clone().invert());if(!p.toArray().every(Number.isFinite))throw Error('Ongeldige terugprojectie.');return p;
 }
-function boundaryField(mesh,triangles){const selected=new Set(triangles),g=mesh.geometry,groups=new Map(),keyById=[];
+export function boundaryField(mesh,triangles){const selected=new Set(triangles),g=mesh.geometry,groups=new Map(),keyById=[];
  for(let i=0;i<g.attributes.position.count;i++){const k=positionSkinKey(g,i);keyById[i]=k;if(!groups.has(k))groups.set(k,{ids:[],inside:false,outside:false,neighbors:new Set(),distance:Infinity});groups.get(k).ids.push(i);}
  for(let t=0;t<triangleCount(mesh);t++){const keys=triangleIds(g,t).map(i=>keyById[i]);for(const k of keys){const node=groups.get(k);node[selected.has(t)?'inside':'outside']=true;if(selected.has(t))for(const n of keys)if(n!==k)node.neighbors.add(n);}}
  // Open geometric boundaries also pin the edge, even when all mesh faces selected.
@@ -23,7 +23,7 @@ function boundaryField(mesh,triangles){const selected=new Set(triangles),g=mesh.
  for(let j=0;j<queue.length;j++){const node=groups.get(queue[j]);for(const next of node.neighbors){const n=groups.get(next);if(n.inside&&n.distance>node.distance+1){n.distance=node.distance+1;queue.push(next);}}}
  return {groups,keyById};
 }
-function geometryAudit(g,after,triangles){let flipped=0,degenerate=0,maxEdgeRatio=1,minAreaRatio=1;for(const t of triangles){const ids=triangleIds(g,t),points=a=>ids.map(i=>new T.Vector3().fromBufferAttribute(a,i)),old=new T.Triangle(...points(g.attributes.position)),next=new T.Triangle(...points(after.attributes.position)),ratio=next.getArea()/Math.max(1e-16,old.getArea());if(next.getArea()<1e-12)degenerate++;if(old.getNormal(new T.Vector3()).dot(next.getNormal(new T.Vector3()))<.2)flipped++;minAreaRatio=Math.min(minAreaRatio,ratio);for(let i=0;i<3;i++){const a=old[['a','b','c'][i]],b=old[['b','c','a'][i]],c=next[['a','b','c'][i]],d=next[['b','c','a'][i]],r=c.distanceTo(d)/Math.max(1e-12,a.distanceTo(b));maxEdgeRatio=Math.max(maxEdgeRatio,r,1/Math.max(1e-12,r));}}
+export function geometryAudit(g,after,triangles){let flipped=0,degenerate=0,maxEdgeRatio=1,minAreaRatio=1;for(const t of triangles){const ids=triangleIds(g,t),points=a=>ids.map(i=>new T.Vector3().fromBufferAttribute(a,i)),old=new T.Triangle(...points(g.attributes.position)),next=new T.Triangle(...points(after.attributes.position)),ratio=next.getArea()/Math.max(1e-16,old.getArea());if(next.getArea()<1e-12)degenerate++;if(old.getNormal(new T.Vector3()).dot(next.getNormal(new T.Vector3()))<.2)flipped++;minAreaRatio=Math.min(minAreaRatio,ratio);for(let i=0;i<3;i++){const a=old[['a','b','c'][i]],b=old[['b','c','a'][i]],c=next[['a','b','c'][i]],d=next[['b','c','a'][i]],r=c.distanceTo(d)/Math.max(1e-12,a.distanceTo(b));maxEdgeRatio=Math.max(maxEdgeRatio,r,1/Math.max(1e-12,r));}}
  return {flipped,degenerate,maxEdgeRatio,minAreaRatio};}
 export async function proposeShapeRepair(baseRoot,resultRoot,sourceRoot,selection,{checkpoint=async()=>{}}={}){
  const anchor=anchorSelection(baseRoot,resultRoot,selection),correspondence=new RefinementCorrespondence(sourceRoot),region=await correspondence.region(resultRoot,selection,{checkpoint});

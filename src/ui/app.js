@@ -1,6 +1,7 @@
-import {ensureRepairIdentity} from '../core/repair-identity.js';
-import {repairGeometryModel,repairTextureLayers} from '../core/local-repairs.js';
-import {proposeShapeRepair} from '../core/shape-repair.js';
+import {proposeManualShape} from '../core/manual-shape.js';
+import {ensureRepairIdentity,linkPreviewIdentity} from '../core/repair-identity.js';
+import {repairGeometryModel,repairTextureLayers,cloneRepairRoot} from '../core/local-repairs.js';
+import {applyShapeCommand,proposeShapeRepair} from '../core/shape-repair.js';
 import {proposeTextureRepair} from '../core/texture-repair.js';
 import {addRepairCommand} from '../core/refinement.js';
 import {installRefinementEditor} from './refinement-editor.js';
@@ -1349,6 +1350,19 @@ async function editTransaction(fn){
 async function rebuildRefined(base,state,target){return editTransaction(async checkpoint=>{let draft;try{draft=await buildRefinedDraft(base,state,target,checkpoint);publishRefinedDraft(draft);}catch(e){if(draft)discardRefinedDraft(draft);if(refinementEditor?.base===base)applyDetailProtection(base.root,refinementEditor.state);throw e;}});}
 function displayRefinedDraft(draft,after){for(const m of collectMaterials(draft.baked?.root??draft.candidate.root))m.wireframe=$('wireframe').checked;resultView.setModel(after?(draft.baked?.root??draft.candidate.root):(atlas?.root??converted.root),reference);resultView.sync(sourceView);}
 function discardRefinedDraft(draft){if(!draft)return;if(converted&&draft.previous===converted)displayRefinedDraft(draft,false);if(draft.candidate!==draft.base&&draft.candidate!==converted)disposeScene(draft.candidate.root);if(draft.baked&&draft.baked!==atlas)disposeScene(draft.baked.root);}
-async function createRepairDraft(base,state,target,request){const sourceAtStart=source,previousAtStart=converted;return editTransaction(async checkpoint=>{if(artDirty||nativeMode)throw Error('Converteer eerst de gewijzigde instellingen.');status(request.type==='shape'?'Volledige SOURCE-koppeling en vormherstel controleren…':'Volledige SOURCE-koppeling en textureherstel controleren…',.1);const command=request.type==='shape'?await proposeShapeRepair(base.root,converted.root,source.root,request.selection,{checkpoint}):await proposeTextureRepair(base.root,converted.root,source.root,request.selection,{quality:request.quality,checkpoint});if(sourceAtStart!==source||previousAtStart!==converted)throw Error('Model gewijzigd; lokaal voorstel geannuleerd.');const next=addRepairCommand(state,command);next.selectionAnchor=command.anchor;const draft=await buildRefinedDraft(base,next,target,checkpoint);return {...draft,command};});}
-refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{clearTimeout(artTimer);stopPlayback();if(nativeMode)returnSourcePose();},createRepairDraft,displayDraft:displayRefinedDraft,discardDraft:discardRefinedDraft,acceptDraft:publishRefinedDraft,refreshGates:()=>setBusy(busy)});
+async function createManualDraft(base,state,target,request,previous=null,final=false){
+ const work=async checkpoint=>{
+  if(artDirty||nativeMode)throw Error('Converteer eerst de gewijzigde instellingen.');
+  const command=await proposeManualShape(base.root,converted.root,request.selection,{...request.parameters,checkpoint,validate:final});
+  const next=addRepairCommand(state,command);next.selectionAnchor=command.anchor;
+  if(final)return {...await buildRefinedDraft(base,next,target,checkpoint),command};
+  let draft=previous;
+  if(!draft){try{draft={candidate:{...converted,root:cloneRepairRoot(converted.root)},baked:null,base,state:next,target,previous:converted,source,keepDirty:artDirty};if(atlas){draft.baked={...atlas,root:cloneRepairRoot(atlas.root)};linkPreviewIdentity(converted.root,draft.baked.root);}}catch(e){if(draft)discardRefinedDraft(draft);throw e;}}
+  // Rebase every preview on the committed arrays: sliders never accumulate drift.
+  for(const [origin,copy]of [[converted.root,draft.candidate.root],[atlas?.root,draft.baked?.root]])if(origin&&copy){const old=[],fresh=[];origin.traverse(m=>{if(m.isMesh)old.push(m);});copy.traverse(m=>{if(m.isMesh)fresh.push(m);});for(let i=0;i<old.length;i++){for(const name of ['position','normal'])if(old[i].geometry.attributes[name]){fresh[i].geometry.attributes[name].array.set(old[i].geometry.attributes[name].array);fresh[i].geometry.attributes[name].needsUpdate=true;}}applyShapeCommand(copy,command);}
+  draft.state=next;draft.command=command;draft.manualRequest=request;return draft;
+ };return final?editTransaction(work):work(async()=>{});
+}
+async function createRepairDraft(base,state,target,request){const sourceAtStart=source,previousAtStart=converted;return editTransaction(async checkpoint=>{if(artDirty||nativeMode)throw Error('Converteer eerst de gewijzigde instellingen.');status(request.type==='manual'?'Handmatige vormcorrectie controleren…':request.type==='shape'?'Volledige SOURCE-koppeling en vormherstel controleren…':'Volledige SOURCE-koppeling en textureherstel controleren…',.1);const command=request.type==='manual'?await proposeManualShape(base.root,converted.root,request.selection,{...request.parameters,checkpoint}):request.type==='shape'?await proposeShapeRepair(base.root,converted.root,source.root,request.selection,{checkpoint}):await proposeTextureRepair(base.root,converted.root,source.root,request.selection,{quality:request.quality,checkpoint});if(sourceAtStart!==source||previousAtStart!==converted)throw Error('Model gewijzigd; lokaal voorstel geannuleerd.');const next=addRepairCommand(state,command);next.selectionAnchor=command.anchor;const draft=await buildRefinedDraft(base,next,target,checkpoint);return {...draft,command};});}
+refinementEditor=installRefinementEditor({view:resultView,getState:()=>({source,converted,busy,artDirty,nativeMode}),rebuild:rebuildRefined,status,onError:showError,prepare:()=>{clearTimeout(artTimer);stopPlayback();if(nativeMode)returnSourcePose();},createRepairDraft,createManualDraft,displayDraft:displayRefinedDraft,discardDraft:discardRefinedDraft,acceptDraft:publishRefinedDraft,refreshGates:()=>setBusy(busy)});
 if(window.studioTest)Object.assign(window.studioTest,{getRefinement:()=>refinementEditor});
