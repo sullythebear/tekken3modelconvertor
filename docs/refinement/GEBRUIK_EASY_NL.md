@@ -10,7 +10,7 @@ Ontwikkelversie 0.8.0-beta.2-refinement.4. De automatische converter blijft het 
 4. Gum verwijdert verf. Pas Penseelgrootte en Zachte rand aan of kies Masker wissen. Ongedaan maken/Opnieuw herstellen je recente verfstreken.
 5. Kies Herstel bekijken voor een veilige bronanalyse, of Vorm aanpassen om direct te vormen. Opslaan en exporteren gebruiken echte correcties; SOURCE blijft intact.
 
-De korte introductie kun je met Begrepen wegklikken; ze verschijnt daarna niet opnieuw op iedere start.
+De korte introductie kun je met Begrepen wegklikken; ze verschijnt daarna niet opnieuw op iedere start. Ook na je eerste verfstreek verdwijnt de korte introductie.
 
 ## Herstelpenseel
 

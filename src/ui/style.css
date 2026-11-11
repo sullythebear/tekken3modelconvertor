@@ -1184,3 +1184,16 @@ body.refinement-active #settings-panel > :not(#refinement-panel){display:none!im
 #easy-tools button[aria-pressed="true"],#easy-eraser[aria-pressed="true"] {border-color:#91fff2;background:#28515e;color:#f2fffe}
 #easy-refinement h2{font-size:17px;margin-top:0}#easy-message{font-size:13px;line-height:1.5;min-height:3em}
 #easy-context{display:grid;grid-template-columns:1fr 1fr;gap:5px;align-items:center}#easy-context label,#easy-context input{grid-column:span 2}#easy-bottom{margin-top:12px}
+
+body[data-studio-ui] #easy-refinement{padding:0}
+#easy-refinement button{padding:6px 8px;margin:0;min-height:32px;font-size:12px}
+#easy-tools button{min-height:38px}
+#easy-refinement h2{margin:0 0 8px}
+#easy-refinement p{margin:8px 0;min-height:0;line-height:1.4}
+#easy-context{gap:5px;margin-top:8px}
+#easy-context label{margin:2px 0 0;font-size:12px}
+#easy-context input[type=range]{padding:0;margin:0;height:18px}
+#easy-form{grid-column:span 2;margin:0;padding:5px 8px;min-height:32px}
+#easy-inspect{margin-top:8px!important}
+#easy-bottom{position:sticky;bottom:0;background:#152135;padding:7px 0 0;border-top:1px solid #3e526f66;z-index:2;gap:5px}
+#refinement-panel[data-edit-mode=easy]>#refine-apply,#refinement-panel[data-edit-mode=easy]>#refine-cancel{padding:6px 8px;min-height:34px;margin:0}
