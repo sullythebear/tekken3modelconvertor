@@ -1,6 +1,6 @@
 # Eenvoudig bewerken — 3D-retouche
 
-Ontwikkelversie 0.8.0-beta.2-refinement.4. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
+Ontwikkelversie 0.8.0-beta.2-refinement.5. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
 
 ## Snel beginnen
 
@@ -8,13 +8,13 @@ Ontwikkelversie 0.8.0-beta.2-refinement.4. De automatische converter blijft het 
 2. Open Model verfijnen. Eenvoudig bewerken is standaard actief.
 3. Schilder met links op het model. De zachte groenblauwe verf toont je masker. Houd Alt ingedrukt en sleep om het model te draaien; rechts slepen en zoomen blijven beschikbaar.
 4. Gum verwijdert verf. Pas Penseelgrootte en Zachte rand aan of kies Masker wissen. Ongedaan maken/Opnieuw herstellen je recente verfstreken.
-5. Kies Herstel bekijken voor een veilige bronanalyse, of Vorm aanpassen om direct te vormen. Opslaan en exporteren gebruiken echte correcties; SOURCE blijft intact.
+5. Kies eerst het gereedschap, schilder en kies Voorbeeld bekijken. Vorm aanpassen toont tijdens schilderen alvast een tijdelijk voorbeeld. Bekijk Voor / Na en bevestig met Toepassen, of kies Annuleren. Opslaan en exporteren gebruiken echte correcties; SOURCE blijft intact.
 
 De korte introductie kun je met Begrepen wegklikken; ze verschijnt daarna niet opnieuw op iedere start. Ook na je eerste verfstreek verdwijnt de korte introductie.
 
 ## Herstelpenseel
 
-Schilder het probleemgebied en kies Herstellen of Herstel bekijken. De app onderzoekt de betrouwbare oorspronkelijke oppervlakken en beschikbare vorm- en texturecorrecties.
+Schilder het probleemgebied en kies Herstellen of Voorbeeld bekijken. De app onderzoekt de betrouwbare oorspronkelijke oppervlakken en beschikbare vorm- en texturecorrecties.
 
 - Eén bruikbaar herstel: je krijgt een voorstel met Toepassen en Annuleren.
 - Meerdere mogelijkheden: kies Vorm herstellen, Texture herstellen of Beide herstellen.
@@ -28,15 +28,15 @@ Texture herstellen gebruikt de oorspronkelijke kleuren. Waar mogelijk blijft het
 
 Kies Vorm aanpassen en bijvoorbeeld Dikker maken, Dunner maken, Gladmaken, Naar buiten duwen of Naar binnen duwen. Vergroten/verkleinen zijn eveneens beschikbaar. Je ziet alleen Penseelgrootte en Sterkte als normale instellingen.
 
-Schilder met links: tijdens het schilderen zie je een tijdelijk vormvoorbeeld. Na loslaten controleert de app de streek en bewaart die als één omkeerbare correctie. Een onveilige streek wordt niet toegepast. Gebruik minder sterkte, een zachtere/ruimere streek of automatisch Herstellen als de app weigert. Escape of een geannuleerde pointerstreek gooit het tijdelijke voorstel weg.
+Schilder met links: tijdens het schilderen zie je een tijdelijk vormvoorbeeld. Na loslaten blijft de vorm een tijdelijk voorstel. Je kunt verder schilderen en Sterkte aanpassen. Pas met Toepassen volgt de volledige veiligheidscontrole en wordt het voorstel één omkeerbare correctie. Het tijdelijke masker wordt daarna gewist; het gereedschap blijft actief. Een onveilige streek wordt niet toegepast. Gebruik minder sterkte, een zachtere/ruimere streek of automatisch Herstellen als de app weigert. Escape of een geannuleerde pointerstreek gooit het tijdelijke voorstel weg.
 
-Dikker/dunner werkt in deze eenvoudige modus conservatief naar buiten/binnen langs het lokale oppervlak. Het raadt geen volledige armdoorsnede of anatomie. Gladmaken gebruikt een begrensde lokale stap en beschermt scherpe randen; het maakt geen professionele sculptingomgeving. Meerdere streken kunnen elkaar wel versterken: beoordeel regelmatig Voor / Na en gebruik undo.
+Dikker/dunner werkt in deze eenvoudige modus conservatief naar buiten/binnen langs het lokale oppervlak. Het raadt geen volledige armdoorsnede of anatomie. Gladmaken gebruikt een begrensde lokale stap en beschermt scherpe randen; het maakt geen professionele sculptingomgeving. Meerdere streken vóór Toepassen vergroten hetzelfde masker, zonder de vervorming per muisbeweging op te tellen. Na Toepassen kunnen nieuwe correcties elkaar versterken: beoordeel regelmatig Voor / Na en gebruik undo.
 
 Op heel grove modellen kan de verf fijner zijn dan de vorm die bewerkt kan worden. Schilder dan ruimer. Een fijn masker voegt geen nieuw geometrisch detail toe. Aansluitende vlakken kunnen nodig zijn om de bestaande vormpunten zonder scheuren te bewegen; niet-beschilderde vormpunten worden niet willekeurig verplaatst.
 
 ## Details beschermen
 
-Schilder belangrijke vormdetails en kies Details beschermen. Bevestig de bescherming met Toepassen. Het beschermt de daadwerkelijk geraakte vormpunten bij latere kandidaatoptimalisatie; het verhoogt niet automatisch de texture-resolutie en verzint geen nieuwe vormpunten.
+Kies Details beschermen, schilder belangrijke vormdetails en kies Voorbeeld bekijken. Bevestig de bescherming met Toepassen. Het beschermt de daadwerkelijk geraakte vormpunten bij latere kandidaatoptimalisatie; het is geen algemene vergrendeling voor latere vorm- of texturecorrecties, verhoogt niet automatisch de texture-resolutie en verzint geen nieuwe vormpunten.
 
 ## Voor / Na en geschiedenis
 
@@ -60,6 +60,10 @@ Native Tekken 3-export blijft experimenteel en is voor lokale reparaties niet au
 - Eén masker hoort bij één mesh; wis het voor een ander onderdeel. Maximaal 1.024 driehoeken in een masker. Bewerkingen en totale maskergeschiedenis zijn begrensd om geheugenproblemen te voorkomen.
 - Transparante blendmaterialen, onzekere bronlagen, onveilige overlaps, actieve morphs en niet-inverteerbare skinning kunnen een bewerking blokkeren. Geen nieuwe anatomie, gegokte bottransformaties of verborgen bronvervanging.
 - Geschilderd textureherstel ondersteunt behoud van het huidige pixelraster, of een uniform huidige kleur. Niet betrouwbaar te behouden herhalende/overlappende atlasgebieden en samengestelde materialen worden geweigerd; Geavanceerd behoudt de eerdere brede textureherstelopties.
-- De botsingscontrole is geen volledige garantie voor coplanaire raakcontacten of alle animatieposes. Zware eindvalidatie en SOURCE-textureherstel kunnen langer duren; annuleren werkt op controlepunten. Het snelle vormvoorbeeld ondergaat pas bij loslaten de volledige controle.
+- De botsingscontrole is geen volledige garantie voor coplanaire raakcontacten of alle animatieposes. Zware eindvalidatie en SOURCE-textureherstel kunnen langer duren; annuleren werkt op controlepunten. Het snelle vormvoorbeeld ondergaat pas bij Toepassen de volledige controle.
 - Electron-zoom wordt getest, maar dat certificeert niet ieder fysiek Windows-monitor-/DPI-scenario.
 - De voorbeelden gebruiken eigen synthetische modellen. Commerciële modellen en screenshots blijven privé. Geen universele artistieke of gamecompatibiliteitsclaim.
+
+## Nog niet beschikbaar
+
+Omgevingsretouche en een Alt-klik texture-kloonpenseel zijn nog niet geïmplementeerd. Deze versie is een checkpoint voor de expliciete preview/toepasworkflow en SOURCE-herstel, geen voltooide Easy Refinement 2.0. Er staan geen actieve knoppen voor deze ontbrekende functies. Een gecombineerd vorm- en textureherstel gebruikt nog twee geschiedenisrecords.
