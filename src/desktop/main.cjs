@@ -64,7 +64,7 @@ app.whenReady().then(() => {
     },
   });
   const helpURL=require('node:url').pathToFileURL(path.join(ROOT,'docs/product/GEBRUIKERSHANDLEIDING.html')).href;
-  const helpURLs=new Set([helpURL,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_PHASE_B_NL.html')).href,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_PHASE_C_NL.html')).href]);
+  const helpURLs=new Set([helpURL,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_PHASE_B_NL.html')).href,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_PHASE_C_NL.html')).href,require('node:url').pathToFileURL(path.join(ROOT,'docs/refinement/GEBRUIK_EASY_NL.html')).href]);
   const logFile=path.join(app.getPath('userData'),'logs','runtime.jsonl');
   let logQueue=Promise.resolve();
   const localLog=entry=>{logQueue=logQueue.then(async()=>{await fs.mkdir(path.dirname(logFile),{recursive:true});const stat=await fs.stat(logFile).catch(()=>null);if(stat?.size>1024**2)await fs.rename(logFile,logFile+'.previous').catch(()=>{});await fs.appendFile(logFile,JSON.stringify({time:new Date().toISOString(),version:app.getVersion(),...entry})+'\n');}).catch(()=>{});};

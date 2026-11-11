@@ -1,4 +1,4 @@
-name: Interactive refinement Phase C1 validation
+name: Easy refinement validation
 on:
   push:
     branches: [development/080-interactive-refinement]
@@ -61,6 +61,24 @@ jobs:
           node scripts/manual-refinement-test.mjs
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/manual-refinement-benchmark.mjs
+      - name: Easy painting direct strokes safe repair and cold export workflows
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/easy-refinement-profile
+        run: |
+          node scripts/easy-refinement-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/easy-texture-profile"
+          node scripts/easy-repair-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/easy-combined-profile"
+          node scripts/easy-repair-test.mjs --both
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/easy-source-shape-profile"
+          node scripts/easy-source-shape-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node scripts/easy-report.mjs
       - name: Real file dialogs OBJ MTL TGA and source overwrite protection
         env:
           T3CS_AUTOMATION: '1'
@@ -173,11 +191,24 @@ jobs:
           if ($env:PRIVATE_CHARACTER_DIR -and (Test-Path $env:PRIVATE_CHARACTER_DIR)) { Remove-Item -Recurse -Force $env:PRIVATE_CHARACTER_DIR }
       - uses: actions/upload-artifact@v4
         with:
-          name: ConversionStudio-refinement-phase-C1-${{ github.sha }}
+          name: ConversionStudio-easy-refinement-${{ github.sha }}
           retention-days: 30
           if-no-files-found: error
           path: |
             release/Tekken3ConversionStudio-*-x64.exe
+            artifacts/easy-refinement/index.html
+            artifacts/easy-refinement/results.json
+            artifacts/easy-refinement/painted.png
+            artifacts/easy-refinement/editor-*.png
+            artifacts/easy-repair/results.json
+            artifacts/easy-repair/texture-before.png
+            artifacts/easy-repair/texture-after.png
+            artifacts/easy-combined/results.json
+            artifacts/easy-combined/texture-before.png
+            artifacts/easy-combined/texture-after.png
+            artifacts/easy-source-shape/results.json
+            artifacts/easy-source-shape/shape-before.png
+            artifacts/easy-source-shape/shape-after.png
             artifacts/manual-refinement/index.html
             artifacts/manual-refinement/results.json
             artifacts/manual-refinement/benchmark.json
