@@ -1,6 +1,6 @@
 # Eenvoudig bewerken — 3D-retouche
 
-Ontwikkelversie 0.8.0-beta.2-refinement.7. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
+Ontwikkelversie 0.8.0-beta.2-refinement.8. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
 
 ## Snel beginnen
 
@@ -118,3 +118,34 @@ Vanuit origineel herstelt nu de daadwerkelijk getoonde gebakken atlas wanneer di
 Bij wisselen van hoofdgereedschap wordt het tijdelijke masker gewist, zodat een oude selectie niet onbedoeld opnieuw wordt gebruikt. Bij wisselen van herstelmethode kun je hetzelfde gebied blijven vergelijken.
 
 Blijft een probleem optreden? Klik na de previewaanvraag op Diagnose opslaan. Dit kleine JSON-bestand bevat uitsluitend tellers, statuscodes en buildinformatie; geen modellen, textures, bestandsnamen, paden of afbeeldingen. Technische foutdetails blijven lokaal beschikbaar bij Geavanceerd.
+
+
+## Verf — rechtstreeks kleuren (refinement.8)
+
+1. Importeer en converteer je model met de gebakken PS1-atlas. Open Model verfijnen en kies **Verf**.
+2. Kies een kleur en schilder met links. De tijdelijke kleur is meteen zichtbaar; dit zijn echte texturepixels, geen selectiemasker.
+3. Pas Penseelgrootte en Dekking aan. Bij 0% dekking ontstaat geen nieuwe verf. Meerdere streken en kleuren vormen samen één correctie.
+4. **Pipet** → klik op het model neemt de texturekleur over, zonder schermbelichting. Alt+klik werkt ook; Alt+slepen draait de camera.
+5. **Gum** onthult de toestand vóór deze tijdelijke verfcorrectie. Hij maakt oorspronkelijke pixels niet transparant. **Tijdelijke verf wissen** begint de laag opnieuw.
+6. Houd **Voor/Na** vast om zonder de tijdelijke laag te kijken. **Toepassen** bewaart één omkeerbare correctie; kleur en Verf blijven actief. **Annuleren** verwijdert uitsluitend tijdelijke verf.
+7. Sla je project op. Na koude heropening en GLB-export blijven de bevestigde verfpixels behouden. Een eerdere bevestigde laag herstel je met Undo of via de geschiedenis.
+
+Verf gebruikt geen SOURCE-correspondentie, donoren of automatische verbeteringsscore. Jij kiest de kleur. Ook een niet-menselijk model kan worden beschilderd. Als er nog geen kleurtexture is of een samengesteld PBR-/transparantiemateriaal actief is, gebruik dan eerst de gebakken PS1-atlas.
+
+Veelgebruikte en recent toegepaste kleuren staan bij de kleurkiezer. Recent gebruikte kleuren worden lokaal als voorkeur bewaard, zonder modeldata. Geavanceerd bevat HEX-invoer, zachte verfrand en PS1-kleuren/Originele RGB-kleuren. Standaard worden gewijzigde kleuren naar RGB555 afgerond. Alpha, geometrie, normals en skinweights blijven behouden.
+
+### Grenzen en opslag
+
+UV-/materiaalgrenzen kunnen in één verfcorrectie worden gesplitst in geïsoleerde patches. Ook gedeelde/overlappende UV's worden zo op de gekozen faces geïsoleerd; het andere oppervlak verandert niet automatisch mee. Repeat/mirror/clamp worden per texel bemonsterd, zonder modulo op UV-hoekpunten. De zichtbaarheid wordt op het werkelijke oppervlak gecontroleerd.
+
+De lokale patches behouden de bestaande texeldichtheid en vergroten de basisatlas niet. Ze kunnen wel extra texturegeheugen en materiaalverwijzingen toevoegen. Ondersteunde invoer is maximaal 2048 pixels per zijde, maximaal 2048 faces en ongeveer één miljoen tijdelijke chartpixels; een grote UV-driehoek kan daarom ook bij een kleine penseelstreek een lagere texture-resolutie nodig hebben. Maximaal 256 streken per tijdelijke correctie en 16 MiB opgeslagen verfpayload over de geschiedenis; bevestig tijdig kleine correcties.
+
+Verfprojecten gebruiken geschiedenisversie **5** en vereisen refinement.8. Oudere projecten (1–4) blijven leesbaar. Bewaar een projectkopie voordat je nieuwe correcties toevoegt. Verf op de artistieke PS1-voorbereiding; een andere geoptimaliseerde topologie wordt niet onveilig gekoppeld.
+
+GLB en de afzonderlijke PNG-patches in het voorbereidingspakket bevatten de verf. De basis-TIM/CLUT-bestanden bevatten deze losse patches niet automatisch. RGB555 betekent hier PS1-stijlkleuren, geen nieuwe native/gameplaygarantie. De bestaande bescherming is niet universeel: zij blijft gelden voor de eerder ondersteunde optimalisatie/retoucheerbewerkingen, niet als onzichtbare blokkade van expliciet handmatig Verf.
+
+### Retouch of Verf?
+
+Automatisch herstellen stelt een veilige correctie voor; Retoucheerpenseel gebruikt origineel/omgeving; Kloonpenseel kopieert een gekozen bron. Verf is de handmatige kleurkeuze wanneer je geen automatische reconstructie wilt of die niet mogelijk is. Er wordt nooit zonder jouw keuze naar Verf overgeschakeld. Bij geschikte kleurmaterialen verschijnt na bepaalde weigeringen een knop Zelf kleuren met Verf.
+
+Kleine aantoonbare SOURCE-kleurverbeteringen worden niet langer door een aanvullende drie-RGB-drempel in Automatisch verborgen. Onzekere SOURCE-koppelingen, ontbrekende donoren, schadelijke wijzigingen en onveilige retoucheer-UV-overgangen blijven geweigerd.

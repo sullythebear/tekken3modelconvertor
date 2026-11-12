@@ -14,3 +14,10 @@ Core tests also pass SOURCE-null replay, opacity, temporary erase/alpha preserva
 
 ## Expanded UI checkpoint
 The ordinary-import UI test now passes visible native red AND rendered red pixels, a true temporary eraser, texture pipette, 50% opacity, Cancel preserving committed state, one-record Apply, undo/redo and exact cold/GLB PNG pixels. A second imported fixture crosses a UV/material split with repeat coordinates and a separate shared-texture back sheet; the stroke creates multiple isolated parts in one history record and passes the same cold/export checks. No triangle geometry is invented. Current relevant unit suite: 454 passed. Next: explicit back-sheet pixel assertion, retouch refusal audit, packaged Windows acceptance and report/manual.
+
+## Retouch and Windows acceptance checkpoint
+458 Node regressions pass. Normal GLB input → real atlas conversion → native red paint → pipette/opacity/temporary erasure → Cancel/Apply → two paint history records → exact undo/redo → cold reopening → independent GLB PNG and preparation PNG checks pass locally. UV/material seam fixture also checks the untouched back sheet which shares original UV pixels. Source geometry and skin channels are unchanged.
+
+The general automatic repair assessor contained an extra >3 RGB improvement gate after a valid texture proposal had passed the real repair checks. This hid valid subtle SOURCE improvements. Removed only that redundant gate; added a controlled +2 RGB regression and a real UI Auto/cold/export test. Uncertain correspondence, unsafe UVs, no effect and unsuitable donors remain refused. Explicit manual paint fallback is offered for eligible textured surfaces after relevant repair refusals.
+
+Actual portable smoke now sends mouse input to the renderer, applies red paint, captures a synthetic screenshot and verifies native red pixels plus exported paint materials. Source Electron harness passed; Windows package validation is required before final delivery. Public artifacts are allowlisted synthetic reports/screenshots only; no source models or private imagery. No regular release is created.

@@ -18,7 +18,7 @@ function readMap(material){
  if(!data||data.BYTES_PER_ELEMENT!==1||data.length!==im.width*im.height*4)throw Error('Deze texturepixels worden niet ondersteund. Gebruik de gebakken atlas.');
  if(material.map.matrixAutoUpdate)material.map.updateMatrix();
  const width=im.width,height=im.height,rgb=(x,y)=>{x=address(x,width,material.map.wrapS);y=address(y,height,material.map.wrapT);const i=(y*width+x)*4;return [...sourceAlbedoRGB(data.subarray(i,i+4),material).map(v=>Math.round(Math.max(0,Math.min(255,v)))),data[i+3]];};
- let a=2166136261,b=5381;for(const v of data){a=Math.imul(a^v,16777619);b=Math.imul(b,33)^v;}const signature=refinementHash(JSON.stringify([width,height,a>>>0,b>>>0,material.color.toArray(),material.opacity,material.alphaTest,material.side,material.map.colorSpace,material.map.magFilter,material.map.minFilter]));
+ let a=2166136261,b=5381;for(const v of data){a=Math.imul(a^v,16777619);b=Math.imul(b,33)^v;}const signature=refinementHash(JSON.stringify([width,height,a>>>0,b>>>0,material.color.toArray(),material.opacity,material.alphaTest,material.side,material.map.colorSpace,material.map.wrapS,material.map.wrapT,material.map.magFilter,material.map.minFilter]));
  return {width,height,rgb,signature};
 }
 function frame(mesh,t,material,image){const ids=triangleIds(mesh.geometry,t),uv=mesh.geometry.attributes[material.map.channel?`uv${material.map.channel}`:'uv'];if(!uv)throw Error('Dit materiaal heeft geen geldige UV-koppeling.');

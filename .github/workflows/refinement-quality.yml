@@ -85,6 +85,20 @@ jobs:
           node scripts/surface-retouch-test.mjs --atlas --auto
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/easy-report.mjs
+      - name: Direct texture paint native colors eraser pipette cold export and material seams
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/texture-paint-profile
+        run: |
+          node scripts/texture-paint-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/texture-paint-seams-profile"
+          node scripts/texture-paint-test.mjs --seams
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/easy-subtle-profile"
+          node scripts/easy-repair-test.mjs --subtle
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Real user Preview visibility atlas texture geometry and cold export acceptance
         env:
           T3CS_AUTOMATION: '1'
@@ -280,3 +294,19 @@ jobs:
             artifacts/preview-acceptance/shape-before.png
             artifacts/preview-acceptance/shape-after.png
             artifacts/preview-acceptance/visible-refusal.png
+            artifacts/portable-smoke/paint-preview.png
+            artifacts/texture-paint/index.html
+            artifacts/texture-paint/results.json
+            artifacts/texture-paint/before.png
+            artifacts/texture-paint/preview.png
+            artifacts/texture-paint/erased.png
+            artifacts/texture-paint/editor-*.png
+            artifacts/texture-paint-seams/index.html
+            artifacts/texture-paint-seams/results.json
+            artifacts/texture-paint-seams/before.png
+            artifacts/texture-paint-seams/preview.png
+            artifacts/texture-paint-seams/erased.png
+            artifacts/texture-paint-seams/editor-*.png
+            artifacts/easy-subtle/results.json
+            artifacts/easy-subtle/texture-before.png
+            artifacts/easy-subtle/texture-after.png
