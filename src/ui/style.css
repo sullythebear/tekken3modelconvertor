@@ -1197,3 +1197,10 @@ body[data-studio-ui] #easy-refinement{padding:0}
 #easy-inspect{margin-top:8px!important}
 #easy-bottom{position:sticky;bottom:0;background:#152135;padding:7px 0 0;border-top:1px solid #3e526f66;z-index:2;gap:5px}
 #refinement-panel[data-edit-mode=easy]>#refine-apply,#refinement-panel[data-edit-mode=easy]>#refine-cancel{padding:6px 8px;min-height:34px;margin:0}
+
+/* Confirmation remains visible while inspecting a real refinement proposal. */
+#refine-confirmation{position:sticky;bottom:0;z-index:4;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#152135;padding:8px 0;border-top:1px solid #77c7d766}
+#refine-confirmation[hidden]{display:none}
+#refine-confirmation button{margin:0;min-height:36px;padding:6px 8px}
+#refine-confirmation #refine-apply{background:#83dce7;color:#0d2030;border-color:#b9f5fc;font-weight:650}
+#refine-confirmation #refine-apply:disabled{opacity:.5}

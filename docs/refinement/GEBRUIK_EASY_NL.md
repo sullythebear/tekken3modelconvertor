@@ -1,12 +1,12 @@
 # Eenvoudig bewerken — 3D-retouche
 
-Ontwikkelversie 0.8.0-beta.2-refinement.5. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
+Ontwikkelversie 0.8.0-beta.2-refinement.6. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
 
 ## Snel beginnen
 
 1. Importeer je model en kies Converteer naar PS1.
 2. Open Model verfijnen. Eenvoudig bewerken is standaard actief.
-3. Kies Automatisch herstellen, Retoucheerpenseel (vanuit origineel), Vorm aanpassen of Details beschermen. Schilder met links op het model. De zachte groenblauwe verf toont je masker. Houd Alt ingedrukt en sleep om het model te draaien; rechts slepen en zoomen blijven beschikbaar.
+3. Kies Automatisch herstellen, Retoucheerpenseel (Automatisch, Vanuit origineel of Vanuit omgeving), Vorm aanpassen, Kloonpenseel of Details beschermen. Schilder met links op het model. De zachte groenblauwe verf toont je masker. Houd Alt ingedrukt en sleep om het model te draaien; rechts slepen en zoomen blijven beschikbaar.
 4. Gum verwijdert verf. Pas Penseelgrootte en Zachte rand aan of kies Masker wissen. Ongedaan maken/Opnieuw herstellen je recente verfstreken.
 5. Kies eerst het gereedschap, schilder en kies Voorbeeld bekijken. Vorm aanpassen toont tijdens schilderen alvast een tijdelijk voorbeeld. Bekijk Voor / Na en bevestig met Toepassen, of kies Annuleren. Opslaan en exporteren gebruiken echte correcties; SOURCE blijft intact.
 
@@ -36,7 +36,7 @@ Op heel grove modellen kan de verf fijner zijn dan de vorm die bewerkt kan worde
 
 ## Details beschermen
 
-Kies Details beschermen, schilder belangrijke vormdetails en kies Voorbeeld bekijken. Bevestig de bescherming met Toepassen. Het beschermt de daadwerkelijk geraakte vormpunten bij latere kandidaatoptimalisatie; het is geen algemene vergrendeling voor latere vorm- of texturecorrecties, verhoogt niet automatisch de texture-resolutie en verzint geen nieuwe vormpunten.
+Kies Details beschermen, schilder belangrijke vormdetails en kies Voorbeeld bekijken. Bevestig de bescherming met Toepassen. Het beschermt de daadwerkelijk geraakte vormpunten bij latere kandidaatoptimalisatie; het verhoogt niet automatisch de texture-resolutie en verzint geen nieuwe vormpunten.
 
 ## Voor / Na en geschiedenis
 
@@ -64,6 +64,46 @@ Native Tekken 3-export blijft experimenteel en is voor lokale reparaties niet au
 - Electron-zoom wordt getest, maar dat certificeert niet ieder fysiek Windows-monitor-/DPI-scenario.
 - De voorbeelden gebruiken eigen synthetische modellen. Commerciële modellen en screenshots blijven privé. Geen universele artistieke of gamecompatibiliteitsclaim.
 
-## Nog niet beschikbaar
+## Retoucheerpenseel — vanuit omgeving
 
-Omgevingsretouche en een Alt-klik texture-kloonpenseel zijn nog niet geïmplementeerd. Deze versie is een checkpoint voor de expliciete preview/toepasworkflow en SOURCE-herstel, geen voltooide Easy Refinement 2.0. Er staan geen actieve knoppen voor deze ontbrekende functies. Een gecombineerd vorm- en textureherstel gebruikt nog twee geschiedenisrecords.
+Kies Retoucheerpenseel en Vanuit omgeving. Schilder over een kleine beschadiging, kies Voorbeeld bekijken en vergelijk Voor / Na. Toepassen bevestigt één correctie; Annuleren behoudt de vorige toestand.
+
+De app zoekt een passende, niet-beschilderde donor op hetzelfde verbonden materiaaloppervlak. Een vast patroonstuk wordt gematcht op de rand rond je masker en met de zachte penseelrand gemengd. Dit is geen gemiddelde kleur of algemene blur. Het werkt vooral voor kleine beschadigingen in herhalende kledingpatronen of rustig variërende textures. Het herkent niet automatisch wat een oog, lip of kledingnaad betekent: bescherm zulke details en beoordeel het voorstel.
+
+Automatisch controleert zowel het origineel als de omgeving. Als slechts één veilige methode beschikbaar is, verschijnt dat voorstel. Als beide bruikbaar zijn, kies je welk voorstel je wilt bekijken; met Annuleren kun je daarna de andere proberen. Een verschil met SOURCE is niet automatisch een fout.
+
+## Kloonpenseel
+
+1. Kies Kloonpenseel.
+2. Houd Alt ingedrukt en klik op een goed brongebied. Je kunt ook Kies bron gebruiken en daarna op het model klikken.
+3. Schilder op een nabij doelgebied binnen hetzelfde materiaal en dezelfde UV-naad.
+4. Kies Voorbeeld bekijken, vergelijk Voor / Na en kies Toepassen of Annuleren.
+
+De gouden bronmarkering toont de bron; tijdens schilderen beweegt zij met een vaste oppervlakteverplaatsing mee. Alt + slepen draait de camera en kiest geen bron. Na Toepassen en bij het verlaten van Model verfijnen wordt de bron gewist: kies voor de volgende correctie opnieuw een bron. Verschillende triangles zijn mogelijk; sterk gekromde oppervlakken of onverenigbare materialen worden veilig geweigerd. Er is geen geometrieklonen.
+
+## Bescherming van textures
+
+Details beschermen bewaart ook het fijne verfmasker, zelfs wanneer daar geen geometrische hoekpunten liggen. Omgevingshealing en klonen gebruiken beschermde gebieden niet als doel of donor. Dit is geen universele vergrendeling: SOURCE-herstel en vormbewerkingen respecteren deze bescherming nog niet allemaal.
+
+Met Bescherming bekijken zie je de opgeslagen maskers. Bescherming uitschakelen zet de actieve beschermingslagen uit; in Geavanceerd kun je lagen afzonderlijk herinschakelen. Gum wist het tijdelijke verfmasker vóór Toepassen, niet automatisch eerder bevestigde beschermingslagen. Bescherming en de aan/uit-status worden met het project opgeslagen.
+
+## Projecten en exports met de nieuwe gereedschappen
+
+De echte patchpixels, UV-koppeling en donorvoetafdruk worden opgeslagen. Heropening kiest geen nieuwe donor. Bij een atlas wordt de werkelijk gebruikte basisatlas één keer met de oorspronkelijke TIM-/paletgegevens bewaard; opnieuw bakken is niet nodig om de oorspronkelijke pixels te raden. GLB en de afzonderlijke reparatie-PNGs in het voorbereidingspakket bevatten de bevestigde correcties. De basis-TIMs blijven basisassets; ze zijn geen automatisch gevalideerde native indeling voor de extra patches.
+
+Projecten met deze nieuwe texturebewerkingen gebruiken geschiedenisversie 3 en vereisen refinement.6 of nieuwer. Oudere apps weigeren deze geschiedenis. Deze versie leest oudere projecten nog steeds. Bewaar een kopie voordat je een ouder project uitbreidt.
+
+## Grenzen van deze ontwikkelversie
+
+- Eén correctie gebruikt één verbonden materiaal-/UV-gebied. Een penseelstreek springt niet naar een ander materiaal of UV-eiland. Meerdere streken over verschillende gebieden kunnen bij Preview worden geweigerd; wis dan het masker en werk per gebied.
+- Directe diffuse, ondoorzichtige kleurtextures en binaire cutouts worden ondersteund. Gebruik voor PBR, normal maps, vertexkleuren en samengestelde gezichtsweergave eerst de gebakken atlas.
+- Textures zijn begrensd tot 1024 pixels per zijde, de werkregio tot 262.144 texels en een correctie tot 4096 geschilderde texels. Patch- en geschiedenisgeheugen zijn eveneens begrensd. Grote UV-vlakken kunnen een lagere texture-resolutie vereisen.
+- Repeat, mirror en transforms werken alleen waar het betrokken oppervlak binnen één affine samplertegel blijft. Tegelkruisingen, onveilige UV-overlap en UV-naden worden geweigerd; er wordt niet simpelweg modulo op UV-hoekpunten toegepast.
+- Bestaande retoucheerpatches kunnen opnieuw worden bewerkt, maar een masker mag niet ongemerkt meerdere afzonderlijke patchmaterialen samenvoegen.
+- Lokale patches behouden de vergrotingsfilter van het invoermateriaal en gebruiken geen mipmaps. Mipmapfiltering op grote afstand wordt niet identiek gereconstrueerd.
+- Een gedetecteerde RGB555-atlas blijft bij zachte menging RGB555. Algemene ongekwantiseerde textures behouden hun bronbytes; er wordt geen fictieve universele CLUT-/polygonlimiet opgelegd.
+- Kloonmapping gebruikt een vaste verplaatsing over nabije, vrijwel parallelle oppervlakken. Er is nog geen algemene krommingsretargeting, automatische semantische reparatie of geometrieklonen.
+- Iedere toegepaste omgevings- of klooncorrectie is één undo-stap. Het oudere gecombineerde SOURCE-vorm-/texturevoorstel gebruikt nog twee geschiedenisrecords.
+- Bij een andere pose dan de vastgelegde atlas wordt toepassen geweigerd; kies dezelfde pose of converteer opnieuw. Er worden geen bottransformaties gegokt.
+- Veranderde texture-/UV-afhankelijkheden kunnen replay blokkeren; maak dan het voorstel opnieuw. Latere vormbewerkingen mogen de vaste texturepixels via dezelfde UVs blijven meenemen.
+- Geen artistieke goedkeuring voor alle commerciële modellen en geen Tekken 3-gameplayclaim.

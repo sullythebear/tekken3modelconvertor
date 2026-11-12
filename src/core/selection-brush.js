@@ -2,7 +2,7 @@ import * as T from 'three';
 import {triangleAdjacency,triangleIds,triangleCount} from './refinement.js';
 // Cache excludes camera visibility: every dab rechecks the live frontmost surface.
 const cache=new WeakMap();
-export function brushSurface(mesh){const g=mesh.geometry,p=g.attributes.position,stamp=[p.version,g.index?.version,...Object.values(g.attributes).map(a=>a.version)].join(':');let c=cache.get(g);if(c?.stamp===stamp)return c;const adjacency=triangleAdjacency(mesh);c={stamp,adjacency};cache.set(g,c);return c;}
+export function brushSurface(mesh){const g=mesh.geometry,p=g.attributes.position,stamp=[p.version,g.index?.version,...Object.values(g.attributes).map(a=>a.version)].join(':');let c=cache.get(g);if(c?.stamp===stamp)return c;const adjacency=triangleAdjacency(mesh),components=new Int32Array(adjacency.length).fill(-1);let id=0;for(let t=0;t<adjacency.length;t++)if(components[t]===-1){const queue=[t];components[t]=id;for(let j=0;j<queue.length;j++)for(const n of adjacency[queue[j]])if(components[n]===-1){components[n]=id;queue.push(n);}id++;}c={stamp,adjacency,components};cache.set(g,c);return c;}
 export function brushTriangles(mesh,seed,point,radius,{visible=()=>true,maxFaces=4000}={}){
  if(!Number.isInteger(seed)||seed<0||seed>=triangleCount(mesh)||!Number.isFinite(radius)||radius<=0)throw Error('Ongeldig penseeloppervlak.');
  const {adjacency}=brushSurface(mesh),centers=new Map(),center=t=>{if(!centers.has(t))centers.set(t,new T.Triangle(...triangleIds(mesh.geometry,t).map(i=>mesh.getVertexPosition(i,new T.Vector3()).applyMatrix4(mesh.matrixWorld))).getMidpoint(new T.Vector3()));return centers.get(t);};

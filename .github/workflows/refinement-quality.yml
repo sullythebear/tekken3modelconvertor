@@ -78,6 +78,12 @@ jobs:
           $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/easy-source-shape-profile"
           node scripts/easy-source-shape-test.mjs
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/environment-clone-material-profile"
+          node scripts/surface-retouch-test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:T3CS_TEST_PROFILE="$env:RUNNER_TEMP/environment-clone-atlas-profile"
+          node scripts/surface-retouch-test.mjs --atlas --auto
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/easy-report.mjs
       - name: Real file dialogs OBJ MTL TGA and source overwrite protection
         env:
@@ -209,6 +215,22 @@ jobs:
             artifacts/easy-source-shape/results.json
             artifacts/easy-source-shape/shape-before.png
             artifacts/easy-source-shape/shape-after.png
+            artifacts/surface-retouch/editor-1366.png
+            artifacts/surface-retouch/editor-1920.png
+            artifacts/surface-retouch/editor-2560.png
+            artifacts/surface-retouch/results.json
+            artifacts/surface-retouch/environment-before.png
+            artifacts/surface-retouch/environment-after.png
+            artifacts/surface-retouch/clone-before.png
+            artifacts/surface-retouch/clone-after.png
+            artifacts/surface-retouch-atlas/editor-1366.png
+            artifacts/surface-retouch-atlas/editor-1920.png
+            artifacts/surface-retouch-atlas/editor-2560.png
+            artifacts/surface-retouch-atlas/results.json
+            artifacts/surface-retouch-atlas/environment-before.png
+            artifacts/surface-retouch-atlas/environment-after.png
+            artifacts/surface-retouch-atlas/clone-before.png
+            artifacts/surface-retouch-atlas/clone-after.png
             artifacts/manual-refinement/index.html
             artifacts/manual-refinement/results.json
             artifacts/manual-refinement/benchmark.json
