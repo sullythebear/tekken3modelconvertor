@@ -36,3 +36,6 @@ A ready proposal was discarded by Cancel but its Easy success sentence remained.
 
 ## Shared Advanced outcome
 The error handler previously returned to the global Advanced error path before updating the shared preview message. It now always completes the active dock outcome and still preserves Advanced technical details. The full normal-import acceptance passed with an additional Advanced no-op refusal whose actual on-screen rectangle is asserted. No repair algorithm or safety change.
+
+## Existing protection regression
+Windows run 43307379979 stopped in the grouped Easy checks. All six cases were rerun locally: the two surface-retouch workflows failed only when protection was proposed. startPreview disabled controls, and the following protect.click() did not dispatch a click on the now-disabled button, leaving computing active. Dispatch now calls the same validated handler directly. Both material/atlas environment+clone workflows passed again through protection, cold pixels and export; Real User Preview Acceptance passed with an explicit protection dispatch assertion. No algorithm/safety change. The failed run is not delivery validation.
