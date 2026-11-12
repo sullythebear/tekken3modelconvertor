@@ -10,7 +10,7 @@ export class PreviewRequests{
  current(id){return this.active?.id===id&&this.active.state==='computing';}
  note(id,stage,data){if(!this.current(id))return false;const r=this.active;r.events.push({...safe({stage,...data}),ms:Math.round(performance.now()-r.started)});if(r.events.length>32)r.events.shift();return true;}
  finish(id,state,data){if(!this.current(id))return false;if(!['ready','refused','error','choice','cancelled'].includes(state))throw Error('Invalid preview outcome');Object.assign(this.active,safe(data),{state,durationMs:Math.round(performance.now()-this.active.started)});return true;}
- cancel(){if(this.active?.state==='computing')this.finish(this.active.id,'cancelled',{category:'cancelled'});}
+ cancel(){if(this.active?.state==='computing')this.finish(this.active.id,'cancelled',{category:'cancelled'});else if(['ready','choice'].includes(this.active?.state)){this.active.state='cancelled';this.active.events.push({stage:'cancelled',ms:Math.round(performance.now()-this.active.started)});}}
  applied(){if(this.active?.state==='ready'){this.active.state='applied';this.active.events.push({stage:'applied',ms:Math.round(performance.now()-this.active.started)});}}
  get computing(){return this.active?.state==='computing';}
  report(){return {schema:'t3cs-preview-diagnostics/1',applicationVersion:this.version,buildCommit:this.commit,scope:'Counts and lifecycle only; no model assets, names, paths, UVs, image pixels or vertex positions',requests:this.records.map(({started,...r})=>structuredClone(r))};}
