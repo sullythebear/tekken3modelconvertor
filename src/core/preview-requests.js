@@ -1,0 +1,17 @@
+// Asset-free, bounded preview lifecycle. Never record paths, names, UVs, pixels,
+// positions, hashes or exception messages in the shareable diagnostic report.
+const numeric=new Set(['meshIndex','triangles','maskFaces','maskSamples','materialCount','textureLayers','maxTextureSide','changedPixels','changedVertices','maxDisplacement','meanDisplacement','outsideChanges','renderCount','minPixelDifference','maxPixelDifference','meanPixelDifference','regionalMeanPixelDifference','regionalBeforeMeanRGB','regionalAfterMeanRGB','regionalBeforeMaxRGB','regionalAfterMaxRGB']);
+const flags=new Set(['selectionValid','atlas','attached','rendered','hasPreview']);
+const words={tool:['repair','texture','clone','shape','protect','both','environment','manual'],method:['auto','original','environment','clone','shape','texture','both','manual','protect'],category:['no-effect','clone-source','material-boundary','incompatible-material','no-donor','surface-limit','protected','dependency','capacity','material-layer','target-texture','empty-mask','source-unavailable','pose','resolution','unsafe-change','uncertain-source','unsupported-region','technical','cancelled','busy'],targetLayer:['atlas','material'],shapeMode:['out','in','smooth','push','pull','grow','shrink'],stage:['button','selection','material','algorithm','result','scene','render','choice','applied','cancelled']};
+function safe(data){const out={};for(const[k,v]of Object.entries(data??{})){if(numeric.has(k)&&Number.isFinite(v))out[k]=v;else if(flags.has(k)&&typeof v==='boolean')out[k]=v;else if(words[k]?.includes(v))out[k]=v;}return out;}
+export class PreviewRequests{
+ constructor(version=null,commit=null){this.version=typeof version==='string'&&version.length<80&&/^\d+\.[A-Za-z0-9.+-]+$/.test(version)?version:null;this.commit=/^[a-f0-9]{40}$/.test(commit??'')?commit:null;this.sequence=0;this.active=null;this.records=[];}
+ begin(data){if(this.active?.state==='computing')return null;const r={id:`preview-${++this.sequence}`,state:'computing',started:performance.now(),...safe(data),events:[]};this.records.push(r);if(this.records.length>24)this.records.shift();this.active=r;this.note(r.id,'button');return r.id;}
+ current(id){return this.active?.id===id&&this.active.state==='computing';}
+ note(id,stage,data){if(!this.current(id))return false;const r=this.active;r.events.push({...safe({stage,...data}),ms:Math.round(performance.now()-r.started)});if(r.events.length>32)r.events.shift();return true;}
+ finish(id,state,data){if(!this.current(id))return false;if(!['ready','refused','error','choice','cancelled'].includes(state))throw Error('Invalid preview outcome');Object.assign(this.active,safe(data),{state,durationMs:Math.round(performance.now()-this.active.started)});return true;}
+ cancel(){if(this.active?.state==='computing')this.finish(this.active.id,'cancelled',{category:'cancelled'});}
+ applied(){if(this.active?.state==='ready'){this.active.state='applied';this.active.events.push({stage:'applied',ms:Math.round(performance.now()-this.active.started)});}}
+ get computing(){return this.active?.state==='computing';}
+ report(){return {schema:'t3cs-preview-diagnostics/1',applicationVersion:this.version,buildCommit:this.commit,scope:'Counts and lifecycle only; no model assets, names, paths, UVs, image pixels or vertex positions',requests:this.records.map(({started,...r})=>structuredClone(r))};}
+}

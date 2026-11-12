@@ -1,6 +1,6 @@
 # Eenvoudig bewerken — 3D-retouche
 
-Ontwikkelversie 0.8.0-beta.2-refinement.6. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
+Ontwikkelversie 0.8.0-beta.2-refinement.7. De automatische converter blijft het begin; deze optionele editor past daarna lokale gebieden aan. Bewaar een eigen projectkopie.
 
 ## Snel beginnen
 
@@ -107,3 +107,14 @@ Projecten met deze nieuwe texturebewerkingen gebruiken geschiedenisversie 3 en v
 - Bij een andere pose dan de vastgelegde atlas wordt toepassen geweigerd; kies dezelfde pose of converteer opnieuw. Er worden geen bottransformaties gegokt.
 - Veranderde texture-/UV-afhankelijkheden kunnen replay blokkeren; maak dan het voorstel opnieuw. Latere vormbewerkingen mogen de vaste texturepixels via dezelfde UVs blijven meenemen.
 - Geen artistieke goedkeuring voor alle commerciële modellen en geen Tekken 3-gameplayclaim.
+
+
+## Voorbeeld bekijken — zichtbare terugkoppeling (refinement.7)
+
+De status staat nu naast Voorbeeld bekijken, ook na scrollen. Je ziet Berekenen, Voorbeeld gereed, een weigering met uitleg of een technische fout. Een weigering verandert je model niet. Bij een subtiele vormcorrectie helpt draaien en Voor/Na. Toepassen bevestigt alleen een geldig voorstel. Annuleren stopt een berekening of verwijdert het tijdelijke voorstel.
+
+Vanuit origineel herstelt nu de daadwerkelijk getoonde gebakken atlas wanneer die beschikbaar is. Projecten met zulke correcties gebruiken geschiedenisversie 4 en vereisen refinement.7 of nieuwer; maak een kopie voordat je een ouder project uitbreidt. Oudere projecten blijven leesbaar.
+
+Bij wisselen van hoofdgereedschap wordt het tijdelijke masker gewist, zodat een oude selectie niet onbedoeld opnieuw wordt gebruikt. Bij wisselen van herstelmethode kun je hetzelfde gebied blijven vergelijken.
+
+Blijft een probleem optreden? Klik na de previewaanvraag op Diagnose opslaan. Dit kleine JSON-bestand bevat uitsluitend tellers, statuscodes en buildinformatie; geen modellen, textures, bestandsnamen, paden of afbeeldingen. Technische foutdetails blijven lokaal beschikbaar bij Geavanceerd.

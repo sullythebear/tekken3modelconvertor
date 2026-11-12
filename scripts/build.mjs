@@ -22,7 +22,7 @@ await Promise.all(
   ["style.css"].map((n) => copyFile(`src/ui/${n}`, `dist/${n}`)),
 );
 const pkg = JSON.parse(await readFile("package.json", "utf8"));
-await writeFile("dist/index.html", (await readFile("src/ui/index.html", "utf8")).replaceAll("__APP_VERSION__", pkg.version));
+await writeFile("dist/index.html", (await readFile("src/ui/index.html", "utf8")).replaceAll("__APP_VERSION__", pkg.version).replaceAll("__APP_COMMIT__", /^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA??'')?process.env.GITHUB_SHA:'unknown'));
 console.log("Built offline renderer in dist/");
 
 await cp("docs", "dist/docs", { recursive: true });

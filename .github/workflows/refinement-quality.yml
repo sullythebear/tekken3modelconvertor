@@ -85,6 +85,12 @@ jobs:
           node scripts/surface-retouch-test.mjs --atlas --auto
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/easy-report.mjs
+      - name: Real user Preview visibility atlas texture geometry and cold export acceptance
+        env:
+          T3CS_AUTOMATION: '1'
+          T3CS_PACKAGED_APP: release/win-unpacked/Tekken 3 Conversion Studio.exe
+          T3CS_TEST_PROFILE: ${{ runner.temp }}/preview-acceptance-profile
+        run: node scripts/preview-acceptance-test.mjs
       - name: Real file dialogs OBJ MTL TGA and source overwrite protection
         env:
           T3CS_AUTOMATION: '1'
@@ -264,3 +270,13 @@ jobs:
             artifacts/product/private-summary.json
             artifacts/distribution/verification.json
             artifacts/portable-smoke/windows.json
+            artifacts/preview-acceptance/index.html
+            artifacts/preview-acceptance/results.json
+            artifacts/preview-acceptance/painted.png
+            artifacts/preview-acceptance/after-click.png
+            artifacts/preview-acceptance/source-before.png
+            artifacts/preview-acceptance/source-after.png
+            artifacts/preview-acceptance/source-applied.png
+            artifacts/preview-acceptance/shape-before.png
+            artifacts/preview-acceptance/shape-after.png
+            artifacts/preview-acceptance/visible-refusal.png
