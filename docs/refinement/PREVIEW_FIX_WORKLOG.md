@@ -33,3 +33,6 @@ Run 43304208988 passed portable smoke and product/A workflows, but the existing 
 
 ## Cancellation feedback audit
 A ready proposal was discarded by Cancel but its Easy success sentence remained. Cancel now marks the request cancelled and shows an explicit unchanged-model message; Clear shows an idle/new-mask instruction. Applied corrections are not reclassified as cancelled when leaving the editor. A request-state regression and the UI acceptance assertion cover this. All 448 Node tests pass. This small feedback follow-up requires a new exact-source Windows run; earlier candidate runs are not final validation.
+
+## Shared Advanced outcome
+The error handler previously returned to the global Advanced error path before updating the shared preview message. It now always completes the active dock outcome and still preserves Advanced technical details. The full normal-import acceptance passed with an additional Advanced no-op refusal whose actual on-screen rectangle is asserted. No repair algorithm or safety change.
