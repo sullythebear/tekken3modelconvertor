@@ -41,3 +41,8 @@ Full Node suite reached 432 passed. Final rerun and exact-source Windows build s
 Final code adds a SOURCE-free replay guard (empty provenance does not access SOURCE) and clears clone anchors when leaving refinement to avoid stale pose markers. Local timing samples are fixture-only; exact Windows timings will be in the generated report. No full curvature retargeting or cross-material/patch merging is claimed. Later geometry changes preserve the fixed texture via UV identity; donor UV/material/protection dependencies remain checked.
 
 Next: commit/push the integrated checkpoint, run the exact packaged Windows workflow, inspect outcomes and artifact access, then record the final validated code hash. Main remains ca7e89470df1c893beffe9c3fd2c8bb4ad8c8e84. No stable release/tag changes.
+
+## Published source checkpoint and final padding audit
+Integrated checkpoint 3eaea4eb5ce900caf073a0a1a2b69aa570af26a3 was safely pushed and started Windows validation. A final sampler audit added real neighbouring texels in crop padding (including repeat/mirror addressing per texel), preventing linear-filter edge changes outside the painted area. No vertex-UV modulo is used. Padding policy is recorded; previous edge-padded development records remain readable. Full suite after this correction: 438/438 passed. Compound lighting/blending layers require the baked atlas instead of silently replacing their shader.
+
+Next: push the padding checkpoint and validate that exact source on Windows. Keep any earlier/cancelled run separate from final validation. No regular release has been published.
