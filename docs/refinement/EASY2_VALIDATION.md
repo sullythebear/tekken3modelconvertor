@@ -1,5 +1,7 @@
 # Easy Refinement 2.0 — development checkpoint
 
+Nieuwste aanvulling: [Easy Refinement 2.1 — Verf en retouchvalidatie](PAINT_VALIDATION.md). Dit verslag hieronder beschrijft de eerdere ontwikkelfase.
+
 Candidate: `0.8.0-beta.2-refinement.5`.
 Branch: `development/080-interactive-refinement`.
 Application/acceptance checkpoint: `393aed4` (application changes through `b680174`).
